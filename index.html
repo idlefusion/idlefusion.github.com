@@ -3,14 +3,54 @@
 <html lang="en" class="h-100">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Idle Fusion - Expert app and web development consulting. We create simple, effective digital solutions for modern businesses.">
+    <meta name="keywords" content="app development, web development, mobile apps, consulting, digital agency, software development">
     <meta name="author" content="Matthew Strickland, Idle Fusion LLC">
-    <title>Idle Fusion, App Development Consulting</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Idle Fusion - Modern App & Web Development Consulting">
+    <meta property="og:description" content="Expert app and web development consulting for modern businesses. We create digital solutions that drive results.">
+    <meta property="og:image" content="img/logo.png">
+    <meta property="og:url" content="https://idlefusion.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Idle Fusion">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Idle Fusion - Modern App & Web Development Consulting">
+    <meta name="twitter:description" content="Expert app and web development consulting for modern businesses. We create digital solutions that drive results.">
+    <meta name="twitter:image" content="img/logo.png">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+
+    <title>Idle Fusion - Modern App & Web Development Consulting</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+
+    <!-- Resource Hints -->
+    <link rel="preload" href="img/logo.png" as="image">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -28,184 +68,368 @@
       }
     </style>
     <link href="index.css" rel="stylesheet">
-    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-28790814-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
     </script>
   </head>
-  <body class="d-flex flex-column h-100">
-    <header id="home">
-      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
-        <a class="my-0 mr-md-auto" href="#">
-          <img alt="Idle Fusion" src="img/logo.png">
-        </a>
-        <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-dark" href="#">Home</a>
-          <a class="p-2 text-dark" href="#process">Process</a>
-          <a class="p-2 text-dark" href="#feedback">Feedback</a>
-          <a class="p-2 text-dark" href="#portfolio">Portfolio</a>
-          <a class="p-2 text-dark" href="#leadership">Leadership</a>
-        </nav>
-        <a class="btn btn-dark" href="contact.html">Contact</a>
-      </div>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#">
+            <img alt="Idle Fusion" src="img/logo.png" height="40">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#process">Process</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#our-work">Our Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#leadership">Leadership</a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <a class="btn btn-primary" href="contact.html">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <div class="container marketing">
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-          <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-3 font-weight-normal">WE ARE IDLE FUSION</h1>
-            <p class="lead font-weight-normal">We guide our clients to create simple and effective apps.</p>
-            <a href="#" class="btn btn-success my-2" data-toggle="modal" data-target="#contactModal">Work With Us</a>
-          </div>
-          <div class="product-device shadow-sm d-none d-md-block"></div>
-          <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="my-3 py-3 text-center" id="process">
-          <h1 class="display-5">Our Process:</h1>
-        </div>
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">Your product is the hero and we are your guides.</h2>
-            <p class="lead">Your product, team, and the business goal is our main focus. While we fashion ourselves as experts, we are not the hero in this story, you are.  Our role is to guide you through the journey and deliver results.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="img-fluid mx-auto d-block" src="./img/site/hero.png" alt="Industry Experts With App Development">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Prior, proper, planning leads to great results.</h2>
-            <p class="lead">Let us guide you to bring your ideas and market strategies to life. Our team uses best-in-class engineering practices to identify what we are building and set clear expectations on how we will deliver.</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img class="img-fluid mx-auto d-block" src="./img/site/planning.png" alt="Industry Experts With App Development">
+      <!-- Hero Section -->
+      <section id="home" class="hero-section bg-gradient-primary text-white py-5">
+        <div class="container">
+          <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6">
+              <h1 class="display-4 fw-bold mb-4">Building Tomorrow's Digital Solutions</h1>
+              <p class="lead mb-4">We craft exceptional apps and websites that drive results. From concept to launch, we partner with you to create digital experiences that engage users and grow your business.</p>
+              <div class="d-flex flex-wrap gap-3">
+                <a href="contact.html" class="btn btn-light btn-lg px-4">Start Your Project</a>
+                <a href="#our-work" class="btn btn-outline-light btn-lg px-4">View Our Work</a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="hero-image">
+                <div class="floating-card">
+                  <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                  <h5>Mobile Apps</h5>
+                </div>
+                <div class="floating-card">
+                  <i class="fas fa-code fa-3x text-success mb-3"></i>
+                  <h5>Web Development</h5>
+                </div>
+                <div class="floating-card">
+                  <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
+                  <h5>Digital Strategy</h5>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">We are looking for partners to work together for a common goal.</h2>
-            <p class="lead">App Development can quickly become a race to the bottom that benefits no one.  Clients end up unhappy because the process was poor and the quality is lacking.  We are different.  We want to partner with you for an outcome that benefits both parties.  Trust us like hundreds of other brands do every day to bring your idea to life.  You won't regret it.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="img-fluid mx-auto d-block" src="./img/site/teamwork.png" alt="Industry Experts With App Development">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="my-3 py-3 text-center" id="feedback">
-          <h1 class="display-5">What our Clients are saying:</h1>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4">
-            <img class="bd-placeholder-img rounded-circle" src="./img/clients/jeremy.jpg" width="140" height="140" alt="happy client">
-            <h2>Jeremy Bagwell</h2>
-            <a href="http://northpoint.org/">North Point Ministries</a>
-            <p>I have worked with Idle Fusion on multiple projects ranging from design conception to project implementation. The service that Idle Fusion provides is consistent, and client focused.</p><p>What I've found refreshing is that Idle Fusion never allows their personal tastes or style get in the way of what I'm trying to accomplish.</p>
-          </div>
-          <div class="col-lg-4">
-            <img class="bd-placeholder-img rounded-circle" src="./img/clients/pippin.jpg" width="140" height="140" alt="happy client">
-            <h2>Pippin Williamson</h2>
-            <a href="https://pippinsplugins.com/">Pippin's Plugins</a>
-            <p>Idle Fusion was phenomenal to work with. Matthew approached the project with professionalism, creativity, and superb insight into how to create a useful and high quality product. The same level of quality was maintained throughout the entire project, even after the initial project was complete.</p> <p>I have nothing but respect for Matthew and have every intention of working with him again in the future.</p>
-          </div>
-          <div class="col-lg-4">
-            <img class="bd-placeholder-img rounded-circle" src="./img/clients/roger.png" width="140" height="140" alt="happy client">
-            <h2>Roger Walker</h2>
-            <a href="http://accuagency.com">Assurance Systems, Inc.</a>
-            <p>Matthew is a person with great insight into the big picture of technology-based businesses in addition to being an extremely talented developer. He always provided leadership, expertise and a positive attitude to our development team.</p>
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="my-3 py-3 text-center" id="portfolio">
-          <h1 class="display-5">Portfolio:</h1>
-        </div>
-
-        <div class="bg-light text-center text-dark pb-5">
+      <!-- Process Section -->
+      <section class="py-5" id="process">
+        <div class="container">
           <div class="row">
-            <div class="col-md-2 mb-2">
-              <a href="https://itunes.apple.com/us/app/golf-channel/id466053027?mt=8" title="Radio Disney"><img class="bd-placeholder-img" src="./img/clients/radiodisney.png" width="140" height="140" alt="Radio Disney"></a>
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold">Our Process</h2>
+              <p class="lead text-muted">A proven methodology that delivers results</p>
             </div>
-            <div class="col-md-2 mb-2">
-              <a href="https://itunes.apple.com/us/app/golf-channel-academy/id583390285?mt=8" title="Golf Channel Academy"><img class="bd-placeholder-img border rounded" src="./img/clients/gca.jpg" width="140" height="140" alt="Golf Channel Academy"></a>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="text-center p-4 bg-light rounded-3 h-100">
+                <div class="mb-3">
+                  <i class="fas fa-search fa-3x text-primary"></i>
+                </div>
+                <h4>Discovery & Strategy</h4>
+                <p>We dive deep into your business goals, target audience, and market landscape to craft a strategic roadmap that sets your project up for success.</p>
+              </div>
             </div>
-            <div class="col-md-2 mb-2">
-              <a href="https://itunes.apple.com/us/app/golf-channel/id466053027?mt=8" title="Golf Channel Mobile"><img class="bd-placeholder-img border rounded" src="./img/clients/gc.jpg" width="140" height="140" alt="Golf Channel"></a>
+
+            <div class="col-md-4">
+              <div class="text-center p-4 bg-light rounded-3 h-100">
+                <div class="mb-3">
+                  <i class="fas fa-code fa-3x text-success"></i>
+                </div>
+                <h4>Development & Implementation</h4>
+                <p>Our expert team builds your solution using cutting-edge technologies and best practices, ensuring scalability, security, and performance.</p>
+              </div>
             </div>
-            <div class="col-md-2 mb-2">
-              <a href="https://itunes.apple.com/us/app/golfnow-golf-gps-tracker-tee/id411930498?mt=8" title="Golf Now"><img class="bd-placeholder-img border rounded" src="./img/clients/golfnow.png" width="140" height="140" alt="Golf Now"></a>
-            </div>
-            <div class="col-md-2 mb-2">
-              <a href="http://gitty.mstrick.com" title="Golf Channel Mobile"><img class="bd-placeholder-img border rounded" src="./img/clients/gitty-2.png" width="140" height="140" alt="Gitty - GitHub for iOS"></a>
-            </div>
-            <div class="col-md-2">
-              <a href="https://easydigitaldownloads.com" title="Easy Digital Downloads"><img class="bd-placeholder-img" src="./img/clients/edd.png" width="140" height="140" alt="Easy Digital Downloads"></a>
+
+            <div class="col-md-4">
+              <div class="text-center p-4 bg-light rounded-3 h-100">
+                <div class="mb-3">
+                  <i class="fas fa-rocket fa-3x text-info"></i>
+                </div>
+                <h4>Launch & Growth</h4>
+                <p>We don't just build and walk away. We provide ongoing support, optimization, and strategic guidance to ensure your digital solution drives real business growth.</p>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <hr class="featurette-divider">
-
-        <div class="my-3 py-3 text-center" id="leadership">
-          <h1 class="display-5">Our Leadership:</h1>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="mb-3 text-center">
-              <img class="bd-placeholder-img rounded-circle" src="./img/us/matthew.png" width="140" height="140" alt="happy leader">
-              <h2>Matthew Strickland</h2>
-              <a href="https://linkedin.com/in/mps">Connect</a>
+      <!-- Testimonials Section -->
+      <section class="py-5 bg-light" id="feedback">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold">What Our Clients Say</h2>
+              <p class="lead text-muted">Trusted by industry leaders</p>
             </div>
-            <p>Matthew Strickland is an experienced technology leader with a proven track record of delivery amazing Digital Experiences.</p>
-            <p>As a Partner at Idle Fusion, Matthew is dedicated to delivering world class solutions for our clients that are beautiful, simple and effective.  With today's challenges, Matthew and our Engineering team believe that technology can be both simple and effective without compromising technology standards to enable the future.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <div class="mb-3">
+                    <i class="fas fa-quote-left fa-2x text-primary"></i>
+                  </div>
+                  <p class="card-text">"Idle Fusion delivered exceptional results on our mobile app project. Their attention to detail and commitment to quality is unmatched."</p>
+                  <div class="d-flex align-items-center mt-3">
+                    <img src="./img/clients/jeremy.jpg" alt="Jeremy Bagwell" class="rounded-circle me-3" width="50" height="50">
+                    <div>
+                      <h6 class="mb-0">Jeremy Bagwell</h6>
+                      <small class="text-muted">North Point Ministries</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <div class="mb-3">
+                    <i class="fas fa-quote-left fa-2x text-success"></i>
+                  </div>
+                  <p class="card-text">"Working with Idle Fusion was a game-changer. They transformed our vision into a powerful digital solution that exceeded our expectations."</p>
+                  <div class="d-flex align-items-center mt-3">
+                    <img src="./img/clients/pippin.jpg" alt="Pippin Williamson" class="rounded-circle me-3" width="50" height="50">
+                    <div>
+                      <h6 class="mb-0">Pippin Williamson</h6>
+                      <small class="text-muted">Pippin's Plugins</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <div class="mb-3">
+                    <i class="fas fa-quote-left fa-2x text-info"></i>
+                  </div>
+                  <p class="card-text">"Matthew's expertise and leadership were invaluable to our team. He consistently delivered innovative solutions and strategic guidance."</p>
+                  <div class="d-flex align-items-center mt-3">
+                    <img src="./img/clients/roger.png" alt="Roger Walker" class="rounded-circle me-3" width="50" height="50">
+                    <div>
+                      <h6 class="mb-0">Roger Walker</h6>
+                      <small class="text-muted">Assurance Systems, Inc.</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <hr class="featurette-divider">
-
-        <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-          <div class="my-3 py-3">
-            <h2 class="display-5">Need Help Building Your Next App?</h2>
-            <a class="btn btn-lg btn-success mt-3" href="contact.html">Let's Chat</a>
+      <!-- Our Work Section -->
+      <section class="py-5" id="our-work">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold">Our Work</h2>
+              <p class="lead text-muted">Featured projects and client success stories</p>
+            </div>
           </div>
-          <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="./img/clients/radiodisney.png" class="card-img-top" alt="Radio Disney">
+                <div class="card-body">
+                  <h5 class="card-title">Radio Disney Mobile App</h5>
+                  <p class="card-text">A comprehensive mobile experience for the Radio Disney audience featuring streaming, interactive content, and social features.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-primary">Mobile App</span>
+                    <a href="https://itunes.apple.com/us/app/golf-channel/id466053027?mt=8" class="btn btn-sm btn-outline-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="./img/clients/gca.jpg" class="card-img-top" alt="Golf Channel Academy">
+                <div class="card-body">
+                  <h5 class="card-title">Golf Channel Academy</h5>
+                  <p class="card-text">Professional golf instruction platform with video analysis, progress tracking, and interactive learning modules.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-success">iOS App</span>
+                    <a href="https://itunes.apple.com/us/app/golf-channel-academy/id583390285?mt=8" class="btn btn-sm btn-outline-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="./img/clients/edd.png" class="card-img-top" alt="Easy Digital Downloads">
+                <div class="card-body">
+                  <h5 class="card-title">Easy Digital Downloads</h5>
+                  <p class="card-text">WordPress e-commerce solution powering thousands of digital product sellers worldwide with robust payment processing.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-info">Web Platform</span>
+                    <a href="https://easydigitaldownloads.com" class="btn btn-sm btn-outline-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="./img/clients/gitty-2.png" class="card-img-top" alt="Gitty">
+                <div class="card-body">
+                  <h5 class="card-title">Gitty - GitHub for iOS</h5>
+                  <p class="card-text">Native iOS application for GitHub providing seamless code management and collaboration features on mobile devices.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-warning">Mobile Dev</span>
+                    <a href="http://gitty.mstrick.com" class="btn btn-sm btn-outline-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="./img/clients/golfnow.png" class="card-img-top" alt="GolfNow">
+                <div class="card-body">
+                  <h5 class="card-title">GolfNow GPS & Booking</h5>
+                  <p class="card-text">Comprehensive golf platform with GPS tracking, tee time booking, and course management features for golfers.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-success">Mobile App</span>
+                    <a href="https://itunes.apple.com/us/app/golfnow-golf-gps-tracker-tee/id411930498?mt=8" class="btn btn-sm btn-outline-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="./img/clients/gc.jpg" class="card-img-top" alt="Golf Channel">
+                <div class="card-body">
+                  <h5 class="card-title">Golf Channel Mobile</h5>
+                  <p class="card-text">Premium golf content and live streaming app delivering news, scores, and tournament coverage to golf enthusiasts.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-primary">Media App</span>
+                    <a href="https://itunes.apple.com/us/app/golf-channel/id466053027?mt=8" class="btn btn-sm btn-outline-primary">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <hr class="featurette-divider">
-      </div>
+      <!-- Leadership Section -->
+      <section class="py-5 bg-light" id="leadership">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="display-5 fw-bold">Leadership Team</h2>
+              <p class="lead text-muted">Meet the experts behind your success</p>
+            </div>
+          </div>
 
-      <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p><a class="m-1" href="https://github.com/idlefusion" target="_blank" title="Github"><svg width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><title>Github</title><path d="M13 0C5.822 0 0 5.82 0 13c0 5.744 3.725 10.617 8.89 12.336.65.12.86-.283.86-.625v-2.42c-3.616.787-4.37-1.533-4.37-1.533-.59-1.503-1.443-1.903-1.443-1.903-1.18-.807.09-.79.09-.79 1.305.092 1.992 1.34 1.992 1.34 1.158 1.988 3.04 1.413 3.782 1.08.116-.84.453-1.413.825-1.737-2.887-.33-5.922-1.445-5.922-6.425 0-1.42.508-2.58 1.34-3.49-.135-.328-.58-1.65.126-3.44 0 0 1.093-.35 3.577 1.332A12.468 12.468 0 0 1 13 6.287c1.105.005 2.218.15 3.256.437 2.482-1.68 3.572-1.332 3.572-1.332.708 1.79.262 3.113.128 3.44.834.91 1.338 2.07 1.338 3.49 0 4.993-3.04 6.092-5.936 6.414.466.403.892 1.194.892 2.407v3.568c0 .346.208.753.868.625C22.28 23.613 26 18.742 26 13c0-7.18-5.82-13-13-13z" fill="#aaa" fill-rule="evenodd"></path></svg></a>
-        <!-- <a class="m-1" href="https://twitter.com/idlefusion" target="_blank" title="Twitter"><svg width="24" height="19" viewBox="0 0 24 19" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M20.608 2.923c1.023-.585 1.754-1.608 2.046-2.63-.877.584-1.9.876-3.07 1.17C18.71.584 17.393 0 16.078 0c-2.63 0-4.823 2.192-4.823 4.823 0 .44 0 .73.146 1.023C7.454 5.7 3.8 3.8 1.462.876c-.44.732-.585 1.61-.585 2.486 0 1.607.877 3.07 2.192 3.946-.732 0-1.462-.293-2.193-.585 0 2.34 1.608 4.24 3.8 4.677-.292 0-.73.146-1.17.146-.292 0-.584 0-.876-.146.585 1.9 2.34 3.362 4.532 3.362-1.608 1.315-3.654 2.046-5.993 2.046H0C2.046 18.123 4.385 18.854 6.87 19h1.168c8.33-.438 13.008-7.454 13.008-13.592v-.585c.877-.73 1.754-1.46 2.34-2.485-.878.147-1.755.44-2.778.585z" fill="#aaa" fill-rule="evenodd"></path></svg></a>
-        <a class="m-1" href="https://www.facebook.com/idlefusion" target="_blank" title="Facebook"><svg width="11" height="23" viewBox="0 0 11 23" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M7.188 5.03c0-.43.287-.718.718-.718h2.875V0H5.75a3.56 3.56 0 0 0-3.594 3.594v4.312H0v4.313h2.156V23h5.03l.002-10.78h2.875l.718-4.314H7.19V5.03z" fill="#aaa" fill-rule="evenodd"></path></svg></a> -->
-         &copy; 2024 Idle Fusion</p>
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="card border-0 shadow-sm">
+                <div class="card-body p-5 text-center">
+                  <img src="./img/us/matthew.png" alt="Matthew Strickland" class="rounded-circle mb-4" width="120" height="120">
+                  <h3 class="card-title">Matthew Strickland</h3>
+                  <p class="text-muted mb-4">Founder & CEO</p>
+                  <p class="card-text">Matthew Strickland is an experienced technology leader with a proven track record of delivering exceptional digital experiences. As Founder of Idle Fusion, he brings over 15 years of expertise in mobile app development, web technologies, and digital strategy.</p>
+                  <p class="card-text">Matthew is dedicated to delivering world-class solutions that are beautiful, simple, and effective. He believes that technology should enable the future while remaining accessible and user-friendly.</p>
+                  <div class="d-flex justify-content-center gap-3 mt-4">
+                    <a href="https://linkedin.com/in/mps" class="btn btn-outline-primary" target="_blank">
+                      <i class="fab fa-linkedin me-2"></i>LinkedIn
+                    </a>
+                    <a href="https://github.com/idlefusion" class="btn btn-outline-dark" target="_blank">
+                      <i class="fab fa-github me-2"></i>GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-5 bg-primary text-white" id="contact">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h2 class="display-6 fw-bold mb-3">Ready to Build Something Amazing?</h2>
+              <p class="lead mb-0">Let's discuss your project and see how we can help bring your vision to life with cutting-edge technology and expert development.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="contact.html" class="btn btn-light btn-lg px-5 me-3">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-dark text-white py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h5>Idle Fusion</h5>
+              <p class="mb-3">Expert app and web development consulting for modern businesses. We create digital solutions that drive results.</p>
+              <div class="d-flex gap-3">
+                <a href="https://github.com/idlefusion" class="text-white" target="_blank">
+                  <i class="fab fa-github fa-lg"></i>
+                </a>
+                <a href="https://linkedin.com/in/mps" class="text-white" target="_blank">
+                  <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+              <p class="mb-0">&copy; 2025 Idle Fusion LLC. All rights reserved.</p>
+              <p class="mb-0"><a href="#home" class="text-white-50 text-decoration-none">Back to top <i class="fas fa-arrow-up"></i></a></p>
+            </div>
+          </div>
+        </div>
       </footer>
     </main>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
