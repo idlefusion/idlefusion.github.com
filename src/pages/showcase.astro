@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ColorThemePreview from '../components/showcase/ColorThemePreview.astro';
+import CardVariant from '../components/showcase/CardVariant.astro';
+import HeroPreview from '../components/showcase/HeroPreview.astro';
+import EffectsGallery from '../components/showcase/EffectsGallery.astro';
+
+const colorThemes = [
+  {
+    name: 'Electric Blue',
+    accent: '#3b82f6',
+    accentLight: '#60a5fa',
+    accentDark: '#2563eb',
+    description: 'Vibrant and energetic. Perfect for tech-forward brands wanting to convey innovation and trust.',
+  },
+  {
+    name: 'Violet Energy',
+    accent: '#8b5cf6',
+    accentLight: '#a78bfa',
+    accentDark: '#7c3aed',
+    description: 'Modern and creative. Ideal for standing out with a premium, sophisticated feel.',
+  },
+  {
+    name: 'Teal Professional',
+    accent: '#14b8a6',
+    accentLight: '#2dd4bf',
+    accentDark: '#0d9488',
+    description: 'Calm and trustworthy. Great for conveying reliability and professional expertise.',
+  },
+];
+
+const cardVariants = [
+  {
+    name: 'Current',
+    style: 'current',
+    description: 'Clean minimal design with subtle shadow and hover lift.',
+  },
+  {
+    name: 'Gradient Border',
+    style: 'gradient-border',
+    description: 'Reveals a colorful gradient border on hover for visual interest.',
+  },
+  {
+    name: 'Glass Morphism',
+    style: 'glass',
+    description: 'Frosted glass effect with backdrop blur for a modern, layered look.',
+  },
+  {
+    name: 'Accent Strip',
+    style: 'accent-strip',
+    description: 'Left border accent creates visual hierarchy and brand recognition.',
+  },
+];
+
+const heroVariants = [
+  {
+    name: 'Mesh Gradient',
+    style: 'mesh',
+    description: 'Modern mesh gradient with organic color blending. Creates depth and visual interest.',
+  },
+  {
+    name: 'Geometric Shapes',
+    style: 'geometric',
+    description: 'Abstract geometric shapes add sophistication and tech-forward aesthetic.',
+  },
+  {
+    name: 'Gradient Orbs',
+    style: 'orbs',
+    description: 'Floating gradient orbs create a dynamic, futuristic atmosphere.',
+  },
+];
+
+const typographyOptions = [
+  {
+    name: 'Current: Inter',
+    heading: 'Inter',
+    body: 'Inter',
+    description: 'Clean, versatile sans-serif. Excellent readability across all sizes.',
+  },
+  {
+    name: 'Option: Outfit + Inter',
+    heading: 'Outfit',
+    body: 'Inter',
+    description: 'Geometric display font for headings adds personality while keeping body text readable.',
+  },
+  {
+    name: 'Option: Manrope + Inter',
+    heading: 'Manrope',
+    body: 'Inter',
+    description: 'Semi-rounded letterforms give a friendly, approachable tech feel.',
+  },
+];
+---
+
+<BaseLayout
+  title="Idle Fusion - Redesign Showcase"
+  description="Explore proposed redesign concepts for the Idle Fusion website."
+>
+  <link slot="head" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="showcase-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <span class="inline-block px-4 py-2 bg-white/10 rounded-full text-sm font-medium text-white/80 mb-6">
+          Design Exploration
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          Redesign Proposals
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          Explore potential design directions to elevate the Idle Fusion brand with enhanced colors, card styles, hero concepts, and typography.
+        </p>
+      </div>
+    </section>
+
+    <!-- Color Themes Section -->
+    <section class="section-padding bg-gray-50" id="colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-sm font-semibold text-blue-600 uppercase tracking-wider">Section 1</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            Color Scheme Options
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Moving beyond monochrome: accent colors that add personality while maintaining professionalism.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {colorThemes.map(theme => (
+            <ColorThemePreview {...theme} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Variants Section -->
+    <section class="section-padding" id="cards">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-sm font-semibold text-violet-600 uppercase tracking-wider">Section 2</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            Card Design Variants
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Different card styles to add visual depth and distinguish content types.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cardVariants.map(card => (
+            <CardVariant {...card} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Concepts Section -->
+    <section class="section-padding bg-gray-50" id="heroes">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-sm font-semibold text-teal-600 uppercase tracking-wider">Section 3</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            Hero Section Concepts
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Alternative hero backgrounds to create more visual impact and brand differentiation.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {heroVariants.map(hero => (
+            <HeroPreview {...hero} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Effects & Animations Section -->
+    <section class="section-padding" id="effects">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-sm font-semibold text-orange-600 uppercase tracking-wider">Section 4</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            Animation & Effects
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Subtle animations and hover effects to enhance interactivity and delight users.
+          </p>
+        </div>
+
+        <EffectsGallery />
+      </div>
+    </section>
+
+    <!-- Typography Section -->
+    <section class="section-padding bg-gray-50" id="typography">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-sm font-semibold text-pink-600 uppercase tracking-wider">Section 5</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            Typography Options
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Font pairing options to enhance visual hierarchy and brand personality.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {typographyOptions.map(option => (
+            <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+              <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">{option.name}</h4>
+              <div class="space-y-4 mb-6">
+                <h3 class={`text-3xl font-bold text-gray-900 ${option.heading === 'Outfit' ? 'font-outfit' : option.heading === 'Manrope' ? 'font-manrope' : ''}`}>
+                  Transform Your Business
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Expert app and web development consulting for modern businesses. We create digital solutions that drive results.
+                </p>
+              </div>
+              <p class="text-sm text-gray-500 italic">{option.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="section-padding bg-gradient-to-br from-gray-900 to-black text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Next Steps
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+          These concepts can be mixed and matched. Select your preferred color scheme, card style, and effects to create a cohesive new design direction.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/" class="btn btn-light">
+            Back to Current Site
+          </a>
+          <a href="/contact" class="btn btn-outline-light">
+            Discuss Implementation
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer variant="compact" />
+</BaseLayout>
+
+<style>
+  .showcase-hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .showcase-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .font-manrope {
+    font-family: 'Manrope', sans-serif;
+  }
+</style>

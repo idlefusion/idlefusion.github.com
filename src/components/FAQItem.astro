@@ -90,12 +90,17 @@ const id = `faq-${index}`;
 
   .icon {
     color: #9ca3af;
-    transition: transform 0.2s;
+    transition: transform 0.2s, color 0.2s;
     flex-shrink: 0;
   }
 
   .icon.rotate {
     transform: rotate(180deg);
+    color: #3b82f6;
+  }
+
+  .faq-button:hover .icon {
+    color: #3b82f6;
   }
 
   .faq-content {

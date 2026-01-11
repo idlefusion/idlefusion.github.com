@@ -139,12 +139,22 @@ const currentYear = new Date().getFullYear();
   }
 
   .social-link {
-    color: white;
-    transition: color 0.2s;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
   }
 
   .social-link:hover {
-    color: #9ca3af;
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
   }
 
   .footer-link {
@@ -154,33 +164,33 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-link:hover {
-    color: white;
+    color: #60a5fa;
   }
 
   .newsletter-input {
     flex: 1;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     font-size: 0.875rem;
   }
 
   .newsletter-input::placeholder {
-    color: #9ca3af;
+    color: #6b7280;
   }
 
   .newsletter-input:focus {
     outline: none;
-    border-color: white;
-    background: rgba(255, 255, 255, 0.15);
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
   }
 
   .newsletter-btn {
     padding: 0.75rem 1.25rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #3b82f6;
+    border: none;
     border-radius: 0.5rem;
     color: white;
     font-weight: 500;
@@ -190,6 +200,7 @@ const currentYear = new Date().getFullYear();
   }
 
   .newsletter-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #2563eb;
+    box-shadow: 0 8px 20px -4px rgba(59, 130, 246, 0.4);
   }
 </style>

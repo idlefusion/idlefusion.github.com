@@ -11,25 +11,38 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
 ---
 
 <section id="home" class="hero">
+  <!-- Animated Mesh Gradient Background -->
+  <div class="mesh-bg">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
+    <div class="mesh-blob blob-4"></div>
+  </div>
+
+  <!-- Dot Pattern Overlay -->
+  <div class="pattern-overlay"></div>
+
   <div class="hero-content">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh] py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh] py-20">
         <!-- Content -->
-        <div class="text-center lg:text-left">
+        <div class="text-center lg:text-left animate-fade-in">
           {tagline && (
-            <p class="text-white/50 mb-3 text-sm font-medium">
-              <i class="fas fa-users mr-2"></i>{tagline}
+            <p class="tagline">
+              <span class="tagline-dot"></span>
+              {tagline}
             </p>
           )}
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+          <h1 class="hero-title">
             {title}
           </h1>
-          <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          <p class="hero-subtitle">
             {subtitle}
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a href={primaryCTA.href} class="btn btn-light text-lg px-8 py-4">
               {primaryCTA.text}
+              <i class="fas fa-arrow-right ml-2 btn-icon"></i>
             </a>
             {secondaryCTA && (
               <a href={secondaryCTA.href} class="btn btn-outline-light text-lg px-6 py-4">
@@ -39,76 +52,288 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
           </div>
         </div>
 
-        <!-- Floating Cards -->
-        <div class="hidden lg:block relative h-[400px]">
-          <div class="floating-card card-1">
-            <i class="fas fa-mobile-alt text-4xl mb-3"></i>
-            <h5 class="font-semibold text-lg">Mobile Apps</h5>
+        <!-- Glass Morphism Floating Cards -->
+        <div class="hidden lg:block relative h-[450px]">
+          <div class="glass-card floating-card card-1">
+            <div class="card-icon icon-mobile">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h5 class="card-title">Mobile Apps</h5>
+            <p class="card-desc">iOS & Android</p>
           </div>
-          <div class="floating-card card-2">
-            <i class="fas fa-code text-4xl mb-3"></i>
-            <h5 class="font-semibold text-lg">Web Development</h5>
+          <div class="glass-card floating-card card-2">
+            <div class="card-icon icon-web">
+              <i class="fas fa-code"></i>
+            </div>
+            <h5 class="card-title">Web Development</h5>
+            <p class="card-desc">Modern & Scalable</p>
           </div>
-          <div class="floating-card card-3">
-            <i class="fas fa-chart-line text-4xl mb-3"></i>
-            <h5 class="font-semibold text-lg">Digital Strategy</h5>
+          <div class="glass-card floating-card card-3">
+            <div class="card-icon icon-strategy">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h5 class="card-title">Digital Strategy</h5>
+            <p class="card-desc">Growth Focused</p>
+          </div>
+          <div class="glass-card floating-card card-4">
+            <div class="card-icon icon-cloud">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h5 class="card-title">Cloud Solutions</h5>
+            <p class="card-desc">Secure & Fast</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll</span>
+  </div>
 </section>
 
 <style>
   .hero {
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  /* Mesh Gradient Background */
+  .mesh-bg {
+    position: absolute;
+    inset: 0;
     overflow: hidden;
   }
 
-  .hero::before {
-    content: '';
+  .mesh-blob {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: morphBlob 15s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    top: -150px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    bottom: -100px;
+    right: -50px;
+    animation-delay: 3s;
+  }
+
+  .blob-3 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+    top: 40%;
+    left: 50%;
+    animation-delay: 6s;
+  }
+
+  .blob-4 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #60a5fa, #93c5fd);
+    top: 20%;
+    right: 20%;
+    animation-delay: 9s;
+  }
+
+  @keyframes morphBlob {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    50% {
+      transform: translate(-20px, 20px) scale(0.95);
+    }
+    75% {
+      transform: translate(20px, 10px) scale(1.05);
+    }
+  }
+
+  /* Dot Pattern */
+  .pattern-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
   }
 
   .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 10;
   }
 
-  .floating-card {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.1);
+  /* Tagline */
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 9999px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 1.5rem 2rem;
-    text-align: center;
+  }
+
+  .tagline-dot {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+  }
+
+  /* Hero Title */
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
     color: white;
-    animation: float 3s ease-in-out infinite;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-subtitle {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  /* Button Icon Animation */
+  .btn-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .btn:hover .btn-icon {
+    transform: translateX(4px);
+  }
+
+  /* Glass Morphism Cards */
+  .glass-card.floating-card {
+    position: absolute;
+    padding: 1.5rem;
+    min-width: 180px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1.25rem;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: float 4s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card.floating-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .icon-mobile {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: white;
+  }
+
+  .icon-web {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    color: white;
+  }
+
+  .icon-strategy {
+    background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+    color: white;
+  }
+
+  .icon-cloud {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: white;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-desc {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
   }
 
   .card-1 {
-    top: 10%;
-    left: 15%;
+    top: 5%;
+    left: 5%;
+    animation-delay: 0s;
   }
 
   .card-2 {
-    top: 35%;
-    right: 10%;
+    top: 15%;
+    right: 0;
     animation-delay: 0.5s;
   }
 
   .card-3 {
-    bottom: 15%;
-    left: 25%;
+    bottom: 25%;
+    left: 15%;
     animation-delay: 1s;
+  }
+
+  .card-4 {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 1.5s;
   }
 
   @keyframes float {
@@ -117,6 +342,78 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     }
     50% {
       transform: translateY(-15px);
+    }
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: fadeInUp 1s ease 1s both;
+  }
+
+  .mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 4px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll {
+    0%, 100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      opacity: 0.3;
+      transform: translateX(-50%) translateY(12px);
+    }
+  }
+
+  /* Fade In Animation */
+  .animate-fade-in {
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1023px) {
+    .scroll-indicator {
+      display: none;
     }
   }
 </style>

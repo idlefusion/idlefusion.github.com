@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base Styles */
+@layer base {
+  /* Headings use Outfit font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
 /* Component Classes */
 @layer components {
-  /* Buttons */
+  /* Buttons - Electric Blue Theme */
   .btn {
     @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer select-none no-underline;
   }
@@ -14,19 +22,37 @@
   }
 
   .btn-primary {
-    @apply bg-black text-white hover:bg-gray-800;
+    @apply bg-blue-500 text-white;
+  }
+
+  .btn-primary:hover {
+    @apply bg-blue-600 shadow-blue-500/40;
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.5);
   }
 
   .btn-outline {
-    @apply border-2 border-black text-black bg-transparent hover:bg-black hover:text-white;
+    @apply border-2 border-blue-500 text-blue-500 bg-transparent;
+  }
+
+  .btn-outline:hover {
+    @apply bg-blue-500 text-white;
   }
 
   .btn-light {
-    @apply bg-white text-black hover:bg-gray-100;
+    @apply bg-white text-gray-900;
+  }
+
+  .btn-light:hover {
+    @apply bg-gray-50;
+    box-shadow: 0 10px 40px -10px rgba(255, 255, 255, 0.3);
   }
 
   .btn-outline-light {
-    @apply border-2 border-white text-white bg-transparent hover:bg-white hover:text-black;
+    @apply border-2 border-white/50 text-white bg-transparent backdrop-blur-sm;
+  }
+
+  .btn-outline-light:hover {
+    @apply bg-white/10 border-white;
   }
 
   /* Cards */
@@ -44,7 +70,7 @@
   }
 
   .bento-box:hover {
-    @apply -translate-y-1 shadow-xl border-black;
+    @apply -translate-y-1 shadow-xl border-blue-500;
   }
 
   /* Work/portfolio card */
@@ -56,15 +82,15 @@
     @apply -translate-y-2 shadow-xl;
   }
 
-  /* Step number circle */
+  /* Step number circle - Electric Blue gradient */
   .step-number {
     @apply w-16 h-16 rounded-full text-white inline-flex items-center justify-center text-2xl font-bold;
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   }
 
   /* Glass card for hero */
   .glass-card {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white;
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 text-center text-white;
   }
 
   /* Hero pattern background */
@@ -75,7 +101,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
   }
 
@@ -101,15 +127,37 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Accent link style */
+  .link-accent {
+    @apply text-blue-500 hover:text-blue-600 transition-colors;
+  }
 }
 
 /* Utilities */
 @layer utilities {
   .bg-gradient-primary {
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+  }
+
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   }
 
   .text-white-50 {
     color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Font utilities */
+  .font-outfit {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Electric Blue text gradient */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

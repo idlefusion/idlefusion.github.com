@@ -1,0 +1,171 @@
+---
+interface Props {
+  name: string;
+  style: 'current' | 'gradient-border' | 'glass' | 'accent-strip';
+  description: string;
+}
+
+const { name, style, description } = Astro.props;
+---
+
+<div class={`card-variant card-${style}`}>
+  <div class="card-inner">
+    <div class="icon-wrapper">
+      <i class="fas fa-cube"></i>
+    </div>
+    <h4 class="card-title">{name}</h4>
+    <p class="card-description">{description}</p>
+    <span class="card-label">Hover me</span>
+  </div>
+</div>
+
+<style>
+  .card-variant {
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+  }
+
+  .icon-wrapper i {
+    font-size: 1.25rem;
+    color: #6b7280;
+    transition: color 0.3s;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .card-label {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Current Style */
+  .card-current {
+    background: white;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-current:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Gradient Border Style */
+  .card-gradient-border {
+    background: white;
+    border: 2px solid transparent;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 1rem;
+    padding: 2px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card-gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  .card-gradient-border:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-gradient-border:hover .icon-wrapper {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  }
+
+  .card-gradient-border:hover .icon-wrapper i {
+    color: white;
+  }
+
+  /* Glass Morphism Style */
+  .card-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-glass:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-glass .icon-wrapper {
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  .card-glass .icon-wrapper i {
+    color: #3b82f6;
+  }
+
+  /* Accent Strip Style */
+  .card-accent-strip {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-accent-strip:hover {
+    border-left-width: 6px;
+    transform: translateX(4px);
+    box-shadow: 0 8px 16px -3px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-accent-strip .icon-wrapper {
+    background: #eff6ff;
+  }
+
+  .card-accent-strip .icon-wrapper i {
+    color: #3b82f6;
+  }
+</style>
