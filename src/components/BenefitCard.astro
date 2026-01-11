@@ -1,0 +1,60 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="benefit-card">
+  <div class="icon-wrapper">
+    <i class={`fas ${icon}`}></i>
+  </div>
+  <h4 class="title">{title}</h4>
+  <p class="description">{description}</p>
+</div>
+
+<style>
+  .benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+  }
+
+  .icon-wrapper {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    color: #6b7280;
+    line-height: 1.6;
+  }
+</style>

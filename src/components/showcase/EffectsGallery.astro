@@ -1,0 +1,430 @@
+---
+// Effects Gallery - showcases various animation and hover effects
+---
+
+<div class="effects-grid">
+  <!-- Button Effects -->
+  <div class="effect-card">
+    <h4 class="effect-title">Button Effects</h4>
+    <p class="effect-description">Various hover animations for buttons</p>
+    <div class="effect-demo buttons-demo">
+      <button class="demo-btn btn-lift">Lift Effect</button>
+      <button class="demo-btn btn-glow">Glow Effect</button>
+      <button class="demo-btn btn-slide">Slide Fill</button>
+      <button class="demo-btn btn-pulse">Pulse</button>
+    </div>
+  </div>
+
+  <!-- Card Hover Effects -->
+  <div class="effect-card">
+    <h4 class="effect-title">Card Interactions</h4>
+    <p class="effect-description">Engaging hover states for cards</p>
+    <div class="effect-demo cards-demo">
+      <div class="mini-card card-tilt">
+        <span>Tilt</span>
+      </div>
+      <div class="mini-card card-scale">
+        <span>Scale</span>
+      </div>
+      <div class="mini-card card-shadow">
+        <span>Shadow</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading States -->
+  <div class="effect-card">
+    <h4 class="effect-title">Loading States</h4>
+    <p class="effect-description">Animated feedback indicators</p>
+    <div class="effect-demo loading-demo">
+      <div class="loader spinner"></div>
+      <div class="loader dots">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="loader bar"></div>
+    </div>
+  </div>
+
+  <!-- Text Effects -->
+  <div class="effect-card">
+    <h4 class="effect-title">Text Animations</h4>
+    <p class="effect-description">Engaging text reveal effects</p>
+    <div class="effect-demo text-demo">
+      <span class="text-gradient">Gradient Text</span>
+      <span class="text-underline">Hover Underline</span>
+    </div>
+  </div>
+
+  <!-- Icon Animations -->
+  <div class="effect-card">
+    <h4 class="effect-title">Icon Animations</h4>
+    <p class="effect-description">Interactive icon states</p>
+    <div class="effect-demo icons-demo">
+      <div class="icon-box icon-bounce">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      <div class="icon-box icon-rotate">
+        <i class="fas fa-cog"></i>
+      </div>
+      <div class="icon-box icon-shake">
+        <i class="fas fa-bell"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Reveal Concept -->
+  <div class="effect-card">
+    <h4 class="effect-title">Scroll Reveal</h4>
+    <p class="effect-description">Content reveals on scroll</p>
+    <div class="effect-demo reveal-demo">
+      <div class="reveal-item reveal-1">Fade Up</div>
+      <div class="reveal-item reveal-2">Fade Right</div>
+      <div class="reveal-item reveal-3">Scale In</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .effects-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .effects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .effects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .effect-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .effect-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .effect-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1.25rem;
+  }
+
+  .effect-demo {
+    background: #f9fafb;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* Button Effects */
+  .demo-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-lift {
+    background: #3b82f6;
+    color: white;
+    border: none;
+  }
+
+  .btn-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  }
+
+  .btn-glow {
+    background: #8b5cf6;
+    color: white;
+    border: none;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+
+  .btn-slide {
+    background: white;
+    color: #111827;
+    border: 2px solid #111827;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .btn-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #111827;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: -1;
+  }
+
+  .btn-slide:hover {
+    color: white;
+  }
+
+  .btn-slide:hover::before {
+    transform: translateX(0);
+  }
+
+  .btn-pulse {
+    background: #14b8a6;
+    color: white;
+    border: none;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(20, 184, 166, 0); }
+  }
+
+  /* Mini Cards */
+  .mini-card {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid #e5e7eb;
+  }
+
+  .card-tilt:hover {
+    transform: perspective(500px) rotateX(5deg) rotateY(-5deg);
+  }
+
+  .card-scale:hover {
+    transform: scale(1.1);
+  }
+
+  .card-shadow:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+
+  /* Loaders */
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .dots span {
+    width: 8px;
+    height: 8px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: bounce 1.4s ease-in-out infinite;
+  }
+
+  .dots span:nth-child(1) { animation-delay: 0s; }
+  .dots span:nth-child(2) { animation-delay: 0.2s; }
+  .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes bounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+
+  .bar {
+    width: 60px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #14b8a6;
+    border-radius: 3px;
+    animation: progress 1.5s ease-in-out infinite;
+  }
+
+  @keyframes progress {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(250%); }
+  }
+
+  /* Text Effects */
+  .text-demo {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .text-gradient {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-underline {
+    font-weight: 500;
+    color: #111827;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .text-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.3s;
+  }
+
+  .text-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Icon Animations */
+  .icon-box {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid #e5e7eb;
+  }
+
+  .icon-box i {
+    font-size: 1.25rem;
+    color: #6b7280;
+    transition: all 0.3s;
+  }
+
+  .icon-bounce:hover i {
+    color: #3b82f6;
+    animation: iconBounce 0.5s ease;
+  }
+
+  @keyframes iconBounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+
+  .icon-rotate:hover i {
+    color: #8b5cf6;
+    animation: iconRotate 0.5s ease;
+  }
+
+  @keyframes iconRotate {
+    to { transform: rotate(180deg); }
+  }
+
+  .icon-shake:hover i {
+    color: #f59e0b;
+    animation: iconShake 0.5s ease;
+  }
+
+  @keyframes iconShake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+  }
+
+  /* Reveal Demo */
+  .reveal-demo {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .reveal-item {
+    padding: 0.5rem 1rem;
+    background: white;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    border: 1px solid #e5e7eb;
+    animation: none;
+  }
+
+  .reveal-demo:hover .reveal-1 {
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .reveal-demo:hover .reveal-2 {
+    animation: fadeRight 0.5s ease 0.1s forwards;
+  }
+
+  .reveal-demo:hover .reveal-3 {
+    animation: scaleIn 0.5s ease 0.2s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeRight {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>

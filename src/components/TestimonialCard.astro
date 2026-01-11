@@ -1,0 +1,95 @@
+---
+interface Props {
+  name: string;
+  company: string;
+  quote: string;
+  image: string;
+  rating?: number;
+}
+
+const { name, company, quote, image, rating = 5 } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <!-- Star Rating -->
+  <div class="stars">
+    {Array.from({ length: rating }).map(() => (
+      <i class="fas fa-star"></i>
+    ))}
+  </div>
+
+  <!-- Quote -->
+  <p class="quote">"{quote}"</p>
+
+  <!-- Author -->
+  <div class="author">
+    <img src={image} alt={name} class="avatar">
+    <div>
+      <h6 class="name">{name}</h6>
+      <p class="company">{company}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .stars {
+    margin-bottom: 1rem;
+    color: #fbbf24;
+  }
+
+  .stars i {
+    margin-right: 2px;
+  }
+
+  .quote {
+    color: #4b5563;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .name {
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .company {
+    color: #6b7280;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+</style>

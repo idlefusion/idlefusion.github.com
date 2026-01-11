@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import BenefitCard from '../components/BenefitCard.astro';
+import ProcessStep from '../components/ProcessStep.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import FAQItem from '../components/FAQItem.astro';
+import TeamMember from '../components/TeamMember.astro';
+import { getCollection } from 'astro:content';
+
+// Fetch content from collections
+const benefits = (await getCollection('benefits')).sort((a, b) => a.data.order - b.data.order);
+const process = (await getCollection('process')).sort((a, b) => a.data.step - b.data.step);
+const testimonials = await getCollection('testimonials');
+const portfolio = (await getCollection('portfolio')).sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+const team = await getCollection('team');
+const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Idle Fusion - Modern App & Web Development Consulting"
+  description="Expert app and web development consulting for modern businesses. We create digital solutions that drive results."
+>
+  <Header currentPage="home" />
+
+  <main>
+    <!-- Hero Section -->
+    <Hero
+      tagline="Trusted by businesses worldwide"
+      title="Transform Your Business with Expert App & Web Development"
+      subtitle="Stop struggling with outdated technology or lackluster digital solutions. We deliver custom apps and websites that engage users, drive growth, and give you a competitive edge."
+      primaryCTA={{ text: "Start Your Project", href: "/contact" }}
+      secondaryCTA={{ text: "See How It Works", href: "#how-it-works" }}
+    />
+
+    <!-- Benefits Section -->
+    <section class="section-padding" id="services">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Why Choose Idle Fusion?
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Focus on what matters - growing your business while we handle the technology
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map(benefit => (
+            <BenefitCard
+              title={benefit.data.title}
+              description={benefit.data.description}
+              icon={benefit.data.icon}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section-padding bg-gray-50" id="how-it-works">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            How It Works
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Get started with your project in 3 simple steps
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {process.map(step => (
+            <ProcessStep
+              title={step.data.title}
+              description={step.data.description}
+              step={step.data.step}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding" id="testimonials">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Loved by People Worldwide
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            See what our clients say about working with us
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map(testimonial => (
+            <TestimonialCard
+              name={testimonial.data.name}
+              company={testimonial.data.company}
+              quote={testimonial.data.quote}
+              image={testimonial.data.image}
+              rating={testimonial.data.rating}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-gray-50" id="faq">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Everything you need to know
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          {faq.map((item, index) => (
+            <FAQItem
+              question={item.data.question}
+              answer={item.data.answer}
+              index={index + 1}
+              isFirst={index === 0}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Work Section -->
+    <section class="section-padding" id="our-work">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Our Work
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Featured projects and client success stories
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {portfolio.map(project => (
+            <PortfolioCard
+              title={project.data.title}
+              description={project.data.description}
+              image={project.data.image}
+              url={project.data.url}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section-padding bg-gray-50" id="leadership">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Leadership Team
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Industry experts, here to serve
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          {team.map(member => (
+            <TeamMember
+              name={member.data.name}
+              role={member.data.role}
+              image={member.data.image}
+              bio={member.data.bio}
+              socialLinks={member.data.socialLinks}
+              additionalContent="Matthew is dedicated to delivering world-class solutions that are beautiful, simple, and effective. He believes that technology should enable the future while remaining accessible and user-friendly."
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-28">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Ready to Transform Your Business?
+        </h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Let's discuss your project and see how we can help bring your vision to life with cutting-edge technology and expert development.
+        </p>
+        <a href="/contact" class="btn btn-light text-lg px-10 py-4">
+          Get Started Today
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer variant="full" />
+</BaseLayout>
+
+<style>
+  .cta-section {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  }
+</style>

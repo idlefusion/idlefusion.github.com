@@ -1,0 +1,118 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+  index: number;
+  isFirst?: boolean;
+}
+
+const { question, answer, index, isFirst = false } = Astro.props;
+const id = `faq-${index}`;
+---
+
+<div class="faq-item" data-accordion>
+  <button
+    class="faq-button"
+    type="button"
+    aria-expanded={isFirst ? 'true' : 'false'}
+    aria-controls={id}
+    data-accordion-trigger
+  >
+    <span>{question}</span>
+    <i class={`fas fa-chevron-down icon ${isFirst ? 'rotate' : ''}`} data-accordion-icon></i>
+  </button>
+  <div
+    id={id}
+    class={`faq-content ${isFirst ? '' : 'hidden'}`}
+    data-accordion-content
+  >
+    {answer}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-accordion]').forEach(accordion => {
+    const trigger = accordion.querySelector('[data-accordion-trigger]');
+    const content = accordion.querySelector('[data-accordion-content]');
+    const icon = accordion.querySelector('[data-accordion-icon]');
+
+    trigger?.addEventListener('click', () => {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all other accordions
+      document.querySelectorAll('[data-accordion]').forEach(other => {
+        if (other !== accordion) {
+          const otherTrigger = other.querySelector('[data-accordion-trigger]');
+          const otherContent = other.querySelector('[data-accordion-content]');
+          const otherIcon = other.querySelector('[data-accordion-icon]');
+          otherTrigger?.setAttribute('aria-expanded', 'false');
+          otherContent?.classList.add('hidden');
+          otherIcon?.classList.remove('rotate');
+        }
+      });
+
+      // Toggle current accordion
+      trigger.setAttribute('aria-expanded', (!isExpanded).toString());
+      content?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate');
+    });
+  });
+</script>
+
+<style>
+  .faq-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+
+  .faq-button {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    color: #111827;
+    background: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+
+  .faq-button:hover {
+    background: #f9fafb;
+  }
+
+  .icon {
+    color: #9ca3af;
+    transition: transform 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .icon.rotate {
+    transform: rotate(180deg);
+    color: #3b82f6;
+  }
+
+  .faq-button:hover .icon {
+    color: #3b82f6;
+  }
+
+  .faq-content {
+    padding: 0 1.5rem 1.25rem;
+    color: #6b7280;
+    line-height: 1.7;
+    border-top: 1px solid #f3f4f6;
+    background: #f9fafb;
+    padding-top: 1.25rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
