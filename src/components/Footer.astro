@@ -1,0 +1,195 @@
+---
+interface Props {
+  variant?: 'full' | 'compact';
+}
+
+const { variant = 'full' } = Astro.props;
+
+const menuLinks = [
+  { href: '/#services', label: 'Services' },
+  { href: '/#how-it-works', label: 'How it Works' },
+  { href: '/#testimonials', label: 'Testimonials' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const socialLinks = [
+  { href: 'https://github.com/idlefusion', icon: 'fab fa-github', label: 'GitHub' },
+  { href: 'https://linkedin.com/in/mps', icon: 'fab fa-linkedin', label: 'LinkedIn' },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+{variant === 'full' ? (
+  <footer class="footer-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <!-- Company Info -->
+        <div>
+          <h5 class="text-lg font-semibold text-white mb-4">Idle Fusion</h5>
+          <p class="text-gray-400 mb-6 leading-relaxed">
+            Expert app and web development consulting for modern businesses. We create digital solutions that drive results.
+          </p>
+          <div class="flex gap-4">
+            {socialLinks.map(link => (
+              <a
+                href={link.href}
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+              >
+                <i class={`${link.icon} text-xl`}></i>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Menu Links -->
+        <div>
+          <h5 class="text-lg font-semibold text-white mb-4">Menu</h5>
+          <ul class="space-y-3">
+            {menuLinks.map(link => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h5 class="text-lg font-semibold text-white mb-4">Newsletter</h5>
+          <p class="text-gray-400 mb-4">Stay updated with our latest projects and insights.</p>
+          <form class="flex gap-2">
+            <input
+              type="email"
+              placeholder="Your email"
+              class="newsletter-input"
+              aria-label="Email address"
+            >
+            <button type="submit" class="newsletter-btn">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="border-gray-700 my-8">
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+        <p>&copy; {currentYear} Idle Fusion LLC. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="footer-link text-sm">Privacy Policy</a>
+          <a href="#" class="footer-link text-sm">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+) : (
+  <footer class="footer-compact">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <h5 class="text-lg font-semibold text-white mb-2">Idle Fusion</h5>
+          <p class="text-gray-400 text-sm max-w-md leading-relaxed">
+            Expert app and web development consulting for modern businesses.
+          </p>
+          <div class="flex gap-4 mt-4">
+            {socialLinks.map(link => (
+              <a
+                href={link.href}
+                class="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+              >
+                <i class={`${link.icon} text-lg`}></i>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="text-gray-400 text-sm md:text-right">
+          <p>&copy; {currentYear} Idle Fusion LLC. All rights reserved.</p>
+          <a href="/#home" class="footer-link text-sm inline-flex items-center gap-1 mt-2">
+            Back to top <i class="fas fa-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+)}
+
+<style>
+  .footer-full {
+    background: #111827;
+    color: white;
+    padding: 4rem 0 2rem;
+    margin-top: auto;
+  }
+
+  .footer-compact {
+    background: #111827;
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+  }
+
+  .social-link {
+    color: white;
+    transition: color 0.2s;
+  }
+
+  .social-link:hover {
+    color: #9ca3af;
+  }
+
+  .footer-link {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover {
+    color: white;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 0.875rem;
+  }
+
+  .newsletter-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .newsletter-btn {
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .newsletter-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+</style>

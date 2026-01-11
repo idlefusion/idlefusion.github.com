@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HubSpotForm from '../components/HubSpotForm.astro';
+---
+
+<BaseLayout
+  title="Idle Fusion - Contact Us"
+  description="Get in touch with Idle Fusion for expert app and web development consulting. Let's discuss your project today."
+  ogUrl="https://idlefusion.com/contact"
+>
+  <Header currentPage="contact" />
+
+  <main>
+    <!-- Contact Form Section -->
+    <section class="section-padding">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Get In Touch
+          </h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Ready to discuss your project? We'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+          <div class="card">
+            <div class="p-8 md:p-12">
+              <HubSpotForm
+                portalId="7691650"
+                formId="2b18ac00-1c9d-4fc8-89e2-d66c5d8f36d8"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer variant="compact" />
+</BaseLayout>

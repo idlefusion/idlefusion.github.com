@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Component Classes */
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer select-none no-underline;
+  }
+
+  .btn:hover {
+    @apply -translate-y-0.5 shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-black text-white hover:bg-gray-800;
+  }
+
+  .btn-outline {
+    @apply border-2 border-black text-black bg-transparent hover:bg-black hover:text-white;
+  }
+
+  .btn-light {
+    @apply bg-white text-black hover:bg-gray-100;
+  }
+
+  .btn-outline-light {
+    @apply border-2 border-white text-white bg-transparent hover:bg-white hover:text-black;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-md transition-all duration-300 border border-gray-100;
+  }
+
+  .card:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+
+  /* Bento box card */
+  .bento-box {
+    @apply bg-white p-6 rounded-2xl border border-gray-200 shadow-md transition-all duration-300;
+  }
+
+  .bento-box:hover {
+    @apply -translate-y-1 shadow-xl border-black;
+  }
+
+  /* Work/portfolio card */
+  .work-card {
+    @apply flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 bg-white shadow-md border border-gray-100;
+  }
+
+  .work-card:hover {
+    @apply -translate-y-2 shadow-xl;
+  }
+
+  /* Step number circle */
+  .step-number {
+    @apply w-16 h-16 rounded-full text-white inline-flex items-center justify-center text-2xl font-bold;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  }
+
+  /* Glass card for hero */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-center text-white;
+  }
+
+  /* Hero pattern background */
+  .hero-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* Accordion */
+  .accordion-item {
+    @apply border border-gray-200 rounded-xl mb-3 overflow-hidden bg-white;
+  }
+
+  .accordion-button {
+    @apply w-full px-6 py-4 text-left font-semibold bg-white hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center text-gray-900;
+  }
+
+  .accordion-content {
+    @apply px-6 py-4 text-gray-600 bg-gray-50 border-t border-gray-200;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  }
+
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}

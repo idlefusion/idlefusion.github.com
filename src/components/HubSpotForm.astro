@@ -1,0 +1,23 @@
+---
+interface Props {
+  portalId: string;
+  formId: string;
+}
+
+const { portalId, formId } = Astro.props;
+---
+
+<div id="hubspot-form-container"></div>
+
+<script is:inline src="https://js.hsforms.net/forms/shell.js"></script>
+<script is:inline define:vars={{ portalId, formId }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof hbspt !== 'undefined') {
+      hbspt.forms.create({
+        portalId: portalId,
+        formId: formId,
+        target: '#hubspot-form-container'
+      });
+    }
+  });
+</script>
