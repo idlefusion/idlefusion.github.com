@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
+import MobileHero from '../components/MobileHero.astro';
 import BenefitCard from '../components/BenefitCard.astro';
 import ProcessStep from '../components/ProcessStep.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
@@ -27,14 +28,24 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
   <Header currentPage="home" />
 
   <main>
-    <!-- Hero Section -->
-    <Hero
+    <!-- Mobile Hero (visible on mobile/tablet only) -->
+    <MobileHero
       tagline="Trusted by businesses worldwide"
-      title="Transform Your Business with Expert App & Web Development"
-      subtitle="Stop struggling with outdated technology or lackluster digital solutions. We deliver custom apps and websites that engage users, drive growth, and give you a competitive edge."
-      primaryCTA={{ text: "Start Your Project", href: "/contact" }}
-      secondaryCTA={{ text: "See How It Works", href: "#how-it-works" }}
+      title="Idle Fusion"
+      subtitle="Custom apps and websites that engage users, drive growth, and give you a competitive edge."
+      primaryCTA={{ text: "Get in Touch", href: "/contact" }}
     />
+
+    <!-- Desktop Hero (visible on desktop only) -->
+    <div class="hidden lg:block">
+      <Hero
+        tagline="Trusted by businesses worldwide"
+        title="Transform Your Business with Expert App & Web Development"
+        subtitle="Stop struggling with outdated technology or lackluster digital solutions. We deliver custom apps and websites that engage users, drive growth, and give you a competitive edge."
+        primaryCTA={{ text: "Start Your Project", href: "/contact" }}
+        secondaryCTA={{ text: "See How It Works", href: "#how-it-works" }}
+      />
+    </div>
 
     <!-- Benefits Section -->
     <section class="section-padding" id="services">

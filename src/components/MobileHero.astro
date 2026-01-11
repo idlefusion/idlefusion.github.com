@@ -1,0 +1,292 @@
+---
+interface Props {
+  tagline?: string;
+  title: string;
+  subtitle: string;
+  primaryCTA: { text: string; href: string };
+}
+
+const { tagline, title, subtitle, primaryCTA } = Astro.props;
+---
+
+<section class="mobile-hero lg:hidden">
+  <!-- Simplified Mesh Background -->
+  <div class="mesh-bg">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+  </div>
+
+  <!-- Dot Pattern Overlay -->
+  <div class="pattern-overlay"></div>
+
+  <div class="hero-content">
+    <!-- Compact Header Section -->
+    <div class="header-section">
+      <h1 class="brand-name">Idle Fusion</h1>
+      <p class="tagline-text">{subtitle}</p>
+
+      <a href={primaryCTA.href} class="cta-button">
+        {primaryCTA.text}
+        <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+
+    <!-- Priority Cards Stack -->
+    <div class="cards-stack">
+      <!-- What We Do Card -->
+      <a href="#services" class="priority-card">
+        <div class="card-icon icon-services">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">What We Do</h3>
+          <p class="card-desc">Mobile & web apps that delight users and drive growth</p>
+        </div>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </a>
+
+      <!-- Our Work Card -->
+      <a href="#our-work" class="priority-card">
+        <div class="card-icon icon-portfolio">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Our Work</h3>
+          <p class="card-desc">Golf Channel, Radio Disney, Easy Digital Downloads & more</p>
+        </div>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </a>
+
+      <!-- Testimonials Card -->
+      <a href="#testimonials" class="priority-card">
+        <div class="card-icon icon-reviews">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">What Clients Say</h3>
+          <p class="card-desc">"Exceeded expectations..." — 5-star reviews</p>
+        </div>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </a>
+
+      <!-- About Card -->
+      <a href="#leadership" class="priority-card">
+        <div class="card-icon icon-about">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Matthew Strickland</h3>
+          <p class="card-desc">15+ years building apps for Fortune 500 & startups</p>
+        </div>
+        <i class="fas fa-chevron-right card-arrow"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mobile-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: 80px; /* Account for fixed header */
+  }
+
+  /* Mesh Gradient Background - Simplified for mobile */
+  .mesh-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .mesh-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+  }
+
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    top: -100px;
+    left: -80px;
+  }
+
+  .blob-2 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    bottom: 20%;
+    right: -60px;
+  }
+
+  /* Dot Pattern */
+  .pattern-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Header Section */
+  .header-section {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  .brand-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tagline-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: white;
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+  }
+
+  .cta-button i {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover i {
+    transform: translateX(4px);
+  }
+
+  /* Cards Stack */
+  .cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .priority-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .priority-card:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    color: white;
+  }
+
+  .icon-services {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  }
+
+  .icon-portfolio {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  }
+
+  .icon-reviews {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  }
+
+  .icon-about {
+    background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+  }
+
+  .card-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-desc {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .card-arrow {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.875rem;
+  }
+
+  /* Hide on desktop */
+  @media (min-width: 1024px) {
+    .mobile-hero {
+      display: none;
+    }
+  }
+</style>
