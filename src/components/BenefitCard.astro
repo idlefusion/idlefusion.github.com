@@ -18,11 +18,11 @@ const { title, description, icon } = Astro.props;
 
 <style>
   .benefit-card {
-    background: white;
+    background: var(--bg-card);
     padding: 2rem;
     border-radius: 1rem;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px var(--shadow-color);
     transition: all 0.3s ease;
     height: 100%;
   }
@@ -30,31 +30,31 @@ const { title, description, icon } = Astro.props;
   .benefit-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
-    border-color: #3b82f6;
+    border-color: var(--accent);
   }
 
   .icon-wrapper {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0.75rem;
-    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.2));
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: #3b82f6;
+    color: var(--accent);
     margin-bottom: 1rem;
   }
 
   .title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--text-primary);
     margin-bottom: 0.75rem;
   }
 
   .description {
-    color: #6b7280;
+    color: var(--text-muted);
     line-height: 1.6;
   }
 </style>

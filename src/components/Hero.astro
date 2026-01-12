@@ -24,7 +24,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
 
   <div class="hero-content">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh] py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[65vh] py-12">
         <!-- Content -->
         <div class="text-center lg:text-left animate-fade-in">
           {tagline && (
@@ -87,13 +87,6 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     </div>
   </div>
 
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator">
-    <div class="mouse">
-      <div class="wheel"></div>
-    </div>
-    <span>Scroll</span>
-  </div>
 </section>
 
 <style>
@@ -101,7 +94,6 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
   }
 
   /* Mesh Gradient Background */
@@ -345,55 +337,6 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     }
   }
 
-  /* Scroll Indicator */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    animation: fadeInUp 1s ease 1s both;
-  }
-
-  .mouse {
-    width: 24px;
-    height: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    position: relative;
-  }
-
-  .wheel {
-    width: 4px;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 2px;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 2s ease-in-out infinite;
-  }
-
-  @keyframes scroll {
-    0%, 100% {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-    50% {
-      opacity: 0.3;
-      transform: translateX(-50%) translateY(12px);
-    }
-  }
-
   /* Fade In Animation */
   .animate-fade-in {
     animation: fadeInUp 0.8s ease both;
@@ -410,10 +353,4 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     }
   }
 
-  /* Responsive */
-  @media (max-width: 1023px) {
-    .scroll-indicator {
-      display: none;
-    }
-  }
 </style>
