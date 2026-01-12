@@ -61,11 +61,12 @@ const id = `faq-${index}`;
 
 <style>
   .faq-item {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 0.75rem;
     margin-bottom: 0.75rem;
     overflow: hidden;
+    transition: background 0.3s, border-color 0.3s;
   }
 
   .faq-button {
@@ -73,8 +74,8 @@ const id = `faq-${index}`;
     padding: 1.25rem 1.5rem;
     text-align: left;
     font-weight: 600;
-    color: #111827;
-    background: white;
+    color: var(--text-primary);
+    background: var(--bg-card);
     border: none;
     cursor: pointer;
     display: flex;
@@ -85,30 +86,30 @@ const id = `faq-${index}`;
   }
 
   .faq-button:hover {
-    background: #f9fafb;
+    background: var(--bg-hover);
   }
 
   .icon {
-    color: #9ca3af;
+    color: var(--text-muted);
     transition: transform 0.2s, color 0.2s;
     flex-shrink: 0;
   }
 
   .icon.rotate {
     transform: rotate(180deg);
-    color: #3b82f6;
+    color: var(--accent);
   }
 
   .faq-button:hover .icon {
-    color: #3b82f6;
+    color: var(--accent);
   }
 
   .faq-content {
     padding: 0 1.5rem 1.25rem;
-    color: #6b7280;
+    color: var(--text-muted);
     line-height: 1.7;
-    border-top: 1px solid #f3f4f6;
-    background: #f9fafb;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
     padding-top: 1.25rem;
   }
 

@@ -19,13 +19,13 @@ const { name, role, image, bio, socialLinks, additionalContent } = Astro.props;
     <img
       src={image}
       alt={name}
-      class="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover mx-auto mb-6 border-4 border-gray-100"
+      class="avatar"
     >
-    <h3 class="text-2xl font-bold text-gray-900 mb-2">{name}</h3>
-    <p class="text-gray-500 mb-6 font-medium">{role}</p>
-    <p class="text-gray-600 mb-4 max-w-2xl mx-auto leading-relaxed">{bio}</p>
+    <h3 class="name">{name}</h3>
+    <p class="role">{role}</p>
+    <p class="bio">{bio}</p>
     {additionalContent && (
-      <p class="text-gray-600 mb-6 max-w-2xl mx-auto leading-relaxed">{additionalContent}</p>
+      <p class="bio mb-6">{additionalContent}</p>
     )}
 
     {socialLinks && (
@@ -57,9 +57,48 @@ const { name, role, image, bio, socialLinks, additionalContent } = Astro.props;
 
 <style>
   .team-card {
-    background: white;
+    background: var(--bg-card);
     border-radius: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid #f3f4f6;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .avatar {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--border-color);
+  }
+
+  @media (min-width: 768px) {
+    .avatar {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .role {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .bio {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.625;
   }
 </style>

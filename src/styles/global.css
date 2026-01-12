@@ -2,6 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme Variables */
+:root {
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-hover: #f3f4f6;
+
+  /* Text */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+
+  /* Borders */
+  --border-color: #e5e7eb;
+  --border-hover: #d1d5db;
+
+  /* Accent */
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: #60a5fa;
+
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-lg: rgba(0, 0, 0, 0.15);
+
+  /* Scrollbar */
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #3b82f6;
+  --scrollbar-thumb-hover: #2563eb;
+}
+
+.dark {
+  /* Backgrounds */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-card: #1e293b;
+  --bg-hover: #334155;
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  /* Borders */
+  --border-color: #334155;
+  --border-hover: #475569;
+
+  /* Accent stays the same */
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-light: #93c5fd;
+
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-lg: rgba(0, 0, 0, 0.4);
+
+  /* Scrollbar */
+  --scrollbar-track: #1e293b;
+  --scrollbar-thumb: #3b82f6;
+  --scrollbar-thumb-hover: #60a5fa;
+}
+
 /* Base Styles */
 @layer base {
   /* Headings use Outfit font */
@@ -57,7 +122,9 @@
 
   /* Cards */
   .card {
-    @apply bg-white rounded-xl shadow-md transition-all duration-300 border border-gray-100;
+    @apply rounded-xl shadow-md transition-all duration-300;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
   }
 
   .card:hover {
@@ -66,16 +133,21 @@
 
   /* Bento box card */
   .bento-box {
-    @apply bg-white p-6 rounded-2xl border border-gray-200 shadow-md transition-all duration-300;
+    @apply p-6 rounded-2xl shadow-md transition-all duration-300;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
   }
 
   .bento-box:hover {
-    @apply -translate-y-1 shadow-xl border-blue-500;
+    @apply -translate-y-1 shadow-xl;
+    border-color: var(--accent);
   }
 
   /* Work/portfolio card */
   .work-card {
-    @apply flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 bg-white shadow-md border border-gray-100;
+    @apply flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 shadow-md;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
   }
 
   .work-card:hover {
@@ -107,15 +179,26 @@
 
   /* Accordion */
   .accordion-item {
-    @apply border border-gray-200 rounded-xl mb-3 overflow-hidden bg-white;
+    @apply rounded-xl mb-3 overflow-hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
   }
 
   .accordion-button {
-    @apply w-full px-6 py-4 text-left font-semibold bg-white hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center text-gray-900;
+    @apply w-full px-6 py-4 text-left font-semibold transition-colors duration-200 flex justify-between items-center;
+    background: var(--bg-card);
+    color: var(--text-primary);
+  }
+
+  .accordion-button:hover {
+    background: var(--bg-hover);
   }
 
   .accordion-content {
-    @apply px-6 py-4 text-gray-600 bg-gray-50 border-t border-gray-200;
+    @apply px-6 py-4;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
   }
 
   /* Section spacing */

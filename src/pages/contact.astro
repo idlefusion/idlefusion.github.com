@@ -17,10 +17,10 @@ import HubSpotForm from '../components/HubSpotForm.astro';
     <section class="section-padding">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h1 class="section-title">
             Get In Touch
           </h1>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p class="section-subtitle">
             Ready to discuss your project? We'd love to hear from you.
           </p>
         </div>
@@ -41,3 +41,32 @@ import HubSpotForm from '../components/HubSpotForm.astro';
 
   <Footer variant="compact" />
 </BaseLayout>
+
+<style>
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-title {
+      font-size: 3rem;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
