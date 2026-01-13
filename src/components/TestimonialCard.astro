@@ -11,22 +11,24 @@ const { name, company, quote, image, rating = 5 } = Astro.props;
 ---
 
 <div class="testimonial-card">
-  <!-- Star Rating -->
-  <div class="stars">
-    {Array.from({ length: rating }).map(() => (
-      <i class="fas fa-star"></i>
-    ))}
-  </div>
+  <!-- Large quote mark -->
+  <div class="quote-mark">"</div>
 
   <!-- Quote -->
-  <p class="quote">"{quote}"</p>
+  <blockquote class="quote">{quote}</blockquote>
 
   <!-- Author -->
   <div class="author">
-    <img src={image} alt={name} class="avatar">
-    <div>
-      <h6 class="name">{name}</h6>
-      <p class="company">{company}</p>
+    <div class="author-info">
+      <cite class="name">{name}</cite>
+      <span class="company">{company}</span>
+    </div>
+    <div class="rating">
+      {Array.from({ length: rating }).map(() => (
+        <svg class="star" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      ))}
     </div>
   </div>
 </div>
@@ -34,62 +36,81 @@ const { name, company, quote, image, rating = 5 } = Astro.props;
 <style>
   .testimonial-card {
     background: var(--bg-card);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 4px 6px -1px var(--shadow-color);
     border: 1px solid var(--border-color);
+    padding: 2.5rem 2rem 2rem;
     height: 100%;
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-6px) rotate(-0.3deg);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
   }
 
-  .stars {
-    margin-bottom: 1rem;
-    color: #fbbf24;
-  }
-
-  .stars i {
-    margin-right: 2px;
+  .quote-mark {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.15;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    pointer-events: none;
   }
 
   .quote {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.125rem;
+    font-style: italic;
     color: var(--text-secondary);
     line-height: 1.7;
     flex: 1;
-    margin-bottom: 1.5rem;
-    font-style: italic;
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    z-index: 1;
   }
 
   .author {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
   }
 
-  .avatar {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    object-fit: cover;
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
   }
 
   .name {
-    font-weight: 700;
+    font-family: 'Satoshi', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.9375rem;
     color: var(--text-primary);
-    margin: 0;
-    font-size: 0.95rem;
   }
 
   .company {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.8125rem;
     color: var(--text-muted);
-    font-size: 0.85rem;
-    margin: 0;
+  }
+
+  .rating {
+    display: flex;
+    gap: 2px;
+    color: var(--accent);
+  }
+
+  .star {
+    width: 14px;
+    height: 14px;
   }
 </style>

@@ -7,14 +7,10 @@
   class="theme-toggle"
   aria-label="Toggle dark mode"
 >
-  <!-- Sun icon (shown in dark mode) -->
-  <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-  </svg>
-  <!-- Moon icon (shown in light mode) -->
-  <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-  </svg>
+  <!-- Circle indicator -->
+  <span class="toggle-track">
+    <span class="toggle-thumb"></span>
+  </span>
 </button>
 
 <script>
@@ -22,15 +18,9 @@
     const toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
 
-    const updateIcons = () => {
+    const updateState = () => {
       const isDark = document.documentElement.classList.contains('dark');
-      const sunIcon = toggle.querySelector('.sun-icon') as HTMLElement;
-      const moonIcon = toggle.querySelector('.moon-icon') as HTMLElement;
-
-      if (sunIcon && moonIcon) {
-        sunIcon.style.display = isDark ? 'block' : 'none';
-        moonIcon.style.display = isDark ? 'none' : 'block';
-      }
+      toggle.setAttribute('data-theme', isDark ? 'dark' : 'light');
     };
 
     toggle.addEventListener('click', () => {
@@ -44,11 +34,11 @@
         localStorage.setItem('theme', 'dark');
       }
 
-      updateIcons();
+      updateState();
     });
 
-    // Initialize icons on load
-    updateIcons();
+    // Initialize state on load
+    updateState();
   }
 
   // Run on initial load
@@ -63,32 +53,45 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    padding: 0;
     background: transparent;
     border: none;
     cursor: pointer;
-    color: var(--text-secondary);
-    transition: all 0.2s;
+    transition: opacity 0.2s;
   }
 
   .theme-toggle:hover {
-    background: var(--bg-hover);
-    color: var(--accent);
+    opacity: 0.8;
   }
 
-  .theme-toggle svg {
-    width: 1.25rem;
-    height: 1.25rem;
+  .toggle-track {
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    background: var(--border-color);
+    position: relative;
+    transition: background 0.3s;
   }
 
-  .sun-icon {
-    display: none;
+  .toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
   }
 
-  .moon-icon {
-    display: block;
+  /* Dark mode state */
+  .theme-toggle[data-theme="dark"] .toggle-track {
+    background: var(--accent);
+  }
+
+  .theme-toggle[data-theme="dark"] .toggle-thumb {
+    transform: translateX(16px);
+    background: white;
   }
 </style>

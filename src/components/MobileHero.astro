@@ -10,75 +10,82 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
 ---
 
 <section class="mobile-hero lg:hidden">
-  <!-- Simplified Mesh Background -->
-  <div class="mesh-bg">
-    <div class="mesh-blob blob-1"></div>
-    <div class="mesh-blob blob-2"></div>
-  </div>
+  <!-- Subtle grid background -->
+  <div class="grid-bg"></div>
 
-  <!-- Dot Pattern Overlay -->
-  <div class="pattern-overlay"></div>
+  <!-- Accent decoration -->
+  <div class="accent-blur"></div>
 
   <div class="hero-content">
-    <!-- Compact Header Section -->
+    <!-- Header Section -->
     <div class="header-section">
-      <h1 class="brand-name">Idle Fusion</h1>
+      {tagline && (
+        <p class="tagline">
+          <span class="tagline-dot"></span>
+          {tagline}
+        </p>
+      )}
+
+      <h1 class="brand-title">
+        <span class="title-line">We build</span>
+        <span class="title-line title-accent">digital products</span>
+        <span class="title-line">that <em>work.</em></span>
+      </h1>
+
       <p class="tagline-text">{subtitle}</p>
 
       <a href={primaryCTA.href} class="cta-button">
         {primaryCTA.text}
-        <i class="fas fa-arrow-right ml-2"></i>
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 20 20" fill="none">
+          <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
-    <!-- Priority Cards Stack -->
+    <!-- Quick Links Stack -->
     <div class="cards-stack">
-      <!-- What We Do Card -->
       <a href="#services" class="priority-card">
-        <div class="card-icon icon-services">
-          <i class="fas fa-rocket"></i>
-        </div>
+        <span class="card-number">01</span>
         <div class="card-content">
           <h3 class="card-title">What We Do</h3>
-          <p class="card-desc">Mobile & web apps that delight users and drive growth</p>
+          <p class="card-desc">Mobile & web apps that delight users</p>
         </div>
-        <i class="fas fa-chevron-right card-arrow"></i>
+        <svg class="card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
 
-      <!-- Our Work Card -->
       <a href="#our-work" class="priority-card">
-        <div class="card-icon icon-portfolio">
-          <i class="fas fa-briefcase"></i>
-        </div>
+        <span class="card-number">02</span>
         <div class="card-content">
           <h3 class="card-title">Our Work</h3>
-          <p class="card-desc">Golf Channel, Radio Disney, Easy Digital Downloads & more</p>
+          <p class="card-desc">Golf Channel, Radio Disney & more</p>
         </div>
-        <i class="fas fa-chevron-right card-arrow"></i>
+        <svg class="card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
 
-      <!-- Testimonials Card -->
       <a href="#testimonials" class="priority-card">
-        <div class="card-icon icon-reviews">
-          <i class="fas fa-star"></i>
-        </div>
+        <span class="card-number">03</span>
         <div class="card-content">
-          <h3 class="card-title">What Clients Say</h3>
-          <p class="card-desc">"Exceeded expectations..." — 5-star reviews</p>
+          <h3 class="card-title">Client Reviews</h3>
+          <p class="card-desc">"Exceeded expectations..." — 5 stars</p>
         </div>
-        <i class="fas fa-chevron-right card-arrow"></i>
+        <svg class="card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
 
-      <!-- About Card -->
       <a href="#leadership" class="priority-card">
-        <div class="card-icon icon-about">
-          <i class="fas fa-user"></i>
-        </div>
+        <span class="card-number">04</span>
         <div class="card-content">
-          <h3 class="card-title">Matthew Strickland</h3>
-          <p class="card-desc">15+ years building apps for Fortune 500 & startups</p>
+          <h3 class="card-title">About</h3>
+          <p class="card-desc">15+ years building for Fortune 500</p>
         </div>
-        <i class="fas fa-chevron-right card-arrow"></i>
+        <svg class="card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
   </div>
@@ -86,49 +93,37 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
 
 <style>
   .mobile-hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background: var(--bg-primary);
     position: relative;
     overflow: hidden;
     min-height: 100vh;
     min-height: 100dvh;
-    padding-top: 80px; /* Account for fixed header */
+    padding-top: 80px;
   }
 
-  /* Mesh Gradient Background - Simplified for mobile */
-  .mesh-bg {
+  /* Subtle grid background */
+  .grid-bg {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    background-image:
+      linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+    pointer-events: none;
   }
 
-  .mesh-blob {
+  /* Accent blur decoration */
+  .accent-blur {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.5;
-  }
-
-  .blob-1 {
+    top: 10%;
+    right: -20%;
     width: 300px;
-    height: 300px;
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    top: -100px;
-    left: -80px;
-  }
-
-  .blob-2 {
-    width: 250px;
     height: 250px;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    bottom: 20%;
-    right: -60px;
-  }
-
-  /* Dot Pattern */
-  .pattern-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background: var(--accent);
+    opacity: 0.08;
+    border-radius: 50%;
+    filter: blur(80px);
     pointer-events: none;
   }
 
@@ -138,32 +133,64 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   /* Header Section */
   .header-section {
     text-align: center;
-    padding-bottom: 1rem;
   }
 
-  .brand-name {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: white;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-    background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .tagline-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .brand-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 2.75rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+  }
+
+  .title-line {
+    display: block;
+  }
+
+  .title-accent {
+    position: relative;
+    display: inline;
+    background: linear-gradient(to bottom, transparent 60%, rgba(229, 77, 46, 0.2) 60%);
+  }
+
+  .brand-title em {
+    font-style: italic;
   }
 
   .tagline-text {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
@@ -174,35 +201,35 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: white;
-    color: #1e293b;
-    font-size: 1rem;
-    font-weight: 600;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
     padding: 1rem 2rem;
-    border-radius: 9999px;
+    border-radius: 2px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+  .dark .cta-button {
+    background: var(--paper);
+    color: #0a0a0a;
   }
 
-  .cta-button i {
+  .cta-button:active {
+    transform: scale(0.98);
+  }
+
+  .btn-arrow {
     transition: transform 0.3s ease;
-  }
-
-  .cta-button:hover i {
-    transform: translateX(4px);
   }
 
   /* Cards Stack */
   .cards-stack {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .priority-card {
@@ -210,48 +237,23 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
     align-items: center;
     gap: 1rem;
     padding: 1rem 1.25rem;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow:
-      0 4px 16px rgba(0, 0, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .priority-card:active {
     transform: scale(0.98);
-    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--accent);
   }
 
-  .card-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.125rem;
-    color: white;
-  }
-
-  .icon-services {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-  }
-
-  .icon-portfolio {
-    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-  }
-
-  .icon-reviews {
-    background: linear-gradient(135deg, #f59e0b, #fbbf24);
-  }
-
-  .icon-about {
-    background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+  .card-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 24px;
   }
 
   .card-content {
@@ -260,27 +262,34 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
   }
 
   .card-title {
-    font-size: 1rem;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
     font-weight: 600;
-    color: white;
-    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.125rem;
   }
 
   .card-desc {
+    font-family: 'Satoshi', sans-serif;
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-muted);
     line-height: 1.4;
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    white-space: nowrap;
   }
 
   .card-arrow {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.875rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+  }
+
+  .priority-card:active .card-arrow {
+    color: var(--accent);
+    opacity: 1;
+    transform: translateX(2px);
   }
 
   /* Hide on desktop */

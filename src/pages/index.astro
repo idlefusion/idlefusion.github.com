@@ -43,23 +43,28 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
         title="Transform Your Business with Expert App & Web Development"
         subtitle="Stop struggling with outdated technology or lackluster digital solutions. We deliver custom apps and websites that engage users, drive growth, and give you a competitive edge."
         primaryCTA={{ text: "Start Your Project", href: "/contact" }}
-        secondaryCTA={{ text: "See How It Works", href: "#how-it-works" }}
+        secondaryCTA={{ text: "See Our Work", href: "#our-work" }}
       />
     </div>
 
     <!-- Benefits Section -->
     <section class="section-padding" id="services">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
           <h2 class="section-title">
-            Why Choose Idle Fusion?
+            Why Work With Us
           </h2>
           <p class="section-subtitle">
-            Focus on what matters - growing your business while we handle the technology
+            Focus on what matters — growing your business while we handle the technology
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {benefits.map(benefit => (
             <BenefitCard
               title={benefit.data.title}
@@ -73,17 +78,22 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
     <!-- How It Works Section -->
     <section class="section-padding section-alt" id="how-it-works">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
           <h2 class="section-title">
             How It Works
           </h2>
           <p class="section-subtitle">
-            Get started with your project in 3 simple steps
+            A simple, transparent process from concept to launch
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {process.map(step => (
             <ProcessStep
               title={step.data.title}
@@ -97,17 +107,22 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
     <!-- Testimonials Section -->
     <section class="section-padding" id="testimonials">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
           <h2 class="section-title">
-            Loved by People Worldwide
+            What Clients Say
           </h2>
           <p class="section-subtitle">
-            See what our clients say about working with us
+            Real feedback from people we've worked with
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map(testimonial => (
             <TestimonialCard
               name={testimonial.data.name}
@@ -123,17 +138,22 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
     <!-- FAQ Section -->
     <section class="section-padding section-alt" id="faq">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
           <h2 class="section-title">
-            Frequently Asked Questions
+            Common Questions
           </h2>
           <p class="section-subtitle">
-            Everything you need to know
+            Everything you need to know before we start
           </p>
         </div>
 
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-3xl">
           {faq.map((item, index) => (
             <FAQItem
               question={item.data.question}
@@ -148,17 +168,22 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
     <!-- Our Work Section -->
     <section class="section-padding" id="our-work">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
           <h2 class="section-title">
-            Our Work
+            Selected Work
           </h2>
           <p class="section-subtitle">
-            Featured projects and client success stories
+            Projects we're proud of
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {portfolio.map(project => (
             <PortfolioCard
               title={project.data.title}
@@ -173,17 +198,22 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
     <!-- Leadership Section -->
     <section class="section-padding section-alt" id="leadership">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">06</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
           <h2 class="section-title">
-            Leadership Team
+            About
           </h2>
           <p class="section-subtitle">
-            Industry experts, here to serve
+            The person behind the work
           </p>
         </div>
 
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-3xl">
           {team.map(member => (
             <TeamMember
               name={member.data.name}
@@ -200,16 +230,23 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
     <!-- Final CTA Section -->
     <section class="cta-section" id="contact">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-28">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-          Ready to Transform Your Business?
-        </h2>
-        <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Let's discuss your project and see how we can help bring your vision to life with cutting-edge technology and expert development.
-        </p>
-        <a href="/contact" class="btn btn-light text-lg px-10 py-4">
-          Get Started Today
-        </a>
+      <div class="section-container py-20 md:py-28">
+        <div class="cta-content">
+          <h2 class="cta-title">
+            Ready to start?
+          </h2>
+          <p class="cta-subtitle">
+            Let's discuss your project and see how we can bring your vision to life.
+          </p>
+          <div class="cta-actions">
+            <a href="/contact" class="btn btn-light text-base px-8 py-4">
+              Get in touch
+              <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -218,39 +255,165 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 </BaseLayout>
 
 <style>
-  .section-title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
+  /* Section container */
+  .section-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  @media (min-width: 768px) {
-    .section-title {
-      font-size: 2.25rem;
+  @media (min-width: 640px) {
+    .section-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
 
   @media (min-width: 1024px) {
-    .section-title {
-      font-size: 3rem;
+    .section-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
     }
   }
 
-  .section-subtitle {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    max-width: 42rem;
-    margin-left: auto;
-    margin-right: auto;
+  /* Section header with number */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .section-divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+  }
+
+  /* Section intro */
+  .section-intro {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .section-subtitle {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 32rem;
+    line-height: 1.6;
+  }
+
+  /* Alternating section background */
   .section-alt {
     background: var(--bg-secondary);
-    transition: background-color 0.3s;
   }
 
+  /* CTA Section */
   .cta-section {
-    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      linear-gradient(to right, rgba(250, 250, 249, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(250, 250, 249, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+  }
+
+  .dark .cta-section {
+    background: #0a0a0a;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .cta-subtitle {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.125rem;
+    color: var(--paper);
+    opacity: 0.7;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-arrow {
+    margin-left: 0.5rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn:hover .cta-arrow {
+    transform: translateX(4px);
   }
 </style>
+
+<script>
+  // Scroll-triggered reveal animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements with reveal class
+  document.querySelectorAll('.reveal, .stagger-children').forEach(el => {
+    observer.observe(el);
+  });
+</script>

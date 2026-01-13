@@ -18,15 +18,17 @@ const id = `faq-${index}`;
     aria-controls={id}
     data-accordion-trigger
   >
-    <span>{question}</span>
-    <i class={`fas fa-chevron-down icon ${isFirst ? 'rotate' : ''}`} data-accordion-icon></i>
+    <span class="question">{question}</span>
+    <svg class={`icon ${isFirst ? 'rotate' : ''}`} data-accordion-icon width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </button>
   <div
     id={id}
     class={`faq-content ${isFirst ? '' : 'hidden'}`}
     data-accordion-content
   >
-    {answer}
+    <p>{answer}</p>
   </div>
 </div>
 
@@ -61,37 +63,38 @@ const id = `faq-${index}`;
 
 <style>
   .faq-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    margin-bottom: 0.75rem;
-    overflow: hidden;
-    transition: background 0.3s, border-color 0.3s;
+    border-bottom: 1px solid var(--border-color);
   }
 
   .faq-button {
     width: 100%;
-    padding: 1.25rem 1.5rem;
+    padding: 1.5rem 0;
     text-align: left;
-    font-weight: 600;
-    color: var(--text-primary);
-    background: var(--bg-card);
+    background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    transition: background 0.2s;
+    gap: 1.5rem;
+    transition: color 0.2s;
   }
 
-  .faq-button:hover {
-    background: var(--bg-hover);
+  .question {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .faq-button:hover .question {
+    color: var(--accent);
   }
 
   .icon {
     color: var(--text-muted);
-    transition: transform 0.2s, color 0.2s;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
     flex-shrink: 0;
   }
 
@@ -105,12 +108,16 @@ const id = `faq-${index}`;
   }
 
   .faq-content {
-    padding: 0 1.5rem 1.25rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .faq-content p {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
     color: var(--text-muted);
     line-height: 1.7;
-    border-top: 1px solid var(--border-color);
-    background: var(--bg-secondary);
-    padding-top: 1.25rem;
+    margin: 0;
+    max-width: 90%;
   }
 
   .hidden {
