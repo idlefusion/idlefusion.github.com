@@ -6,45 +6,68 @@ interface Props {
 }
 
 const { title, description, step } = Astro.props;
+const stepFormatted = step.toString().padStart(2, '0');
 ---
 
 <div class="process-step">
-  <div class="step-number">{step}</div>
+  <div class="step-header">
+    <span class="step-number">{stepFormatted}</span>
+    <div class="step-line"></div>
+  </div>
   <h4 class="title">{title}</h4>
   <p class="description">{description}</p>
 </div>
 
 <style>
   .process-step {
-    text-align: center;
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
     height: 100%;
+    position: relative;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .step-number {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 8px 20px -4px rgba(59, 130, 246, 0.4);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--accent);
+    border-radius: 2px;
+  }
+
+  .step-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+  }
+
+  @media (min-width: 768px) {
+    .step-line {
+      display: block;
+    }
   }
 
   .title {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
+    line-height: 1.2;
   }
 
   .description {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.7;
+    margin: 0;
   }
 </style>

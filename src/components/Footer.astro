@@ -5,202 +5,237 @@ interface Props {
 
 const { variant = 'full' } = Astro.props;
 
-const menuLinks = [
-  { href: '/#services', label: 'Services' },
-  { href: '/#how-it-works', label: 'How it Works' },
-  { href: '/#testimonials', label: 'Testimonials' },
-  { href: '/#faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contact' },
-];
-
 const socialLinks = [
-  { href: 'https://github.com/idlefusion', icon: 'fab fa-github', label: 'GitHub' },
-  { href: 'https://linkedin.com/in/mps', icon: 'fab fa-linkedin', label: 'LinkedIn' },
+  { href: 'https://github.com/idlefusion', label: 'GitHub' },
+  { href: 'https://linkedin.com/in/mps', label: 'LinkedIn' },
 ];
 
 const currentYear = new Date().getFullYear();
 ---
 
-{variant === 'full' ? (
-  <footer class="footer-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-        <!-- Company Info -->
-        <div>
-          <h5 class="text-lg font-semibold text-white mb-4">Idle Fusion</h5>
-          <p class="text-gray-400 mb-6 leading-relaxed">
-            Expert app and web development consulting for modern businesses. We create digital solutions that drive results.
-          </p>
-          <div class="flex gap-4">
-            {socialLinks.map(link => (
-              <a
-                href={link.href}
-                class="social-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-              >
-                <i class={`${link.icon} text-xl`}></i>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <!-- Menu Links -->
-        <div>
-          <h5 class="text-lg font-semibold text-white mb-4">Menu</h5>
-          <ul class="space-y-3">
-            {menuLinks.map(link => (
-              <li>
-                <a href={link.href} class="footer-link">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Newsletter -->
-        <div>
-          <h5 class="text-lg font-semibold text-white mb-4">Newsletter</h5>
-          <p class="text-gray-400 mb-4">Stay updated with our latest projects and insights.</p>
-          <form class="flex gap-2">
-            <input
-              type="email"
-              placeholder="Your email"
-              class="newsletter-input"
-              aria-label="Email address"
-            >
-            <button type="submit" class="newsletter-btn">
-              Subscribe
-            </button>
-          </form>
-        </div>
+<footer class="footer">
+  <div class="footer-inner">
+    <!-- Main content -->
+    <div class="footer-main">
+      <!-- Left side - CTA -->
+      <div class="footer-cta">
+        <h3 class="cta-title">Let's build something extraordinary.</h3>
+        <a href="/contact" class="cta-email">
+          hello@idlefusion.com
+          <svg class="arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
 
-      <hr class="border-gray-700 my-8">
-
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
-        <p>&copy; {currentYear} Idle Fusion LLC. All rights reserved.</p>
-        <div class="flex gap-6">
-          <a href="#" class="footer-link text-sm">Privacy Policy</a>
-          <a href="#" class="footer-link text-sm">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-) : (
-  <footer class="footer-compact">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div>
-          <h5 class="text-lg font-semibold text-white mb-2">Idle Fusion</h5>
-          <p class="text-gray-400 text-sm max-w-md leading-relaxed">
-            Expert app and web development consulting for modern businesses.
-          </p>
-          <div class="flex gap-4 mt-4">
-            {socialLinks.map(link => (
-              <a
-                href={link.href}
-                class="social-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-              >
-                <i class={`${link.icon} text-lg`}></i>
-              </a>
-            ))}
-          </div>
-        </div>
-        <div class="text-gray-400 text-sm md:text-right">
-          <p>&copy; {currentYear} Idle Fusion LLC. All rights reserved.</p>
-          <a href="/#home" class="footer-link text-sm inline-flex items-center gap-1 mt-2">
-            Back to top <i class="fas fa-arrow-up"></i>
+      <!-- Right side - Social -->
+      <div class="footer-social">
+        {socialLinks.map(link => (
+          <a
+            href={link.href}
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.label}
           </a>
-        </div>
+        ))}
       </div>
     </div>
-  </footer>
-)}
+
+    <!-- Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Bottom row -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {currentYear} Idle Fusion LLC
+      </p>
+      <a href="/#home" class="back-to-top">
+        Back to top
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
 
 <style>
-  .footer-full {
-    background: #111827;
-    color: white;
+  .footer {
+    background: var(--ink);
+    color: var(--paper);
     padding: 4rem 0 2rem;
     margin-top: auto;
   }
 
-  .footer-compact {
-    background: #111827;
-    color: white;
-    padding: 2rem 0;
-    margin-top: auto;
+  .dark .footer {
+    background: #0a0a0a;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-inner {
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-inner {
+      padding: 0 3rem;
+    }
+  }
+
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-main {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  /* CTA section */
+  .footer-cta {
+    max-width: 400px;
+  }
+
+  .cta-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 400;
+    color: var(--paper);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--paper);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .cta-email:hover {
+    opacity: 1;
+    color: var(--accent-soft);
+  }
+
+  .cta-email .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-email:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Social links */
+  .footer-social {
+    display: flex;
+    gap: 2rem;
   }
 
   .social-link {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    color: #60a5fa;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--paper);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    position: relative;
+  }
+
+  .social-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .social-link:hover {
-    background: #3b82f6;
-    border-color: #3b82f6;
-    color: white;
+    opacity: 1;
   }
 
-  .footer-link {
-    color: #9ca3af;
-    text-decoration: none;
-    transition: color 0.2s;
+  .social-link:hover::after {
+    width: 100%;
   }
 
-  .footer-link:hover {
-    color: #60a5fa;
+  /* Divider */
+  .footer-divider {
+    height: 1px;
+    background: rgba(250, 250, 249, 0.1);
+    margin: 3rem 0 1.5rem;
   }
 
-  .newsletter-input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 0.875rem;
+  /* Bottom row */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .newsletter-input::placeholder {
-    color: #6b7280;
+  @media (min-width: 640px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
-  .newsletter-input:focus {
-    outline: none;
-    border-color: #3b82f6;
-    background: rgba(59, 130, 246, 0.1);
+  .copyright {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.8125rem;
+    color: var(--paper);
+    opacity: 0.4;
+    margin: 0;
   }
 
-  .newsletter-btn {
-    padding: 0.75rem 1.25rem;
-    background: #3b82f6;
-    border: none;
-    border-radius: 0.5rem;
-    color: white;
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.8125rem;
     font-weight: 500;
-    font-size: 0.875rem;
+    color: var(--paper);
+    text-decoration: none;
+    opacity: 0.6;
     transition: all 0.2s;
-    cursor: pointer;
   }
 
-  .newsletter-btn:hover {
-    background: #2563eb;
-    box-shadow: 0 8px 20px -4px rgba(59, 130, 246, 0.4);
+  .back-to-top:hover {
+    opacity: 1;
+    color: var(--accent-soft);
+  }
+
+  .back-to-top svg {
+    transition: transform 0.2s;
+  }
+
+  .back-to-top:hover svg {
+    transform: translateY(-2px);
   }
 </style>

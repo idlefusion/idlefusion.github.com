@@ -11,346 +11,360 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
 ---
 
 <section id="home" class="hero">
-  <!-- Animated Mesh Gradient Background -->
-  <div class="mesh-bg">
-    <div class="mesh-blob blob-1"></div>
-    <div class="mesh-blob blob-2"></div>
-    <div class="mesh-blob blob-3"></div>
-    <div class="mesh-blob blob-4"></div>
-  </div>
+  <!-- Subtle grid background -->
+  <div class="grid-bg"></div>
 
-  <!-- Dot Pattern Overlay -->
-  <div class="pattern-overlay"></div>
+  <!-- Accent brush stroke decoration -->
+  <div class="brush-stroke"></div>
 
   <div class="hero-content">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[65vh] py-12">
-        <!-- Content -->
-        <div class="text-center lg:text-left animate-fade-in">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="hero-layout">
+        <!-- Main Content -->
+        <div class="content-area">
           {tagline && (
-            <p class="tagline">
+            <p class="tagline animate-fade-in" style="animation-delay: 0.1s">
               <span class="tagline-dot"></span>
               {tagline}
             </p>
           )}
+
           <h1 class="hero-title">
-            {title}
+            <span class="title-line animate-fade-in" style="animation-delay: 0.2s">We build</span>
+            <span class="title-line title-accent animate-fade-in" style="animation-delay: 0.35s">
+              digital products
+              <span class="accent-underline"></span>
+            </span>
+            <span class="title-line animate-fade-in" style="animation-delay: 0.5s">that actually</span>
+            <span class="title-line title-italic animate-fade-in" style="animation-delay: 0.65s">work.</span>
           </h1>
-          <p class="hero-subtitle">
+
+          <p class="hero-subtitle animate-fade-in" style="animation-delay: 0.8s">
             {subtitle}
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href={primaryCTA.href} class="btn btn-light text-lg px-8 py-4">
+
+          <div class="cta-group animate-fade-in" style="animation-delay: 0.95s">
+            <a href={primaryCTA.href} class="btn btn-primary text-base px-8 py-4">
               {primaryCTA.text}
-              <i class="fas fa-arrow-right ml-2 btn-icon"></i>
+              <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </a>
             {secondaryCTA && (
-              <a href={secondaryCTA.href} class="btn btn-outline-light text-lg px-6 py-4">
+              <a href={secondaryCTA.href} class="btn btn-outline text-base px-6 py-4">
                 {secondaryCTA.text}
               </a>
             )}
           </div>
         </div>
 
-        <!-- Glass Morphism Floating Cards -->
-        <div class="hidden lg:block relative h-[450px]">
-          <div class="glass-card floating-card card-1">
-            <div class="card-icon icon-mobile">
-              <i class="fas fa-mobile-alt"></i>
+        <!-- Side decoration - floating service cards -->
+        <div class="decoration-area">
+          <div class="service-stack">
+            <div class="service-card card-1">
+              <span class="service-number">01</span>
+              <span class="service-name">Mobile Apps</span>
             </div>
-            <h5 class="card-title">Mobile Apps</h5>
-            <p class="card-desc">iOS & Android</p>
-          </div>
-          <div class="glass-card floating-card card-2">
-            <div class="card-icon icon-web">
-              <i class="fas fa-code"></i>
+            <div class="service-card card-2">
+              <span class="service-number">02</span>
+              <span class="service-name">Web Development</span>
             </div>
-            <h5 class="card-title">Web Development</h5>
-            <p class="card-desc">Modern & Scalable</p>
-          </div>
-          <div class="glass-card floating-card card-3">
-            <div class="card-icon icon-strategy">
-              <i class="fas fa-chart-line"></i>
+            <div class="service-card card-3">
+              <span class="service-number">03</span>
+              <span class="service-name">Digital Strategy</span>
             </div>
-            <h5 class="card-title">Digital Strategy</h5>
-            <p class="card-desc">Growth Focused</p>
-          </div>
-          <div class="glass-card floating-card card-4">
-            <div class="card-icon icon-cloud">
-              <i class="fas fa-cloud"></i>
-            </div>
-            <h5 class="card-title">Cloud Solutions</h5>
-            <p class="card-desc">Secure & Fast</p>
           </div>
         </div>
       </div>
+
+      <!-- Client bar -->
+      <div class="client-bar animate-fade-in" style="animation-delay: 1.1s">
+        <div class="client-divider"></div>
+        <p class="client-text">
+          Trusted by brands worldwide to deliver digital products that perform.
+        </p>
+      </div>
     </div>
   </div>
-
 </section>
 
 <style>
   .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background: var(--bg-primary);
     position: relative;
     overflow: hidden;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0 4rem;
   }
 
-  /* Mesh Gradient Background */
-  .mesh-bg {
+  /* Subtle grid background */
+  .grid-bg {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    background-image:
+      linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.4;
+    pointer-events: none;
   }
 
-  .mesh-blob {
+  /* Vermillion brush stroke accent */
+  .brush-stroke {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.6;
-    animation: morphBlob 15s ease-in-out infinite;
-  }
-
-  .blob-1 {
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    top: -150px;
-    left: -100px;
-    animation-delay: 0s;
-  }
-
-  .blob-2 {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    bottom: -100px;
-    right: -50px;
-    animation-delay: 3s;
-  }
-
-  .blob-3 {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(135deg, #1d4ed8, #60a5fa);
-    top: 40%;
-    left: 50%;
-    animation-delay: 6s;
-  }
-
-  .blob-4 {
-    width: 250px;
-    height: 250px;
-    background: linear-gradient(135deg, #60a5fa, #93c5fd);
     top: 20%;
-    right: 20%;
-    animation-delay: 9s;
-  }
-
-  @keyframes morphBlob {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-    }
-    25% {
-      transform: translate(30px, -30px) scale(1.1);
-    }
-    50% {
-      transform: translate(-20px, 20px) scale(0.95);
-    }
-    75% {
-      transform: translate(20px, 10px) scale(1.05);
-    }
-  }
-
-  /* Dot Pattern */
-  .pattern-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    right: -5%;
+    width: 400px;
+    height: 300px;
+    background: var(--accent);
+    opacity: 0.06;
+    border-radius: 50% 30% 50% 30%;
+    transform: rotate(-15deg);
+    filter: blur(60px);
     pointer-events: none;
   }
 
   .hero-content {
     position: relative;
     z-index: 10;
+    width: 100%;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 60vh;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-layout {
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 6rem;
+    }
   }
 
   /* Tagline */
   .tagline {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.875rem;
+    gap: 0.625rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
     font-weight: 500;
-    margin-bottom: 1rem;
-    padding: 0.5rem 1rem;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    border-radius: 9999px;
-    backdrop-filter: blur(10px);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
   }
 
   .tagline-dot {
-    width: 8px;
-    height: 8px;
-    background: #3b82f6;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
   }
 
   @keyframes pulse-dot {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
+    50% { opacity: 0.5; transform: scale(1.3); }
   }
 
-  /* Hero Title */
+  /* Hero Title — Dramatic typography */
   .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 2.5rem;
   }
 
-  .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 2rem;
-    max-width: 540px;
-    line-height: 1.7;
+  .title-line {
+    display: block;
   }
 
-  @media (min-width: 1024px) {
-    .hero-subtitle {
-      margin-left: 0;
-      margin-right: auto;
+  .title-accent {
+    position: relative;
+    display: inline-block;
+  }
+
+  .accent-underline {
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    width: 100%;
+    height: 0.12em;
+    background: var(--accent);
+    opacity: 0.7;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: drawUnderline 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.6s;
+  }
+
+  @keyframes drawUnderline {
+    to {
+      transform: scaleX(1);
     }
   }
 
-  /* Button Icon Animation */
-  .btn-icon {
-    transition: transform 0.3s ease;
+  .title-italic {
+    font-style: italic;
   }
 
-  .btn:hover .btn-icon {
+  /* Subtitle */
+  .hero-subtitle {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  /* CTA Group */
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .btn-arrow {
+    margin-left: 0.5rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn:hover .btn-arrow {
     transform: translateX(4px);
   }
 
-  /* Glass Morphism Cards */
-  .glass-card.floating-card {
+  /* Decoration area - service cards */
+  .decoration-area {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .decoration-area {
+      display: block;
+      position: relative;
+      height: 400px;
+    }
+  }
+
+  .service-stack {
+    position: relative;
+    height: 100%;
+  }
+
+  .service-card {
     position: absolute;
-    padding: 1.5rem;
-    min-width: 180px;
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 1.25rem;
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    animation: float 4s ease-in-out infinite;
-    transition: all 0.3s ease;
-  }
-
-  .glass-card.floating-card:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.25);
-    transform: translateY(-8px) scale(1.02);
-  }
-
-  .card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem 1.75rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
+    gap: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .icon-mobile {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    color: white;
+  .service-card:hover {
+    transform: translateY(-4px) rotate(0deg) !important;
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
   }
 
-  .icon-web {
-    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-    color: white;
+  .service-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 500;
   }
 
-  .icon-strategy {
-    background: linear-gradient(135deg, #14b8a6, #2dd4bf);
-    color: white;
-  }
-
-  .icon-cloud {
-    background: linear-gradient(135deg, #f59e0b, #fbbf24);
-    color: white;
-  }
-
-  .card-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 0.25rem;
-  }
-
-  .card-desc {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
+  .service-name {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-primary);
   }
 
   .card-1 {
-    top: 5%;
-    left: 5%;
-    animation-delay: 0s;
+    top: 10%;
+    left: 10%;
+    transform: rotate(-2deg);
+    animation: float 5s ease-in-out infinite;
   }
 
   .card-2 {
-    top: 15%;
-    right: 0;
+    top: 40%;
+    left: 25%;
+    transform: rotate(1deg);
+    animation: float 5s ease-in-out infinite;
     animation-delay: 0.5s;
   }
 
   .card-3 {
-    bottom: 25%;
-    left: 15%;
+    top: 70%;
+    left: 5%;
+    transform: rotate(-1deg);
+    animation: float 5s ease-in-out infinite;
     animation-delay: 1s;
-  }
-
-  .card-4 {
-    bottom: 10%;
-    right: 10%;
-    animation-delay: 1.5s;
   }
 
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translateY(0) rotate(var(--rotation, 0deg));
     }
     50% {
-      transform: translateY(-15px);
+      transform: translateY(-12px) rotate(var(--rotation, 0deg));
     }
   }
 
-  /* Fade In Animation */
+  /* Client bar */
+  .client-bar {
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+
+  .client-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .client-text {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
+  .client-highlight {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* Animation utility */
   .animate-fade-in {
-    animation: fadeInUp 0.8s ease both;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
 </style>

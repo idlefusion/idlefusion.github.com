@@ -1,7 +1,7 @@
 ---
 name: "Matthew Strickland"
 role: "Founder & CEO"
-image: "/img/us/matthew.png"
+image: "/img/us/matthew.jpg"
 bio: "Matthew Strickland is an experienced technology leader with a proven track record of delivering exceptional digital experiences. As Founder of Idle Fusion, he brings over 15 years of expertise in mobile app development, web technologies, and digital strategy."
 socialLinks:
   linkedin: "https://linkedin.com/in/mps"
