@@ -3,9 +3,9 @@
 
 <button
   type="button"
-  id="theme-toggle"
   class="theme-toggle"
   aria-label="Toggle dark mode"
+  data-theme-toggle
 >
   <!-- Circle indicator -->
   <span class="toggle-track">
@@ -14,38 +14,54 @@
 </button>
 
 <script>
-  function initThemeToggle() {
-    const toggle = document.getElementById('theme-toggle');
-    if (!toggle) return;
+  function initThemeToggles() {
+    const toggles = document.querySelectorAll('[data-theme-toggle]');
+    if (!toggles.length) return;
 
-    const updateState = () => {
+    const updateAllStates = () => {
       const isDark = document.documentElement.classList.contains('dark');
-      toggle.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      toggles.forEach(toggle => {
+        toggle.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      });
     };
 
-    toggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark');
+    toggles.forEach(toggle => {
+      // Remove existing listeners to prevent duplicates
+      const newToggle = toggle.cloneNode(true);
+      toggle.parentNode?.replaceChild(newToggle, toggle);
+      
+      // Use both click and touchend for Safari mobile compatibility
+      const handleToggle = (e: Event) => {
+        e.preventDefault();
+        const isDark = document.documentElement.classList.contains('dark');
 
-      if (isDark) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
+        if (isDark) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
 
-      updateState();
+        updateAllStates();
+      };
+
+      newToggle.addEventListener('click', handleToggle);
     });
 
     // Initialize state on load
-    updateState();
+    updateAllStates();
   }
 
-  // Run on initial load
-  initThemeToggle();
+  // Run on initial load when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggles);
+  } else {
+    initThemeToggles();
+  }
 
   // Re-run after Astro page transitions
-  document.addEventListener('astro:after-swap', initThemeToggle);
+  document.addEventListener('astro:after-swap', initThemeToggles);
 </script>
 
 <style>
@@ -58,6 +74,8 @@
     border: none;
     cursor: pointer;
     transition: opacity 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   .theme-toggle:hover {
