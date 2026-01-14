@@ -9,7 +9,7 @@ export default {
         secondary: '#6c757d',
         success: '#198754',
         warning: '#ffc107',
-        danger: '#dc3545',
+        danger: '#0088cc',
         light: '#f8f9fa',
         dark: '#212529',
         telegram: {
