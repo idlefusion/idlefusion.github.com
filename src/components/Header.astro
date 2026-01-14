@@ -67,7 +67,7 @@ const navItems = [
         ))}
         <div class="mobile-menu-footer">
           <div class="theme-row">
-            <span class="theme-label">Theme</span>
+            <span class="theme-label" id="theme-mode-label">Dark mode</span>
             <ThemeToggle />
           </div>
           <a href="/contact" class="btn btn-primary w-full">
@@ -102,6 +102,32 @@ const navItems = [
       menuButton?.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Update theme label based on current mode
+  function updateThemeLabel() {
+    const label = document.getElementById('theme-mode-label');
+    if (label) {
+      const isDark = document.documentElement.classList.contains('dark');
+      label.textContent = isDark ? 'Dark mode' : 'Light mode';
+    }
+  }
+
+  // Initial update
+  updateThemeLabel();
+
+  // Watch for theme changes via MutationObserver
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'class') {
+        updateThemeLabel();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, { attributes: true });
+
+  // Also update on Astro page transitions
+  document.addEventListener('astro:after-swap', updateThemeLabel);
 </script>
 
 <style>
