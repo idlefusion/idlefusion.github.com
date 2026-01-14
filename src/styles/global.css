@@ -15,10 +15,10 @@
   --stone: #78716c;
   --mist: #f5f5f4;
 
-  /* Accent — Vermillion */
-  --accent: #e54d2e;
-  --accent-soft: #ff8f7e;
-  --accent-deep: #c53d20;
+  /* Accent — Telegram Blue */
+  --accent: #0088cc;
+  --accent-soft: #2aabee;
+  --accent-deep: #006da3;
 
   /* Semantic Mappings */
   --bg-primary: var(--paper);
@@ -164,7 +164,7 @@
 
   .btn-accent:hover {
     background: var(--accent-deep);
-    box-shadow: 0 8px 30px rgba(229, 77, 46, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 136, 204, 0.3);
   }
 
   .btn-ghost {
