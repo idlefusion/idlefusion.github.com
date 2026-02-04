@@ -1,0 +1,402 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Everybody Everywhere Case Study - Idle Fusion"
+  description="How we built a global platform mobilizing millions to pray, give, and share the Gospel with interactive impact tracking."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="case-hero">
+      <div class="case-container">
+        <a href="/#our-work" class="back-link">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to Work
+        </a>
+
+        <div class="case-hero-content">
+          <span class="case-category">Faith & Ministry</span>
+          <h1 class="case-title">Everybody Everywhere</h1>
+          <p class="case-subtitle">A global movement platform mobilizing millions to pray, give, and take the Gospel to every corner of the world.</p>
+        </div>
+
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Client</span>
+            <span class="meta-value">Everybody Everywhere</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Industry</span>
+            <span class="meta-value">Faith & Ministry</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Platform</span>
+            <span class="meta-value">Web Application</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge -->
+    <section class="case-section">
+      <div class="case-container">
+        <div class="section-grid">
+          <div class="section-label">
+            <span class="label-number">01</span>
+            <span class="label-text">The Challenge</span>
+          </div>
+          <div class="section-content">
+            <h2>Unifying a global movement</h2>
+            <p>Everybody Everywhere had an ambitious vision: mobilize followers of Jesus worldwide to pray for, give to, and share the Gospel with unreached people groups. But they needed more than a website — they needed a platform that could inspire action and show tangible impact.</p>
+            <p>The challenge: create an experience that makes a global mission feel personal, trackable, and achievable — turning passive supporters into active participants.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="case-section section-alt">
+      <div class="case-container">
+        <div class="section-grid">
+          <div class="section-label">
+            <span class="label-number">02</span>
+            <span class="label-text">Our Approach</span>
+          </div>
+          <div class="section-content">
+            <h2>Making global feel personal</h2>
+            <p>We designed and built a platform centered on engagement and transparency:</p>
+            <ul class="approach-list">
+              <li><strong>Interactive global map</strong> — Visual exploration of unreached people groups, making the abstract mission concrete and explorable</li>
+              <li><strong>Impact tracking dashboard</strong> — Real-time visibility into prayers offered, funds raised, and Gospel shares — showing users their individual contribution to the whole</li>
+              <li><strong>Video story integration</strong> — First-person testimonies and field updates that connect supporters emotionally to the mission</li>
+              <li><strong>Frictionless giving</strong> — Streamlined donation flow with recurring giving options and transparent fund allocation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="case-section">
+      <div class="case-container">
+        <div class="section-grid">
+          <div class="section-label">
+            <span class="label-number">03</span>
+            <span class="label-text">The Results</span>
+          </div>
+          <div class="section-content">
+            <h2>A movement activated</h2>
+            <div class="results-grid">
+              <div class="result-card">
+                <span class="result-number">Global</span>
+                <span class="result-label">reach across continents</span>
+              </div>
+              <div class="result-card">
+                <span class="result-number">3x</span>
+                <span class="result-label">increase in recurring donors</span>
+              </div>
+              <div class="result-card">
+                <span class="result-number">Thousands</span>
+                <span class="result-label">of daily active prayers</span>
+              </div>
+            </div>
+            <p>The platform transformed how supporters engage with the mission. Instead of passive donations, users now actively participate — tracking their impact, sharing stories, and inviting others into the movement. The interactive map alone has driven significant increases in time-on-site and return visits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="case-section section-alt">
+      <div class="case-container">
+        <blockquote class="testimonial">
+          <p>"The platform Idle Fusion built didn't just meet our technical requirements — it captured the heart of our mission. We've seen unprecedented engagement from our community."</p>
+          <cite>— Everybody Everywhere Leadership</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta">
+      <div class="case-container">
+        <h2>Have a mission that needs a platform?</h2>
+        <p>We specialize in building technology that amplifies impact for faith-based organizations.</p>
+        <a href="/contact" class="btn btn-primary">Book a Strategy Call</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer variant="minimal" />
+</BaseLayout>
+
+<style>
+  .case-hero {
+    padding: 8rem 0 4rem;
+    background: var(--bg-primary);
+  }
+
+  .case-container {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .case-container {
+      padding: 0 2rem;
+    }
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 3rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .case-category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .case-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-subtitle {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 40rem;
+  }
+
+  .case-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .meta-value {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .case-section {
+    padding: 5rem 0;
+  }
+
+  .section-alt {
+    background: var(--bg-secondary);
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-grid {
+      grid-template-columns: 200px 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .section-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .label-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .label-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .section-content h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .section-content p {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .approach-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+  }
+
+  .approach-list li {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .approach-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .approach-list li strong {
+    color: var(--text-primary);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .result-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .result-number {
+    display: block;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .result-label {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .testimonial {
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    border: none;
+  }
+
+  .testimonial p {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial cite {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-style: normal;
+    color: var(--text-muted);
+  }
+
+  .case-cta {
+    padding: 5rem 0;
+    background: var(--ink);
+    text-align: center;
+  }
+
+  .case-cta h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 1rem;
+  }
+
+  .case-cta p {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.125rem;
+    color: var(--paper);
+    opacity: 0.7;
+    margin-bottom: 2rem;
+  }
+
+  .dark .case-cta {
+    background: #0a0a0a;
+    border-top: 1px solid var(--border-color);
+  }
+</style>

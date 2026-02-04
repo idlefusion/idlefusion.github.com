@@ -1,5 +1,5 @@
 ---
-title: "Launch & Grow"
-description: "We launch your solution and provide ongoing support to ensure it drives real business results and continues to evolve."
+title: "Launch & Partnership"
+description: "Launch is just the beginning. We remain invested in your success with ongoing support, optimization, and strategic guidance as you grow."
 step: 3
 ---

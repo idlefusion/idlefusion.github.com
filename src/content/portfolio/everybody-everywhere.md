@@ -1,6 +1,6 @@
 ---
 title: "Everybody Everywhere"
-description: "A global movement platform mobilizing millions of Jesus followers to pray, share, and give to take the Gospel to everybody everywhere. Features interactive maps, video stories, and impact tracking."
+description: "Mobilized a global movement reaching millions through interactive impact tracking, video stories, and giving tools. Transformed how the organization connects followers worldwide."
 image: "/img/clients/ee.png"
 url: "https://www.everybodyeverywhere.com"
 order: 1

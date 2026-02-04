@@ -27,9 +27,9 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
       )}
 
       <h1 class="brand-title">
-        <span class="title-line">We build</span>
-        <span class="title-line title-accent">digital products</span>
-        <span class="title-line">that <em>work.</em></span>
+        <span class="title-line">Technology that</span>
+        <span class="title-line title-accent">accelerates</span>
+        <span class="title-line">your <em>mission.</em></span>
       </h1>
 
       <p class="tagline-text">{subtitle}</p>
@@ -81,12 +81,17 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
         <span class="card-number">04</span>
         <div class="card-content">
           <h3 class="card-title">About</h3>
-          <p class="card-desc">15+ years building for Fortune 500</p>
+          <p class="card-desc">20+ years building for Fortune 500</p>
         </div>
         <svg class="card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
+    </div>
+
+    <!-- Trusted by -->
+    <div class="trusted-bar">
+      <p class="trusted-text">Trusted by teams at Disney, Golf Channel & IF:Gathering</p>
     </div>
   </div>
 </section>
@@ -290,6 +295,21 @@ const { tagline, title, subtitle, primaryCTA } = Astro.props;
     color: var(--accent);
     opacity: 1;
     transform: translateX(2px);
+  }
+
+  /* Trusted bar */
+  .trusted-bar {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0.5rem;
+  }
+
+  .trusted-text {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0;
   }
 
   /* Hide on desktop */

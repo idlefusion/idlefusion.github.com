@@ -1,5 +1,5 @@
 ---
-title: "Tell Us Your Vision"
-description: "Share your project goals, target audience, and what success looks like. We'll schedule a free consultation to understand your needs."
+title: "Strategy Session"
+description: "We start with a focused conversation about your goals, challenges, and what success looks like. No pitch — just honest strategic thinking."
 step: 1
 ---

@@ -22,27 +22,27 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 ---
 
 <BaseLayout
-  title="Idle Fusion - Modern App & Web Development Consulting"
-  description="Expert app and web development consulting for modern businesses. We create digital solutions that drive results."
+  title="Idle Fusion - Technology That Accelerates Your Mission"
+  description="Strategic digital partner for faith-based organizations, media companies, and SaaS businesses. 20+ years of expertise building products that millions use daily."
 >
   <Header currentPage="home" />
 
   <main>
     <!-- Mobile Hero (visible on mobile/tablet only) -->
     <MobileHero
-      tagline="Trusted by businesses worldwide"
+      tagline="20+ years of digital expertise"
       title="Idle Fusion"
-      subtitle="Custom apps and websites that engage users, drive growth, and give you a competitive edge."
-      primaryCTA={{ text: "Get in Touch", href: "/contact" }}
+      subtitle="We transform complex challenges into elegant solutions — and stay invested in your success long after launch."
+      primaryCTA={{ text: "Book a Strategy Call", href: "/contact" }}
     />
 
     <!-- Desktop Hero (visible on desktop only) -->
     <div class="hidden lg:block">
       <Hero
-        tagline="Trusted by businesses worldwide"
-        title="Transform Your Business with Expert App & Web Development"
-        subtitle="Stop struggling with outdated technology or lackluster digital solutions. We deliver custom apps and websites that engage users, drive growth, and give you a competitive edge."
-        primaryCTA={{ text: "Start Your Project", href: "/contact" }}
+        tagline="20+ years of digital expertise"
+        title="Technology That Accelerates Your Mission"
+        subtitle="We transform complex challenges into elegant solutions. From vision to launch and beyond — your long-term partner in digital strategy and development."
+        primaryCTA={{ text: "Book a Strategy Call", href: "/contact" }}
         secondaryCTA={{ text: "See Our Work", href: "#our-work" }}
       />
     </div>
@@ -57,10 +57,10 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
         <div class="section-intro">
           <h2 class="section-title">
-            Why Work With Us
+            The Impact We Deliver
           </h2>
           <p class="section-subtitle">
-            Focus on what matters — growing your business while we handle the technology
+            Strategic partnership that transforms how your organization operates and grows
           </p>
         </div>
 
@@ -76,11 +76,73 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
       </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="section-padding section-alt" id="how-it-works">
+    <!-- Industries Section -->
+    <section class="section-padding section-alt" id="industries">
       <div class="section-container">
         <div class="section-header">
           <span class="section-number">02</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
+          <h2 class="section-title">
+            Industries We Serve
+          </h2>
+          <p class="section-subtitle">
+            Deep vertical expertise where we've delivered measurable results
+          </p>
+        </div>
+
+        <div class="industries-grid">
+          <div class="industry-card">
+            <div class="industry-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="industry-title">Faith & Ministry</h3>
+            <p class="industry-desc">Platforms that mobilize communities and amplify mission impact globally.</p>
+            <span class="industry-clients">IF:Gathering, Everybody Everywhere</span>
+          </div>
+
+          <div class="industry-card">
+            <div class="industry-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <h3 class="industry-title">Media & Entertainment</h3>
+            <p class="industry-desc">Engaging digital experiences for audiences of millions.</p>
+            <span class="industry-clients">NBC Sports, Golf Channel, Telemundo, Disney</span>
+          </div>
+
+          <div class="industry-card">
+            <div class="industry-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </div>
+            <h3 class="industry-title">E-commerce & SaaS</h3>
+            <p class="industry-desc">Scalable platforms powering thousands of digital businesses.</p>
+            <span class="industry-clients">Easy Digital Downloads ecosystem</span>
+          </div>
+        </div>
+
+        <!-- Mid-page CTA -->
+        <div class="mid-cta">
+          <p class="mid-cta-text">Work in one of these industries?</p>
+          <a href="/contact" class="btn btn-outline">Let's talk about your project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section-padding" id="how-it-works">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">03</span>
           <div class="section-divider-line"></div>
         </div>
 
@@ -106,10 +168,10 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
     </section>
 
     <!-- Testimonials Section -->
-    <section class="section-padding" id="testimonials">
+    <section class="section-padding section-alt" id="testimonials">
       <div class="section-container">
         <div class="section-header">
-          <span class="section-number">03</span>
+          <span class="section-number">04</span>
           <div class="section-divider-line"></div>
         </div>
 
@@ -137,10 +199,10 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
     </section>
 
     <!-- FAQ Section -->
-    <section class="section-padding section-alt" id="faq">
+    <section class="section-padding" id="faq">
       <div class="section-container">
         <div class="section-header">
-          <span class="section-number">04</span>
+          <span class="section-number">05</span>
           <div class="section-divider-line"></div>
         </div>
 
@@ -167,37 +229,7 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
     </section>
 
     <!-- Our Work Section -->
-    <section class="section-padding" id="our-work">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-number">05</span>
-          <div class="section-divider-line"></div>
-        </div>
-
-        <div class="section-intro">
-          <h2 class="section-title">
-            Selected Work
-          </h2>
-          <p class="section-subtitle">
-            Projects we're proud of
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {portfolio.map(project => (
-            <PortfolioCard
-              title={project.data.title}
-              description={project.data.description}
-              image={project.data.image}
-              url={project.data.url}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Leadership Section -->
-    <section class="section-padding section-alt" id="leadership">
+    <section class="section-padding section-alt" id="our-work">
       <div class="section-container">
         <div class="section-header">
           <span class="section-number">06</span>
@@ -206,10 +238,92 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
         <div class="section-intro">
           <h2 class="section-title">
-            About
+            Selected Work
           </h2>
           <p class="section-subtitle">
-            The person behind the work
+            Transformation stories from organizations we've partnered with
+          </p>
+        </div>
+
+        <!-- Featured Case Studies -->
+        <div class="featured-cases">
+          <a href="/work/golf-channel" class="featured-case">
+            <span class="case-industry">Media & Entertainment</span>
+            <h3 class="case-name">Golf Channel Mobile</h3>
+            <p class="case-summary">NBC's premier golf app serving millions with live streaming and real-time scores</p>
+            <span class="case-link">Read case study →</span>
+          </a>
+          <a href="/work/everybody-everywhere" class="featured-case">
+            <span class="case-industry">Faith & Ministry</span>
+            <h3 class="case-name">Everybody Everywhere</h3>
+            <p class="case-summary">Global movement platform with interactive impact tracking and giving tools</p>
+            <span class="case-link">Read case study →</span>
+          </a>
+          <a href="/work/easy-digital-downloads" class="featured-case">
+            <span class="case-industry">E-commerce & SaaS</span>
+            <h3 class="case-name">Easy Digital Downloads</h3>
+            <p class="case-summary">Mobile apps for a platform powering 50,000+ digital stores worldwide</p>
+            <span class="case-link">Read case study →</span>
+          </a>
+          <a href="/work/golf-channel-academy" class="featured-case">
+            <span class="case-industry">Sports / EdTech</span>
+            <h3 class="case-name">Golf Channel Academy</h3>
+            <p class="case-summary">Video swing analysis and personalized coaching for thousands of golfers</p>
+            <span class="case-link">Read case study →</span>
+          </a>
+          <a href="/work/radio-disney" class="featured-case">
+            <span class="case-industry">Media & Entertainment</span>
+            <h3 class="case-name">Radio Disney</h3>
+            <p class="case-summary">Mobile audio experience with alarm clock and Disney ecosystem integration</p>
+            <span class="case-link">Read case study →</span>
+          </a>
+        </div>
+
+        <!-- Additional Portfolio - Mobile (collapsible) -->
+        <details class="portfolio-toggle-mobile">
+          <summary class="portfolio-summary">View all projects</summary>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
+            {portfolio.map(project => (
+              <PortfolioCard
+                title={project.data.title}
+                description={project.data.description}
+                image={project.data.image}
+                url={project.data.url}
+              />
+            ))}
+          </div>
+        </details>
+
+        <!-- Additional Portfolio - Desktop (always visible) -->
+        <div class="portfolio-grid-desktop">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {portfolio.map(project => (
+              <PortfolioCard
+                title={project.data.title}
+                description={project.data.description}
+                image={project.data.image}
+                url={project.data.url}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section-padding" id="leadership">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">07</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
+          <h2 class="section-title">
+            Your Technology Partner
+          </h2>
+          <p class="section-subtitle">
+            Two decades of shipping products that millions of people use every day
           </p>
         </div>
 
@@ -221,9 +335,29 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
               image={member.data.image}
               bio={member.data.bio}
               socialLinks={member.data.socialLinks}
-              additionalContent="Matthew is dedicated to delivering world-class solutions that are beautiful, simple, and effective. He believes that technology should enable the future while remaining accessible and user-friendly."
+              additionalContent="From building apps for Disney and NBC Sports to architecting platforms that power global movements, Matthew brings a rare combination of strategic vision and hands-on technical mastery. He believes technology should accelerate your mission — not complicate it."
             />
           ))}
+        </div>
+
+        <!-- Credentials -->
+        <div class="credentials-grid">
+          <div class="credential">
+            <span class="credential-number">20+</span>
+            <span class="credential-label">Years of experience</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">50+</span>
+            <span class="credential-label">Apps shipped</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">Millions</span>
+            <span class="credential-label">of users served</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">Fortune 500</span>
+            <span class="credential-label">client experience</span>
+          </div>
         </div>
       </div>
     </section>
@@ -233,14 +367,14 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
       <div class="section-container py-20 md:py-28">
         <div class="cta-content">
           <h2 class="cta-title">
-            Ready to start?
+            Let's build something that matters.
           </h2>
           <p class="cta-subtitle">
-            Let's discuss your project and see how we can bring your vision to life.
+            Start with a strategy conversation. No pitch — just an honest discussion about your goals and how technology can accelerate them.
           </p>
           <div class="cta-actions">
             <a href="/contact" class="btn btn-light text-base px-8 py-4">
-              Get in touch
+              Book a strategy call
               <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -327,6 +461,60 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
     background: var(--bg-secondary);
   }
 
+  /* Industries grid */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .industries-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .industry-card {
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .industry-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .industry-icon {
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .industry-title {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .industry-desc {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .industry-clients {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
   /* CTA Section */
   .cta-section {
     background: var(--ink);
@@ -393,6 +581,172 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
   .btn:hover .cta-arrow {
     transform: translateX(4px);
+  }
+
+  /* Mid-page CTA */
+  .mid-cta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mid-cta-text {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Featured Case Studies */
+  .featured-cases {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .featured-cases {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .featured-cases {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .featured-case {
+    display: block;
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .featured-case:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .case-industry {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  .case-summary {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 1rem;
+  }
+
+  .case-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .featured-case:hover .case-link {
+    text-decoration: underline;
+  }
+
+  /* Portfolio toggle - Mobile only */
+  .portfolio-toggle-mobile {
+    margin-top: 2rem;
+    display: block;
+  }
+
+  .portfolio-grid-desktop {
+    display: none;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .portfolio-toggle-mobile {
+      display: none;
+    }
+
+    .portfolio-grid-desktop {
+      display: block;
+    }
+  }
+
+  .portfolio-summary {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .portfolio-summary:hover {
+    color: var(--accent);
+  }
+
+  .portfolio-summary::marker {
+    color: var(--accent);
+  }
+
+  /* Credentials grid */
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  @media (min-width: 768px) {
+    .credentials-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .credential {
+    text-align: center;
+  }
+
+  .credential-number {
+    display: block;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.75rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .credential-label {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
   }
 </style>
 
