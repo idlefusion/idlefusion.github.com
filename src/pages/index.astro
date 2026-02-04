@@ -279,10 +279,10 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
           </a>
         </div>
 
-        <!-- Additional Portfolio -->
-        <details class="portfolio-toggle">
+        <!-- Additional Portfolio - Mobile (collapsible) -->
+        <details class="portfolio-toggle-mobile">
           <summary class="portfolio-summary">View all projects</summary>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
             {portfolio.map(project => (
               <PortfolioCard
                 title={project.data.title}
@@ -293,6 +293,20 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
             ))}
           </div>
         </details>
+
+        <!-- Additional Portfolio - Desktop (always visible) -->
+        <div class="portfolio-grid-desktop">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {portfolio.map(project => (
+              <PortfolioCard
+                title={project.data.title}
+                description={project.data.description}
+                image={project.data.image}
+                url={project.data.url}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
 
@@ -661,9 +675,25 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
     text-decoration: underline;
   }
 
-  /* Portfolio toggle */
-  .portfolio-toggle {
+  /* Portfolio toggle - Mobile only */
+  .portfolio-toggle-mobile {
     margin-top: 2rem;
+    display: block;
+  }
+
+  .portfolio-grid-desktop {
+    display: none;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .portfolio-toggle-mobile {
+      display: none;
+    }
+
+    .portfolio-grid-desktop {
+      display: block;
+    }
   }
 
   .portfolio-summary {
