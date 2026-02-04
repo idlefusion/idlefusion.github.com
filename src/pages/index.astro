@@ -129,6 +129,12 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
             <span class="industry-clients">Easy Digital Downloads ecosystem</span>
           </div>
         </div>
+
+        <!-- Mid-page CTA -->
+        <div class="mid-cta">
+          <p class="mid-cta-text">Work in one of these industries?</p>
+          <a href="/contact" class="btn btn-outline">Let's talk about your project</a>
+        </div>
       </div>
     </section>
 
@@ -235,20 +241,46 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
             Selected Work
           </h2>
           <p class="section-subtitle">
-            Projects we're proud of
+            Transformation stories from organizations we've partnered with
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {portfolio.map(project => (
-            <PortfolioCard
-              title={project.data.title}
-              description={project.data.description}
-              image={project.data.image}
-              url={project.data.url}
-            />
-          ))}
+        <!-- Featured Case Studies -->
+        <div class="featured-cases">
+          <a href="/work/golf-channel" class="featured-case">
+            <span class="case-industry">Media & Entertainment</span>
+            <h3 class="case-name">Golf Channel Mobile</h3>
+            <p class="case-summary">NBC's premier golf app serving millions with live streaming and real-time scores</p>
+            <span class="case-link">Read case study →</span>
+          </a>
+          <a href="/work/everybody-everywhere" class="featured-case">
+            <span class="case-industry">Faith & Ministry</span>
+            <h3 class="case-name">Everybody Everywhere</h3>
+            <p class="case-summary">Global movement platform with interactive impact tracking and giving tools</p>
+            <span class="case-link">Read case study →</span>
+          </a>
+          <a href="/work/easy-digital-downloads" class="featured-case">
+            <span class="case-industry">E-commerce & SaaS</span>
+            <h3 class="case-name">Easy Digital Downloads</h3>
+            <p class="case-summary">Mobile apps for a platform powering 50,000+ digital stores worldwide</p>
+            <span class="case-link">Read case study →</span>
+          </a>
         </div>
+
+        <!-- Additional Portfolio -->
+        <details class="portfolio-toggle">
+          <summary class="portfolio-summary">View all projects</summary>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+            {portfolio.map(project => (
+              <PortfolioCard
+                title={project.data.title}
+                description={project.data.description}
+                image={project.data.image}
+                url={project.data.url}
+              />
+            ))}
+          </div>
+        </details>
       </div>
     </section>
 
@@ -280,6 +312,26 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
               additionalContent="From building apps for Disney and NBC Sports to architecting platforms that power global movements, Matthew brings a rare combination of strategic vision and hands-on technical mastery. He believes technology should accelerate your mission — not complicate it."
             />
           ))}
+        </div>
+
+        <!-- Credentials -->
+        <div class="credentials-grid">
+          <div class="credential">
+            <span class="credential-number">20+</span>
+            <span class="credential-label">Years of experience</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">50+</span>
+            <span class="credential-label">Apps shipped</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">Millions</span>
+            <span class="credential-label">of users served</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">Fortune 500</span>
+            <span class="credential-label">client experience</span>
+          </div>
         </div>
       </div>
     </section>
@@ -503,6 +555,150 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 
   .btn:hover .cta-arrow {
     transform: translateX(4px);
+  }
+
+  /* Mid-page CTA */
+  .mid-cta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mid-cta-text {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Featured Case Studies */
+  .featured-cases {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .featured-cases {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .featured-case {
+    display: block;
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .featured-case:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .case-industry {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  .case-summary {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 1rem;
+  }
+
+  .case-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .featured-case:hover .case-link {
+    text-decoration: underline;
+  }
+
+  /* Portfolio toggle */
+  .portfolio-toggle {
+    margin-top: 2rem;
+  }
+
+  .portfolio-summary {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .portfolio-summary:hover {
+    color: var(--accent);
+  }
+
+  .portfolio-summary::marker {
+    color: var(--accent);
+  }
+
+  /* Credentials grid */
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  @media (min-width: 768px) {
+    .credentials-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .credential {
+    text-align: center;
+  }
+
+  .credential-number {
+    display: block;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.75rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .credential-label {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
   }
 </style>
 
