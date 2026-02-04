@@ -148,13 +148,13 @@
   }
 
   .dark .btn-outline {
-    border-color: var(--paper);
-    color: var(--paper);
+    border-color: var(--ink);
+    color: var(--ink);
   }
 
   .dark .btn-outline:hover {
-    background: var(--paper);
-    color: #0a0a0a;
+    background: var(--ink);
+    color: var(--paper);
   }
 
   .btn-accent {
