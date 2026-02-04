@@ -265,6 +265,12 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
             <p class="case-summary">Mobile apps for a platform powering 50,000+ digital stores worldwide</p>
             <span class="case-link">Read case study →</span>
           </a>
+          <a href="/work/golf-channel-academy" class="featured-case">
+            <span class="case-industry">Sports / EdTech</span>
+            <h3 class="case-name">Golf Channel Academy</h3>
+            <p class="case-summary">Video swing analysis and personalized coaching for thousands of golfers</p>
+            <span class="case-link">Read case study →</span>
+          </a>
         </div>
 
         <!-- Additional Portfolio -->
@@ -583,9 +589,15 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
     margin-bottom: 2rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .featured-cases {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .featured-cases {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
