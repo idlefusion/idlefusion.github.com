@@ -1,5 +1,5 @@
 ---
-title: "We Build Your Solution"
-description: "Our expert team designs and develops your custom app or website using cutting-edge technology and best practices."
+title: "Design & Development"
+description: "We craft your solution with precision — combining 20+ years of expertise with modern technology to deliver something exceptional."
 step: 2
 ---
