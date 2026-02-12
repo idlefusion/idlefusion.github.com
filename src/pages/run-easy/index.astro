@@ -5,10 +5,10 @@ import Footer from '../../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="Fast Easy — Fasting Timer for iOS"
-  description="A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions. Just start your fast."
-  ogImage="/img/fast-easy/icon.png"
-  ogUrl="https://idlefusion.com/fast-easy"
+  title="Run Easy Z2 — Heart Rate Zone Training for iOS & Apple Watch"
+  description="Heart rate zone training built around the Maffetone method. Real-time coaching on your wrist, training analytics on your phone."
+  ogImage="/img/run-easy/icon.png"
+  ogUrl="https://idlefusion.com/run-easy"
 >
   <Header />
 
@@ -19,19 +19,19 @@ import Footer from '../../components/Footer.astro';
         <div class="hero-layout">
           <div class="hero-text">
             <h1 class="hero-title">
-              Fasting,<br/>made <em>easy.</em>
+              Run easy,<br/>train <em>smarter.</em>
             </h1>
             <p class="hero-subtitle">
-              A simple, beautiful fasting timer for iOS. No accounts. No tracking. No subscriptions. Just start your fast.
+              Heart rate zone training built around the Maffetone method. Real-time coaching on your wrist, training analytics on your phone.
             </p>
             <div class="hero-actions">
-              <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="app-store-badge" target="_blank" rel="noopener noreferrer">
+              <a href="#" class="app-store-badge">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
               </a>
             </div>
           </div>
           <div class="hero-icon">
-            <img src="/img/fast-easy/icon.png" alt="Fast Easy app icon" class="icon-img" width="240" height="240" />
+            <img src="/img/run-easy/icon.png" alt="Run Easy Z2 app icon" class="icon-img" width="240" height="240" />
           </div>
         </div>
       </div>
@@ -44,38 +44,38 @@ import Footer from '../../components/Footer.astro';
       <div class="container-custom">
         <div class="features-header">
           <span class="section-number">01 — FEATURES</span>
-          <h2 class="features-title">Everything you need,<br/>nothing you don't.</h2>
+          <h2 class="features-title">Stay in the zone.</h2>
         </div>
 
         <div class="features-grid">
           <div class="feature">
-            <h3 class="feature-heading">Fasting Presets</h3>
-            <p>12:12, 16:8, 18:6, 20:4, OMAD, and 36-hour fasts. Pick one and go — or count up from zero.</p>
+            <h3 class="feature-heading">Real-Time Zone Coaching</h3>
+            <p>Your Apple Watch shows your current HR zone live &mdash; with haptic and audio cues when you drift out of your target.</p>
           </div>
 
           <div class="feature">
-            <h3 class="feature-heading">10 Timer Skins</h3>
-            <p>Swipe through visual styles — minimal arcs, gradient rings, gauges, and more. Pick the one that fits your vibe.</p>
+            <h3 class="feature-heading">MAF 180 Built In</h3>
+            <p>Enter your age, get your zones. The Maffetone method removes the guesswork from aerobic base building.</p>
+          </div>
+
+          <div class="feature">
+            <h3 class="feature-heading">Training Analytics</h3>
+            <p>Cardiac drift, HR recovery, zone distribution, and weekly trends &mdash; see your aerobic fitness improve over time.</p>
+          </div>
+
+          <div class="feature">
+            <h3 class="feature-heading">iPhone + Apple Watch</h3>
+            <p>Start runs from your wrist. Review history, stats, and settings on your phone. Everything syncs automatically.</p>
           </div>
 
           <div class="feature">
             <h3 class="feature-heading">Live Activities</h3>
-            <p>Track your fast from the lock screen and Dynamic Island without opening the app.</p>
+            <p>Track your zone from the lock screen and Dynamic Island without raising your wrist or opening the app.</p>
           </div>
 
           <div class="feature">
-            <h3 class="feature-heading">Statistics & Streaks</h3>
-            <p>Weekly charts, completion rates, total fasting hours, and current streak — all computed locally.</p>
-          </div>
-
-          <div class="feature">
-            <h3 class="feature-heading">History</h3>
-            <p>Every completed fast is saved. Review your progress, see your longest fasts, and stay motivated.</p>
-          </div>
-
-          <div class="feature">
-            <h3 class="feature-heading">Completely Offline</h3>
-            <p>No servers, no cloud sync, no network requests. Your data stays on your device. Period.</p>
+            <h3 class="feature-heading">Completely Private</h3>
+            <p>No accounts, no tracking, no analytics. Your data stays on your device and syncs only to your own iCloud.</p>
           </div>
         </div>
       </div>
@@ -83,17 +83,35 @@ import Footer from '../../components/Footer.astro';
 
     <div class="section-divider"></div>
 
-    <!-- Privacy -->
+    <!-- Screenshots -->
     <section class="section-padding">
       <div class="container-custom">
-        <div class="privacy-section">
-          <span class="section-number">02 — PRIVACY</span>
-          <h2 class="privacy-title">Zero data collection.</h2>
-          <p class="privacy-text">
-            No analytics. No ads. No tracking pixels. No telemetry. Fast Easy doesn't even make network requests.
-            Your fasting data lives on your device and nowhere else.
-          </p>
-          <a href="/fast-easy/privacy" class="btn btn-outline privacy-link">Read the full privacy policy</a>
+        <div class="screenshots-header">
+          <span class="section-number">02 — SCREENSHOTS</span>
+          <h2 class="screenshots-title">See it in action.</h2>
+        </div>
+
+        <div class="screenshots-row">
+          <div class="screenshot-item screenshot-phone">
+            <img src="/img/run-easy/iphone-history.png" alt="Run history on iPhone" loading="lazy" />
+            <span class="screenshot-caption">Run History</span>
+          </div>
+          <div class="screenshot-item screenshot-phone">
+            <img src="/img/run-easy/iphone-detail.png" alt="Run detail on iPhone" loading="lazy" />
+            <span class="screenshot-caption">Run Detail</span>
+          </div>
+          <div class="screenshot-item screenshot-phone">
+            <img src="/img/run-easy/iphone-settings.png" alt="Settings on iPhone" loading="lazy" />
+            <span class="screenshot-caption">Settings</span>
+          </div>
+          <div class="screenshot-item screenshot-watch">
+            <img src="/img/run-easy/watch-home.png" alt="Watch home screen" loading="lazy" />
+            <span class="screenshot-caption">Watch Home</span>
+          </div>
+          <div class="screenshot-item screenshot-watch">
+            <img src="/img/run-easy/watch-workout.png" alt="Active workout on Apple Watch" loading="lazy" />
+            <span class="screenshot-caption">Active Workout</span>
+          </div>
         </div>
       </div>
     </section>
@@ -104,17 +122,17 @@ import Footer from '../../components/Footer.astro';
     <section class="section-padding">
       <div class="container-custom">
         <div class="cta-section">
-          <h2 class="cta-title">Start fasting today.</h2>
+          <h2 class="cta-title">Start running easier.</h2>
           <p class="cta-text">Free on the App Store. No account required.</p>
           <div class="cta-badge">
-            <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="app-store-badge" target="_blank" rel="noopener noreferrer">
+            <a href="#" class="app-store-badge">
               <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
             </a>
           </div>
           <div class="cta-links">
-            <a href="/fast-easy/support" class="link-accent">Support</a>
+            <a href="/run-easy/support" class="link-accent">Support</a>
             <span class="cta-dot">&middot;</span>
-            <a href="/fast-easy/privacy" class="link-accent">Privacy Policy</a>
+            <a href="/run-easy/privacy" class="link-accent">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -181,10 +199,6 @@ import Footer from '../../components/Footer.astro';
     .hero-actions {
       justify-content: flex-start;
     }
-  }
-
-  .app-store-badge {
-    display: inline-block;
   }
 
   .app-store-badge img {
@@ -274,27 +288,69 @@ import Footer from '../../components/Footer.astro';
     margin: 0;
   }
 
-  /* Privacy */
-  .privacy-section {
-    max-width: 640px;
+  /* Screenshots */
+  .screenshots-header {
+    margin-bottom: 3rem;
   }
 
-  .privacy-title {
+  .screenshots-title {
     font-size: clamp(1.75rem, 4vw, 3rem);
     color: var(--text-primary);
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
   }
 
-  .privacy-text {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 2rem;
+  .screenshots-row {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .privacy-link {
-    font-size: 0.875rem;
+  .screenshots-row::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .screenshots-row::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 3px;
+  }
+
+  .screenshots-row::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+  }
+
+  .screenshot-item {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .screenshot-phone {
+    width: 220px;
+  }
+
+  .screenshot-watch {
+    width: 160px;
+  }
+
+  .screenshot-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+  }
+
+  .screenshot-caption {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.02em;
   }
 
   /* CTA */
