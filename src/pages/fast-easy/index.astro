@@ -20,7 +20,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </nav>
 
   <main>
-    <!-- Hero — Centered, calm, lots of whitespace -->
+    <!-- Hero — Minimal, centered, tons of whitespace -->
     <section class="fe-hero">
       <div class="fe-hero-inner">
         <img src="/img/fast-easy/icon.png" alt="Fast Easy app icon" class="fe-hero-icon" width="240" height="240" />
@@ -28,7 +28,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           Fasting,<br/>made <em>easy.</em>
         </h1>
         <p class="fe-hero-subtitle">
-          A simple, beautiful fasting timer for iOS. No accounts. No tracking. No subscriptions. Just start your fast.
+          A simple, beautiful fasting timer for iOS.<br/>
+          No accounts. No tracking. No subscriptions.
         </p>
         <div class="fe-hero-actions">
           <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="fe-store-badge" target="_blank" rel="noopener noreferrer">
@@ -39,65 +40,76 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="fe-section fe-features-section">
+    <!-- Features — Vertical editorial list, not a grid -->
+    <section class="fe-section">
       <div class="fe-container">
         <div class="fe-section-header">
           <span class="fe-label">FEATURES</span>
-          <h2 class="fe-section-title">Everything you need,<br/>nothing you don't.</h2>
+          <h2 class="fe-section-title">Simple by design.</h2>
         </div>
 
-        <div class="fe-features">
-          <div class="fe-feature">
-            <div class="fe-feature-number">01</div>
-            <h3>Fasting Presets</h3>
-            <p>12:12, 16:8, 18:6, 20:4, OMAD, and 36-hour fasts. Pick one and go — or count up from zero.</p>
+        <div class="fe-feature-list">
+          <div class="fe-feature-item">
+            <div class="fe-feature-num">01</div>
+            <div class="fe-feature-body">
+              <h3>Fasting Presets</h3>
+              <p>12:12, 16:8, 18:6, 20:4, OMAD, and 36-hour fasts. Pick one and go — or count up from zero.</p>
+            </div>
           </div>
 
-          <div class="fe-feature">
-            <div class="fe-feature-number">02</div>
-            <h3>10 Timer Skins</h3>
-            <p>Swipe through visual styles — minimal arcs, gradient rings, gauges, and more. Pick the one that fits your vibe.</p>
+          <div class="fe-feature-item">
+            <div class="fe-feature-num">02</div>
+            <div class="fe-feature-body">
+              <h3>10 Timer Skins</h3>
+              <p>Swipe through visual styles — minimal arcs, gradient rings, gauges, and more. Pick the one that fits your vibe.</p>
+            </div>
           </div>
 
-          <div class="fe-feature">
-            <div class="fe-feature-number">03</div>
-            <h3>Live Activities</h3>
-            <p>Track your fast from the lock screen and Dynamic Island without opening the app.</p>
+          <div class="fe-feature-item">
+            <div class="fe-feature-num">03</div>
+            <div class="fe-feature-body">
+              <h3>Live Activities</h3>
+              <p>Track your fast from the lock screen and Dynamic Island without opening the app.</p>
+            </div>
           </div>
 
-          <div class="fe-feature">
-            <div class="fe-feature-number">04</div>
-            <h3>Statistics & Streaks</h3>
-            <p>Weekly charts, completion rates, total fasting hours, and current streak — all computed locally.</p>
+          <div class="fe-feature-item">
+            <div class="fe-feature-num">04</div>
+            <div class="fe-feature-body">
+              <h3>Statistics & Streaks</h3>
+              <p>Weekly charts, completion rates, total fasting hours, and current streak — all computed locally.</p>
+            </div>
           </div>
 
-          <div class="fe-feature">
-            <div class="fe-feature-number">05</div>
-            <h3>History</h3>
-            <p>Every completed fast is saved. Review your progress, see your longest fasts, and stay motivated.</p>
+          <div class="fe-feature-item">
+            <div class="fe-feature-num">05</div>
+            <div class="fe-feature-body">
+              <h3>History</h3>
+              <p>Every completed fast is saved. Review your progress, see your longest fasts, and stay motivated.</p>
+            </div>
           </div>
 
-          <div class="fe-feature">
-            <div class="fe-feature-number">06</div>
-            <h3>Completely Offline</h3>
-            <p>No servers, no cloud sync, no network requests. Your data stays on your device. Period.</p>
+          <div class="fe-feature-item">
+            <div class="fe-feature-num">06</div>
+            <div class="fe-feature-body">
+              <h3>Completely Offline</h3>
+              <p>No servers, no cloud sync, no network requests. Your data stays on your device. Period.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Privacy -->
-    <section class="fe-section">
+    <!-- Privacy — Full-width dark callout -->
+    <section class="fe-privacy-banner">
       <div class="fe-container">
-        <div class="fe-privacy">
-          <span class="fe-label">PRIVACY</span>
+        <div class="fe-privacy-inner">
           <h2 class="fe-privacy-title">Zero data collection.</h2>
           <p class="fe-privacy-text">
-            No analytics. No ads. No tracking pixels. No telemetry. Fast Easy doesn't even make network requests.
-            Your fasting data lives on your device and nowhere else.
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Fast Easy doesn't even make network requests.
           </p>
-          <a href="/fast-easy/privacy" class="fe-privacy-link">Read the full privacy policy &rarr;</a>
+          <a href="/fast-easy/privacy" class="fe-privacy-link">Read the privacy policy &rarr;</a>
         </div>
       </div>
     </section>
@@ -135,7 +147,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <style>
   /* ═══════════════════════════════════════════════════════
      FAST EASY — Warm Amber / Gold Theme
-     Calm, disciplined, zen-like
+     Zen, editorial, single-column, lots of whitespace
      ═══════════════════════════════════════════════════════ */
 
   :root {
@@ -143,6 +155,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     --fe-accent-soft: #fbbf24;
     --fe-accent-deep: #d97706;
     --fe-accent-bg: #fffbeb;
+    --fe-dark-bg: #1c1308;
+    --fe-dark-text: #fef3c7;
+    --fe-dark-muted: #a3894d;
   }
 
   .dark {
@@ -160,7 +175,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .fe-nav-inner {
-    max-width: 72rem;
+    max-width: 40rem;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
@@ -195,19 +210,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     opacity: 0.7;
   }
 
-  /* ─── Hero — Centered, meditative ─── */
+  /* ─── Hero — Centered, meditative, generous spacing ─── */
   .fe-hero {
-    padding: 5rem 0 6rem;
+    padding: 6rem 0 7rem;
     text-align: center;
-    background: linear-gradient(180deg, var(--fe-accent-bg) 0%, var(--bg-primary) 100%);
-  }
-
-  .dark .fe-hero {
-    background: linear-gradient(180deg, rgba(245, 158, 11, 0.06) 0%, var(--bg-primary) 100%);
+    background: var(--bg-primary);
   }
 
   .fe-hero-inner {
-    max-width: 640px;
+    max-width: 540px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
@@ -216,26 +227,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .fe-hero-icon {
-    width: 140px;
-    height: 140px;
-    border-radius: 32px;
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
     box-shadow: 0 20px 60px rgba(245, 158, 11, 0.15), 0 8px 20px rgba(245, 158, 11, 0.1);
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
 
   @media (min-width: 768px) {
     .fe-hero-icon {
-      width: 180px;
-      height: 180px;
-      border-radius: 40px;
+      width: 148px;
+      height: 148px;
+      border-radius: 34px;
     }
   }
 
   .fe-hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    line-height: 1.05;
+    margin-bottom: 1.75rem;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
   }
 
   .fe-hero-title em {
@@ -248,11 +260,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .fe-hero-subtitle {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 440px;
-    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
   }
 
   .fe-hero-actions {
@@ -281,7 +292,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .fe-container {
-    max-width: 72rem;
+    max-width: 40rem;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -290,13 +301,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .fe-container { padding: 0 2rem; }
   }
 
-  @media (min-width: 1024px) {
-    .fe-container { padding: 0 3rem; }
-  }
-
   .fe-section-header {
-    margin-bottom: 3.5rem;
-    max-width: 520px;
+    margin-bottom: 3rem;
   }
 
   .fe-label {
@@ -313,141 +319,121 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .fe-section-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
-  /* ─── Features — Numbered, editorial style ─── */
-  .fe-features-section {
-    background: var(--bg-secondary);
+  /* ─── Feature List — Vertical, numbered, editorial ─── */
+  .fe-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
-  .fe-features {
-    display: grid;
-    grid-template-columns: 1fr;
+  .fe-feature-item {
+    display: flex;
+    align-items: baseline;
     gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border-color);
   }
 
-  @media (min-width: 640px) {
-    .fe-features { grid-template-columns: 1fr 1fr; }
+  .fe-feature-item:first-child {
+    border-top: 1px solid var(--border-color);
   }
 
-  @media (min-width: 1024px) {
-    .fe-features { grid-template-columns: 1fr 1fr 1fr; }
-  }
-
-  .fe-feature {
-    padding: 2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .fe-feature:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.08);
-    border-color: var(--fe-accent);
-  }
-
-  .fe-feature-number {
+  .fe-feature-num {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--fe-accent-deep);
-    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+    width: 2rem;
     letter-spacing: 0.05em;
   }
 
-  .dark .fe-feature-number {
+  .dark .fe-feature-num {
     color: var(--fe-accent);
   }
 
-  .fe-feature h3 {
+  .fe-feature-body h3 {
     font-family: 'Satoshi', sans-serif;
     font-size: 1.0625rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.5rem;
     letter-spacing: 0;
     line-height: 1.4;
   }
 
-  .fe-feature p {
+  .fe-feature-body p {
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
     font-size: 0.9375rem;
     margin: 0;
   }
 
-  /* ─── Privacy ─── */
-  .fe-privacy {
-    max-width: 560px;
-    padding: 3rem;
-    background: var(--fe-accent-bg);
-    border-radius: 20px;
-    border: 1px solid rgba(245, 158, 11, 0.15);
+  /* ─── Privacy Banner — Full-width dark callout ─── */
+  .fe-privacy-banner {
+    background: var(--fe-dark-bg);
+    padding: 5rem 0;
   }
 
-  .dark .fe-privacy {
-    background: rgba(245, 158, 11, 0.06);
-    border-color: rgba(245, 158, 11, 0.1);
+  .dark .fe-privacy-banner {
+    background: #1a1301;
+    border-top: 1px solid rgba(245, 158, 11, 0.08);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.08);
+  }
+
+  .fe-privacy-inner {
+    text-align: center;
   }
 
   .fe-privacy-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    color: var(--text-primary);
-    margin-top: 1rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--fe-dark-text);
     margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
   }
 
   .fe-privacy-text {
     font-size: 1.0625rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    color: var(--fe-dark-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
   }
 
   .fe-privacy-link {
     font-family: 'Satoshi', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--fe-accent-deep);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .dark .fe-privacy-link {
     color: var(--fe-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
   }
 
   .fe-privacy-link:hover {
-    color: var(--fe-accent);
+    opacity: 0.7;
     text-decoration: underline;
     text-underline-offset: 3px;
   }
 
   /* ─── CTA ─── */
   .fe-cta {
-    padding: 5rem 0;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--fe-accent-bg) 100%);
-  }
-
-  .dark .fe-cta {
-    background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(245, 158, 11, 0.04) 100%);
+    padding: 6rem 0;
+    background: var(--bg-primary);
   }
 
   .fe-cta-inner {
     text-align: center;
-    max-width: 480px;
-    margin: 0 auto;
   }
 
   .fe-cta-title {
     font-size: clamp(2rem, 4vw, 3rem);
     color: var(--text-primary);
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
   .fe-cta-text {
@@ -463,7 +449,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .fe-footer-inner {
-    max-width: 72rem;
+    max-width: 40rem;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;

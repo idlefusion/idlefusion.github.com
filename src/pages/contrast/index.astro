@@ -22,6 +22,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <main>
     <!-- Hero — Dark, bold, dramatic -->
     <section class="ct-hero">
+      <div class="ct-hero-glow ct-hero-glow--warm"></div>
+      <div class="ct-hero-glow ct-hero-glow--cool"></div>
       <div class="ct-hero-inner">
         <div class="ct-hero-content">
           <div class="ct-hero-text">
@@ -30,7 +32,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               Contrast therapy,<br/><em>timed.</em>
             </h1>
             <p class="ct-hero-subtitle">
-              A simple, purpose-built timer for sauna and cold plunge sessions. HealthKit sync, smart protocols, Apple Watch support. No accounts. No subscriptions.
+              A purpose-built timer for sauna and cold plunge sessions. HealthKit sync, smart protocols, Apple Watch support.
             </p>
             <div class="ct-hero-actions">
               <a href="https://apps.apple.com/app/id6759070330" class="ct-store-badge" target="_blank" rel="noopener noreferrer">
@@ -46,47 +48,59 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="ct-section">
-      <div class="ct-container">
-        <div class="ct-section-header">
-          <span class="ct-label">FEATURES</span>
-          <h2 class="ct-section-title">Everything you need,<br/>nothing you don't.</h2>
+    <!-- Features — Dark bg, two-column with large cards -->
+    <section class="ct-features-section">
+      <div class="ct-container-wide">
+        <div class="ct-features-header">
+          <span class="ct-label-dark">FEATURES</span>
+          <h2 class="ct-features-title">Built for the session.</h2>
         </div>
 
         <div class="ct-features">
           <div class="ct-feature">
-            <div class="ct-feature-accent"></div>
+            <div class="ct-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
             <h3>Quick Start</h3>
             <p>Two taps to start timing. Sauna or cold plunge — pick one and go. Designed for wet hands and foggy glasses.</p>
           </div>
 
           <div class="ct-feature">
-            <div class="ct-feature-accent"></div>
+            <div class="ct-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 6 18 3-9h4"/></svg>
+            </div>
             <h3>Smart Protocols</h3>
             <p>Multi-phase session plans that guide you through sauna, cold plunge, and rest intervals with automatic transitions.</p>
           </div>
 
           <div class="ct-feature">
-            <div class="ct-feature-accent"></div>
+            <div class="ct-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
             <h3>HealthKit Sync</h3>
             <p>Sessions save to Apple Health as workouts automatically. Your contrast therapy shows up alongside everything else you track.</p>
           </div>
 
           <div class="ct-feature">
-            <div class="ct-feature-accent"></div>
+            <div class="ct-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
             <h3>Session History</h3>
             <p>Every session is saved. Track personal records, total exposure time, and build the consistency that drives results.</p>
           </div>
 
           <div class="ct-feature">
-            <div class="ct-feature-accent"></div>
+            <div class="ct-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
             <h3>Apple Watch</h3>
             <p>Start, pause, and advance phases from your wrist. Haptic alerts tell you when it's time to switch — no phone needed.</p>
           </div>
 
           <div class="ct-feature">
-            <div class="ct-feature-accent"></div>
+            <div class="ct-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
             <h3>Completely Offline</h3>
             <p>No servers, no cloud sync, no network requests. Your data stays on your device. Period.</p>
           </div>
@@ -94,8 +108,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- Privacy -->
-    <section class="ct-section ct-privacy-section">
+    <!-- Privacy — Tinted panel -->
+    <section class="ct-privacy-section">
       <div class="ct-container">
         <div class="ct-privacy">
           <span class="ct-label">PRIVACY</span>
@@ -109,7 +123,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA — Dark section -->
     <section class="ct-cta">
       <div class="ct-container">
         <div class="ct-cta-inner">
@@ -141,7 +155,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <style>
   /* ═══════════════════════════════════════════════════════
-     CONTRAST — Teal / Cyan, Dark Hero Theme
+     CONTRAST — Teal / Cyan, Dark Immersive Theme
      Bold, elemental, fire & ice
      ═══════════════════════════════════════════════════════ */
 
@@ -150,7 +164,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     --ct-accent-soft: #22d3ee;
     --ct-accent-deep: #0891b2;
     --ct-accent-bg: #ecfeff;
-    --ct-hero-bg: #0c1222;
+    --ct-warm: #f97316;
+    --ct-dark-bg: #0a0f1a;
+    --ct-dark-surface: #111827;
+    --ct-dark-border: rgba(148, 163, 184, 0.08);
     --ct-hero-text: #f1f5f9;
     --ct-hero-muted: #94a3b8;
   }
@@ -164,8 +181,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     position: sticky;
     top: 0;
     z-index: 50;
-    background: var(--ct-hero-bg);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    background: var(--ct-dark-bg);
+    border-bottom: 1px solid var(--ct-dark-border);
   }
 
   .ct-nav-inner {
@@ -200,23 +217,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     opacity: 0.7;
   }
 
-  /* ─── Hero — Dark, dramatic ─── */
+  /* ─── Hero — Dark, dramatic, dual-glow ─── */
   .ct-hero {
-    background: var(--ct-hero-bg);
+    background: var(--ct-dark-bg);
     padding: 4rem 0 5rem;
     position: relative;
     overflow: hidden;
   }
 
-  .ct-hero::before {
-    content: '';
+  .ct-hero-glow {
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
     pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.12;
+  }
+
+  .ct-hero-glow--warm {
+    top: -30%;
+    left: -10%;
+    background: var(--ct-warm);
+  }
+
+  .ct-hero-glow--cool {
+    bottom: -40%;
+    right: -10%;
+    background: var(--ct-accent);
   }
 
   .ct-hero-inner {
@@ -325,12 +353,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
   }
 
-  /* ─── Sections ─── */
-  .ct-section {
-    padding: 5rem 0;
+  /* ─── Containers ─── */
+  .ct-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
-  .ct-container {
+  .ct-container-wide {
     max-width: 72rem;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -338,15 +368,92 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   @media (min-width: 640px) {
     .ct-container { padding: 0 2rem; }
+    .ct-container-wide { padding: 0 2rem; }
   }
 
   @media (min-width: 1024px) {
     .ct-container { padding: 0 3rem; }
+    .ct-container-wide { padding: 0 3rem; }
   }
 
-  .ct-section-header {
+  /* ─── Features — Dark background, 2-col, icon-led ─── */
+  .ct-features-section {
+    background: var(--ct-dark-surface);
+    padding: 5rem 0;
+  }
+
+  .ct-features-header {
     margin-bottom: 3.5rem;
     max-width: 520px;
+  }
+
+  .ct-label-dark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ct-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .ct-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--ct-hero-text);
+    margin-bottom: 1rem;
+  }
+
+  .ct-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--ct-dark-border);
+    border: 1px solid var(--ct-dark-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .ct-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .ct-feature {
+    padding: 2rem;
+    background: var(--ct-dark-surface);
+  }
+
+  .ct-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    border-radius: 10px;
+    color: var(--ct-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .ct-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--ct-hero-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .ct-feature p {
+    color: var(--ct-hero-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy ─── */
+  .ct-privacy-section {
+    padding: 5rem 0;
   }
 
   .ct-label {
@@ -362,82 +469,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     color: var(--ct-accent);
   }
 
-  .ct-section-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-  }
-
-  /* ─── Features — Accent bar style ─── */
-  .ct-features {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (min-width: 640px) {
-    .ct-features { grid-template-columns: 1fr 1fr; }
-  }
-
-  @media (min-width: 1024px) {
-    .ct-features { grid-template-columns: 1fr 1fr 1fr; }
-  }
-
-  .ct-feature {
-    padding: 2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ct-feature:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(6, 182, 212, 0.1);
-    border-color: var(--ct-accent);
-  }
-
-  .ct-feature-accent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--ct-accent-deep), var(--ct-accent-soft));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .ct-feature:hover .ct-feature-accent {
-    opacity: 1;
-  }
-
-  .ct-feature h3 {
-    font-family: 'Satoshi', sans-serif;
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.625rem;
-    letter-spacing: 0;
-    line-height: 1.4;
-  }
-
-  .ct-feature p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 0.9375rem;
-    margin: 0;
-  }
-
-  /* ─── Privacy ─── */
-  .ct-privacy-section {
-    background: var(--bg-secondary);
-  }
-
   .ct-privacy {
     max-width: 560px;
+    padding: 3rem;
+    background: var(--ct-accent-bg);
+    border-radius: 20px;
+    border: 1px solid rgba(6, 182, 212, 0.15);
+  }
+
+  .dark .ct-privacy {
+    background: rgba(6, 182, 212, 0.06);
+    border-color: rgba(6, 182, 212, 0.1);
   }
 
   .ct-privacy-title {
@@ -476,7 +518,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   /* ─── CTA — Dark section ─── */
   .ct-cta {
     padding: 5rem 0;
-    background: var(--ct-hero-bg);
+    background: var(--ct-dark-bg);
     position: relative;
     overflow: hidden;
   }
@@ -485,10 +527,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     content: '';
     position: absolute;
     bottom: -30%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -513,8 +556,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   /* ─── Footer ─── */
   .ct-footer {
-    background: var(--ct-hero-bg);
-    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    background: var(--ct-dark-bg);
+    border-top: 1px solid var(--ct-dark-border);
     padding: 2rem 0;
   }
 
