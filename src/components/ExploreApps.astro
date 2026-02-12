@@ -1,0 +1,169 @@
+---
+interface App {
+  slug: string;
+  name: string;
+  category: string;
+  description: string;
+  icon: string;
+}
+
+interface Props {
+  current: string;
+}
+
+const apps: App[] = [
+  {
+    slug: 'contrast',
+    name: 'Contrast',
+    category: 'Sauna + Cold Plunge',
+    description: 'A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.',
+    icon: '/img/contrast/icon.png',
+  },
+  {
+    slug: 'fast-easy',
+    name: 'Fast Easy',
+    category: 'Fasting Timer',
+    description: 'A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions.',
+    icon: '/img/fast-easy/icon.png',
+  },
+  {
+    slug: 'run-easy',
+    name: 'Run Easy Z2',
+    category: 'Heart Rate Zone Training',
+    description: 'Heart rate zone training on Apple Watch built around the Maffetone method.',
+    icon: '/img/run-easy/icon.png',
+  },
+];
+
+const { current } = Astro.props;
+const otherApps = apps.filter(app => app.slug !== current);
+---
+
+<section class="explore-apps">
+  <div class="explore-apps-inner">
+    <p class="explore-apps-label">Explore Our Apps</p>
+    <div class="explore-apps-grid">
+      {otherApps.map(app => (
+        <a href={`/${app.slug}`} class="explore-app-card">
+          <img src={app.icon} alt={`${app.name} icon`} class="explore-app-icon" width="56" height="56" />
+          <div class="explore-app-info">
+            <span class="explore-app-category">{app.category}</span>
+            <h3 class="explore-app-name">{app.name}</h3>
+            <p class="explore-app-desc">{app.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .explore-apps {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border-color, #e7e5e4);
+  }
+
+  .explore-apps-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .explore-apps-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .explore-apps-inner { padding: 0 3rem; }
+  }
+
+  .explore-apps-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted, #78716c);
+    margin-bottom: 1.5rem;
+  }
+
+  .explore-apps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .explore-apps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .explore-app-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #e7e5e4);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :global(.dark) .explore-app-card {
+    background: var(--bg-card, #141414);
+    border-color: var(--border-color, #262626);
+  }
+
+  .explore-app-card:hover {
+    border-color: var(--accent, #0088cc);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  :global(.dark) .explore-app-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .explore-app-icon {
+    flex-shrink: 0;
+    border-radius: 12px;
+  }
+
+  .explore-app-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .explore-app-category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted, #78716c);
+    display: block;
+    margin-bottom: 0.375rem;
+  }
+
+  .explore-app-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-primary, #0a0a0a);
+    margin: 0 0 0.375rem;
+    line-height: 1.2;
+  }
+
+  :global(.dark) .explore-app-name {
+    color: var(--text-primary, #fafaf9);
+  }
+
+  .explore-app-desc {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-muted, #78716c);
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>

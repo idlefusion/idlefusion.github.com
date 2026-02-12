@@ -310,11 +310,52 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
       </div>
     </section>
 
+    <!-- Our Apps Section -->
+    <section class="section-padding" id="apps">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-number">07</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="section-intro">
+          <h2 class="section-title">Our Apps</h2>
+          <p class="section-subtitle">
+            Purpose-built apps designed with care — no accounts, no subscriptions
+          </p>
+        </div>
+
+        <div class="apps-grid">
+          <a href="/contrast" class="app-card">
+            <img src="/img/contrast/icon.png" alt="Contrast app icon" class="app-icon" width="64" height="64" />
+            <span class="app-category">Sauna + Cold Plunge</span>
+            <h3 class="app-name">Contrast</h3>
+            <p class="app-desc">A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.</p>
+            <span class="app-link">Learn more &rarr;</span>
+          </a>
+          <a href="/fast-easy" class="app-card">
+            <img src="/img/fast-easy/icon.png" alt="Fast Easy app icon" class="app-icon" width="64" height="64" />
+            <span class="app-category">Fasting Timer</span>
+            <h3 class="app-name">Fast Easy</h3>
+            <p class="app-desc">A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions.</p>
+            <span class="app-link">Learn more &rarr;</span>
+          </a>
+          <a href="/run-easy" class="app-card">
+            <img src="/img/run-easy/icon.png" alt="Run Easy Z2 app icon" class="app-icon" width="64" height="64" />
+            <span class="app-category">Heart Rate Zone Training</span>
+            <h3 class="app-name">Run Easy Z2</h3>
+            <p class="app-desc">Heart rate zone training on Apple Watch built around the Maffetone method with real-time coaching.</p>
+            <span class="app-link">Learn more &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Leadership Section -->
     <section class="section-padding" id="leadership">
       <div class="section-container">
         <div class="section-header">
-          <span class="section-number">07</span>
+          <span class="section-number">08</span>
           <div class="section-divider-line"></div>
         </div>
 
@@ -513,6 +554,78 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
     font-size: 0.75rem;
     color: var(--text-muted);
     letter-spacing: 0.02em;
+  }
+
+  /* Apps grid */
+  .apps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .apps-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .app-card {
+    display: block;
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .app-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .app-icon {
+    border-radius: 14px;
+    margin-bottom: 1.25rem;
+  }
+
+  .app-category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .app-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  .app-desc {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 1rem;
+  }
+
+  .app-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .app-card:hover .app-link {
+    text-decoration: underline;
   }
 
   /* CTA Section */
