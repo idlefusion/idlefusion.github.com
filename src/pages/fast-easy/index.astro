@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 ---
 
 <BaseLayout
@@ -10,327 +8,514 @@ import Footer from '../../components/Footer.astro';
   ogImage="/img/fast-easy/icon.png"
   ogUrl="https://idlefusion.com/fast-easy"
 >
-  <Header />
+
+  <!-- App Nav -->
+  <nav class="fe-nav">
+    <div class="fe-nav-inner">
+      <a href="/fast-easy" class="fe-logo">Fast Easy</a>
+      <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="fe-nav-cta" target="_blank" rel="noopener noreferrer">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+      </a>
+    </div>
+  </nav>
 
   <main>
-    <!-- Hero -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="hero-layout">
-          <div class="hero-text">
-            <h1 class="hero-title">
-              Fasting,<br/>made <em>easy.</em>
-            </h1>
-            <p class="hero-subtitle">
-              A simple, beautiful fasting timer for iOS. No accounts. No tracking. No subscriptions. Just start your fast.
-            </p>
-            <div class="hero-actions">
-              <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="app-store-badge" target="_blank" rel="noopener noreferrer">
-                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
-              </a>
-            </div>
-          </div>
-          <div class="hero-icon">
-            <img src="/img/fast-easy/icon.png" alt="Fast Easy app icon" class="icon-img" width="240" height="240" />
-          </div>
+    <!-- Hero — Centered, calm, lots of whitespace -->
+    <section class="fe-hero">
+      <div class="fe-hero-inner">
+        <img src="/img/fast-easy/icon.png" alt="Fast Easy app icon" class="fe-hero-icon" width="240" height="240" />
+        <h1 class="fe-hero-title">
+          Fasting,<br/>made <em>easy.</em>
+        </h1>
+        <p class="fe-hero-subtitle">
+          A simple, beautiful fasting timer for iOS. No accounts. No tracking. No subscriptions. Just start your fast.
+        </p>
+        <div class="fe-hero-actions">
+          <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="fe-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+          <span class="fe-hero-note">Free &middot; No account required</span>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- Features -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="features-header">
-          <span class="section-number">01 — FEATURES</span>
-          <h2 class="features-title">Everything you need,<br/>nothing you don't.</h2>
+    <section class="fe-section fe-features-section">
+      <div class="fe-container">
+        <div class="fe-section-header">
+          <span class="fe-label">FEATURES</span>
+          <h2 class="fe-section-title">Everything you need,<br/>nothing you don't.</h2>
         </div>
 
-        <div class="features-grid">
-          <div class="feature">
-            <h3 class="feature-heading">Fasting Presets</h3>
+        <div class="fe-features">
+          <div class="fe-feature">
+            <div class="fe-feature-number">01</div>
+            <h3>Fasting Presets</h3>
             <p>12:12, 16:8, 18:6, 20:4, OMAD, and 36-hour fasts. Pick one and go — or count up from zero.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">10 Timer Skins</h3>
+          <div class="fe-feature">
+            <div class="fe-feature-number">02</div>
+            <h3>10 Timer Skins</h3>
             <p>Swipe through visual styles — minimal arcs, gradient rings, gauges, and more. Pick the one that fits your vibe.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">Live Activities</h3>
+          <div class="fe-feature">
+            <div class="fe-feature-number">03</div>
+            <h3>Live Activities</h3>
             <p>Track your fast from the lock screen and Dynamic Island without opening the app.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">Statistics & Streaks</h3>
+          <div class="fe-feature">
+            <div class="fe-feature-number">04</div>
+            <h3>Statistics & Streaks</h3>
             <p>Weekly charts, completion rates, total fasting hours, and current streak — all computed locally.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">History</h3>
+          <div class="fe-feature">
+            <div class="fe-feature-number">05</div>
+            <h3>History</h3>
             <p>Every completed fast is saved. Review your progress, see your longest fasts, and stay motivated.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">Completely Offline</h3>
+          <div class="fe-feature">
+            <div class="fe-feature-number">06</div>
+            <h3>Completely Offline</h3>
             <p>No servers, no cloud sync, no network requests. Your data stays on your device. Period.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- Privacy -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="privacy-section">
-          <span class="section-number">02 — PRIVACY</span>
-          <h2 class="privacy-title">Zero data collection.</h2>
-          <p class="privacy-text">
+    <section class="fe-section">
+      <div class="fe-container">
+        <div class="fe-privacy">
+          <span class="fe-label">PRIVACY</span>
+          <h2 class="fe-privacy-title">Zero data collection.</h2>
+          <p class="fe-privacy-text">
             No analytics. No ads. No tracking pixels. No telemetry. Fast Easy doesn't even make network requests.
             Your fasting data lives on your device and nowhere else.
           </p>
-          <a href="/fast-easy/privacy" class="btn btn-outline privacy-link">Read the full privacy policy</a>
+          <a href="/fast-easy/privacy" class="fe-privacy-link">Read the full privacy policy &rarr;</a>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- CTA -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="cta-section">
-          <h2 class="cta-title">Start fasting today.</h2>
-          <p class="cta-text">Free on the App Store. No account required.</p>
-          <div class="cta-badge">
-            <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="app-store-badge" target="_blank" rel="noopener noreferrer">
-              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
-            </a>
-          </div>
-          <div class="cta-links">
-            <a href="/fast-easy/support" class="link-accent">Support</a>
-            <span class="cta-dot">&middot;</span>
-            <a href="/fast-easy/privacy" class="link-accent">Privacy Policy</a>
-          </div>
+    <section class="fe-cta">
+      <div class="fe-container">
+        <div class="fe-cta-inner">
+          <h2 class="fe-cta-title">Start fasting today.</h2>
+          <p class="fe-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/fast-easy-fasting-timer/id6745400613" class="fe-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <Footer />
+  <!-- App Footer -->
+  <footer class="fe-footer">
+    <div class="fe-footer-inner">
+      <div class="fe-footer-links">
+        <a href="/fast-easy/support">Support</a>
+        <span class="fe-footer-dot">&middot;</span>
+        <a href="/fast-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="fe-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
 </BaseLayout>
 
 <style>
-  /* Hero */
-  .hero-layout {
+  /* ═══════════════════════════════════════════════════════
+     FAST EASY — Warm Amber / Gold Theme
+     Calm, disciplined, zen-like
+     ═══════════════════════════════════════════════════════ */
+
+  :root {
+    --fe-accent: #f59e0b;
+    --fe-accent-soft: #fbbf24;
+    --fe-accent-deep: #d97706;
+    --fe-accent-bg: #fffbeb;
+  }
+
+  .dark {
+    --fe-accent-bg: #451a03;
+  }
+
+  /* ─── Nav ─── */
+  .fe-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+  }
+
+  .fe-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
-    flex-direction: column-reverse;
+    justify-content: space-between;
     align-items: center;
-    gap: 3rem;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .fe-nav-inner { padding: 0 2rem; }
+  }
+
+  .fe-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--fe-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .dark .fe-logo {
+    color: var(--fe-accent);
+  }
+
+  .fe-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .fe-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero — Centered, meditative ─── */
+  .fe-hero {
+    padding: 5rem 0 6rem;
     text-align: center;
+    background: linear-gradient(180deg, var(--fe-accent-bg) 0%, var(--bg-primary) 100%);
+  }
+
+  .dark .fe-hero {
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.06) 0%, var(--bg-primary) 100%);
+  }
+
+  .fe-hero-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fe-hero-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(245, 158, 11, 0.15), 0 8px 20px rgba(245, 158, 11, 0.1);
+    margin-bottom: 2.5rem;
   }
 
   @media (min-width: 768px) {
-    .hero-layout {
-      flex-direction: row;
-      text-align: left;
-      gap: 4rem;
+    .fe-hero-icon {
+      width: 180px;
+      height: 180px;
+      border-radius: 40px;
     }
   }
 
-  .hero-text {
-    flex: 1;
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  .fe-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
     color: var(--text-primary);
     margin-bottom: 1.5rem;
+    line-height: 1.05;
   }
 
-  .hero-title em {
+  .fe-hero-title em {
     font-style: italic;
+    color: var(--fe-accent-deep);
   }
 
-  .hero-subtitle {
+  .dark .fe-hero-title em {
+    color: var(--fe-accent);
+  }
+
+  .fe-hero-subtitle {
     font-size: 1.125rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 480px;
-    margin-bottom: 2rem;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
   }
 
-  @media (max-width: 767px) {
-    .hero-subtitle {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  .hero-actions {
+  .fe-hero-actions {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  @media (min-width: 768px) {
-    .hero-actions {
-      justify-content: flex-start;
-    }
-  }
-
-  .app-store-badge {
-    display: inline-block;
-  }
-
-  .app-store-badge img {
+  .fe-store-badge img {
     height: 54px;
     transition: opacity 0.2s;
   }
 
-  .app-store-badge:hover img {
-    opacity: 0.8;
+  .fe-store-badge:hover img { opacity: 0.8; }
+
+  .fe-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
   }
 
-  .hero-icon {
-    flex-shrink: 0;
+  /* ─── Sections ─── */
+  .fe-section {
+    padding: 5rem 0;
   }
 
-  .icon-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 40px;
-    box-shadow: var(--shadow-lg);
-  }
-
-  @media (min-width: 768px) {
-    .icon-img {
-      width: 240px;
-      height: 240px;
-      border-radius: 54px;
-    }
-  }
-
-  /* Features */
-  .features-header {
-    margin-bottom: 3rem;
-  }
-
-  .features-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    color: var(--text-primary);
-    margin-top: 1rem;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .fe-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
   @media (min-width: 640px) {
-    .features-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+    .fe-container { padding: 0 2rem; }
   }
 
   @media (min-width: 1024px) {
-    .features-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    .fe-container { padding: 0 3rem; }
   }
 
-  .feature {
+  .fe-section-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .fe-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--fe-accent-deep);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .dark .fe-label {
+    color: var(--fe-accent);
+  }
+
+  .fe-section-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  /* ─── Features — Numbered, editorial style ─── */
+  .fe-features-section {
+    background: var(--bg-secondary);
+  }
+
+  .fe-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .fe-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 1024px) {
+    .fe-features { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .fe-feature {
     padding: 2rem;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 3px;
+    border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .feature:hover {
+  .fe-feature:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--accent);
+    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.08);
+    border-color: var(--fe-accent);
   }
 
-  .feature-heading {
+  .fe-feature-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--fe-accent-deep);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .dark .fe-feature-number {
+    color: var(--fe-accent);
+  }
+
+  .fe-feature h3 {
     font-family: 'Satoshi', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.625rem;
     letter-spacing: 0;
     line-height: 1.4;
   }
 
-  .feature p {
+  .fe-feature p {
     color: var(--text-secondary);
     line-height: 1.6;
+    font-size: 0.9375rem;
     margin: 0;
   }
 
-  /* Privacy */
-  .privacy-section {
-    max-width: 640px;
+  /* ─── Privacy ─── */
+  .fe-privacy {
+    max-width: 560px;
+    padding: 3rem;
+    background: var(--fe-accent-bg);
+    border-radius: 20px;
+    border: 1px solid rgba(245, 158, 11, 0.15);
   }
 
-  .privacy-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
+  .dark .fe-privacy {
+    background: rgba(245, 158, 11, 0.06);
+    border-color: rgba(245, 158, 11, 0.1);
+  }
+
+  .fe-privacy-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: var(--text-primary);
     margin-top: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .fe-privacy-text {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
     margin-bottom: 1.5rem;
   }
 
-  .privacy-text {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  .privacy-link {
+  .fe-privacy-link {
+    font-family: 'Satoshi', sans-serif;
     font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--fe-accent-deep);
+    text-decoration: none;
+    transition: color 0.2s;
   }
 
-  /* CTA */
-  .cta-section {
+  .dark .fe-privacy-link {
+    color: var(--fe-accent);
+  }
+
+  .fe-privacy-link:hover {
+    color: var(--fe-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .fe-cta {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--fe-accent-bg) 100%);
+  }
+
+  .dark .fe-cta {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(245, 158, 11, 0.04) 100%);
+  }
+
+  .fe-cta-inner {
     text-align: center;
     max-width: 480px;
     margin: 0 auto;
   }
 
-  .cta-badge {
-    display: flex;
-    justify-content: center;
-  }
-
-  .cta-title {
+  .fe-cta-title {
     font-size: clamp(2rem, 4vw, 3rem);
     color: var(--text-primary);
     margin-bottom: 1rem;
   }
 
-  .cta-text {
+  .fe-cta-text {
     font-size: 1.125rem;
     color: var(--text-secondary);
     margin-bottom: 2rem;
   }
 
-  .cta-links {
+  /* ─── Footer ─── */
+  .fe-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+  }
+
+  .fe-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .fe-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  .fe-footer-links {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0.75rem;
-    margin-top: 2rem;
     font-size: 0.875rem;
   }
 
-  .cta-dot {
+  .fe-footer-links a {
     color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .fe-footer-links a:hover {
+    color: var(--fe-accent);
+  }
+
+  .fe-footer-dot {
+    color: var(--text-muted);
+    opacity: 0.4;
+  }
+
+  .fe-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .fe-footer-brand a {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .fe-footer-brand a:hover {
+    color: var(--fe-accent);
   }
 </style>

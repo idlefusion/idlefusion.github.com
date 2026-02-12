@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 ---
 
 <BaseLayout
@@ -10,121 +8,233 @@ import Footer from '../../components/Footer.astro';
   ogImage="/img/contrast/icon.png"
   ogUrl="https://idlefusion.com/contrast"
 >
-  <Header />
+
+  <!-- App Nav — sits on dark hero -->
+  <nav class="ct-nav">
+    <div class="ct-nav-inner">
+      <a href="/contrast" class="ct-logo">Contrast</a>
+      <a href="https://apps.apple.com/app/id6759070330" class="ct-nav-cta" target="_blank" rel="noopener noreferrer">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+      </a>
+    </div>
+  </nav>
 
   <main>
-    <!-- Hero -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="hero-layout">
-          <div class="hero-text">
-            <h1 class="hero-title">
+    <!-- Hero — Dark, bold, dramatic -->
+    <section class="ct-hero">
+      <div class="ct-hero-inner">
+        <div class="ct-hero-content">
+          <div class="ct-hero-text">
+            <div class="ct-hero-badge">SAUNA + COLD PLUNGE</div>
+            <h1 class="ct-hero-title">
               Contrast therapy,<br/><em>timed.</em>
             </h1>
-            <p class="hero-subtitle">
+            <p class="ct-hero-subtitle">
               A simple, purpose-built timer for sauna and cold plunge sessions. HealthKit sync, smart protocols, Apple Watch support. No accounts. No subscriptions.
             </p>
-            <div class="hero-actions">
-              <a href="https://apps.apple.com/app/id6759070330" class="app-store-badge" target="_blank" rel="noopener noreferrer">
+            <div class="ct-hero-actions">
+              <a href="https://apps.apple.com/app/id6759070330" class="ct-store-badge" target="_blank" rel="noopener noreferrer">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
               </a>
+              <span class="ct-hero-note">Free &middot; No account required</span>
             </div>
           </div>
-          <div class="hero-icon">
-            <img src="/img/contrast/icon.png" alt="Contrast app icon" class="icon-img" width="240" height="240" />
+          <div class="ct-hero-icon-wrap">
+            <img src="/img/contrast/icon.png" alt="Contrast app icon" class="ct-hero-icon" width="240" height="240" />
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- Features -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="features-header">
-          <span class="section-number">01 — FEATURES</span>
-          <h2 class="features-title">Everything you need,<br/>nothing you don't.</h2>
+    <section class="ct-section">
+      <div class="ct-container">
+        <div class="ct-section-header">
+          <span class="ct-label">FEATURES</span>
+          <h2 class="ct-section-title">Everything you need,<br/>nothing you don't.</h2>
         </div>
 
-        <div class="features-grid">
-          <div class="feature">
-            <h3 class="feature-heading">Quick Start</h3>
+        <div class="ct-features">
+          <div class="ct-feature">
+            <div class="ct-feature-accent"></div>
+            <h3>Quick Start</h3>
             <p>Two taps to start timing. Sauna or cold plunge — pick one and go. Designed for wet hands and foggy glasses.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">Smart Protocols</h3>
+          <div class="ct-feature">
+            <div class="ct-feature-accent"></div>
+            <h3>Smart Protocols</h3>
             <p>Multi-phase session plans that guide you through sauna, cold plunge, and rest intervals with automatic transitions.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">HealthKit Sync</h3>
+          <div class="ct-feature">
+            <div class="ct-feature-accent"></div>
+            <h3>HealthKit Sync</h3>
             <p>Sessions save to Apple Health as workouts automatically. Your contrast therapy shows up alongside everything else you track.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">Session History</h3>
+          <div class="ct-feature">
+            <div class="ct-feature-accent"></div>
+            <h3>Session History</h3>
             <p>Every session is saved. Track personal records, total exposure time, and build the consistency that drives results.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">Apple Watch</h3>
+          <div class="ct-feature">
+            <div class="ct-feature-accent"></div>
+            <h3>Apple Watch</h3>
             <p>Start, pause, and advance phases from your wrist. Haptic alerts tell you when it's time to switch — no phone needed.</p>
           </div>
 
-          <div class="feature">
-            <h3 class="feature-heading">Completely Offline</h3>
+          <div class="ct-feature">
+            <div class="ct-feature-accent"></div>
+            <h3>Completely Offline</h3>
             <p>No servers, no cloud sync, no network requests. Your data stays on your device. Period.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- Privacy -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="privacy-section">
-          <span class="section-number">02 — PRIVACY</span>
-          <h2 class="privacy-title">Zero data collection.</h2>
-          <p class="privacy-text">
+    <section class="ct-section ct-privacy-section">
+      <div class="ct-container">
+        <div class="ct-privacy">
+          <span class="ct-label">PRIVACY</span>
+          <h2 class="ct-privacy-title">Zero data collection.</h2>
+          <p class="ct-privacy-text">
             No analytics. No ads. No tracking pixels. No telemetry. Contrast doesn't even make network requests.
             Your session data lives on your device and nowhere else.
           </p>
-          <a href="/contrast/privacy" class="btn btn-outline privacy-link">Read the full privacy policy</a>
+          <a href="/contrast/privacy" class="ct-privacy-link">Read the full privacy policy &rarr;</a>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- CTA -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="cta-section">
-          <h2 class="cta-title">Start your session.</h2>
-          <p class="cta-text">Free on the App Store. No account required.</p>
-          <a href="https://apps.apple.com/app/id6759070330" class="app-store-badge" target="_blank" rel="noopener noreferrer">
+    <section class="ct-cta">
+      <div class="ct-container">
+        <div class="ct-cta-inner">
+          <h2 class="ct-cta-title">Start your session.</h2>
+          <p class="ct-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id6759070330" class="ct-store-badge" target="_blank" rel="noopener noreferrer">
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
           </a>
-          <div class="cta-links">
-            <a href="/contrast/support" class="link-accent">Support</a>
-            <span class="cta-dot">&middot;</span>
-            <a href="/contrast/privacy" class="link-accent">Privacy Policy</a>
-          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <Footer />
+  <!-- App Footer -->
+  <footer class="ct-footer">
+    <div class="ct-footer-inner">
+      <div class="ct-footer-links">
+        <a href="/contrast/support">Support</a>
+        <span class="ct-footer-dot">&middot;</span>
+        <a href="/contrast/privacy">Privacy Policy</a>
+      </div>
+      <div class="ct-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
 </BaseLayout>
 
 <style>
-  /* Hero */
-  .hero-layout {
+  /* ═══════════════════════════════════════════════════════
+     CONTRAST — Teal / Cyan, Dark Hero Theme
+     Bold, elemental, fire & ice
+     ═══════════════════════════════════════════════════════ */
+
+  :root {
+    --ct-accent: #06b6d4;
+    --ct-accent-soft: #22d3ee;
+    --ct-accent-deep: #0891b2;
+    --ct-accent-bg: #ecfeff;
+    --ct-hero-bg: #0c1222;
+    --ct-hero-text: #f1f5f9;
+    --ct-hero-muted: #94a3b8;
+  }
+
+  .dark {
+    --ct-accent-bg: #083344;
+  }
+
+  /* ─── Nav ─── */
+  .ct-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ct-hero-bg);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .ct-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ct-nav-inner { padding: 0 2rem; }
+  }
+
+  .ct-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ct-accent);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .ct-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .ct-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero — Dark, dramatic ─── */
+  .ct-hero {
+    background: var(--ct-hero-bg);
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ct-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .ct-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .ct-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ct-hero-inner { padding: 0 3rem; }
+  }
+
+  .ct-hero-content {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -133,197 +243,335 @@ import Footer from '../../components/Footer.astro';
   }
 
   @media (min-width: 768px) {
-    .hero-layout {
+    .ct-hero-content {
       flex-direction: row;
       text-align: left;
       gap: 4rem;
     }
   }
 
-  .hero-text {
-    flex: 1;
-  }
+  .ct-hero-text { flex: 1; }
 
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--text-primary);
+  .ct-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ct-accent);
     margin-bottom: 1.5rem;
   }
 
-  .hero-title em {
-    font-style: italic;
+  .ct-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--ct-hero-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
   }
 
-  .hero-subtitle {
+  .ct-hero-title em {
+    font-style: italic;
+    color: var(--ct-accent);
+  }
+
+  .ct-hero-subtitle {
     font-size: 1.125rem;
-    color: var(--text-secondary);
+    color: var(--ct-hero-muted);
     line-height: 1.7;
     max-width: 480px;
     margin-bottom: 2rem;
   }
 
   @media (max-width: 767px) {
-    .hero-subtitle {
-      margin-left: auto;
-      margin-right: auto;
-    }
+    .ct-hero-subtitle { margin-left: auto; margin-right: auto; }
   }
 
-  .hero-actions {
+  .ct-hero-actions {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   @media (min-width: 768px) {
-    .hero-actions {
-      justify-content: flex-start;
-    }
+    .ct-hero-actions { align-items: flex-start; }
   }
 
-  .app-store-badge {
-    display: inline-block;
-  }
-
-  .app-store-badge img {
+  .ct-store-badge img {
     height: 54px;
     transition: opacity 0.2s;
   }
 
-  .app-store-badge:hover img {
-    opacity: 0.8;
+  .ct-store-badge:hover img { opacity: 0.8; }
+
+  .ct-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ct-hero-muted);
   }
 
-  .hero-icon {
-    flex-shrink: 0;
-  }
+  .ct-hero-icon-wrap { flex-shrink: 0; }
 
-  .icon-img {
+  .ct-hero-icon {
     width: 180px;
     height: 180px;
     border-radius: 40px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 20px 60px rgba(6, 182, 212, 0.2), 0 0 80px rgba(6, 182, 212, 0.08);
   }
 
   @media (min-width: 768px) {
-    .icon-img {
+    .ct-hero-icon {
       width: 240px;
       height: 240px;
       border-radius: 54px;
     }
   }
 
-  /* Features */
-  .features-header {
-    margin-bottom: 3rem;
+  /* ─── Sections ─── */
+  .ct-section {
+    padding: 5rem 0;
   }
 
-  .features-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    color: var(--text-primary);
-    margin-top: 1rem;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .ct-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
   @media (min-width: 640px) {
-    .features-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+    .ct-container { padding: 0 2rem; }
   }
 
   @media (min-width: 1024px) {
-    .features-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    .ct-container { padding: 0 3rem; }
   }
 
-  .feature {
-    padding: 2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 3px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  .ct-section-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
   }
 
-  .feature:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--accent);
+  .ct-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ct-accent-deep);
+    display: block;
+    margin-bottom: 1rem;
   }
 
-  .feature-heading {
-    font-family: 'Satoshi', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    letter-spacing: 0;
-    line-height: 1.4;
+  .dark .ct-label {
+    color: var(--ct-accent);
   }
 
-  .feature p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Privacy */
-  .privacy-section {
-    max-width: 640px;
-  }
-
-  .privacy-title {
+  .ct-section-title {
     font-size: clamp(1.75rem, 4vw, 3rem);
-    color: var(--text-primary);
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .privacy-text {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  .privacy-link {
-    font-size: 0.875rem;
-  }
-
-  /* CTA */
-  .cta-section {
-    text-align: center;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .cta-title {
-    font-size: clamp(2rem, 4vw, 3rem);
     color: var(--text-primary);
     margin-bottom: 1rem;
   }
 
-  .cta-text {
-    font-size: 1.125rem;
+  /* ─── Features — Accent bar style ─── */
+  .ct-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ct-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 1024px) {
+    .ct-features { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .ct-feature {
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ct-feature:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(6, 182, 212, 0.1);
+    border-color: var(--ct-accent);
+  }
+
+  .ct-feature-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ct-accent-deep), var(--ct-accent-soft));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .ct-feature:hover .ct-feature-accent {
+    opacity: 1;
+  }
+
+  .ct-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .ct-feature p {
     color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy ─── */
+  .ct-privacy-section {
+    background: var(--bg-secondary);
+  }
+
+  .ct-privacy {
+    max-width: 560px;
+  }
+
+  .ct-privacy-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--text-primary);
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .ct-privacy-text {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .ct-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ct-accent-deep);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .dark .ct-privacy-link {
+    color: var(--ct-accent);
+  }
+
+  .ct-privacy-link:hover {
+    color: var(--ct-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA — Dark section ─── */
+  .ct-cta {
+    padding: 5rem 0;
+    background: var(--ct-hero-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ct-cta::before {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .ct-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .ct-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ct-hero-text);
+    margin-bottom: 1rem;
+  }
+
+  .ct-cta-text {
+    font-size: 1.125rem;
+    color: var(--ct-hero-muted);
     margin-bottom: 2rem;
   }
 
-  .cta-links {
+  /* ─── Footer ─── */
+  .ct-footer {
+    background: var(--ct-hero-bg);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    padding: 2rem 0;
+  }
+
+  .ct-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .ct-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  .ct-footer-links {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0.75rem;
-    margin-top: 2rem;
     font-size: 0.875rem;
   }
 
-  .cta-dot {
-    color: var(--text-muted);
+  .ct-footer-links a {
+    color: var(--ct-hero-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ct-footer-links a:hover {
+    color: var(--ct-accent);
+  }
+
+  .ct-footer-dot {
+    color: var(--ct-hero-muted);
+    opacity: 0.4;
+  }
+
+  .ct-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--ct-hero-muted);
+    opacity: 0.6;
+  }
+
+  .ct-footer-brand a {
+    color: var(--ct-hero-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .ct-footer-brand a:hover {
+    color: var(--ct-accent);
   }
 </style>
