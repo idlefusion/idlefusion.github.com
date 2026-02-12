@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 ---
 
 <BaseLayout
@@ -13,9 +14,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <nav class="ct-nav">
     <div class="ct-nav-inner">
       <a href="/contrast" class="ct-logo">Contrast</a>
-      <a href="https://apps.apple.com/app/id6759070330" class="ct-nav-cta" target="_blank" rel="noopener noreferrer">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
-      </a>
+      <div class="ct-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id6759070330" class="ct-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -108,15 +112,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- Privacy — Tinted panel -->
-    <section class="ct-privacy-section">
+    <!-- Privacy — Full-width dark banner -->
+    <section class="ct-privacy-banner">
       <div class="ct-container">
-        <div class="ct-privacy">
-          <span class="ct-label">PRIVACY</span>
+        <div class="ct-privacy-inner">
+          <span class="ct-label-dark">PRIVACY</span>
           <h2 class="ct-privacy-title">Zero data collection.</h2>
           <p class="ct-privacy-text">
-            No analytics. No ads. No tracking pixels. No telemetry. Contrast doesn't even make network requests.
-            Your session data lives on your device and nowhere else.
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Contrast doesn't even make network requests. Your session data lives on your device and nowhere else.
           </p>
           <a href="/contrast/privacy" class="ct-privacy-link">Read the full privacy policy &rarr;</a>
         </div>
@@ -159,21 +163,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
      Bold, elemental, fire & ice
      ═══════════════════════════════════════════════════════ */
 
-  :root {
+  :global(:root) {
     --ct-accent: #06b6d4;
-    --ct-accent-soft: #22d3ee;
     --ct-accent-deep: #0891b2;
     --ct-accent-bg: #ecfeff;
     --ct-warm: #f97316;
-    --ct-dark-bg: #0a0f1a;
-    --ct-dark-surface: #111827;
-    --ct-dark-border: rgba(148, 163, 184, 0.08);
-    --ct-hero-text: #f1f5f9;
-    --ct-hero-muted: #94a3b8;
+    --ct-bg: #f8fafc;
+    --ct-surface: #ffffff;
+    --ct-border: rgba(148, 163, 184, 0.15);
+    --ct-text: #0f172a;
+    --ct-text-muted: #64748b;
+    --ct-feature-icon-bg: rgba(6, 182, 212, 0.08);
+    --ct-feature-icon-border: rgba(6, 182, 212, 0.12);
   }
 
-  .dark {
+  :global(.dark) {
+    --ct-accent: #22d3ee;
+    --ct-accent-deep: #06b6d4;
     --ct-accent-bg: #083344;
+    --ct-bg: #0a0f1a;
+    --ct-surface: #111827;
+    --ct-border: rgba(148, 163, 184, 0.08);
+    --ct-text: #f1f5f9;
+    --ct-text-muted: #94a3b8;
+    --ct-feature-icon-bg: rgba(6, 182, 212, 0.1);
+    --ct-feature-icon-border: rgba(6, 182, 212, 0.15);
   }
 
   /* ─── Nav ─── */
@@ -181,8 +195,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     position: sticky;
     top: 0;
     z-index: 50;
-    background: var(--ct-dark-bg);
-    border-bottom: 1px solid var(--ct-dark-border);
+    background: var(--ct-bg);
+    border-bottom: 1px solid var(--ct-border);
+    backdrop-filter: blur(12px);
   }
 
   .ct-nav-inner {
@@ -199,13 +214,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .ct-nav-inner { padding: 0 2rem; }
   }
 
+  @media (min-width: 1024px) {
+    .ct-nav-inner { padding: 0 3rem; }
+  }
+
   .ct-logo {
     font-family: 'Satoshi', sans-serif;
     font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--ct-accent);
+    color: var(--ct-accent-deep);
     text-decoration: none;
     letter-spacing: -0.01em;
+  }
+
+  .ct-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
   .ct-nav-cta img {
@@ -217,9 +242,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     opacity: 0.7;
   }
 
-  /* ─── Hero — Dark, dramatic, dual-glow ─── */
+  /* ─── Hero — Dark, dramatic, dual-glow (stays dark in both modes) ─── */
   .ct-hero {
-    background: var(--ct-dark-bg);
+    background: #0a0f1a;
     padding: 4rem 0 5rem;
     position: relative;
     overflow: hidden;
@@ -290,7 +315,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .ct-hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--ct-hero-text);
+    color: #f1f5f9;
     margin-bottom: 1.5rem;
     line-height: 1.05;
   }
@@ -302,7 +327,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .ct-hero-subtitle {
     font-size: 1.125rem;
-    color: var(--ct-hero-muted);
+    color: #94a3b8;
     line-height: 1.7;
     max-width: 480px;
     margin-bottom: 2rem;
@@ -333,7 +358,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .ct-hero-note {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
-    color: var(--ct-hero-muted);
+    color: #94a3b8;
   }
 
   .ct-hero-icon-wrap { flex-shrink: 0; }
@@ -376,9 +401,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .ct-container-wide { padding: 0 3rem; }
   }
 
-  /* ─── Features — Dark background, 2-col, icon-led ─── */
+  /* ─── Features — 2-col, icon-led ─── */
   .ct-features-section {
-    background: var(--ct-dark-surface);
+    background: var(--ct-surface);
     padding: 5rem 0;
   }
 
@@ -398,7 +423,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .ct-features-title {
     font-size: clamp(1.75rem, 4vw, 3rem);
-    color: var(--ct-hero-text);
+    color: var(--ct-text);
     margin-bottom: 1rem;
   }
 
@@ -406,8 +431,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1fr;
     gap: 1px;
-    background: var(--ct-dark-border);
-    border: 1px solid var(--ct-dark-border);
+    background: var(--ct-border);
+    border: 1px solid var(--ct-border);
     border-radius: 16px;
     overflow: hidden;
   }
@@ -418,7 +443,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .ct-feature {
     padding: 2rem;
-    background: var(--ct-dark-surface);
+    background: var(--ct-surface);
   }
 
   .ct-feature-icon {
@@ -427,10 +452,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(6, 182, 212, 0.1);
-    border: 1px solid rgba(6, 182, 212, 0.15);
+    background: var(--ct-feature-icon-bg);
+    border: 1px solid var(--ct-feature-icon-border);
     border-radius: 10px;
-    color: var(--ct-accent);
+    color: var(--ct-accent-deep);
     margin-bottom: 1.25rem;
   }
 
@@ -438,101 +463,67 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-family: 'Satoshi', sans-serif;
     font-size: 1.0625rem;
     font-weight: 700;
-    color: var(--ct-hero-text);
+    color: var(--ct-text);
     margin-bottom: 0.625rem;
     letter-spacing: 0;
     line-height: 1.4;
   }
 
   .ct-feature p {
-    color: var(--ct-hero-muted);
+    color: var(--ct-text-muted);
     line-height: 1.6;
     font-size: 0.9375rem;
     margin: 0;
   }
 
-  /* ─── Privacy ─── */
-  .ct-privacy-section {
+  /* ─── Privacy Banner — Full-width dark (stays dark in both modes) ─── */
+  .ct-privacy-banner {
+    background: #0a0f1a;
     padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
   }
 
-  .ct-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
-    color: var(--ct-accent-deep);
-    display: block;
-    margin-bottom: 1rem;
-  }
-
-  .dark .ct-label {
-    color: var(--ct-accent);
-  }
-
-  .ct-privacy {
-    max-width: 560px;
-    padding: 3rem;
-    background: var(--ct-accent-bg);
-    border-radius: 20px;
-    border: 1px solid rgba(6, 182, 212, 0.15);
-  }
-
-  .dark .ct-privacy {
-    background: rgba(6, 182, 212, 0.06);
-    border-color: rgba(6, 182, 212, 0.1);
+  .ct-privacy-inner {
+    text-align: center;
   }
 
   .ct-privacy-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    color: var(--text-primary);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
     margin-top: 1rem;
     margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
   }
 
   .ct-privacy-text {
     font-size: 1.0625rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
   }
 
   .ct-privacy-link {
     font-family: 'Satoshi', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--ct-accent-deep);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .dark .ct-privacy-link {
     color: var(--ct-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
   }
 
   .ct-privacy-link:hover {
-    color: var(--ct-accent);
+    opacity: 0.7;
     text-decoration: underline;
     text-underline-offset: 3px;
   }
 
-  /* ─── CTA — Dark section ─── */
+  /* ─── CTA ─── */
   .ct-cta {
-    padding: 5rem 0;
-    background: var(--ct-dark-bg);
+    padding: 6rem 0;
+    background: var(--ct-accent-bg);
     position: relative;
     overflow: hidden;
-  }
-
-  .ct-cta::before {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 300px;
-    background: radial-gradient(ellipse, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
-    pointer-events: none;
   }
 
   .ct-cta-inner {
@@ -544,20 +535,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .ct-cta-title {
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--ct-hero-text);
+    color: var(--ct-text);
     margin-bottom: 1rem;
   }
 
   .ct-cta-text {
     font-size: 1.125rem;
-    color: var(--ct-hero-muted);
+    color: var(--ct-text-muted);
     margin-bottom: 2rem;
   }
 
   /* ─── Footer ─── */
   .ct-footer {
-    background: var(--ct-dark-bg);
-    border-top: 1px solid var(--ct-dark-border);
+    background: var(--ct-bg);
+    border-top: 1px solid var(--ct-border);
     padding: 2rem 0;
   }
 
@@ -579,6 +570,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
   }
 
+  @media (min-width: 1024px) {
+    .ct-footer-inner { padding: 0 3rem; }
+  }
+
   .ct-footer-links {
     display: flex;
     align-items: center;
@@ -587,7 +582,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .ct-footer-links a {
-    color: var(--ct-hero-muted);
+    color: var(--ct-text-muted);
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -597,18 +592,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .ct-footer-dot {
-    color: var(--ct-hero-muted);
+    color: var(--ct-text-muted);
     opacity: 0.4;
   }
 
   .ct-footer-brand {
     font-size: 0.8125rem;
-    color: var(--ct-hero-muted);
+    color: var(--ct-text-muted);
     opacity: 0.6;
   }
 
   .ct-footer-brand a {
-    color: var(--ct-hero-muted);
+    color: var(--ct-text-muted);
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 0.2s;
