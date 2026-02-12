@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
 ---
 
 <BaseLayout
@@ -158,6 +159,8 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
         </div>
       </div>
     </section>
+
+    <ExploreApps current="run-easy" />
   </main>
 
   <!-- App Footer -->
@@ -342,6 +345,10 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 
   @media (min-width: 768px) {
     .re-hero-actions { align-items: flex-start; }
+  }
+
+  .re-btn-primary {
+    display: inline-block;
   }
 
   .re-btn-primary img {

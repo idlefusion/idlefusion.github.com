@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
 ---
 
 <BaseLayout
@@ -40,6 +41,22 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
           </a>
           <span class="fe-hero-note">Free &middot; No account required</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section class="fe-screenshots">
+      <div class="fe-screenshots-inner">
+        <div class="fe-screenshots-scroll">
+          <img src="/img/fast-easy/screenshots/01_classic_ring.png" alt="Classic ring timer" class="fe-screenshot" />
+          <img src="/img/fast-easy/screenshots/02_goal_reached.png" alt="Goal reached" class="fe-screenshot" />
+          <img src="/img/fast-easy/screenshots/03_fluid_wave.png" alt="Fluid wave skin" class="fe-screenshot" />
+          <img src="/img/fast-easy/screenshots/04_minimal.png" alt="Minimal skin" class="fe-screenshot" />
+          <img src="/img/fast-easy/screenshots/05_segmented_arc.png" alt="Segmented arc skin" class="fe-screenshot" />
+          <img src="/img/fast-easy/screenshots/06_analog_clock.png" alt="Analog clock skin" class="fe-screenshot" />
+          <img src="/img/fast-easy/screenshots/07_statistics.png" alt="Statistics and streaks" class="fe-screenshot" />
+          <img src="/img/fast-easy/screenshots/08_history.png" alt="Fasting history" class="fe-screenshot" />
         </div>
       </div>
     </section>
@@ -130,6 +147,8 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
         </div>
       </div>
     </section>
+
+    <ExploreApps current="fast-easy" />
   </main>
 
   <!-- App Footer -->
@@ -150,38 +169,38 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
 
 <style>
   /* ═══════════════════════════════════════════════════════
-     FAST EASY — Teal Theme
+     FAST EASY — Orange Theme
      Self-contained color system, zen editorial layout
      ═══════════════════════════════════════════════════════ */
 
   :global(:root) {
-    --fe-accent: #14b8a6;
-    --fe-accent-deep: #0d9488;
-    --fe-bg: #fafaf9;
-    --fe-bg-alt: #f0fdfa;
+    --fe-accent: #f97316;
+    --fe-accent-deep: #ea580c;
+    --fe-bg: #ffffff;
+    --fe-bg-alt: #fafafa;
     --fe-bg-card: #ffffff;
     --fe-text: #0a0a0a;
     --fe-text-secondary: #44403c;
     --fe-text-muted: #78716c;
     --fe-border: #e7e5e4;
-    --fe-privacy-bg: #0a1a19;
-    --fe-privacy-text: #ccfbf1;
-    --fe-privacy-muted: #5b8a84;
+    --fe-privacy-bg: #1a0f0a;
+    --fe-privacy-text: #ffedd5;
+    --fe-privacy-muted: #8a6a5b;
   }
 
   :global(.dark) {
-    --fe-accent: #2dd4bf;
-    --fe-accent-deep: #14b8a6;
-    --fe-bg: #0a1615;
-    --fe-bg-alt: #0f201e;
-    --fe-bg-card: #132c29;
+    --fe-accent: #fb923c;
+    --fe-accent-deep: #f97316;
+    --fe-bg: #000000;
+    --fe-bg-alt: #0a0a0a;
+    --fe-bg-card: #141414;
     --fe-text: #e2e8f0;
     --fe-text-secondary: #94a3b8;
     --fe-text-muted: #64748b;
-    --fe-border: rgba(20, 184, 166, 0.12);
-    --fe-privacy-bg: #071210;
-    --fe-privacy-text: #ccfbf1;
-    --fe-privacy-muted: #5b8a84;
+    --fe-border: rgba(249, 115, 22, 0.12);
+    --fe-privacy-bg: #120d07;
+    --fe-privacy-text: #ffedd5;
+    --fe-privacy-muted: #8a6a5b;
   }
 
   /* ─── Nav ─── */
@@ -264,7 +283,7 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
     width: 120px;
     height: 120px;
     border-radius: 28px;
-    box-shadow: 0 20px 60px rgba(20, 184, 166, 0.15), 0 8px 20px rgba(20, 184, 166, 0.1);
+    box-shadow: 0 20px 60px rgba(249, 115, 22, 0.15), 0 8px 20px rgba(249, 115, 22, 0.1);
     margin-bottom: 3rem;
   }
 
@@ -303,6 +322,10 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
     gap: 0.75rem;
   }
 
+  .fe-store-badge {
+    display: inline-block;
+  }
+
   .fe-store-badge img {
     height: 54px;
     transition: opacity 0.2s;
@@ -314,6 +337,52 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     color: var(--fe-text-muted);
+  }
+
+  /* ─── Screenshots Gallery ─── */
+  .fe-screenshots {
+    background: var(--fe-bg);
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+
+  .fe-screenshots-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .fe-screenshots-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1.5rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .fe-screenshots-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .fe-screenshots-scroll { padding: 0 2rem 1rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .fe-screenshots-scroll { padding: 0 3rem 1rem; }
+  }
+
+  .fe-screenshot {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .fe-screenshot { width: 260px; }
   }
 
   /* ─── Sections ─── */

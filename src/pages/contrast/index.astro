@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
 ---
 
 <BaseLayout
@@ -48,6 +49,21 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
           <div class="ct-hero-icon-wrap">
             <img src="/img/contrast/icon.png" alt="Contrast app icon" class="ct-hero-icon" width="240" height="240" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section class="ct-screenshots">
+      <div class="ct-screenshots-inner">
+        <div class="ct-screenshots-scroll">
+          <img src="/img/contrast/screenshots/01_home.png" alt="Contrast home screen" class="ct-screenshot" />
+          <img src="/img/contrast/screenshots/02_active_sauna.png" alt="Active sauna timer" class="ct-screenshot" />
+          <img src="/img/contrast/screenshots/03_active_cold.png" alt="Active cold plunge timer" class="ct-screenshot" />
+          <img src="/img/contrast/screenshots/04_multi_phase.png" alt="Multi-phase protocol" class="ct-screenshot" />
+          <img src="/img/contrast/screenshots/05_session_complete.png" alt="Session complete" class="ct-screenshot" />
+          <img src="/img/contrast/screenshots/06_personal_records.png" alt="Personal records" class="ct-screenshot" />
+          <img src="/img/contrast/screenshots/07_history.png" alt="Session history" class="ct-screenshot" />
         </div>
       </div>
     </section>
@@ -139,6 +155,7 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
         </div>
       </div>
     </section>
+    <ExploreApps current="contrast" />
   </main>
 
   <!-- App Footer -->
@@ -348,6 +365,10 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
     .ct-hero-actions { align-items: flex-start; }
   }
 
+  .ct-store-badge {
+    display: inline-block;
+  }
+
   .ct-store-badge img {
     height: 54px;
     transition: opacity 0.2s;
@@ -376,6 +397,52 @@ import ThemeToggle from '../../components/ThemeToggle.astro';
       height: 240px;
       border-radius: 54px;
     }
+  }
+
+  /* ─── Screenshots Gallery ─── */
+  .ct-screenshots {
+    background: var(--ct-bg);
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+
+  .ct-screenshots-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .ct-screenshots-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1.5rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .ct-screenshots-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .ct-screenshots-scroll { padding: 0 2rem 1rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ct-screenshots-scroll { padding: 0 3rem 1rem; }
+  }
+
+  .ct-screenshot {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .ct-screenshot { width: 260px; }
   }
 
   /* ─── Containers ─── */
