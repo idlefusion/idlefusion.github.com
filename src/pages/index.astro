@@ -19,6 +19,13 @@ const testimonials = await getCollection('testimonials');
 const portfolio = (await getCollection('portfolio')).sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
 const team = await getCollection('team');
 const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+
+const apps = [
+  { href: '/contrast', icon: '/img/contrast/icon.png', category: 'Sauna + Cold Plunge', name: 'Contrast', desc: 'A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.' },
+  { href: '/fast-easy', icon: '/img/fast-easy/icon.png', category: 'Fasting Timer', name: 'Fast Easy', desc: 'A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions.' },
+  { href: '/run-easy', icon: '/img/run-easy/icon.png', category: 'Heart Rate Zone Training', name: 'Run Easy Z2', desc: 'Heart rate zone training on Apple Watch built around the Maffetone method with real-time coaching.' },
+  { href: '/check-yourself', icon: '/img/check-yourself/icon.png', category: 'Camera Mirror', name: 'Check Yourself', desc: 'A lightweight macOS menu bar app to check your appearance before meetings.' },
+].sort(() => Math.random() - 0.5);
 ---
 
 <BaseLayout
@@ -326,27 +333,15 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
         </div>
 
         <div class="apps-grid">
-          <a href="/contrast" class="app-card">
-            <img src="/img/contrast/icon.png" alt="Contrast app icon" class="app-icon" width="64" height="64" />
-            <span class="app-category">Sauna + Cold Plunge</span>
-            <h3 class="app-name">Contrast</h3>
-            <p class="app-desc">A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.</p>
-            <span class="app-link">Learn more &rarr;</span>
-          </a>
-          <a href="/fast-easy" class="app-card">
-            <img src="/img/fast-easy/icon.png" alt="Fast Easy app icon" class="app-icon" width="64" height="64" />
-            <span class="app-category">Fasting Timer</span>
-            <h3 class="app-name">Fast Easy</h3>
-            <p class="app-desc">A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions.</p>
-            <span class="app-link">Learn more &rarr;</span>
-          </a>
-          <a href="/run-easy" class="app-card">
-            <img src="/img/run-easy/icon.png" alt="Run Easy Z2 app icon" class="app-icon" width="64" height="64" />
-            <span class="app-category">Heart Rate Zone Training</span>
-            <h3 class="app-name">Run Easy Z2</h3>
-            <p class="app-desc">Heart rate zone training on Apple Watch built around the Maffetone method with real-time coaching.</p>
-            <span class="app-link">Learn more &rarr;</span>
-          </a>
+          {apps.map(app => (
+            <a href={app.href} class="app-card">
+              <img src={app.icon} alt={`${app.name} app icon`} class="app-icon" width="64" height="64" />
+              <span class="app-category">{app.category}</span>
+              <h3 class="app-name">{app.name}</h3>
+              <p class="app-desc">{app.desc}</p>
+              <span class="app-link">Learn more &rarr;</span>
+            </a>
+          ))}
         </div>
       </div>
     </section>

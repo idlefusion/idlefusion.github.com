@@ -1,0 +1,573 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Check Yourself — Quick Camera Mirror for macOS"
+  description="A lightweight macOS menu bar app to check your appearance before meetings. One click, instant camera. No accounts, no tracking."
+  ogImage="/img/check-yourself/icon.png"
+  ogUrl="https://idlefusion.com/check-yourself"
+>
+
+  <!-- App Nav -->
+  <nav class="cy-nav">
+    <div class="cy-nav-inner">
+      <a href="/check-yourself" class="cy-logo">Check Yourself</a>
+      <div class="cy-nav-actions">
+        <ThemeToggle />
+        <a href="#" class="cy-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-mac-app-store.svg" alt="Download on the Mac App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Dark, centered, viewfinder aesthetic -->
+    <section class="cy-hero">
+      <div class="cy-hero-glow"></div>
+      <div class="cy-hero-inner">
+        <img src="/img/check-yourself/icon.png" alt="Check Yourself app icon" class="cy-hero-icon" width="240" height="240" />
+        <h1 class="cy-hero-title">
+          One click.<br/><em>Camera ready.</em>
+        </h1>
+        <p class="cy-hero-subtitle">
+          A tiny macOS menu bar app that gives you<br/>
+          instant access to your camera. Check your look<br/>
+          before the meeting starts.
+        </p>
+        <div class="cy-hero-actions">
+          <a href="#" class="cy-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-mac-app-store.svg" alt="Download on the Mac App Store" height="54" />
+          </a>
+          <span class="cy-hero-note">Free &middot; macOS 13+</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features — 3-column compact cards -->
+    <section class="cy-features-section">
+      <div class="cy-container">
+        <div class="cy-section-header">
+          <span class="cy-label">FEATURES</span>
+          <h2 class="cy-section-title">Quick check, no fuss.</h2>
+        </div>
+
+        <div class="cy-features">
+          <div class="cy-feature">
+            <div class="cy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v4"/><path d="M9 21H5a2 2 0 0 1-2-2v-4"/><path d="M21 15v4a2 2 0 0 1-2 2h-4"/><path d="M3 9V5a2 2 0 0 1 2-2h4"/></svg>
+            </div>
+            <h3>Menu Bar Access</h3>
+            <p>Click the icon in your menu bar and your camera opens instantly. No app windows, no dock clutter.</p>
+          </div>
+
+          <div class="cy-feature">
+            <div class="cy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+            </div>
+            <h3>Mirror View</h3>
+            <p>The camera feed is mirrored so it feels natural — just like looking in a real mirror before heading out.</p>
+          </div>
+
+          <div class="cy-feature">
+            <div class="cy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+            </div>
+            <h3>Zoom Levels</h3>
+            <p>Switch between 1x, 1.5x, and 2x zoom. Your preference is remembered between sessions.</p>
+          </div>
+
+          <div class="cy-feature">
+            <div class="cy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </div>
+            <h3>Camera On Demand</h3>
+            <p>The camera is only active when the popover is open. Close it and the camera stops immediately.</p>
+          </div>
+
+          <div class="cy-feature">
+            <div class="cy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+            </div>
+            <h3>Lightweight</h3>
+            <p>Lives quietly in your menu bar. Uses almost no resources when idle. Launches at login if you want.</p>
+          </div>
+
+          <div class="cy-feature">
+            <div class="cy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Completely Private</h3>
+            <p>No network requests, no analytics, no data collection. Your camera feed stays on your Mac. Period.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner — Always dark -->
+    <section class="cy-privacy-banner">
+      <div class="cy-container">
+        <div class="cy-privacy-inner">
+          <h2 class="cy-privacy-title">Zero data collection.</h2>
+          <p class="cy-privacy-text">
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Check Yourself doesn't make network requests. Your camera feed never leaves your Mac.
+          </p>
+          <a href="/check-yourself/privacy" class="cy-privacy-link">Read the privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cy-cta">
+      <div class="cy-container">
+        <div class="cy-cta-inner">
+          <h2 class="cy-cta-title">Look good. Feel good.</h2>
+          <p class="cy-cta-text">Free on the Mac App Store. No account required.</p>
+          <a href="#" class="cy-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-mac-app-store.svg" alt="Download on the Mac App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <ExploreApps current="check-yourself" />
+  </main>
+
+  <!-- App Footer -->
+  <footer class="cy-footer">
+    <div class="cy-footer-inner">
+      <div class="cy-footer-links">
+        <a href="/check-yourself/support">Support</a>
+        <span class="cy-footer-dot">&middot;</span>
+        <a href="/check-yourself/privacy">Privacy Policy</a>
+      </div>
+      <div class="cy-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     CHECK YOURSELF — Purple / Lavender, Dark Viewfinder Theme
+     Clean, utility-focused, camera-ready
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --cy-accent: #9B7AD8;
+    --cy-accent-deep: #8B68C8;
+    --cy-accent-bg: #f5f0ff;
+    --cy-bg: #faf9fc;
+    --cy-surface: #ffffff;
+    --cy-border: rgba(148, 130, 184, 0.15);
+    --cy-text: #1a1625;
+    --cy-text-muted: #6b6380;
+    --cy-feature-icon-bg: rgba(155, 122, 216, 0.08);
+    --cy-feature-icon-border: rgba(155, 122, 216, 0.12);
+  }
+
+  :global(.dark) {
+    --cy-accent: #C4ADF0;
+    --cy-accent-deep: #B399E6;
+    --cy-accent-bg: #1a1528;
+    --cy-bg: #0d0b14;
+    --cy-surface: #141020;
+    --cy-border: rgba(179, 153, 230, 0.1);
+    --cy-text: #f1eef8;
+    --cy-text-muted: #8a81a0;
+    --cy-feature-icon-bg: rgba(179, 153, 230, 0.1);
+    --cy-feature-icon-border: rgba(179, 153, 230, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .cy-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--cy-bg);
+    border-bottom: 1px solid var(--cy-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .cy-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .cy-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .cy-nav-inner { padding: 0 3rem; }
+  }
+
+  .cy-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--cy-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .cy-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cy-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .cy-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero — Dark, centered, viewfinder glow ─── */
+  .cy-hero {
+    background: #0d0b14;
+    padding: 6rem 0 7rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cy-hero-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: #B399E6;
+    filter: blur(150px);
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  .cy-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .cy-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .cy-hero-inner { padding: 0 3rem; }
+  }
+
+  .cy-hero-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(179, 153, 230, 0.2), 0 0 80px rgba(179, 153, 230, 0.06);
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .cy-hero-icon {
+      width: 180px;
+      height: 180px;
+      border-radius: 40px;
+    }
+  }
+
+  .cy-hero-title {
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    color: #f1eef8;
+    margin-bottom: 1.75rem;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .cy-hero-title em {
+    font-style: italic;
+    color: #C4ADF0;
+  }
+
+  .cy-hero-subtitle {
+    font-size: 1.0625rem;
+    color: #8a81a0;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .cy-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cy-store-badge {
+    display: inline-block;
+  }
+
+  .cy-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .cy-store-badge:hover img { opacity: 0.8; }
+
+  .cy-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #8a81a0;
+  }
+
+  /* ─── Container ─── */
+  .cy-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .cy-container { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .cy-container { padding: 0 3rem; }
+  }
+
+  /* ─── Features — 3-col grid with icon-led cards ─── */
+  .cy-features-section {
+    background: var(--cy-surface);
+    padding: 5rem 0;
+  }
+
+  .cy-section-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .cy-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--cy-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .cy-section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--cy-text);
+    letter-spacing: -0.02em;
+  }
+
+  .cy-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .cy-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 1024px) {
+    .cy-features { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .cy-feature {
+    padding: 2rem;
+    background: var(--cy-bg);
+    border: 1px solid var(--cy-border);
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cy-feature:hover {
+    border-color: var(--cy-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(155, 122, 216, 0.08);
+  }
+
+  .cy-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cy-feature-icon-bg);
+    border: 1px solid var(--cy-feature-icon-border);
+    border-radius: 10px;
+    color: var(--cy-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .cy-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--cy-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .cy-feature p {
+    color: var(--cy-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner — Always dark ─── */
+  .cy-privacy-banner {
+    background: #0d0b14;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(179, 153, 230, 0.06);
+    border-bottom: 1px solid rgba(179, 153, 230, 0.06);
+  }
+
+  .cy-privacy-inner {
+    text-align: center;
+  }
+
+  .cy-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1eef8;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .cy-privacy-text {
+    font-size: 1.0625rem;
+    color: #8a81a0;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .cy-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #C4ADF0;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .cy-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .cy-cta {
+    padding: 6rem 0;
+    background: var(--cy-accent-bg);
+  }
+
+  .cy-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .cy-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--cy-text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .cy-cta-text {
+    font-size: 1.125rem;
+    color: var(--cy-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .cy-footer {
+    background: var(--cy-bg);
+    border-top: 1px solid var(--cy-border);
+    padding: 2rem 0;
+  }
+
+  .cy-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .cy-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .cy-footer-inner { padding: 0 3rem; }
+  }
+
+  .cy-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .cy-footer-links a {
+    color: var(--cy-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cy-footer-links a:hover {
+    color: var(--cy-accent);
+  }
+
+  .cy-footer-dot {
+    color: var(--cy-text-muted);
+    opacity: 0.4;
+  }
+
+  .cy-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--cy-text-muted);
+    opacity: 0.6;
+  }
+
+  .cy-footer-brand a {
+    color: var(--cy-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .cy-footer-brand a:hover {
+    color: var(--cy-accent);
+  }
+</style>
