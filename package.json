@@ -7,6 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "astro build && wrangler deploy",
+    "dns:setup": "./scripts/setup-dns.sh",
     "astro": "astro"
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
-    "puppeteer": "^24.35.0"
+    "puppeteer": "^24.35.0",
+    "wrangler": "^4.0.0"
   }
 }
