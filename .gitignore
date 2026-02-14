@@ -20,3 +20,9 @@ Thumbs.db
 .astro/
 .vercel
 .worktrees/
+
+# Cloudflare
+.wrangler/
+
+# Migration state
+scripts/.migration-state/

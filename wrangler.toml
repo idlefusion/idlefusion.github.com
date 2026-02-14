@@ -1,0 +1,15 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "idlefusion-website"
+compatibility_date = "2026-02-14"
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"
+
+[[routes]]
+pattern = "idlefusion.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.idlefusion.com"
+custom_domain = true
