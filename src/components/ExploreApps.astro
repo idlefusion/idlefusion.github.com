@@ -50,7 +50,7 @@ const apps: App[] = [
 ];
 
 const { current } = Astro.props;
-const otherApps = apps.filter(app => app.slug !== current);
+const otherApps = apps.filter(app => app.slug !== current).sort(() => Math.random() - 0.5);
 ---
 
 <section class="explore-apps">
