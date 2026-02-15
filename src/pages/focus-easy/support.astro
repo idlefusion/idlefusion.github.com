@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Focus Easy - Support"
+  description="Get help with Focus Easy - Minimalist Home Screen Launcher iOS app."
+  ogUrl="https://idlefusion.com/focus-easy/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed space-y-6">
+          <div>
+            <p class="text-lg mb-4">Need help with Focus Easy?</p>
+            <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Focus%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+          </div>
+
+          <div class="pt-6 border-t border-[var(--border-color)]">
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-4">Common Questions</h2>
+            
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">How do I add the widget to my home screen?</h3>
+                <p class="mt-1">Long-press on your home screen, tap the "+" button in the top-left corner, search for "Focus Launcher", and choose your preferred widget size.</p>
+              </div>
+
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">How do I add a custom app?</h3>
+                <p class="mt-1">In the app, tap "Add App", then scroll down and tap "Add Custom App". Enter the app name and its URL scheme (e.g., <code class="text-sm bg-[var(--bg-secondary)] px-1 py-0.5 rounded">myapp://</code>).</p>
+              </div>
+
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">Where can I find URL schemes for apps?</h3>
+                <p class="mt-1">Many apps publish their URL schemes in their documentation. You can also search "[app name] URL scheme" online. Common patterns include <code class="text-sm bg-[var(--bg-secondary)] px-1 py-0.5 rounded">appname://</code> or <code class="text-sm bg-[var(--bg-secondary)] px-1 py-0.5 rounded">x-appname://</code>.</p>
+              </div>
+
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">The widget isn't showing my changes</h3>
+                <p class="mt-1">Open the Focus Easy app to trigger a refresh. If that doesn't work, try removing and re-adding the widget, or restart your device.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

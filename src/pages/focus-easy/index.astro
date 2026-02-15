@@ -1,0 +1,581 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Focus Easy — Minimalist Home Screen Launcher for iOS"
+  description="A distraction-free home screen launcher. Replace clutter with calm. No tracking, no accounts, just focus."
+  ogImage="/img/focus-easy/icon.png"
+  ogUrl="https://idlefusion.com/focus-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="fl-nav">
+    <div class="fl-nav-inner">
+      <a href="/focus-easy" class="fl-logo">Focus Easy</a>
+      <div class="fl-nav-actions">
+        <ThemeToggle />
+        <a href="#download" class="fl-nav-cta">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Minimal, centered, tons of whitespace -->
+    <section class="fl-hero">
+      <div class="fl-hero-inner">
+        <img src="/img/focus-easy/icon.png" alt="Focus Easy app icon" class="fl-hero-icon" width="240" height="240" />
+        <h1 class="fl-hero-title">
+          Your phone,<br/><em>simplified.</em>
+        </h1>
+        <p class="fl-hero-subtitle">
+          A minimalist home screen launcher for iOS.<br/>
+          Replace clutter with calm. Just tap and go.
+        </p>
+        <div class="fl-hero-actions" id="download">
+          <a href="#" class="fl-store-badge">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+          <span class="fl-hero-note">Coming Soon &middot; Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features — Vertical editorial list, not a grid -->
+    <section class="fl-section">
+      <div class="fl-container">
+        <div class="fl-section-header">
+          <span class="fl-label">FEATURES</span>
+          <h2 class="fl-section-title">Designed for focus.</h2>
+        </div>
+
+        <div class="fl-feature-list">
+          <div class="fl-feature-item">
+            <div class="fl-feature-num">01</div>
+            <div class="fl-feature-body">
+              <h3>Minimalist Widget</h3>
+              <p>A clean, black and white home screen widget that shows only your essential apps. No badges, no distractions.</p>
+            </div>
+          </div>
+
+          <div class="fl-feature-item">
+            <div class="fl-feature-num">02</div>
+            <div class="fl-feature-body">
+              <h3>Three Widget Sizes</h3>
+              <p>Small (4 apps), medium (6 apps), or large (12 apps). Pick the size that fits your focus level.</p>
+            </div>
+          </div>
+
+          <div class="fl-feature-item">
+            <div class="fl-feature-num">03</div>
+            <div class="fl-feature-body">
+              <h3>Popular Apps Built-In</h3>
+              <p>Quick access to common apps like Messages, Phone, Safari, Instagram, and dozens more. One tap to add.</p>
+            </div>
+          </div>
+
+          <div class="fl-feature-item">
+            <div class="fl-feature-num">04</div>
+            <div class="fl-feature-body">
+              <h3>Custom URL Schemes</h3>
+              <p>Add any app with a URL scheme. Full control over your launcher without limitations.</p>
+            </div>
+          </div>
+
+          <div class="fl-feature-item">
+            <div class="fl-feature-num">05</div>
+            <div class="fl-feature-body">
+              <h3>Drag to Reorder</h3>
+              <p>Arrange your apps exactly how you want. Your muscle memory becomes the navigation.</p>
+            </div>
+          </div>
+
+          <div class="fl-feature-item">
+            <div class="fl-feature-num">06</div>
+            <div class="fl-feature-body">
+              <h3>Completely Offline</h3>
+              <p>No servers, no sync, no network requests. Your apps, your device, your privacy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy — Full-width dark callout -->
+    <section class="fl-privacy-banner">
+      <div class="fl-container">
+        <div class="fl-privacy-inner">
+          <h2 class="fl-privacy-title">Zero data collection.</h2>
+          <p class="fl-privacy-text">
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Focus Easy doesn't even make network requests.
+          </p>
+          <a href="/focus-easy/privacy" class="fl-privacy-link">Read the privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="fl-section">
+      <div class="fl-container">
+        <div class="fl-section-header">
+          <span class="fl-label">PHILOSOPHY</span>
+          <h2 class="fl-section-title">Less is more.</h2>
+        </div>
+
+        <div class="fl-philosophy">
+          <p>
+            Your phone's home screen is visual noise. Dozens of colorful icons competing for attention, 
+            badges screaming at you, apps you forgot you installed.
+          </p>
+          <p>
+            Focus Easy replaces that chaos with a single, minimal widget. Black text on white (or white on black). 
+            Just the apps you actually need. Nothing else.
+          </p>
+          <p>
+            Inspired by the "dumb phone" movement and digital minimalism, Focus Easy helps you use your phone 
+            intentionally — not compulsively.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fl-cta">
+      <div class="fl-container">
+        <div class="fl-cta-inner">
+          <h2 class="fl-cta-title">Simplify your home screen.</h2>
+          <p class="fl-cta-text">Coming soon to the App Store. Free.</p>
+          <a href="#" class="fl-store-badge">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <ExploreApps current="focus-easy" />
+  </main>
+
+  <!-- App Footer -->
+  <footer class="fl-footer">
+    <div class="fl-footer-inner">
+      <div class="fl-footer-links">
+        <a href="/focus-easy/support">Support</a>
+        <span class="fl-footer-dot">&middot;</span>
+        <a href="/focus-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="fl-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     FOCUS EASY — Monochrome Theme
+     Minimalist, black & white, zen editorial layout
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --fl-accent: #525252;
+    --fl-accent-deep: #171717;
+    --fl-bg: #ffffff;
+    --fl-bg-alt: #fafafa;
+    --fl-bg-card: #ffffff;
+    --fl-text: #0a0a0a;
+    --fl-text-secondary: #404040;
+    --fl-text-muted: #737373;
+    --fl-border: #e5e5e5;
+    --fl-privacy-bg: #0a0a0a;
+    --fl-privacy-text: #fafafa;
+    --fl-privacy-muted: #a3a3a3;
+  }
+
+  :global(.dark) {
+    --fl-accent: #a3a3a3;
+    --fl-accent-deep: #fafafa;
+    --fl-bg: #000000;
+    --fl-bg-alt: #0a0a0a;
+    --fl-bg-card: #141414;
+    --fl-text: #fafafa;
+    --fl-text-secondary: #d4d4d4;
+    --fl-text-muted: #737373;
+    --fl-border: #262626;
+    --fl-privacy-bg: #0a0a0a;
+    --fl-privacy-text: #fafafa;
+    --fl-privacy-muted: #a3a3a3;
+  }
+
+  /* ─── Nav ─── */
+  .fl-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--fl-bg);
+    border-bottom: 1px solid var(--fl-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .fl-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .fl-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .fl-nav-inner { padding: 0 3rem; }
+  }
+
+  .fl-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--fl-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .fl-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .fl-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .fl-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero — Centered, meditative, generous spacing ─── */
+  .fl-hero {
+    padding: 6rem 0 7rem;
+    text-align: center;
+    background: var(--fl-bg-alt);
+  }
+
+  .fl-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .fl-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .fl-hero-inner { padding: 0 3rem; }
+  }
+
+  .fl-hero-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .fl-hero-icon {
+      width: 148px;
+      height: 148px;
+      border-radius: 34px;
+    }
+  }
+
+  .fl-hero-title {
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    color: var(--fl-text);
+    margin-bottom: 1.75rem;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+  }
+
+  .fl-hero-title em {
+    font-style: italic;
+    color: var(--fl-accent);
+  }
+
+  .fl-hero-subtitle {
+    font-size: 1.0625rem;
+    color: var(--fl-text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .fl-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .fl-store-badge {
+    display: inline-block;
+  }
+
+  .fl-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .fl-store-badge:hover img { opacity: 0.8; }
+
+  .fl-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--fl-text-muted);
+  }
+
+  /* ─── Sections ─── */
+  .fl-section {
+    padding: 5rem 0;
+    background: var(--fl-bg);
+  }
+
+  .fl-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .fl-container { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .fl-container { padding: 0 3rem; }
+  }
+
+  .fl-section-header {
+    margin-bottom: 3rem;
+  }
+
+  .fl-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--fl-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .fl-section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--fl-text);
+    letter-spacing: -0.02em;
+  }
+
+  /* ─── Feature List — Vertical, numbered, editorial ─── */
+  .fl-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .fl-feature-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--fl-border);
+  }
+
+  .fl-feature-item:first-child {
+    border-top: 1px solid var(--fl-border);
+  }
+
+  .fl-feature-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--fl-accent);
+    flex-shrink: 0;
+    width: 2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .fl-feature-body h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--fl-text);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .fl-feature-body p {
+    color: var(--fl-text-secondary);
+    line-height: 1.7;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Philosophy ─── */
+  .fl-philosophy {
+    max-width: 38rem;
+  }
+
+  .fl-philosophy p {
+    color: var(--fl-text-secondary);
+    line-height: 1.8;
+    font-size: 1.0625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .fl-philosophy p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ─── Privacy Banner — Always dark ─── */
+  .fl-privacy-banner {
+    background: var(--fl-privacy-bg);
+    padding: 5rem 0;
+  }
+
+  .fl-privacy-inner {
+    text-align: center;
+  }
+
+  .fl-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--fl-privacy-text);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .fl-privacy-text {
+    font-size: 1.0625rem;
+    color: var(--fl-privacy-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .fl-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--fl-privacy-text);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .fl-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .fl-cta {
+    padding: 6rem 0;
+    background: var(--fl-bg-alt);
+  }
+
+  .fl-cta-inner {
+    text-align: center;
+  }
+
+  .fl-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--fl-text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .fl-cta-text {
+    font-size: 1.125rem;
+    color: var(--fl-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .fl-footer {
+    background: var(--fl-bg);
+    border-top: 1px solid var(--fl-border);
+    padding: 2rem 0;
+  }
+
+  .fl-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .fl-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .fl-footer-inner { padding: 0 3rem; }
+  }
+
+  .fl-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .fl-footer-links a {
+    color: var(--fl-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .fl-footer-links a:hover {
+    color: var(--fl-text);
+  }
+
+  .fl-footer-dot {
+    color: var(--fl-text-muted);
+    opacity: 0.4;
+  }
+
+  .fl-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--fl-text-muted);
+    opacity: 0.6;
+  }
+
+  .fl-footer-brand a {
+    color: var(--fl-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .fl-footer-brand a:hover {
+    color: var(--fl-text);
+  }
+</style>
