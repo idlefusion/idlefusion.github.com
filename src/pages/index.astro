@@ -23,6 +23,7 @@ const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.or
 const apps = [
   { href: '/contrast', icon: '/img/contrast/icon.png', category: 'Sauna + Cold Plunge', name: 'Contrast', desc: 'A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.' },
   { href: '/fast-easy', icon: '/img/fast-easy/icon.png', category: 'Fasting Timer', name: 'Fast Easy', desc: 'A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions.' },
+  { href: '/focus-easy', icon: '/img/focus-easy/icon.png', category: 'Minimalist Launcher', name: 'Focus Easy', desc: 'A minimal home screen launcher that eliminates distraction. Your essential apps, one tap away.' },
   { href: '/run-easy', icon: '/img/run-easy/icon.png', category: 'Heart Rate Zone Training', name: 'Run Easy Z2', desc: 'Heart rate zone training on Apple Watch built around the Maffetone method with real-time coaching.' },
   { href: '/check-yourself', icon: '/img/check-yourself/icon.png', category: 'Camera Mirror', name: 'Check Yourself', desc: 'A lightweight macOS menu bar app to check your appearance before meetings.' },
 ].sort(() => Math.random() - 0.5);
