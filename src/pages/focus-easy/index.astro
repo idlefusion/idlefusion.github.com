@@ -45,6 +45,20 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots Gallery -->
+    <section class="fl-screenshots">
+      <div class="fl-screenshots-inner">
+        <div class="fl-screenshots-scroll">
+          <img src="/img/focus-easy/screenshots/01_widget_hero.png" alt="Widget home screen" class="fl-screenshot" />
+          <img src="/img/focus-easy/screenshots/02_app_list.png" alt="App list view" class="fl-screenshot" />
+          <img src="/img/focus-easy/screenshots/03_popular_apps.png" alt="Popular apps" class="fl-screenshot" />
+          <img src="/img/focus-easy/screenshots/04_widget_medium.png" alt="Widget sizes" class="fl-screenshot" />
+          <img src="/img/focus-easy/screenshots/05_minimalist.png" alt="Minimalist design" class="fl-screenshot" />
+          <img src="/img/focus-easy/screenshots/06_privacy.png" alt="Privacy features" class="fl-screenshot" />
+        </div>
+      </div>
+    </section>
+
     <!-- Features — Vertical editorial list, not a grid -->
     <section class="fl-section">
       <div class="fl-container">
@@ -346,6 +360,52 @@ import ExploreApps from '../../components/ExploreApps.astro';
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     color: var(--fl-text-muted);
+  }
+
+  /* ─── Screenshots Gallery ─── */
+  .fl-screenshots {
+    background: var(--fl-bg);
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+
+  .fl-screenshots-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .fl-screenshots-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1.5rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .fl-screenshots-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .fl-screenshots-scroll { padding: 0 2rem 1rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .fl-screenshots-scroll { padding: 0 3rem 1rem; }
+  }
+
+  .fl-screenshot {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .fl-screenshot { width: 260px; }
   }
 
   /* ─── Sections ─── */
