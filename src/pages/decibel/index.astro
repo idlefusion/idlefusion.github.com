@@ -1,0 +1,673 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Decibel — Sound Level Meter for iOS"
+  description="Measure sound levels instantly with real-time dB readings, NIOSH exposure warnings, and HealthKit integration. No accounts, no subscriptions."
+  ogImage="/img/decibel/icon.png"
+  ogUrl="https://idlefusion.com/decibel"
+>
+
+  <!-- App Nav -->
+  <nav class="db-nav">
+    <div class="db-nav-inner">
+      <a href="/decibel" class="db-logo">Decibel</a>
+      <div class="db-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id0000000000" class="db-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="db-hero">
+      <div class="db-hero-glow db-hero-glow--primary"></div>
+      <div class="db-hero-glow db-hero-glow--secondary"></div>
+      <div class="db-hero-inner">
+        <div class="db-hero-content">
+          <div class="db-hero-text">
+            <div class="db-hero-badge">SOUND LEVEL METER</div>
+            <h1 class="db-hero-title">
+              Measure sound levels<br/><em>instantly.</em>
+            </h1>
+            <p class="db-hero-subtitle">
+              A precise decibel meter with NIOSH safety warnings. Know when noise becomes harmful and protect your hearing.
+            </p>
+            <div class="db-hero-actions">
+              <a href="https://apps.apple.com/app/id0000000000" class="db-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="db-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="db-hero-icon-wrap">
+            <img src="/img/decibel/icon.png" alt="Decibel app icon" class="db-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="db-features-section">
+      <div class="db-container-wide">
+        <div class="db-features-header">
+          <span class="db-label">FEATURES</span>
+          <h2 class="db-features-title">Know your environment.</h2>
+        </div>
+
+        <div class="db-features">
+          <div class="db-feature">
+            <div class="db-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h4l3-9 6 18 3-9h4"/></svg>
+            </div>
+            <h3>Real-Time dB Meter</h3>
+            <p>Large, easy-to-read display shows current decibel levels instantly. Track peak and average readings during your measurement sessions.</p>
+          </div>
+
+          <div class="db-feature">
+            <div class="db-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3>NIOSH Exposure Warnings</h3>
+            <p>Color-coded safety alerts based on occupational standards. Know exactly how long you can safely be exposed to current noise levels.</p>
+          </div>
+
+          <div class="db-feature">
+            <div class="db-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            </div>
+            <h3>Save Readings</h3>
+            <p>Store measurements with notes for later reference. Export your history to CSV for analysis or record-keeping.</p>
+          </div>
+
+          <div class="db-feature">
+            <div class="db-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>HealthKit Integration</h3>
+            <p>Record environmental audio exposure to Apple Health. Track your hearing health over time alongside your other health data.</p>
+          </div>
+
+          <div class="db-feature">
+            <div class="db-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <h3>Session History</h3>
+            <p>Every measurement is saved automatically. Review past readings, track trends, and build awareness of your noise exposure.</p>
+          </div>
+
+          <div class="db-feature">
+            <div class="db-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Completely Private</h3>
+            <p>No accounts, no cloud sync, no tracking. Your sound measurements stay on your device. We never hear a thing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="db-usecases">
+      <div class="db-container">
+        <div class="db-usecases-inner">
+          <span class="db-label">PERFECT FOR</span>
+          <h2 class="db-usecases-title">Anyone who works in sound.</h2>
+          <div class="db-usecases-grid">
+            <div class="db-usecase">Musicians & audio engineers</div>
+            <div class="db-usecase">Construction & industrial workers</div>
+            <div class="db-usecase">Teachers & childcare workers</div>
+            <div class="db-usecase">Hearing health awareness</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="db-privacy-banner">
+      <div class="db-container">
+        <div class="db-privacy-inner">
+          <span class="db-label">PRIVACY</span>
+          <h2 class="db-privacy-title">Zero data collection.</h2>
+          <p class="db-privacy-text">
+            No analytics. No ads. No tracking. No telemetry.<br/>
+            Decibel processes audio locally on your device. We never record, store, or transmit any audio.
+          </p>
+          <a href="/decibel/privacy" class="db-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="db-cta">
+      <div class="db-container">
+        <div class="db-cta-inner">
+          <h2 class="db-cta-title">Start measuring.</h2>
+          <p class="db-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id0000000000" class="db-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="decibel" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="db-footer">
+    <div class="db-footer-inner">
+      <div class="db-footer-links">
+        <a href="/decibel/support">Support</a>
+        <span class="db-footer-dot">&middot;</span>
+        <a href="/decibel/privacy">Privacy Policy</a>
+      </div>
+      <div class="db-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     DECIBEL — Orange/Amber, Sound Wave Theme
+     Bold, energetic, measuring intensity
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --db-accent: #f97316;
+    --db-accent-deep: #ea580c;
+    --db-accent-bg: #fff7ed;
+    --db-secondary: #fbbf24;
+    --db-bg: #f8fafc;
+    --db-surface: #ffffff;
+    --db-border: rgba(148, 163, 184, 0.15);
+    --db-text: #0f172a;
+    --db-text-muted: #64748b;
+    --db-feature-icon-bg: rgba(249, 115, 22, 0.08);
+    --db-feature-icon-border: rgba(249, 115, 22, 0.12);
+  }
+
+  :global(.dark) {
+    --db-accent: #fb923c;
+    --db-accent-deep: #f97316;
+    --db-accent-bg: #431407;
+    --db-bg: #0a0f1a;
+    --db-surface: #111827;
+    --db-border: rgba(148, 163, 184, 0.08);
+    --db-text: #f1f5f9;
+    --db-text-muted: #94a3b8;
+    --db-feature-icon-bg: rgba(249, 115, 22, 0.1);
+    --db-feature-icon-border: rgba(249, 115, 22, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .db-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--db-bg);
+    border-bottom: 1px solid var(--db-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .db-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .db-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .db-nav-inner { padding: 0 3rem; }
+  }
+
+  .db-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--db-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .db-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .db-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .db-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .db-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .db-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.12;
+  }
+
+  .db-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--db-accent);
+  }
+
+  .db-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--db-secondary);
+  }
+
+  .db-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .db-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .db-hero-inner { padding: 0 3rem; }
+  }
+
+  .db-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .db-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .db-hero-text { flex: 1; }
+
+  .db-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--db-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .db-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .db-hero-title em {
+    font-style: italic;
+    color: var(--db-accent);
+  }
+
+  .db-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .db-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .db-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .db-hero-actions { align-items: flex-start; }
+  }
+
+  .db-store-badge {
+    display: inline-block;
+  }
+
+  .db-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .db-store-badge:hover img { opacity: 0.8; }
+
+  .db-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .db-hero-icon-wrap { flex-shrink: 0; }
+
+  .db-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(249, 115, 22, 0.2), 0 0 80px rgba(249, 115, 22, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .db-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .db-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .db-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .db-container { padding: 0 2rem; }
+    .db-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .db-container { padding: 0 3rem; }
+    .db-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .db-features-section {
+    background: var(--db-surface);
+    padding: 5rem 0;
+  }
+
+  .db-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .db-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--db-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .db-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--db-text);
+    margin-bottom: 1rem;
+  }
+
+  .db-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--db-border);
+    border: 1px solid var(--db-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .db-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .db-feature {
+    padding: 2rem;
+    background: var(--db-surface);
+  }
+
+  .db-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--db-feature-icon-bg);
+    border: 1px solid var(--db-feature-icon-border);
+    border-radius: 10px;
+    color: var(--db-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .db-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--db-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .db-feature p {
+    color: var(--db-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Use Cases ─── */
+  .db-usecases {
+    background: var(--db-bg);
+    padding: 5rem 0;
+    border-top: 1px solid var(--db-border);
+    border-bottom: 1px solid var(--db-border);
+  }
+
+  .db-usecases-inner {
+    text-align: center;
+  }
+
+  .db-usecases-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--db-text);
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .db-usecases-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .db-usecase {
+    background: var(--db-surface);
+    border: 1px solid var(--db-border);
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+    color: var(--db-text-muted);
+    font-weight: 500;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .db-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .db-privacy-inner {
+    text-align: center;
+  }
+
+  .db-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .db-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .db-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--db-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .db-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .db-cta {
+    padding: 6rem 0;
+    background: var(--db-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .db-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .db-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--db-text);
+    margin-bottom: 1rem;
+  }
+
+  .db-cta-text {
+    font-size: 1.125rem;
+    color: var(--db-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .db-footer {
+    background: var(--db-bg);
+    border-top: 1px solid var(--db-border);
+    padding: 2rem 0;
+  }
+
+  .db-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .db-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .db-footer-inner { padding: 0 3rem; }
+  }
+
+  .db-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .db-footer-links a {
+    color: var(--db-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .db-footer-links a:hover {
+    color: var(--db-accent);
+  }
+
+  .db-footer-dot {
+    color: var(--db-text-muted);
+    opacity: 0.4;
+  }
+
+  .db-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--db-text-muted);
+    opacity: 0.6;
+  }
+
+  .db-footer-brand a {
+    color: var(--db-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .db-footer-brand a:hover {
+    color: var(--db-accent);
+  }
+</style>

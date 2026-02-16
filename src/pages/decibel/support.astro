@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Decibel - Support"
+  description="Get help with Decibel - Sound Level Meter iOS app."
+  ogUrl="https://idlefusion.com/decibel/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed mb-12">
+          <p class="text-lg mb-4">Need help with Decibel?</p>
+          <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Decibel%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+        </div>
+
+        <div class="space-y-8">
+          <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How accurate is Decibel?</h3>
+              <p class="text-[var(--text-secondary)]">Decibel uses your device's built-in microphone to measure sound levels. While it provides useful relative measurements for comparing environments and tracking exposure, it is not a calibrated scientific instrument. For occupational safety compliance or medical decisions, use a certified sound level meter.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What are NIOSH exposure limits?</h3>
+              <p class="text-[var(--text-secondary)] mb-3">NIOSH (National Institute for Occupational Safety and Health) sets recommended exposure limits to protect hearing. The limits are based on both loudness and duration:</p>
+              <ul class="text-[var(--text-secondary)] list-disc list-inside space-y-1 ml-4">
+                <li>85 dB — 8 hours maximum</li>
+                <li>88 dB — 4 hours maximum</li>
+                <li>91 dB — 2 hours maximum</li>
+                <li>94 dB — 1 hour maximum</li>
+                <li>97 dB — 30 minutes maximum</li>
+                <li>100 dB — 15 minutes maximum</li>
+                <li>103 dB — 7.5 minutes maximum</li>
+                <li>106 dB — Under 4 minutes</li>
+              </ul>
+              <p class="text-[var(--text-secondary)] mt-3">Decibel shows these warnings automatically when sound levels exceed safe thresholds.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why does Decibel need microphone access?</h3>
+              <p class="text-[var(--text-secondary)]">Decibel uses the microphone solely to measure sound pressure levels. Audio is processed in real-time on your device and immediately discarded — no audio is ever recorded, stored, or transmitted. Without microphone access, the app cannot function.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What is HealthKit integration?</h3>
+              <p class="text-[var(--text-secondary)]">If you enable HealthKit integration, Decibel can record your environmental audio exposure to Apple Health when you save a reading. This helps you track cumulative noise exposure over time alongside your other health data. The feature is completely optional.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I export my measurements?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. You can export your measurement history to a CSV file for analysis or record-keeping. Go to History and tap the export button.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why are my readings different from another app?</h3>
+              <p class="text-[var(--text-secondary)]">Different apps may use different calibration methods, frequency weighting (A, C, or Z), and measurement techniques. Decibel uses A-weighting, which approximates human hearing sensitivity. Small variations between apps are normal — focus on relative changes rather than absolute values.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Decibel work offline?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. Decibel works entirely offline and makes no network requests. All data stays on your device.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
