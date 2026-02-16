@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Tune Easy - Support"
+  description="Get help with Tune Easy - Simple Guitar Tuner iOS app."
+  ogUrl="https://idlefusion.com/tune-easy/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed mb-12">
+          <p class="text-lg mb-4">Need help with Tune Easy?</p>
+          <p>Check the frequently asked questions below, or send us an email at <a href="mailto:support@idlefusion.com?subject=Tune%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a>.</p>
+        </div>
+
+        <div class="space-y-8">
+          <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+          <div class="space-y-6">
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why isn't the tuner detecting my guitar?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Make sure you've granted microphone permission when prompted. You can check this in Settings → Privacy & Security → Microphone. Also, try playing closer to your device's microphone and in a quieter environment.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">The tuner shows the wrong note. What's happening?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">If your string is very out of tune, the app may detect a different note. Try getting the string roughly in tune first (close enough that it sounds like the right note), then use the app for fine-tuning.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What is "cents" and why does it matter?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">A cent is 1/100th of a semitone — a tiny unit of pitch. When the display shows +5 or -10 cents, that's how far you are from perfect pitch. Most people can't hear differences smaller than about 5 cents, so anywhere in that range sounds "in tune."</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Tune Easy support alternate tunings?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">No. Tune Easy is designed specifically for standard tuning (E A D G B E). We intentionally kept it simple to avoid the confusion of accidentally selecting the wrong tuning. If you need alternate tunings, a chromatic tuner app might be a better fit.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What are reference tones?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Tap any string button (E, A, D, G, B, E) to hear what that string should sound like when properly tuned. This helps you tune by ear and learn to recognize the correct pitch.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does this work with acoustic and electric guitars?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes! Tune Easy works with any guitar that produces audible sound. For electric guitars, you can either play unplugged (the strings are usually loud enough) or hold your device near your amp's speaker.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Tune Easy record my audio?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">No. Audio from your microphone is processed in real time for pitch detection only. Nothing is recorded, stored, or sent anywhere. The audio data only exists in temporary memory while the app is analyzing pitch.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why is my tuner needle jumping around?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">This usually happens when there's background noise or when the string is still vibrating with unwanted overtones. Try plucking the string cleanly and letting it ring in a quieter space.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
