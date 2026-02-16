@@ -1,0 +1,731 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Mood Easy — Simple Mood Tracker for iOS"
+  description="Track your mood the easy way. Quick emoji logging, Year in Pixels visualization, and beautiful widgets. 100% private — your data never leaves your device."
+  ogImage="/img/mood-easy/icon.png"
+  ogUrl="https://idlefusion.com/mood-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="me-nav">
+    <div class="me-nav-inner">
+      <a href="/mood-easy" class="me-logo">Mood Easy</a>
+      <div class="me-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id0000000000" class="me-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="me-hero">
+      <div class="me-hero-glow me-hero-glow--primary"></div>
+      <div class="me-hero-glow me-hero-glow--secondary"></div>
+      <div class="me-hero-inner">
+        <div class="me-hero-content">
+          <div class="me-hero-text">
+            <div class="me-hero-badge">MOOD TRACKER</div>
+            <h1 class="me-hero-title">
+              Track your mood,<br/><em>privately.</em>
+            </h1>
+            <p class="me-hero-subtitle">
+              Simple mood logging with beautiful Year in Pixels visualization. No accounts, no cloud, no tracking. Your feelings stay yours.
+            </p>
+            <div class="me-hero-actions">
+              <a href="https://apps.apple.com/app/id0000000000" class="me-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="me-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="me-hero-icon-wrap">
+            <img src="/img/mood-easy/icon.png" alt="Mood Easy app icon" class="me-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emoji strip -->
+    <section class="me-emoji-strip">
+      <div class="me-emoji-inner">
+        <span class="me-emoji" title="Great">😊</span>
+        <span class="me-emoji" title="Good">🙂</span>
+        <span class="me-emoji" title="Okay">😐</span>
+        <span class="me-emoji" title="Bad">😔</span>
+        <span class="me-emoji" title="Awful">😢</span>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="me-features-section">
+      <div class="me-container-wide">
+        <div class="me-features-header">
+          <span class="me-label">FEATURES</span>
+          <h2 class="me-features-title">Gentle self-awareness.</h2>
+        </div>
+
+        <div class="me-features">
+          <div class="me-feature">
+            <div class="me-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <h3>Quick Emoji Logging</h3>
+            <p>Log your mood in seconds. Tap one of five emoji — great, good, okay, bad, or awful — and you're done. Add a note if you want, but no pressure.</p>
+          </div>
+
+          <div class="me-feature">
+            <div class="me-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Year in Pixels</h3>
+            <p>See your mood patterns with a beautiful calendar view. Each day is a colored square — scroll through months and years to spot trends and gain self-insight.</p>
+          </div>
+
+          <div class="me-feature">
+            <div class="me-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <h3>Mood Trends</h3>
+            <p>Track patterns over time. See how your mood changes week to week, spot your best days, and recognize what helps you feel better.</p>
+          </div>
+
+          <div class="me-feature">
+            <div class="me-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Home Screen Widgets</h3>
+            <p>Small widget prompts you to log. Medium shows your last 7 days as a mood strip. Lock screen widget displays today's mood at a glance.</p>
+          </div>
+
+          <div class="me-feature">
+            <div class="me-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Apple Watch</h3>
+            <p>Log moods from your wrist with quick selection and haptic confirmation. Add complications to see your mood on your watch face.</p>
+          </div>
+
+          <div class="me-feature">
+            <div class="me-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>HealthKit Integration</h3>
+            <p>Sync with Apple Health's State of Mind feature. See your moods alongside other wellness data. Completely optional — you control permissions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="me-privacy-banner">
+      <div class="me-container">
+        <div class="me-privacy-inner">
+          <span class="me-label">YOUR DATA IS SACRED</span>
+          <h2 class="me-privacy-title">Mood data is personal.<br/>We treat it that way.</h2>
+          <p class="me-privacy-text">
+            No accounts. No cloud sync. No analytics. No ads. No tracking.<br/>
+            Your mood entries are stored only on your device. We never see them.<br/>
+            When you delete the app, your data is gone. Period.
+          </p>
+          <a href="/mood-easy/privacy" class="me-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Philosophy -->
+    <section class="me-philosophy">
+      <div class="me-container">
+        <div class="me-philosophy-inner">
+          <span class="me-label">DESIGN PHILOSOPHY</span>
+          <h2 class="me-philosophy-title">Gentle by design.</h2>
+          <div class="me-philosophy-grid">
+            <div class="me-philosophy-item">
+              <h3>Calming Colors</h3>
+              <p>No harsh reds for bad days. Our palette is designed to be gentle and non-judgmental — even tracking difficult days should feel okay.</p>
+            </div>
+            <div class="me-philosophy-item">
+              <h3>Supportive Language</h3>
+              <p>We use thoughtful, encouraging words. This app is meant to help you, not make you feel worse about how you're feeling.</p>
+            </div>
+            <div class="me-philosophy-item">
+              <h3>No Pressure</h3>
+              <p>One entry per day. Optional notes. No streaks that guilt you. Mood Easy adapts to you, not the other way around.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="me-cta">
+      <div class="me-container">
+        <div class="me-cta-inner">
+          <h2 class="me-cta-title">Start tracking, privately.</h2>
+          <p class="me-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id0000000000" class="me-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="mood-easy" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="me-footer">
+    <div class="me-footer-inner">
+      <div class="me-footer-links">
+        <a href="/mood-easy/support">Support</a>
+        <span class="me-footer-dot">&middot;</span>
+        <a href="/mood-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="me-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     MOOD EASY — Lavender / Purple, Calming Theme
+     Gentle, supportive, private
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --me-accent: #a855f7;
+    --me-accent-deep: #9333ea;
+    --me-accent-bg: #faf5ff;
+    --me-warm: #f472b6;
+    --me-bg: #f8fafc;
+    --me-surface: #ffffff;
+    --me-border: rgba(148, 163, 184, 0.15);
+    --me-text: #0f172a;
+    --me-text-muted: #64748b;
+    --me-feature-icon-bg: rgba(168, 85, 247, 0.08);
+    --me-feature-icon-border: rgba(168, 85, 247, 0.12);
+  }
+
+  :global(.dark) {
+    --me-accent: #c084fc;
+    --me-accent-deep: #a855f7;
+    --me-accent-bg: #2e1065;
+    --me-bg: #0a0f1a;
+    --me-surface: #111827;
+    --me-border: rgba(148, 163, 184, 0.08);
+    --me-text: #f1f5f9;
+    --me-text-muted: #94a3b8;
+    --me-feature-icon-bg: rgba(168, 85, 247, 0.1);
+    --me-feature-icon-border: rgba(168, 85, 247, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .me-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--me-bg);
+    border-bottom: 1px solid var(--me-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .me-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .me-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .me-nav-inner { padding: 0 3rem; }
+  }
+
+  .me-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--me-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .me-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .me-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .me-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .me-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .me-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.15;
+  }
+
+  .me-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--me-accent);
+  }
+
+  .me-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--me-warm);
+  }
+
+  .me-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .me-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .me-hero-inner { padding: 0 3rem; }
+  }
+
+  .me-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .me-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .me-hero-text { flex: 1; }
+
+  .me-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--me-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .me-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .me-hero-title em {
+    font-style: italic;
+    color: var(--me-accent);
+  }
+
+  .me-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .me-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .me-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .me-hero-actions { align-items: flex-start; }
+  }
+
+  .me-store-badge {
+    display: inline-block;
+  }
+
+  .me-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .me-store-badge:hover img { opacity: 0.8; }
+
+  .me-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .me-hero-icon-wrap { flex-shrink: 0; }
+
+  .me-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(168, 85, 247, 0.25), 0 0 80px rgba(168, 85, 247, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .me-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Emoji Strip ─── */
+  .me-emoji-strip {
+    background: var(--me-bg);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--me-border);
+  }
+
+  .me-emoji-inner {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .me-emoji {
+    font-size: 2.5rem;
+    filter: grayscale(0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .me-emoji:hover {
+    filter: grayscale(0);
+    transform: scale(1.15);
+  }
+
+  @media (min-width: 640px) {
+    .me-emoji { font-size: 3rem; }
+    .me-emoji-inner { gap: 3rem; }
+  }
+
+  /* ─── Containers ─── */
+  .me-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .me-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .me-container { padding: 0 2rem; }
+    .me-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .me-container { padding: 0 3rem; }
+    .me-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .me-features-section {
+    background: var(--me-surface);
+    padding: 5rem 0;
+  }
+
+  .me-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .me-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--me-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .me-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--me-text);
+    margin-bottom: 1rem;
+  }
+
+  .me-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--me-border);
+    border: 1px solid var(--me-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .me-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .me-feature {
+    padding: 2rem;
+    background: var(--me-surface);
+  }
+
+  .me-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--me-feature-icon-bg);
+    border: 1px solid var(--me-feature-icon-border);
+    border-radius: 10px;
+    color: var(--me-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .me-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--me-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .me-feature p {
+    color: var(--me-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .me-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .me-privacy-inner {
+    text-align: center;
+  }
+
+  .me-privacy-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .me-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .me-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--me-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .me-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── Philosophy ─── */
+  .me-philosophy {
+    background: var(--me-surface);
+    padding: 5rem 0;
+  }
+
+  .me-philosophy-inner {
+    max-width: 800px;
+  }
+
+  .me-philosophy-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--me-text);
+    margin-bottom: 2.5rem;
+  }
+
+  .me-philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .me-philosophy-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .me-philosophy-item h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--me-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .me-philosophy-item p {
+    font-size: 0.9375rem;
+    color: var(--me-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── CTA ─── */
+  .me-cta {
+    padding: 6rem 0;
+    background: var(--me-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .me-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .me-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--me-text);
+    margin-bottom: 1rem;
+  }
+
+  .me-cta-text {
+    font-size: 1.125rem;
+    color: var(--me-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .me-footer {
+    background: var(--me-bg);
+    border-top: 1px solid var(--me-border);
+    padding: 2rem 0;
+  }
+
+  .me-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .me-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .me-footer-inner { padding: 0 3rem; }
+  }
+
+  .me-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .me-footer-links a {
+    color: var(--me-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .me-footer-links a:hover {
+    color: var(--me-accent);
+  }
+
+  .me-footer-dot {
+    color: var(--me-text-muted);
+    opacity: 0.4;
+  }
+
+  .me-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--me-text-muted);
+    opacity: 0.6;
+  }
+
+  .me-footer-brand a {
+    color: var(--me-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .me-footer-brand a:hover {
+    color: var(--me-accent);
+  }
+</style>
