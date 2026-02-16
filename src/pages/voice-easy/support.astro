@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Voice Easy - Support"
+  description="Get help with Voice Easy - Private Voice Recorder iOS app."
+  ogUrl="https://idlefusion.com/voice-easy/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed mb-12">
+          <p class="text-lg mb-4">Need help with Voice Easy?</p>
+          <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Voice%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does on-device transcription work?</h3>
+            <p class="text-[var(--text-secondary)]">Voice Easy uses Apple's built-in speech recognition with on-device processing enabled. This means your voice is transcribed directly on your iPhone using machine learning models stored locally. Your audio never leaves your device and no internet connection is required.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why is my transcription inaccurate?</h3>
+            <p class="text-[var(--text-secondary)]">Transcription accuracy depends on several factors: background noise, speaking clarity, audio quality, and the language being spoken. For best results, record in a quiet environment and speak clearly. On-device transcription trades some accuracy for privacy compared to cloud-based services.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Which languages are supported?</h3>
+            <p class="text-[var(--text-secondary)]">Voice Easy supports all languages that Apple's on-device speech recognition supports. This includes English, Spanish, French, German, Chinese, Japanese, and many more. The available languages depend on your device's iOS version and downloaded language packs.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How long can I record?</h3>
+            <p class="text-[var(--text-secondary)]">There's no artificial time limit on recordings. You can record as long as you have storage space available on your device. Long recordings may take a bit longer to transcribe.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I export my recordings?</h3>
+            <p class="text-[var(--text-secondary)]">Yes! Tap the share button on any recording to export the audio file, the transcription text, or both. You can send recordings via Messages, Mail, AirDrop, or save them to Files.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Do recordings sync between my iPhone and Apple Watch?</h3>
+            <p class="text-[var(--text-secondary)]">Yes, recordings made on your Apple Watch automatically sync to your iPhone when the devices are in range. This uses Apple's secure device-to-device communication — no data passes through external servers.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why do I need to grant microphone and speech recognition permissions?</h3>
+            <p class="text-[var(--text-secondary)]">Microphone permission is required to record audio. Speech recognition permission is required for transcription. Both are used only when you explicitly start a recording. Voice Easy never accesses these features in the background.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is my data backed up?</h3>
+            <p class="text-[var(--text-secondary)]">Your recordings are included in your regular iPhone backups (iCloud or computer backups). If you restore your device from a backup, your Voice Easy recordings will be restored too.</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I delete a recording?</h3>
+            <p class="text-[var(--text-secondary)]">Swipe left on any recording in the library to reveal the delete option. Deleted recordings are permanently removed from your device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

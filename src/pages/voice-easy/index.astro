@@ -1,0 +1,621 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Voice Easy — Private Voice Recorder for iOS"
+  description="Record voice memos and get instant on-device transcriptions. Your voice never leaves your device. No accounts, no cloud, no subscriptions."
+  ogImage="/img/voice-easy/icon.png"
+  ogUrl="https://idlefusion.com/voice-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="ve-nav">
+    <div class="ve-nav-inner">
+      <a href="/voice-easy" class="ve-logo">Voice Easy</a>
+      <div class="ve-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/voice-easy/id0000000000" class="ve-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="ve-hero">
+      <div class="ve-hero-glow ve-hero-glow--primary"></div>
+      <div class="ve-hero-glow ve-hero-glow--secondary"></div>
+      <div class="ve-hero-inner">
+        <div class="ve-hero-content">
+          <div class="ve-hero-text">
+            <div class="ve-hero-badge">VOICE RECORDER</div>
+            <h1 class="ve-hero-title">
+              Record and transcribe,<br/><em>privately.</em>
+            </h1>
+            <p class="ve-hero-subtitle">
+              Capture your thoughts with one tap. Get instant transcriptions that never leave your device. No accounts, no cloud, no subscriptions.
+            </p>
+            <div class="ve-hero-actions">
+              <a href="https://apps.apple.com/app/voice-easy/id0000000000" class="ve-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="ve-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="ve-hero-icon-wrap">
+            <img src="/img/voice-easy/icon.png" alt="Voice Easy app icon" class="ve-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="ve-features-section">
+      <div class="ve-container-wide">
+        <div class="ve-features-header">
+          <span class="ve-label">FEATURES</span>
+          <h2 class="ve-features-title">Everything you need, nothing you don't.</h2>
+        </div>
+
+        <div class="ve-features">
+          <div class="ve-feature">
+            <div class="ve-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+            </div>
+            <h3>One-Tap Recording</h3>
+            <p>Capture your thoughts instantly with our beautiful, oversized record button. See real-time waveform feedback as you speak.</p>
+          </div>
+
+          <div class="ve-feature">
+            <div class="ve-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            </div>
+            <h3>On-Device Transcription</h3>
+            <p>Your voice never leaves your iPhone. Voice Easy uses Apple's on-device speech recognition to transcribe your recordings locally. No internet required.</p>
+          </div>
+
+          <div class="ve-feature">
+            <div class="ve-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Folders & Tags</h3>
+            <p>Create custom folders with icons and colors. Add tags to recordings. Keep everything organized exactly the way you want.</p>
+          </div>
+
+          <div class="ve-feature">
+            <div class="ve-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+            </div>
+            <h3>Full-Text Search</h3>
+            <p>Find any recording by what was said. Powerful search through all your transcriptions finds exactly what you're looking for.</p>
+          </div>
+
+          <div class="ve-feature">
+            <div class="ve-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <h3>Variable Speed Playback</h3>
+            <p>Listen at your own pace with 0.5x to 2x playback speed. Skip forward or back 15 seconds. Scrub through long recordings.</p>
+          </div>
+
+          <div class="ve-feature">
+            <div class="ve-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Apple Watch</h3>
+            <p>Record voice memos directly from your wrist. Perfect for quick notes when your iPhone isn't handy. Syncs automatically.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="ve-privacy-banner">
+      <div class="ve-container">
+        <div class="ve-privacy-inner">
+          <span class="ve-label">PRIVACY</span>
+          <h2 class="ve-privacy-title">Your voice stays with you.</h2>
+          <p class="ve-privacy-text">
+            Transcription happens entirely on your device using Apple's on-device speech recognition.<br/>
+            No audio is ever sent to the cloud. No accounts. No tracking. No compromises.
+          </p>
+          <a href="/voice-easy/privacy" class="ve-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ve-cta">
+      <div class="ve-container">
+        <div class="ve-cta-inner">
+          <h2 class="ve-cta-title">Start recording.</h2>
+          <p class="ve-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/voice-easy/id0000000000" class="ve-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="voice-easy" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="ve-footer">
+    <div class="ve-footer-inner">
+      <div class="ve-footer-links">
+        <a href="/voice-easy/support">Support</a>
+        <span class="ve-footer-dot">&middot;</span>
+        <a href="/voice-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="ve-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     VOICE EASY — Purple/Violet Theme
+     Clean, confident, private
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --ve-accent: #8b5cf6;
+    --ve-accent-deep: #7c3aed;
+    --ve-accent-bg: #f5f3ff;
+    --ve-secondary: #ec4899;
+    --ve-bg: #f8fafc;
+    --ve-surface: #ffffff;
+    --ve-border: rgba(148, 163, 184, 0.15);
+    --ve-text: #0f172a;
+    --ve-text-muted: #64748b;
+    --ve-feature-icon-bg: rgba(139, 92, 246, 0.08);
+    --ve-feature-icon-border: rgba(139, 92, 246, 0.12);
+  }
+
+  :global(.dark) {
+    --ve-accent: #a78bfa;
+    --ve-accent-deep: #8b5cf6;
+    --ve-accent-bg: #1e1b4b;
+    --ve-bg: #0a0f1a;
+    --ve-surface: #111827;
+    --ve-border: rgba(148, 163, 184, 0.08);
+    --ve-text: #f1f5f9;
+    --ve-text-muted: #94a3b8;
+    --ve-feature-icon-bg: rgba(139, 92, 246, 0.1);
+    --ve-feature-icon-border: rgba(139, 92, 246, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .ve-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ve-bg);
+    border-bottom: 1px solid var(--ve-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .ve-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ve-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ve-nav-inner { padding: 0 3rem; }
+  }
+
+  .ve-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ve-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .ve-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ve-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .ve-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .ve-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ve-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.12;
+  }
+
+  .ve-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--ve-accent);
+  }
+
+  .ve-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--ve-secondary);
+  }
+
+  .ve-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .ve-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ve-hero-inner { padding: 0 3rem; }
+  }
+
+  .ve-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .ve-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .ve-hero-text { flex: 1; }
+
+  .ve-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ve-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .ve-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .ve-hero-title em {
+    font-style: italic;
+    color: var(--ve-accent);
+  }
+
+  .ve-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .ve-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .ve-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .ve-hero-actions { align-items: flex-start; }
+  }
+
+  .ve-store-badge {
+    display: inline-block;
+  }
+
+  .ve-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .ve-store-badge:hover img { opacity: 0.8; }
+
+  .ve-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .ve-hero-icon-wrap { flex-shrink: 0; }
+
+  .ve-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2), 0 0 80px rgba(139, 92, 246, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .ve-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .ve-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .ve-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ve-container { padding: 0 2rem; }
+    .ve-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ve-container { padding: 0 3rem; }
+    .ve-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .ve-features-section {
+    background: var(--ve-surface);
+    padding: 5rem 0;
+  }
+
+  .ve-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .ve-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ve-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .ve-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--ve-text);
+    margin-bottom: 1rem;
+  }
+
+  .ve-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--ve-border);
+    border: 1px solid var(--ve-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .ve-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .ve-feature {
+    padding: 2rem;
+    background: var(--ve-surface);
+  }
+
+  .ve-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ve-feature-icon-bg);
+    border: 1px solid var(--ve-feature-icon-border);
+    border-radius: 10px;
+    color: var(--ve-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .ve-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--ve-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .ve-feature p {
+    color: var(--ve-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .ve-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .ve-privacy-inner {
+    text-align: center;
+  }
+
+  .ve-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .ve-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .ve-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ve-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .ve-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .ve-cta {
+    padding: 6rem 0;
+    background: var(--ve-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ve-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .ve-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ve-text);
+    margin-bottom: 1rem;
+  }
+
+  .ve-cta-text {
+    font-size: 1.125rem;
+    color: var(--ve-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .ve-footer {
+    background: var(--ve-bg);
+    border-top: 1px solid var(--ve-border);
+    padding: 2rem 0;
+  }
+
+  .ve-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .ve-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ve-footer-inner { padding: 0 3rem; }
+  }
+
+  .ve-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .ve-footer-links a {
+    color: var(--ve-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ve-footer-links a:hover {
+    color: var(--ve-accent);
+  }
+
+  .ve-footer-dot {
+    color: var(--ve-text-muted);
+    opacity: 0.4;
+  }
+
+  .ve-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--ve-text-muted);
+    opacity: 0.6;
+  }
+
+  .ve-footer-brand a {
+    color: var(--ve-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .ve-footer-brand a:hover {
+    color: var(--ve-accent);
+  }
+</style>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="20%" cy="20%" r="80%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.2)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  <rect width="1024" height="1024" rx="224" fill="url(#glow)"/>
+  
+  <!-- Microphone -->
+  <g transform="translate(320, 200)">
+    <!-- Mic head -->
+    <rect x="50" y="0" width="180" height="320" rx="90" fill="rgba(255,255,255,0.95)"/>
+    <!-- Mic stand -->
+    <rect x="110" y="280" width="60" height="180" fill="rgba(255,255,255,0.95)"/>
+    <!-- Mic base -->
+    <rect x="60" y="430" width="160" height="50" rx="25" fill="rgba(255,255,255,0.95)"/>
+  </g>
+  
+  <!-- Sound waves -->
+  <g fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="24" stroke-linecap="round">
+    <path d="M 620 350 Q 700 512 620 674" opacity="0.6"/>
+    <path d="M 700 280 Q 820 512 700 744" opacity="0.45"/>
+    <path d="M 780 210 Q 940 512 780 814" opacity="0.3"/>
+  </g>
+</svg>

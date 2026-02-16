@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Weigh Easy - Support"
+  description="Get help with Weigh Easy - Private Weight Tracker iOS app."
+  ogUrl="https://idlefusion.com/weigh-easy/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed mb-12">
+          <p class="text-lg mb-4">Need help with Weigh Easy?</p>
+          <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Weigh%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+        </div>
+
+        <div class="space-y-8">
+          <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+          <div class="space-y-6">
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I log my weight?</h3>
+              <p class="text-[var(--text-secondary)]">Tap the plus button on the main screen to add a new weight entry. Enter your weight, optionally add a note, and tap Save. That's it — your entry is logged and will appear in your history and trend charts.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What do the trend lines mean?</h3>
+              <p class="text-[var(--text-secondary)]">The trend chart shows your weight over time. The dotted line is a moving average that smooths out daily fluctuations, giving you a clearer picture of your actual progress. Day-to-day weight can vary significantly due to water retention, meals, and other factors — the trend line shows the real direction.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why does my weight fluctuate so much?</h3>
+              <p class="text-[var(--text-secondary)]">Daily weight fluctuations of 1-3 pounds are completely normal. Water retention, recent meals, exercise, sleep, and hormonal cycles all affect your scale weight. Focus on the weekly trend rather than daily numbers. That's why Weigh Easy shows you trend lines — they reveal your true progress.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">When is the best time to weigh myself?</h3>
+              <p class="text-[var(--text-secondary)]">For the most consistent readings, weigh yourself at the same time each day — ideally first thing in the morning, after using the bathroom, before eating or drinking. Consistency in timing matters more than the specific time you choose.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I set a goal weight?</h3>
+              <p class="text-[var(--text-secondary)]">Go to Settings and tap "Goal Weight" to set your target. Once set, you'll see your progress toward your goal displayed on the main screen and in your trend charts.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I sync with Apple Health?</h3>
+              <p class="text-[var(--text-secondary)]">Yes! Weigh Easy can optionally sync your weight data with Apple Health. Go to Settings and enable HealthKit integration. You can choose to write new entries to Health and/or import existing weight data from Health.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Where are my progress photos stored?</h3>
+              <p class="text-[var(--text-secondary)]">Progress photos are stored only on your device, in the app's private storage. They are never uploaded anywhere. Photos are not saved to your Camera Roll unless you explicitly export them.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I delete an entry?</h3>
+              <p class="text-[var(--text-secondary)]">Swipe left on any entry in your history to reveal the delete option. Tap Delete to remove it. If you have HealthKit sync enabled, you can choose whether to also delete the corresponding entry from Apple Health.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is my data backed up?</h3>
+              <p class="text-[var(--text-secondary)]">Your data is included in your regular iPhone backups (iCloud or local). If you restore your phone from a backup, your Weigh Easy data will be restored too. We don't have our own cloud backup since all data stays local for privacy.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I export my data?</h3>
+              <p class="text-[var(--text-secondary)]">Yes, you can export your weight history as a CSV file from Settings. This lets you keep a backup or use your data in other apps or spreadsheets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .faq-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+  }
+
+  :global(.dark) .faq-item {
+    border-bottom-color: #374151;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+</style>

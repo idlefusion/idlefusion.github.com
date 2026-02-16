@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Meds Easy - Support"
+  description="Get help with Meds Easy - Medication Reminder iOS app."
+  ogUrl="https://idlefusion.com/meds-easy/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed mb-12">
+          <p class="text-lg mb-4">Need help with Meds Easy?</p>
+          <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Meds%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+        </div>
+
+        <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why am I not receiving reminders?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Make sure notifications are enabled for Meds Easy in your iPhone's Settings app. Go to <strong>Settings → Notifications → Meds Easy</strong> and ensure "Allow Notifications" is turned on. Also check that your medication has a scheduled time set and reminders are enabled for that medication.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I set up a medication that I take "as needed"?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              When adding a medication, choose the "As Needed" schedule type. This lets you log doses whenever you take them without setting specific reminder times. You can still track how often you use the medication over time.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I snooze a reminder?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Yes! When you receive a notification, you can snooze it for a few minutes. This is helpful if you're not quite ready to take your medication but don't want to forget. You can also snooze from within the app.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does refill tracking work?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Enter your current supply count when you add or refill a medication. The app tracks how many doses you've taken and will alert you when you're running low. You can customize how many days of warning you want before running out.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is my data backed up?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Your medication data is included in your iPhone's iCloud backup (if enabled) and iTunes/Finder backups. This means your data transfers when you restore to a new device or reinstall the app from a backup. However, the app itself never sends data to any cloud service.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why doesn't Meds Easy sync with Apple Health?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              We made a deliberate choice not to integrate with HealthKit. Medication data is extremely sensitive — it can reveal health conditions, mental health status, and other private information. We believe this data should stay completely isolated on your device, not shared with any health platform where it might be accessed by other apps.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I use Meds Easy on my Apple Watch?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Yes! The Apple Watch companion app lets you view upcoming doses and mark medications as taken right from your wrist. It syncs automatically with your iPhone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

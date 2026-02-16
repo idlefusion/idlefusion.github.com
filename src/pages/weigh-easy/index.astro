@@ -1,0 +1,621 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Weigh Easy — Track Your Weight, Privately"
+  description="A simple, private weight tracker for iOS. Log your weight, track trends, set goals, record body measurements, and capture progress photos. No accounts, no cloud, no subscriptions."
+  ogImage="/img/weigh-easy/icon.png"
+  ogUrl="https://idlefusion.com/weigh-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="we-nav">
+    <div class="we-nav-inner">
+      <a href="/weigh-easy" class="we-logo">Weigh Easy</a>
+      <div class="we-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/weigh-easy" class="we-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="we-hero">
+      <div class="we-hero-glow we-hero-glow--primary"></div>
+      <div class="we-hero-glow we-hero-glow--secondary"></div>
+      <div class="we-hero-inner">
+        <div class="we-hero-content">
+          <div class="we-hero-text">
+            <div class="we-hero-badge">WEIGHT TRACKING</div>
+            <h1 class="we-hero-title">
+              Track your weight,<br/><em>privately.</em>
+            </h1>
+            <p class="we-hero-subtitle">
+              A simple weight tracker that respects your privacy. Log entries, see trends, set goals — all stored locally on your device.
+            </p>
+            <div class="we-hero-actions">
+              <a href="https://apps.apple.com/app/weigh-easy" class="we-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="we-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="we-hero-icon-wrap">
+            <img src="/img/weigh-easy/icon.png" alt="Weigh Easy app icon" class="we-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="we-features-section">
+      <div class="we-container-wide">
+        <div class="we-features-header">
+          <span class="we-label">FEATURES</span>
+          <h2 class="we-features-title">Everything you need, nothing you don't.</h2>
+        </div>
+
+        <div class="we-features">
+          <div class="we-feature">
+            <div class="we-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            </div>
+            <h3>Weight Logging</h3>
+            <p>Quick, one-tap entry for your daily weight. Add notes for context. See your history at a glance.</p>
+          </div>
+
+          <div class="we-feature">
+            <div class="we-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            </div>
+            <h3>Trend Charts</h3>
+            <p>Beautiful visualizations of your progress over time. Weekly, monthly, and all-time views with moving averages.</p>
+          </div>
+
+          <div class="we-feature">
+            <div class="we-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Goal Tracking</h3>
+            <p>Set a target weight and track your progress toward it. Clear, motivating feedback on how far you've come.</p>
+          </div>
+
+          <div class="we-feature">
+            <div class="we-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            </div>
+            <h3>Body Measurements</h3>
+            <p>Track more than just weight. Log waist, chest, hips, arms, and other measurements to see the full picture.</p>
+          </div>
+
+          <div class="we-feature">
+            <div class="we-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            </div>
+            <h3>Progress Photos</h3>
+            <p>Capture visual progress over time. Compare side-by-side. Photos stay on your device — never uploaded anywhere.</p>
+          </div>
+
+          <div class="we-feature">
+            <div class="we-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Completely Private</h3>
+            <p>No accounts. No cloud sync. No network requests. Everything stays on your device, encrypted by iOS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="we-privacy-banner">
+      <div class="we-container">
+        <div class="we-privacy-inner">
+          <span class="we-label">PRIVACY</span>
+          <h2 class="we-privacy-title">Your body, your data.</h2>
+          <p class="we-privacy-text">
+            Weight data is deeply personal. Weigh Easy never collects, uploads, or shares your information.<br/>
+            No analytics. No tracking. No cloud. Everything stays on your device.
+          </p>
+          <a href="/weigh-easy/privacy" class="we-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="we-cta">
+      <div class="we-container">
+        <div class="we-cta-inner">
+          <h2 class="we-cta-title">Start tracking today.</h2>
+          <p class="we-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/weigh-easy" class="we-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="weigh-easy" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="we-footer">
+    <div class="we-footer-inner">
+      <div class="we-footer-links">
+        <a href="/weigh-easy/support">Support</a>
+        <span class="we-footer-dot">&middot;</span>
+        <a href="/weigh-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="we-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     WEIGH EASY — Purple/Violet Health Theme
+     Clean, trustworthy, private
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --we-accent: #8b5cf6;
+    --we-accent-deep: #7c3aed;
+    --we-accent-bg: #f5f3ff;
+    --we-secondary: #10b981;
+    --we-bg: #f8fafc;
+    --we-surface: #ffffff;
+    --we-border: rgba(148, 163, 184, 0.15);
+    --we-text: #0f172a;
+    --we-text-muted: #64748b;
+    --we-feature-icon-bg: rgba(139, 92, 246, 0.08);
+    --we-feature-icon-border: rgba(139, 92, 246, 0.12);
+  }
+
+  :global(.dark) {
+    --we-accent: #a78bfa;
+    --we-accent-deep: #8b5cf6;
+    --we-accent-bg: #1e1b4b;
+    --we-bg: #0a0f1a;
+    --we-surface: #111827;
+    --we-border: rgba(148, 163, 184, 0.08);
+    --we-text: #f1f5f9;
+    --we-text-muted: #94a3b8;
+    --we-feature-icon-bg: rgba(139, 92, 246, 0.1);
+    --we-feature-icon-border: rgba(139, 92, 246, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .we-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--we-bg);
+    border-bottom: 1px solid var(--we-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .we-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .we-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .we-nav-inner { padding: 0 3rem; }
+  }
+
+  .we-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--we-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .we-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .we-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .we-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .we-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .we-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.15;
+  }
+
+  .we-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--we-accent);
+  }
+
+  .we-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--we-secondary);
+  }
+
+  .we-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .we-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .we-hero-inner { padding: 0 3rem; }
+  }
+
+  .we-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .we-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .we-hero-text { flex: 1; }
+
+  .we-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--we-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .we-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .we-hero-title em {
+    font-style: italic;
+    color: var(--we-accent);
+  }
+
+  .we-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .we-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .we-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .we-hero-actions { align-items: flex-start; }
+  }
+
+  .we-store-badge {
+    display: inline-block;
+  }
+
+  .we-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .we-store-badge:hover img { opacity: 0.8; }
+
+  .we-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .we-hero-icon-wrap { flex-shrink: 0; }
+
+  .we-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2), 0 0 80px rgba(139, 92, 246, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .we-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .we-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .we-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .we-container { padding: 0 2rem; }
+    .we-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .we-container { padding: 0 3rem; }
+    .we-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .we-features-section {
+    background: var(--we-surface);
+    padding: 5rem 0;
+  }
+
+  .we-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .we-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--we-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .we-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--we-text);
+    margin-bottom: 1rem;
+  }
+
+  .we-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--we-border);
+    border: 1px solid var(--we-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .we-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .we-feature {
+    padding: 2rem;
+    background: var(--we-surface);
+  }
+
+  .we-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--we-feature-icon-bg);
+    border: 1px solid var(--we-feature-icon-border);
+    border-radius: 10px;
+    color: var(--we-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .we-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--we-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .we-feature p {
+    color: var(--we-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .we-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .we-privacy-inner {
+    text-align: center;
+  }
+
+  .we-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .we-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .we-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--we-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .we-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .we-cta {
+    padding: 6rem 0;
+    background: var(--we-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .we-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .we-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--we-text);
+    margin-bottom: 1rem;
+  }
+
+  .we-cta-text {
+    font-size: 1.125rem;
+    color: var(--we-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .we-footer {
+    background: var(--we-bg);
+    border-top: 1px solid var(--we-border);
+    padding: 2rem 0;
+  }
+
+  .we-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .we-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .we-footer-inner { padding: 0 3rem; }
+  }
+
+  .we-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .we-footer-links a {
+    color: var(--we-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .we-footer-links a:hover {
+    color: var(--we-accent);
+  }
+
+  .we-footer-dot {
+    color: var(--we-text-muted);
+    opacity: 0.4;
+  }
+
+  .we-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--we-text-muted);
+    opacity: 0.6;
+  }
+
+  .we-footer-brand a {
+    color: var(--we-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .we-footer-brand a:hover {
+    color: var(--we-accent);
+  }
+</style>

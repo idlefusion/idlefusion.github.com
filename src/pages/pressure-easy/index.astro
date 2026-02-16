@@ -1,0 +1,760 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Pressure Easy — Blood Pressure Tracker for iOS"
+  description="Track blood pressure privately. Log readings, see trends with AHA category indicators, and export PDF reports for your doctor. No accounts, no subscriptions."
+  ogImage="/img/pressure-easy/icon.png"
+  ogUrl="https://idlefusion.com/pressure-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="pe-nav">
+    <div class="pe-nav-inner">
+      <a href="/pressure-easy" class="pe-logo">Pressure Easy</a>
+      <div class="pe-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id0000000000" class="pe-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Dark, bold -->
+    <section class="pe-hero">
+      <div class="pe-hero-glow pe-hero-glow--primary"></div>
+      <div class="pe-hero-glow pe-hero-glow--secondary"></div>
+      <div class="pe-hero-inner">
+        <div class="pe-hero-content">
+          <div class="pe-hero-text">
+            <div class="pe-hero-badge">BLOOD PRESSURE TRACKER</div>
+            <h1 class="pe-hero-title">
+              Track blood pressure,<br/><em>privately.</em>
+            </h1>
+            <p class="pe-hero-subtitle">
+              Log readings, see trends, and share reports with your doctor. All your data stays on your device — no accounts, no cloud sync, no subscriptions.
+            </p>
+            <div class="pe-hero-actions">
+              <a href="https://apps.apple.com/app/id0000000000" class="pe-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="pe-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="pe-hero-icon-wrap">
+            <img src="/img/pressure-easy/icon.png" alt="Pressure Easy app icon" class="pe-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features — Two-column with large cards -->
+    <section class="pe-features-section">
+      <div class="pe-container-wide">
+        <div class="pe-features-header">
+          <span class="pe-label-dark">FEATURES</span>
+          <h2 class="pe-features-title">Built for your health.</h2>
+        </div>
+
+        <div class="pe-features">
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3>Blood Pressure Logging</h3>
+            <p>Log systolic/diastolic readings with pulse. Record your position — sitting, standing, or lying down — and add notes for context.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            </div>
+            <h3>Trend Charts</h3>
+            <p>Visualize your blood pressure over time with beautiful charts. View weekly, monthly, or yearly trends with averages and ranges.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>AHA Category Indicators</h3>
+            <p>Every reading is classified using American Heart Association guidelines. Color-coded Normal, Elevated, Stage 1, Stage 2, and Crisis levels.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>PDF Export for Doctors</h3>
+            <p>Generate professional reports with all your readings and statistics. Share via email or print for your next doctor's visit.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Apple Watch</h3>
+            <p>Quick entry from your wrist. Step-by-step logging flow makes it easy to record readings without pulling out your phone.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>HealthKit Sync</h3>
+            <p>Optionally sync with Apple Health. Read existing data or write new readings. Your health data stays unified in one place.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AHA Categories Section -->
+    <section class="pe-categories">
+      <div class="pe-container">
+        <div class="pe-categories-header">
+          <span class="pe-label-dark">AHA GUIDELINES</span>
+          <h2 class="pe-categories-title">Understand your numbers.</h2>
+          <p class="pe-categories-subtitle">Every reading is automatically classified using American Heart Association guidelines.</p>
+        </div>
+        <div class="pe-categories-grid">
+          <div class="pe-category pe-category--normal">
+            <span class="pe-category-label">Normal</span>
+            <span class="pe-category-range">&lt; 120 / &lt; 80</span>
+          </div>
+          <div class="pe-category pe-category--elevated">
+            <span class="pe-category-label">Elevated</span>
+            <span class="pe-category-range">120-129 / &lt; 80</span>
+          </div>
+          <div class="pe-category pe-category--stage1">
+            <span class="pe-category-label">High Stage 1</span>
+            <span class="pe-category-range">130-139 / 80-89</span>
+          </div>
+          <div class="pe-category pe-category--stage2">
+            <span class="pe-category-label">High Stage 2</span>
+            <span class="pe-category-range">≥ 140 / ≥ 90</span>
+          </div>
+          <div class="pe-category pe-category--crisis">
+            <span class="pe-category-label">Crisis</span>
+            <span class="pe-category-range">≥ 180 / ≥ 120</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy — Full-width dark banner -->
+    <section class="pe-privacy-banner">
+      <div class="pe-container">
+        <div class="pe-privacy-inner">
+          <span class="pe-label-dark">PRIVACY</span>
+          <h2 class="pe-privacy-title">Your health data stays yours.</h2>
+          <p class="pe-privacy-text">
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Your blood pressure readings are stored locally on your device. We never see them, and neither does anyone else.
+          </p>
+          <a href="/pressure-easy/privacy" class="pe-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pe-cta">
+      <div class="pe-container">
+        <div class="pe-cta-inner">
+          <h2 class="pe-cta-title">Start tracking.</h2>
+          <p class="pe-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id0000000000" class="pe-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="pressure-easy" />
+  </main>
+
+  <!-- App Footer -->
+  <footer class="pe-footer">
+    <div class="pe-footer-inner">
+      <div class="pe-footer-links">
+        <a href="/pressure-easy/support">Support</a>
+        <span class="pe-footer-dot">&middot;</span>
+        <a href="/pressure-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="pe-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     PRESSURE EASY — Warm Red / Health Theme
+     Clean, medical, trustworthy
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --pe-accent: #dc2626;
+    --pe-accent-deep: #b91c1c;
+    --pe-accent-bg: #fef2f2;
+    --pe-secondary: #f97316;
+    --pe-bg: #f8fafc;
+    --pe-surface: #ffffff;
+    --pe-border: rgba(148, 163, 184, 0.15);
+    --pe-text: #0f172a;
+    --pe-text-muted: #64748b;
+    --pe-feature-icon-bg: rgba(220, 38, 38, 0.08);
+    --pe-feature-icon-border: rgba(220, 38, 38, 0.12);
+  }
+
+  :global(.dark) {
+    --pe-accent: #f87171;
+    --pe-accent-deep: #dc2626;
+    --pe-accent-bg: #450a0a;
+    --pe-bg: #0a0f1a;
+    --pe-surface: #111827;
+    --pe-border: rgba(148, 163, 184, 0.08);
+    --pe-text: #f1f5f9;
+    --pe-text-muted: #94a3b8;
+    --pe-feature-icon-bg: rgba(220, 38, 38, 0.1);
+    --pe-feature-icon-border: rgba(220, 38, 38, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .pe-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--pe-bg);
+    border-bottom: 1px solid var(--pe-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .pe-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .pe-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-nav-inner { padding: 0 3rem; }
+  }
+
+  .pe-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--pe-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .pe-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pe-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .pe-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero — Dark, dramatic ─── */
+  .pe-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pe-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.12;
+  }
+
+  .pe-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--pe-accent);
+  }
+
+  .pe-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--pe-secondary);
+  }
+
+  .pe-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .pe-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-hero-inner { padding: 0 3rem; }
+  }
+
+  .pe-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .pe-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .pe-hero-text { flex: 1; }
+
+  .pe-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--pe-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .pe-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .pe-hero-title em {
+    font-style: italic;
+    color: var(--pe-accent);
+  }
+
+  .pe-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .pe-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .pe-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .pe-hero-actions { align-items: flex-start; }
+  }
+
+  .pe-store-badge {
+    display: inline-block;
+  }
+
+  .pe-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .pe-store-badge:hover img { opacity: 0.8; }
+
+  .pe-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .pe-hero-icon-wrap { flex-shrink: 0; }
+
+  .pe-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(220, 38, 38, 0.2), 0 0 80px rgba(220, 38, 38, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .pe-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .pe-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .pe-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .pe-container { padding: 0 2rem; }
+    .pe-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-container { padding: 0 3rem; }
+    .pe-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features — 2-col, icon-led ─── */
+  .pe-features-section {
+    background: var(--pe-surface);
+    padding: 5rem 0;
+  }
+
+  .pe-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .pe-label-dark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--pe-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .pe-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--pe-text);
+    margin-bottom: 1rem;
+  }
+
+  .pe-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--pe-border);
+    border: 1px solid var(--pe-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .pe-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .pe-feature {
+    padding: 2rem;
+    background: var(--pe-surface);
+  }
+
+  .pe-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pe-feature-icon-bg);
+    border: 1px solid var(--pe-feature-icon-border);
+    border-radius: 10px;
+    color: var(--pe-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .pe-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--pe-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .pe-feature p {
+    color: var(--pe-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── AHA Categories Section ─── */
+  .pe-categories {
+    background: var(--pe-bg);
+    padding: 5rem 0;
+  }
+
+  .pe-categories-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .pe-categories-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--pe-text);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .pe-categories-subtitle {
+    font-size: 1.0625rem;
+    color: var(--pe-text-muted);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .pe-categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .pe-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    min-width: 140px;
+  }
+
+  .pe-category-label {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+  }
+
+  .pe-category-range {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .pe-category--normal {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+  }
+
+  .pe-category--elevated {
+    background: rgba(234, 179, 8, 0.1);
+    color: #ca8a04;
+  }
+
+  .pe-category--stage1 {
+    background: rgba(249, 115, 22, 0.1);
+    color: #ea580c;
+  }
+
+  .pe-category--stage2 {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+  }
+
+  .pe-category--crisis {
+    background: rgba(127, 29, 29, 0.15);
+    color: #991b1b;
+  }
+
+  :global(.dark) .pe-category--normal {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+  }
+
+  :global(.dark) .pe-category--elevated {
+    background: rgba(234, 179, 8, 0.15);
+    color: #facc15;
+  }
+
+  :global(.dark) .pe-category--stage1 {
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+  }
+
+  :global(.dark) .pe-category--stage2 {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+  }
+
+  :global(.dark) .pe-category--crisis {
+    background: rgba(220, 38, 38, 0.2);
+    color: #fca5a5;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .pe-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .pe-privacy-inner {
+    text-align: center;
+  }
+
+  .pe-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .pe-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .pe-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--pe-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .pe-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .pe-cta {
+    padding: 6rem 0;
+    background: var(--pe-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pe-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .pe-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--pe-text);
+    margin-bottom: 1rem;
+  }
+
+  .pe-cta-text {
+    font-size: 1.125rem;
+    color: var(--pe-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .pe-footer {
+    background: var(--pe-bg);
+    border-top: 1px solid var(--pe-border);
+    padding: 2rem 0;
+  }
+
+  .pe-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .pe-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-footer-inner { padding: 0 3rem; }
+  }
+
+  .pe-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .pe-footer-links a {
+    color: var(--pe-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .pe-footer-links a:hover {
+    color: var(--pe-accent);
+  }
+
+  .pe-footer-dot {
+    color: var(--pe-text-muted);
+    opacity: 0.4;
+  }
+
+  .pe-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--pe-text-muted);
+    opacity: 0.6;
+  }
+
+  .pe-footer-brand a {
+    color: var(--pe-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .pe-footer-brand a:hover {
+    color: var(--pe-accent);
+  }
+</style>
