@@ -1,0 +1,621 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Track Easy — Simple Habit Tracker for iOS"
+  description="Track habits without the hassle. Unlimited habits, streaks, calendar view, widgets, and Apple Watch support. No accounts, no subscriptions."
+  ogImage="/img/track-easy/icon.png"
+  ogUrl="https://idlefusion.com/track-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="te-nav">
+    <div class="te-nav-inner">
+      <a href="/track-easy" class="te-logo">Track Easy</a>
+      <div class="te-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id6745379040" class="te-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="te-hero">
+      <div class="te-hero-glow te-hero-glow--primary"></div>
+      <div class="te-hero-glow te-hero-glow--secondary"></div>
+      <div class="te-hero-inner">
+        <div class="te-hero-content">
+          <div class="te-hero-text">
+            <div class="te-hero-badge">HABIT TRACKER</div>
+            <h1 class="te-hero-title">
+              Track habits<br/><em>without the hassle.</em>
+            </h1>
+            <p class="te-hero-subtitle">
+              Build better habits with a tracker that respects your time. No sign-up, no subscriptions, no data collection. Just you and your habits.
+            </p>
+            <div class="te-hero-actions">
+              <a href="https://apps.apple.com/app/id6745379040" class="te-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="te-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="te-hero-icon-wrap">
+            <img src="/img/track-easy/icon.png" alt="Track Easy app icon" class="te-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="te-features-section">
+      <div class="te-container-wide">
+        <div class="te-features-header">
+          <span class="te-label">FEATURES</span>
+          <h2 class="te-features-title">Simple by design.</h2>
+        </div>
+
+        <div class="te-features">
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+            <h3>Unlimited Habits</h3>
+            <p>Create as many habits as you want. Pick custom icons and colors from a beautiful palette. No limits, no premium tier.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </div>
+            <h3>Streak Tracking</h3>
+            <p>Stay motivated with current and personal-best streaks. A flame icon shows when you're on fire. Don't break the chain.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </div>
+            <h3>Calendar View</h3>
+            <p>Review your history with a monthly calendar. Color-coded completions create a visual heat map of your progress.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3>Home Screen Widgets</h3>
+            <p>Check off habits right from your home screen. Small, medium, and lock screen widgets keep habits front and center.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Apple Watch</h3>
+            <p>Track habits from your wrist. See today's habits and tap to complete. Simple and fast.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <h3>Statistics</h3>
+            <p>Understand your habits with charts. See completion rates, weekly trends, and your best-performing habits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="te-privacy-banner">
+      <div class="te-container">
+        <div class="te-privacy-inner">
+          <span class="te-label">PRIVACY</span>
+          <h2 class="te-privacy-title">Your habits stay yours.</h2>
+          <p class="te-privacy-text">
+            No analytics. No ads. No tracking. No cloud sync.<br/>
+            Your habit data lives on your device and nowhere else. Zero data collection, period.
+          </p>
+          <a href="/track-easy/privacy" class="te-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="te-cta">
+      <div class="te-container">
+        <div class="te-cta-inner">
+          <h2 class="te-cta-title">Start building habits.</h2>
+          <p class="te-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id6745379040" class="te-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="track-easy" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="te-footer">
+    <div class="te-footer-inner">
+      <div class="te-footer-links">
+        <a href="/track-easy/support">Support</a>
+        <span class="te-footer-dot">&middot;</span>
+        <a href="/track-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="te-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     TRACK EASY — Green/Emerald Theme
+     Fresh, growth-focused, habit-building energy
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --te-accent: #10b981;
+    --te-accent-deep: #059669;
+    --te-accent-bg: #ecfdf5;
+    --te-secondary: #6366f1;
+    --te-bg: #f8fafc;
+    --te-surface: #ffffff;
+    --te-border: rgba(148, 163, 184, 0.15);
+    --te-text: #0f172a;
+    --te-text-muted: #64748b;
+    --te-feature-icon-bg: rgba(16, 185, 129, 0.08);
+    --te-feature-icon-border: rgba(16, 185, 129, 0.12);
+  }
+
+  :global(.dark) {
+    --te-accent: #34d399;
+    --te-accent-deep: #10b981;
+    --te-accent-bg: #064e3b;
+    --te-bg: #0a0f1a;
+    --te-surface: #111827;
+    --te-border: rgba(148, 163, 184, 0.08);
+    --te-text: #f1f5f9;
+    --te-text-muted: #94a3b8;
+    --te-feature-icon-bg: rgba(16, 185, 129, 0.1);
+    --te-feature-icon-border: rgba(16, 185, 129, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .te-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--te-bg);
+    border-bottom: 1px solid var(--te-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .te-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .te-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .te-nav-inner { padding: 0 3rem; }
+  }
+
+  .te-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--te-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .te-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .te-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .te-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .te-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .te-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.12;
+  }
+
+  .te-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--te-accent);
+  }
+
+  .te-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--te-secondary);
+  }
+
+  .te-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .te-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .te-hero-inner { padding: 0 3rem; }
+  }
+
+  .te-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .te-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .te-hero-text { flex: 1; }
+
+  .te-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--te-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .te-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .te-hero-title em {
+    font-style: italic;
+    color: var(--te-accent);
+  }
+
+  .te-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .te-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .te-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .te-hero-actions { align-items: flex-start; }
+  }
+
+  .te-store-badge {
+    display: inline-block;
+  }
+
+  .te-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .te-store-badge:hover img { opacity: 0.8; }
+
+  .te-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .te-hero-icon-wrap { flex-shrink: 0; }
+
+  .te-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.2), 0 0 80px rgba(16, 185, 129, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .te-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .te-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .te-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .te-container { padding: 0 2rem; }
+    .te-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .te-container { padding: 0 3rem; }
+    .te-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .te-features-section {
+    background: var(--te-surface);
+    padding: 5rem 0;
+  }
+
+  .te-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .te-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--te-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .te-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--te-text);
+    margin-bottom: 1rem;
+  }
+
+  .te-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--te-border);
+    border: 1px solid var(--te-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .te-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .te-feature {
+    padding: 2rem;
+    background: var(--te-surface);
+  }
+
+  .te-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--te-feature-icon-bg);
+    border: 1px solid var(--te-feature-icon-border);
+    border-radius: 10px;
+    color: var(--te-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .te-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--te-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .te-feature p {
+    color: var(--te-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .te-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .te-privacy-inner {
+    text-align: center;
+  }
+
+  .te-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .te-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .te-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--te-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .te-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .te-cta {
+    padding: 6rem 0;
+    background: var(--te-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .te-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .te-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--te-text);
+    margin-bottom: 1rem;
+  }
+
+  .te-cta-text {
+    font-size: 1.125rem;
+    color: var(--te-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .te-footer {
+    background: var(--te-bg);
+    border-top: 1px solid var(--te-border);
+    padding: 2rem 0;
+  }
+
+  .te-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .te-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .te-footer-inner { padding: 0 3rem; }
+  }
+
+  .te-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .te-footer-links a {
+    color: var(--te-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .te-footer-links a:hover {
+    color: var(--te-accent);
+  }
+
+  .te-footer-dot {
+    color: var(--te-text-muted);
+    opacity: 0.4;
+  }
+
+  .te-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--te-text-muted);
+    opacity: 0.6;
+  }
+
+  .te-footer-brand a {
+    color: var(--te-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .te-footer-brand a:hover {
+    color: var(--te-accent);
+  }
+</style>
