@@ -1,0 +1,620 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Count Easy — Countdown & Days Tracker for iOS"
+  description="Beautiful countdown widgets for your home screen. Track days until vacations, birthdays, deadlines — or days since milestones. No accounts, no subscriptions."
+  ogImage="/img/count-easy/icon.png"
+  ogUrl="https://idlefusion.com/count-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="ce-nav">
+    <div class="ce-nav-inner">
+      <a href="/count-easy" class="ce-logo">Count Easy</a>
+      <div class="ce-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id0000000000" class="ce-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Dark, bold -->
+    <section class="ce-hero">
+      <div class="ce-hero-glow ce-hero-glow--primary"></div>
+      <div class="ce-hero-glow ce-hero-glow--secondary"></div>
+      <div class="ce-hero-inner">
+        <div class="ce-hero-content">
+          <div class="ce-hero-text">
+            <div class="ce-hero-badge">COUNTDOWN TRACKER</div>
+            <h1 class="ce-hero-title">
+              Beautiful countdown<br/><em>widgets.</em>
+            </h1>
+            <p class="ce-hero-subtitle">
+              Track what matters. Days until your next vacation. Days since you started a new habit. Beautiful widgets that keep your important dates front and center.
+            </p>
+            <div class="ce-hero-actions">
+              <a href="https://apps.apple.com/app/id0000000000" class="ce-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="ce-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="ce-hero-icon-wrap">
+            <img src="/img/count-easy/icon.png" alt="Count Easy app icon" class="ce-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="ce-features-section">
+      <div class="ce-container-wide">
+        <div class="ce-features-header">
+          <span class="ce-label-dark">FEATURES</span>
+          <h2 class="ce-features-title">Count down to what matters.</h2>
+        </div>
+
+        <div class="ce-features">
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Days Until</h3>
+            <p>Count down to future events — vacations, birthdays, weddings, deadlines, product launches, anything worth anticipating.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            </div>
+            <h3>Days Since</h3>
+            <p>Track milestones and achievements — sobriety dates, relationship anniversaries, habit streaks, career moments.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+            </div>
+            <h3>Repeating Events</h3>
+            <p>Set annual repeating for birthdays and anniversaries. Count Easy automatically resets when the date passes.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Categories</h3>
+            <p>Organize your countdowns with custom categories. Group work deadlines, personal goals, and celebrations separately.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            </div>
+            <h3>Beautiful Widgets</h3>
+            <p>Stunning home screen and lock screen widgets. Small, medium, and large sizes to fit your layout perfectly.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="0.5" fill="currentColor"/><circle cx="17.5" cy="10.5" r="0.5" fill="currentColor"/><circle cx="8.5" cy="7.5" r="0.5" fill="currentColor"/><circle cx="6.5" cy="12.5" r="0.5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2Z"/></svg>
+            </div>
+            <h3>8 Vibrant Colors</h3>
+            <p>Choose from 8 accent colors for each countdown. Make important dates pop with colors that match your style.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="ce-privacy-banner">
+      <div class="ce-container">
+        <div class="ce-privacy-inner">
+          <span class="ce-label-dark">PRIVACY</span>
+          <h2 class="ce-privacy-title">Your dates. Your device.</h2>
+          <p class="ce-privacy-text">
+            No accounts. No cloud sync. No tracking. No ads.<br/>
+            Count Easy stores everything locally on your device. Your data never leaves.
+          </p>
+          <a href="/count-easy/privacy" class="ce-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ce-cta">
+      <div class="ce-container">
+        <div class="ce-cta-inner">
+          <h2 class="ce-cta-title">Start counting.</h2>
+          <p class="ce-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id0000000000" class="ce-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="count-easy" />
+  </main>
+
+  <!-- App Footer -->
+  <footer class="ce-footer">
+    <div class="ce-footer-inner">
+      <div class="ce-footer-links">
+        <a href="/count-easy/support">Support</a>
+        <span class="ce-footer-dot">&middot;</span>
+        <a href="/count-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="ce-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     COUNT EASY — Violet / Purple, Clean & Modern
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --ce-accent: #8b5cf6;
+    --ce-accent-deep: #7c3aed;
+    --ce-accent-bg: #f5f3ff;
+    --ce-secondary: #ec4899;
+    --ce-bg: #f8fafc;
+    --ce-surface: #ffffff;
+    --ce-border: rgba(148, 163, 184, 0.15);
+    --ce-text: #0f172a;
+    --ce-text-muted: #64748b;
+    --ce-feature-icon-bg: rgba(139, 92, 246, 0.08);
+    --ce-feature-icon-border: rgba(139, 92, 246, 0.12);
+  }
+
+  :global(.dark) {
+    --ce-accent: #a78bfa;
+    --ce-accent-deep: #8b5cf6;
+    --ce-accent-bg: #1e1b4b;
+    --ce-bg: #0a0f1a;
+    --ce-surface: #111827;
+    --ce-border: rgba(148, 163, 184, 0.08);
+    --ce-text: #f1f5f9;
+    --ce-text-muted: #94a3b8;
+    --ce-feature-icon-bg: rgba(139, 92, 246, 0.1);
+    --ce-feature-icon-border: rgba(139, 92, 246, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .ce-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ce-bg);
+    border-bottom: 1px solid var(--ce-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .ce-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ce-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-nav-inner { padding: 0 3rem; }
+  }
+
+  .ce-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ce-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .ce-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ce-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .ce-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .ce-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ce-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.12;
+  }
+
+  .ce-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--ce-accent);
+  }
+
+  .ce-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--ce-secondary);
+  }
+
+  .ce-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .ce-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-hero-inner { padding: 0 3rem; }
+  }
+
+  .ce-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .ce-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .ce-hero-text { flex: 1; }
+
+  .ce-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ce-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .ce-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .ce-hero-title em {
+    font-style: italic;
+    color: var(--ce-accent);
+  }
+
+  .ce-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .ce-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .ce-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .ce-hero-actions { align-items: flex-start; }
+  }
+
+  .ce-store-badge {
+    display: inline-block;
+  }
+
+  .ce-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .ce-store-badge:hover img { opacity: 0.8; }
+
+  .ce-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .ce-hero-icon-wrap { flex-shrink: 0; }
+
+  .ce-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2), 0 0 80px rgba(139, 92, 246, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .ce-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .ce-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .ce-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ce-container { padding: 0 2rem; }
+    .ce-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-container { padding: 0 3rem; }
+    .ce-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .ce-features-section {
+    background: var(--ce-surface);
+    padding: 5rem 0;
+  }
+
+  .ce-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .ce-label-dark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ce-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .ce-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--ce-text);
+    margin-bottom: 1rem;
+  }
+
+  .ce-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--ce-border);
+    border: 1px solid var(--ce-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .ce-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .ce-feature {
+    padding: 2rem;
+    background: var(--ce-surface);
+  }
+
+  .ce-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ce-feature-icon-bg);
+    border: 1px solid var(--ce-feature-icon-border);
+    border-radius: 10px;
+    color: var(--ce-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .ce-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--ce-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .ce-feature p {
+    color: var(--ce-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .ce-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .ce-privacy-inner {
+    text-align: center;
+  }
+
+  .ce-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .ce-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .ce-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ce-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .ce-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .ce-cta {
+    padding: 6rem 0;
+    background: var(--ce-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ce-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .ce-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ce-text);
+    margin-bottom: 1rem;
+  }
+
+  .ce-cta-text {
+    font-size: 1.125rem;
+    color: var(--ce-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .ce-footer {
+    background: var(--ce-bg);
+    border-top: 1px solid var(--ce-border);
+    padding: 2rem 0;
+  }
+
+  .ce-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .ce-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-footer-inner { padding: 0 3rem; }
+  }
+
+  .ce-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .ce-footer-links a {
+    color: var(--ce-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ce-footer-links a:hover {
+    color: var(--ce-accent);
+  }
+
+  .ce-footer-dot {
+    color: var(--ce-text-muted);
+    opacity: 0.4;
+  }
+
+  .ce-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--ce-text-muted);
+    opacity: 0.6;
+  }
+
+  .ce-footer-brand a {
+    color: var(--ce-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .ce-footer-brand a:hover {
+    color: var(--ce-accent);
+  }
+</style>
