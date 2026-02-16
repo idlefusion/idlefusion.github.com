@@ -1,0 +1,686 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Spend Easy — Private Expense Tracker for iOS"
+  description="Track expenses the simple way—without connecting your bank. Manual expense entry, budgets, categories, and charts. All data stays on your device."
+  ogImage="/img/spend-easy/icon.png"
+  ogUrl="https://idlefusion.com/spend-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="se-nav">
+    <div class="se-nav-inner">
+      <a href="/spend-easy" class="se-logo">Spend Easy</a>
+      <div class="se-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id0000000000" class="se-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="se-hero">
+      <div class="se-hero-glow se-hero-glow--primary"></div>
+      <div class="se-hero-glow se-hero-glow--secondary"></div>
+      <div class="se-hero-inner">
+        <div class="se-hero-content">
+          <div class="se-hero-text">
+            <div class="se-hero-badge">PRIVATE EXPENSE TRACKING</div>
+            <h1 class="se-hero-title">
+              Track expenses,<br/><em>no bank required.</em>
+            </h1>
+            <p class="se-hero-subtitle">
+              A beautifully simple expense tracker that keeps your financial data where it belongs—on your device. No bank connections. No cloud sync. No accounts.
+            </p>
+            <div class="se-hero-actions">
+              <a href="https://apps.apple.com/app/id0000000000" class="se-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="se-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="se-hero-icon-wrap">
+            <img src="/img/spend-easy/icon.png" alt="Spend Easy app icon" class="se-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- No Bank Banner -->
+    <section class="se-no-bank">
+      <div class="se-container">
+        <div class="se-no-bank-inner">
+          <div class="se-no-bank-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m4.9 4.9 14.2 14.2"/>
+            </svg>
+          </div>
+          <div class="se-no-bank-text">
+            <h2>Zero bank connections. Ever.</h2>
+            <p>While other expense trackers want your banking credentials, Spend Easy takes a different approach. You enter expenses manually—giving you full control and complete privacy. Your bank login stays yours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="se-features-section">
+      <div class="se-container-wide">
+        <div class="se-features-header">
+          <span class="se-label">FEATURES</span>
+          <h2 class="se-features-title">Simple by design.</h2>
+        </div>
+
+        <div class="se-features">
+          <div class="se-feature">
+            <div class="se-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Manual Expense Entry</h3>
+            <p>Add expenses in seconds. Enter amount, pick a category, add notes if you want. Clean and fast—designed for daily use.</p>
+          </div>
+
+          <div class="se-feature">
+            <div class="se-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Smart Budgets</h3>
+            <p>Set daily, weekly, or monthly spending limits. Visual progress rings show exactly where you stand. Stay on track effortlessly.</p>
+          </div>
+
+          <div class="se-feature">
+            <div class="se-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="m6 16 6-12 6 12"/><path d="M8 12h8"/></svg>
+            </div>
+            <h3>Custom Categories</h3>
+            <p>Create categories that fit your life. Choose icons and colors. Organize spending your way—not how some algorithm thinks you should.</p>
+          </div>
+
+          <div class="se-feature">
+            <div class="se-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            </div>
+            <h3>Spending Charts</h3>
+            <p>Beautiful visualizations show your spending trends. See category breakdowns, compare weeks and months, spot patterns.</p>
+          </div>
+
+          <div class="se-feature">
+            <div class="se-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+            </div>
+            <h3>Recurring Expenses</h3>
+            <p>Track regular bills and subscriptions. Set it once, see it in your spending—never forget what's coming up.</p>
+          </div>
+
+          <div class="se-feature">
+            <div class="se-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Completely Private</h3>
+            <p>No accounts. No cloud sync. No network requests. Your expense data lives on your device and nowhere else. Period.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="se-privacy-banner">
+      <div class="se-container">
+        <div class="se-privacy-inner">
+          <span class="se-label">YOUR DATA. YOUR DEVICE.</span>
+          <h2 class="se-privacy-title">Privacy isn't a feature.<br/>It's the foundation.</h2>
+          <p class="se-privacy-text">
+            No analytics. No tracking. No ads. No telemetry.<br/>
+            Spend Easy will never ask for your bank login. Your financial data never leaves your device—not to our servers, not to anyone's.
+          </p>
+          <a href="/spend-easy/privacy" class="se-privacy-link">Read our privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="se-cta">
+      <div class="se-container">
+        <div class="se-cta-inner">
+          <h2 class="se-cta-title">Start tracking.</h2>
+          <p class="se-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id0000000000" class="se-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="spend-easy" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="se-footer">
+    <div class="se-footer-inner">
+      <div class="se-footer-links">
+        <a href="/spend-easy/support">Support</a>
+        <span class="se-footer-dot">&middot;</span>
+        <a href="/spend-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="se-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     SPEND EASY — Emerald / Green, Clean & Trustworthy
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --se-accent: #10b981;
+    --se-accent-deep: #059669;
+    --se-accent-bg: #ecfdf5;
+    --se-secondary: #34d399;
+    --se-bg: #f8fafc;
+    --se-surface: #ffffff;
+    --se-border: rgba(148, 163, 184, 0.15);
+    --se-text: #0f172a;
+    --se-text-muted: #64748b;
+    --se-feature-icon-bg: rgba(16, 185, 129, 0.08);
+    --se-feature-icon-border: rgba(16, 185, 129, 0.12);
+  }
+
+  :global(.dark) {
+    --se-accent: #34d399;
+    --se-accent-deep: #10b981;
+    --se-accent-bg: #064e3b;
+    --se-bg: #0a0f1a;
+    --se-surface: #111827;
+    --se-border: rgba(148, 163, 184, 0.08);
+    --se-text: #f1f5f9;
+    --se-text-muted: #94a3b8;
+    --se-feature-icon-bg: rgba(16, 185, 129, 0.1);
+    --se-feature-icon-border: rgba(16, 185, 129, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .se-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--se-bg);
+    border-bottom: 1px solid var(--se-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .se-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .se-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .se-nav-inner { padding: 0 3rem; }
+  }
+
+  .se-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--se-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .se-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .se-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .se-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .se-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .se-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.15;
+  }
+
+  .se-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: #10b981;
+  }
+
+  .se-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: #34d399;
+  }
+
+  .se-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .se-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .se-hero-inner { padding: 0 3rem; }
+  }
+
+  .se-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .se-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .se-hero-text { flex: 1; }
+
+  .se-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: #34d399;
+    margin-bottom: 1.5rem;
+  }
+
+  .se-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .se-hero-title em {
+    font-style: italic;
+    color: #34d399;
+  }
+
+  .se-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .se-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .se-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .se-hero-actions { align-items: flex-start; }
+  }
+
+  .se-store-badge {
+    display: inline-block;
+  }
+
+  .se-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .se-store-badge:hover img { opacity: 0.8; }
+
+  .se-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .se-hero-icon-wrap { flex-shrink: 0; }
+
+  .se-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.25), 0 0 80px rgba(16, 185, 129, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .se-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── No Bank Banner ─── */
+  .se-no-bank {
+    background: var(--se-accent-bg);
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--se-border);
+  }
+
+  .se-no-bank-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .se-no-bank-inner {
+      flex-direction: row;
+      text-align: left;
+      gap: 2rem;
+    }
+  }
+
+  .se-no-bank-icon {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--se-surface);
+    border: 2px solid var(--se-accent);
+    border-radius: 50%;
+    color: var(--se-accent-deep);
+  }
+
+  .se-no-bank-text h2 {
+    font-size: 1.5rem;
+    color: var(--se-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .se-no-bank-text p {
+    color: var(--se-text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* ─── Containers ─── */
+  .se-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .se-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .se-container { padding: 0 2rem; }
+    .se-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .se-container { padding: 0 3rem; }
+    .se-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .se-features-section {
+    background: var(--se-surface);
+    padding: 5rem 0;
+  }
+
+  .se-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .se-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--se-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .se-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--se-text);
+    margin-bottom: 1rem;
+  }
+
+  .se-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--se-border);
+    border: 1px solid var(--se-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .se-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .se-feature {
+    padding: 2rem;
+    background: var(--se-surface);
+  }
+
+  .se-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--se-feature-icon-bg);
+    border: 1px solid var(--se-feature-icon-border);
+    border-radius: 10px;
+    color: var(--se-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .se-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--se-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .se-feature p {
+    color: var(--se-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .se-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .se-privacy-inner {
+    text-align: center;
+  }
+
+  .se-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .se-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .se-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #34d399;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .se-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .se-cta {
+    padding: 6rem 0;
+    background: var(--se-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .se-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .se-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--se-text);
+    margin-bottom: 1rem;
+  }
+
+  .se-cta-text {
+    font-size: 1.125rem;
+    color: var(--se-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .se-footer {
+    background: var(--se-bg);
+    border-top: 1px solid var(--se-border);
+    padding: 2rem 0;
+  }
+
+  .se-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .se-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .se-footer-inner { padding: 0 3rem; }
+  }
+
+  .se-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .se-footer-links a {
+    color: var(--se-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .se-footer-links a:hover {
+    color: var(--se-accent);
+  }
+
+  .se-footer-dot {
+    color: var(--se-text-muted);
+    opacity: 0.4;
+  }
+
+  .se-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--se-text-muted);
+    opacity: 0.6;
+  }
+
+  .se-footer-brand a {
+    color: var(--se-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .se-footer-brand a:hover {
+    color: var(--se-accent);
+  }
+</style>
