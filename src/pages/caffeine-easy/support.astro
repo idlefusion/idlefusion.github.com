@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Caffeine Easy - Support"
+  description="Get help with Caffeine Easy - Know When Your Caffeine Clears iOS app."
+  ogUrl="https://idlefusion.com/caffeine-easy/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed space-y-8">
+          <div>
+            <p class="text-lg mb-4">Need help with Caffeine Easy?</p>
+            <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Caffeine%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does caffeine half-life work?</h3>
+                <p>Caffeine has an average half-life of about 5.7 hours. This means that every 5.7 hours, your body metabolizes half of the caffeine in your system. For example, if you drink a 100mg coffee at noon, you'll have about 50mg at 5:42 PM, 25mg at 11:24 PM, and so on until it's effectively cleared.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What does "Clear By" mean?</h3>
+                <p>The "Clear By" time shows when your caffeine level will drop below 20mg — the point at which caffeine is effectively out of your system and unlikely to affect your sleep. This helps you plan your last coffee of the day.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is the half-life the same for everyone?</h3>
+                <p>The 5.7-hour half-life is an average. Individual metabolism varies based on genetics, liver function, medications, pregnancy, smoking status, and other factors. Your personal half-life could be anywhere from 3 to 7+ hours. The app provides a good general estimate.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How accurate are the preset caffeine amounts?</h3>
+                <p>Caffeine content varies widely by preparation method, bean type, and serving size. Our presets use industry-standard averages: ~95mg for an 8oz brewed coffee, ~63mg for espresso, ~47mg for black tea, etc. For precise tracking, use the custom entry feature.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Caffeine Easy read my health data?</h3>
+                <p>No. Caffeine Easy only <em>writes</em> caffeine intake data (dietaryCaffeine) to HealthKit if you grant permission. It does not read any health data from Apple Health.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why does my caffeine level show high in the morning?</h3>
+                <p>If you drank caffeine late in the day, some may still be in your system the next morning. Caffeine takes roughly 5-6 half-lives (~30 hours) to fully clear. A late-night coffee can definitely linger into the next day.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I edit or delete logged entries?</h3>
+                <p>Yes! Tap any entry in your history to edit the amount or time, or swipe to delete it. Your caffeine level will recalculate automatically.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does the widget update in real-time?</h3>
+                <p>iOS widgets refresh periodically (not continuously) to save battery. The widget updates frequently enough to show accurate clear-by times, but for real-time visualization, open the app.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
