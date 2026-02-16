@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Temp Easy - Support"
+  description="Get help with Temp Easy - Body Temperature Tracker iOS app."
+  ogUrl="https://idlefusion.com/temp-easy/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed space-y-8">
+          <div>
+            <p class="text-lg mb-4">Need help with Temp Easy?</p>
+            <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Temp%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What's a normal body temperature?</h3>
+                <p>Normal body temperature typically ranges from 97.0°F to 99.0°F (36.1°C to 37.2°C). The classic 98.6°F (37°C) is an average — your personal normal may vary. Temp Easy color-codes readings so you can see at a glance whether you're in the normal, elevated, or fever range.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What do the colors mean?</h3>
+                <p>Green means your temperature is in the normal range. Yellow indicates an elevated temperature (low-grade fever). Red means you have a fever. These ranges follow standard medical guidelines and adjust based on measurement method.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I switch between Fahrenheit and Celsius?</h3>
+                <p>Yes! You can toggle between °F and °C in the app settings. All your existing readings will automatically display in the selected unit.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why does measurement method matter?</h3>
+                <p>Different measurement methods (oral, forehead, ear, armpit) can give slightly different readings. For example, armpit readings tend to be about 1°F lower than oral. Recording the method helps you compare readings accurately over time.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Temp Easy sync with Apple Health?</h3>
+                <p>Yes — if you grant HealthKit permission, Temp Easy writes body temperature readings to Apple Health. This lets you track temperature alongside your other health data. The app only writes data; it does not read from HealthKit.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I edit or delete a reading?</h3>
+                <p>Yes! Tap any entry in your history to edit the temperature, method, or time. You can also swipe to delete any reading you no longer need.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is my data backed up?</h3>
+                <p>Temperature data is stored locally on your device using SwiftData. If you back up your iPhone via iCloud or your computer, your Temp Easy data is included in that backup. The app itself does not perform any cloud sync.</p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is Temp Easy a medical device?</h3>
+                <p>No. Temp Easy is a logging tool for recording temperature readings you take with your own thermometer. It is not a medical device and should not be used as a substitute for professional medical advice.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

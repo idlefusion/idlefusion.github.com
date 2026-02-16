@@ -1,0 +1,681 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Temp Easy — Body Temperature Tracker"
+  description="Track body temperature with color-coded readings, HealthKit sync, and measurement method logging. No accounts, no subscriptions, completely private."
+  ogImage="/img/temp-easy/icon.png"
+  ogUrl="https://idlefusion.com/temp-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="te-nav">
+    <div class="te-nav-inner">
+      <a href="/temp-easy" class="te-logo">Temp Easy</a>
+      <div class="te-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id0000000000" class="te-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Warm red/coral tones -->
+    <section class="te-hero">
+      <div class="te-hero-glow te-hero-glow--warm"></div>
+      <div class="te-hero-glow te-hero-glow--coral"></div>
+      <div class="te-hero-inner">
+        <div class="te-hero-content">
+          <div class="te-hero-text">
+            <div class="te-hero-badge">TEMPERATURE TRACKER</div>
+            <h1 class="te-hero-title">
+              Know your<br/>body <em>temp.</em>
+            </h1>
+            <p class="te-hero-subtitle">
+              Log body temperature readings in seconds. Color-coded feedback tells you instantly if you're normal, elevated, or running a fever.
+            </p>
+            <div class="te-hero-actions">
+              <a href="https://apps.apple.com/app/id0000000000" class="te-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="te-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="te-hero-icon-wrap">
+            <div class="te-hero-icon-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0Z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="te-features-section">
+      <div class="te-container-wide">
+        <div class="te-features-header">
+          <span class="te-label-dark">FEATURES</span>
+          <h2 class="te-features-title">Temperature, simplified.</h2>
+        </div>
+
+        <div class="te-features">
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Quick Temperature Logging</h3>
+            <p>Log a reading in seconds. Enter your temperature, pick a measurement method, and you're done. Fast enough to use when you're not feeling great.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </div>
+            <h3>Color-Coded Readings</h3>
+            <p>Instantly see if your temperature is normal, elevated, or a fever. Green, yellow, and red color coding makes it clear at a glance — no guessing needed.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>HealthKit Sync</h3>
+            <p>Automatically sync temperature readings to Apple Health. Track alongside your other health data to see the full picture of your wellbeing.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0Z"/></svg>
+            </div>
+            <h3>Measurement Methods</h3>
+            <p>Record how you took each reading — oral, forehead, ear, armpit, or other. Context matters when tracking temperature over time.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 6 18 3-9h4"/></svg>
+            </div>
+            <h3>History &amp; Trends</h3>
+            <p>See all your past readings in a clear timeline. Spot trends and patterns to share with your doctor or just keep for your own records.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Completely Offline</h3>
+            <p>No servers, no cloud sync, no network requests. Your temperature data stays on your device. Period.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info section -->
+    <section class="te-science">
+      <div class="te-container">
+        <div class="te-science-inner">
+          <span class="te-label-dark">THE BASICS</span>
+          <h2 class="te-science-title">98.6°F</h2>
+          <p class="te-science-text">
+            Normal body temperature averages around 98.6°F (37°C), but healthy readings range from 97°F to 99°F depending on the person, time of day, and measurement method.<br/><br/>
+            Temp Easy color-codes your readings so you always know where you stand — green for normal, yellow for elevated, red for fever.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="te-privacy-banner">
+      <div class="te-container">
+        <div class="te-privacy-inner">
+          <span class="te-label-dark">PRIVACY</span>
+          <h2 class="te-privacy-title">Zero data collection.</h2>
+          <p class="te-privacy-text">
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Temp Easy doesn't even make network requests. Your data lives on your device and nowhere else.
+          </p>
+          <a href="/temp-easy/privacy" class="te-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="te-cta">
+      <div class="te-container">
+        <div class="te-cta-inner">
+          <h2 class="te-cta-title">Track your temperature.</h2>
+          <p class="te-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id0000000000" class="te-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="temp-easy" />
+  </main>
+
+  <!-- App Footer -->
+  <footer class="te-footer">
+    <div class="te-footer-inner">
+      <div class="te-footer-links">
+        <a href="/temp-easy/support">Support</a>
+        <span class="te-footer-dot">&middot;</span>
+        <a href="/temp-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="te-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     TEMP EASY — Warm red/coral thermometer theme
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --te-accent: #dc2626;
+    --te-accent-deep: #b91c1c;
+    --te-accent-light: #ef4444;
+    --te-accent-bg: #fef2f2;
+    --te-warm: #991b1b;
+    --te-bg: #f8fafc;
+    --te-surface: #ffffff;
+    --te-border: rgba(148, 163, 184, 0.15);
+    --te-text: #0f172a;
+    --te-text-muted: #64748b;
+    --te-feature-icon-bg: rgba(220, 38, 38, 0.08);
+    --te-feature-icon-border: rgba(220, 38, 38, 0.12);
+  }
+
+  :global(.dark) {
+    --te-accent: #f87171;
+    --te-accent-deep: #ef4444;
+    --te-accent-light: #fca5a5;
+    --te-accent-bg: #450a0a;
+    --te-bg: #0a0f1a;
+    --te-surface: #111827;
+    --te-border: rgba(148, 163, 184, 0.08);
+    --te-text: #f1f5f9;
+    --te-text-muted: #94a3b8;
+    --te-feature-icon-bg: rgba(248, 113, 113, 0.1);
+    --te-feature-icon-border: rgba(248, 113, 113, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .te-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--te-bg);
+    border-bottom: 1px solid var(--te-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .te-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .te-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .te-nav-inner { padding: 0 3rem; }
+  }
+
+  .te-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--te-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .te-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .te-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .te-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero — Dark, warm red tones ─── */
+  .te-hero {
+    background: #1a0808;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .te-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.15;
+  }
+
+  .te-hero-glow--warm {
+    top: -30%;
+    left: -10%;
+    background: #dc2626;
+  }
+
+  .te-hero-glow--coral {
+    bottom: -40%;
+    right: -10%;
+    background: #f87171;
+  }
+
+  .te-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .te-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .te-hero-inner { padding: 0 3rem; }
+  }
+
+  .te-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .te-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .te-hero-text { flex: 1; }
+
+  .te-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: #f87171;
+    margin-bottom: 1.5rem;
+  }
+
+  .te-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #fef2f2;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .te-hero-title em {
+    font-style: italic;
+    color: #f87171;
+  }
+
+  .te-hero-subtitle {
+    font-size: 1.125rem;
+    color: #d6d3d1;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .te-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .te-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .te-hero-actions { align-items: flex-start; }
+  }
+
+  .te-store-badge {
+    display: inline-block;
+  }
+
+  .te-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .te-store-badge:hover img { opacity: 0.8; }
+
+  .te-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #a8a29e;
+  }
+
+  .te-hero-icon-wrap { flex-shrink: 0; }
+
+  .te-hero-icon-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #991b1b 0%, #dc2626 50%, #ef4444 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fef2f2;
+    box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3), 0 0 80px rgba(248, 113, 113, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .te-hero-icon-placeholder {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+    .te-hero-icon-placeholder svg {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .te-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .te-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .te-container { padding: 0 2rem; }
+    .te-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .te-container { padding: 0 3rem; }
+    .te-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .te-features-section {
+    background: var(--te-surface);
+    padding: 5rem 0;
+  }
+
+  .te-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .te-label-dark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--te-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .te-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--te-text);
+    margin-bottom: 1rem;
+  }
+
+  .te-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--te-border);
+    border: 1px solid var(--te-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .te-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .te-feature {
+    padding: 2rem;
+    background: var(--te-surface);
+  }
+
+  .te-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--te-feature-icon-bg);
+    border: 1px solid var(--te-feature-icon-border);
+    border-radius: 10px;
+    color: var(--te-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  :global(.dark) .te-feature-icon {
+    color: var(--te-accent);
+  }
+
+  .te-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--te-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .te-feature p {
+    color: var(--te-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Science Section ─── */
+  .te-science {
+    background: var(--te-bg);
+    padding: 5rem 0;
+    border-top: 1px solid var(--te-border);
+    border-bottom: 1px solid var(--te-border);
+  }
+
+  .te-science-inner {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .te-science-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--te-accent-deep);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  :global(.dark) .te-science-title {
+    color: var(--te-accent);
+  }
+
+  .te-science-text {
+    font-size: 1.0625rem;
+    color: var(--te-text-muted);
+    line-height: 1.8;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .te-privacy-banner {
+    background: #1a0808;
+    padding: 5rem 0;
+  }
+
+  .te-privacy-inner {
+    text-align: center;
+  }
+
+  .te-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #fef2f2;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .te-privacy-text {
+    font-size: 1.0625rem;
+    color: #d6d3d1;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .te-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #f87171;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .te-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .te-cta {
+    padding: 6rem 0;
+    background: var(--te-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .te-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .te-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--te-text);
+    margin-bottom: 1rem;
+  }
+
+  .te-cta-text {
+    font-size: 1.125rem;
+    color: var(--te-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .te-footer {
+    background: var(--te-bg);
+    border-top: 1px solid var(--te-border);
+    padding: 2rem 0;
+  }
+
+  .te-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .te-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .te-footer-inner { padding: 0 3rem; }
+  }
+
+  .te-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .te-footer-links a {
+    color: var(--te-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .te-footer-links a:hover {
+    color: var(--te-accent);
+  }
+
+  .te-footer-dot {
+    color: var(--te-text-muted);
+    opacity: 0.4;
+  }
+
+  .te-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--te-text-muted);
+    opacity: 0.6;
+  }
+
+  .te-footer-brand a {
+    color: var(--te-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .te-footer-brand a:hover {
+    color: var(--te-accent);
+  }
+</style>
