@@ -1,0 +1,758 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Cycle Easy — Private Period Tracker for iOS"
+  description="Your cycle data belongs to you. Cycle Easy is a privacy-first period tracker that keeps everything local. No accounts, no cloud, no tracking. Ever."
+  ogImage="/img/cycle-easy/icon.png"
+  ogUrl="https://idlefusion.com/cycle-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="ce-nav">
+    <div class="ce-nav-inner">
+      <a href="/cycle-easy" class="ce-logo">Cycle Easy</a>
+      <div class="ce-nav-actions">
+        <ThemeToggle />
+        <a href="#" class="ce-nav-cta">
+          <span class="ce-coming-soon">Coming Soon</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Privacy-first messaging -->
+    <section class="ce-hero">
+      <div class="ce-hero-glow ce-hero-glow--primary"></div>
+      <div class="ce-hero-glow ce-hero-glow--secondary"></div>
+      <div class="ce-hero-inner">
+        <div class="ce-hero-content">
+          <div class="ce-hero-text">
+            <div class="ce-hero-badge">PERIOD TRACKING</div>
+            <h1 class="ce-hero-title">
+              Your cycle,<br/><em>your privacy.</em>
+            </h1>
+            <p class="ce-hero-subtitle">
+              A period tracker that keeps everything on your device. No accounts. No cloud. No data collection. Your most intimate health data stays exactly where it belongs — with you.
+            </p>
+            <div class="ce-hero-actions">
+              <span class="ce-coming-badge">Coming Soon to the App Store</span>
+              <span class="ce-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="ce-hero-icon-wrap">
+            <div class="ce-hero-icon-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Promise — Most prominent section -->
+    <section class="ce-privacy-promise">
+      <div class="ce-container">
+        <div class="ce-privacy-promise-inner">
+          <span class="ce-label">OUR COMMITMENT</span>
+          <h2 class="ce-privacy-promise-title">Your data never leaves your device.<br/>Period.</h2>
+          <p class="ce-privacy-promise-text">
+            In today's world, your health data has never been more sensitive. We built Cycle Easy with one principle: <strong>your cycle data belongs to you and only you.</strong> There are no servers, no databases, no way for anyone — including us — to access your information.
+          </p>
+          <div class="ce-privacy-pillars">
+            <div class="ce-pillar">
+              <div class="ce-pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <h3>100% Local</h3>
+              <p>All data stored on device only</p>
+            </div>
+            <div class="ce-pillar">
+              <div class="ce-pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>No Cloud</h3>
+              <p>Zero network requests ever</p>
+            </div>
+            <div class="ce-pillar">
+              <div class="ce-pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+              </div>
+              <h3>No Tracking</h3>
+              <p>No analytics or third parties</p>
+            </div>
+            <div class="ce-pillar">
+              <div class="ce-pillar-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="11" x2="23" y2="11"/></svg>
+              </div>
+              <h3>No Account</h3>
+              <p>Use immediately, no sign-up</p>
+            </div>
+          </div>
+          <a href="/cycle-easy/privacy" class="ce-privacy-promise-link">Read our complete privacy commitment &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="ce-features-section">
+      <div class="ce-container-wide">
+        <div class="ce-features-header">
+          <span class="ce-label-dark">FEATURES</span>
+          <h2 class="ce-features-title">Everything you need.<br/>Nothing you don't.</h2>
+        </div>
+
+        <div class="ce-features">
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Period Tracking</h3>
+            <p>Log your period start and end dates with a single tap. Track flow intensity and see your complete cycle history at a glance.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 6 18 3-9h4"/></svg>
+            </div>
+            <h3>Smart Predictions</h3>
+            <p>Your next period, predicted based on your own data. The app learns your unique cycle patterns and improves accuracy over time.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+            </div>
+            <h3>Symptom Logging</h3>
+            <p>Track cramps, mood, energy, headaches, and more. Quick daily logging helps you spot patterns and understand your body better.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Cycle Calendar</h3>
+            <p>Beautiful calendar views show your cycle at a glance. See patterns across months with the year-at-a-glance view.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Privacy-Safe Widget</h3>
+            <p>Current cycle day at a glance on your home screen. Shows only "Day X" — no sensitive details visible to others.</p>
+          </div>
+
+          <div class="ce-feature">
+            <div class="ce-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <h3>Your Data, Your Control</h3>
+            <p>Export all your data as JSON anytime. Delete everything with a single tap. Complete control over your information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HealthKit Callout -->
+    <section class="ce-healthkit-section">
+      <div class="ce-container">
+        <div class="ce-healthkit-inner">
+          <span class="ce-label-dark">HEALTHKIT</span>
+          <h2 class="ce-healthkit-title">Optional. Off by default.</h2>
+          <p class="ce-healthkit-text">
+            Cycle Easy can sync with Apple Health — but only if you explicitly enable it. HealthKit integration is <strong>disabled by default</strong>. If you choose to enable it, data flows only to Apple Health on your device, governed by Apple's strict privacy protections. We never see it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ce-cta">
+      <div class="ce-container">
+        <div class="ce-cta-inner">
+          <h2 class="ce-cta-title">Privacy-first period tracking.</h2>
+          <p class="ce-cta-text">Coming soon to the App Store. No account required.</p>
+          <span class="ce-coming-badge">Coming Soon</span>
+        </div>
+      </div>
+    </section>
+
+    <ExploreApps current="cycle-easy" />
+  </main>
+
+  <!-- App Footer -->
+  <footer class="ce-footer">
+    <div class="ce-footer-inner">
+      <div class="ce-footer-links">
+        <a href="/cycle-easy/support">Support</a>
+        <span class="ce-footer-dot">&middot;</span>
+        <a href="/cycle-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="ce-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     CYCLE EASY — Soft Rose / Privacy-First Theme
+     Warm, nurturing, trustworthy
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --ce-accent: #e11d48;
+    --ce-accent-deep: #be123c;
+    --ce-accent-soft: #fda4af;
+    --ce-accent-bg: #fff1f2;
+    --ce-bg: #fafafa;
+    --ce-surface: #ffffff;
+    --ce-border: rgba(148, 163, 184, 0.15);
+    --ce-text: #0f172a;
+    --ce-text-muted: #64748b;
+    --ce-feature-icon-bg: rgba(225, 29, 72, 0.08);
+    --ce-feature-icon-border: rgba(225, 29, 72, 0.12);
+  }
+
+  :global(.dark) {
+    --ce-accent: #fb7185;
+    --ce-accent-deep: #f43f5e;
+    --ce-accent-soft: #9f1239;
+    --ce-accent-bg: #1c1017;
+    --ce-bg: #0a0a0b;
+    --ce-surface: #111113;
+    --ce-border: rgba(148, 163, 184, 0.08);
+    --ce-text: #f1f5f9;
+    --ce-text-muted: #94a3b8;
+    --ce-feature-icon-bg: rgba(251, 113, 133, 0.1);
+    --ce-feature-icon-border: rgba(251, 113, 133, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .ce-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--ce-bg);
+    border-bottom: 1px solid var(--ce-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .ce-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ce-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-nav-inner { padding: 0 3rem; }
+  }
+
+  .ce-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ce-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .ce-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ce-coming-soon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ce-text-muted);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--ce-border);
+    border-radius: 6px;
+  }
+
+  /* ─── Hero ─── */
+  .ce-hero {
+    background: #0a0a0b;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ce-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.1;
+  }
+
+  .ce-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--ce-accent);
+  }
+
+  .ce-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--ce-accent-soft);
+  }
+
+  .ce-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .ce-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-hero-inner { padding: 0 3rem; }
+  }
+
+  .ce-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .ce-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .ce-hero-text { flex: 1; }
+
+  .ce-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ce-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .ce-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .ce-hero-title em {
+    font-style: italic;
+    color: var(--ce-accent);
+  }
+
+  .ce-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .ce-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .ce-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .ce-hero-actions { align-items: flex-start; }
+  }
+
+  .ce-coming-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: #f1f5f9;
+    padding: 0.75rem 1.5rem;
+    background: rgba(251, 113, 133, 0.15);
+    border: 1px solid rgba(251, 113, 133, 0.3);
+    border-radius: 8px;
+  }
+
+  .ce-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .ce-hero-icon-wrap { flex-shrink: 0; }
+
+  .ce-hero-icon-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    background: rgba(251, 113, 133, 0.1);
+    border: 1px solid rgba(251, 113, 133, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ce-accent);
+  }
+
+  @media (min-width: 768px) {
+    .ce-hero-icon-placeholder {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .ce-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .ce-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ce-container { padding: 0 2rem; }
+    .ce-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-container { padding: 0 3rem; }
+    .ce-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Privacy Promise Section ─── */
+  .ce-privacy-promise {
+    background: var(--ce-accent-bg);
+    padding: 5rem 0;
+  }
+
+  .ce-privacy-promise-inner {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .ce-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ce-accent-deep);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .ce-privacy-promise-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--ce-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .ce-privacy-promise-text {
+    font-size: 1.0625rem;
+    color: var(--ce-text-muted);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .ce-privacy-promise-text strong {
+    color: var(--ce-text);
+  }
+
+  .ce-privacy-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .ce-privacy-pillars {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .ce-pillar {
+    text-align: center;
+  }
+
+  .ce-pillar-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ce-surface);
+    border: 1px solid var(--ce-border);
+    border-radius: 12px;
+    color: var(--ce-accent-deep);
+  }
+
+  .ce-pillar h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ce-text);
+    margin-bottom: 0.375rem;
+  }
+
+  .ce-pillar p {
+    font-size: 0.8125rem;
+    color: var(--ce-text-muted);
+    margin: 0;
+  }
+
+  .ce-privacy-promise-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ce-accent-deep);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .ce-privacy-promise-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── Features ─── */
+  .ce-features-section {
+    background: var(--ce-surface);
+    padding: 5rem 0;
+  }
+
+  .ce-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .ce-label-dark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--ce-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .ce-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--ce-text);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .ce-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--ce-border);
+    border: 1px solid var(--ce-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .ce-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .ce-feature {
+    padding: 2rem;
+    background: var(--ce-surface);
+  }
+
+  .ce-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ce-feature-icon-bg);
+    border: 1px solid var(--ce-feature-icon-border);
+    border-radius: 10px;
+    color: var(--ce-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .ce-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--ce-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .ce-feature p {
+    color: var(--ce-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── HealthKit Section ─── */
+  .ce-healthkit-section {
+    background: #0a0a0b;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .ce-healthkit-inner {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .ce-healthkit-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .ce-healthkit-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+
+  .ce-healthkit-text strong {
+    color: #f1f5f9;
+  }
+
+  /* ─── CTA ─── */
+  .ce-cta {
+    padding: 6rem 0;
+    background: var(--ce-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ce-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .ce-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ce-text);
+    margin-bottom: 1rem;
+  }
+
+  .ce-cta-text {
+    font-size: 1.125rem;
+    color: var(--ce-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .ce-footer {
+    background: var(--ce-bg);
+    border-top: 1px solid var(--ce-border);
+    padding: 2rem 0;
+  }
+
+  .ce-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .ce-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ce-footer-inner { padding: 0 3rem; }
+  }
+
+  .ce-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .ce-footer-links a {
+    color: var(--ce-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ce-footer-links a:hover {
+    color: var(--ce-accent);
+  }
+
+  .ce-footer-dot {
+    color: var(--ce-text-muted);
+    opacity: 0.4;
+  }
+
+  .ce-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--ce-text-muted);
+    opacity: 0.6;
+  }
+
+  .ce-footer-brand a {
+    color: var(--ce-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .ce-footer-brand a:hover {
+    color: var(--ce-accent);
+  }
+</style>
