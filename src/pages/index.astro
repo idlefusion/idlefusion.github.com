@@ -20,30 +20,32 @@ const portfolio = (await getCollection('portfolio')).sort((a, b) => (a.data.orde
 const team = await getCollection('team');
 const faq = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
 
-const apps = [
-  { href: '/contrast', icon: '/img/contrast/icon.png', category: 'Sauna + Cold Plunge', name: 'Contrast', desc: 'A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.' },
-  { href: '/fast-easy', icon: '/img/fast-easy/icon.png', category: 'Fasting Timer', name: 'Fast Easy', desc: 'A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions.' },
-  { href: '/focus-easy', icon: '/img/focus-easy/icon.png', category: 'Minimalist Launcher', name: 'Focus Easy', desc: 'A minimal home screen launcher that eliminates distraction. Your essential apps, one tap away.' },
-  { href: '/run-easy', icon: '/img/run-easy/icon.png', category: 'Heart Rate Zone Training', name: 'Run Easy', desc: 'Heart rate zone training on Apple Watch built around the Maffetone method with real-time coaching.' },
-  { href: '/check-yourself', icon: '/img/check-yourself/icon.png', category: 'Camera Mirror', name: 'Check Yourself', desc: 'A lightweight macOS menu bar app to check your appearance before meetings.' },
-  { href: '/breathe-easy', icon: '/img/breathe-easy/icon.png', category: 'Breathing Exercises', name: 'Breathe Easy', desc: 'Guided breathing exercises with haptic feedback. Box breathing, 4-7-8, and more.' },
-  { href: '/track-easy', icon: '/img/track-easy/icon.png', category: 'Habit Tracker', name: 'Track Easy', desc: 'Track habits without the hassle. Unlimited habits, streaks, widgets, and Apple Watch.' },
-  { href: '/mood-easy', icon: '/img/mood-easy/icon.png', category: 'Mood Tracker', name: 'Mood Easy', desc: 'Track your mood privately with quick emoji logging and Year in Pixels visualization.' },
-  { href: '/pomo-easy', icon: '/img/pomo-easy/icon.png', category: 'Pomodoro Timer', name: 'Pomo Easy', desc: 'Focus with the Pomodoro technique. Live Activities, widgets, and Apple Watch.' },
-  { href: '/hydrate', icon: '/img/hydrate/icon.png', category: 'Water Tracker', name: 'Hydrate', desc: 'Track your daily water intake with quick-log buttons and HealthKit sync.' },
-  { href: '/count-easy', icon: '/img/count-easy/icon.png', category: 'Tally Counter', name: 'Count Easy', desc: 'Count anything with satisfying haptics. Multiple counters, history, and widgets.' },
-  { href: '/cycle-easy', icon: '/img/cycle-easy/icon.png', category: 'Period Tracker', name: 'Cycle Easy', desc: 'Privacy-first period tracking. Everything stays on your device — no accounts, no cloud.' },
-  { href: '/voice-easy', icon: '/img/voice-easy/icon.png', category: 'Voice Recorder', name: 'Voice Easy', desc: 'Record voice memos with on-device transcription. Your voice never leaves your device.' },
-  { href: '/weigh-easy', icon: '/img/weigh-easy/icon.png', category: 'Weight Tracker', name: 'Weigh Easy', desc: 'Track your weight privately with trend charts, goals, and progress photos.' },
-  { href: '/pressure-easy', icon: '/img/pressure-easy/icon.png', category: 'Blood Pressure', name: 'Pressure Easy', desc: 'Track blood pressure with AHA category indicators and PDF export for your doctor.' },
-  { href: '/spend-easy', icon: '/img/spend-easy/icon.png', category: 'Expense Tracker', name: 'Spend Easy', desc: 'Track spending privately. No bank connections, no cloud sync, no subscriptions.' },
-  { href: '/rest-easy', icon: '/img/rest-easy/icon.png', category: 'Sleep Sounds', name: 'Rest Easy', desc: 'Drift off with soothing ambient sounds. Mix soundscapes and set a sleep timer.' },
-  { href: '/meds-easy', icon: '/img/meds-easy/icon.png', category: 'Medication Tracker', name: 'Meds Easy', desc: 'Never miss a dose. Medication schedules, reminders, and refill tracking.' },
-  { href: '/decibel', icon: '/img/decibel/icon.png', category: 'Sound Meter', name: 'Decibel', desc: 'Measure sound levels instantly with NIOSH exposure warnings.' },
-  { href: '/caffeine-easy', icon: '/img/caffeine-easy/icon.png', category: 'Caffeine Tracker', name: 'Caffeine Easy', desc: 'Know when caffeine clears your system with half-life decay visualization.' },
-  { href: '/stretch-easy', icon: '/img/stretch-easy/icon.png', category: 'Stretching Routines', name: 'Stretch Easy', desc: 'Guided stretching routines with timers, haptics, and Apple Watch support.' },
-  { href: '/tune-easy', icon: '/img/tune-easy/icon.png', category: 'Guitar Tuner', name: 'Tune Easy', desc: 'Tune your guitar simply with real-time pitch detection and reference tones.' },
-].sort(() => Math.random() - 0.5);
+// Preview apps for the teaser (shuffled selection)
+const allAppIcons = [
+  '/img/contrast/icon.png',
+  '/img/fast-easy/icon.png',
+  '/img/focus-easy/icon.png',
+  '/img/run-easy/icon.png',
+  '/img/breathe-easy/icon.png',
+  '/img/track-easy/icon.png',
+  '/img/mood-easy/icon.png',
+  '/img/pomo-easy/icon.png',
+  '/img/hydrate/icon.png',
+  '/img/count-easy/icon.png',
+  '/img/cycle-easy/icon.png',
+  '/img/voice-easy/icon.png',
+  '/img/weigh-easy/icon.png',
+  '/img/pressure-easy/icon.png',
+  '/img/spend-easy/icon.png',
+  '/img/rest-easy/icon.png',
+  '/img/meds-easy/icon.png',
+  '/img/decibel/icon.png',
+  '/img/caffeine-easy/icon.png',
+  '/img/stretch-easy/icon.png',
+  '/img/tune-easy/icon.png',
+  '/img/check-yourself/icon.png',
+];
+const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
 ---
 
 <BaseLayout
@@ -335,7 +337,7 @@ const apps = [
       </div>
     </section>
 
-    <!-- Our Apps Section -->
+    <!-- Our Apps Section (Teaser) -->
     <section class="section-padding" id="apps">
       <div class="section-container">
         <div class="section-header">
@@ -343,23 +345,24 @@ const apps = [
           <div class="section-divider-line"></div>
         </div>
 
-        <div class="section-intro">
-          <h2 class="section-title">Our Apps</h2>
-          <p class="section-subtitle">
-            Purpose-built apps designed with care — no accounts, no subscriptions
-          </p>
-        </div>
-
-        <div class="apps-grid">
-          {apps.map(app => (
-            <a href={app.href} class="app-card">
-              <img src={app.icon} alt={`${app.name} app icon`} class="app-icon" width="64" height="64" />
-              <span class="app-category">{app.category}</span>
-              <h3 class="app-name">{app.name}</h3>
-              <p class="app-desc">{app.desc}</p>
-              <span class="app-link">Learn more &rarr;</span>
+        <div class="apps-teaser">
+          <div class="apps-teaser-content">
+            <h2 class="apps-teaser-title">22 Privacy-First Apps</h2>
+            <p class="apps-teaser-desc">
+              Purpose-built tools for health, productivity, and everyday life. No accounts. No subscriptions. No tracking. Your data stays on your device.
+            </p>
+            <a href="/apps" class="btn btn-primary apps-teaser-cta">
+              Explore all apps
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="cta-arrow">
+                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </a>
-          ))}
+          </div>
+          <div class="apps-teaser-icons">
+            {shuffledIcons.slice(0, 12).map((icon, i) => (
+              <img src={icon} alt="App icon" class="apps-teaser-icon" width="56" height="56" style={`animation-delay: ${i * 0.05}s`} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -569,76 +572,93 @@ const apps = [
     letter-spacing: 0.02em;
   }
 
-  /* Apps grid */
-  .apps-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  /* Apps Teaser */
+  .apps-teaser {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    text-align: center;
   }
 
   @media (min-width: 768px) {
-    .apps-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .apps-teaser {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
     }
   }
 
-  .app-card {
-    display: block;
-    padding: 2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  .apps-teaser-content {
+    flex: 1;
+    max-width: 420px;
   }
 
-  .app-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
+  .apps-teaser-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+    line-height: 1.1;
+  }
+
+  .apps-teaser-desc {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0 0 1.75rem;
+  }
+
+  .apps-teaser-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .apps-teaser-cta .cta-arrow {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .apps-teaser-cta:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  .apps-teaser-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 640px) {
+    .apps-teaser-icons {
+      gap: 1rem;
+    }
+  }
+
+  .apps-teaser-icon {
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeInIcon 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .apps-teaser-icon:hover {
+    transform: scale(1.08) translateY(-2px);
     box-shadow: var(--shadow-md);
   }
 
-  .app-icon {
-    border-radius: 14px;
-    margin-bottom: 1.25rem;
-  }
-
-  .app-category {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
-  .app-name {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin: 0 0 0.5rem;
-    line-height: 1.2;
-  }
-
-  .app-desc {
-    font-family: 'Satoshi', sans-serif;
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0 0 1rem;
-  }
-
-  .app-link {
-    font-family: 'Satoshi', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--accent);
-  }
-
-  .app-card:hover .app-link {
-    text-decoration: underline;
+  @keyframes fadeInIcon {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   /* CTA Section */
