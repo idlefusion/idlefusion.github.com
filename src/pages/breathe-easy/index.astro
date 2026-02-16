@@ -1,0 +1,681 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Breathe Easy — Guided Breathing Timer for iOS"
+  description="A simple, beautiful breathing timer that helps you relax and focus. Box breathing, 4-7-8, and coherent breathing patterns. Apple Watch, HealthKit, no subscriptions."
+  ogImage="/img/breathe-easy/icon.png"
+  ogUrl="https://idlefusion.com/breathe-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="be-nav">
+    <div class="be-nav-inner">
+      <a href="/breathe-easy" class="be-logo">Breathe Easy</a>
+      <div class="be-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id0000000000" class="be-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Calm, serene -->
+    <section class="be-hero">
+      <div class="be-hero-glow be-hero-glow--primary"></div>
+      <div class="be-hero-glow be-hero-glow--secondary"></div>
+      <div class="be-hero-inner">
+        <div class="be-hero-content">
+          <div class="be-hero-text">
+            <div class="be-hero-badge">GUIDED BREATHING TIMER</div>
+            <h1 class="be-hero-title">
+              Find your calm.<br/><em>Just breathe.</em>
+            </h1>
+            <p class="be-hero-subtitle">
+              A simple, beautiful breathing timer that helps you relax and focus. No accounts, no subscriptions, no data collection.
+            </p>
+            <div class="be-hero-actions">
+              <a href="https://apps.apple.com/app/id0000000000" class="be-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="be-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="be-hero-icon-wrap">
+            <img src="/img/breathe-easy/icon.png" alt="Breathe Easy app icon" class="be-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section class="be-screenshots">
+      <div class="be-screenshots-inner">
+        <div class="be-screenshots-scroll">
+          <img src="/img/breathe-easy/screenshots/01_home.png" alt="Breathe Easy home screen" class="be-screenshot" />
+          <img src="/img/breathe-easy/screenshots/02_session.png" alt="Active breathing session" class="be-screenshot" />
+          <img src="/img/breathe-easy/screenshots/03_complete.png" alt="Session complete" class="be-screenshot" />
+          <img src="/img/breathe-easy/screenshots/04_history.png" alt="Session history" class="be-screenshot" />
+          <img src="/img/breathe-easy/screenshots/05_settings.png" alt="Settings screen" class="be-screenshot" />
+          <img src="/img/breathe-easy/screenshots/06_widget.png" alt="Home screen widget" class="be-screenshot" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="be-features-section">
+      <div class="be-container-wide">
+        <div class="be-features-header">
+          <span class="be-label">FEATURES</span>
+          <h2 class="be-features-title">Breathe in seconds.</h2>
+        </div>
+
+        <div class="be-features">
+          <div class="be-feature">
+            <div class="be-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Proven Patterns</h3>
+            <p>Box breathing, 4-7-8 relaxation, and Coherent breathing — each backed by science to help you relax, focus, or sleep.</p>
+          </div>
+
+          <div class="be-feature">
+            <div class="be-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+            </div>
+            <h3>Visual Guide</h3>
+            <p>The breathing circle expands and contracts to match your breath perfectly. Close your eyes and let haptic cues guide you.</p>
+          </div>
+
+          <div class="be-feature">
+            <div class="be-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Apple Watch</h3>
+            <p>The standalone watch app runs without your iPhone. Start a breathing session from your wrist with full haptic guidance.</p>
+          </div>
+
+          <div class="be-feature">
+            <div class="be-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>HealthKit Sync</h3>
+            <p>Sessions automatically save to Apple Health as mindfulness minutes. Track your practice alongside everything else.</p>
+          </div>
+
+          <div class="be-feature">
+            <div class="be-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3>Widgets</h3>
+            <p>Add Home Screen and Lock Screen widgets to start a session instantly. One tap to calm.</p>
+          </div>
+
+          <div class="be-feature">
+            <div class="be-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Completely Offline</h3>
+            <p>No servers, no cloud sync, no network requests. Your breathing data stays on your device. Period.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="be-privacy-banner">
+      <div class="be-container">
+        <div class="be-privacy-inner">
+          <span class="be-label">PRIVACY</span>
+          <h2 class="be-privacy-title">Zero data collection.</h2>
+          <p class="be-privacy-text">
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Breathe Easy doesn't even make network requests. Your session data lives on your device and nowhere else.
+          </p>
+          <a href="/breathe-easy/privacy" class="be-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="be-cta">
+      <div class="be-container">
+        <div class="be-cta-inner">
+          <h2 class="be-cta-title">Start breathing.</h2>
+          <p class="be-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id0000000000" class="be-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="breathe-easy" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="be-footer">
+    <div class="be-footer-inner">
+      <div class="be-footer-links">
+        <a href="/breathe-easy/support">Support</a>
+        <span class="be-footer-dot">&middot;</span>
+        <a href="/breathe-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="be-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     BREATHE EASY — Soft Indigo / Sky, Calming Theme
+     Serene, peaceful, meditative
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --be-accent: #6366f1;
+    --be-accent-deep: #4f46e5;
+    --be-accent-bg: #eef2ff;
+    --be-secondary: #38bdf8;
+    --be-bg: #f8fafc;
+    --be-surface: #ffffff;
+    --be-border: rgba(148, 163, 184, 0.15);
+    --be-text: #0f172a;
+    --be-text-muted: #64748b;
+    --be-feature-icon-bg: rgba(99, 102, 241, 0.08);
+    --be-feature-icon-border: rgba(99, 102, 241, 0.12);
+  }
+
+  :global(.dark) {
+    --be-accent: #818cf8;
+    --be-accent-deep: #6366f1;
+    --be-accent-bg: #1e1b4b;
+    --be-bg: #0a0f1a;
+    --be-surface: #111827;
+    --be-border: rgba(148, 163, 184, 0.08);
+    --be-text: #f1f5f9;
+    --be-text-muted: #94a3b8;
+    --be-feature-icon-bg: rgba(99, 102, 241, 0.1);
+    --be-feature-icon-border: rgba(99, 102, 241, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .be-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--be-bg);
+    border-bottom: 1px solid var(--be-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .be-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .be-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .be-nav-inner { padding: 0 3rem; }
+  }
+
+  .be-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--be-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .be-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .be-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .be-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .be-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .be-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.15;
+  }
+
+  .be-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: var(--be-accent);
+  }
+
+  .be-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: var(--be-secondary);
+  }
+
+  .be-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .be-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .be-hero-inner { padding: 0 3rem; }
+  }
+
+  .be-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .be-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .be-hero-text { flex: 1; }
+
+  .be-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--be-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .be-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .be-hero-title em {
+    font-style: italic;
+    color: var(--be-accent);
+  }
+
+  .be-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .be-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .be-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .be-hero-actions { align-items: flex-start; }
+  }
+
+  .be-store-badge {
+    display: inline-block;
+  }
+
+  .be-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .be-store-badge:hover img { opacity: 0.8; }
+
+  .be-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .be-hero-icon-wrap { flex-shrink: 0; }
+
+  .be-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25), 0 0 80px rgba(99, 102, 241, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .be-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Screenshots Gallery ─── */
+  .be-screenshots {
+    background: var(--be-bg);
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+
+  .be-screenshots-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .be-screenshots-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1.5rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .be-screenshots-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .be-screenshots-scroll { padding: 0 2rem 1rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .be-screenshots-scroll { padding: 0 3rem 1rem; }
+  }
+
+  .be-screenshot {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .be-screenshot { width: 260px; }
+  }
+
+  /* ─── Containers ─── */
+  .be-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .be-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .be-container { padding: 0 2rem; }
+    .be-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .be-container { padding: 0 3rem; }
+    .be-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .be-features-section {
+    background: var(--be-surface);
+    padding: 5rem 0;
+  }
+
+  .be-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .be-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--be-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .be-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--be-text);
+    margin-bottom: 1rem;
+  }
+
+  .be-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--be-border);
+    border: 1px solid var(--be-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .be-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .be-feature {
+    padding: 2rem;
+    background: var(--be-surface);
+  }
+
+  .be-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--be-feature-icon-bg);
+    border: 1px solid var(--be-feature-icon-border);
+    border-radius: 10px;
+    color: var(--be-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .be-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--be-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .be-feature p {
+    color: var(--be-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .be-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .be-privacy-inner {
+    text-align: center;
+  }
+
+  .be-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .be-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .be-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--be-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .be-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .be-cta {
+    padding: 6rem 0;
+    background: var(--be-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .be-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .be-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--be-text);
+    margin-bottom: 1rem;
+  }
+
+  .be-cta-text {
+    font-size: 1.125rem;
+    color: var(--be-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .be-footer {
+    background: var(--be-bg);
+    border-top: 1px solid var(--be-border);
+    padding: 2rem 0;
+  }
+
+  .be-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .be-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .be-footer-inner { padding: 0 3rem; }
+  }
+
+  .be-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .be-footer-links a {
+    color: var(--be-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .be-footer-links a:hover {
+    color: var(--be-accent);
+  }
+
+  .be-footer-dot {
+    color: var(--be-text-muted);
+    opacity: 0.4;
+  }
+
+  .be-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--be-text-muted);
+    opacity: 0.6;
+  }
+
+  .be-footer-brand a {
+    color: var(--be-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .be-footer-brand a:hover {
+    color: var(--be-accent);
+  }
+</style>
