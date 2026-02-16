@@ -1,0 +1,612 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Pomo Easy — Pomodoro Timer with Live Activities"
+  description="A focused Pomodoro timer for iOS. Classic 25/5 technique, customizable intervals, Live Activities, Focus Mode, and session stats. No accounts, no subscriptions."
+  ogImage="/img/pomo-easy/icon.png"
+  ogUrl="https://idlefusion.com/pomo-easy"
+>
+
+  <!-- App Nav -->
+  <nav class="pe-nav">
+    <div class="pe-nav-inner">
+      <a href="/pomo-easy" class="pe-logo">Pomo Easy</a>
+      <div class="pe-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id6740519498" class="pe-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Dark, bold, tomato accents -->
+    <section class="pe-hero">
+      <div class="pe-hero-glow pe-hero-glow--warm"></div>
+      <div class="pe-hero-inner">
+        <div class="pe-hero-content">
+          <div class="pe-hero-text">
+            <div class="pe-hero-badge">POMODORO TIMER</div>
+            <h1 class="pe-hero-title">
+              Focus made<br/><em>easy.</em>
+            </h1>
+            <p class="pe-hero-subtitle">
+              A purpose-built Pomodoro timer with Live Activities. Classic 25/5 technique, customizable intervals, and Focus Mode integration.
+            </p>
+            <div class="pe-hero-actions">
+              <a href="https://apps.apple.com/app/id6740519498" class="pe-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="pe-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="pe-hero-icon-wrap">
+            <img src="/img/pomo-easy/icon.png" alt="Pomo Easy app icon" class="pe-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="pe-features-section">
+      <div class="pe-container-wide">
+        <div class="pe-features-header">
+          <span class="pe-label-dark">FEATURES</span>
+          <h2 class="pe-features-title">Built for deep work.</h2>
+        </div>
+
+        <div class="pe-features">
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Classic 25/5</h3>
+            <p>The proven Pomodoro Technique: 25 minutes of focused work, 5 minutes of rest. Four cycles, then a longer break.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3>Customizable Intervals</h3>
+            <p>Adjust work and break durations to match your rhythm. Create the perfect focus session for how you work best.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+            </div>
+            <h3>Live Activities</h3>
+            <p>See your timer on the Lock Screen and Dynamic Island. Stay focused without unlocking your phone.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Focus Mode</h3>
+            <p>Automatically enable iOS Focus Mode during work sessions. Silence distractions without lifting a finger.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <h3>Session Stats</h3>
+            <p>Track completed pomodoros, total focus time, and daily streaks. Build the consistency that drives productivity.</p>
+          </div>
+
+          <div class="pe-feature">
+            <div class="pe-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Completely Offline</h3>
+            <p>No servers, no cloud sync, no network requests. Your focus data stays on your device. Period.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="pe-privacy-banner">
+      <div class="pe-container">
+        <div class="pe-privacy-inner">
+          <span class="pe-label-dark">PRIVACY</span>
+          <h2 class="pe-privacy-title">Zero data collection.</h2>
+          <p class="pe-privacy-text">
+            No analytics. No ads. No tracking pixels. No telemetry.<br/>
+            Pomo Easy doesn't even make network requests. Your session data lives on your device and nowhere else.
+          </p>
+          <a href="/pomo-easy/privacy" class="pe-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pe-cta">
+      <div class="pe-container">
+        <div class="pe-cta-inner">
+          <h2 class="pe-cta-title">Start focusing.</h2>
+          <p class="pe-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id6740519498" class="pe-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="pomo-easy" />
+  </main>
+
+  <!-- Footer -->
+  <footer class="pe-footer">
+    <div class="pe-footer-inner">
+      <div class="pe-footer-links">
+        <a href="/pomo-easy/support">Support</a>
+        <span class="pe-footer-dot">&middot;</span>
+        <a href="/pomo-easy/privacy">Privacy Policy</a>
+      </div>
+      <div class="pe-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     POMO EASY — Tomato Red Theme
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --pe-accent: #ef4444;
+    --pe-accent-deep: #dc2626;
+    --pe-accent-bg: #fef2f2;
+    --pe-bg: #f8fafc;
+    --pe-surface: #ffffff;
+    --pe-border: rgba(148, 163, 184, 0.15);
+    --pe-text: #0f172a;
+    --pe-text-muted: #64748b;
+    --pe-feature-icon-bg: rgba(239, 68, 68, 0.08);
+    --pe-feature-icon-border: rgba(239, 68, 68, 0.12);
+  }
+
+  :global(.dark) {
+    --pe-accent: #f87171;
+    --pe-accent-deep: #ef4444;
+    --pe-accent-bg: #450a0a;
+    --pe-bg: #0a0f1a;
+    --pe-surface: #111827;
+    --pe-border: rgba(148, 163, 184, 0.08);
+    --pe-text: #f1f5f9;
+    --pe-text-muted: #94a3b8;
+    --pe-feature-icon-bg: rgba(239, 68, 68, 0.1);
+    --pe-feature-icon-border: rgba(239, 68, 68, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .pe-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--pe-bg);
+    border-bottom: 1px solid var(--pe-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .pe-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .pe-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-nav-inner { padding: 0 3rem; }
+  }
+
+  .pe-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--pe-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .pe-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pe-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .pe-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero ─── */
+  .pe-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pe-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.15;
+  }
+
+  .pe-hero-glow--warm {
+    top: -20%;
+    right: -10%;
+    background: var(--pe-accent);
+  }
+
+  .pe-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .pe-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-hero-inner { padding: 0 3rem; }
+  }
+
+  .pe-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .pe-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .pe-hero-text { flex: 1; }
+
+  .pe-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--pe-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .pe-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .pe-hero-title em {
+    font-style: italic;
+    color: var(--pe-accent);
+  }
+
+  .pe-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .pe-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .pe-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .pe-hero-actions { align-items: flex-start; }
+  }
+
+  .pe-store-badge {
+    display: inline-block;
+  }
+
+  .pe-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .pe-store-badge:hover img { opacity: 0.8; }
+
+  .pe-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .pe-hero-icon-wrap { flex-shrink: 0; }
+
+  .pe-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(239, 68, 68, 0.25), 0 0 80px rgba(239, 68, 68, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .pe-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Containers ─── */
+  .pe-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .pe-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .pe-container { padding: 0 2rem; }
+    .pe-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-container { padding: 0 3rem; }
+    .pe-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .pe-features-section {
+    background: var(--pe-surface);
+    padding: 5rem 0;
+  }
+
+  .pe-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .pe-label-dark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--pe-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .pe-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--pe-text);
+    margin-bottom: 1rem;
+  }
+
+  .pe-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--pe-border);
+    border: 1px solid var(--pe-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .pe-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .pe-feature {
+    padding: 2rem;
+    background: var(--pe-surface);
+  }
+
+  .pe-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pe-feature-icon-bg);
+    border: 1px solid var(--pe-feature-icon-border);
+    border-radius: 10px;
+    color: var(--pe-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .pe-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--pe-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .pe-feature p {
+    color: var(--pe-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .pe-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .pe-privacy-inner {
+    text-align: center;
+  }
+
+  .pe-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .pe-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .pe-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--pe-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .pe-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .pe-cta {
+    padding: 6rem 0;
+    background: var(--pe-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pe-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .pe-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--pe-text);
+    margin-bottom: 1rem;
+  }
+
+  .pe-cta-text {
+    font-size: 1.125rem;
+    color: var(--pe-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .pe-footer {
+    background: var(--pe-bg);
+    border-top: 1px solid var(--pe-border);
+    padding: 2rem 0;
+  }
+
+  .pe-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .pe-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pe-footer-inner { padding: 0 3rem; }
+  }
+
+  .pe-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .pe-footer-links a {
+    color: var(--pe-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .pe-footer-links a:hover {
+    color: var(--pe-accent);
+  }
+
+  .pe-footer-dot {
+    color: var(--pe-text-muted);
+    opacity: 0.4;
+  }
+
+  .pe-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--pe-text-muted);
+    opacity: 0.6;
+  }
+
+  .pe-footer-brand a {
+    color: var(--pe-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .pe-footer-brand a:hover {
+    color: var(--pe-accent);
+  }
+</style>
