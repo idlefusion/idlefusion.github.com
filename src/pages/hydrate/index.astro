@@ -1,0 +1,682 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import ExploreApps from '../../components/ExploreApps.astro';
+---
+
+<BaseLayout
+  title="Hydrate — Simple Water Tracker for iOS"
+  description="Track your daily water intake with a beautiful progress ring. Quick tap logging, widgets, Apple Watch support. No accounts, no subscriptions."
+  ogImage="/img/hydrate/icon.png"
+  ogUrl="https://idlefusion.com/hydrate"
+>
+
+  <!-- App Nav -->
+  <nav class="hy-nav">
+    <div class="hy-nav-inner">
+      <a href="/hydrate" class="hy-logo">Hydrate</a>
+      <div class="hy-nav-actions">
+        <ThemeToggle />
+        <a href="https://apps.apple.com/app/id6759070331" class="hy-nav-cta" target="_blank" rel="noopener noreferrer">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40" />
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero — Blue/aqua, water-inspired -->
+    <section class="hy-hero">
+      <div class="hy-hero-glow hy-hero-glow--primary"></div>
+      <div class="hy-hero-glow hy-hero-glow--secondary"></div>
+      <div class="hy-hero-inner">
+        <div class="hy-hero-content">
+          <div class="hy-hero-text">
+            <div class="hy-hero-badge">SIMPLE WATER TRACKER</div>
+            <h1 class="hy-hero-title">
+              Track your daily<br/><em>water intake.</em>
+            </h1>
+            <p class="hy-hero-subtitle">
+              Log your hydration in seconds with quick tap presets. A beautiful progress ring keeps you motivated all day.
+            </p>
+            <div class="hy-hero-actions">
+              <a href="https://apps.apple.com/app/id6759070331" class="hy-store-badge" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+              </a>
+              <span class="hy-hero-note">Free &middot; No account required</span>
+            </div>
+          </div>
+          <div class="hy-hero-icon-wrap">
+            <img src="/img/hydrate/icon.png" alt="Hydrate app icon" class="hy-hero-icon" width="240" height="240" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section class="hy-screenshots">
+      <div class="hy-screenshots-inner">
+        <div class="hy-screenshots-scroll">
+          <img src="/img/hydrate/screenshots/01_home.png" alt="Hydrate home screen with progress ring" class="hy-screenshot" />
+          <img src="/img/hydrate/screenshots/02_goal.png" alt="Goal reached celebration" class="hy-screenshot" />
+          <img src="/img/hydrate/screenshots/03_quick_add.png" alt="Quick add water" class="hy-screenshot" />
+          <img src="/img/hydrate/screenshots/04_history.png" alt="Hydration history" class="hy-screenshot" />
+          <img src="/img/hydrate/screenshots/05_widgets.png" alt="Home screen widgets" class="hy-screenshot" />
+          <img src="/img/hydrate/screenshots/06_watch.png" alt="Apple Watch app" class="hy-screenshot" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="hy-features-section">
+      <div class="hy-container-wide">
+        <div class="hy-features-header">
+          <span class="hy-label-dark">FEATURES</span>
+          <h2 class="hy-features-title">Stay hydrated, effortlessly.</h2>
+        </div>
+
+        <div class="hy-features">
+          <div class="hy-feature">
+            <div class="hy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Quick Tap Logging</h3>
+            <p>Pick a preset size — 8oz, 12oz, 16oz, or 20oz — and tap. Done. Custom amounts for any container. Satisfying haptic feedback with every log.</p>
+          </div>
+
+          <div class="hy-feature">
+            <div class="hy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Beautiful Progress Ring</h3>
+            <p>Watch your daily progress fill up in a gorgeous animated ring. Hit your goal and celebrate with a delightful animation. Centered design keeps you focused.</p>
+          </div>
+
+          <div class="hy-feature">
+            <div class="hy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <h3>Smart Reminders</h3>
+            <p>Gentle nudges to keep you on track throughout the day. Customize timing and frequency to match your schedule. Never forget to drink water again.</p>
+          </div>
+
+          <div class="hy-feature">
+            <div class="hy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h3>Home & Lock Screen Widgets</h3>
+            <p>See your progress at a glance without opening the app. Multiple sizes for Home Screen and Lock Screen. Your hydration status, always visible.</p>
+          </div>
+
+          <div class="hy-feature">
+            <div class="hy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Apple Watch</h3>
+            <p>Log water directly from your wrist. Complications show your progress on any watch face. Quick-add buttons make tracking fast and effortless.</p>
+          </div>
+
+          <div class="hy-feature">
+            <div class="hy-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <h3>Streak Tracking</h3>
+            <p>Track your consecutive days of hitting your goal. Build momentum and stay motivated. Your longest streak is saved forever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Banner -->
+    <section class="hy-privacy-banner">
+      <div class="hy-container">
+        <div class="hy-privacy-inner">
+          <span class="hy-label-dark">PRIVACY</span>
+          <h2 class="hy-privacy-title">Your data stays yours.</h2>
+          <p class="hy-privacy-text">
+            Zero data collection. Zero tracking. Zero cloud storage.<br/>
+            Your water intake is stored only on your device. Optionally sync to Apple Health — you control when and if this happens.
+          </p>
+          <a href="/hydrate/privacy" class="hy-privacy-link">Read the full privacy policy &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hy-cta">
+      <div class="hy-container">
+        <div class="hy-cta-inner">
+          <h2 class="hy-cta-title">Start hydrating.</h2>
+          <p class="hy-cta-text">Free on the App Store. No account required.</p>
+          <a href="https://apps.apple.com/app/id6759070331" class="hy-store-badge" target="_blank" rel="noopener noreferrer">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <ExploreApps current="hydrate" />
+  </main>
+
+  <!-- App Footer -->
+  <footer class="hy-footer">
+    <div class="hy-footer-inner">
+      <div class="hy-footer-links">
+        <a href="/hydrate/support">Support</a>
+        <span class="hy-footer-dot">&middot;</span>
+        <a href="/hydrate/privacy">Privacy Policy</a>
+      </div>
+      <div class="hy-footer-brand">
+        An <a href="/">Idle Fusion</a> app
+      </div>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════
+     HYDRATE — Blue / Aqua, Water-inspired Theme
+     Clean, refreshing, calming
+     ═══════════════════════════════════════════════════════ */
+
+  :global(:root) {
+    --hy-accent: #0ea5e9;
+    --hy-accent-deep: #0284c7;
+    --hy-accent-light: #38bdf8;
+    --hy-accent-bg: #e0f2fe;
+    --hy-bg: #f8fafc;
+    --hy-surface: #ffffff;
+    --hy-border: rgba(148, 163, 184, 0.15);
+    --hy-text: #0f172a;
+    --hy-text-muted: #64748b;
+    --hy-feature-icon-bg: rgba(14, 165, 233, 0.08);
+    --hy-feature-icon-border: rgba(14, 165, 233, 0.12);
+  }
+
+  :global(.dark) {
+    --hy-accent: #38bdf8;
+    --hy-accent-deep: #0ea5e9;
+    --hy-accent-light: #7dd3fc;
+    --hy-accent-bg: #082f49;
+    --hy-bg: #0a0f1a;
+    --hy-surface: #111827;
+    --hy-border: rgba(148, 163, 184, 0.08);
+    --hy-text: #f1f5f9;
+    --hy-text-muted: #94a3b8;
+    --hy-feature-icon-bg: rgba(14, 165, 233, 0.1);
+    --hy-feature-icon-border: rgba(14, 165, 233, 0.15);
+  }
+
+  /* ─── Nav ─── */
+  .hy-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--hy-bg);
+    border-bottom: 1px solid var(--hy-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .hy-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .hy-nav-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .hy-nav-inner { padding: 0 3rem; }
+  }
+
+  .hy-logo {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--hy-accent-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .hy-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hy-nav-cta img {
+    height: 32px;
+    transition: opacity 0.2s;
+  }
+
+  .hy-nav-cta:hover img {
+    opacity: 0.7;
+  }
+
+  /* ─── Hero — Dark, water-inspired with blue glow ─── */
+  .hy-hero {
+    background: #0a0f1a;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hy-hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.15;
+  }
+
+  .hy-hero-glow--primary {
+    top: -30%;
+    left: -10%;
+    background: #0ea5e9;
+  }
+
+  .hy-hero-glow--secondary {
+    bottom: -40%;
+    right: -10%;
+    background: #06b6d4;
+  }
+
+  .hy-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .hy-hero-inner { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .hy-hero-inner { padding: 0 3rem; }
+  }
+
+  .hy-hero-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .hy-hero-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  .hy-hero-text { flex: 1; }
+
+  .hy-hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--hy-accent-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .hy-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .hy-hero-title em {
+    font-style: italic;
+    color: var(--hy-accent-light);
+  }
+
+  .hy-hero-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .hy-hero-subtitle { margin-left: auto; margin-right: auto; }
+  }
+
+  .hy-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .hy-hero-actions { align-items: flex-start; }
+  }
+
+  .hy-store-badge {
+    display: inline-block;
+  }
+
+  .hy-store-badge img {
+    height: 54px;
+    transition: opacity 0.2s;
+  }
+
+  .hy-store-badge:hover img { opacity: 0.8; }
+
+  .hy-hero-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+
+  .hy-hero-icon-wrap { flex-shrink: 0; }
+
+  .hy-hero-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(14, 165, 233, 0.25), 0 0 80px rgba(14, 165, 233, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .hy-hero-icon {
+      width: 240px;
+      height: 240px;
+      border-radius: 54px;
+    }
+  }
+
+  /* ─── Screenshots Gallery ─── */
+  .hy-screenshots {
+    background: var(--hy-bg);
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+
+  .hy-screenshots-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .hy-screenshots-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1.5rem 1rem;
+    scrollbar-width: none;
+  }
+
+  .hy-screenshots-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .hy-screenshots-scroll { padding: 0 2rem 1rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .hy-screenshots-scroll { padding: 0 3rem 1rem; }
+  }
+
+  .hy-screenshot {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .hy-screenshot { width: 260px; }
+  }
+
+  /* ─── Containers ─── */
+  .hy-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .hy-container-wide {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .hy-container { padding: 0 2rem; }
+    .hy-container-wide { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .hy-container { padding: 0 3rem; }
+    .hy-container-wide { padding: 0 3rem; }
+  }
+
+  /* ─── Features ─── */
+  .hy-features-section {
+    background: var(--hy-surface);
+    padding: 5rem 0;
+  }
+
+  .hy-features-header {
+    margin-bottom: 3.5rem;
+    max-width: 520px;
+  }
+
+  .hy-label-dark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    color: var(--hy-accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .hy-features-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    color: var(--hy-text);
+    margin-bottom: 1rem;
+  }
+
+  .hy-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--hy-border);
+    border: 1px solid var(--hy-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .hy-features { grid-template-columns: 1fr 1fr; }
+  }
+
+  .hy-feature {
+    padding: 2rem;
+    background: var(--hy-surface);
+  }
+
+  .hy-feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hy-feature-icon-bg);
+    border: 1px solid var(--hy-feature-icon-border);
+    border-radius: 10px;
+    color: var(--hy-accent-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .hy-feature h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--hy-text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .hy-feature p {
+    color: var(--hy-text-muted);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* ─── Privacy Banner ─── */
+  .hy-privacy-banner {
+    background: #0a0f1a;
+    padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .hy-privacy-inner {
+    text-align: center;
+  }
+
+  .hy-privacy-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #f1f5f9;
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hy-privacy-text {
+    font-size: 1.0625rem;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .hy-privacy-link {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--hy-accent-light);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .hy-privacy-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .hy-cta {
+    padding: 6rem 0;
+    background: var(--hy-accent-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hy-cta-inner {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hy-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--hy-text);
+    margin-bottom: 1rem;
+  }
+
+  .hy-cta-text {
+    font-size: 1.125rem;
+    color: var(--hy-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Footer ─── */
+  .hy-footer {
+    background: var(--hy-bg);
+    border-top: 1px solid var(--hy-border);
+    padding: 2rem 0;
+  }
+
+  .hy-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .hy-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hy-footer-inner { padding: 0 3rem; }
+  }
+
+  .hy-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .hy-footer-links a {
+    color: var(--hy-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .hy-footer-links a:hover {
+    color: var(--hy-accent);
+  }
+
+  .hy-footer-dot {
+    color: var(--hy-text-muted);
+    opacity: 0.4;
+  }
+
+  .hy-footer-brand {
+    font-size: 0.8125rem;
+    color: var(--hy-text-muted);
+    opacity: 0.6;
+  }
+
+  .hy-footer-brand a {
+    color: var(--hy-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .hy-footer-brand a:hover {
+    color: var(--hy-accent);
+  }
+</style>
