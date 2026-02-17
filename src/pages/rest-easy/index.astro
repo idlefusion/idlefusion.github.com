@@ -53,6 +53,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="re-screenshots">
+      <div class="re-screenshots-inner">
+        <img src="/img/rest-easy/screenshots/marketing-01.png" alt="Rest Easy screenshot" class="re-screenshot" />
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="re-features-section">
       <div class="re-container-wide">
@@ -382,6 +389,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
       height: 240px;
       border-radius: 54px;
     }
+  }
+
+  /* ─── Screenshots ─── */
+  .re-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .re-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .re-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */

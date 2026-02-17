@@ -53,6 +53,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="te-screenshots">
+      <div class="te-screenshots-inner">
+        <img src="/img/temp-easy/screenshots/marketing-01.png" alt="Temp Easy screenshot" class="te-screenshot" />
+      </div>
+    </section>
+
     <!-- Features — Two-column with large cards -->
     <section class="te-features-section">
       <div class="te-container-wide">
@@ -407,6 +414,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
       height: 240px;
       border-radius: 54px;
     }
+  }
+
+  /* ─── Screenshots ─── */
+  .te-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .te-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .te-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */

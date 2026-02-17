@@ -53,6 +53,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="pe-screenshots">
+      <div class="pe-screenshots-inner">
+        <img src="/img/pressure-easy/screenshots/marketing-01.png" alt="Pressure Easy screenshot" class="pe-screenshot" />
+      </div>
+    </section>
+
     <!-- Features — Two-column with large cards -->
     <section class="pe-features-section">
       <div class="pe-container-wide">
@@ -415,6 +422,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
       height: 240px;
       border-radius: 54px;
     }
+  }
+
+  /* ─── Screenshots ─── */
+  .pe-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .pe-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .pe-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */

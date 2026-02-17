@@ -53,6 +53,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="db-screenshots">
+      <div class="db-screenshots-inner">
+        <img src="/img/decibel/screenshots/marketing-01.png" alt="Decibel screenshot" class="db-screenshot" />
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="db-features-section">
       <div class="db-container-wide">
@@ -398,6 +405,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
       height: 240px;
       border-radius: 54px;
     }
+  }
+
+  /* ─── Screenshots ─── */
+  .db-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .db-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .db-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */

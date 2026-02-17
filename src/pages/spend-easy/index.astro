@@ -71,6 +71,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="se-screenshots">
+      <div class="se-screenshots-inner">
+        <img src="/img/spend-easy/screenshots/marketing-01.png" alt="Spend Easy screenshot" class="se-screenshot" />
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="se-features-section">
       <div class="se-container-wide">
@@ -447,6 +454,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
     color: var(--se-text-muted);
     line-height: 1.7;
     max-width: 600px;
+  }
+
+  /* ─── Screenshots ─── */
+  .se-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .se-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .se-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */

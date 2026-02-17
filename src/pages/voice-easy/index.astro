@@ -53,6 +53,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="ve-screenshots">
+      <div class="ve-screenshots-inner">
+        <img src="/img/voice-easy/screenshots/marketing-01.png" alt="Voice Easy screenshot" class="ve-screenshot" />
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="ve-features-section">
       <div class="ve-container-wide">
@@ -382,6 +389,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
       height: 240px;
       border-radius: 54px;
     }
+  }
+
+  /* ─── Screenshots ─── */
+  .ve-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .ve-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .ve-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */

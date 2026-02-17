@@ -51,6 +51,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="me-screenshots">
+      <div class="me-screenshots-inner">
+        <img src="/img/meds-easy/screenshots/marketing-01.png" alt="Meds Easy screenshot" class="me-screenshot" />
+      </div>
+    </section>
+
     <!-- Features — 2-col grid with icons -->
     <section class="me-features-section">
       <div class="me-container-wide">
@@ -384,6 +391,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
       height: 240px;
       border-radius: 54px;
     }
+  }
+
+  /* ─── Screenshots ─── */
+  .me-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .me-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .me-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */

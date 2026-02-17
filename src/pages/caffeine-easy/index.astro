@@ -55,6 +55,13 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="ce-screenshots">
+      <div class="ce-screenshots-inner">
+        <img src="/img/caffeine-easy/screenshots/marketing-01.png" alt="Caffeine Easy screenshot" class="ce-screenshot" />
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="ce-features-section">
       <div class="ce-container-wide">
@@ -408,6 +415,22 @@ import ExploreApps from '../../components/ExploreApps.astro';
       width: 100px;
       height: 100px;
     }
+  }
+
+  /* ─── Screenshots ─── */
+  .ce-screenshots {
+    padding: 2rem 0 4rem;
+    overflow: hidden;
+  }
+  .ce-screenshots-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .ce-screenshot {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* ─── Containers ─── */
