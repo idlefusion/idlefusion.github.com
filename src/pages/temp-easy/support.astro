@@ -12,56 +12,83 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
 
-        <div class="text-[var(--text-secondary)] leading-relaxed space-y-8">
+        <div class="text-[var(--text-secondary)] leading-relaxed mb-12">
+          <p class="text-lg mb-4">Need help with Temp Easy?</p>
+          <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Temp%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+        </div>
+
+        <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+        <div class="space-y-8">
           <div>
-            <p class="text-lg mb-4">Need help with Temp Easy?</p>
-            <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Temp%20Easy%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can.</p>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I add family members?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Tap the <strong>+</strong> button on the main screen and select <strong>Add Family Member</strong>. Enter their name, age, and optionally customize their fever threshold. Each family member gets their own profile with separate temperature history and symptom tracking.
+            </p>
           </div>
 
           <div>
-            <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What are fever thresholds and how do they work?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Fever thresholds determine when a temperature reading is considered normal, elevated, or a fever. The app uses standard medical guidelines (100.4°F / 38.0°C for fever), but you can customize thresholds for each family member. This is especially useful for infants and young children who may have different fever definitions based on age. The app color-codes readings (green/yellow/red) based on these thresholds.
+            </p>
+          </div>
 
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What's a normal body temperature?</h3>
-                <p>Normal body temperature typically ranges from 97.0°F to 99.0°F (36.1°C to 37.2°C). The classic 98.6°F (37°C) is an average — your personal normal may vary. Temp Easy color-codes readings so you can see at a glance whether you're in the normal, elevated, or fever range.</p>
-              </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I export data for my doctor?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              From any family member's profile, tap the <strong>Export</strong> button. You can choose between CSV (spreadsheet format) or plain text. The export includes all temperature readings, timestamps, symptoms, and medications. You can then email the file directly to your doctor or print it for your appointment.
+            </p>
+          </div>
 
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What do the colors mean?</h3>
-                <p>Green means your temperature is in the normal range. Yellow indicates an elevated temperature (low-grade fever). Red means you have a fever. These ranges follow standard medical guidelines and adjust based on measurement method.</p>
-              </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does Apple Health integration work?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Temp Easy can optionally sync with Apple Health to read and write body temperature data. When enabled in Settings:
+            </p>
+            <ul class="list-disc list-inside mt-2 space-y-1 ml-4 text-[var(--text-secondary)]">
+              <li>Temperature readings you log in Temp Easy are automatically saved to Apple Health</li>
+              <li>Temperature data from other apps (like smart thermometers) can be imported into Temp Easy</li>
+              <li>All syncing happens locally on your device — no cloud services involved</li>
+            </ul>
+            <p class="text-[var(--text-secondary)] leading-relaxed mt-2">
+              You control permissions through <strong>Settings → Privacy → Health → Temp Easy</strong>.
+            </p>
+          </div>
 
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I switch between Fahrenheit and Celsius?</h3>
-                <p>Yes! You can toggle between °F and °C in the app settings. All your existing readings will automatically display in the selected unit.</p>
-              </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I track symptoms with temperature readings?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Yes! When logging a temperature reading, you can add symptoms like headache, cough, sore throat, fatigue, and more. Tap the <strong>Symptoms</strong> field and select all that apply. These are saved with the reading and included in exports for your doctor.
+            </p>
+          </div>
 
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why does measurement method matter?</h3>
-                <p>Different measurement methods (oral, forehead, ear, armpit) can give slightly different readings. For example, armpit readings tend to be about 1°F lower than oral. Recording the method helps you compare readings accurately over time.</p>
-              </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I log medications?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              When adding or viewing a temperature reading, tap <strong>Add Medication</strong>. Enter the medication name, dose, and time given. This is especially helpful for tracking children's fever reducers (acetaminophen, ibuprofen) to ensure proper timing between doses. All medication logs are timestamped and included in data exports.
+            </p>
+          </div>
 
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Temp Easy sync with Apple Health?</h3>
-                <p>Yes — if you grant HealthKit permission, Temp Easy writes body temperature readings to Apple Health. This lets you track temperature alongside your other health data. The app only writes data; it does not read from HealthKit.</p>
-              </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why can I only see 30 readings in the chart?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              The trend chart displays the most recent 30 readings to keep the visualization clear and readable. You can still scroll through your complete history in the readings list, and all data is included when you export. For most illnesses, 30 readings provides more than enough data to track trends and recovery.
+            </p>
+          </div>
 
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I edit or delete a reading?</h3>
-                <p>Yes! Tap any entry in your history to edit the temperature, method, or time. You can also swipe to delete any reading you no longer need.</p>
-              </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I set reminders to check temperatures?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Yes! In Settings, enable <strong>Temperature Reminders</strong> and set how often you want to be reminded. This is useful when monitoring fevers to check temperature at regular intervals (every 4 hours, for example). Reminders are local notifications that work even when offline.
+            </p>
+          </div>
 
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is my data backed up?</h3>
-                <p>Temperature data is stored locally on your device using SwiftData. If you back up your iPhone via iCloud or your computer, your Temp Easy data is included in that backup. The app itself does not perform any cloud sync.</p>
-              </div>
-
-              <div>
-                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is Temp Easy a medical device?</h3>
-                <p>No. Temp Easy is a logging tool for recording temperature readings you take with your own thermometer. It is not a medical device and should not be used as a substitute for professional medical advice.</p>
-              </div>
-            </div>
+          <div>
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is my data backed up?</h3>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Your temperature data is included in your iPhone's iCloud backup (if enabled) and iTunes/Finder backups. This means your data transfers when you restore to a new device or reinstall the app from a backup. However, the app itself never sends data to any cloud service — backups are handled entirely by iOS.
+            </p>
           </div>
         </div>
       </div>

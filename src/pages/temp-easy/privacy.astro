@@ -11,23 +11,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Temp Easy &middot; Effective February 15, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Temp Easy - Body Temperature Tracker &middot; Effective February 17, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">The Short Version</h2>
-            <p>Temp Easy does not collect, store, or transmit any personal data. Everything stays on your device.</p>
+            <p>Temp Easy does not collect, store, or transmit any personal data. Your family's temperature readings and health information never leave your device.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Storage</h2>
-            <p>All temperature readings, measurement methods, settings, and history are stored locally on your device using SwiftData. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
+            <p>All temperature readings, family profiles, symptom logs, medication records, and settings are stored locally on your device using SwiftData. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple HealthKit</h2>
-            <p class="mb-3">Temp Easy can write body temperature data to Apple Health, but only if you explicitly grant permission. HealthKit data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Temp Easy.</p>
-            <p>If you deny HealthKit access, the app continues to work normally — your temperature data is simply stored only within the app.</p>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">HealthKit Integration</h2>
+            <p>Temp Easy optionally integrates with Apple HealthKit to read and write body temperature data. This integration is:</p>
+            <ul class="list-disc list-inside mt-2 space-y-1 ml-4">
+              <li>Entirely optional — you can use the app without HealthKit</li>
+              <li>Controlled by you through iOS permissions</li>
+              <li>Processed locally on your device</li>
+              <li>Never sent to our servers or any third party</li>
+            </ul>
+            <p class="mt-2">When enabled, Temp Easy can read existing body temperature data from Apple Health and write new temperature readings to Apple Health for use with other health apps.</p>
           </div>
 
           <div>
@@ -41,13 +47,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
 
           <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Notifications</h2>
+            <p>Temp Easy uses local notifications to remind you to check temperatures or take medications. These notifications are scheduled entirely on your device and do not involve any external servers or push notification services.</p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Export Features</h2>
+            <p>Temp Easy allows you to export your data as CSV or text files for sharing with healthcare providers. These exports are generated locally on your device and shared only through the standard iOS sharing system that you control. We never receive or have access to these exported files.</p>
+          </div>
+
+          <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Children's Privacy</h2>
-            <p>Temp Easy does not knowingly collect any information from anyone, including children under the age of 13.</p>
+            <p>Temp Easy is designed for family use and may be used to track children's temperatures. We do not knowingly collect any information from anyone, including children under the age of 13. All data is stored locally on the parent or guardian's device.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Changes to This Policy</h2>
             <p>If this policy changes, we will update this page with the new effective date. Since Temp Easy collects no data, meaningful changes are unlikely.</p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Contact</h2>
+            <p>Questions about this policy? Email us at <a href="mailto:support@idlefusion.com" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a>.</p>
           </div>
         </div>
       </div>

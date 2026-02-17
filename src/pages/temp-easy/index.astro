@@ -5,8 +5,8 @@ import ExploreApps from '../../components/ExploreApps.astro';
 ---
 
 <BaseLayout
-  title="Temp Easy — Body Temperature Tracker"
-  description="Track body temperature with color-coded readings, HealthKit sync, and measurement method logging. No accounts, no subscriptions, completely private."
+  title="Temp Easy — Body Temperature Tracker for iOS"
+  description="Track body temperature for the whole family. Log readings, see trends with fever alerts, and export reports for your doctor. No accounts, no subscriptions."
   ogImage="/img/temp-easy/icon.png"
   ogUrl="https://idlefusion.com/temp-easy"
 >
@@ -25,19 +25,19 @@ import ExploreApps from '../../components/ExploreApps.astro';
   </nav>
 
   <main>
-    <!-- Hero — Warm red/coral tones -->
+    <!-- Hero — Dark, bold -->
     <section class="te-hero">
-      <div class="te-hero-glow te-hero-glow--warm"></div>
-      <div class="te-hero-glow te-hero-glow--coral"></div>
+      <div class="te-hero-glow te-hero-glow--primary"></div>
+      <div class="te-hero-glow te-hero-glow--secondary"></div>
       <div class="te-hero-inner">
         <div class="te-hero-content">
           <div class="te-hero-text">
             <div class="te-hero-badge">TEMPERATURE TRACKER</div>
             <h1 class="te-hero-title">
-              Know your<br/>body <em>temp.</em>
+              Track temperature,<br/><em>for the whole family.</em>
             </h1>
             <p class="te-hero-subtitle">
-              Log body temperature readings in seconds. Color-coded feedback tells you instantly if you're normal, elevated, or running a fever.
+              Log readings, monitor symptoms, and share reports with your doctor. All your family's health data stays on your device — no accounts, no cloud sync, no subscriptions.
             </p>
             <div class="te-hero-actions">
               <a href="https://apps.apple.com/app/id0000000000" class="te-store-badge" target="_blank" rel="noopener noreferrer">
@@ -47,37 +47,59 @@ import ExploreApps from '../../components/ExploreApps.astro';
             </div>
           </div>
           <div class="te-hero-icon-wrap">
-            <div class="te-hero-icon-placeholder">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0Z"/></svg>
-            </div>
+            <img src="/img/temp-easy/icon.png" alt="Temp Easy app icon" class="te-hero-icon" width="240" height="240" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
+    <!-- Features — Two-column with large cards -->
     <section class="te-features-section">
       <div class="te-container-wide">
         <div class="te-features-header">
           <span class="te-label-dark">FEATURES</span>
-          <h2 class="te-features-title">Temperature, simplified.</h2>
+          <h2 class="te-features-title">Built for your family's health.</h2>
         </div>
 
         <div class="te-features">
           <div class="te-feature">
             <div class="te-feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10h-10V2z"/><path d="M12 12 2 2"/><circle cx="12" cy="12" r="8"/></svg>
             </div>
-            <h3>Quick Temperature Logging</h3>
-            <p>Log a reading in seconds. Enter your temperature, pick a measurement method, and you're done. Fast enough to use when you're not feeling great.</p>
+            <h3>Multi-Person Profiles</h3>
+            <p>Create profiles for each family member with custom fever thresholds by age. Track everyone's temperature in one app.</p>
           </div>
 
           <div class="te-feature">
             <div class="te-feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
             </div>
-            <h3>Color-Coded Readings</h3>
-            <p>Instantly see if your temperature is normal, elevated, or a fever. Green, yellow, and red color coding makes it clear at a glance — no guessing needed.</p>
+            <h3>Trend Charts</h3>
+            <p>Visualize temperature changes over time with beautiful charts. Track up to 30 readings per person to spot patterns and recovery.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2v20M6.5 6h6M6.5 10h6M6.5 14h6M6.5 18h6"/></svg>
+            </div>
+            <h3>Symptom Tracking</h3>
+            <p>Log symptoms alongside each reading — headache, cough, fatigue, and more. See the full picture of how everyone's feeling.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Medication Logging</h3>
+            <p>Record medications and doses with timestamps. Keep track of what was given and when, especially useful for children's medicine.</p>
+          </div>
+
+          <div class="te-feature">
+            <div class="te-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Export for Doctors</h3>
+            <p>Generate CSV or text reports with all readings, symptoms, and medications. Share via email or print for your next doctor's visit.</p>
           </div>
 
           <div class="te-feature">
@@ -85,59 +107,46 @@ import ExploreApps from '../../components/ExploreApps.astro';
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
             <h3>HealthKit Sync</h3>
-            <p>Automatically sync temperature readings to Apple Health. Track alongside your other health data to see the full picture of your wellbeing.</p>
-          </div>
-
-          <div class="te-feature">
-            <div class="te-feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0Z"/></svg>
-            </div>
-            <h3>Measurement Methods</h3>
-            <p>Record how you took each reading — oral, forehead, ear, armpit, or other. Context matters when tracking temperature over time.</p>
-          </div>
-
-          <div class="te-feature">
-            <div class="te-feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 6 18 3-9h4"/></svg>
-            </div>
-            <h3>History &amp; Trends</h3>
-            <p>See all your past readings in a clear timeline. Spot trends and patterns to share with your doctor or just keep for your own records.</p>
-          </div>
-
-          <div class="te-feature">
-            <div class="te-feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
-            <h3>Completely Offline</h3>
-            <p>No servers, no cloud sync, no network requests. Your temperature data stays on your device. Period.</p>
+            <p>Optionally sync with Apple Health. Read existing temperature data or write new readings. Your health data stays unified in one place.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Info section -->
-    <section class="te-science">
+    <!-- Fever Thresholds Section -->
+    <section class="te-categories">
       <div class="te-container">
-        <div class="te-science-inner">
-          <span class="te-label-dark">THE BASICS</span>
-          <h2 class="te-science-title">98.6°F</h2>
-          <p class="te-science-text">
-            Normal body temperature averages around 98.6°F (37°C), but healthy readings range from 97°F to 99°F depending on the person, time of day, and measurement method.<br/><br/>
-            Temp Easy color-codes your readings so you always know where you stand — green for normal, yellow for elevated, red for fever.
-          </p>
+        <div class="te-categories-header">
+          <span class="te-label-dark">FEVER THRESHOLDS</span>
+          <h2 class="te-categories-title">Know when to worry.</h2>
+          <p class="te-categories-subtitle">Temperature readings are color-coded based on standard medical guidelines for fever detection.</p>
+        </div>
+        <div class="te-categories-grid">
+          <div class="te-category te-category--normal">
+            <span class="te-category-label">Normal</span>
+            <span class="te-category-range">&lt; 99.1°F / 37.3°C</span>
+          </div>
+          <div class="te-category te-category--elevated">
+            <span class="te-category-label">Elevated</span>
+            <span class="te-category-range">99.1–100.4°F / 37.3–38.0°C</span>
+          </div>
+          <div class="te-category te-category--fever">
+            <span class="te-category-label">Fever</span>
+            <span class="te-category-range">≥ 100.4°F / 38.0°C</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Privacy Banner -->
+    <!-- Privacy — Full-width dark banner -->
     <section class="te-privacy-banner">
       <div class="te-container">
         <div class="te-privacy-inner">
           <span class="te-label-dark">PRIVACY</span>
-          <h2 class="te-privacy-title">Zero data collection.</h2>
+          <h2 class="te-privacy-title">Your family's health data stays yours.</h2>
           <p class="te-privacy-text">
             No analytics. No ads. No tracking pixels. No telemetry.<br/>
-            Temp Easy doesn't even make network requests. Your data lives on your device and nowhere else.
+            Your temperature readings and health information are stored locally on your device. We never see them, and neither does anyone else.
           </p>
           <a href="/temp-easy/privacy" class="te-privacy-link">Read the full privacy policy &rarr;</a>
         </div>
@@ -148,7 +157,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
     <section class="te-cta">
       <div class="te-container">
         <div class="te-cta-inner">
-          <h2 class="te-cta-title">Track your temperature.</h2>
+          <h2 class="te-cta-title">Start tracking.</h2>
           <p class="te-cta-text">Free on the App Store. No account required.</p>
           <a href="https://apps.apple.com/app/id0000000000" class="te-store-badge" target="_blank" rel="noopener noreferrer">
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="54" />
@@ -177,36 +186,35 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
 <style>
   /* ═══════════════════════════════════════════════════════
-     TEMP EASY — Warm red/coral thermometer theme
+     TEMP EASY — Warm Amber / Temperature Theme
+     Clean, medical, trustworthy with a warm tone
      ═══════════════════════════════════════════════════════ */
 
   :global(:root) {
-    --te-accent: #dc2626;
-    --te-accent-deep: #b91c1c;
-    --te-accent-light: #ef4444;
-    --te-accent-bg: #fef2f2;
-    --te-warm: #991b1b;
+    --te-accent: #ea580c;
+    --te-accent-deep: #c2410c;
+    --te-accent-bg: #fff7ed;
+    --te-secondary: #f59e0b;
     --te-bg: #f8fafc;
     --te-surface: #ffffff;
     --te-border: rgba(148, 163, 184, 0.15);
     --te-text: #0f172a;
     --te-text-muted: #64748b;
-    --te-feature-icon-bg: rgba(220, 38, 38, 0.08);
-    --te-feature-icon-border: rgba(220, 38, 38, 0.12);
+    --te-feature-icon-bg: rgba(234, 88, 12, 0.08);
+    --te-feature-icon-border: rgba(234, 88, 12, 0.12);
   }
 
   :global(.dark) {
-    --te-accent: #f87171;
-    --te-accent-deep: #ef4444;
-    --te-accent-light: #fca5a5;
-    --te-accent-bg: #450a0a;
+    --te-accent: #fb923c;
+    --te-accent-deep: #ea580c;
+    --te-accent-bg: #431407;
     --te-bg: #0a0f1a;
     --te-surface: #111827;
     --te-border: rgba(148, 163, 184, 0.08);
     --te-text: #f1f5f9;
     --te-text-muted: #94a3b8;
-    --te-feature-icon-bg: rgba(248, 113, 113, 0.1);
-    --te-feature-icon-border: rgba(248, 113, 113, 0.15);
+    --te-feature-icon-bg: rgba(234, 88, 12, 0.1);
+    --te-feature-icon-border: rgba(234, 88, 12, 0.15);
   }
 
   /* ─── Nav ─── */
@@ -261,9 +269,9 @@ import ExploreApps from '../../components/ExploreApps.astro';
     opacity: 0.7;
   }
 
-  /* ─── Hero — Dark, warm red tones ─── */
+  /* ─── Hero — Dark, dramatic ─── */
   .te-hero {
-    background: #1a0808;
+    background: #0a0f1a;
     padding: 4rem 0 5rem;
     position: relative;
     overflow: hidden;
@@ -276,19 +284,19 @@ import ExploreApps from '../../components/ExploreApps.astro';
     border-radius: 50%;
     pointer-events: none;
     filter: blur(120px);
-    opacity: 0.15;
+    opacity: 0.12;
   }
 
-  .te-hero-glow--warm {
+  .te-hero-glow--primary {
     top: -30%;
     left: -10%;
-    background: #dc2626;
+    background: var(--te-accent);
   }
 
-  .te-hero-glow--coral {
+  .te-hero-glow--secondary {
     bottom: -40%;
     right: -10%;
-    background: #f87171;
+    background: var(--te-secondary);
   }
 
   .te-hero-inner {
@@ -328,25 +336,25 @@ import ExploreApps from '../../components/ExploreApps.astro';
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6875rem;
     letter-spacing: 0.12em;
-    color: #f87171;
+    color: var(--te-accent);
     margin-bottom: 1.5rem;
   }
 
   .te-hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: #fef2f2;
+    color: #f1f5f9;
     margin-bottom: 1.5rem;
     line-height: 1.05;
   }
 
   .te-hero-title em {
     font-style: italic;
-    color: #f87171;
+    color: var(--te-accent);
   }
 
   .te-hero-subtitle {
     font-size: 1.125rem;
-    color: #d6d3d1;
+    color: #94a3b8;
     line-height: 1.7;
     max-width: 480px;
     margin-bottom: 2rem;
@@ -381,32 +389,23 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .te-hero-note {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
-    color: #a8a29e;
+    color: #94a3b8;
   }
 
   .te-hero-icon-wrap { flex-shrink: 0; }
 
-  .te-hero-icon-placeholder {
+  .te-hero-icon {
     width: 180px;
     height: 180px;
     border-radius: 40px;
-    background: linear-gradient(135deg, #991b1b 0%, #dc2626 50%, #ef4444 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fef2f2;
-    box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3), 0 0 80px rgba(248, 113, 113, 0.1);
+    box-shadow: 0 20px 60px rgba(234, 88, 12, 0.2), 0 0 80px rgba(234, 88, 12, 0.08);
   }
 
   @media (min-width: 768px) {
-    .te-hero-icon-placeholder {
+    .te-hero-icon {
       width: 240px;
       height: 240px;
       border-radius: 54px;
-    }
-    .te-hero-icon-placeholder svg {
-      width: 100px;
-      height: 100px;
     }
   }
 
@@ -433,7 +432,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
     .te-container-wide { padding: 0 3rem; }
   }
 
-  /* ─── Features ─── */
+  /* ─── Features — 2-col, icon-led ─── */
   .te-features-section {
     background: var(--te-surface);
     padding: 5rem 0;
@@ -491,10 +490,6 @@ import ExploreApps from '../../components/ExploreApps.astro';
     margin-bottom: 1.25rem;
   }
 
-  :global(.dark) .te-feature-icon {
-    color: var(--te-accent);
-  }
-
   .te-feature h3 {
     font-family: 'Satoshi', sans-serif;
     font-size: 1.0625rem;
@@ -512,42 +507,98 @@ import ExploreApps from '../../components/ExploreApps.astro';
     margin: 0;
   }
 
-  /* ─── Science Section ─── */
-  .te-science {
+  /* ─── Fever Thresholds Section ─── */
+  .te-categories {
     background: var(--te-bg);
     padding: 5rem 0;
-    border-top: 1px solid var(--te-border);
-    border-bottom: 1px solid var(--te-border);
   }
 
-  .te-science-inner {
+  .te-categories-header {
     text-align: center;
-    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  .te-categories-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--te-text);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .te-categories-subtitle {
+    font-size: 1.0625rem;
+    color: var(--te-text-muted);
+    max-width: 480px;
     margin: 0 auto;
   }
 
-  .te-science-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    color: var(--te-accent-deep);
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+  .te-categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
-  :global(.dark) .te-science-title {
-    color: var(--te-accent);
+  .te-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    min-width: 180px;
   }
 
-  .te-science-text {
-    font-size: 1.0625rem;
-    color: var(--te-text-muted);
-    line-height: 1.8;
+  .te-category-label {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+  }
+
+  .te-category-range {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .te-category--normal {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+  }
+
+  .te-category--elevated {
+    background: rgba(234, 179, 8, 0.1);
+    color: #ca8a04;
+  }
+
+  .te-category--fever {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+  }
+
+  :global(.dark) .te-category--normal {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+  }
+
+  :global(.dark) .te-category--elevated {
+    background: rgba(234, 179, 8, 0.15);
+    color: #facc15;
+  }
+
+  :global(.dark) .te-category--fever {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
   }
 
   /* ─── Privacy Banner ─── */
   .te-privacy-banner {
-    background: #1a0808;
+    background: #0a0f1a;
     padding: 5rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
   }
 
   .te-privacy-inner {
@@ -556,7 +607,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .te-privacy-title {
     font-size: clamp(2rem, 5vw, 3rem);
-    color: #fef2f2;
+    color: #f1f5f9;
     margin-top: 1rem;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
@@ -564,7 +615,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .te-privacy-text {
     font-size: 1.0625rem;
-    color: #d6d3d1;
+    color: #94a3b8;
     line-height: 1.8;
     margin-bottom: 2rem;
   }
@@ -573,7 +624,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
     font-family: 'Satoshi', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #f87171;
+    color: var(--te-accent);
     text-decoration: none;
     transition: opacity 0.2s;
   }
