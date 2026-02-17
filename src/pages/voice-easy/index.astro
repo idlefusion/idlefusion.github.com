@@ -53,14 +53,31 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
-    <!-- Screenshots -->
-    <section class="ve-screenshots">
-      <div class="app-screenshots-scroll">
-          <img src="/img/voice-easy/screenshots/01_marketing.png" alt="Voice Easy screenshot 1" class="app-screenshot" />
-          <img src="/img/voice-easy/screenshots/02_marketing.png" alt="Voice Easy screenshot 2" class="app-screenshot" />
-          <img src="/img/voice-easy/screenshots/03_marketing.png" alt="Voice Easy screenshot 3" class="app-screenshot" />
-          <img src="/img/voice-easy/screenshots/04_marketing.png" alt="Voice Easy screenshot 4" class="app-screenshot" />
+    <section class="ve-screenshots-section">
+      <div class="ve-container">
+        <div class="ve-section-header">
+          <span class="ve-label">SCREENSHOTS</span>
+          <h2 class="ve-screenshots-title">See it in action.</h2>
         </div>
+        <div class="ve-screenshots-scroll">
+          <div class="ve-screenshot-card">
+            <img src="/img/voice-easy/screenshots/01_marketing.png" alt="Voice Easy — Record. Transcribe." loading="lazy" />
+            <span class="ve-screenshot-label">Record. Transcribe.</span>
+          </div>
+          <div class="ve-screenshot-card">
+            <img src="/img/voice-easy/screenshots/02_marketing.png" alt="Voice Easy — On-Device Transcription" loading="lazy" />
+            <span class="ve-screenshot-label">On-Device Transcription</span>
+          </div>
+          <div class="ve-screenshot-card">
+            <img src="/img/voice-easy/screenshots/03_marketing.png" alt="Voice Easy — Organize Recordings" loading="lazy" />
+            <span class="ve-screenshot-label">Organize Recordings</span>
+          </div>
+          <div class="ve-screenshot-card">
+            <img src="/img/voice-easy/screenshots/04_marketing.png" alt="Voice Easy — Export Anywhere" loading="lazy" />
+            <span class="ve-screenshot-label">Export Anywhere</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Features -->
@@ -395,15 +412,6 @@ import ExploreApps from '../../components/ExploreApps.astro';
   }
 
   /* ─── Screenshots ─── */
-  .ve-screenshots {
-    padding: 2rem 0 4rem;
-    overflow: hidden;
-  }
-  .ve-screenshots-inner {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
   .ve-screenshot {
     width: 100%;
     border-radius: 16px;
@@ -644,4 +652,62 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .ve-footer-brand a:hover {
     color: var(--ve-accent);
   }
+
+  /* ─── Screenshots (run-easy style) ─── */
+  .ve-screenshots-section {
+    padding: 4rem 0;
+    background: var(--ve-bg, #fafaf9);
+  }
+
+  .ve-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .ve-screenshots-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--ve-text, #0a0a0a);
+    margin-top: 0.5rem;
+  }
+
+  .ve-screenshots-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ve-screenshots-scroll::-webkit-scrollbar { height: 4px; }
+  .ve-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+  .ve-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--ve-border, #e7e5e4); border-radius: 2px; }
+
+  .ve-screenshot-card {
+    flex-shrink: 0;
+    width: 260px;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .ve-screenshot-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
+    border: 1px solid var(--ve-border, #e7e5e4);
+    transition: transform 0.3s ease;
+  }
+
+  .ve-screenshot-card img:hover {
+    transform: translateY(-4px);
+  }
+
+  .ve-screenshot-label {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--ve-text-muted, #78716c);
+    letter-spacing: 0.02em;
+  }
+
 </style>

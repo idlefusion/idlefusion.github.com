@@ -51,14 +51,31 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
-    <!-- Screenshots -->
-    <section class="me-screenshots">
-      <div class="app-screenshots-scroll">
-          <img src="/img/meds-easy/screenshots/01_marketing.png" alt="Meds Easy screenshot 1" class="app-screenshot" />
-          <img src="/img/meds-easy/screenshots/02_marketing.png" alt="Meds Easy screenshot 2" class="app-screenshot" />
-          <img src="/img/meds-easy/screenshots/03_marketing.png" alt="Meds Easy screenshot 3" class="app-screenshot" />
-          <img src="/img/meds-easy/screenshots/04_marketing.png" alt="Meds Easy screenshot 4" class="app-screenshot" />
+    <section class="me-screenshots-section">
+      <div class="me-container">
+        <div class="me-section-header">
+          <span class="me-label">SCREENSHOTS</span>
+          <h2 class="me-screenshots-title">See it in action.</h2>
         </div>
+        <div class="me-screenshots-scroll">
+          <div class="me-screenshot-card">
+            <img src="/img/meds-easy/screenshots/01_marketing.png" alt="Meds Easy — Never Miss a Dose" loading="lazy" />
+            <span class="me-screenshot-label">Never Miss a Dose</span>
+          </div>
+          <div class="me-screenshot-card">
+            <img src="/img/meds-easy/screenshots/02_marketing.png" alt="Meds Easy — Smart Reminders" loading="lazy" />
+            <span class="me-screenshot-label">Smart Reminders</span>
+          </div>
+          <div class="me-screenshot-card">
+            <img src="/img/meds-easy/screenshots/03_marketing.png" alt="Meds Easy — Refill Alerts" loading="lazy" />
+            <span class="me-screenshot-label">Refill Alerts</span>
+          </div>
+          <div class="me-screenshot-card">
+            <img src="/img/meds-easy/screenshots/04_marketing.png" alt="Meds Easy — Dose History" loading="lazy" />
+            <span class="me-screenshot-label">Dose History</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Features — 2-col grid with icons -->
@@ -397,15 +414,6 @@ import ExploreApps from '../../components/ExploreApps.astro';
   }
 
   /* ─── Screenshots ─── */
-  .me-screenshots {
-    padding: 2rem 0 4rem;
-    overflow: hidden;
-  }
-  .me-screenshots-inner {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
   .me-screenshot {
     width: 100%;
     border-radius: 16px;
@@ -655,4 +663,62 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .me-footer-brand a:hover {
     color: var(--me-accent);
   }
+
+  /* ─── Screenshots (run-easy style) ─── */
+  .me-screenshots-section {
+    padding: 4rem 0;
+    background: var(--me-bg, #fafaf9);
+  }
+
+  .me-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .me-screenshots-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--me-text, #0a0a0a);
+    margin-top: 0.5rem;
+  }
+
+  .me-screenshots-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .me-screenshots-scroll::-webkit-scrollbar { height: 4px; }
+  .me-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+  .me-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--me-border, #e7e5e4); border-radius: 2px; }
+
+  .me-screenshot-card {
+    flex-shrink: 0;
+    width: 260px;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .me-screenshot-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
+    border: 1px solid var(--me-border, #e7e5e4);
+    transition: transform 0.3s ease;
+  }
+
+  .me-screenshot-card img:hover {
+    transform: translateY(-4px);
+  }
+
+  .me-screenshot-label {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--me-text-muted, #78716c);
+    letter-spacing: 0.02em;
+  }
+
 </style>

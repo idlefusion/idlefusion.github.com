@@ -45,14 +45,29 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
-    <!-- Screenshots Gallery -->
-    <section class="fl-screenshots">
-      <div class="fl-screenshots-inner">
+    <section class="fl-screenshots-section">
+      <div class="fl-container">
+        <div class="fl-section-header">
+          <span class="fl-label">SCREENSHOTS</span>
+          <h2 class="fl-screenshots-title">See it in action.</h2>
+        </div>
         <div class="fl-screenshots-scroll">
-          <img src="/img/focus-easy/screenshots/01_marketing.png" alt="Focus Easy screenshot 1" class="fl-screenshot" />
-          <img src="/img/focus-easy/screenshots/02_marketing.png" alt="Focus Easy screenshot 2" class="fl-screenshot" />
-          <img src="/img/focus-easy/screenshots/03_marketing.png" alt="Focus Easy screenshot 3" class="fl-screenshot" />
-          <img src="/img/focus-easy/screenshots/04_marketing.png" alt="Focus Easy screenshot 4" class="fl-screenshot" />
+          <div class="fl-screenshot-card">
+            <img src="/img/focus-easy/screenshots/01_marketing.png" alt="Focus Easy — Eliminate Distraction" loading="lazy" />
+            <span class="fl-screenshot-label">Eliminate Distraction</span>
+          </div>
+          <div class="fl-screenshot-card">
+            <img src="/img/focus-easy/screenshots/02_marketing.png" alt="Focus Easy — Curate Your Home Screen" loading="lazy" />
+            <span class="fl-screenshot-label">Curate Your Home Screen</span>
+          </div>
+          <div class="fl-screenshot-card">
+            <img src="/img/focus-easy/screenshots/03_marketing.png" alt="Focus Easy — Widget Ready" loading="lazy" />
+            <span class="fl-screenshot-label">Widget Ready</span>
+          </div>
+          <div class="fl-screenshot-card">
+            <img src="/img/focus-easy/screenshots/04_marketing.png" alt="Focus Easy — Multiple Profiles" loading="lazy" />
+            <span class="fl-screenshot-label">Multiple Profiles</span>
+          </div>
         </div>
       </div>
     </section>
@@ -361,17 +376,6 @@ import ExploreApps from '../../components/ExploreApps.astro';
   }
 
   /* ─── Screenshots Gallery ─── */
-  .fl-screenshots {
-    background: var(--fl-bg);
-    padding: 4rem 0;
-    overflow: hidden;
-  }
-
-  .fl-screenshots-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-  }
-
   .fl-screenshots-scroll {
     display: flex;
     gap: 1.25rem;
@@ -636,4 +640,62 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .fl-footer-brand a:hover {
     color: var(--fl-text);
   }
+
+  /* ─── Screenshots (run-easy style) ─── */
+  .fl-screenshots-section {
+    padding: 4rem 0;
+    background: var(--fl-bg, #fafaf9);
+  }
+
+  .fl-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .fl-screenshots-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--fl-text, #0a0a0a);
+    margin-top: 0.5rem;
+  }
+
+  .fl-screenshots-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fl-screenshots-scroll::-webkit-scrollbar { height: 4px; }
+  .fl-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+  .fl-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--fl-border, #e7e5e4); border-radius: 2px; }
+
+  .fl-screenshot-card {
+    flex-shrink: 0;
+    width: 260px;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .fl-screenshot-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
+    border: 1px solid var(--fl-border, #e7e5e4);
+    transition: transform 0.3s ease;
+  }
+
+  .fl-screenshot-card img:hover {
+    transform: translateY(-4px);
+  }
+
+  .fl-screenshot-label {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--fl-text-muted, #78716c);
+    letter-spacing: 0.02em;
+  }
+
 </style>

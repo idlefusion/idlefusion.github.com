@@ -53,14 +53,31 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
-    <!-- Screenshots -->
-    <section class="we-screenshots">
-      <div class="app-screenshots-scroll">
-          <img src="/img/weigh-easy/screenshots/01_marketing.png" alt="Weigh Easy screenshot 1" class="app-screenshot" />
-          <img src="/img/weigh-easy/screenshots/02_marketing.png" alt="Weigh Easy screenshot 2" class="app-screenshot" />
-          <img src="/img/weigh-easy/screenshots/03_marketing.png" alt="Weigh Easy screenshot 3" class="app-screenshot" />
-          <img src="/img/weigh-easy/screenshots/04_marketing.png" alt="Weigh Easy screenshot 4" class="app-screenshot" />
+    <section class="we-screenshots-section">
+      <div class="we-container">
+        <div class="we-section-header">
+          <span class="we-label">SCREENSHOTS</span>
+          <h2 class="we-screenshots-title">See it in action.</h2>
         </div>
+        <div class="we-screenshots-scroll">
+          <div class="we-screenshot-card">
+            <img src="/img/weigh-easy/screenshots/01_marketing.png" alt="Weigh Easy — Track Weight Privately" loading="lazy" />
+            <span class="we-screenshot-label">Track Weight Privately</span>
+          </div>
+          <div class="we-screenshot-card">
+            <img src="/img/weigh-easy/screenshots/02_marketing.png" alt="Weigh Easy — Trend Line" loading="lazy" />
+            <span class="we-screenshot-label">Trend Line</span>
+          </div>
+          <div class="we-screenshot-card">
+            <img src="/img/weigh-easy/screenshots/03_marketing.png" alt="Weigh Easy — Progress Photos" loading="lazy" />
+            <span class="we-screenshot-label">Progress Photos</span>
+          </div>
+          <div class="we-screenshot-card">
+            <img src="/img/weigh-easy/screenshots/04_marketing.png" alt="Weigh Easy — Goal Tracking" loading="lazy" />
+            <span class="we-screenshot-label">Goal Tracking</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Features -->
@@ -395,15 +412,6 @@ import ExploreApps from '../../components/ExploreApps.astro';
   }
 
   /* ─── Screenshots ─── */
-  .we-screenshots {
-    padding: 2rem 0 4rem;
-    overflow: hidden;
-  }
-  .we-screenshots-inner {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
   .we-screenshot {
     width: 100%;
     border-radius: 16px;
@@ -644,4 +652,62 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .we-footer-brand a:hover {
     color: var(--we-accent);
   }
+
+  /* ─── Screenshots (run-easy style) ─── */
+  .we-screenshots-section {
+    padding: 4rem 0;
+    background: var(--we-bg, #fafaf9);
+  }
+
+  .we-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .we-screenshots-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--we-text, #0a0a0a);
+    margin-top: 0.5rem;
+  }
+
+  .we-screenshots-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .we-screenshots-scroll::-webkit-scrollbar { height: 4px; }
+  .we-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+  .we-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--we-border, #e7e5e4); border-radius: 2px; }
+
+  .we-screenshot-card {
+    flex-shrink: 0;
+    width: 260px;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .we-screenshot-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
+    border: 1px solid var(--we-border, #e7e5e4);
+    transition: transform 0.3s ease;
+  }
+
+  .we-screenshot-card img:hover {
+    transform: translateY(-4px);
+  }
+
+  .we-screenshot-label {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--we-text-muted, #78716c);
+    letter-spacing: 0.02em;
+  }
+
 </style>

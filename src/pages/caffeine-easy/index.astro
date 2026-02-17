@@ -55,14 +55,31 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
-    <!-- Screenshots -->
-    <section class="ce-screenshots">
-      <div class="app-screenshots-scroll">
-          <img src="/img/caffeine-easy/screenshots/01_marketing.png" alt="Caffeine Easy screenshot 1" class="app-screenshot" />
-          <img src="/img/caffeine-easy/screenshots/02_marketing.png" alt="Caffeine Easy screenshot 2" class="app-screenshot" />
-          <img src="/img/caffeine-easy/screenshots/03_marketing.png" alt="Caffeine Easy screenshot 3" class="app-screenshot" />
-          <img src="/img/caffeine-easy/screenshots/04_marketing.png" alt="Caffeine Easy screenshot 4" class="app-screenshot" />
+    <section class="ce-screenshots-section">
+      <div class="ce-container">
+        <div class="ce-section-header">
+          <span class="ce-label">SCREENSHOTS</span>
+          <h2 class="ce-screenshots-title">See it in action.</h2>
         </div>
+        <div class="ce-screenshots-scroll">
+          <div class="ce-screenshot-card">
+            <img src="/img/caffeine-easy/screenshots/01_marketing.png" alt="Caffeine Easy — Know Your Caffeine" loading="lazy" />
+            <span class="ce-screenshot-label">Know Your Caffeine</span>
+          </div>
+          <div class="ce-screenshot-card">
+            <img src="/img/caffeine-easy/screenshots/02_marketing.png" alt="Caffeine Easy — See the Decay Curve" loading="lazy" />
+            <span class="ce-screenshot-label">See the Decay Curve</span>
+          </div>
+          <div class="ce-screenshot-card">
+            <img src="/img/caffeine-easy/screenshots/03_marketing.png" alt="Caffeine Easy — Log Any Drink" loading="lazy" />
+            <span class="ce-screenshot-label">Log Any Drink</span>
+          </div>
+          <div class="ce-screenshot-card">
+            <img src="/img/caffeine-easy/screenshots/04_marketing.png" alt="Caffeine Easy — Sleep Better" loading="lazy" />
+            <span class="ce-screenshot-label">Sleep Better</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Features -->
@@ -421,15 +438,6 @@ import ExploreApps from '../../components/ExploreApps.astro';
   }
 
   /* ─── Screenshots ─── */
-  .ce-screenshots {
-    padding: 2rem 0 4rem;
-    overflow: hidden;
-  }
-  .ce-screenshots-inner {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
   .ce-screenshot {
     width: 100%;
     border-radius: 16px;
@@ -704,4 +712,62 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .ce-footer-brand a:hover {
     color: var(--ce-accent);
   }
+
+  /* ─── Screenshots (run-easy style) ─── */
+  .ce-screenshots-section {
+    padding: 4rem 0;
+    background: var(--ce-bg, #fafaf9);
+  }
+
+  .ce-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .ce-screenshots-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--ce-text, #0a0a0a);
+    margin-top: 0.5rem;
+  }
+
+  .ce-screenshots-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ce-screenshots-scroll::-webkit-scrollbar { height: 4px; }
+  .ce-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+  .ce-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--ce-border, #e7e5e4); border-radius: 2px; }
+
+  .ce-screenshot-card {
+    flex-shrink: 0;
+    width: 260px;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .ce-screenshot-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
+    border: 1px solid var(--ce-border, #e7e5e4);
+    transition: transform 0.3s ease;
+  }
+
+  .ce-screenshot-card img:hover {
+    transform: translateY(-4px);
+  }
+
+  .ce-screenshot-label {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--ce-text-muted, #78716c);
+    letter-spacing: 0.02em;
+  }
+
 </style>
