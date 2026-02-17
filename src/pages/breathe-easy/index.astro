@@ -53,6 +53,34 @@ import ExploreApps from '../../components/ExploreApps.astro';
       </div>
     </section>
 
+    <!-- Screenshots -->
+    <section class="be-screenshots-section">
+      <div class="be-container">
+        <div class="be-section-header">
+          <span class="be-label">SCREENSHOTS</span>
+          <h2 class="be-screenshots-title">See it in action.</h2>
+        </div>
+        <div class="be-screenshots-scroll">
+          <div class="be-screenshot-card">
+            <img src="/img/breathe-easy/screenshots/01_marketing.png" alt="Breathe Easy — Breathe Better" loading="lazy" />
+            <span class="be-screenshot-label">Breathe Better</span>
+          </div>
+          <div class="be-screenshot-card">
+            <img src="/img/breathe-easy/screenshots/02_marketing.png" alt="Breathe Easy — Track Sessions" loading="lazy" />
+            <span class="be-screenshot-label">Track Sessions</span>
+          </div>
+          <div class="be-screenshot-card">
+            <img src="/img/breathe-easy/screenshots/03_marketing.png" alt="Breathe Easy — Box Breathing" loading="lazy" />
+            <span class="be-screenshot-label">Box Breathing & More</span>
+          </div>
+          <div class="be-screenshot-card">
+            <img src="/img/breathe-easy/screenshots/04_marketing.png" alt="Breathe Easy — Haptic Guidance" loading="lazy" />
+            <span class="be-screenshot-label">Haptic Guidance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="be-features-section">
       <div class="be-container-wide">
@@ -384,50 +412,61 @@ import ExploreApps from '../../components/ExploreApps.astro';
     }
   }
 
-  /* ─── Screenshots Gallery ─── */
-  .be-screenshots {
-    background: var(--be-bg);
+  /* ─── Screenshots (run-easy style) ─── */
+  .be-screenshots-section {
     padding: 4rem 0;
-    overflow: hidden;
+    background: var(--be-bg, #fafaf9);
   }
 
-  .be-screenshots-inner {
-    max-width: 72rem;
-    margin: 0 auto;
+  .be-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .be-screenshots-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: var(--be-text, #0a0a0a);
+    margin-top: 0.5rem;
   }
 
   .be-screenshots-scroll {
     display: flex;
-    gap: 1.25rem;
+    gap: 1.5rem;
     overflow-x: auto;
+    padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 0 1.5rem 1rem;
-    scrollbar-width: none;
   }
 
-  .be-screenshots-scroll::-webkit-scrollbar {
-    display: none;
-  }
+  .be-screenshots-scroll::-webkit-scrollbar { height: 4px; }
+  .be-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+  .be-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--be-border, #e7e5e4); border-radius: 2px; }
 
-  @media (min-width: 640px) {
-    .be-screenshots-scroll { padding: 0 2rem 1rem; }
-  }
-
-  @media (min-width: 1024px) {
-    .be-screenshots-scroll { padding: 0 3rem 1rem; }
-  }
-
-  .be-screenshot {
+  .be-screenshot-card {
     flex-shrink: 0;
-    width: 220px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 260px;
     scroll-snap-align: start;
+    text-align: center;
   }
 
-  @media (min-width: 768px) {
-    .be-screenshot { width: 260px; }
+  .be-screenshot-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
+    border: 1px solid var(--be-border, #e7e5e4);
+    transition: transform 0.3s ease;
+  }
+
+  .be-screenshot-card img:hover {
+    transform: translateY(-4px);
+  }
+
+  .be-screenshot-label {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--be-text-muted, #78716c);
+    letter-spacing: 0.02em;
   }
 
   /* ─── Containers ─── */
