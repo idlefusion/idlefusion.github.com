@@ -1,7 +1,53 @@
 ---
+import { existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+
+const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '../../..');
+const currencyScreenshotSourcePath =
+  '../pesos-dos/generated/currency-variants/screenshots'; // TODO: Replace with finalized Pesos Dos export path.
+
+const screenshotCandidates = [
+  {
+    code: 'MXN',
+    title: 'Mexican Peso app — conversion screen',
+    path: 'img/currency/screenshots/mxn-conversion.png',
+  },
+  {
+    code: 'ARS',
+    title: 'Argentine Peso app — conversion screen',
+    path: 'img/currency/screenshots/ars-conversion.png',
+  },
+  {
+    code: 'COP',
+    title: 'Colombian Peso app — conversion screen',
+    path: 'img/currency/screenshots/cop-conversion.png',
+  },
+  {
+    code: 'PEN',
+    title: 'Peruvian Sol app — conversion screen',
+    path: 'img/currency/screenshots/pen-conversion.png',
+  },
+  {
+    code: 'CLP',
+    title: 'Chilean Peso app — conversion screen',
+    path: 'img/currency/screenshots/clp-conversion.png',
+  },
+  {
+    code: 'VES',
+    title: 'Venezuelan Bolívar app — conversion screen',
+    path: 'img/currency/screenshots/ves-conversion.png',
+  },
+];
+
+const screenshotVariants = screenshotCandidates.map((shot) => ({
+  ...shot,
+  src: `/${shot.path}`,
+  available: existsSync(join(projectRoot, 'public', shot.path)),
+}));
 
 const currencyVariants = [
   { code: 'ARS', name: 'Argentine Peso to USD' },
@@ -87,6 +133,36 @@ const faqs = [
           <h2>Light & dark support</h2>
           <p>Every screen is polished for both themes to stay readable in any environment.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="screenshots">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">IN-APP PREVIEW</p>
+          <h2>Real app screens, ready for each market.</h2>
+          <p class="screenshots-lede">
+            Gallery auto-loads generated screenshots when they exist at
+            <code>{currencyScreenshotSourcePath}</code>.
+            Run <code>npm run sync:currency-screenshots</code> to copy exports into
+            <code>/public/img/currency/screenshots</code>.
+          </p>
+        </div>
+        <ul class="screenshot-grid">
+          {screenshotVariants.map((shot) => (
+            <li>
+              {shot.available ? (
+                <img src={shot.src} alt={shot.title} loading="lazy" decoding="async" />
+              ) : (
+                <div class="screenshot-placeholder" aria-hidden="true">
+                  <span>{shot.code}</span>
+                  <small>Screenshot pending</small>
+                </div>
+              )}
+              <p>{shot.title}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
 
@@ -217,6 +293,7 @@ const faqs = [
   }
 
   .value-strip,
+  .screenshots,
   .family-overview,
   .how-it-works,
   .cta,
@@ -243,6 +320,81 @@ const faqs = [
     font-family: 'Instrument Serif', Georgia, serif;
     font-size: clamp(1.75rem, 3vw, 2.6rem);
     margin: 0;
+  }
+
+  .screenshots {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .screenshots-lede {
+    margin-top: 0.85rem;
+    max-width: 72ch;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .screenshots-lede code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 0.15rem 0.35rem;
+  }
+
+  .screenshot-grid {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  @media (min-width: 760px) {
+    .screenshot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (min-width: 1120px) {
+    .screenshot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  .screenshot-grid li {
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    padding: 0.85rem;
+  }
+
+  .screenshot-grid img,
+  .screenshot-placeholder {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    background: linear-gradient(170deg, #12273a 0%, #0b1621 52%, #23354b 100%);
+    aspect-ratio: 9 / 19.5;
+    object-fit: cover;
+    display: grid;
+    place-items: center;
+  }
+
+  .screenshot-placeholder span {
+    color: rgba(250, 250, 249, 0.88);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+  }
+
+  .screenshot-placeholder small {
+    color: rgba(250, 250, 249, 0.58);
+    font-size: 0.78rem;
+    margin-top: 0.4rem;
+  }
+
+  .screenshot-grid p {
+    margin: 0.75rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.45;
   }
 
   .currency-grid {
