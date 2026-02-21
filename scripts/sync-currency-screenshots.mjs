@@ -20,5 +20,12 @@ if (!existsSync(sourceDir)) {
 mkdirSync(destinationDir, { recursive: true });
 cpSync(sourceDir, destinationDir, { recursive: true });
 
-const files = readdirSync(destinationDir).filter((name) => /\.(png|jpe?g|webp)$/i.test(name));
-console.log(`[sync-currency-screenshots] Copied ${files.length} screenshot file(s) to ${destinationDir}`);
+const countFiles = (dir) =>
+  readdirSync(dir, { withFileTypes: true }).reduce((total, entry) => {
+    const nextPath = resolve(dir, entry.name);
+    if (entry.isDirectory()) return total + countFiles(nextPath);
+    return /\.(png|jpe?g|webp)$/i.test(entry.name) ? total + 1 : total;
+  }, 0);
+
+const fileCount = countFiles(destinationDir);
+console.log(`[sync-currency-screenshots] Copied ${fileCount} screenshot file(s) to ${destinationDir}`);

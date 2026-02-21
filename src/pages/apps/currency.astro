@@ -8,38 +8,38 @@ import Footer from '../../components/Footer.astro';
 
 const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const currencyScreenshotSourcePath =
-  '../pesos-dos/generated/currency-variants/screenshots'; // TODO: Replace with finalized Pesos Dos export path.
+  '~/Developer/mps/pesos-dos/artifacts/app-store-screenshots';
 
 const screenshotCandidates = [
   {
+    code: 'EUR',
+    title: 'Dollar to Euro — conversion screen',
+    path: 'img/currency/screenshots/marketing/EUR/iphone-6.9/01-convert.png',
+  },
+  {
+    code: 'JPY',
+    title: 'Dollar to Yen — conversion screen',
+    path: 'img/currency/screenshots/marketing/JPY/iphone-6.9/01-convert.png',
+  },
+  {
+    code: 'GBP',
+    title: 'Dollar to Pound — conversion screen',
+    path: 'img/currency/screenshots/marketing/GBP/iphone-6.9/01-convert.png',
+  },
+  {
     code: 'MXN',
-    title: 'Mexican Peso app — conversion screen',
-    path: 'img/currency/screenshots/mxn-conversion.png',
+    title: 'Dollar to Peso — conversion screen',
+    path: 'img/currency/screenshots/marketing/MXN/iphone-6.9/01-convert.png',
   },
   {
-    code: 'ARS',
-    title: 'Argentine Peso app — conversion screen',
-    path: 'img/currency/screenshots/ars-conversion.png',
+    code: 'INR',
+    title: 'Dollar to Rupee — conversion screen',
+    path: 'img/currency/screenshots/marketing/INR/iphone-6.9/01-convert.png',
   },
   {
-    code: 'COP',
-    title: 'Colombian Peso app — conversion screen',
-    path: 'img/currency/screenshots/cop-conversion.png',
-  },
-  {
-    code: 'PEN',
-    title: 'Peruvian Sol app — conversion screen',
-    path: 'img/currency/screenshots/pen-conversion.png',
-  },
-  {
-    code: 'CLP',
-    title: 'Chilean Peso app — conversion screen',
-    path: 'img/currency/screenshots/clp-conversion.png',
-  },
-  {
-    code: 'VES',
-    title: 'Venezuelan Bolívar app — conversion screen',
-    path: 'img/currency/screenshots/ves-conversion.png',
+    code: 'AED',
+    title: 'Dollar to Dirham — conversion screen',
+    path: 'img/currency/screenshots/marketing/AED/iphone-6.9/01-convert.png',
   },
 ];
 
@@ -50,26 +50,26 @@ const screenshotVariants = screenshotCandidates.map((shot) => ({
 }));
 
 const currencyVariants = [
-  { code: 'ARS', name: 'Argentine Peso to USD' },
-  { code: 'BOB', name: 'Bolivian Boliviano to USD' },
-  { code: 'BRL', name: 'Brazilian Real to USD' },
-  { code: 'CLP', name: 'Chilean Peso to USD' },
-  { code: 'COP', name: 'Colombian Peso to USD' },
-  { code: 'CRC', name: 'Costa Rican Colón to USD' },
-  { code: 'DOP', name: 'Dominican Peso to USD' },
-  { code: 'EGP', name: 'Egyptian Pound to USD' },
-  { code: 'GTQ', name: 'Guatemalan Quetzal to USD' },
-  { code: 'HNL', name: 'Honduran Lempira to USD' },
-  { code: 'KES', name: 'Kenyan Shilling to USD' },
-  { code: 'MAD', name: 'Moroccan Dirham to USD' },
-  { code: 'MXN', name: 'Mexican Peso to USD' },
-  { code: 'NIO', name: 'Nicaraguan Córdoba to USD' },
-  { code: 'PAB', name: 'Panamanian Balboa to USD' },
-  { code: 'PEN', name: 'Peruvian Sol to USD' },
-  { code: 'PYG', name: 'Paraguayan Guaraní to USD' },
-  { code: 'UYU', name: 'Uruguayan Peso to USD' },
-  { code: 'VES', name: 'Venezuelan Bolívar to USD' },
-  { code: 'XOF', name: 'West African CFA Franc to USD' },
+  { code: 'EUR', name: 'Dollar to Euro' },
+  { code: 'JPY', name: 'Dollar to Yen' },
+  { code: 'GBP', name: 'Dollar to Pound' },
+  { code: 'CAD', name: 'Dollar to CAD' },
+  { code: 'AUD', name: 'Dollar to AUD' },
+  { code: 'CHF', name: 'Dollar to Franc' },
+  { code: 'CNY', name: 'Dollar to Yuan' },
+  { code: 'HKD', name: 'Dollar to HKD' },
+  { code: 'NZD', name: 'Dollar to NZD' },
+  { code: 'SEK', name: 'Dollar to Krona' },
+  { code: 'KRW', name: 'Dollar to Won' },
+  { code: 'SGD', name: 'Dollar to SGD' },
+  { code: 'NOK', name: 'Dollar to NOK' },
+  { code: 'MXN', name: 'Dollar to Peso' },
+  { code: 'INR', name: 'Dollar to Rupee' },
+  { code: 'BRL', name: 'Dollar to Real' },
+  { code: 'ZAR', name: 'Dollar to Rand' },
+  { code: 'AED', name: 'Dollar to Dirham' },
+  { code: 'TRY', name: 'Dollar to Lira' },
+  { code: 'TWD', name: 'Dollar to TWD' },
 ];
 
 const faqs = [
