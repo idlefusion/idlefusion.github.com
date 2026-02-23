@@ -1,0 +1,35 @@
+---
+import SimpleAppLanding from '../../components/SimpleAppLanding.astro';
+
+const app = {
+  slug: 'split-easy',
+  name: 'Split Easy',
+  category: 'Bill Splitting',
+  badge: 'Split Bills, Keep Friends',
+  headline: 'Split quickly with your group. No awkward math.',
+  description: 'Split Easy makes group expense splits fast and fair. Add people, totals, and tips, then share results instantly without manual spreadsheet work.',
+  icon: '/img/split-easy/icon.png',
+  appStoreUrl: '#',
+  appStoreNote: 'Free &middot; No account required',
+  accent: '#22c55e',
+  accentDeep: '#16a34a',
+  screenshots: [
+    { src: '01_calculator.png', label: 'Calculator flow' },
+    { src: '02_tip_selection.png', label: 'Tip control' },
+    { src: '03_share_card.png', label: 'Shareable split card' },
+    { src: '04_history.png', label: 'History log' },
+    { src: '05_themes.png', label: 'Theme options' },
+    { src: '06_settings.png', label: 'People and preferences' },
+  ],
+  features: [
+    { title: 'Fast split calculation', description: 'Totals, tips, tax, and participant shares are resolved in one quick flow.' },
+    { title: 'Uneven split support', description: 'Different share amounts are easy to configure for shared expenses where shares are not equal.' },
+    { title: 'Share results instantly', description: 'Create a clean result card and send it to everyone in your group with one action.' },
+    { title: 'History and templates', description: 'Revisit prior checks quickly and reuse common splits for recurring trips or routines.' },
+    { title: 'Home screen visibility', description: 'Widgets and quick actions make frequent use in restaurants, travel, and events friction-free.' },
+  ],
+  useCases: ['Group dinners', 'Road trips and hotels', 'Office team orders', 'Roommate shared costs'],
+  privacySummary: 'Split Easy never requires an account or cloud profile. Entries stay local, and no data is sold, shared, or used for analytics.'
+};
+---
+<SimpleAppLanding {...app} />

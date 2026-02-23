@@ -1,0 +1,35 @@
+---
+import SimpleAppLanding from '../../components/SimpleAppLanding.astro';
+
+const app = {
+  slug: 'dose-easy',
+  name: 'Dose Easy',
+  category: 'Supplement & Vitamin Tracker',
+  badge: 'Supplement Routine Tracker',
+  headline: 'Log supplements consistently with simple reminders.',
+  description: 'Dose Easy helps you build a reliable supplement routine with dose logs, reminders, and daily checklists that keep your health habits visible and easy to follow.',
+  icon: '/img/dose-easy/icon.png',
+  appStoreUrl: '#',
+  appStoreNote: 'Free &middot; No account required',
+  accent: '#14b8a6',
+  accentDeep: '#0d9488',
+  screenshots: [
+    { src: '01_today_checklist.png', label: 'Today checklist' },
+    { src: '02_supplement_list.png', label: 'Supplement library' },
+    { src: '03_history.png', label: 'History and adherence' },
+    { src: '04_dark_mode.png', label: 'Dark mode' },
+    { src: '04_settings_themes.png', label: 'Advanced reminders' },
+    { src: '05_themes.png', label: 'Theme options' },
+  ],
+  features: [
+    { title: 'Dose tracking', description: 'Track every supplement, dosage, and frequency without manually juggling multiple lists.' },
+    { title: 'Reminder automation', description: 'Local reminders keep your routine on schedule, even when your day gets busy.' },
+    { title: 'Adherence history', description: 'Review consistency over days and weeks so you can identify gaps before routines drift.' },
+    { title: 'Export and review', description: 'Share or review dose logs in a clean format for personal tracking workflows.' },
+    { title: 'Private by default', description: 'No accounts or sign up required and no telemetry from your health routine.' },
+  ],
+  useCases: ['Daily vitamin routines', 'Complex supplement protocols', 'Family health plans', 'Anyone building consistent habits'],
+  privacySummary: 'Dose Easy keeps dose records and reminders fully local. We do not sync your routine to the cloud, track your behavior, or deliver ads.'
+};
+---
+<SimpleAppLanding {...app} />

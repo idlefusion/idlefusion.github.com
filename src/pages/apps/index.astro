@@ -27,16 +27,27 @@ const apps = [
   { slug: 'stretch-easy', name: 'Stretch Easy', category: 'Stretching Routines', desc: 'Guided stretching routines with timers, haptics, and Apple Watch support.', icon: '/img/stretch-easy/icon.png' },
   { slug: 'temp-easy', name: 'Temp Easy', category: 'Temperature Tracker', desc: 'Track body temperature for the whole family with fever alerts, symptom logging, and export for your doctor.', icon: '/img/temp-easy/icon.png' },
   { slug: 'tune-easy', name: 'Tune Easy', category: 'Guitar Tuner', desc: 'Tune your guitar simply with real-time pitch detection and reference tones.', icon: '/img/tune-easy/icon.png' },
+  { slug: 'marta-easy', name: 'Marta Easy', category: 'Atlanta Transit Companion', desc: 'Check departures, delays, and MARTA service alerts quickly before your commute.', icon: '/img/marta-easy/icon.png' },
+  { slug: 'macro-easy', name: 'Macro Easy', category: 'Macro & Nutrition Tracking', desc: 'Log protein, carbs, and fat quickly with a simple, fast interface for daily nutrition tracking.', icon: '/img/macro-easy/icon.png' },
+  { slug: 'set-easy', name: 'Set Easy', category: 'Gym & Strength Training', desc: 'Track sets, reps, and workout templates to stay consistent with your strength-building routine.', icon: '/img/set-easy/icon.png' },
+  { slug: 'split-easy', name: 'Split Easy', category: 'Bill Splitting', desc: 'Split expenses, tips, and tax quickly with share results that are easy to send to your group.', icon: '/img/split-easy/icon.png' },
+  { slug: 'dose-easy', name: 'Dose Easy', category: 'Supplement & Vitamin Tracker', desc: 'Log supplements and stay consistent with easy reminders and adherence tracking.', icon: '/img/dose-easy/icon.png' },
 ];
 
+const featureFlags = {
+  showMartaEasy: false,
+};
+
+const visibleApps = apps.filter(app => featureFlags.showMartaEasy || app.slug !== 'marta-easy');
+
 // Pick a random featured app for the hero
-const featuredApp = apps[Math.floor(Math.random() * apps.length)];
-const otherApps = apps.filter(a => a.slug !== featuredApp.slug);
+const featuredApp = visibleApps[Math.floor(Math.random() * visibleApps.length)];
+const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
 ---
 
 <BaseLayout
   title="Apps — Idle Fusion"
-  description="Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. 22 apps for health, productivity, and everyday life."
+  description="Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. 27 apps for health, productivity, and everyday life."
   ogUrl="https://idlefusion.com/apps"
 >
   <Header currentPage="apps" />
@@ -88,8 +99,8 @@ const otherApps = apps.filter(a => a.slug !== featuredApp.slug);
     <section class="all-apps">
       <div class="all-apps-inner">
         <div class="all-apps-header">
-          <span class="all-apps-label">ALL APPS</span>
-          <span class="all-apps-count">{apps.length} apps</span>
+            <span class="all-apps-label">ALL APPS</span>
+            <span class="all-apps-count">{visibleApps.length} apps</span>
         </div>
         <div class="all-apps-grid">
           {apps.map(app => (

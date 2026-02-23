@@ -1,0 +1,34 @@
+---
+import SimpleAppLanding from '../../components/SimpleAppLanding.astro';
+
+const app = {
+  slug: 'macro-easy',
+  name: 'Macro Easy',
+  category: 'Macro & Nutrition Tracking',
+  badge: 'Simple Macro Tracking',
+  headline: 'Log protein, carbs, and fat in seconds.',
+  description: 'Macro Easy keeps nutrition tracking lightweight: quick daily entry, home dashboard, and target progress for your nutrition goals without complicated workflows.',
+  icon: '/img/macro-easy/icon.png',
+  appStoreUrl: '#',
+  appStoreNote: 'Free &middot; No account required',
+  accent: '#f97316',
+  accentDeep: '#ea580c',
+  screenshots: [
+    { src: '01_home_dashboard.png', label: 'Home dashboard' },
+    { src: '02_quick_log.png', label: 'Quick meal log' },
+    { src: '03_favorites.png', label: 'Favorite foods' },
+    { src: '04_history.png', label: 'History and trends' },
+    { src: '05_themes.png', label: 'Theme options' },
+  ],
+  features: [
+    { title: 'Fast daily logging', description: 'Capture protein, carbs, and fat with minimal taps and a no-friction entry flow.' },
+    { title: 'Goal-focused dashboard', description: 'See progress to your macro targets and stay informed without opening a bulky nutrition editor.' },
+    { title: 'Favorites and history', description: 'Reuse recent meals and repeat entries quickly, especially useful when nutrition is repetitive.' },
+    { title: 'Health integration', description: 'Optional Health app sync keeps your nutrition data available with Apple Health workflows.' },
+    { title: 'Offline-first design', description: 'All calculations happen on device, so your nutrition habits are never blocked by network issues.' },
+  ],
+  useCases: ['Performance-minded athletes', 'Meal prep routines', 'People rebuilding nutrition habits', 'Users wanting minimal macro tracking'],
+  privacySummary: 'Macro Easy stores your entries and targets locally. No ad SDKs, no tracking frameworks, and no accounts are used to consume data from this app.'
+};
+---
+<SimpleAppLanding {...app} />

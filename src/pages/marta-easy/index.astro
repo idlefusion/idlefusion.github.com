@@ -1,0 +1,35 @@
+---
+import SimpleAppLanding from '../../components/SimpleAppLanding.astro';
+
+const app = {
+  slug: 'marta-easy',
+  name: 'Marta Easy',
+  category: 'Atlanta Transit Companion',
+  badge: 'Atlanta Transit App',
+  headline: 'Check your commute before you leave the house.',
+  description: 'Marta Easy shows next departures, delay status, and service alerts for MARTA in a clean at-a-glance interface. Built for daily commuters who care about reliable, no-frills information.',
+  icon: '/img/marta-easy/icon.png',
+  appStoreUrl: '#',
+  appStoreNote: 'Free &middot; No account required',
+  accent: '#0ea5e9',
+  accentDeep: '#0284c7',
+  screenshots: [
+    { src: '01_home_commute_card.png', label: 'Commuter Home Card' },
+    { src: '02_leave_in_recommendation.png', label: 'Leave-in Recommendation' },
+    { src: '03_delay_suspension_alerts.png', label: 'Delay & Suspension Alerts' },
+    { src: '04_favorites_management.png', label: 'Favorites and Stops' },
+    { src: '05_service_alerts_feed.png', label: 'Service Alerts Feed' },
+    { src: '06_offline_fallback.png', label: 'Offline Reliability' },
+  ],
+  features: [
+    { title: 'Transit at a glance', description: 'See departures, direction, and estimated arrival time from your favorite MARTA stops before you open the app.' },
+    { title: 'Status and reliability', description: 'Track delay and suspension updates in one list so your plan can adjust around real-time conditions.' },
+    { title: 'Leave-at guidance', description: 'The app suggests when to head out based on the departures you care about, helping you leave on time more often.' },
+    { title: 'Offline fallback', description: 'When connectivity drops, cached schedules and recent data still help you make an informed commute decision.' },
+    { title: 'Clean onboarding', description: 'No accounts, no sign up, no hidden setup. Choose your stops and you can be using it immediately.' },
+  ],
+  useCases: ['Atlanta daily riders', 'Commuters checking before boarding', 'Travelers planning multi-stop trips', 'Anyone managing unreliable schedules'],
+  privacySummary: 'Marta Easy does not collect personal profiles or analytics. Your usage stays on-device and no ads drive the app experience. Transit and status data is sourced from public MARTA feeds as designed by the service.'
+};
+---
+<SimpleAppLanding {...app} />
