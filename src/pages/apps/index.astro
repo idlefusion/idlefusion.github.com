@@ -27,16 +27,28 @@ const apps = [
   { slug: 'stretch-easy', name: 'Stretch Easy', category: 'Stretching Routines', desc: 'Guided stretching routines with timers, haptics, and Apple Watch support.', icon: '/img/stretch-easy/icon.png' },
   { slug: 'temp-easy', name: 'Temp Easy', category: 'Temperature Tracker', desc: 'Track body temperature for the whole family with fever alerts, symptom logging, and export for your doctor.', icon: '/img/temp-easy/icon.png' },
   { slug: 'tune-easy', name: 'Tune Easy', category: 'Guitar Tuner', desc: 'Tune your guitar simply with real-time pitch detection and reference tones.', icon: '/img/tune-easy/icon.png' },
+  { slug: 'marta-easy', name: 'Marta Easy', category: 'Atlanta Transit Companion', desc: 'Check departures, delays, and MARTA service alerts quickly before your commute.', icon: '/img/marta-easy/icon.png' },
+  { slug: 'macro-easy', name: 'Macro Easy', category: 'Macro & Nutrition Tracking', desc: 'Log protein, carbs, and fat quickly with a simple, fast interface for daily nutrition tracking.', icon: '/img/macro-easy/icon.png' },
+  { slug: 'set-easy', name: 'Set Easy', category: 'Gym & Strength Training', desc: 'Track sets, reps, and workout templates to stay consistent with your strength-building routine.', icon: '/img/set-easy/icon.png' },
+  { slug: 'split-easy', name: 'Split Easy', category: 'Bill Splitting', desc: 'Split expenses, tips, and tax quickly with share results that are easy to send to your group.', icon: '/img/split-easy/icon.png' },
+  { slug: 'dose-easy', name: 'Dose Easy', category: 'Supplement & Vitamin Tracker', desc: 'Log supplements and stay consistent with easy reminders and adherence tracking.', icon: '/img/dose-easy/icon.png' },
 ];
 
+const featureFlags = {
+  showMartaEasy: false,
+  showCurrencyApps: false,
+};
+
+const visibleApps = apps.filter(app => featureFlags.showMartaEasy || app.slug !== 'marta-easy');
+
 // Pick a random featured app for the hero
-const featuredApp = apps[Math.floor(Math.random() * apps.length)];
-const otherApps = apps.filter(a => a.slug !== featuredApp.slug);
+const featuredApp = visibleApps[Math.floor(Math.random() * visibleApps.length)];
+const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
 ---
 
 <BaseLayout
   title="Apps — Idle Fusion"
-  description="Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. 22 apps for health, productivity, and everyday life."
+  description={`Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. ${visibleApps.length} apps for health, productivity, and everyday life.`}
   ogUrl="https://idlefusion.com/apps"
 >
   <Header currentPage="apps" />
@@ -51,12 +63,17 @@ const otherApps = apps.filter(a => a.slug !== featuredApp.slug);
             <h1 class="apps-hero-title">{featuredApp.name}</h1>
             <p class="apps-hero-category">{featuredApp.category}</p>
             <p class="apps-hero-desc">{featuredApp.desc}</p>
-            <a href={`/${featuredApp.slug}`} class="btn btn-light apps-hero-cta">
-              Explore {featuredApp.name}
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="cta-arrow">
-                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+            <div class="apps-hero-actions">
+              <a href={`/${featuredApp.slug}`} class="btn btn-light apps-hero-cta">
+                Explore {featuredApp.name}
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="cta-arrow">
+                  <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              {featureFlags.showCurrencyApps && (
+                <a href="/apps/currency" class="btn btn-ghost apps-currency-cta">View Currency Apps</a>
+              )}
+            </div>
           </div>
           <div class="apps-hero-icon-wrap">
             <img src={featuredApp.icon} alt={`${featuredApp.name} app icon`} class="apps-hero-icon" width="280" height="280" />
@@ -85,11 +102,11 @@ const otherApps = apps.filter(a => a.slug !== featuredApp.slug);
     <section class="all-apps">
       <div class="all-apps-inner">
         <div class="all-apps-header">
-          <span class="all-apps-label">ALL APPS</span>
-          <span class="all-apps-count">{apps.length} apps</span>
+            <span class="all-apps-label">ALL APPS</span>
+            <span class="all-apps-count">{visibleApps.length} apps</span>
         </div>
         <div class="all-apps-grid">
-          {apps.map(app => (
+          {visibleApps.map(app => (
             <a href={`/${app.slug}`} class="app-card-large">
               <img src={app.icon} alt={`${app.name} icon`} class="app-card-icon" width="80" height="80" />
               <div class="app-card-content">
@@ -220,10 +237,22 @@ const otherApps = apps.filter(a => a.slug !== featuredApp.slug);
     }
   }
 
+  .apps-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
   .apps-hero-cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  .apps-currency-cta {
+    color: rgba(250, 250, 249, 0.9);
+    border-color: rgba(250, 250, 249, 0.25);
   }
 
   .apps-hero-cta .cta-arrow {

@@ -173,10 +173,50 @@ const apps: App[] = [
     description: 'Tune your guitar simply with real-time pitch detection and reference tones.',
     icon: '/img/tune-easy/icon.png',
   },
+  {
+    slug: 'marta-easy',
+    name: 'Marta Easy',
+    category: 'Atlanta Transit Companion',
+    description: 'Commuter-friendly transit tracking for MARTA departures, alerts, and status updates.',
+    icon: '/img/marta-easy/icon.png',
+  },
+  {
+    slug: 'macro-easy',
+    name: 'Macro Easy',
+    category: 'Macro & Nutrition Tracking',
+    description: 'Fast nutrition logging for protein, carbs, and fats with a clean daily dashboard.',
+    icon: '/img/macro-easy/icon.png',
+  },
+  {
+    slug: 'set-easy',
+    name: 'Set Easy',
+    category: 'Gym & Strength Training',
+    description: 'Log workouts, track progressive overload, and review strength trends over time.',
+    icon: '/img/set-easy/icon.png',
+  },
+  {
+    slug: 'split-easy',
+    name: 'Split Easy',
+    category: 'Bill Splitting',
+    description: 'Calculate shared bills with people, tips, tax, and uneven split logic in moments.',
+    icon: '/img/split-easy/icon.png',
+  },
+  {
+    slug: 'dose-easy',
+    name: 'Dose Easy',
+    category: 'Supplement & Vitamin Tracker',
+    description: 'Track supplement doses, reminders, and routines while keeping your health data private.',
+    icon: '/img/dose-easy/icon.png',
+  },
 ];
 
 const { current } = Astro.props;
-const otherApps = apps.filter(app => app.slug !== current).sort(() => Math.random() - 0.5);
+const featureFlags = {
+  showMartaEasy: false,
+};
+
+const visibleApps = apps.filter(app => featureFlags.showMartaEasy || app.slug !== 'marta-easy');
+const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Math.random() - 0.5);
 ---
 
 <section class="explore-apps">

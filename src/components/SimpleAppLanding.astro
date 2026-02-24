@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import ExploreApps from './ExploreApps.astro';
+
+interface Screenshot {
+  src: string;
+  label: string;
+  alt?: string;
+}
+
+interface Feature {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  slug: string;
+  name: string;
+  category: string;
+  headline: string;
+  description: string;
+  badge: string;
+  icon: string;
+  appStoreUrl?: string;
+  appStoreNote?: string;
+  accent: string;
+  accentDeep?: string;
+  screenshots: Screenshot[];
+  features: Feature[];
+  useCases?: string[];
+  privacySummary: string;
+}
+
+const {
+  slug,
+  name,
+  category,
+  headline,
+  description,
+  badge,
+  icon,
+  appStoreUrl = '#',
+  appStoreNote,
+  accent,
+  accentDeep,
+  screenshots,
+  features,
+  useCases = [],
+  privacySummary,
+} = Astro.props;
+
+const hasStoreLink = appStoreUrl && appStoreUrl !== '#';
+const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Download on the App Store';
+---
+
+<BaseLayout
+  title={`${name} — ${category}`}
+  description={description}
+  ogImage={icon}
+  ogUrl={`https://idlefusion.com/${slug}`}
+>
+  <div
+    class="ap-page"
+    style={`--ap-accent: ${accent}; --ap-accent-deep: ${accentDeep || accent};`}
+  >
+    <nav class="ap-nav">
+      <div class="ap-nav-inner">
+        <a href={`/${slug}`} class="ap-logo">{name}</a>
+        <div class="ap-nav-actions">
+          <ThemeToggle />
+          {hasStoreLink ? (
+            <a href={appStoreUrl} target="_blank" rel="noopener noreferrer" class="ap-cta-btn">
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+                height="40"
+              />
+            </a>
+          ) : (
+            <span class="ap-cta-text">{appStoreLabel}</span>
+          )}
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="ap-hero">
+        <div class="ap-hero-inner">
+          <div class="ap-hero-copy">
+            <p class="ap-badge">{badge}</p>
+            <h1 class="ap-headline">{headline}</h1>
+            <p class="ap-description">{description}</p>
+            <p class="ap-note">{appStoreNote || (hasStoreLink ? 'Free &middot; No account required' : 'Coming soon')}</p>
+          </div>
+          <img
+            src={icon}
+            alt={`${name} app icon`}
+            class="ap-hero-icon"
+            width="236"
+            height="236"
+          />
+        </div>
+      </section>
+
+      <section class="ap-section">
+        <div class="ap-section-inner">
+          <h2 class="ap-title">Screenshots</h2>
+          <div class="ap-screenshots" aria-label={`${name} screenshots`}>
+            {screenshots.map((shot) => (
+              <article class="ap-shot">
+                <img src={`/img/${slug}/screenshots/${shot.src}`} alt={shot.alt || shot.label} loading="lazy" />
+                <p>{shot.label}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="ap-section ap-alt">
+        <div class="ap-section-inner">
+          <h2 class="ap-title">What {name} does</h2>
+          <div class="ap-feature-grid">
+            {features.map((feature) => (
+              <article class="ap-feature-card">
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {useCases.length > 0 && (
+        <section class="ap-section">
+          <div class="ap-section-inner">
+            <h2 class="ap-title">Who it’s for</h2>
+            <ul class="ap-usecases">
+              {useCases.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <section class="ap-section ap-privacy">
+        <div class="ap-section-inner">
+          <h2 class="ap-title">Privacy</h2>
+          <p class="ap-description">{privacySummary}</p>
+          <a href={`/${slug}/privacy`} class="ap-link">Read the full privacy policy</a>
+        </div>
+      </section>
+
+      <section class="ap-section ap-cta">
+        <div class="ap-section-inner">
+          <h2 class="ap-title">Ready to start?</h2>
+          <p class="ap-description">
+            Install {name} to track smarter and stay focused on what matters.
+          </p>
+          {hasStoreLink ? (
+            <a href={appStoreUrl} target="_blank" rel="noopener noreferrer" class="ap-cta-btn ap-cta-wide">
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+                height="54"
+              />
+            </a>
+          ) : (
+            <span class="ap-cta-text">{appStoreLabel}</span>
+          )}
+        </div>
+      </section>
+
+      <ExploreApps current={slug} />
+    </main>
+
+    <footer class="ap-footer">
+      <div class="ap-footer-inner">
+        <a href={`/${slug}/support`}>Support</a>
+        <span>&middot;</span>
+        <a href={`/${slug}/privacy`}>Privacy Policy</a>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  .ap-page {
+    --ap-bg: #f8fafc;
+    --ap-bg-soft: #ffffff;
+    --ap-text: #0f172a;
+    --ap-muted: #64748b;
+    --ap-border: #e2e8f0;
+    --ap-accent-text: #f8fafc;
+  }
+
+  :global(.dark) .ap-page {
+    --ap-bg: #0a0f1a;
+    --ap-bg-soft: #111827;
+    --ap-text: #f8fafc;
+    --ap-muted: #94a3b8;
+    --ap-border: rgba(148, 163, 184, 0.2);
+  }
+
+  .ap-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--ap-border);
+    background: color-mix(in oklab, var(--ap-bg) 94%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  .ap-nav-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+  }
+
+  .ap-logo {
+    color: var(--ap-accent);
+    font-family: 'Satoshi', sans-serif;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .ap-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ap-cta-btn {
+    height: 40px;
+    width: 135px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .ap-cta-text {
+    font-size: 0.875rem;
+    color: var(--ap-muted);
+    border: 1px solid var(--ap-border);
+    border-radius: 9999px;
+    padding: 0.5rem 0.95rem;
+  }
+
+  .ap-hero {
+    background: linear-gradient(120deg, var(--ap-bg-soft), var(--ap-bg));
+    padding: 4.25rem 0;
+  }
+
+  .ap-hero-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: center;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .ap-hero-inner {
+      padding: 0 3rem;
+      gap: 4rem;
+    }
+  }
+
+  .ap-hero-copy {
+    max-width: 46ch;
+  }
+
+  .ap-badge {
+    color: var(--ap-accent-deep);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .ap-headline {
+    margin: 0.7rem 0 0;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.75rem);
+    line-height: 0.96;
+    color: var(--ap-text);
+  }
+
+  .ap-description {
+    margin: 1rem 0;
+    color: var(--ap-muted);
+    line-height: 1.65;
+    max-width: 56ch;
+  }
+
+  .ap-note {
+    margin: 0;
+    color: var(--ap-text);
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+
+  .ap-hero-icon {
+    width: min(14rem, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 1.75rem;
+    border: 1px solid var(--ap-border);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    background: var(--ap-bg-soft);
+    justify-self: center;
+  }
+
+  .ap-section {
+    padding: 3.5rem 0;
+  }
+
+  .ap-section-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .ap-section-inner {
+      padding: 0 3rem;
+    }
+  }
+
+  .ap-alt {
+    background: var(--ap-bg);
+  }
+
+  .ap-title {
+    margin: 0 0 1rem;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    color: var(--ap-text);
+  }
+
+  .ap-screenshots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .ap-shot {
+    background: var(--ap-bg-soft);
+    border: 1px solid var(--ap-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .ap-shot img {
+    width: 100%;
+    aspect-ratio: 9 / 19;
+    display: block;
+    object-fit: cover;
+  }
+
+  .ap-shot p {
+    margin: 0;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--ap-text);
+  }
+
+  .ap-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .ap-feature-card {
+    border: 1px solid var(--ap-border);
+    border-radius: 16px;
+    padding: 1.1rem;
+    background: var(--ap-bg-soft);
+  }
+
+  .ap-feature-card h3 {
+    margin: 0 0 0.45rem;
+    color: var(--ap-text);
+    font-size: 1.05rem;
+  }
+
+  .ap-feature-card p {
+    margin: 0;
+    color: var(--ap-muted);
+    line-height: 1.55;
+  }
+
+  .ap-usecases {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .ap-usecases li {
+    border-radius: 12px;
+    border: 1px dashed var(--ap-border);
+    color: var(--ap-text);
+    padding: 0.8rem 0.95rem;
+    background: color-mix(in oklab, var(--ap-bg-soft) 90%, transparent);
+  }
+
+  .ap-link {
+    color: var(--ap-accent-deep);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 0.45rem;
+  }
+
+  .ap-link:hover {
+    text-decoration: underline;
+  }
+
+  .ap-cta {
+    text-align: center;
+  }
+
+  .ap-cta-wide {
+    margin: 0.5rem auto 0;
+    display: inline-flex;
+    width: auto;
+  }
+
+  .ap-footer {
+    border-top: 1px solid var(--ap-border);
+    margin-top: 1rem;
+    padding: 1.2rem 0;
+  }
+
+  .ap-footer-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    color: var(--ap-muted);
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .ap-footer-inner a {
+    color: var(--ap-accent-deep);
+    text-decoration: none;
+  }
+
+  .ap-footer-inner a:hover {
+    text-decoration: underline;
+  }
+</style>

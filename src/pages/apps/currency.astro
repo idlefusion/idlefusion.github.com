@@ -1,0 +1,506 @@
+---
+import { existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '../../..');
+const currencyScreenshotSourcePath =
+  '~/Developer/mps/pesos-dos/artifacts/app-store-screenshots';
+
+const screenshotCandidates = [
+  {
+    code: 'EUR',
+    title: 'Dollar to Euro — conversion screen',
+    path: 'img/currency/screenshots/marketing/EUR/iphone-6.9/01-convert.png',
+  },
+  {
+    code: 'JPY',
+    title: 'Dollar to Yen — conversion screen',
+    path: 'img/currency/screenshots/marketing/JPY/iphone-6.9/01-convert.png',
+  },
+  {
+    code: 'GBP',
+    title: 'Dollar to Pound — conversion screen',
+    path: 'img/currency/screenshots/marketing/GBP/iphone-6.9/01-convert.png',
+  },
+  {
+    code: 'MXN',
+    title: 'Dollar to Peso — conversion screen',
+    path: 'img/currency/screenshots/marketing/MXN/iphone-6.9/01-convert.png',
+  },
+  {
+    code: 'INR',
+    title: 'Dollar to Rupee — conversion screen',
+    path: 'img/currency/screenshots/marketing/INR/iphone-6.9/01-convert.png',
+  },
+  {
+    code: 'AED',
+    title: 'Dollar to Dirham — conversion screen',
+    path: 'img/currency/screenshots/marketing/AED/iphone-6.9/01-convert.png',
+  },
+];
+
+const screenshotVariants = screenshotCandidates.map((shot) => ({
+  ...shot,
+  src: `/${shot.path}`,
+  available: existsSync(join(projectRoot, 'public', shot.path)),
+}));
+
+const currencyVariants = [
+  { code: 'EUR', name: 'Dollar to Euro' },
+  { code: 'JPY', name: 'Dollar to Yen' },
+  { code: 'GBP', name: 'Dollar to Pound' },
+  { code: 'CAD', name: 'Dollar to CAD' },
+  { code: 'AUD', name: 'Dollar to AUD' },
+  { code: 'CHF', name: 'Dollar to Franc' },
+  { code: 'CNY', name: 'Dollar to Yuan' },
+  { code: 'HKD', name: 'Dollar to HKD' },
+  { code: 'NZD', name: 'Dollar to NZD' },
+  { code: 'SEK', name: 'Dollar to Krona' },
+  { code: 'KRW', name: 'Dollar to Won' },
+  { code: 'SGD', name: 'Dollar to SGD' },
+  { code: 'NOK', name: 'Dollar to NOK' },
+  { code: 'MXN', name: 'Dollar to Peso' },
+  { code: 'INR', name: 'Dollar to Rupee' },
+  { code: 'BRL', name: 'Dollar to Real' },
+  { code: 'ZAR', name: 'Dollar to Rand' },
+  { code: 'AED', name: 'Dollar to Dirham' },
+  { code: 'TRY', name: 'Dollar to Lira' },
+  { code: 'TWD', name: 'Dollar to TWD' },
+];
+
+const faqs = [
+  {
+    question: 'Are these all separate apps?',
+    answer:
+      'Yes. Each app is a focused converter for one currency-to-USD workflow, built from the same proven Pesos Dos foundation.',
+  },
+  {
+    question: 'Do I need an account to use them?',
+    answer:
+      'No account, login, or subscription required. Install, open, and start converting immediately.',
+  },
+  {
+    question: 'How does offline mode work?',
+    answer:
+      'If live rates are unavailable, the app falls back to a recently cached rate so you can keep moving. It refreshes automatically when connectivity returns.',
+  },
+  {
+    question: 'Will Android versions be available?',
+    answer:
+      'This launch is iOS-first. Join the waitlist to get notified if and when Android versions are released.',
+  },
+];
+---
+
+<BaseLayout
+  title="Currency Apps — Idle Fusion"
+  description="A family of 20 fast USD converter apps inspired by Pesos Dos. Fast keypad entry, offline cache fallback, and beautiful light/dark support."
+  ogUrl="https://idlefusion.com/apps/currency"
+>
+  <Header currentPage="apps" />
+
+  <main>
+    <section class="currency-hero">
+      <div class="container">
+        <p class="eyebrow">NEW APP FAMILY</p>
+        <h1>20 currency apps, one ultra-fast conversion experience.</h1>
+        <p class="lede">
+          Built from the Pesos Dos playbook, each app is purpose-built for one job:
+          convert local currency to USD in seconds with clean, focused controls.
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-accent">Get launch updates</a>
+          <a href="#family" class="btn btn-outline">Browse 20 variants</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="value-strip">
+      <div class="container value-grid">
+        <article>
+          <h2>Fast keypad entry</h2>
+          <p>Punch in an amount instantly with a numeric keypad tuned for one-handed use.</p>
+        </article>
+        <article>
+          <h2>Offline cache fallback</h2>
+          <p>When network access drops, recent rates are cached so conversions keep working.</p>
+        </article>
+        <article>
+          <h2>Light & dark support</h2>
+          <p>Every screen is polished for both themes to stay readable in any environment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="screenshots">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">IN-APP PREVIEW</p>
+          <h2>Real app screens, ready for each market.</h2>
+          <p class="screenshots-lede">
+            Gallery auto-loads generated screenshots when they exist at
+            <code>{currencyScreenshotSourcePath}</code>.
+            Run <code>npm run sync:currency-screenshots</code> to copy exports into
+            <code>/public/img/currency/screenshots</code>.
+          </p>
+        </div>
+        <ul class="screenshot-grid">
+          {screenshotVariants.map((shot) => (
+            <li>
+              {shot.available ? (
+                <img src={shot.src} alt={shot.title} loading="lazy" decoding="async" />
+              ) : (
+                <div class="screenshot-placeholder" aria-hidden="true">
+                  <span>{shot.code}</span>
+                  <small>Screenshot pending</small>
+                </div>
+              )}
+              <p>{shot.title}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="family" class="family-overview">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">APP FAMILY OVERVIEW</p>
+          <h2>20 conversion variants from one trusted core.</h2>
+        </div>
+        <ul class="currency-grid">
+          {currencyVariants.map((variant) => (
+            <li>
+              <span class="currency-code">{variant.code}</span>
+              <span class="currency-name">{variant.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2>Simple by design.</h2>
+        </div>
+        <ol>
+          <li>
+            <h3>1. Choose your converter</h3>
+            <p>Pick the app matching the currency you use most.</p>
+          </li>
+          <li>
+            <h3>2. Enter amount with the keypad</h3>
+            <p>Type naturally and see USD output update in real time.</p>
+          </li>
+          <li>
+            <h3>3. Trust the result anywhere</h3>
+            <p>Live rates when online, smart cached fallback when offline.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="cta" class="cta">
+      <div class="container cta-inner">
+        <div>
+          <p class="eyebrow">GET ACCESS</p>
+          <h2>Be first to know when these apps hit the App Store.</h2>
+          <p>App Store links and launch timing will appear here as each variant ships.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-accent">App Store (coming soon)</a>
+          <a href="/contact" class="btn btn-outline">Join waitlist</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common questions</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((item) => (
+            <article>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer variant="full" />
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .container { padding: 0 2rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .container { padding: 0 3rem; }
+  }
+
+  .currency-hero {
+    background: linear-gradient(180deg, var(--ink) 0%, #0f2030 100%);
+    padding: 6rem 0;
+  }
+
+  .currency-hero h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--paper);
+    line-height: 1.03;
+    margin: 0 0 1rem;
+    max-width: 13ch;
+  }
+
+  .lede {
+    color: rgba(250, 250, 249, 0.74);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.65;
+    max-width: 60ch;
+    margin: 0 0 2rem;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .value-strip,
+  .screenshots,
+  .family-overview,
+  .how-it-works,
+  .cta,
+  .faq {
+    padding: 4.5rem 0;
+  }
+
+  .value-strip { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+  .value-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+
+  @media (min-width: 900px) {
+    .value-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .value-grid article,
+  .how-it-works li,
+  .faq article {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+  }
+
+  .section-head h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.75rem, 3vw, 2.6rem);
+    margin: 0;
+  }
+
+  .screenshots {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .screenshots-lede {
+    margin-top: 0.85rem;
+    max-width: 72ch;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .screenshots-lede code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 0.15rem 0.35rem;
+  }
+
+  .screenshot-grid {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  @media (min-width: 760px) {
+    .screenshot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (min-width: 1120px) {
+    .screenshot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  .screenshot-grid li {
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    padding: 0.85rem;
+  }
+
+  .screenshot-grid img,
+  .screenshot-placeholder {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    background: linear-gradient(170deg, #12273a 0%, #0b1621 52%, #23354b 100%);
+    aspect-ratio: 9 / 19.5;
+    object-fit: cover;
+    display: grid;
+    place-items: center;
+  }
+
+  .screenshot-placeholder span {
+    color: rgba(250, 250, 249, 0.88);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+  }
+
+  .screenshot-placeholder small {
+    color: rgba(250, 250, 249, 0.58);
+    font-size: 0.78rem;
+    margin-top: 0.4rem;
+  }
+
+  .screenshot-grid p {
+    margin: 0.75rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .currency-grid {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 700px) {
+    .currency-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1100px) {
+    .currency-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .currency-grid li {
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    padding: 0.875rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .currency-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  .currency-name { color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.4; }
+
+  .how-it-works ol {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 900px) {
+    .how-it-works ol { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .how-it-works h3,
+  .faq h3,
+  .value-grid h2 {
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .how-it-works p,
+  .faq p,
+  .value-grid p,
+  .cta p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .cta {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cta-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 900px) {
+    .cta-inner { flex-direction: row; align-items: center; }
+  }
+
+  .cta-inner h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    margin: 0 0 0.5rem;
+    max-width: 23ch;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .faq-list {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 900px) {
+    .faq-list { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

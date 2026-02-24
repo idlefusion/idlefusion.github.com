@@ -1,0 +1,35 @@
+---
+import SimpleAppLanding from '../../components/SimpleAppLanding.astro';
+
+const app = {
+  slug: 'set-easy',
+  name: 'Set Easy',
+  category: 'Gym & Strength Training',
+  badge: 'Strength Tracking',
+  headline: 'Log workouts, track strength, stay consistent.',
+  description: 'Set Easy is a focused iOS workout logger for sets, reps, and progressive overload. Keep workout templates, start sessions quickly, and compare progress over time.',
+  icon: '/img/set-easy/icon.png',
+  appStoreUrl: '#',
+  appStoreNote: 'Free &middot; No account required',
+  accent: '#8b5cf6',
+  accentDeep: '#7c3aed',
+  screenshots: [
+    { src: '01_home.png', label: 'Workout home' },
+    { src: '02_active_workout.png', label: 'Active workout log' },
+    { src: '03_exercise_library.png', label: 'Exercise library' },
+    { src: '04_progress.png', label: 'Progress tracking' },
+    { src: '05_templates.png', label: 'Templates' },
+    { src: '06_settings.png', label: 'Workout settings' },
+  ],
+  features: [
+    { title: 'Workout-ready sessions', description: 'Start a lifting session fast with clear set entry fields and immediate feedback while you train.' },
+    { title: 'Exercise templates', description: 'Save routines you use regularly and keep every set plan consistent across sessions.' },
+    { title: 'Progress visibility', description: 'Review your bests, progression, and volume to keep your program on track over weeks.' },
+    { title: 'No cloud dependence', description: 'Everything runs locally so your lifts stay private, including your full training history.' },
+    { title: 'Apple Health support', description: 'Designed for athletes who want local logging with native platform integration when needed.' },
+  ],
+  useCases: ['Gym commuters', 'Strength trainees', 'People running push/pull/legs split routines', 'Anyone tracking progressive overload'],
+  privacySummary: 'Set Easy is built for private fitness tracking. Training history stays on-device; we do not require sign-in and do not send your workouts to external analytics.'
+};
+---
+<SimpleAppLanding {...app} />

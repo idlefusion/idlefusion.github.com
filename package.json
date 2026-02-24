@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "astro build && wrangler deploy",
+    "sync:currency-screenshots": "node scripts/sync-currency-screenshots.mjs",
     "astro": "astro"
   },
   "dependencies": {
