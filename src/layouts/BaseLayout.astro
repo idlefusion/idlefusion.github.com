@@ -6,14 +6,20 @@ interface Props {
   description: string;
   ogImage?: string;
   ogUrl?: string;
+  robots?: string;
 }
 
 const {
   title,
   description,
   ogImage = '/img/logo.png',
-  ogUrl = 'https://idlefusion.com'
+  ogUrl,
+  robots = 'index, follow',
 } = Astro.props;
+
+const siteOrigin = 'https://idlefusion.com';
+const canonicalUrl = ogUrl ?? new URL(Astro.url.pathname, Astro.site ?? siteOrigin).href;
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${ogImage}`;
 ---
 
 <!doctype html>
@@ -24,13 +30,14 @@ const {
     <meta name="description" content={description}>
     <meta name="keywords" content="app development, web development, mobile apps, consulting, digital agency, software development">
     <meta name="author" content="Matthew Strickland, Idle Fusion LLC">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content={robots}>
+    <link rel="canonical" href={canonicalUrl}>
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
-    <meta property="og:image" content={ogImage}>
-    <meta property="og:url" content={ogUrl}>
+    <meta property="og:image" content={absoluteOgImage}>
+    <meta property="og:url" content={canonicalUrl}>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Idle Fusion">
 
@@ -38,7 +45,7 @@ const {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content={title}>
     <meta name="twitter:description" content={description}>
-    <meta name="twitter:image" content={ogImage}>
+    <meta name="twitter:image" content={absoluteOgImage}>
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
