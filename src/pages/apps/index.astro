@@ -54,13 +54,15 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   <Header currentPage="apps" />
 
   <main>
+    <h1 class="sr-only">iOS Apps by Idle Fusion</h1>
+
     <!-- Hero: Featured App Spotlight -->
     <section class="apps-hero">
       <div class="apps-hero-inner">
         <div class="apps-hero-content">
           <div class="apps-hero-text">
             <span class="apps-hero-badge">FEATURED APP</span>
-            <h1 class="apps-hero-title">{featuredApp.name}</h1>
+            <h2 class="apps-hero-title">{featuredApp.name}</h2>
             <p class="apps-hero-category">{featuredApp.category}</p>
             <p class="apps-hero-desc">{featuredApp.desc}</p>
             <div class="apps-hero-actions">
