@@ -7,49 +7,57 @@
   aria-label="Toggle dark mode"
   data-theme-toggle
 >
-  <!-- Circle indicator -->
   <span class="toggle-track">
-    <span class="toggle-thumb"></span>
+    <span class="toggle-thumb">
+      <!-- Sun icon (light mode) -->
+      <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="4"/>
+        <line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/>
+        <line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <!-- Moon icon (dark mode) -->
+      <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </span>
   </span>
 </button>
 
 <script>
+  function updateAllStates() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+      toggle.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    });
+  }
+
+  function handleToggle(e: Event) {
+    e.preventDefault();
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    updateAllStates();
+  }
+
   function initThemeToggles() {
-    const toggles = document.querySelectorAll('[data-theme-toggle]');
-    if (!toggles.length) return;
-
-    const updateAllStates = () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      toggles.forEach(toggle => {
-        toggle.setAttribute('data-theme', isDark ? 'dark' : 'light');
-      });
-    };
-
-    toggles.forEach(toggle => {
-      // Remove existing listeners to prevent duplicates
+    document.querySelectorAll('[data-theme-toggle]').forEach(toggle => {
+      // Clone to remove any previously attached listeners
       const newToggle = toggle.cloneNode(true);
       toggle.parentNode?.replaceChild(newToggle, toggle);
-      
-      // Use both click and touchend for Safari mobile compatibility
-      const handleToggle = (e: Event) => {
-        e.preventDefault();
-        const isDark = document.documentElement.classList.contains('dark');
-
-        if (isDark) {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        }
-
-        updateAllStates();
-      };
-
       newToggle.addEventListener('click', handleToggle);
     });
 
-    // Initialize state on load
     updateAllStates();
   }
 
@@ -83,9 +91,9 @@
   }
 
   .toggle-track {
-    width: 36px;
-    height: 20px;
-    border-radius: 10px;
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
     background: var(--border-color);
     position: relative;
     transition: background 0.3s;
@@ -95,12 +103,35 @@
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: var(--bg-card);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: #f59e0b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    transition: opacity 0.2s, transform 0.3s;
+  }
+
+  /* Light mode: show sun, hide moon */
+  .icon-sun {
+    color: white;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  .icon-moon {
+    color: white;
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.6);
   }
 
   /* Dark mode state */
@@ -109,7 +140,17 @@
   }
 
   .theme-toggle[data-theme="dark"] .toggle-thumb {
-    transform: translateX(16px);
-    background: white;
+    transform: translateX(20px);
+    background: #6366f1;
+  }
+
+  .theme-toggle[data-theme="dark"] .icon-sun {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.6);
+  }
+
+  .theme-toggle[data-theme="dark"] .icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
   }
 </style>
