@@ -58,6 +58,8 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   });
 
   if (!res.ok) {
+    const resendError = await res.text();
+    console.error('Resend error', res.status, resendError);
     return json({ error: 'Failed to send. Please try emailing us directly.' }, 500);
   }
 

@@ -23,6 +23,7 @@ Thumbs.db
 
 # Cloudflare
 .wrangler/
+.dev.vars
 
 # Migration state
 scripts/.migration-state/
