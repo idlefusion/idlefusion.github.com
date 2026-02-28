@@ -1,0 +1,191 @@
+<form id="contact-form" novalidate>
+  <!-- Honeypot — hidden from real users, bots fill it in -->
+  <div style="display:none" aria-hidden="true">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="_honeypot" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="field">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name" />
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+  </div>
+
+  <div class="field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required rows="6" placeholder="Tell us about your project…"></textarea>
+  </div>
+
+  <div id="form-error" class="form-message form-error" role="alert" hidden></div>
+  <div id="form-success" class="form-message form-success" role="status" hidden>
+    Thanks! We'll be in touch soon.
+  </div>
+
+  <button type="submit" id="submit-btn" class="submit-btn">
+    <span class="btn-label">Send Message</span>
+    <span class="btn-loading" hidden>Sending…</span>
+  </button>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const btnLabel = submitBtn.querySelector('.btn-label') as HTMLElement;
+  const btnLoading = submitBtn.querySelector('.btn-loading') as HTMLElement;
+  const errorBox = document.getElementById('form-error') as HTMLElement;
+  const successBox = document.getElementById('form-success') as HTMLElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Reset state
+    errorBox.hidden = true;
+    successBox.hidden = true;
+
+    // Loading state
+    submitBtn.disabled = true;
+    btnLabel.hidden = true;
+    btnLoading.hidden = false;
+
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      _honeypot: (form.elements.namedItem('_honeypot') as HTMLInputElement).value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const body = await res.json() as { success?: boolean; error?: string };
+
+      if (res.ok && body.success) {
+        form.reset();
+        successBox.hidden = false;
+      } else {
+        errorBox.textContent = body.error ?? 'Something went wrong. Please try again.';
+        errorBox.hidden = false;
+      }
+    } catch {
+      errorBox.textContent = 'Network error. Please check your connection and try again.';
+      errorBox.hidden = false;
+    } finally {
+      submitBtn.disabled = false;
+      btnLabel.hidden = false;
+      btnLoading.hidden = true;
+    }
+  });
+</script>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  input,
+  textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.12);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .form-message {
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .form-error {
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+
+  .dark .form-error {
+    color: #fca5a5;
+    background: rgba(185, 28, 28, 0.15);
+    border-color: rgba(185, 28, 28, 0.3);
+  }
+
+  .form-success {
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+
+  .dark .form-success {
+    color: #86efac;
+    background: rgba(21, 128, 61, 0.15);
+    border-color: rgba(21, 128, 61, 0.3);
+  }
+
+  .submit-btn {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--accent);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.875rem 2rem;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s;
+    align-self: flex-start;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    background: var(--accent-soft);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+</style>

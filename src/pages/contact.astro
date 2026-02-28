@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import HubSpotForm from '../components/HubSpotForm.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <BaseLayout
@@ -28,10 +28,7 @@ import HubSpotForm from '../components/HubSpotForm.astro';
         <div class="max-w-2xl mx-auto">
           <div class="card">
             <div class="p-8 md:p-12">
-              <HubSpotForm
-                portalId="7691650"
-                formId="2b18ac00-1c9d-4fc8-89e2-d66c5d8f36d8"
-              />
+              <ContactForm />
             </div>
           </div>
         </div>
