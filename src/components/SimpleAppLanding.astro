@@ -60,6 +60,25 @@ const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Downloa
   ogImage={icon}
   ogUrl={`https://idlefusion.com/${slug}`}
 >
+  <script type="application/ld+json" slot="head">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": name,
+    "description": description,
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Idle Fusion",
+      "url": "https://idlefusion.com"
+    },
+    ...(hasStoreLink ? { "url": appStoreUrl } : {})
+  })}</script>
   <div
     class="ap-page"
     style={`--ap-accent: ${accent}; --ap-accent-deep: ${accentDeep || accent};`}

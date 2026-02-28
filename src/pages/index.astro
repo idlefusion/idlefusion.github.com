@@ -57,6 +57,22 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
   title="Idle Fusion - Technology That Accelerates Your Mission"
   description="Strategic digital partner for faith-based organizations, media companies, and SaaS businesses. 20+ years of expertise building products that millions use daily."
 >
+  <script type="application/ld+json" slot="head">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Idle Fusion",
+    "url": "https://idlefusion.com",
+    "logo": "https://idlefusion.com/img/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@idlefusion.com",
+      "contactType": "customer support"
+    },
+    "sameAs": [
+      "https://github.com/idlefusion",
+      "https://linkedin.com/in/mps"
+    ]
+  })}</script>
   <Header currentPage="home" />
 
   <main>
