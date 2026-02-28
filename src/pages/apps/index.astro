@@ -36,6 +36,7 @@ const apps = [
 
 const featureFlags = {
   showMartaEasy: false,
+  showCurrencyApps: false,
 };
 
 const visibleApps = apps.filter(app => featureFlags.showMartaEasy || app.slug !== 'marta-easy');
@@ -47,7 +48,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
 
 <BaseLayout
   title="Apps — Idle Fusion"
-  description="Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. 27 apps for health, productivity, and everyday life."
+  description={`Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. ${visibleApps.length} apps for health, productivity, and everyday life.`}
   ogUrl="https://idlefusion.com/apps"
 >
   <Header currentPage="apps" />
@@ -69,7 +70,9 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
                   <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
-              <a href="/apps/currency" class="btn btn-ghost apps-currency-cta">View Currency Apps</a>
+              {featureFlags.showCurrencyApps && (
+                <a href="/apps/currency" class="btn btn-ghost apps-currency-cta">View Currency Apps</a>
+              )}
             </div>
           </div>
           <div class="apps-hero-icon-wrap">
@@ -103,7 +106,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
             <span class="all-apps-count">{visibleApps.length} apps</span>
         </div>
         <div class="all-apps-grid">
-          {apps.map(app => (
+          {visibleApps.map(app => (
             <a href={`/${app.slug}`} class="app-card-large">
               <img src={app.icon} alt={`${app.name} icon`} class="app-card-icon" width="80" height="80" />
               <div class="app-card-content">
