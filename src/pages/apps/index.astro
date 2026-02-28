@@ -36,7 +36,6 @@ const apps = [
 
 const featureFlags = {
   showMartaEasy: false,
-  showCurrencyApps: false,
 };
 
 const visibleApps = apps.filter(app => featureFlags.showMartaEasy || app.slug !== 'marta-easy');
@@ -48,7 +47,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
 
 <BaseLayout
   title="Apps — Idle Fusion"
-  description={`Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. ${visibleApps.length} apps for health, productivity, and everyday life.`}
+  description="Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. 27 apps for health, productivity, and everyday life."
   ogUrl="https://idlefusion.com/apps"
 >
   <Header currentPage="apps" />
@@ -70,9 +69,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
                   <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
-              {featureFlags.showCurrencyApps && (
-                <a href="/apps/currency" class="btn btn-ghost apps-currency-cta">View Currency Apps</a>
-              )}
+              <a href="/apps/currency" class="btn btn-ghost apps-currency-cta">View Currency Apps</a>
             </div>
           </div>
           <div class="apps-hero-icon-wrap">
@@ -106,7 +103,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
             <span class="all-apps-count">{visibleApps.length} apps</span>
         </div>
         <div class="all-apps-grid">
-          {visibleApps.map(app => (
+          {apps.map(app => (
             <a href={`/${app.slug}`} class="app-card-large">
               <img src={app.icon} alt={`${app.name} icon`} class="app-card-icon" width="80" height="80" />
               <div class="app-card-content">
@@ -197,7 +194,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .apps-hero-badge {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.6875rem;
     letter-spacing: 0.15em;
     color: var(--accent);
@@ -206,7 +203,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .apps-hero-title {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: clamp(3rem, 7vw, 5rem);
     color: var(--paper);
     margin: 0 0 0.5rem;
@@ -215,14 +212,14 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .apps-hero-category {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 1.125rem;
     color: rgba(250, 250, 249, 0.5);
     margin: 0 0 1.5rem;
   }
 
   .apps-hero-desc {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 1.25rem;
     color: rgba(250, 250, 249, 0.7);
     line-height: 1.6;
@@ -329,7 +326,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .privacy-text h2 {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3vw, 2rem);
     color: var(--text-primary);
     margin: 0 0 0.75rem;
@@ -337,7 +334,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .privacy-text p {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
     color: var(--text-muted);
     margin: 0;
@@ -375,14 +372,14 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .all-apps-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     color: var(--text-muted);
   }
 
   .all-apps-count {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--accent);
   }
@@ -436,7 +433,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .app-card-category {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.625rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -447,7 +444,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .app-card-name {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: 1.375rem;
     font-weight: 400;
     color: var(--text-primary);
@@ -456,7 +453,7 @@ const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
   }
 
   .app-card-desc {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.875rem;
     color: var(--text-muted);
     line-height: 1.5;

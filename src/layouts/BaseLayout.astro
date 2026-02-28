@@ -59,7 +59,7 @@ const {
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Satoshi Font from Fontshare -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
@@ -85,10 +85,35 @@ const {
       })();
     </script>
 
+    <!-- Font Switcher Initialization -->
+    <script is:inline>
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        var opt = params.get('fonts') || localStorage.getItem('fontOption') || '';
+        if (['a','b','c'].includes(opt)) {
+          document.documentElement.setAttribute('data-fonts', opt);
+          localStorage.setItem('fontOption', opt);
+        }
+      })();
+    </script>
+
     <slot name="head" />
   </head>
   <body class="bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors duration-300">
     <slot />
+    <div id="font-switcher" style="position:fixed;bottom:20px;right:20px;z-index:9999;display:flex;gap:6px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;padding:8px 12px;box-shadow:var(--shadow-lg);font-family:sans-serif;font-size:13px;align-items:center;"><span style="color:var(--text-muted);font-weight:500;margin-right:4px;">Fonts</span><a href="?fonts=a" class="fs-btn" data-font="a" style="padding:4px 10px;border-radius:4px;text-decoration:none;color:var(--text-secondary);border:1px solid var(--border-color);transition:all .2s;">A</a><a href="?fonts=b" class="fs-btn" data-font="b" style="padding:4px 10px;border-radius:4px;text-decoration:none;color:var(--text-secondary);border:1px solid var(--border-color);transition:all .2s;">B</a><a href="?fonts=c" class="fs-btn" data-font="c" style="padding:4px 10px;border-radius:4px;text-decoration:none;color:var(--text-secondary);border:1px solid var(--border-color);transition:all .2s;">C</a><a href="?" class="fs-btn" data-font="" style="padding:4px 10px;border-radius:4px;text-decoration:none;color:var(--text-muted);border:1px solid var(--border-color);transition:all .2s;font-size:11px;">Reset</a></div>
+    <script is:inline>
+      (function(){
+        var current = document.documentElement.getAttribute("data-fonts") || "";
+        document.querySelectorAll(".fs-btn").forEach(function(btn){
+          if(btn.dataset.font === current) {
+            btn.style.background = "var(--accent)";
+            btn.style.color = "white";
+            btn.style.borderColor = "var(--accent)";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
 
@@ -98,7 +123,7 @@ const {
   }
 
   body {
-    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-body);
     color: var(--text-secondary);
     background-color: var(--bg-primary);
     line-height: 1.6;
