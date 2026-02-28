@@ -9,6 +9,11 @@
 
 /* Theme Variables — Light (Default) */
 :root {
+  /* Font Families — CSS Variables for font switching */
+  --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Courier New', monospace;
+
   /* Core Palette */
   --ink: #0a0a0a;
   --paper: #fafaf9;
@@ -83,7 +88,7 @@
 @layer base {
   /* Typography — Serif headlines, sans-serif body */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
     font-weight: 400;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -91,7 +96,7 @@
 
   /* Monospace for technical elements */
   code, pre, .mono {
-    font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Courier New', monospace;
+    font-family: var(--font-mono);
   }
 
   /* Selection color */
@@ -113,7 +118,7 @@
 
   .btn {
     @apply inline-flex items-center justify-center px-6 py-3 font-medium transition-all duration-300 cursor-pointer select-none no-underline;
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     border-radius: 2px;
     letter-spacing: 0.01em;
   }
@@ -276,7 +281,7 @@
     @apply inline-flex items-center justify-center;
     width: 56px;
     height: 56px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--accent);
@@ -296,7 +301,7 @@
 
   .accordion-button {
     @apply w-full py-6 text-left font-medium transition-colors duration-200 flex justify-between items-center;
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 1.125rem;
     color: var(--text-primary);
     background: transparent;
@@ -365,7 +370,7 @@
   }
 
   .section-number {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     color: var(--text-muted);
@@ -379,15 +384,15 @@
 @layer utilities {
   /* Font utilities */
   .font-serif {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
   }
 
   .font-sans {
-    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-body);
   }
 
   .font-mono {
-    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-family: var(--font-mono);
   }
 
   /* Text gradient */
@@ -522,4 +527,36 @@
 
 .animate-slide-in {
   animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FONT SWITCHER — Options A, B, C
+   Uses CSS variables so ALL text elements inherit the font change.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Base: apply font-body to html so everything inherits */
+html {
+  font-family: var(--font-body);
+}
+
+/* Option A: Playfair Display + Inter */
+[data-fonts="a"] {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Option B: Cormorant Garamond + Source Serif 4 (all-serif) */
+[data-fonts="b"] {
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+}
+
+/* Option C: Space Grotesk + DM Sans (all-sans) */
+[data-fonts="c"] {
+  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+}
+[data-fonts="c"] h1, [data-fonts="c"] h2, [data-fonts="c"] h3,
+[data-fonts="c"] h4, [data-fonts="c"] h5, [data-fonts="c"] h6 {
+  letter-spacing: -0.03em;
 }

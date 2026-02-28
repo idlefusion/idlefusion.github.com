@@ -52,7 +52,7 @@ const { name, company, quote, image, rating = 5 } = Astro.props;
   }
 
   .quote-mark {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: 5rem;
     line-height: 1;
     color: var(--accent);
@@ -64,7 +64,7 @@ const { name, company, quote, image, rating = 5 } = Astro.props;
   }
 
   .quote {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: 1.125rem;
     font-style: italic;
     color: var(--text-secondary);
@@ -90,7 +90,7 @@ const { name, company, quote, image, rating = 5 } = Astro.props;
   }
 
   .name {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-style: normal;
     font-weight: 600;
     font-size: 0.9375rem;
@@ -98,7 +98,7 @@ const { name, company, quote, image, rating = 5 } = Astro.props;
   }
 
   .company {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.8125rem;
     color: var(--text-muted);
   }
