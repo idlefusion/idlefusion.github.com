@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://idlefusion.com/sitemap-index.xml
