@@ -10,9 +10,9 @@
 /* Theme Variables — Light (Default) */
 :root {
   /* Font Families — CSS Variables for font switching */
-  --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Courier New', monospace;
+  --font-heading: 'Crimson Pro', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
 
   /* Core Palette */
   --ink: #0a0a0a;
@@ -529,80 +529,3 @@
   animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   FONT SWITCHER — Options A, B, C
-   Uses CSS variables so ALL text elements inherit the font change.
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* Base: apply font-body to html so everything inherits */
-html {
-  font-family: var(--font-body);
-}
-
-/* Option A: Playfair Display + Inter */
-[data-fonts="a"] {
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* Option B: Cormorant Garamond + Source Serif 4 (all-serif) */
-[data-fonts="b"] {
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Source Serif 4', Georgia, serif;
-}
-
-/* Option C: Space Grotesk + DM Sans (all-sans) */
-[data-fonts="c"] {
-  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
-  --font-body: 'DM Sans', -apple-system, sans-serif;
-}
-[data-fonts="c"] h1, [data-fonts="c"] h2, [data-fonts="c"] h3,
-[data-fonts="c"] h4, [data-fonts="c"] h5, [data-fonts="c"] h6 {
-  letter-spacing: -0.03em;
-}
-
-/* Option D: Lora + Montserrat (elegant serif) */
-[data-fonts="d"] {
-  --font-heading: 'Lora', Georgia, serif;
-  --font-body: 'Montserrat', -apple-system, sans-serif;
-}
-
-/* Option E: IBM Plex Sans + IBM Plex Mono (bold modern) */
-[data-fonts="e"] {
-  --font-heading: 'IBM Plex Sans', -apple-system, sans-serif;
-  --font-body: 'IBM Plex Mono', 'Courier New', monospace;
-}
-[data-fonts="e"] h1, [data-fonts="e"] h2, [data-fonts="e"] h3,
-[data-fonts="e"] h4, [data-fonts="e"] h5, [data-fonts="e"] h6 {
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-
-/* Option F: Crimson Pro + Work Sans (warm editorial) */
-[data-fonts="f"] {
-  --font-heading: 'Crimson Pro', Georgia, serif;
-  --font-body: 'Work Sans', -apple-system, sans-serif;
-}
-
-/* Option G: EB Garamond + Raleway (sophisticated) */
-[data-fonts="g"] {
-  --font-heading: 'EB Garamond', Georgia, serif;
-  --font-body: 'Raleway', -apple-system, sans-serif;
-}
-
-/* Option H: Sora + Outfit (geometric modern) */
-[data-fonts="h"] {
-  --font-heading: 'Sora', -apple-system, sans-serif;
-  --font-body: 'Outfit', -apple-system, sans-serif;
-}
-[data-fonts="h"] h1, [data-fonts="h"] h2, [data-fonts="h"] h3,
-[data-fonts="h"] h4, [data-fonts="h"] h5, [data-fonts="h"] h6 {
-  font-weight: 600;
-  letter-spacing: -0.04em;
-}
-
-/* Option I: Fraunces + Libre Franklin (quirky editorial) */
-[data-fonts="i"] {
-  --font-heading: 'Fraunces', Georgia, serif;
-  --font-body: 'Libre Franklin', -apple-system, sans-serif;
-}
