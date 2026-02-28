@@ -66,7 +66,7 @@ const { title, description, icon } = Astro.props;
   }
 
   .title {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: 1.375rem;
     font-weight: 400;
     color: var(--text-primary);
@@ -75,7 +75,7 @@ const { title, description, icon } = Astro.props;
   }
 
   .description {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.9375rem;
     color: var(--text-muted);
     line-height: 1.6;

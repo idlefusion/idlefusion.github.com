@@ -258,7 +258,7 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
   }
 
   .explore-apps-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -316,7 +316,7 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
   }
 
   .explore-app-category {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.625rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -327,7 +327,7 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
   }
 
   .explore-app-name {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 400;
     color: var(--text-primary, #0a0a0a);
@@ -340,7 +340,7 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
   }
 
   .explore-app-desc {
-    font-family: 'Satoshi', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.875rem;
     color: var(--text-muted, #78716c);
     line-height: 1.5;
