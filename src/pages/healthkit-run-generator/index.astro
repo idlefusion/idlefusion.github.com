@@ -1,0 +1,1431 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="HealthKit Run Generator — Realistic Running Data for iOS"
+  description="A Swift Package for generating realistic HealthKit running workout data — outdoor runs with GPS routes and indoor treadmill runs with accurate physiological metrics."
+  ogUrl="https://idlefusion.com/healthkit-run-generator"
+>
+
+  <!-- Nav -->
+  <nav class="hkr-nav">
+    <div class="hkr-nav-inner">
+      <a href="/healthkit-run-generator" class="hkr-nav-logo">
+        <span class="hkr-nav-logo-icon">🏃</span>
+        <span class="hkr-nav-logo-text">HealthKit Run Generator</span>
+      </a>
+      <div class="hkr-nav-links">
+        <a href="#features">Features</a>
+        <a href="#usage">Usage</a>
+        <a href="#data">Data</a>
+        <ThemeToggle />
+        <a href="https://github.com/mps/healthkit-run-generator" class="hkr-btn hkr-btn-sm" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <header class="hkr-hero">
+      <div class="hkr-hero-bg">
+        <div class="hkr-hero-grid"></div>
+      </div>
+      <div class="hkr-container hkr-hero-content">
+        <div class="hkr-hero-badge">Swift Package · iOS 17+ · macOS 14+</div>
+        <h1 class="hkr-hero-title">
+          Generate realistic HealthKit<br>running data for testing<br>&amp; development
+        </h1>
+        <p class="hkr-hero-subtitle">
+          A Swift Package that produces physiologically accurate outdoor and indoor running workouts — complete with GPS routes, heart rate curves, cadence, splits, and elevation profiles.
+        </p>
+        <div class="hkr-hero-actions">
+          <a href="https://github.com/mps/healthkit-run-generator" class="hkr-btn hkr-btn-primary" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            View on GitHub
+          </a>
+          <a href="#usage" class="hkr-btn hkr-btn-secondary">Quick Start →</a>
+        </div>
+        <div class="hkr-hero-install">
+          <code><span class="hkr-code-comment">// Package.swift</span>
+.package(url: "https://github.com/mps/healthkit-run-generator", from: "0.1.0")</code>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <section class="hkr-stats">
+      <div class="hkr-container">
+        <div class="hkr-stats-grid">
+          <div class="hkr-stat">
+            <div class="hkr-stat-value">102</div>
+            <div class="hkr-stat-label">Unit Tests</div>
+          </div>
+          <div class="hkr-stat">
+            <div class="hkr-stat-value">9+</div>
+            <div class="hkr-stat-label">Metrics per Run</div>
+          </div>
+          <div class="hkr-stat">
+            <div class="hkr-stat-value">5</div>
+            <div class="hkr-stat-label">Run Profiles</div>
+          </div>
+          <div class="hkr-stat">
+            <div class="hkr-stat-value">4</div>
+            <div class="hkr-stat-label">Fitness Levels</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="hkr-features" id="features">
+      <div class="hkr-container">
+        <div class="hkr-section-header">
+          <h2>Everything you need for realistic test data</h2>
+          <p>From single runs to full training plans — every metric is physiologically calibrated and deterministically reproducible.</p>
+        </div>
+        <div class="hkr-features-grid">
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">🗺️</div>
+            <h3>Outdoor Runs</h3>
+            <p>GPS route generation with elevation profiles, terrain-aware pacing, and realistic coordinate sequences. Rolling hills, flat courses, or hilly terrain.</p>
+          </div>
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">🏋️</div>
+            <h3>Indoor Runs</h3>
+            <p>Treadmill simulation with incline support, progressive grade profiles, and accurate indoor metrics — no GPS data, just like real treadmill workouts.</p>
+          </div>
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">❤️</div>
+            <h3>Physiological Accuracy</h3>
+            <p>Heart rate curves follow real exercise physiology — warm-up ramp, steady state, cardiac drift, and effort-based spikes. Cadence correlates with pace.</p>
+          </div>
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">📊</div>
+            <h3>Run Profiles</h3>
+            <p>Easy, tempo, interval, long run, and race presets. Each profile generates appropriate pace distributions, heart rate zones, and effort patterns.</p>
+          </div>
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">🔁</div>
+            <h3>Deterministic Seeds</h3>
+            <p>Seed-based generation produces identical results every time. Perfect for snapshot testing, CI pipelines, and reproducible test suites.</p>
+          </div>
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">📅</div>
+            <h3>Training Plans</h3>
+            <p>Generate realistic 4-week periodized training cycles with progressive overload, recovery weeks, and race-distance-calibrated volume.</p>
+          </div>
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">📦</div>
+            <h3>Batch Generation</h3>
+            <p>Generate hundreds of runs at once with seed ranges, configuration profiles, and filtering. Export to JSON for use anywhere.</p>
+          </div>
+          <div class="hkr-feature-card">
+            <div class="hkr-feature-icon">🏅</div>
+            <h3>Fitness Levels</h3>
+            <p>Beginner through Elite with calibrated metric ranges. Each level produces appropriate paces, heart rates, cadence, and caloric burn.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="hkr-metrics" id="data">
+      <div class="hkr-container">
+        <div class="hkr-section-header">
+          <h2>Comprehensive metric coverage</h2>
+          <p>Every metric your HealthKit integration needs — generated with physiologically realistic values.</p>
+        </div>
+        <div class="hkr-metrics-table-wrap">
+          <table class="hkr-metrics-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Outdoor</th>
+                <th>Indoor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Distance</td><td class="hkr-check">✓</td><td class="hkr-check">✓</td></tr>
+              <tr><td>Duration</td><td class="hkr-check">✓</td><td class="hkr-check">✓</td></tr>
+              <tr><td>Heart Rate</td><td class="hkr-check">✓</td><td class="hkr-check">✓</td></tr>
+              <tr><td>Cadence</td><td class="hkr-check">✓</td><td class="hkr-check">✓</td></tr>
+              <tr><td>Pace (per split)</td><td class="hkr-check">✓</td><td class="hkr-check">✓</td></tr>
+              <tr><td>Calories</td><td class="hkr-check">✓</td><td class="hkr-check">✓</td></tr>
+              <tr><td>GPS Route</td><td class="hkr-check">✓</td><td class="hkr-dash">—</td></tr>
+              <tr><td>Elevation</td><td class="hkr-check">✓</td><td class="hkr-dash">—</td></tr>
+              <tr><td>Incline</td><td class="hkr-dash">—</td><td class="hkr-check">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Visualization -->
+    <section class="hkr-visualization">
+      <div class="hkr-container">
+        <div class="hkr-section-header">
+          <h2>Data that looks real because it is</h2>
+          <p>Generated metrics follow real-world exercise physiology patterns.</p>
+        </div>
+        <div class="hkr-viz-grid">
+          <div class="hkr-viz-card">
+            <div class="hkr-viz-card-header">
+              <h3>Heart Rate Curve — 5mi Easy Run</h3>
+              <span class="hkr-viz-badge">Intermediate</span>
+            </div>
+            <canvas id="hrChart" width="600" height="280"></canvas>
+            <div class="hkr-viz-legend">
+              <span><i style="background:#ef4444"></i> Heart Rate (bpm)</span>
+              <span><i style="background:#3b82f6"></i> Zone 2 ceiling</span>
+            </div>
+          </div>
+          <div class="hkr-viz-card">
+            <div class="hkr-viz-card-header">
+              <h3>Mile Splits — Tempo Run</h3>
+              <span class="hkr-viz-badge">Advanced</span>
+            </div>
+            <canvas id="splitsChart" width="600" height="280"></canvas>
+            <div class="hkr-viz-legend">
+              <span><i style="background:#10b981"></i> Pace (min/mi)</span>
+              <span><i style="background:#f59e0b"></i> Target pace</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage / Code -->
+    <section class="hkr-usage" id="usage">
+      <div class="hkr-container">
+        <div class="hkr-section-header">
+          <h2>Get started in minutes</h2>
+          <p>Clean, expressive API designed for Swift developers.</p>
+        </div>
+        <div class="hkr-code-tabs">
+          <div class="hkr-code-tab-bar">
+            <button class="hkr-code-tab active" data-tab="basic">Basic Run</button>
+            <button class="hkr-code-tab" data-tab="batch">Batch Generation</button>
+            <button class="hkr-code-tab" data-tab="training">Training Plan</button>
+            <button class="hkr-code-tab" data-tab="presets">Presets</button>
+          </div>
+          <div class="hkr-code-panels">
+            <div class="hkr-code-panel active" id="tab-basic">
+              <pre><code><span class="hkr-kw">import</span> HealthKitRunGenerator
+<span class="hkr-kw">import</span> HealthKit
+
+<span class="hkr-kw">let</span> generator = <span class="hkr-type">OutdoorRunGenerator</span>()
+
+<span class="hkr-cm">// Generate an easy outdoor 5-mile run</span>
+<span class="hkr-kw">let</span> config = <span class="hkr-type">RunConfiguration</span>(
+    profile: .<span class="hkr-prop">easyRun</span>,
+    fitnessLevel: .<span class="hkr-prop">intermediate</span>,
+    distance: .<span class="hkr-fn">miles</span>(<span class="hkr-num">5</span>),
+    terrain: .<span class="hkr-prop">rolling</span>
+)
+
+<span class="hkr-kw">let</span> workout = <span class="hkr-kw">try await</span> generator.<span class="hkr-fn">generate</span>(config: config)
+<span class="hkr-cm">// → HKWorkout + route + heart rate + cadence samples</span></code></pre>
+            </div>
+            <div class="hkr-code-panel" id="tab-batch">
+              <pre><code><span class="hkr-kw">let</span> batch = <span class="hkr-type">BatchRunGenerator</span>()
+
+<span class="hkr-cm">// Generate 100 runs with deterministic seeds</span>
+<span class="hkr-kw">let</span> runs = batch.<span class="hkr-fn">generate</span>(
+    seedRange: <span class="hkr-num">1</span>...<span class="hkr-num">100</span>,
+    profile: .<span class="hkr-prop">easyRun</span>,
+    fitnessLevel: .<span class="hkr-prop">intermediate</span>,
+    distance: .<span class="hkr-fn">miles</span>(<span class="hkr-num">5</span>)
+)
+
+<span class="hkr-cm">// Filter by distance and profile</span>
+<span class="hkr-kw">let</span> filter = <span class="hkr-type">BatchRunGenerator</span>.<span class="hkr-type">FilterOptions</span>(
+    minDistanceMiles: <span class="hkr-num">3.0</span>,
+    maxDistanceMiles: <span class="hkr-num">8.0</span>,
+    profiles: [.<span class="hkr-prop">tempoRun</span>, .<span class="hkr-prop">intervalRun</span>]
+)
+
+<span class="hkr-cm">// Export to JSON</span>
+<span class="hkr-kw">if let</span> jsonData = <span class="hkr-type">BatchRunGenerator</span>.<span class="hkr-fn">toJSONData</span>(runs) {
+    <span class="hkr-kw">try</span> jsonData.<span class="hkr-fn">write</span>(to: <span class="hkr-type">URL</span>(fileURLWithPath: <span class="hkr-str">"runs.json"</span>))
+}</code></pre>
+            </div>
+            <div class="hkr-code-panel" id="tab-training">
+              <pre><code><span class="hkr-kw">let</span> planner = <span class="hkr-type">TrainingPlanGenerator</span>()
+
+<span class="hkr-cm">// Generate a half-marathon training block</span>
+<span class="hkr-kw">let</span> plan = planner.<span class="hkr-fn">generate</span>(
+    fitnessLevel: .<span class="hkr-prop">intermediate</span>,
+    goalDistance: .<span class="hkr-prop">halfMarathon</span>,
+    baseSeed: <span class="hkr-num">42</span>
+)
+
+<span class="hkr-fn">print</span>(plan.totalMileage)           <span class="hkr-cm">// 119.1 miles</span>
+<span class="hkr-fn">print</span>(plan.weeklyMileage)          <span class="hkr-cm">// [30.0, 32.4, 34.5, 22.5]</span>
+<span class="hkr-fn">print</span>(plan.intensityDistribution)  <span class="hkr-cm">// easy: 55%, tempo: 15%...</span>
+
+<span class="hkr-cm">// Iterate by week</span>
+<span class="hkr-kw">for</span> week <span class="hkr-kw">in</span> <span class="hkr-num">0</span>..&lt;<span class="hkr-num">4</span> {
+    <span class="hkr-kw">let</span> weekRuns = plan.<span class="hkr-fn">runsForWeek</span>(week)
+    <span class="hkr-kw">for</span> scheduled <span class="hkr-kw">in</span> weekRuns {
+        <span class="hkr-fn">print</span>(<span class="hkr-str">"Day </span>\(scheduled.dayIndex + <span class="hkr-num">1</span>)<span class="hkr-str">: </span>\(scheduled.purpose)<span class="hkr-str">"</span>)
+    }
+}</code></pre>
+            </div>
+            <div class="hkr-code-panel" id="tab-presets">
+              <pre><code><span class="hkr-cm">// Quick generation with sensible defaults</span>
+<span class="hkr-kw">let</span> easyRun = <span class="hkr-kw">try await</span> <span class="hkr-type">OutdoorRunGenerator</span>.<span class="hkr-fn">easyRun</span>(
+    miles: <span class="hkr-num">3</span>,
+    level: .<span class="hkr-prop">beginner</span>
+)
+
+<span class="hkr-kw">let</span> tempoRun = <span class="hkr-kw">try await</span> <span class="hkr-type">OutdoorRunGenerator</span>.<span class="hkr-fn">tempoRun</span>(
+    miles: <span class="hkr-num">5</span>,
+    level: .<span class="hkr-prop">intermediate</span>
+)
+
+<span class="hkr-kw">let</span> longRun = <span class="hkr-kw">try await</span> <span class="hkr-type">OutdoorRunGenerator</span>.<span class="hkr-fn">longRun</span>(
+    miles: <span class="hkr-num">13</span>,
+    level: .<span class="hkr-prop">advanced</span>
+)
+
+<span class="hkr-cm">// Indoor treadmill run</span>
+<span class="hkr-kw">let</span> treadmill = <span class="hkr-type">IndoorRunGenerator</span>()
+<span class="hkr-kw">let</span> config = <span class="hkr-type">RunConfiguration</span>(
+    profile: .<span class="hkr-prop">tempoRun</span>,
+    fitnessLevel: .<span class="hkr-prop">advanced</span>,
+    distance: .<span class="hkr-fn">miles</span>(<span class="hkr-num">4</span>),
+    inclineProfile: .<span class="hkr-fn">progressive</span>(maxGrade: <span class="hkr-num">3.0</span>)
+)
+<span class="hkr-kw">let</span> workout = <span class="hkr-kw">try await</span> treadmill.<span class="hkr-fn">generate</span>(config: config)</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Plans -->
+    <section class="hkr-plans">
+      <div class="hkr-container">
+        <div class="hkr-section-header">
+          <h2>Training plan generation</h2>
+          <p>Realistic 4-week periodized cycles calibrated by fitness level and goal distance.</p>
+        </div>
+        <div class="hkr-plan-table-wrap">
+          <table class="hkr-plan-table">
+            <thead>
+              <tr>
+                <th>Goal</th>
+                <th>Beginner</th>
+                <th>Intermediate</th>
+                <th>Advanced</th>
+                <th>Elite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>5K</strong></td>
+                <td>12 mi/wk · 4 runs</td>
+                <td>20 mi/wk · 5 runs</td>
+                <td>30 mi/wk · 5 runs</td>
+                <td>40 mi/wk · 6 runs</td>
+              </tr>
+              <tr>
+                <td><strong>10K</strong></td>
+                <td>15 mi/wk · 4 runs</td>
+                <td>25 mi/wk · 5 runs</td>
+                <td>35 mi/wk · 5 runs</td>
+                <td>50 mi/wk · 6 runs</td>
+              </tr>
+              <tr>
+                <td><strong>Half Marathon</strong></td>
+                <td>20 mi/wk · 4 runs</td>
+                <td>30 mi/wk · 5 runs</td>
+                <td>45 mi/wk · 5 runs</td>
+                <td>60 mi/wk · 6 runs</td>
+              </tr>
+              <tr>
+                <td><strong>Marathon</strong></td>
+                <td>25 mi/wk · 4 runs</td>
+                <td>35 mi/wk · 5 runs</td>
+                <td>55 mi/wk · 5 runs</td>
+                <td>75 mi/wk · 6 runs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="hkr-plan-profiles">
+          <h3>Configuration Profiles</h3>
+          <div class="hkr-profile-chips">
+            <span class="hkr-chip">Easy Week</span>
+            <span class="hkr-chip">Threshold Week</span>
+            <span class="hkr-chip">Long Run Focused</span>
+            <span class="hkr-chip">Speed Work</span>
+            <span class="hkr-chip">Recovery Week</span>
+            <span class="hkr-chip">Balanced</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Reference -->
+    <section class="hkr-api">
+      <div class="hkr-container">
+        <div class="hkr-section-header">
+          <h2>Clean, composable API</h2>
+          <p>Four generators cover every use case — from a single test run to a full training cycle.</p>
+        </div>
+        <div class="hkr-api-grid">
+          <div class="hkr-api-card">
+            <code class="hkr-api-name">OutdoorRunGenerator</code>
+            <p>Generates outdoor runs with GPS routes and elevation profiles.</p>
+          </div>
+          <div class="hkr-api-card">
+            <code class="hkr-api-name">IndoorRunGenerator</code>
+            <p>Generates treadmill runs with incline support — no GPS, realistic indoor metrics.</p>
+          </div>
+          <div class="hkr-api-card">
+            <code class="hkr-api-name">BatchRunGenerator</code>
+            <p>Generates N runs with seed ranges, config profiles, filtering, and JSON export.</p>
+          </div>
+          <div class="hkr-api-card">
+            <code class="hkr-api-name">TrainingPlanGenerator</code>
+            <p>Creates 4-week periodized training cycles with progressive overload.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hkr-cta">
+      <div class="hkr-container">
+        <h2>Stop hand-crafting test data.</h2>
+        <p>Add HealthKit Run Generator to your project and get realistic running workouts in a single function call.</p>
+        <div class="hkr-cta-actions">
+          <a href="https://github.com/mps/healthkit-run-generator" class="hkr-btn hkr-btn-primary hkr-btn-lg" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            View on GitHub
+          </a>
+          <a href="https://github.com/mps/healthkit-run-generator#readme" class="hkr-btn hkr-btn-secondary hkr-btn-lg" target="_blank" rel="noopener">
+            Read the Docs →
+          </a>
+        </div>
+        <div class="hkr-cta-install">
+          <code>.package(url: "https://github.com/mps/healthkit-run-generator", from: "0.1.0")</code>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    // ---- Code Tabs ----
+    document.querySelectorAll('.hkr-code-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = (tab as HTMLElement).dataset.tab;
+        document.querySelectorAll('.hkr-code-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.hkr-code-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + target)?.classList.add('active');
+      });
+    });
+
+    // ---- Canvas Charts ----
+    function getChartColors() {
+      const isDark = document.documentElement.classList.contains('dark');
+      return {
+        grid: isDark ? '#222228' : '#e7e5e4',
+        label: isDark ? '#5c5c66' : '#78716c',
+        text: isDark ? '#e4e4e7' : '#0a0a0a',
+        cardBg: isDark ? '#16161a' : '#ffffff',
+      };
+    }
+
+    function drawHRChart() {
+      const canvas = document.getElementById('hrChart') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d')!;
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+
+      const colors = getChartColors();
+      const w = rect.width;
+      const h = rect.height;
+      const pad = { top: 20, right: 20, bottom: 36, left: 44 };
+      const plotW = w - pad.left - pad.right;
+      const plotH = h - pad.top - pad.bottom;
+
+      const minutes = 47;
+      const hrData: number[] = [];
+      for (let m = 0; m <= minutes; m++) {
+        let hr: number;
+        if (m < 5) {
+          hr = 95 + (142 - 95) * (m / 5) * (m / 5) * 0.5 + (142 - 95) * (m / 5) * 0.5;
+        } else if (m < 40) {
+          const t = (m - 5) / 35;
+          hr = 142 + 10 * t;
+        } else {
+          const t = (m - 40) / 7;
+          hr = 152 + 6 * t;
+        }
+        hr += (Math.sin(m * 2.7) * 2.5 + Math.cos(m * 4.1) * 1.5);
+        hrData.push(hr);
+      }
+
+      const hrMin = 90;
+      const hrMax = 170;
+      const zone2Ceiling = 152;
+
+      ctx.strokeStyle = colors.grid;
+      ctx.lineWidth = 1;
+      for (let bpm = 100; bpm <= 160; bpm += 20) {
+        const y = pad.top + plotH - ((bpm - hrMin) / (hrMax - hrMin)) * plotH;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, y);
+        ctx.lineTo(pad.left + plotW, y);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = colors.label;
+      ctx.font = '11px "Work Sans", Inter, sans-serif';
+      ctx.textAlign = 'right';
+      for (let bpm = 100; bpm <= 160; bpm += 20) {
+        const y = pad.top + plotH - ((bpm - hrMin) / (hrMax - hrMin)) * plotH;
+        ctx.fillText(String(bpm), pad.left - 8, y + 4);
+      }
+
+      ctx.textAlign = 'center';
+      for (let m = 0; m <= minutes; m += 10) {
+        const x = pad.left + (m / minutes) * plotW;
+        ctx.fillText(m + 'min', x, h - 8);
+      }
+
+      const z2y = pad.top + plotH - ((zone2Ceiling - hrMin) / (hrMax - hrMin)) * plotH;
+      ctx.strokeStyle = '#3b82f6';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([6, 4]);
+      ctx.beginPath();
+      ctx.moveTo(pad.left, z2y);
+      ctx.lineTo(pad.left + plotW, z2y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#3b82f6';
+      ctx.font = '10px "Work Sans", Inter, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText('Zone 2', pad.left + plotW, z2y - 6);
+
+      const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + plotH);
+      gradient.addColorStop(0, 'rgba(239, 68, 68, 0.15)');
+      gradient.addColorStop(1, 'rgba(239, 68, 68, 0)');
+
+      ctx.beginPath();
+      ctx.moveTo(pad.left, pad.top + plotH);
+      for (let i = 0; i < hrData.length; i++) {
+        const x = pad.left + (i / (hrData.length - 1)) * plotW;
+        const y = pad.top + plotH - ((hrData[i] - hrMin) / (hrMax - hrMin)) * plotH;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(pad.left + plotW, pad.top + plotH);
+      ctx.closePath();
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      ctx.beginPath();
+      for (let i = 0; i < hrData.length; i++) {
+        const x = pad.left + (i / (hrData.length - 1)) * plotW;
+        const y = pad.top + plotH - ((hrData[i] - hrMin) / (hrMax - hrMin)) * plotH;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    function drawSplitsChart() {
+      const canvas = document.getElementById('splitsChart') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d')!;
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+
+      const colors = getChartColors();
+      const w = rect.width;
+      const h = rect.height;
+      const pad = { top: 20, right: 20, bottom: 36, left: 44 };
+      const plotW = w - pad.left - pad.right;
+      const plotH = h - pad.top - pad.bottom;
+
+      const splits = [
+        { mile: 1, pace: 8.75 },
+        { mile: 2, pace: 8.42 },
+        { mile: 3, pace: 8.33 },
+        { mile: 4, pace: 8.25 },
+        { mile: 5, pace: 8.17 },
+      ];
+
+      const targetPace = 8.33;
+      const paceMin = 7.8;
+      const paceMax = 9.2;
+
+      const barWidth = plotW / splits.length * 0.6;
+      const gap = plotW / splits.length;
+
+      ctx.strokeStyle = colors.grid;
+      ctx.lineWidth = 1;
+      for (let p = 8.0; p <= 9.0; p += 0.5) {
+        const y = pad.top + plotH - ((paceMax - p) / (paceMax - paceMin)) * plotH;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, y);
+        ctx.lineTo(pad.left + plotW, y);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = colors.label;
+      ctx.font = '11px "Work Sans", Inter, sans-serif';
+      ctx.textAlign = 'right';
+      for (let p = 8.0; p <= 9.0; p += 0.5) {
+        const y = pad.top + plotH - ((paceMax - p) / (paceMax - paceMin)) * plotH;
+        const min = Math.floor(p);
+        const sec = Math.round((p - min) * 60);
+        ctx.fillText(min + ':' + String(sec).padStart(2, '0'), pad.left - 8, y + 4);
+      }
+
+      const targetY = pad.top + plotH - ((paceMax - targetPace) / (paceMax - paceMin)) * plotH;
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([6, 4]);
+      ctx.beginPath();
+      ctx.moveTo(pad.left, targetY);
+      ctx.lineTo(pad.left + plotW, targetY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#f59e0b';
+      ctx.font = '10px "Work Sans", Inter, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText('Target', pad.left + plotW, targetY - 6);
+
+      splits.forEach((split, i) => {
+        const x = pad.left + gap * i + (gap - barWidth) / 2;
+        const barH = ((paceMax - split.pace) / (paceMax - paceMin)) * plotH;
+        const y = pad.top + plotH - barH;
+
+        const grad = ctx.createLinearGradient(0, y, 0, pad.top + plotH);
+        grad.addColorStop(0, 'rgba(16, 185, 129, 0.8)');
+        grad.addColorStop(1, 'rgba(16, 185, 129, 0.3)');
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        const r = 4;
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + barWidth - r, y);
+        ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + r);
+        ctx.lineTo(x + barWidth, pad.top + plotH);
+        ctx.lineTo(x, pad.top + plotH);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.fill();
+
+        const min = Math.floor(split.pace);
+        const sec = Math.round((split.pace - min) * 60);
+        ctx.fillStyle = colors.text;
+        ctx.font = '11px "SF Mono", "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(min + ':' + String(sec).padStart(2, '0'), x + barWidth / 2, y - 8);
+
+        ctx.fillStyle = colors.label;
+        ctx.font = '11px "Work Sans", Inter, sans-serif';
+        ctx.fillText('Mi ' + split.mile, x + barWidth / 2, h - 8);
+      });
+    }
+
+    function drawCharts() {
+      drawHRChart();
+      drawSplitsChart();
+    }
+
+    window.addEventListener('load', drawCharts);
+    window.addEventListener('resize', drawCharts);
+
+    // Redraw on theme change
+    const observer = new MutationObserver(drawCharts);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href')!);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</BaseLayout>
+
+<style>
+  /* ============================================
+     HealthKit Run Generator — Scoped Styles
+     Uses site design tokens where possible
+     ============================================ */
+
+  /* Local tokens for the developer-tool aesthetic */
+  :root {
+    --hkr-accent: #10b981;
+    --hkr-accent-dim: #059669;
+    --hkr-accent-glow: rgba(16, 185, 129, 0.12);
+    --hkr-red: #ef4444;
+    --hkr-blue: #3b82f6;
+    --hkr-amber: #f59e0b;
+    --hkr-radius: 12px;
+    --hkr-radius-sm: 8px;
+    --hkr-radius-xs: 6px;
+  }
+
+  .hkr-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---- Nav ---- */
+  .hkr-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(250, 250, 249, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  :global(.dark) .hkr-nav {
+    background: rgba(10, 10, 10, 0.8);
+  }
+
+  .hkr-nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hkr-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-primary);
+  }
+
+  .hkr-nav-logo-icon {
+    font-size: 20px;
+  }
+
+  .hkr-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .hkr-nav-links a {
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .hkr-nav-links a:hover {
+    color: var(--text-primary);
+  }
+
+  /* ---- Buttons ---- */
+  .hkr-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: var(--hkr-radius-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .hkr-btn:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border-hover);
+  }
+
+  .hkr-btn-sm {
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: var(--hkr-radius-xs);
+  }
+
+  .hkr-btn-primary {
+    background: var(--hkr-accent);
+    border-color: var(--hkr-accent);
+    color: #fff;
+  }
+
+  .hkr-btn-primary:hover {
+    background: var(--hkr-accent-dim);
+    border-color: var(--hkr-accent-dim);
+  }
+
+  .hkr-btn-secondary {
+    background: transparent;
+    border-color: var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .hkr-btn-secondary:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card);
+  }
+
+  .hkr-btn-lg {
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: var(--hkr-radius);
+  }
+
+  /* ---- Hero ---- */
+  .hkr-hero {
+    position: relative;
+    padding: 160px 0 100px;
+    overflow: hidden;
+  }
+
+  .hkr-hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hkr-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 20%, transparent 70%);
+  }
+
+  :global(.dark) .hkr-hero-grid {
+    background-image:
+      linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  }
+
+  .hkr-hero-content {
+    position: relative;
+    text-align: center;
+  }
+
+  .hkr-hero-badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--hkr-accent);
+    background: var(--hkr-accent-glow);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  .hkr-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+  }
+
+  .hkr-hero-subtitle {
+    font-size: clamp(16px, 2vw, 18px);
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  .hkr-hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .hkr-hero-install {
+    display: inline-block;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--hkr-radius-sm);
+    padding: 16px 24px;
+    text-align: left;
+  }
+
+  .hkr-hero-install code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    white-space: pre;
+  }
+
+  .hkr-code-comment {
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  /* ---- Stats ---- */
+  .hkr-stats {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hkr-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .hkr-stat-value {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--hkr-accent);
+    letter-spacing: -0.02em;
+  }
+
+  .hkr-stat-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* ---- Section Headers ---- */
+  .hkr-section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .hkr-section-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .hkr-section-header p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ---- Features ---- */
+  .hkr-features {
+    padding: 100px 0;
+  }
+
+  .hkr-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .hkr-feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--hkr-radius);
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .hkr-feature-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .hkr-feature-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .hkr-feature-card h3 {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .hkr-feature-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ---- Metrics Table ---- */
+  .hkr-metrics {
+    padding: 80px 0;
+  }
+
+  .hkr-metrics-table-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hkr-metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  .hkr-metrics-table th {
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.4;
+  }
+
+  .hkr-metrics-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+
+  .hkr-check {
+    color: var(--hkr-accent);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .hkr-dash {
+    color: var(--text-muted);
+    text-align: center;
+    opacity: 0.5;
+  }
+
+  /* ---- Visualization ---- */
+  .hkr-visualization {
+    padding: 80px 0;
+  }
+
+  .hkr-viz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .hkr-viz-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--hkr-radius);
+    padding: 24px;
+  }
+
+  .hkr-viz-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .hkr-viz-card-header h3 {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .hkr-viz-badge {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--hkr-accent);
+    background: var(--hkr-accent-glow);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .hkr-viz-legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .hkr-viz-legend i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ---- Code Tabs ---- */
+  .hkr-usage {
+    padding: 100px 0;
+  }
+
+  .hkr-code-tabs {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .hkr-code-tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--hkr-radius-sm);
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow-x: auto;
+  }
+
+  .hkr-code-tab {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--hkr-radius-xs);
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .hkr-code-tab:hover {
+    color: var(--text-primary);
+  }
+
+  .hkr-code-tab.active {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+
+  .hkr-code-panels {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--hkr-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    overflow: hidden;
+  }
+
+  .hkr-code-panel {
+    display: none;
+    padding: 24px;
+    overflow-x: auto;
+  }
+
+  .hkr-code-panel.active {
+    display: block;
+  }
+
+  .hkr-code-panel pre {
+    margin: 0;
+  }
+
+  .hkr-code-panel code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  /* Syntax highlighting */
+  .hkr-kw { color: #c084fc; }
+  .hkr-type { color: #67e8f9; }
+  .hkr-fn { color: #34d399; }
+  .hkr-prop { color: #34d399; }
+  .hkr-str { color: #fbbf24; }
+  .hkr-num { color: #fb923c; }
+  .hkr-cm { color: var(--text-muted); opacity: 0.6; }
+
+  /* Light mode adjustments for syntax */
+  :global(:not(.dark)) .hkr-kw { color: #7c3aed; }
+  :global(:not(.dark)) .hkr-type { color: #0891b2; }
+  :global(:not(.dark)) .hkr-fn { color: #059669; }
+  :global(:not(.dark)) .hkr-prop { color: #059669; }
+  :global(:not(.dark)) .hkr-str { color: #d97706; }
+  :global(:not(.dark)) .hkr-num { color: #ea580c; }
+
+  /* ---- Plans ---- */
+  .hkr-plans {
+    padding: 80px 0;
+  }
+
+  .hkr-plan-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 40px;
+  }
+
+  .hkr-plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 600px;
+  }
+
+  .hkr-plan-table th {
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.4;
+  }
+
+  .hkr-plan-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+  }
+
+  .hkr-plan-table td strong {
+    color: var(--text-primary);
+  }
+
+  .hkr-plan-profiles {
+    text-align: center;
+  }
+
+  .hkr-plan-profiles h3 {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .hkr-profile-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hkr-chip {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  /* ---- API ---- */
+  .hkr-api {
+    padding: 80px 0;
+  }
+
+  .hkr-api-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .hkr-api-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--hkr-radius);
+    padding: 24px;
+  }
+
+  .hkr-api-name {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: #0891b2;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  :global(.dark) .hkr-api-name {
+    color: #67e8f9;
+  }
+
+  .hkr-api-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ---- CTA ---- */
+  .hkr-cta {
+    padding: 100px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .hkr-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+
+  .hkr-cta p {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin: 0 auto 36px;
+  }
+
+  .hkr-cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .hkr-cta-install {
+    display: inline-block;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--hkr-radius-sm);
+    padding: 12px 20px;
+  }
+
+  .hkr-cta-install code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 768px) {
+    .hkr-hero {
+      padding: 120px 0 60px;
+    }
+
+    .hkr-hero-title br {
+      display: none;
+    }
+
+    .hkr-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 16px;
+    }
+
+    .hkr-stat-value {
+      font-size: 32px;
+    }
+
+    .hkr-features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hkr-viz-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hkr-nav-links a:not(.hkr-btn) {
+      display: none;
+    }
+
+    .hkr-code-tab {
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+
+    .hkr-hero-install {
+      display: block;
+      overflow-x: auto;
+    }
+
+    .hkr-hero-install code {
+      font-size: 11px;
+    }
+
+    .hkr-api-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hkr-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hkr-api-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hkr-container {
+      padding: 0 16px;
+    }
+  }
+</style>
