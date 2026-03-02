@@ -251,9 +251,9 @@ import Footer from '../../components/Footer.astro';
 )
 
 <span class="hkr-cm">// Export to JSON</span>
-<span class="hkr-kw">if let</span> jsonData = <span class="hkr-type">BatchRunGenerator</span>.<span class="hkr-fn">toJSONData</span>(runs) {
+<span class="hkr-kw">if let</span> jsonData = <span class="hkr-type">BatchRunGenerator</span>.<span class="hkr-fn">toJSONData</span>(runs) &#123;
     <span class="hkr-kw">try</span> jsonData.<span class="hkr-fn">write</span>(to: <span class="hkr-type">URL</span>(fileURLWithPath: <span class="hkr-str">"runs.json"</span>))
-}</code></pre>
+&#125;</code></pre>
             </div>
             <div class="hkr-code-panel" id="tab-training">
               <pre><code><span class="hkr-kw">let</span> planner = <span class="hkr-type">TrainingPlanGenerator</span>()
@@ -270,12 +270,12 @@ import Footer from '../../components/Footer.astro';
 <span class="hkr-fn">print</span>(plan.intensityDistribution)  <span class="hkr-cm">// easy: 55%, tempo: 15%...</span>
 
 <span class="hkr-cm">// Iterate by week</span>
-<span class="hkr-kw">for</span> week <span class="hkr-kw">in</span> <span class="hkr-num">0</span>..&lt;<span class="hkr-num">4</span> {
+<span class="hkr-kw">for</span> week <span class="hkr-kw">in</span> <span class="hkr-num">0</span>..&lt;<span class="hkr-num">4</span> &#123;
     <span class="hkr-kw">let</span> weekRuns = plan.<span class="hkr-fn">runsForWeek</span>(week)
-    <span class="hkr-kw">for</span> scheduled <span class="hkr-kw">in</span> weekRuns {
+    <span class="hkr-kw">for</span> scheduled <span class="hkr-kw">in</span> weekRuns &#123;
         <span class="hkr-fn">print</span>(<span class="hkr-str">"Day </span>\(scheduled.dayIndex + <span class="hkr-num">1</span>)<span class="hkr-str">: </span>\(scheduled.purpose)<span class="hkr-str">"</span>)
-    }
-}</code></pre>
+    &#125;
+&#125;</code></pre>
             </div>
             <div class="hkr-code-panel" id="tab-presets">
               <pre><code><span class="hkr-cm">// Quick generation with sensible defaults</span>
