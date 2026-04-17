@@ -55,8 +55,9 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${o
     <link rel="apple-touch-icon" href="/favicon.svg">
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#0a0a0a">
-    <meta name="msapplication-TileColor" content="#0a0a0a">
+    <meta name="theme-color" content="#0b0a13" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+    <meta name="msapplication-TileColor" content="#0b0a13">
 
     <title>{title}</title>
 
@@ -67,7 +68,7 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${o
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 
     <!-- Theme initialization (prevents flash of wrong theme) -->

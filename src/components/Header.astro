@@ -21,7 +21,8 @@ const navItems = [
     <div class="nav-inner">
       <!-- Logo / Wordmark -->
       <a href="/" class="logo">
-        IDLE FUSION
+        <span class="logo-mark"></span>
+        <span class="logo-text">IDLE FUSION</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -36,7 +37,7 @@ const navItems = [
       <!-- Right side: Theme toggle + CTA -->
       <div class="nav-actions">
         <ThemeToggle />
-        <a href="/contact" class="btn btn-primary nav-cta">
+        <a href="/contact" class="btn btn-accent nav-cta">
           Start a project
         </a>
       </div>
@@ -72,7 +73,7 @@ const navItems = [
             <span class="theme-label" id="theme-mode-label">Dark mode</span>
             <ThemeToggle />
           </div>
-          <a href="/contact" class="btn btn-primary w-full">
+          <a href="/contact" class="btn btn-accent w-full">
             Start a project
           </a>
         </div>
@@ -140,8 +141,10 @@ const navItems = [
   }
 
   .nav-container {
-    background: var(--bg-primary);
-    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-elevated);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-bottom: 1px solid var(--border-glass);
     transition: all 0.3s;
   }
 
@@ -169,6 +172,9 @@ const navItems = [
 
   /* Logo */
   .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: 700;
@@ -178,8 +184,24 @@ const navItems = [
     transition: color 0.2s;
   }
 
+  .logo-mark {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--gradient-aurora);
+    background-size: 200% 200%;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    animation: gradientShift 6s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
   .logo:hover {
     color: var(--accent);
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   /* Desktop nav links */
@@ -260,8 +282,10 @@ const navItems = [
   /* Mobile menu */
   .mobile-menu-content {
     padding: 1.5rem;
-    background: var(--bg-primary);
-    border-top: 1px solid var(--border-color);
+    background: var(--bg-elevated);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-top: 1px solid var(--border-glass);
   }
 
   .mobile-nav-link {

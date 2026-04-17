@@ -10,12 +10,14 @@ interface Props {
 const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
 ---
 
-<section id="home" class="hero">
+<section id="home" class="hero noise-overlay">
+  <!-- Aurora orbs -->
+  <div class="aurora-orb aurora-orb-primary orb-1 animate-aurora"></div>
+  <div class="aurora-orb aurora-orb-cyan orb-2 animate-aurora" style="animation-delay: -6s"></div>
+  <div class="aurora-orb aurora-orb-warm orb-3 animate-aurora" style="animation-delay: -12s"></div>
+
   <!-- Subtle grid background -->
   <div class="grid-bg"></div>
-
-  <!-- Accent brush stroke decoration -->
-  <div class="brush-stroke"></div>
 
   <div class="hero-content">
     <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -32,8 +34,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
           <h1 class="hero-title">
             <span class="title-line animate-fade-in" style="animation-delay: 0.2s">Technology that</span>
             <span class="title-line title-accent animate-fade-in" style="animation-delay: 0.35s">
-              accelerates
-              <span class="accent-underline"></span>
+              <span class="gradient-word">accelerates</span>
             </span>
             <span class="title-line animate-fade-in" style="animation-delay: 0.5s">your</span>
             <span class="title-line title-italic animate-fade-in" style="animation-delay: 0.65s">mission.</span>
@@ -44,7 +45,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
           </p>
 
           <div class="cta-group animate-fade-in" style="animation-delay: 0.95s">
-            <a href={primaryCTA.href} class="btn btn-primary text-base px-8 py-4">
+            <a href={primaryCTA.href} class="btn btn-accent text-base px-8 py-4">
               {primaryCTA.text}
               <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -58,18 +59,18 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
           </div>
         </div>
 
-        <!-- Side decoration - floating service cards -->
+        <!-- Side decoration - floating glass service cards -->
         <div class="decoration-area">
           <div class="service-stack">
-            <div class="service-card card-1">
+            <div class="service-card glass-card card-1">
               <span class="service-number">01</span>
               <span class="service-name">Mobile Apps</span>
             </div>
-            <div class="service-card card-2">
+            <div class="service-card glass-card card-2">
               <span class="service-number">02</span>
               <span class="service-name">Web Development</span>
             </div>
-            <div class="service-card card-3">
+            <div class="service-card glass-card card-3">
               <span class="service-number">03</span>
               <span class="service-name">Digital Strategy</span>
             </div>
@@ -99,6 +100,35 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     padding: 6rem 0 4rem;
   }
 
+  /* Aurora orbs */
+  .aurora-orb {
+    will-change: transform;
+  }
+
+  .orb-1 {
+    width: 520px;
+    height: 520px;
+    top: -8%;
+    right: -8%;
+  }
+
+  .orb-2 {
+    width: 440px;
+    height: 440px;
+    bottom: -15%;
+    left: -5%;
+  }
+
+  .orb-3 {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    left: 35%;
+    opacity: 0.18;
+  }
+
+  .dark .orb-3 { opacity: 0.12; }
+
   /* Subtle grid background */
   .grid-bg {
     position: absolute;
@@ -107,23 +137,10 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
       linear-gradient(to right, var(--border-color) 1px, transparent 1px),
       linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
     background-size: 80px 80px;
-    opacity: 0.4;
+    opacity: 0.35;
     pointer-events: none;
-  }
-
-  /* Vermillion brush stroke accent */
-  .brush-stroke {
-    position: absolute;
-    top: 20%;
-    right: -5%;
-    width: 400px;
-    height: 300px;
-    background: var(--accent);
-    opacity: 0.06;
-    border-radius: 50% 30% 50% 30%;
-    transform: rotate(-15deg);
-    filter: blur(60px);
-    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+            mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
   }
 
   .hero-content {
@@ -147,17 +164,21 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     }
   }
 
-  /* Tagline */
+  /* Tagline pill */
   .tagline {
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
-    color: var(--text-muted);
+    padding: 0.375rem 0.875rem;
+    color: var(--accent);
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    background: var(--gradient-aurora-soft);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-pill);
     margin-bottom: 2rem;
   }
 
@@ -166,6 +187,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     height: 6px;
     background: var(--accent);
     border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
     animation: pulse-dot 2s ease-in-out infinite;
   }
 
@@ -174,14 +196,14 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     50% { opacity: 0.5; transform: scale(1.3); }
   }
 
-  /* Hero Title — Dramatic typography */
+  /* Hero Title */
   .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 5.75rem);
+    font-weight: 500;
     color: var(--text-primary);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
     margin-bottom: 2.5rem;
   }
 
@@ -194,36 +216,28 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     display: inline-block;
   }
 
-  .accent-underline {
-    position: absolute;
-    bottom: 0.1em;
-    left: 0;
-    width: 100%;
-    height: 0.12em;
-    background: var(--accent);
-    opacity: 0.7;
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: drawUnderline 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0.6s;
-  }
-
-  @keyframes drawUnderline {
-    to {
-      transform: scaleX(1);
-    }
+  .gradient-word {
+    background: var(--gradient-aurora);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 8s ease-in-out infinite;
+    padding-right: 0.08em;
   }
 
   .title-italic {
     font-style: italic;
+    color: var(--text-muted);
   }
 
   /* Subtitle */
   .hero-subtitle {
     font-family: var(--font-body);
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     color: var(--text-secondary);
-    max-width: 480px;
+    max-width: 500px;
     line-height: 1.7;
     margin-bottom: 2.5rem;
   }
@@ -244,7 +258,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     transform: translateX(4px);
   }
 
-  /* Decoration area - service cards */
+  /* Decoration area */
   .decoration-area {
     display: none;
   }
@@ -253,7 +267,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     .decoration-area {
       display: block;
       position: relative;
-      height: 400px;
+      height: 420px;
     }
   }
 
@@ -264,19 +278,17 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
 
   .service-card {
     position: absolute;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    padding: 1.25rem 1.75rem;
+    padding: 1.125rem 1.625rem;
     display: flex;
     align-items: center;
     gap: 1rem;
-    box-shadow: var(--shadow-md);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: var(--radius-md);
   }
 
   .service-card:hover {
-    transform: translateY(-4px) rotate(0deg) !important;
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-glow);
     border-color: var(--accent);
   }
 
@@ -285,6 +297,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     font-size: 0.75rem;
     color: var(--accent);
     font-weight: 500;
+    letter-spacing: 0.08em;
   }
 
   .service-name {
@@ -295,35 +308,28 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
   }
 
   .card-1 {
-    top: 10%;
-    left: 10%;
-    transform: rotate(-2deg);
-    animation: float 5s ease-in-out infinite;
+    top: 8%;
+    left: 12%;
+    animation: cardFloat 6s ease-in-out infinite;
   }
 
   .card-2 {
-    top: 40%;
-    left: 25%;
-    transform: rotate(1deg);
-    animation: float 5s ease-in-out infinite;
-    animation-delay: 0.5s;
-  }
-
-  .card-3 {
-    top: 70%;
-    left: 5%;
-    transform: rotate(-1deg);
-    animation: float 5s ease-in-out infinite;
+    top: 42%;
+    left: 28%;
+    animation: cardFloat 6s ease-in-out infinite;
     animation-delay: 1s;
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0) rotate(var(--rotation, 0deg));
-    }
-    50% {
-      transform: translateY(-12px) rotate(var(--rotation, 0deg));
-    }
+  .card-3 {
+    top: 72%;
+    left: 6%;
+    animation: cardFloat 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
   }
 
   /* Client bar */
@@ -335,7 +341,7 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
   .client-divider {
     width: 100%;
     height: 1px;
-    background: var(--border-color);
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
     margin-bottom: 1.5rem;
   }
 
@@ -351,20 +357,18 @@ const { tagline, title, subtitle, primaryCTA, secondaryCTA } = Astro.props;
     font-weight: 500;
   }
 
-  /* Animation utility */
   .animate-fade-in {
     opacity: 0;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 </style>

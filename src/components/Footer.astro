@@ -14,12 +14,13 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer">
+  <div class="footer-accent-line"></div>
   <div class="footer-inner">
     <!-- Main content -->
     <div class="footer-main">
       <!-- Left side - CTA -->
       <div class="footer-cta">
-        <h3 class="cta-title">Let's build something extraordinary.</h3>
+        <h3 class="cta-title">Let's build something <span class="cta-gradient">extraordinary.</span></h3>
         <a href="/contact" class="cta-email">
           hello@idlefusion.com
           <svg class="arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -67,11 +68,21 @@ const currentYear = new Date().getFullYear();
     color: var(--paper);
     padding: 4rem 0 2rem;
     margin-top: auto;
+    position: relative;
+  }
+
+  .footer-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #6366f1 25%, #8b5cf6 50%, #06b6d4 75%, transparent);
+    opacity: 0.6;
   }
 
   .dark .footer {
-    background: #0a0a0a;
-    border-top: 1px solid var(--border-color);
+    background: #07060d;
   }
 
   .footer-inner {
@@ -114,11 +125,20 @@ const currentYear = new Date().getFullYear();
   .cta-title {
     font-family: var(--font-heading);
     font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 400;
+    font-weight: 500;
     color: var(--paper);
-    line-height: 1.15;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+  }
+
+  .cta-gradient {
+    background: linear-gradient(135deg, #818cf8 0%, #a78bfa 45%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-style: italic;
   }
 
   .cta-email {
