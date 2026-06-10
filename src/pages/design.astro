@@ -1,0 +1,666 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const critique = [
+  {
+    label: 'What Works',
+    title: 'The site already feels thoughtful and senior.',
+    text: 'The current editorial rhythm, generous spacing, and restrained neutral palette communicate experience. It avoids the loud SaaS look and gives Idle Fusion a mature consulting presence.',
+  },
+  {
+    label: 'What Holds It Back',
+    title: 'The visual system has too many signatures.',
+    text: 'Serif display type, mono section numbers, blue markers, card shadows, hover rotation, dark fields, and grid textures all compete to be the memorable device.',
+  },
+  {
+    label: 'Brand Gap',
+    title: 'It reads as boutique editorial more than inevitable utility.',
+    text: 'OpenAI-like simplicity comes from removing evidence of styling until the remaining interface feels obvious. The current site still shows the designer hand.',
+  },
+  {
+    label: 'Strategic Risk',
+    title: 'The Telegram blue points away from Idle Fusion.',
+    text: 'The accent is clear and usable, but it carries borrowed associations. A quieter, ownable signal color would make the brand feel less like an app template.',
+  },
+];
+
+const shifts = [
+  ['From editorial display', 'To product-lab clarity'],
+  ['From blue accent as decoration', 'To one warm-green signal used sparingly'],
+  ['From lifted cards', 'To flat panes separated by rules and space'],
+  ['From many section devices', 'To plain language and strong ordering'],
+  ['From hover personality', 'To near-invisible motion and state changes'],
+];
+
+const proposedTokens = [
+  ['Canvas', '#f7f5ef', 'Primary page background. Warmer than pure white, still spare.'],
+  ['Ink', '#11110f', 'Text, logo, primary buttons, and high-emphasis rules.'],
+  ['Ash', '#77736b', 'Secondary copy, captions, and metadata.'],
+  ['Line', '#dedbd2', 'Dividers, table rules, and card boundaries.'],
+  ['Surface', '#fffdf8', 'Forms, prompt bars, and important work panels.'],
+  ['Signal', '#247866', 'Idle Fusion action color. Use as a quiet confirmation, not decoration.'],
+  ['Signal Dark', '#155a4c', 'Hover and pressed state for signal actions.'],
+  ['Night', '#171717', 'Only for footer, final CTA, or high-contrast proof moments.'],
+];
+
+const typeScale = [
+  ['Page title', 'Work Sans 600, 64px desktop, 44px mobile, line-height 1.02'],
+  ['Section title', 'Work Sans 500, 36px desktop, 30px mobile, line-height 1.12'],
+  ['Body', 'Work Sans 400, 18px desktop, 17px mobile, line-height 1.65'],
+  ['Meta', 'Work Sans 500, 13px, uppercase optional, letter spacing kept modest'],
+  ['Serif use', 'Crimson Pro only for selective quotes or proof points, never as the default brand voice'],
+];
+
+const components = [
+  {
+    title: 'Prompt Bar',
+    text: 'A single rounded input-like surface for the primary action. It gives the homepage one memorable object without becoming a ChatGPT copy.',
+  },
+  {
+    title: 'Proof Rows',
+    text: 'Replace decorated cards with dense rows: client, problem, shipped result, and signal metric. The strength is the evidence.',
+  },
+  {
+    title: 'Quiet CTA',
+    text: 'Use one black or signal action per section. Secondary actions stay text-only with a simple rule or arrow.',
+  },
+  {
+    title: 'System Footer',
+    text: 'Keep the footer dark and plain. It should feel like infrastructure, not a second hero.',
+  },
+];
+---
+
+<BaseLayout
+  title="Idle Fusion Design Critique and Brand Direction"
+  description="A critique of the current Idle Fusion website design and a proposed simpler brand system inspired by OpenAI's restraint."
+  ogUrl="https://idlefusion.com/design"
+>
+  <Header currentPage="design" />
+
+  <main class="quiet-page">
+    <section class="quiet-hero">
+      <div class="quiet-container hero-layout">
+        <div>
+          <p class="kicker">Design critique</p>
+          <h1>Make Idle Fusion feel simpler, sharper, and more inevitable.</h1>
+        </div>
+        <div class="hero-note">
+          <p>
+            The direction should borrow OpenAI's restraint: neutral surfaces, direct copy,
+            simple navigation, flat content modules, and almost no decorative motion.
+            The brand still needs its own signal, not OpenAI's identity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiet-section">
+      <div class="quiet-container">
+        <div class="section-heading">
+          <p class="kicker">01 / Current read</p>
+          <h2>What the existing design communicates</h2>
+        </div>
+
+        <div class="critique-grid">
+          {critique.map((item) => (
+            <article class="critique-card">
+              <p class="eyebrow">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="quiet-section quiet-band">
+      <div class="quiet-container two-column">
+        <div class="section-heading sticky-copy">
+          <p class="kicker">02 / Proposed style</p>
+          <h2>Quiet Fusion</h2>
+          <p>
+            A unique brand direction for Idle Fusion: almost invisible interface,
+            precise evidence, and one human signal color. The site should feel like
+            a senior technical partner who has nothing to prove.
+          </p>
+        </div>
+
+        <div class="shift-list" aria-label="Recommended design shifts">
+          {shifts.map(([from, to]) => (
+            <div class="shift-row">
+              <span>{from}</span>
+              <strong>{to}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="quiet-section">
+      <div class="quiet-container">
+        <div class="section-heading">
+          <p class="kicker">03 / Foundation</p>
+          <h2>Tokens for a simpler brand</h2>
+        </div>
+
+        <div class="token-table">
+          {proposedTokens.map(([name, value, usage]) => (
+            <div class="token-row">
+              <span class="token-swatch" style={`--token-color: ${value}`}></span>
+              <strong>{name}</strong>
+              <code>{value}</code>
+              <p>{usage}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="quiet-section quiet-band">
+      <div class="quiet-container two-column">
+        <div class="section-heading">
+          <p class="kicker">04 / Typography</p>
+          <h2>Use type like an interface, not a poster.</h2>
+          <p>
+            Keep Work Sans as the workhorse and reduce Crimson Pro to rare moments.
+            This is the biggest move toward OpenAI-like simplicity.
+          </p>
+        </div>
+
+        <div class="type-list">
+          {typeScale.map(([label, rule]) => (
+            <div class="type-row">
+              <span>{label}</span>
+              <p>{rule}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="quiet-section">
+      <div class="quiet-container">
+        <div class="section-heading">
+          <p class="kicker">05 / Component language</p>
+          <h2>Flat, useful, and memorable by subtraction</h2>
+        </div>
+
+        <div class="component-showcase">
+          <div class="prompt-panel">
+            <div class="prompt-copy">
+              <span>Start with the outcome</span>
+              <strong>What should technology make easier for your team?</strong>
+            </div>
+            <a href="/contact" class="quiet-button">Start a project</a>
+          </div>
+
+          <div class="proof-table">
+            <div class="proof-row proof-head">
+              <span>Client Type</span>
+              <span>Need</span>
+              <span>Result</span>
+            </div>
+            <div class="proof-row">
+              <span>Media</span>
+              <span>Mobile platform at scale</span>
+              <strong>Millions served</strong>
+            </div>
+            <div class="proof-row">
+              <span>Ministry</span>
+              <span>Global movement tooling</span>
+              <strong>Community mobilized</strong>
+            </div>
+            <div class="proof-row">
+              <span>SaaS</span>
+              <span>Product ecosystem extension</span>
+              <strong>Stores supported</strong>
+            </div>
+          </div>
+
+          <div class="component-grid">
+            {components.map((component) => (
+              <article>
+                <h3>{component.title}</h3>
+                <p>{component.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiet-section final-recommendation">
+      <div class="quiet-container">
+        <p class="kicker">Recommendation</p>
+        <h2>
+          Keep the confidence. Remove the visible cleverness.
+        </h2>
+        <p>
+          The next iteration should not look like OpenAI. It should feel similarly
+          calm: fewer colors, flatter modules, simpler type, stronger copy, and a
+          single ownable signal. That would make Idle Fusion feel less like a studio
+          portfolio and more like a trusted technical operating partner.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer variant="compact" />
+</BaseLayout>
+
+<style>
+  :global(html) {
+    scroll-behavior: auto;
+  }
+
+  .quiet-page {
+    --quiet-canvas: #f7f5ef;
+    --quiet-ink: #11110f;
+    --quiet-muted: #77736b;
+    --quiet-line: #dedbd2;
+    --quiet-surface: #fffdf8;
+    --quiet-signal: #247866;
+    --quiet-signal-dark: #155a4c;
+    --quiet-night: #171717;
+
+    background: var(--quiet-canvas);
+    color: var(--quiet-ink);
+  }
+
+  .quiet-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .quiet-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .quiet-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .quiet-hero {
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--quiet-line);
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 900px) {
+    .hero-layout {
+      grid-template-columns: minmax(0, 1fr) 27rem;
+      align-items: end;
+    }
+  }
+
+  .kicker,
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--quiet-muted);
+  }
+
+  .quiet-hero h1,
+  .section-heading h2,
+  .final-recommendation h2 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--quiet-ink);
+  }
+
+  .quiet-hero h1 {
+    max-width: 58rem;
+    font-size: 3.75rem;
+    line-height: 1.02;
+  }
+
+  @media (max-width: 700px) {
+    .quiet-hero {
+      padding: 4rem 0;
+    }
+
+    .quiet-hero h1 {
+      font-size: 2.75rem;
+    }
+  }
+
+  .hero-note {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--quiet-line);
+  }
+
+  .hero-note p,
+  .section-heading p,
+  .final-recommendation p {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--quiet-muted);
+  }
+
+  .quiet-section {
+    padding: 5.5rem 0;
+    border-bottom: 1px solid var(--quiet-line);
+  }
+
+  @media (max-width: 700px) {
+    .quiet-section {
+      padding: 4rem 0;
+    }
+  }
+
+  .quiet-band {
+    background: var(--quiet-surface);
+  }
+
+  .section-heading {
+    max-width: 42rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-heading h2 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    line-height: 1.12;
+  }
+
+  @media (max-width: 700px) {
+    .section-heading h2 {
+      font-size: 1.875rem;
+    }
+  }
+
+  .critique-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--quiet-line);
+    border-left: 1px solid var(--quiet-line);
+  }
+
+  @media (min-width: 760px) {
+    .critique-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .critique-card {
+    min-height: 17rem;
+    padding: 2rem;
+    background: var(--quiet-canvas);
+    border-right: 1px solid var(--quiet-line);
+    border-bottom: 1px solid var(--quiet-line);
+  }
+
+  .critique-card h3,
+  .component-grid h3 {
+    margin: 0 0 1rem;
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.25;
+    color: var(--quiet-ink);
+  }
+
+  .critique-card p,
+  .component-grid p {
+    margin: 0;
+    color: var(--quiet-muted);
+    line-height: 1.65;
+  }
+
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 920px) {
+    .two-column {
+      grid-template-columns: 24rem 1fr;
+      align-items: start;
+    }
+
+    .sticky-copy {
+      position: sticky;
+      top: 6rem;
+    }
+  }
+
+  .shift-list,
+  .type-list,
+  .token-table,
+  .proof-table {
+    border-top: 1px solid var(--quiet-line);
+  }
+
+  .shift-row,
+  .type-row,
+  .token-row,
+  .proof-row {
+    display: grid;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--quiet-line);
+  }
+
+  .shift-row {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 700px) {
+    .shift-row {
+      grid-template-columns: 1fr 1.25fr;
+    }
+  }
+
+  .shift-row span,
+  .type-row span,
+  .proof-row span {
+    color: var(--quiet-muted);
+  }
+
+  .shift-row strong,
+  .proof-row strong {
+    font-weight: 600;
+    color: var(--quiet-ink);
+  }
+
+  .token-row {
+    grid-template-columns: 2rem minmax(5rem, 0.6fr) minmax(5rem, 0.45fr) 1fr;
+    align-items: center;
+  }
+
+  @media (max-width: 760px) {
+    .token-row {
+      grid-template-columns: 2rem 1fr;
+    }
+  }
+
+  .token-swatch {
+    width: 1.25rem;
+    height: 1.25rem;
+    background: var(--token-color);
+    border: 1px solid var(--quiet-line);
+  }
+
+  .token-row strong {
+    font-weight: 600;
+    color: var(--quiet-ink);
+  }
+
+  .token-row code {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--quiet-muted);
+  }
+
+  .token-row p,
+  .type-row p {
+    margin: 0;
+    color: var(--quiet-muted);
+    line-height: 1.6;
+  }
+
+  .type-row {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 700px) {
+    .type-row {
+      grid-template-columns: 9rem 1fr;
+    }
+  }
+
+  .component-showcase {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .prompt-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--quiet-surface);
+    border: 1px solid var(--quiet-line);
+    border-radius: 8px;
+  }
+
+  @media (min-width: 760px) {
+    .prompt-panel {
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem 1rem 1rem 1.25rem;
+    }
+  }
+
+  .prompt-copy {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .prompt-copy span {
+    font-size: 0.875rem;
+    color: var(--quiet-muted);
+  }
+
+  .prompt-copy strong {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--quiet-ink);
+  }
+
+  .quiet-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0 1.25rem;
+    background: var(--quiet-ink);
+    border-radius: 6px;
+    color: var(--quiet-canvas);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .quiet-button:hover {
+    background: var(--quiet-signal-dark);
+    transform: translateY(-1px);
+  }
+
+  .proof-table {
+    background: var(--quiet-canvas);
+  }
+
+  .proof-row {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 760px) {
+    .proof-row {
+      grid-template-columns: 0.8fr 1.4fr 1fr;
+    }
+  }
+
+  .proof-head {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--quiet-line);
+    border-left: 1px solid var(--quiet-line);
+  }
+
+  @media (min-width: 760px) {
+    .component-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .component-grid article {
+    min-height: 15rem;
+    padding: 1.5rem;
+    border-right: 1px solid var(--quiet-line);
+    border-bottom: 1px solid var(--quiet-line);
+  }
+
+  .final-recommendation {
+    background: var(--quiet-night);
+    color: var(--quiet-canvas);
+    border-bottom: 0;
+  }
+
+  .final-recommendation .kicker,
+  .final-recommendation p {
+    color: #bcb7ad;
+  }
+
+  .final-recommendation h2 {
+    max-width: 54rem;
+    margin-bottom: 1.5rem;
+    color: var(--quiet-canvas);
+    font-size: 3rem;
+    line-height: 1.08;
+  }
+
+  .final-recommendation p {
+    max-width: 48rem;
+  }
+
+  @media (max-width: 700px) {
+    .final-recommendation h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
