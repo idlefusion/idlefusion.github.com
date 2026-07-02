@@ -247,9 +247,9 @@ import ExploreApps from '../../components/ExploreApps.astro';
     --ce-accent-bg: #fff1f2;
     --ce-bg: #fafafa;
     --ce-surface: #ffffff;
-    --ce-border: rgba(148, 163, 184, 0.15);
-    --ce-text: #0f172a;
-    --ce-text-muted: #64748b;
+    --ce-border: rgba(161, 157, 147, 0.15);
+    --ce-text: #11110f;
+    --ce-text-muted: #77736b;
     --ce-feature-icon-bg: rgba(225, 29, 72, 0.08);
     --ce-feature-icon-border: rgba(225, 29, 72, 0.12);
   }
@@ -261,9 +261,9 @@ import ExploreApps from '../../components/ExploreApps.astro';
     --ce-accent-bg: #1c1017;
     --ce-bg: #0a0a0b;
     --ce-surface: #111113;
-    --ce-border: rgba(148, 163, 184, 0.08);
-    --ce-text: #f1f5f9;
-    --ce-text-muted: #94a3b8;
+    --ce-border: rgba(161, 157, 147, 0.08);
+    --ce-text: #efede4;
+    --ce-text-muted: #a19d93;
     --ce-feature-icon-bg: rgba(251, 113, 133, 0.1);
     --ce-feature-icon-border: rgba(251, 113, 133, 0.15);
   }
@@ -393,7 +393,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .ce-hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: #f1f5f9;
+    color: #efede4;
     margin-bottom: 1.5rem;
     line-height: 1.05;
   }
@@ -405,7 +405,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .ce-hero-subtitle {
     font-size: 1.125rem;
-    color: #94a3b8;
+    color: #a19d93;
     line-height: 1.7;
     max-width: 520px;
     margin-bottom: 2rem;
@@ -429,7 +429,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .ce-coming-badge {
     font-family: var(--font-mono);
     font-size: 0.8125rem;
-    color: #f1f5f9;
+    color: #efede4;
     padding: 0.75rem 1.5rem;
     background: rgba(251, 113, 133, 0.15);
     border: 1px solid rgba(251, 113, 133, 0.3);
@@ -439,7 +439,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .ce-hero-note {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: #94a3b8;
+    color: #a19d93;
   }
 
   .ce-hero-icon-wrap { flex-shrink: 0; }
@@ -672,8 +672,8 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .ce-healthkit-section {
     background: #0a0a0b;
     padding: 5rem 0;
-    border-top: 1px solid rgba(148, 163, 184, 0.08);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    border-top: 1px solid rgba(161, 157, 147, 0.08);
+    border-bottom: 1px solid rgba(161, 157, 147, 0.08);
   }
 
   .ce-healthkit-inner {
@@ -684,19 +684,19 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .ce-healthkit-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
-    color: #f1f5f9;
+    color: #efede4;
     margin-top: 1rem;
     margin-bottom: 1.25rem;
   }
 
   .ce-healthkit-text {
     font-size: 1.0625rem;
-    color: #94a3b8;
+    color: #a19d93;
     line-height: 1.8;
   }
 
   .ce-healthkit-text strong {
-    color: #f1f5f9;
+    color: #efede4;
   }
 
   /* ─── CTA ─── */
@@ -797,7 +797,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
   /* ─── Screenshots (run-easy style) ─── */
   .ce-screenshots-section {
     padding: 4rem 0;
-    background: var(--ce-bg, #fafaf9);
+    background: var(--ce-bg, #f7f5ef);
   }
 
   .ce-section-header {
@@ -806,7 +806,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .ce-screenshots-title {
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    color: var(--ce-text, #0a0a0a);
+    color: var(--ce-text, #11110f);
     margin-top: 0.5rem;
   }
 
@@ -821,7 +821,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .ce-screenshots-scroll::-webkit-scrollbar { height: 4px; }
   .ce-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
-  .ce-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--ce-border, #e7e5e4); border-radius: 2px; }
+  .ce-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--ce-border, #dedbd2); border-radius: 2px; }
 
   .ce-screenshot-card {
     flex-shrink: 0;
@@ -834,8 +834,8 @@ import ExploreApps from '../../components/ExploreApps.astro';
     width: 100%;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
-    border: 1px solid var(--ce-border, #e7e5e4);
+    box-shadow: 0 12px 40px rgba(17, 17, 15, 0.08), 0 4px 12px rgba(17, 17, 15, 0.04);
+    border: 1px solid var(--ce-border, #dedbd2);
     transition: transform 0.3s ease;
   }
 
@@ -847,7 +847,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
     display: block;
     margin-top: 0.75rem;
     font-size: 0.8125rem;
-    color: var(--ce-text-muted, #78716c);
+    color: var(--ce-text-muted, #77736b);
     letter-spacing: 0.02em;
   }
 

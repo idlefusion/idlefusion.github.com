@@ -29,18 +29,17 @@ const { title, description, image, url } = Astro.props;
   .portfolio-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
+    border-radius: 8px;
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: border-color 160ms ease;
     text-decoration: none;
   }
 
   .portfolio-card:hover {
-    transform: translateY(-6px) rotate(-0.3deg);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent);
+    border-color: var(--border-hover);
   }
 
   .image-wrapper {
@@ -68,11 +67,11 @@ const { title, description, image, url } = Astro.props;
 
   .title {
     font-family: var(--font-heading);
-    font-size: 1.125rem;
-    font-weight: 400;
+    font-size: 1.0625rem;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .description {
@@ -95,15 +94,7 @@ const { title, description, image, url } = Astro.props;
     transition: color 0.2s;
   }
 
-  .view-link svg {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
   .portfolio-card:hover .view-link {
-    color: var(--accent);
-  }
-
-  .portfolio-card:hover .view-link svg {
-    transform: translate(2px, -2px);
+    color: var(--text-primary);
   }
 </style>

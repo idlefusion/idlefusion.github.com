@@ -37,42 +37,32 @@ const { name, company, quote, image, rating = 5 } = Astro.props;
   .testimonial-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 2.5rem 2rem 2rem;
+    border-radius: 8px;
+    padding: 2rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: border-color 160ms ease;
   }
 
   .testimonial-card:hover {
-    transform: translateY(-6px) rotate(-0.3deg);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent);
+    border-color: var(--border-hover);
   }
 
   .quote-mark {
-    font-family: var(--font-heading);
-    font-size: 5rem;
-    line-height: 1;
-    color: var(--accent);
-    opacity: 0.15;
-    position: absolute;
-    top: 0.5rem;
-    left: 1rem;
-    pointer-events: none;
+    display: none;
   }
 
+  /* Serif reserved for quotes — the one place Crimson Pro remains */
   .quote {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
     font-style: italic;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.65;
     flex: 1;
     margin: 0 0 1.5rem 0;
-    position: relative;
-    z-index: 1;
   }
 
   .author {

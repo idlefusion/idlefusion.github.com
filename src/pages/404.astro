@@ -52,8 +52,8 @@ const currentPath = Astro.url.pathname;
     padding: 4rem 0;
     min-height: calc(100vh - var(--footer-space, 0px));
     background:
-      radial-gradient(circle at 12% 14%, rgba(0, 136, 204, 0.09), transparent 36%),
-      radial-gradient(circle at 88% 90%, rgba(0, 136, 204, 0.07), transparent 36%),
+      radial-gradient(circle at 12% 14%, rgba(36, 120, 102, 0.09), transparent 36%),
+      radial-gradient(circle at 88% 90%, rgba(36, 120, 102, 0.07), transparent 36%),
       linear-gradient(130deg, color-mix(in srgb, var(--bg-primary) 92%, black), var(--bg-primary));
     overflow: hidden;
   }
@@ -81,8 +81,8 @@ const currentPath = Astro.url.pathname;
     pointer-events: none;
     border-radius: 24px;
     background-image:
-      linear-gradient(to right, rgba(250, 250, 249, 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(250, 250, 249, 0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgba(247, 245, 239, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(247, 245, 239, 0.06) 1px, transparent 1px);
     background-size: 46px 46px;
     opacity: 0.34;
     animation: pulse-grid 8s ease-in-out infinite;
@@ -120,7 +120,7 @@ const currentPath = Astro.url.pathname;
     border-radius: 26px;
     background: linear-gradient(180deg, color-mix(in srgb, var(--bg-card) 95%, transparent), color-mix(in srgb, var(--bg-card) 80%, transparent));
     box-shadow:
-      0 24px 64px rgba(10, 10, 10, 0.26),
+      0 24px 64px rgba(17, 17, 15, 0.26),
       inset 0 1px 0 rgba(255, 255, 255, 0.35);
     padding: clamp(1.4rem, 3.2vw, 2rem);
     backdrop-filter: blur(2px);
@@ -187,10 +187,10 @@ const currentPath = Astro.url.pathname;
     border-radius: 32px;
     padding: 1.15rem;
     background:
-      linear-gradient(160deg, rgba(250, 250, 249, 0.06), rgba(250, 250, 249, 0.01)),
+      linear-gradient(160deg, rgba(247, 245, 239, 0.06), rgba(247, 245, 239, 0.01)),
       var(--bg-primary);
     border: 1px solid var(--border-color);
-    box-shadow: 0 26px 70px rgba(10, 10, 10, 0.34), var(--shadow-xl);
+    box-shadow: 0 26px 70px rgba(17, 17, 15, 0.34), var(--shadow-xl);
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -203,7 +203,7 @@ const currentPath = Astro.url.pathname;
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 85% 10%, rgba(0, 136, 204, 0.18), transparent 42%);
+      radial-gradient(circle at 85% 10%, rgba(36, 120, 102, 0.18), transparent 42%);
     pointer-events: none;
   }
 
@@ -222,9 +222,9 @@ const currentPath = Astro.url.pathname;
     height: 14px;
     margin: 0.2rem auto 1rem;
     border-radius: 999px;
-    background: rgba(250, 250, 249, 0.3);
+    background: rgba(247, 245, 239, 0.3);
     opacity: 0.85;
-    box-shadow: inset 0 0 0 2px rgba(10, 10, 10, 0.12);
+    box-shadow: inset 0 0 0 2px rgba(17, 17, 15, 0.12);
   }
 
   .ios-app-header {
@@ -246,10 +246,10 @@ const currentPath = Astro.url.pathname;
     display: grid;
     place-items: center;
     color: #fff;
-    background: linear-gradient(150deg, #0d2130, #1b6d9f 35%, #2ca7de 70%);
+    background: linear-gradient(150deg, #0f2620, #1d6f5e 35%, #3ba58c 70%);
     box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.15),
-      0 14px 34px rgba(10, 10, 10, 0.24);
+      0 14px 34px rgba(17, 17, 15, 0.24);
     overflow: hidden;
     animation: icon-drift 2.8s ease-in-out infinite alternate;
   }

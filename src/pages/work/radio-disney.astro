@@ -138,7 +138,7 @@ import Footer from '../../components/Footer.astro';
       <div class="case-container">
         <h2>Building for an audience that matters?</h2>
         <p>We help media companies create experiences that engage, retain, and grow with their users.</p>
-        <a href="/contact" class="btn btn-primary">Book a Strategy Call</a>
+        <a href="/contact" class="btn btn-light">Book a strategy call</a>
       </div>
     </section>
   </main>
@@ -370,7 +370,7 @@ import Footer from '../../components/Footer.astro';
 
   .case-cta {
     padding: 5rem 0;
-    background: var(--ink);
+    background: var(--night, #171717);
     text-align: center;
   }
 
@@ -378,20 +378,19 @@ import Footer from '../../components/Footer.astro';
     font-family: var(--font-heading);
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 400;
-    color: var(--paper);
+    color: #f7f5ef;
     margin-bottom: 1rem;
   }
 
   .case-cta p {
     font-family: var(--font-body);
     font-size: 1.125rem;
-    color: var(--paper);
-    opacity: 0.7;
+    color: #bcb7ad;
     margin-bottom: 2rem;
   }
 
   .dark .case-cta {
-    background: #0a0a0a;
+    background: #11110f;
     border-top: 1px solid var(--border-color);
   }
 </style>

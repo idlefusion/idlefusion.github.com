@@ -179,7 +179,7 @@ const navItems = [
   }
 
   .logo:hover {
-    color: var(--accent);
+    color: var(--text-muted);
   }
 
   /* Desktop nav links */
@@ -206,23 +206,8 @@ const navItems = [
     transition: color 0.2s;
   }
 
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
   .nav-link:hover {
     color: var(--text-primary);
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
   }
 
   /* Right actions */
@@ -254,7 +239,7 @@ const navItems = [
   }
 
   .mobile-menu-btn:hover {
-    color: var(--accent);
+    color: var(--text-muted);
   }
 
   /* Mobile menu */
@@ -277,7 +262,7 @@ const navItems = [
   }
 
   .mobile-nav-link:hover {
-    color: var(--accent);
+    color: var(--text-muted);
   }
 
   .mobile-menu-footer {
