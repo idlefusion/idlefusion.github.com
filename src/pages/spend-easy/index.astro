@@ -218,11 +218,11 @@ import ExploreApps from '../../components/ExploreApps.astro';
     --se-accent-deep: #059669;
     --se-accent-bg: #ecfdf5;
     --se-secondary: #34d399;
-    --se-bg: #f8fafc;
+    --se-bg: #f7f5ef;
     --se-surface: #ffffff;
-    --se-border: rgba(148, 163, 184, 0.15);
-    --se-text: #0f172a;
-    --se-text-muted: #64748b;
+    --se-border: rgba(161, 157, 147, 0.15);
+    --se-text: #11110f;
+    --se-text-muted: #77736b;
     --se-feature-icon-bg: rgba(16, 185, 129, 0.08);
     --se-feature-icon-border: rgba(16, 185, 129, 0.12);
   }
@@ -231,11 +231,11 @@ import ExploreApps from '../../components/ExploreApps.astro';
     --se-accent: #34d399;
     --se-accent-deep: #10b981;
     --se-accent-bg: #064e3b;
-    --se-bg: #0a0f1a;
-    --se-surface: #111827;
-    --se-border: rgba(148, 163, 184, 0.08);
-    --se-text: #f1f5f9;
-    --se-text-muted: #94a3b8;
+    --se-bg: #141413;
+    --se-surface: #1b1a18;
+    --se-border: rgba(161, 157, 147, 0.08);
+    --se-text: #efede4;
+    --se-text-muted: #a19d93;
     --se-feature-icon-bg: rgba(16, 185, 129, 0.1);
     --se-feature-icon-border: rgba(16, 185, 129, 0.15);
   }
@@ -294,7 +294,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   /* ─── Hero ─── */
   .se-hero {
-    background: #0a0f1a;
+    background: #141413;
     padding: 4rem 0 5rem;
     position: relative;
     overflow: hidden;
@@ -365,7 +365,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .se-hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: #f1f5f9;
+    color: #efede4;
     margin-bottom: 1.5rem;
     line-height: 1.05;
   }
@@ -377,7 +377,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .se-hero-subtitle {
     font-size: 1.125rem;
-    color: #94a3b8;
+    color: #a19d93;
     line-height: 1.7;
     max-width: 480px;
     margin-bottom: 2rem;
@@ -412,7 +412,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .se-hero-note {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: #94a3b8;
+    color: #a19d93;
   }
 
   .se-hero-icon-wrap { flex-shrink: 0; }
@@ -587,10 +587,10 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   /* ─── Privacy Banner ─── */
   .se-privacy-banner {
-    background: #0a0f1a;
+    background: #141413;
     padding: 5rem 0;
-    border-top: 1px solid rgba(148, 163, 184, 0.08);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    border-top: 1px solid rgba(161, 157, 147, 0.08);
+    border-bottom: 1px solid rgba(161, 157, 147, 0.08);
   }
 
   .se-privacy-inner {
@@ -599,7 +599,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .se-privacy-title {
     font-size: clamp(2rem, 5vw, 3rem);
-    color: #f1f5f9;
+    color: #efede4;
     margin-top: 1rem;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
@@ -607,7 +607,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .se-privacy-text {
     font-size: 1.0625rem;
-    color: #94a3b8;
+    color: #a19d93;
     line-height: 1.8;
     margin-bottom: 2rem;
   }
@@ -725,7 +725,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
   /* ─── Screenshots (run-easy style) ─── */
   .se-screenshots-section {
     padding: 4rem 0;
-    background: var(--se-bg, #fafaf9);
+    background: var(--se-bg, #f7f5ef);
   }
 
   .se-section-header {
@@ -734,7 +734,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .se-screenshots-title {
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    color: var(--se-text, #0a0a0a);
+    color: var(--se-text, #11110f);
     margin-top: 0.5rem;
   }
 
@@ -749,7 +749,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .se-screenshots-scroll::-webkit-scrollbar { height: 4px; }
   .se-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
-  .se-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--se-border, #e7e5e4); border-radius: 2px; }
+  .se-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--se-border, #dedbd2); border-radius: 2px; }
 
   .se-screenshot-card {
     flex-shrink: 0;
@@ -762,8 +762,8 @@ import ExploreApps from '../../components/ExploreApps.astro';
     width: 100%;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
-    border: 1px solid var(--se-border, #e7e5e4);
+    box-shadow: 0 12px 40px rgba(17, 17, 15, 0.08), 0 4px 12px rgba(17, 17, 15, 0.04);
+    border: 1px solid var(--se-border, #dedbd2);
     transition: transform 0.3s ease;
   }
 
@@ -775,7 +775,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
     display: block;
     margin-top: 0.75rem;
     font-size: 0.8125rem;
-    color: var(--se-text-muted, #78716c);
+    color: var(--se-text-muted, #77736b);
     letter-spacing: 0.02em;
   }
 

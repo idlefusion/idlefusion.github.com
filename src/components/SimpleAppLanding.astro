@@ -112,7 +112,7 @@ const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Downloa
             <p class="ap-badge">{badge}</p>
             <h1 class="ap-headline">{headline}</h1>
             <p class="ap-description">{description}</p>
-            <p class="ap-note">{appStoreNote || (hasStoreLink ? 'Free &middot; No account required' : 'Coming soon')}</p>
+            <p class="ap-note">{appStoreNote || (hasStoreLink ? 'Free · No account required' : 'Coming soon')}</p>
           </div>
           <img
             src={icon}
@@ -208,20 +208,12 @@ const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Downloa
 
 <style>
   .ap-page {
-    --ap-bg: #f8fafc;
-    --ap-bg-soft: #ffffff;
-    --ap-text: #0f172a;
-    --ap-muted: #64748b;
-    --ap-border: #e2e8f0;
-    --ap-accent-text: #f8fafc;
-  }
-
-  :global(.dark) .ap-page {
-    --ap-bg: #0a0f1a;
-    --ap-bg-soft: #111827;
-    --ap-text: #f8fafc;
-    --ap-muted: #94a3b8;
-    --ap-border: rgba(148, 163, 184, 0.2);
+    --ap-bg: var(--bg-primary);
+    --ap-bg-soft: var(--bg-secondary);
+    --ap-text: var(--text-primary);
+    --ap-muted: var(--text-muted);
+    --ap-border: var(--border-color);
+    --ap-accent-text: #fffdf8;
   }
 
   .ap-nav {
@@ -305,9 +297,10 @@ const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Downloa
 
   .ap-badge {
     color: var(--ap-accent-deep);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     margin: 0;
   }
@@ -315,8 +308,8 @@ const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Downloa
   .ap-headline {
     margin: 0.7rem 0 0;
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3.75rem);
-    line-height: 0.96;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.04;
     color: var(--ap-text);
   }
 
@@ -339,7 +332,6 @@ const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Downloa
     aspect-ratio: 1 / 1;
     border-radius: 1.75rem;
     border: 1px solid var(--ap-border);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
     background: var(--ap-bg-soft);
     justify-self: center;
   }

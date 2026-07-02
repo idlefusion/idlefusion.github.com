@@ -240,7 +240,7 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
 <style>
   .explore-apps {
     padding: 4rem 0;
-    border-top: 1px solid var(--border-color, #e7e5e4);
+    border-top: 1px solid var(--border-color, #dedbd2);
   }
 
   .explore-apps-inner {
@@ -263,7 +263,7 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-muted, #78716c);
+    color: var(--text-muted, #77736b);
     margin-bottom: 1.5rem;
   }
 
@@ -285,18 +285,18 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
     gap: 1.25rem;
     padding: 1.5rem;
     background: var(--bg-card, #ffffff);
-    border: 1px solid var(--border-color, #e7e5e4);
+    border: 1px solid var(--border-color, #dedbd2);
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   :global(.dark) .explore-app-card {
-    background: var(--bg-card, #141414);
-    border-color: var(--border-color, #262626);
+    background: var(--bg-card, #191917);
+    border-color: var(--border-color, #2b2a26);
   }
 
   .explore-app-card:hover {
-    border-color: var(--accent, #0088cc);
+    border-color: var(--accent, #247866);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
   }
@@ -321,7 +321,7 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-muted, #78716c);
+    color: var(--text-muted, #77736b);
     display: block;
     margin-bottom: 0.375rem;
   }
@@ -330,19 +330,19 @@ const otherApps = visibleApps.filter(app => app.slug !== current).sort(() => Mat
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 400;
-    color: var(--text-primary, #0a0a0a);
+    color: var(--text-primary, #11110f);
     margin: 0 0 0.375rem;
     line-height: 1.2;
   }
 
   :global(.dark) .explore-app-name {
-    color: var(--text-primary, #fafaf9);
+    color: var(--text-primary, #f7f5ef);
   }
 
   .explore-app-desc {
     font-family: var(--font-body);
     font-size: 0.875rem;
-    color: var(--text-muted, #78716c);
+    color: var(--text-muted, #77736b);
     line-height: 1.5;
     margin: 0;
   }

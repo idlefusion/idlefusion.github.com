@@ -106,9 +106,8 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #f59e0b;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
+    background: var(--text-primary);
+    transition: transform 0.25s ease, background 0.25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,30 +117,30 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    transition: opacity 0.2s, transform 0.3s;
+    transition: opacity 0.2s, transform 0.25s;
   }
 
   /* Light mode: show sun, hide moon */
   .icon-sun {
-    color: white;
+    color: var(--bg-primary);
     opacity: 1;
     transform: rotate(0deg) scale(1);
   }
 
   .icon-moon {
-    color: white;
+    color: var(--bg-primary);
     opacity: 0;
     transform: rotate(-45deg) scale(0.6);
   }
 
   /* Dark mode state */
   .theme-toggle[data-theme="dark"] .toggle-track {
-    background: var(--accent);
+    background: var(--border-color);
   }
 
   .theme-toggle[data-theme="dark"] .toggle-thumb {
     transform: translateX(20px);
-    background: #6366f1;
+    background: var(--text-primary);
   }
 
   .theme-toggle[data-theme="dark"] .icon-sun {

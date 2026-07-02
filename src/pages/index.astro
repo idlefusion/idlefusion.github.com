@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
-import MobileHero from '../components/MobileHero.astro';
 import BenefitCard from '../components/BenefitCard.astro';
 import ProcessStep from '../components/ProcessStep.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
@@ -76,24 +75,13 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
   <Header currentPage="home" />
 
   <main>
-    <!-- Mobile Hero (visible on mobile/tablet only) -->
-    <MobileHero
+    <Hero
       tagline="20+ years of digital expertise"
-      title="Idle Fusion"
-      subtitle="We transform complex challenges into elegant solutions — and stay invested in your success long after launch."
-      primaryCTA={{ text: "Book a Strategy Call", href: "/contact" }}
+      title="Technology That Accelerates Your Mission"
+      subtitle="We transform complex challenges into elegant solutions. From vision to launch and beyond — your long-term partner in digital strategy and development."
+      primaryCTA={{ text: "Book a strategy call", href: "/contact" }}
+      secondaryCTA={{ text: "See our work", href: "#our-work" }}
     />
-
-    <!-- Desktop Hero (visible on desktop only) -->
-    <div class="hidden lg:block">
-      <Hero
-        tagline="20+ years of digital expertise"
-        title="Technology That Accelerates Your Mission"
-        subtitle="We transform complex challenges into elegant solutions. From vision to launch and beyond — your long-term partner in digital strategy and development."
-        primaryCTA={{ text: "Book a Strategy Call", href: "/contact" }}
-        secondaryCTA={{ text: "See Our Work", href: "#our-work" }}
-      />
-    </div>
 
     <!-- Benefits Section -->
     <section class="section-padding" id="services">
@@ -293,37 +281,37 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
           </p>
         </div>
 
-        <!-- Featured Case Studies -->
-        <div class="featured-cases">
-          <a href="/work/golf-channel" class="featured-case">
-            <span class="case-industry">Media & Entertainment</span>
-            <h3 class="case-name">Golf Channel Mobile</h3>
-            <p class="case-summary">NBC's premier golf app serving millions with live streaming and real-time scores</p>
-            <span class="case-link">Read case study →</span>
+        <!-- Featured Case Studies — proof rows -->
+        <div class="proof-table">
+          <div class="proof-row proof-head" aria-hidden="true">
+            <span>Industry</span>
+            <span>Project</span>
+            <span>Shipped result</span>
+          </div>
+          <a href="/work/golf-channel" class="proof-row">
+            <span class="proof-industry">Media & Entertainment</span>
+            <span class="proof-project"><strong>Golf Channel Mobile</strong> NBC's premier golf app with live streaming and real-time scores</span>
+            <span class="proof-result">Millions served <span class="proof-arrow">→</span></span>
           </a>
-          <a href="/work/everybody-everywhere" class="featured-case">
-            <span class="case-industry">Faith & Ministry</span>
-            <h3 class="case-name">Everybody Everywhere</h3>
-            <p class="case-summary">Global movement platform with interactive impact tracking and giving tools</p>
-            <span class="case-link">Read case study →</span>
+          <a href="/work/everybody-everywhere" class="proof-row">
+            <span class="proof-industry">Faith & Ministry</span>
+            <span class="proof-project"><strong>Everybody Everywhere</strong> Global movement platform with impact tracking and giving tools</span>
+            <span class="proof-result">Community mobilized <span class="proof-arrow">→</span></span>
           </a>
-          <a href="/work/easy-digital-downloads" class="featured-case">
-            <span class="case-industry">E-commerce & SaaS</span>
-            <h3 class="case-name">Easy Digital Downloads</h3>
-            <p class="case-summary">Mobile apps for a platform powering 50,000+ digital stores worldwide</p>
-            <span class="case-link">Read case study →</span>
+          <a href="/work/easy-digital-downloads" class="proof-row">
+            <span class="proof-industry">E-commerce & SaaS</span>
+            <span class="proof-project"><strong>Easy Digital Downloads</strong> Mobile apps for a platform powering digital storefronts worldwide</span>
+            <span class="proof-result">50,000+ stores <span class="proof-arrow">→</span></span>
           </a>
-          <a href="/work/golf-channel-academy" class="featured-case">
-            <span class="case-industry">Sports / EdTech</span>
-            <h3 class="case-name">Golf Channel Academy</h3>
-            <p class="case-summary">Video swing analysis and personalized coaching for thousands of golfers</p>
-            <span class="case-link">Read case study →</span>
+          <a href="/work/golf-channel-academy" class="proof-row">
+            <span class="proof-industry">Sports / EdTech</span>
+            <span class="proof-project"><strong>Golf Channel Academy</strong> Video swing analysis and personalized coaching</span>
+            <span class="proof-result">Thousands of golfers <span class="proof-arrow">→</span></span>
           </a>
-          <a href="/work/radio-disney" class="featured-case">
-            <span class="case-industry">Media & Entertainment</span>
-            <h3 class="case-name">Radio Disney</h3>
-            <p class="case-summary">Mobile audio experience with alarm clock and Disney ecosystem integration</p>
-            <span class="case-link">Read case study →</span>
+          <a href="/work/radio-disney" class="proof-row">
+            <span class="proof-industry">Media & Entertainment</span>
+            <span class="proof-project"><strong>Radio Disney</strong> Mobile audio experience in the Disney ecosystem</span>
+            <span class="proof-result">Flagship audio app <span class="proof-arrow">→</span></span>
           </a>
         </div>
 
@@ -498,10 +486,10 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
   }
 
   .section-number {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     color: var(--text-muted);
   }
 
@@ -518,12 +506,12 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
 
   .section-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 400;
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
   }
 
   .section-subtitle {
@@ -556,17 +544,16 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
     padding: 2rem;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 8px;
+    transition: border-color 160ms ease;
   }
 
   .industry-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    border-color: var(--border-hover);
   }
 
   .industry-icon {
-    color: var(--accent);
+    color: var(--text-muted);
     margin-bottom: 1.25rem;
   }
 
@@ -587,10 +574,10 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
   }
 
   .industry-clients {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
     color: var(--text-muted);
-    letter-spacing: 0.02em;
   }
 
   /* Apps Teaser */
@@ -660,58 +647,30 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
 
   .apps-teaser-icon {
     border-radius: 14px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    animation: fadeInIcon 0.5s ease-out forwards;
+    animation: fadeInIcon 0.4s ease-out forwards;
     opacity: 0;
-  }
-
-  .apps-teaser-icon:hover {
-    transform: scale(1.08) translateY(-2px);
-    box-shadow: var(--shadow-md);
   }
 
   @keyframes fadeInIcon {
     from {
       opacity: 0;
-      transform: scale(0.8);
     }
     to {
       opacity: 1;
-      transform: scale(1);
     }
   }
 
   /* CTA Section */
   .cta-section {
-    background: var(--ink);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-      linear-gradient(to right, rgba(250, 250, 249, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(250, 250, 249, 0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-    pointer-events: none;
+    background: var(--night, #171717);
   }
 
   .dark .cta-section {
-    background: #0a0a0a;
+    background: #101010;
     border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
   }
 
   .cta-content {
-    position: relative;
-    z-index: 1;
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
@@ -719,21 +678,20 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
 
   .cta-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 400;
-    color: var(--paper);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 600;
+    color: #f7f5ef;
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
   }
 
   .cta-subtitle {
     font-family: var(--font-body);
-    font-size: 1.125rem;
-    color: var(--paper);
-    opacity: 0.7;
+    font-size: 1.0625rem;
+    color: #bcb7ad;
     margin-bottom: 2.5rem;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .cta-actions {
@@ -768,78 +726,88 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
     margin: 0;
   }
 
-  /* Featured Case Studies */
-  .featured-cases {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  /* Featured Case Studies — proof rows */
+  .proof-table {
+    border-top: 1px solid var(--border-color);
     margin-bottom: 2rem;
   }
 
-  @media (min-width: 640px) {
-    .featured-cases {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .featured-cases {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .featured-case {
-    display: block;
-    padding: 2rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
+  .proof-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.375rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-color);
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background 160ms ease;
   }
 
-  .featured-case:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+  @media (min-width: 760px) {
+    .proof-row {
+      grid-template-columns: 0.7fr 1.6fr 0.8fr;
+      gap: 1.5rem;
+      align-items: baseline;
+    }
   }
 
-  .case-industry {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 0.75rem;
+  a.proof-row:hover {
+    background: var(--bg-secondary);
   }
 
-  .case-name {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin: 0 0 0.5rem;
-    line-height: 1.2;
-  }
-
-  .case-summary {
+  .proof-head {
+    display: none;
     font-family: var(--font-body);
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0 0 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.875rem 0;
   }
 
-  .case-link {
+  @media (min-width: 760px) {
+    .proof-head {
+      display: grid;
+    }
+  }
+
+  .proof-industry {
     font-family: var(--font-body);
     font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--accent);
+    color: var(--text-muted);
   }
 
-  .featured-case:hover .case-link {
-    text-decoration: underline;
+  .proof-project {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .proof-project strong {
+    display: block;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.125rem;
+  }
+
+  .proof-result {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .proof-arrow {
+    color: var(--text-muted);
+    font-weight: 400;
+    transition: color 160ms ease;
+  }
+
+  a.proof-row:hover .proof-arrow {
+    color: var(--accent);
   }
 
   /* Portfolio toggle - Mobile only */
@@ -875,11 +843,11 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
   }
 
   .portfolio-summary:hover {
-    color: var(--accent);
+    color: var(--text-primary);
   }
 
   .portfolio-summary::marker {
-    color: var(--accent);
+    color: var(--text-muted);
   }
 
   /* Credentials grid */
@@ -905,8 +873,9 @@ const shuffledIcons = allAppIcons.sort(() => Math.random() - 0.5);
   .credential-number {
     display: block;
     font-family: var(--font-heading);
-    font-size: 1.75rem;
-    color: var(--accent);
+    font-size: 1.625rem;
+    font-weight: 600;
+    color: var(--text-primary);
     margin-bottom: 0.25rem;
   }
 

@@ -201,11 +201,11 @@ import ExploreApps from '../../components/ExploreApps.astro';
     --hy-accent-deep: #0284c7;
     --hy-accent-light: #38bdf8;
     --hy-accent-bg: #e0f2fe;
-    --hy-bg: #f8fafc;
+    --hy-bg: #f7f5ef;
     --hy-surface: #ffffff;
-    --hy-border: rgba(148, 163, 184, 0.15);
-    --hy-text: #0f172a;
-    --hy-text-muted: #64748b;
+    --hy-border: rgba(161, 157, 147, 0.15);
+    --hy-text: #11110f;
+    --hy-text-muted: #77736b;
     --hy-feature-icon-bg: rgba(14, 165, 233, 0.08);
     --hy-feature-icon-border: rgba(14, 165, 233, 0.12);
   }
@@ -215,11 +215,11 @@ import ExploreApps from '../../components/ExploreApps.astro';
     --hy-accent-deep: #0ea5e9;
     --hy-accent-light: #7dd3fc;
     --hy-accent-bg: #082f49;
-    --hy-bg: #0a0f1a;
-    --hy-surface: #111827;
-    --hy-border: rgba(148, 163, 184, 0.08);
-    --hy-text: #f1f5f9;
-    --hy-text-muted: #94a3b8;
+    --hy-bg: #141413;
+    --hy-surface: #1b1a18;
+    --hy-border: rgba(161, 157, 147, 0.08);
+    --hy-text: #efede4;
+    --hy-text-muted: #a19d93;
     --hy-feature-icon-bg: rgba(14, 165, 233, 0.1);
     --hy-feature-icon-border: rgba(14, 165, 233, 0.15);
   }
@@ -278,7 +278,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   /* ─── Hero — Dark, water-inspired with blue glow ─── */
   .hy-hero {
-    background: #0a0f1a;
+    background: #141413;
     padding: 4rem 0 5rem;
     position: relative;
     overflow: hidden;
@@ -349,7 +349,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .hy-hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: #f1f5f9;
+    color: #efede4;
     margin-bottom: 1.5rem;
     line-height: 1.05;
   }
@@ -361,7 +361,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .hy-hero-subtitle {
     font-size: 1.125rem;
-    color: #94a3b8;
+    color: #a19d93;
     line-height: 1.7;
     max-width: 480px;
     margin-bottom: 2rem;
@@ -396,7 +396,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
   .hy-hero-note {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: #94a3b8;
+    color: #a19d93;
   }
 
   .hy-hero-icon-wrap { flex-shrink: 0; }
@@ -551,10 +551,10 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   /* ─── Privacy Banner ─── */
   .hy-privacy-banner {
-    background: #0a0f1a;
+    background: #141413;
     padding: 5rem 0;
-    border-top: 1px solid rgba(148, 163, 184, 0.08);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    border-top: 1px solid rgba(161, 157, 147, 0.08);
+    border-bottom: 1px solid rgba(161, 157, 147, 0.08);
   }
 
   .hy-privacy-inner {
@@ -563,7 +563,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .hy-privacy-title {
     font-size: clamp(2rem, 5vw, 3rem);
-    color: #f1f5f9;
+    color: #efede4;
     margin-top: 1rem;
     margin-bottom: 1.25rem;
     letter-spacing: -0.02em;
@@ -571,7 +571,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .hy-privacy-text {
     font-size: 1.0625rem;
-    color: #94a3b8;
+    color: #a19d93;
     line-height: 1.8;
     margin-bottom: 2rem;
   }
@@ -689,7 +689,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
   /* ─── Screenshots (run-easy style) ─── */
   .hy-screenshots-section {
     padding: 4rem 0;
-    background: var(--hy-bg, #fafaf9);
+    background: var(--hy-bg, #f7f5ef);
   }
 
   .hy-section-header {
@@ -698,7 +698,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .hy-screenshots-title {
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    color: var(--hy-text, #0a0a0a);
+    color: var(--hy-text, #11110f);
     margin-top: 0.5rem;
   }
 
@@ -713,7 +713,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
 
   .hy-screenshots-scroll::-webkit-scrollbar { height: 4px; }
   .hy-screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
-  .hy-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--hy-border, #e7e5e4); border-radius: 2px; }
+  .hy-screenshots-scroll::-webkit-scrollbar-thumb { background: var(--hy-border, #dedbd2); border-radius: 2px; }
 
   .hy-screenshot-card {
     flex-shrink: 0;
@@ -726,8 +726,8 @@ import ExploreApps from '../../components/ExploreApps.astro';
     width: 100%;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.08), 0 4px 12px rgba(10, 10, 10, 0.04);
-    border: 1px solid var(--hy-border, #e7e5e4);
+    box-shadow: 0 12px 40px rgba(17, 17, 15, 0.08), 0 4px 12px rgba(17, 17, 15, 0.04);
+    border: 1px solid var(--hy-border, #dedbd2);
     transition: transform 0.3s ease;
   }
 
@@ -739,7 +739,7 @@ import ExploreApps from '../../components/ExploreApps.astro';
     display: block;
     margin-top: 0.75rem;
     font-size: 0.8125rem;
-    color: var(--hy-text-muted, #78716c);
+    color: var(--hy-text-muted, #77736b);
     letter-spacing: 0.02em;
   }
 

@@ -59,6 +59,7 @@ const { name, role, image, bio, socialLinks, additionalContent } = Astro.props;
   .team-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
+    border-radius: 8px;
     padding: 2.5rem;
   }
 
@@ -86,7 +87,8 @@ const { name, role, image, bio, socialLinks, additionalContent } = Astro.props;
     width: 6rem;
     height: 6rem;
     object-fit: cover;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
   }
 
   @media (min-width: 640px) {
@@ -103,19 +105,19 @@ const { name, role, image, bio, socialLinks, additionalContent } = Astro.props;
 
   .name {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.375rem;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
     line-height: 1.2;
   }
 
   .role {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.05em;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     margin-bottom: 1.25rem;
   }
@@ -162,14 +164,6 @@ const { name, role, image, bio, socialLinks, additionalContent } = Astro.props;
   }
 
   .social-link:hover {
-    color: var(--accent);
-  }
-
-  .social-link svg {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .social-link:hover svg {
-    transform: translate(2px, -2px);
+    color: var(--text-primary);
   }
 </style>

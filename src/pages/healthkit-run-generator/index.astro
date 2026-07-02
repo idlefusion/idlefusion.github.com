@@ -440,9 +440,9 @@ import Footer from '../../components/Footer.astro';
     function getChartColors() {
       const isDark = document.documentElement.classList.contains('dark');
       return {
-        grid: isDark ? '#222228' : '#e7e5e4',
-        label: isDark ? '#5c5c66' : '#78716c',
-        text: isDark ? '#e4e4e7' : '#0a0a0a',
+        grid: isDark ? '#222228' : '#dedbd2',
+        label: isDark ? '#5c5c66' : '#77736b',
+        text: isDark ? '#e4e4e7' : '#11110f',
         cardBg: isDark ? '#16161a' : '#ffffff',
       };
     }
@@ -712,14 +712,14 @@ import Footer from '../../components/Footer.astro';
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(250, 250, 249, 0.85);
+    background: rgba(247, 245, 239, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
   }
 
   :global(.dark) .hkr-nav {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(17, 17, 15, 0.8);
   }
 
   .hkr-nav-inner {

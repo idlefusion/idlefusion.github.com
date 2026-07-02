@@ -89,22 +89,17 @@ const id = `faq-${index}`;
   }
 
   .faq-button:hover .question {
-    color: var(--accent);
+    color: var(--text-muted);
   }
 
   .icon {
     color: var(--text-muted);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+    transition: transform 0.25s ease;
     flex-shrink: 0;
   }
 
   .icon.rotate {
     transform: rotate(180deg);
-    color: var(--accent);
-  }
-
-  .faq-button:hover .icon {
-    color: var(--accent);
   }
 
   .faq-content {
