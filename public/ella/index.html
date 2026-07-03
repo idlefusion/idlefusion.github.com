@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ella, You've Got This! 🌈</title>
+<style>
+  /* ============ Sunny-day world for Ella ============ */
+  :root {
+    --sky: #FFF6E9;
+    --sky-deep: #FFE8CC;
+    --coral: #FF6F91;
+    --sunshine: #FFC145;
+    --mint: #4ECDC4;
+    --grape: #845EC2;
+    --ink: #4A3F55;
+    --cloud: #FFFFFF;
+    --font-fun: "Chalkboard SE", "Comic Sans MS", "Comic Neue", "Marker Felt", "Segoe Print", cursive;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-fun);
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--sky) 0%, var(--sky-deep) 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---------- Sun ---------- */
+  .sun {
+    width: 110px; height: 110px;
+    margin: 12px auto 0;
+    background: radial-gradient(circle at 40% 35%, #FFE082, var(--sunshine));
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 60px 18px rgba(255, 193, 69, 0.45);
+    animation: sunbeam 4s ease-in-out infinite;
+  }
+  .sun::before, .sun::after {
+    content: "";
+    position: absolute;
+    background: var(--ink);
+    width: 10px; height: 14px;
+    border-radius: 50%;
+    top: 38px;
+  }
+  .sun::before { left: 30px; }
+  .sun::after  { right: 30px; }
+  .sun .smile {
+    position: absolute;
+    left: 50%; top: 58px;
+    transform: translateX(-50%);
+    width: 44px; height: 24px;
+    border: 5px solid var(--ink);
+    border-top: none;
+    border-radius: 0 0 44px 44px;
+  }
+  @keyframes sunbeam {
+    0%, 100% { box-shadow: 0 0 60px 18px rgba(255, 193, 69, 0.45); }
+    50%      { box-shadow: 0 0 80px 30px rgba(255, 193, 69, 0.65); }
+  }
+
+  /* ---------- Headline ---------- */
+  h1 {
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
+    line-height: 1.1;
+    margin: 24px 0 8px;
+    text-wrap: balance;
+  }
+  h1 .name {
+    color: var(--coral);
+    display: inline-block;
+    animation: wiggle 2.5s ease-in-out infinite;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50%      { transform: rotate(2deg); }
+  }
+  .subtitle {
+    font-size: 1.25rem;
+    margin: 0 auto 36px;
+    max-width: 30ch;
+    color: #6B5E7B;
+  }
+
+  /* ---------- Cards ---------- */
+  .card {
+    background: var(--cloud);
+    border-radius: 28px;
+    padding: 28px 24px;
+    margin: 24px 0;
+    box-shadow: 0 8px 0 rgba(74, 63, 85, 0.08);
+    border: 3px solid transparent;
+  }
+  .card h2 {
+    font-size: 1.5rem;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .card p { font-size: 1.1rem; line-height: 1.55; margin: 0.4em 0; }
+
+  .card.pink   { border-color: var(--coral); }
+  .card.yellow { border-color: var(--sunshine); }
+  .card.mint   { border-color: var(--mint); }
+  .card.grape  { border-color: var(--grape); }
+
+  .card .emoji-row {
+    font-size: 2rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 6px;
+  }
+
+  /* ---------- Bravery meter ---------- */
+  .meter-track {
+    background: var(--sky-deep);
+    border-radius: 999px;
+    height: 34px;
+    overflow: hidden;
+    margin-top: 14px;
+  }
+  .meter-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--sunshine), var(--coral), var(--grape));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    color: white;
+    font-size: 1rem;
+    transition: width 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+    white-space: nowrap;
+  }
+
+  /* ---------- Fun fact list ---------- */
+  .facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .facts li {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background: var(--sky);
+    border-radius: 18px;
+    padding: 14px 16px;
+  }
+
+  /* ---------- Buttons ---------- */
+  button {
+    font-family: var(--font-fun);
+    font-size: 1.2rem;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 16px 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 rgba(74, 63, 85, 0.2);
+    transition: transform 0.1s ease;
+    margin-top: 12px;
+  }
+  button:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(74, 63, 85, 0.2); }
+  button:focus-visible { outline: 4px solid var(--grape); outline-offset: 3px; }
+  .btn-joke  { background: var(--mint); }
+  .btn-party { background: var(--coral); font-size: 1.35rem; }
+
+  .joke-box {
+    min-height: 3.2em;
+    font-size: 1.2rem;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+  .joke-answer { color: var(--grape); display: block; margin-top: 4px; }
+
+  /* ---------- Certificate ---------- */
+  .certificate {
+    background: var(--cloud);
+    border: 4px dashed var(--sunshine);
+    border-radius: 20px;
+    padding: 30px 22px;
+    margin: 32px 0 0;
+  }
+  .certificate .ribbon { font-size: 3rem; }
+  .certificate h2 {
+    font-size: 1.9rem;
+    margin: 8px 0 4px;
+    color: var(--grape);
+  }
+  .certificate .awarded {
+    font-size: 2.4rem;
+    color: var(--coral);
+    margin: 10px 0;
+  }
+  .certificate p { font-size: 1.05rem; line-height: 1.5; margin: 0.3em 0; }
+  .certificate .signed {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: #8A7D99;
+  }
+
+  /* ---------- Floating balloons ---------- */
+  .balloon {
+    position: fixed;
+    bottom: -120px;
+    font-size: 2.6rem;
+    z-index: 1;
+    animation: floatUp linear infinite;
+    pointer-events: none;
+  }
+  @keyframes floatUp {
+    from { transform: translateY(0) rotate(-4deg); }
+    to   { transform: translateY(-130vh) rotate(4deg); }
+  }
+
+  /* ---------- Confetti canvas ---------- */
+  #confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 1.05rem;
+    color: #8A7D99;
+  }
+  footer .hearts { font-size: 1.4rem; letter-spacing: 0.2em; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sun, h1 .name, .balloon { animation: none; }
+    .meter-fill { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+
+<div class="page">
+
+  <div class="sun" aria-hidden="true"><div class="smile"></div></div>
+
+  <h1>You've got this,<br><span class="name">Ella!</span> 🌟</h1>
+  <p class="subtitle">A special page for one of the bravest kids in the whole wide world.</p>
+
+  <section class="card pink">
+    <div class="emoji-row" aria-hidden="true">💪 🦸‍♀️ 💖</div>
+    <h2>Official Bravery Meter</h2>
+    <p>Scientists measured Ella's bravery and the results are in…</p>
+    <div class="meter-track" role="img" aria-label="Bravery meter showing one hundred percent">
+      <div class="meter-fill" id="meter">100% SUPER BRAVE!</div>
+    </div>
+  </section>
+
+  <section class="card yellow">
+    <div class="emoji-row" aria-hidden="true">🧵 ✨ 🩹</div>
+    <h2>Did you know? Stitches are kind of amazing!</h2>
+    <ul class="facts">
+      <li>🦸 Stitches are like <strong>tiny superhero threads</strong> that help your body do what it's already great at — fixing itself!</li>
+      <li>⚽ Lots of famous soccer players, astronauts, and movie stars have had stitches. You're joining a very cool club.</li>
+      <li>🛌 While you rest and have snacks, your body does ALL the work. Stitches are basically a free pass for extra cuddles.</li>
+      <li>📖 Best of all: you get an awesome brave story to tell your friends!</li>
+    </ul>
+  </section>
+
+  <section class="card mint">
+    <div class="emoji-row" aria-hidden="true">😂 🐔 🍌</div>
+    <h2>The Giggle Machine</h2>
+    <p>Doctors say giggles are excellent medicine. Press the button!</p>
+    <button class="btn-joke" id="jokeBtn">Tell me a joke! 🤪</button>
+    <p class="joke-box" id="jokeBox" aria-live="polite"></p>
+  </section>
+
+  <section class="card grape">
+    <div class="emoji-row" aria-hidden="true">🎈 🎉 🎊</div>
+    <h2>Brave Girls Get a Party</h2>
+    <p>You earned it, Ella. Press the big button!</p>
+    <button class="btn-party" id="partyBtn">🎉 Start My Brave Party! 🎉</button>
+  </section>
+
+  <div class="certificate">
+    <div class="ribbon" aria-hidden="true">🏅</div>
+    <h2>Certificate of Super Bravery</h2>
+    <p>This award is officially presented to</p>
+    <div class="awarded">⭐ Ella ⭐</div>
+    <p>for being incredibly brave, wonderfully strong,<br>and absolutely awesome while getting stitches.</p>
+    <p class="signed">Signed: The Whole World, who thinks you're amazing 🌍</p>
+  </div>
+
+  <footer>
+    <div class="hearts" aria-hidden="true">💛 💖 💜</div>
+    <p>Made with lots of love, just for Ella.</p>
+  </footer>
+
+</div>
+
+<script>
+  // ---------- Floating balloons ----------
+  var balloonEmoji = ["🎈", "🎈", "🦋", "🌈", "⭐"];
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    for (var i = 0; i < 7; i++) {
+      var b = document.createElement("div");
+      b.className = "balloon";
+      b.textContent = balloonEmoji[i % balloonEmoji.length];
+      b.style.left = (5 + Math.random() * 90) + "%";
+      b.style.animationDuration = (14 + Math.random() * 12) + "s";
+      b.style.animationDelay = (Math.random() * 14) + "s";
+      b.setAttribute("aria-hidden", "true");
+      document.body.appendChild(b);
+    }
+  }
+
+  // ---------- Bravery meter fills on load ----------
+  window.addEventListener("load", function () {
+    requestAnimationFrame(function () {
+      document.getElementById("meter").style.width = "100%";
+    });
+  });
+
+  // ---------- Giggle Machine ----------
+  var jokes = [
+    ["Why did the banana go to the doctor?", "Because it wasn't peeling well! 🍌"],
+    ["What do you call a bear with no teeth?", "A gummy bear! 🐻"],
+    ["Why did the teddy bear say no to dessert?", "Because she was already stuffed! 🧸"],
+    ["What does a cloud wear under its raincoat?", "Thunderwear! ⛈️"],
+    ["Why can't Elsa have a balloon?", "Because she will let it go! ❄️"],
+    ["What do you call a sleeping dinosaur?", "A dino-SNORE! 🦕"],
+    ["Why did the cookie go to the doctor?", "Because it was feeling crummy! 🍪"],
+    ["What's a cat's favorite color?", "Purr-ple! 🐱"],
+    ["How do you make a tissue dance?", "You put a little boogie in it! 🕺"],
+    ["What did one plate say to the other plate?", "Dinner is on me! 🍽️"]
+  ];
+  var jokeIndex = -1;
+  var jokeBox = document.getElementById("jokeBox");
+  document.getElementById("jokeBtn").addEventListener("click", function () {
+    jokeIndex = (jokeIndex + 1) % jokes.length;
+    jokeBox.innerHTML = "";
+    var q = document.createElement("span");
+    q.textContent = jokes[jokeIndex][0];
+    var a = document.createElement("span");
+    a.className = "joke-answer";
+    a.textContent = jokes[jokeIndex][1];
+    jokeBox.appendChild(q);
+    jokeBox.appendChild(a);
+    burst(24);
+  });
+
+  // ---------- Confetti ----------
+  var canvas = document.getElementById("confetti");
+  var ctx = canvas.getContext("2d");
+  var pieces = [];
+  var colors = ["#FF6F91", "#FFC145", "#4ECDC4", "#845EC2", "#FF9671", "#F9F871"];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  function burst(count) {
+    if (reduceMotion) count = Math.min(count, 12);
+    for (var i = 0; i < count; i++) {
+      pieces.push({
+        x: canvas.width / 2 + (Math.random() - 0.5) * canvas.width * 0.5,
+        y: canvas.height * 0.3,
+        vx: (Math.random() - 0.5) * 10,
+        vy: -6 - Math.random() * 8,
+        size: 6 + Math.random() * 8,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rot: Math.random() * Math.PI * 2,
+        vrot: (Math.random() - 0.5) * 0.3,
+        shape: Math.random() < 0.5 ? "rect" : "circle"
+      });
+    }
+    if (!animating) { animating = true; tick(); }
+  }
+
+  var animating = false;
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = pieces.length - 1; i >= 0; i--) {
+      var p = pieces[i];
+      p.vy += 0.25;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vrot;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      if (p.shape === "rect") {
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      } else {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+      if (p.y > canvas.height + 40) pieces.splice(i, 1);
+    }
+    if (pieces.length > 0) {
+      requestAnimationFrame(tick);
+    } else {
+      animating = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  document.getElementById("partyBtn").addEventListener("click", function () {
+    burst(140);
+  });
+
+  // A little welcome sprinkle when the page opens
+  window.addEventListener("load", function () {
+    setTimeout(function () { burst(50); }, 600);
+  });
+</script>
+</body>
+</html>
