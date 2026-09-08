@@ -114,7 +114,9 @@ const socialImage = new URL('/img/logo.png', site).href;
             href="/explore/"
             aria-label="Come on in — explore the full Idle Fusion website"
           >
-            Come on in <span class="enter-arrow" aria-hidden="true">→</span>
+            Come on in <span class="enter-arrow" aria-hidden="true"
+              ><span class="enter-arrow-glyph">→</span></span
+            >
           </a>
         </div>
       </div>
@@ -344,7 +346,8 @@ const socialImage = new URL('/img/logo.png', site).href;
   .email span {
     color: var(--welcome-blue);
   }
-  .email:hover {
+  .email:hover,
+  .email:focus-visible {
     color: var(--welcome-link);
     border-color: var(--welcome-blue);
   }
@@ -385,7 +388,8 @@ const socialImage = new URL('/img/logo.png', site).href;
       background 160ms,
       color 160ms;
   }
-  .enter:hover .enter-arrow {
+  .enter:hover .enter-arrow,
+  .enter:focus-visible .enter-arrow {
     background: var(--welcome-blue);
     color: var(--welcome-bg);
   }
@@ -445,6 +449,55 @@ const socialImage = new URL('/img/logo.png', site).href;
     }
     footer nav {
       gap: 16px;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .fusion-mark::before,
+    .fusion-mark::after {
+      /* Keep the ring centers close enough to overlap at every rotation. */
+      --cross-x: -4px;
+      --cross-y: -8px;
+      animation:
+        fusion-spin 8s linear infinite,
+        fusion-cross 8s ease-in-out infinite;
+    }
+    .fusion-mark::after {
+      --cross-x: 4px;
+      --cross-y: 8px;
+      animation-direction: reverse, normal;
+    }
+    @keyframes fusion-cross {
+      0%,
+      50%,
+      100% {
+        translate: 0 0;
+      }
+      25% {
+        translate: var(--cross-x) 0;
+      }
+      75% {
+        translate: 0 var(--cross-y);
+      }
+    }
+    @keyframes fusion-spin {
+      from {
+        transform: rotate(32deg);
+      }
+      to {
+        transform: rotate(392deg);
+      }
+    }
+    .enter-arrow-glyph,
+    .email span {
+      transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .enter:hover .enter-arrow-glyph,
+    .enter:focus-visible .enter-arrow-glyph {
+      transform: translateX(4px);
+    }
+    .email:hover span,
+    .email:focus-visible span {
+      transform: translate(2px, -2px);
     }
   }
   @media (prefers-reduced-motion: reduce) {
