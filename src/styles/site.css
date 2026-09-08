@@ -538,15 +538,15 @@ p {
   align-items: center;
 }
 .portrait-small {
-  height: 390px;
+  width: 100%;
+  max-width: 420px;
+  justify-self: center;
   overflow: hidden;
   border-radius: 4px;
 }
 .portrait-small img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 38%;
+  height: auto;
   filter: saturate(0.65);
 }
 .studio-teaser h2 {
@@ -1296,9 +1296,6 @@ p {
   }
   .studio-teaser {
     gap: 35px;
-  }
-  .portrait-small {
-    height: 330px;
   }
   .footer-top {
     padding-bottom: 42px;

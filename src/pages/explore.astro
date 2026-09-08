@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/SiteLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout title="Good ideas. Built to work.">
+  <section class="home-hero wrap" id="home">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="status-dot"></span> Independent digital studio</span>
+      <h1>
+        Good ideas.<br />Built to <em>work.</em>
+      </h1>
+      <p>
+        We turn complex challenges into simple, thoughtful apps and websites. From the first
+        conversation to the next big chapter.
+      </p>
+      <div class="actions">
+        <a class="button" href="/work/">Explore our work <span aria-hidden="true">↗</span> </a>
+        <a class="text-link" href="/contact/">
+          Tell us your idea <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="hero-footnote">
+        <span>20+ years of building what’s next.</span>
+        <a href="/studio/">Meet the studio ↗</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-label="A selection of apps built by Idle Fusion">
+      <div class="art-heading">
+        <span>SMALL DETAILS.<br />REAL DIFFERENCE.</span>
+        <span class="fusion-mark large" aria-hidden="true"> </span>
+      </div>
+      <div class="hero-apps">
+        <img
+          class="hero-screen screen-one"
+          src="/img/contrast/screenshots/02_active_sauna.png"
+          alt="Contrast app sauna timer"
+          width="1290"
+          height="2796"
+        /><img
+          class="hero-screen screen-two"
+          src="/img/contrast/screenshots/03_active_cold.png"
+          alt="Contrast app cold plunge timer"
+          width="1290"
+          height="2796"
+        />
+      </div>
+      <a class="art-caption" href="/contrast/">
+        <span>
+          <strong>Contrast</strong><small>One of our own. Made for everyday life.</small>
+        </span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+  <section class="client-strip wrap" aria-label="Selected clients">
+    <span>GOOD COMPANY<br />TO BUILD WITH</span>
+    <span class="client-disney">Disney</span>
+    <span> NBC Sports </span>
+    <span>GOLF CHANNEL</span>
+    <span>Treehouse</span>
+    <span class="client-edd">
+      Easy Digital<br />Downloads
+    </span>
+  </section>
+  <section class="section wrap" id="our-work">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">01 / Selected work</span>
+        <h2>
+          Different ambitions.<br />Same attention to detail.
+        </h2>
+      </div>
+      <a class="text-link" href="/work/">All selected work ↗</a>
+    </div>
+    <div class="project-grid">
+      {projects.slice(0, 2).map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+  <section class="service-band" id="how-it-works">
+    <div class="wrap service-band-inner">
+      <div>
+        <span class="eyebrow">02 / What we do</span>
+        <h2>
+          From “what if”<br />to <em>what’s next.</em>
+        </h2>
+        <p>
+          A hands-on partner for your product, your team, and the decisions that move you forward.
+        </p>
+        <a class="text-link" href="/services/">How we can help ↗</a>
+      </div>
+      <div class="service-list">
+        <a href="/services/#mobile"
+          ><span>01</span>
+          <h3>Mobile experiences</h3>
+          <span>↗</span>
+        </a>
+        <a href="/services/#web">
+          <span>02</span>
+          <h3>Websites & platforms</h3>
+          <span>↗</span>
+        </a>
+        <a href="/services/#strategy">
+          <span>03</span>
+          <h3>Technical direction</h3>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section wrap studio-teaser" id="leadership">
+    <div class="portrait-small">
+      <img
+        src="/img/us/matthew.jpg"
+        alt="Matthew Strickland, founder of Idle Fusion"
+        width="768"
+        height="1024"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <span class="eyebrow">03 / A personal approach</span>
+      <h2>
+        Big experience.<br />A direct connection.
+      </h2>
+      <p>
+        Idle Fusion is led by Matthew Strickland, a builder and technology leader with more than 20
+        years of experience. You work directly with the person helping bring your idea to life.
+      </p>
+      <a class="text-link" href="/studio/">Get to know the studio ↗</a>
+    </div>
+  </section>
+</Layout>

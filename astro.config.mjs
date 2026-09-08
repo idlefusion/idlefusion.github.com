@@ -6,8 +6,12 @@ export default defineConfig({
   site: 'https://idlefusion.com',
   base: '/',
   output: 'static',
-  integrations: [tailwind(), sitemap()],
+  redirects: { '/welcome': '/' },
+  integrations: [
+    tailwind(),
+    sitemap({ filter: (page) => new URL(page).pathname.replace(/\/$/, '') !== '/welcome' }),
+  ],
   build: {
-    assets: '_assets'
-  }
+    assets: '_assets',
+  },
 });

@@ -122,6 +122,7 @@ try {
   }
   const expectedRoutes = [
     '/',
+    '/explore/',
     '/apps/',
     '/contact/',
     '/services/',
@@ -169,6 +170,7 @@ try {
   console.log(
     `Checked ${documents.length} generated pages and ${expectedRoutes.length} release routes: links, assets, anchors, canonical URLs, and indexing.`,
   );
+  await run('scripts/verify-welcome.mjs');
   await run('scripts/verify-contact.mjs');
   await run('scripts/capture-site.mjs');
   await run('scripts/capture-apps.mjs');

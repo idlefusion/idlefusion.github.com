@@ -4,7 +4,8 @@
 
 The business website uses the original blue (#0088CC), black (#0A0A0A), and white palette with Work Sans headings and selective Crimson Pro italic accents. The reviewed layout now lives at the public URLs:
 
-- `/`: studio introduction, featured work, services, and founder introduction.
+- `/`: simple welcome, name and contact details, light/dark control, and an invitation to explore.
+- `/explore/`: featured work, services, and founder introduction, including the uncropped portrait.
 - `/work/` and the five existing `/work/<slug>/` URLs: portfolio and case studies.
 - `/services/` and `/studio/`: capabilities, process, and founder story.
 - `/apps/`: searchable directory with category filters.
@@ -12,7 +13,7 @@ The business website uses the original blue (#0088CC), black (#0A0A0A), and whit
 - `/contact/`: inquiry form using the original direct-send service.
 - All 28 existing dedicated app pages, their 56 support/privacy pages, and `/apps/currency/`: product identities preserved, with shared navigation and discovery.
 
-Marta Easy and the currency family retain their existing hidden-directory status. The three new routes are Work, Services, and Studio. Existing public destinations and the homepage's `home`, `our-work`, `how-it-works`, and `leadership` anchors remain available.
+Marta Easy and the currency family retain their existing hidden-directory status. The welcome screen follows the saved or system theme and remembers manual changes. `/welcome/` redirects to `/`. Existing links to `/#our-work`, `/#how-it-works`, and `/#leadership` forward to the corresponding section on `/explore/`.
 
 ## Implementation
 
