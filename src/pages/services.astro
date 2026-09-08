@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/SiteLayout.astro';
+const services = [
+  {
+    id: 'mobile',
+    number: '01',
+    name: 'Mobile experiences',
+    description:
+      'Native apps that feel right from the first tap. We bring product thinking and careful engineering to the devices your customers use every day.',
+    items: [
+      'iOS & Android applications',
+      'Apple Watch experiences',
+      'Interface design & prototyping',
+      'App launch & ongoing development',
+    ],
+  },
+  {
+    id: 'web',
+    number: '02',
+    name: 'Websites & platforms',
+    description:
+      'A clear, useful home for your business online. From a focused website to a connected platform, we build around what your audience needs to do.',
+    items: [
+      'Business & marketing websites',
+      'Custom web applications',
+      'Platform & API integrations',
+      'Performance & accessibility',
+    ],
+  },
+  {
+    id: 'strategy',
+    number: '03',
+    name: 'Technical direction',
+    description:
+      'Experienced perspective for the decisions that matter. Clarify the opportunity, choose a practical path, and give your team the confidence to move forward.',
+    items: [
+      'Product discovery & roadmaps',
+      'Architecture & technical planning',
+      'Engineering team guidance',
+      'Ongoing product partnership',
+    ],
+  },
+];
+---
+
+<Layout title="Services" active="services">
+  <section class="page-intro wrap">
+    <span class="eyebrow">What we do</span>
+    <h1>Your ambition.<br />Our <em>craft.</em></h1>
+    <div class="intro-row">
+      <p>
+        Thoughtful design. Experienced development. A practical partner from the first question to
+        the next release.
+      </p>
+      <a class="text-link" href="/contact/">Let’s talk about your project ↗</a>
+    </div>
+  </section>
+  <section class="wrap" aria-label="Services">
+    {
+      services.map((s) => (
+        <article class="service-detail" id={s.id}>
+          <>
+            <span class="eyebrow">{s.number} / Practice</span>
+            <div>
+              <>
+                <h2>{s.name}</h2>
+                <p>{s.description}</p>
+              </>
+            </div>
+            <ul class="plain-list">
+              {s.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </>
+        </article>
+      ))
+    }
+  </section>
+  <section class="service-band" id="process">
+    <div class="wrap">
+      <span class="eyebrow">The process</span>
+      <h2>Clear steps.<br />Shared momentum.</h2>
+      <div class="process-grid">
+        <article>
+          <span>01 / ALIGN</span>
+          <h3>Start with the right questions.</h3>
+          <p>
+            We talk through your goals, your audience, and what a successful outcome looks like.
+            Then we shape a focused plan together.
+          </p>
+        </article><article>
+          <span>02 / MAKE</span>
+          <h3>Build. Share. Refine.</h3>
+          <p>
+            Design and development move forward with regular conversations and tangible progress.
+            You stay close to the decisions.
+          </p>
+        </article><article>
+          <span>03 / GROW</span>
+          <h3>Launch is a beginning.</h3>
+          <p>
+            We help get your product into the world, then support the updates and improvements that
+            come with real-world use.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <div class="quote-block">
+    <blockquote>
+      “Matthew’s expertise and leadership were invaluable to our team. He consistently delivered
+      innovative solutions and strategic guidance.”
+    </blockquote><cite>Roger Walker · Assurance Systems, Inc.</cite>
+  </div>
+</Layout>

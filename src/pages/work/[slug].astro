@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/SiteLayout.astro';
+import { projects } from '../../data/projects';
+export function getStaticPaths() {
+  return projects.map((project, i) => ({
+    params: { slug: project.slug },
+    props: { project, next: projects[(i + 1) % projects.length] },
+  }));
+}
+const { project: p, next } = Astro.props;
+---
+
+<Layout title={p.name} active="work" description={p.intro}>
+  <section class="wrap case-intro">
+    <a class="back-link" href="/work/">← All selected work</a>
+    <span class="eyebrow">
+      {p.category} / Project {p.number}
+    </span>
+    <h1>{p.name}<em>.</em></h1>
+    <p class="case-lede">{p.intro}</p>
+    <dl class="case-meta">
+      <div>
+        <dt>Client</dt>
+        <dd>{p.client}</dd>
+      </div>
+      <div>
+        <dt>Platform</dt>
+        <dd>{p.platform}</dd>
+      </div>
+      <div>
+        <dt>Practice</dt>
+        <dd>Design & development</dd>
+      </div>
+    </dl>
+    <div class:list={['project-art', 'case-art', p.color]}>
+      <span class="art-topline">IDLE FUSION<span>SELECTED WORK / {p.number}</span> </span>
+      <img src={p.image} alt={`${p.name} logo`} width="300" height="180" /><span
+        class="art-bottomline"
+        >{p.short}<span aria-hidden="true">↗</span>
+      </span>
+    </div>{p.note && <p class="case-note">{p.note}</p>}
+  </section>
+  <section class="wrap case-body">
+    <span class="eyebrow">Behind the work</span>
+    <div>
+      <article>
+        <span class="eyebrow">01 / The challenge</span>
+        <h2>A problem worth solving.</h2>
+        <p>
+          {p.challenge}
+        </p>
+      </article><article>
+        <span class="eyebrow">02 / Our approach</span>
+        <h2>Built around the experience.</h2>
+        <ul>
+          {p.approach.map((item) => <li>{item}</li>)}
+        </ul>
+      </article><article>
+        <span class="eyebrow">03 / The outcome</span>
+        <h2>From idea to everyday use.</h2>
+        <p>
+          {p.outcome}
+        </p>
+      </article>
+    </div>
+  </section>
+  <a href={`/work/${next.slug}/`} class="wrap next-project">
+    <div>
+      <span class="eyebrow">Next project</span>
+      <h3>{next.name}</h3>
+    </div>
+    <span aria-hidden="true"> ↗ </span>
+  </a>
+</Layout>

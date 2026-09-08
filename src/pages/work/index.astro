@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/SiteLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+---
+
+<Layout title="Selected work" active="work">
+  <section class="page-intro wrap">
+    <span class="eyebrow">Selected work / Idle Fusion</span>
+    <h1>
+      Built with purpose.<br />Made for <em>people.</em>
+    </h1>
+    <div class="intro-row">
+      <p>
+        From beloved media brands to mission-driven organizations. A selection of the products we’ve
+        helped bring to life.
+      </p>
+      <span class="meta">05 selected projects</span>
+    </div>
+  </section>
+  <section class="wrap work-list" aria-label="Selected projects">
+    <div class="filter-bar">
+      <div class="filters" aria-label="Filter projects">
+        {
+          ['All work', 'Mobile', 'Web'].map((label, i) => (
+            <button class="filter" data-filter={i === 0 ? 'All' : label} aria-pressed={i === 0}>
+              {label}
+            </button>
+          ))
+        }
+      </div>
+      <span class="meta" id="project-count" aria-live="polite">5 projects</span>
+    </div>
+    <div class="project-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+  <section class="service-band">
+    <div class="wrap">
+      <span class="eyebrow">More good company</span>
+      <h2>Experience that travels.</h2>
+      <div class="client-list">
+        <span>NBC Sports</span>
+        <span>GolfNow</span>
+        <span>Telemundo Deportes</span>
+        <span> Treehouse </span>
+        <span>Comcast RSN</span>
+      </div>
+    </div>
+  </section>
+</Layout>
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+  buttons.forEach((button) =>
+    button.addEventListener('click', () => {
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      let count = 0;
+      cards.forEach((card) => {
+        card.hidden =
+          button.dataset.filter !== 'All' && card.dataset.category !== button.dataset.filter;
+        if (!card.hidden) count++;
+      });
+      document.getElementById('project-count')!.textContent =
+        `${count} ${count === 1 ? 'project' : 'projects'}`;
+    }),
+  );
+</script>

@@ -1,487 +1,128 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-
-const apps = [
-  { slug: 'contrast', name: 'Contrast', category: 'Sauna + Cold Plunge', desc: 'A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.', icon: '/img/contrast/icon.png' },
-  { slug: 'fast-easy', name: 'Fast Easy', category: 'Fasting Timer', desc: 'A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions.', icon: '/img/fast-easy/icon.png' },
-  { slug: 'focus-easy', name: 'Focus Easy', category: 'Minimalist Launcher', desc: 'A minimal home screen launcher that eliminates distraction. Your essential apps, one tap away.', icon: '/img/focus-easy/icon.png' },
-  { slug: 'run-easy', name: 'Run Easy', category: 'Heart Rate Zone Training', desc: 'Heart rate zone training on Apple Watch built around the Maffetone method with real-time coaching.', icon: '/img/run-easy/icon.png' },
-  { slug: 'check-yourself', name: 'Check Yourself', category: 'Camera Mirror', desc: 'A lightweight macOS menu bar app to check your appearance before meetings.', icon: '/img/check-yourself/icon.png' },
-  { slug: 'breathe-easy', name: 'Breathe Easy', category: 'Breathing Exercises', desc: 'Guided breathing exercises with haptic feedback. Box breathing, 4-7-8, and more.', icon: '/img/breathe-easy/icon.png' },
-  { slug: 'track-easy', name: 'Track Easy', category: 'Habit Tracker', desc: 'Track habits without the hassle. Unlimited habits, streaks, widgets, and Apple Watch.', icon: '/img/track-easy/icon.png' },
-  { slug: 'mood-easy', name: 'Mood Easy', category: 'Mood Tracker', desc: 'Track your mood privately with quick emoji logging and Year in Pixels visualization.', icon: '/img/mood-easy/icon.png' },
-  { slug: 'pomo-easy', name: 'Pomo Easy', category: 'Pomodoro Timer', desc: 'Focus with the Pomodoro technique. Live Activities, widgets, and Apple Watch.', icon: '/img/pomo-easy/icon.png' },
-  { slug: 'hydrate', name: 'Hydrate', category: 'Water Tracker', desc: 'Track your daily water intake with quick-log buttons and HealthKit sync.', icon: '/img/hydrate/icon.png' },
-  { slug: 'count-easy', name: 'Count Easy', category: 'Countdown Tracker', desc: 'Track the days until your next big moment. Shareable countdowns, widgets, and confetti when the day arrives.', icon: '/img/count-easy/icon.png' },
-  { slug: 'cycle-easy', name: 'Cycle Easy', category: 'Period Tracker', desc: 'Privacy-first period tracking. Everything stays on your device — no accounts, no cloud.', icon: '/img/cycle-easy/icon.png' },
-  { slug: 'voice-easy', name: 'Voice Easy', category: 'Voice Recorder', desc: 'Record voice memos with on-device transcription. Your voice never leaves your device.', icon: '/img/voice-easy/icon.png' },
-  { slug: 'weigh-easy', name: 'Weigh Easy', category: 'Weight Tracker', desc: 'Track your weight privately with trend charts, goals, and progress photos.', icon: '/img/weigh-easy/icon.png' },
-  { slug: 'pressure-easy', name: 'Pressure Easy', category: 'Blood Pressure', desc: 'Track blood pressure with AHA category indicators and PDF export for your doctor.', icon: '/img/pressure-easy/icon.png' },
-  { slug: 'spend-easy', name: 'Spend Easy', category: 'Expense Tracker', desc: 'Track spending privately. No bank connections, no cloud sync, no subscriptions.', icon: '/img/spend-easy/icon.png' },
-  { slug: 'rest-easy', name: 'Rest Easy', category: 'Sleep Sounds', desc: 'Drift off with soothing ambient sounds. Mix soundscapes and set a sleep timer.', icon: '/img/rest-easy/icon.png' },
-  { slug: 'meds-easy', name: 'Meds Easy', category: 'Medication Tracker', desc: 'Never miss a dose. Medication schedules, reminders, and refill tracking.', icon: '/img/meds-easy/icon.png' },
-  { slug: 'decibel', name: 'Decibel', category: 'Sound Meter', desc: 'Measure sound levels instantly with NIOSH exposure warnings.', icon: '/img/decibel/icon.png' },
-  { slug: 'caffeine-easy', name: 'Caffeine Easy', category: 'Caffeine Tracker', desc: 'Know when caffeine clears your system with half-life decay visualization.', icon: '/img/caffeine-easy/icon.png' },
-  { slug: 'stretch-easy', name: 'Stretch Easy', category: 'Stretching Routines', desc: 'Guided stretching routines with timers, haptics, and Apple Watch support.', icon: '/img/stretch-easy/icon.png' },
-  { slug: 'temp-easy', name: 'Temp Easy', category: 'Temperature Tracker', desc: 'Track body temperature for the whole family with fever alerts, symptom logging, and export for your doctor.', icon: '/img/temp-easy/icon.png' },
-  { slug: 'tune-easy', name: 'Tune Easy', category: 'Guitar Tuner', desc: 'Tune your guitar simply with real-time pitch detection and reference tones.', icon: '/img/tune-easy/icon.png' },
-  { slug: 'marta-easy', name: 'Marta Easy', category: 'Atlanta Transit Companion', desc: 'Check departures, delays, and MARTA service alerts quickly before your commute.', icon: '/img/marta-easy/icon.png' },
-  { slug: 'macro-easy', name: 'Macro Easy', category: 'Macro & Nutrition Tracking', desc: 'Log protein, carbs, and fat quickly with a simple, fast interface for daily nutrition tracking.', icon: '/img/macro-easy/icon.png' },
-  { slug: 'set-easy', name: 'Set Easy', category: 'Gym & Strength Training', desc: 'Track sets, reps, and workout templates to stay consistent with your strength-building routine.', icon: '/img/set-easy/icon.png' },
-  { slug: 'split-easy', name: 'Split Easy', category: 'Bill Splitting', desc: 'Split expenses, tips, and tax quickly with share results that are easy to send to your group.', icon: '/img/split-easy/icon.png' },
-  { slug: 'dose-easy', name: 'Dose Easy', category: 'Supplement & Vitamin Tracker', desc: 'Log supplements and stay consistent with easy reminders and adherence tracking.', icon: '/img/dose-easy/icon.png' },
-];
-
-const featureFlags = {
-  showMartaEasy: false,
-  showCurrencyApps: false,
-};
-
-const visibleApps = apps.filter(app => featureFlags.showMartaEasy || app.slug !== 'marta-easy');
-
-// Pick a random featured app for the hero
-const featuredApp = visibleApps[Math.floor(Math.random() * visibleApps.length)];
-const otherApps = visibleApps.filter(a => a.slug !== featuredApp.slug);
+import Layout from '../../layouts/SiteLayout.astro';
+import { visibleApps } from '../../data/apps';
+const focus = new Set(['focus-easy', 'pomo-easy', 'track-easy', 'voice-easy']);
+const everyday = new Set([
+  'check-yourself',
+  'count-easy',
+  'spend-easy',
+  'decibel',
+  'tune-easy',
+  'split-easy',
+]);
+const category = (slug: string) =>
+  focus.has(slug) ? 'Focus' : everyday.has(slug) ? 'Everyday' : 'Health';
 ---
 
-<BaseLayout
-  title="Apps — Idle Fusion"
-  description={`Purpose-built apps designed with care. Privacy-first, no accounts, no subscriptions. ${visibleApps.length} apps for health, productivity, and everyday life.`}
-  ogUrl="https://idlefusion.com/apps"
->
-  <Header currentPage="apps" />
-
-  <main>
-    <h1 class="sr-only">iOS Apps by Idle Fusion</h1>
-
-    <!-- Hero: Featured App Spotlight -->
-    <section class="apps-hero">
-      <div class="apps-hero-inner">
-        <div class="apps-hero-content">
-          <div class="apps-hero-text">
-            <span class="apps-hero-badge">FEATURED APP</span>
-            <h2 class="apps-hero-title">{featuredApp.name}</h2>
-            <p class="apps-hero-category">{featuredApp.category}</p>
-            <p class="apps-hero-desc">{featuredApp.desc}</p>
-            <div class="apps-hero-actions">
-              <a href={`/${featuredApp.slug}`} class="btn btn-light apps-hero-cta">
-                Explore {featuredApp.name}
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="cta-arrow">
-                  <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              {featureFlags.showCurrencyApps && (
-                <a href="/apps/currency" class="btn btn-ghost apps-currency-cta">View Currency Apps</a>
-              )}
-            </div>
-          </div>
-          <div class="apps-hero-icon-wrap">
-            <img src={featuredApp.icon} alt={`${featuredApp.name} app icon`} class="apps-hero-icon" width="280" height="280" />
-          </div>
-        </div>
+<Layout title="Our apps" active="apps">
+  <section class="page-intro wrap">
+    <span class="eyebrow">Made by Idle Fusion</span>
+    <h1>
+      A little simpler.<br />Every <em>day.</em>
+    </h1>
+    <div class="intro-row">
+      <p>
+        Small, purpose-built apps for the things you do every day. Thoughtfully designed, with
+        privacy at their heart.
+      </p>
+      <span class="meta">{visibleApps.length} independent apps</span>
+    </div>
+  </section>
+  <section class="wrap">
+    <div class="apps-feature">
+      <div>
+        <span class="eyebrow">The everyday collection</span>
+        <h2>
+          Less friction.<br />More living.
+        </h2>
+        <p>
+          Build a habit, find your focus, or make room to breathe. Find the tool that fits your day.
+        </p>
+        <a class="text-link" href="/contrast/">Meet Contrast, our featured app ↗</a>
       </div>
-    </section>
-
-    <!-- Privacy Promise -->
-    <section class="privacy-promise">
-      <div class="privacy-promise-inner">
-        <div class="privacy-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="11" width="18" height="11" rx="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
-        </div>
-        <div class="privacy-text">
-          <h2>Privacy is not a feature. It's the foundation.</h2>
-          <p>Every app we build keeps your data on your device. No accounts to create. No subscriptions to manage. No tracking. No ads. Just tools that work.</p>
-        </div>
+      <div class="app-icon-art">
+        <img
+          src="/img/breathe-easy/icon.png"
+          alt="Breathe Easy icon"
+          width="112"
+          height="112"
+        /><img src="/img/contrast/icon.png" alt="Contrast icon" width="140" height="140" /><img
+          src="/img/track-easy/icon.png"
+          alt="Track Easy icon"
+          width="112"
+          height="112"
+        />
       </div>
-    </section>
-
-    <!-- All Apps Grid -->
-    <section class="all-apps">
-      <div class="all-apps-inner">
-        <div class="all-apps-header">
-            <span class="all-apps-label">ALL APPS</span>
-            <span class="all-apps-count">{visibleApps.length} apps</span>
-        </div>
-        <div class="all-apps-grid">
-          {visibleApps.map(app => (
-            <a href={`/${app.slug}`} class="app-card-large">
-              <img src={app.icon} alt={`${app.name} icon`} class="app-card-icon" width="80" height="80" />
-              <div class="app-card-content">
-                <span class="app-card-category">{app.category}</span>
-                <h3 class="app-card-name">{app.name}</h3>
-                <p class="app-card-desc">{app.desc}</p>
+    </div>
+    <div class="filter-bar">
+      <div class="filters" aria-label="Filter apps">
+        {
+          ['All apps', 'Health', 'Focus', 'Everyday'].map((name, i) => (
+            <button class="filter" data-app-filter={i === 0 ? 'All' : name} aria-pressed={i === 0}>
+              {name}
+            </button>
+          ))
+        }
+      </div>
+      <label class="search-field">
+        Find an app<input id="app-search" type="search" placeholder="Search the collection" />
+      </label>
+    </div>
+    <p class="meta" id="app-count" aria-live="polite" style="margin-bottom:18px">
+      {visibleApps.length} apps
+    </p>
+    <div class="app-grid">
+      {
+        visibleApps.map((app) => (
+          <a
+            class="app-tile"
+            data-app-category={category(app.slug)}
+            data-search={`${app.name} ${app.category} ${app.desc}`.toLowerCase()}
+            href={`/${app.slug}/`}
+          >
+            <>
+              <img src={app.icon} alt="" width="57" height="57" loading="lazy" />
+              <div>
+                <>
+                  <p class="app-category">{app.category}</p>
+                  <h3>
+                    {app.name} <span aria-hidden="true">↗</span>
+                  </h3>
+                  <p>{app.desc}</p>
+                </>
               </div>
-              <span class="app-card-arrow">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 10H16M16 10L11 5M16 10L11 15"/>
-                </svg>
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <Footer variant="full" />
-</BaseLayout>
-
-<style>
-  /* ═══════════════════════════════════════════════════════
-     APPS PAGE — Bold, Beautiful, Privacy-First
-     ═══════════════════════════════════════════════════════ */
-
-  /* Hero Section */
-  .apps-hero {
-    background: var(--ink);
-    padding: 6rem 0 5rem;
-    position: relative;
-    overflow: hidden;
+            </>
+          </a>
+        ))
+      }
+    </div>
+    <p class="empty-state" id="app-empty" hidden>
+      No apps found. Try another search or choose All apps.
+    </p>
+  </section>
+</Layout>
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('[data-app-filter]');
+  const search = document.getElementById('app-search') as HTMLInputElement;
+  const tiles = document.querySelectorAll<HTMLElement>('[data-app-category]');
+  let category = 'All';
+  function updateApps() {
+    let count = 0;
+    tiles.forEach((tile) => {
+      tile.hidden =
+        (category !== 'All' && tile.dataset.appCategory !== category) ||
+        !tile.dataset.search!.includes(search.value.trim().toLowerCase());
+      if (!tile.hidden) count++;
+    });
+    document.getElementById('app-count')!.textContent = `${count} ${count === 1 ? 'app' : 'apps'}`;
+    document.getElementById('app-empty')!.hidden = count > 0;
   }
-
-  .apps-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-      linear-gradient(to right, rgba(250, 250, 249, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(250, 250, 249, 0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-  }
-
-  :global(.dark) .apps-hero {
-    background: #0a0a0a;
-  }
-
-  .apps-hero-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  @media (min-width: 640px) {
-    .apps-hero-inner { padding: 0 2rem; }
-  }
-
-  @media (min-width: 1024px) {
-    .apps-hero-inner { padding: 0 3rem; }
-  }
-
-  .apps-hero-content {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 3rem;
-    text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    .apps-hero-content {
-      flex-direction: row;
-      text-align: left;
-      gap: 4rem;
-    }
-  }
-
-  .apps-hero-text {
-    flex: 1;
-  }
-
-  .apps-hero-badge {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    display: block;
-  }
-
-  .apps-hero-title {
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 7vw, 5rem);
-    color: var(--paper);
-    margin: 0 0 0.5rem;
-    line-height: 1;
-    letter-spacing: -0.03em;
-  }
-
-  .apps-hero-category {
-    font-family: var(--font-body);
-    font-size: 1.125rem;
-    color: rgba(250, 250, 249, 0.5);
-    margin: 0 0 1.5rem;
-  }
-
-  .apps-hero-desc {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    color: rgba(250, 250, 249, 0.7);
-    line-height: 1.6;
-    max-width: 480px;
-    margin: 0 0 2rem;
-  }
-
-  @media (max-width: 767px) {
-    .apps-hero-desc {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  .apps-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .apps-hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .apps-currency-cta {
-    color: rgba(250, 250, 249, 0.9);
-    border-color: rgba(250, 250, 249, 0.25);
-  }
-
-  .apps-hero-cta .cta-arrow {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .apps-hero-cta:hover .cta-arrow {
-    transform: translateX(4px);
-  }
-
-  .apps-hero-icon-wrap {
-    flex-shrink: 0;
-  }
-
-  .apps-hero-icon {
-    width: 200px;
-    height: 200px;
-    border-radius: 44px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 100px rgba(0, 136, 204, 0.1);
-  }
-
-  @media (min-width: 768px) {
-    .apps-hero-icon {
-      width: 280px;
-      height: 280px;
-      border-radius: 62px;
-    }
-  }
-
-  /* Privacy Promise */
-  .privacy-promise {
-    background: var(--bg-secondary);
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .privacy-promise-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    .privacy-promise-inner {
-      flex-direction: row;
-      text-align: left;
-      gap: 2.5rem;
-    }
-  }
-
-  @media (min-width: 640px) {
-    .privacy-promise-inner { padding: 0 2rem; }
-  }
-
-  @media (min-width: 1024px) {
-    .privacy-promise-inner { padding: 0 3rem; }
-  }
-
-  .privacy-icon {
-    flex-shrink: 0;
-    width: 72px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent);
-    color: white;
-    border-radius: 18px;
-  }
-
-  .privacy-text h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--text-primary);
-    margin: 0 0 0.75rem;
-    line-height: 1.2;
-  }
-
-  .privacy-text p {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin: 0;
-    line-height: 1.6;
-    max-width: 600px;
-  }
-
-  /* All Apps Grid */
-  .all-apps {
-    background: var(--bg-primary);
-    padding: 4rem 0 6rem;
-  }
-
-  .all-apps-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  @media (min-width: 640px) {
-    .all-apps-inner { padding: 0 2rem; }
-  }
-
-  @media (min-width: 1024px) {
-    .all-apps-inner { padding: 0 3rem; }
-  }
-
-  .all-apps-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .all-apps-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-  }
-
-  .all-apps-count {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
-  }
-
-  .all-apps-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .all-apps-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .all-apps-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* App Card (Large) */
-  .app-card-large {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    padding: 1.75rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-  }
-
-  .app-card-large:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .app-card-icon {
-    flex-shrink: 0;
-    border-radius: 18px;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .app-card-content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .app-card-category {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .app-card-name {
-    font-family: var(--font-heading);
-    font-size: 1.375rem;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin: 0 0 0.5rem;
-    line-height: 1.2;
-  }
-
-  .app-card-desc {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .app-card-arrow {
-    position: absolute;
-    top: 1.75rem;
-    right: 1.5rem;
-    color: var(--text-muted);
-    opacity: 0;
-    transform: translateX(-8px);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .app-card-large:hover .app-card-arrow {
-    opacity: 1;
-    transform: translateX(0);
-    color: var(--accent);
-  }
-</style>
+  filters.forEach((button) =>
+    button.addEventListener('click', () => {
+      category = button.dataset.appFilter!;
+      filters.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      updateApps();
+    }),
+  );
+  search.addEventListener('input', updateApps);
+</script>

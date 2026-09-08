@@ -1,14 +1,12 @@
 ---
 import { existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '../../..');
-const currencyScreenshotSourcePath =
-  '~/Developer/mps/pesos-dos/artifacts/app-store-screenshots';
+// Prerendered modules move during builds; asset checks use the project root.
+const projectRoot = process.cwd();
 
 const screenshotCandidates = [
   {
@@ -91,7 +89,7 @@ const faqs = [
   {
     question: 'Will Android versions be available?',
     answer:
-      'This launch is iOS-first. Join the waitlist to get notified if and when Android versions are released.',
+      'This launch is iOS-first. Contact us to ask about plans for other platforms.',
   },
 ];
 ---
@@ -113,7 +111,7 @@ const faqs = [
           convert local currency to USD in seconds with clean, focused controls.
         </p>
         <div class="hero-actions">
-          <a href="#cta" class="btn btn-accent">Get launch updates</a>
+          <a href="#cta" class="btn btn-accent">Check availability</a>
           <a href="#family" class="btn btn-outline">Browse 20 variants</a>
         </div>
       </div>
@@ -142,10 +140,7 @@ const faqs = [
           <p class="eyebrow">IN-APP PREVIEW</p>
           <h2>Real app screens, ready for each market.</h2>
           <p class="screenshots-lede">
-            Gallery auto-loads generated screenshots when they exist at
-            <code>{currencyScreenshotSourcePath}</code>.
-            Run <code>npm run sync:currency-screenshots</code> to copy exports into
-            <code>/public/img/currency/screenshots</code>.
+            Explore the focused conversion experience across a selection of currencies.
           </p>
         </div>
         <ul class="screenshot-grid">
@@ -214,8 +209,8 @@ const faqs = [
           <p>App Store links and launch timing will appear here as each variant ships.</p>
         </div>
         <div class="cta-actions">
-          <a href="#" class="btn btn-accent">App Store (coming soon)</a>
-          <a href="/contact" class="btn btn-outline">Join waitlist</a>
+          <span class="btn btn-accent" aria-disabled="true">App Store (coming soon)</span>
+          <a href="/contact" class="btn btn-outline">Ask about availability</a>
         </div>
       </div>
     </section>

@@ -1,0 +1,113 @@
+---
+import '../styles/site.css';
+interface Props {
+  title: string;
+  description?: string;
+  active?: string;
+}
+const {
+  title,
+  description = 'Independent app and web development. Thoughtful digital products, built by Idle Fusion.',
+  active = '',
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://idlefusion.com').href;
+const pageTitle = `${title} — Idle Fusion`;
+const socialImage = new URL('/img/logo.png', Astro.site ?? 'https://idlefusion.com').href;
+const nav = [
+  ['Work', 'work'],
+  ['Services', 'services'],
+  ['Studio', 'studio'],
+  ['Apps', 'apps'],
+  ['Open source', 'open-source'],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Idle Fusion" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,400&family=Work+Sans:wght@400;450;500;550;600;650;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="/" aria-label="Idle Fusion home">
+        <span class="fusion-mark" aria-hidden="true"></span>idle fusion<span
+          class="wordmark-period"
+        >
+          .
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        {
+          nav.map(([label, slug]) => (
+            <a href={`/${slug}/`} aria-current={active === slug ? 'page' : undefined}>
+              {label}
+            </a>
+          ))
+        }
+      </nav>
+      <a class="button small header-cta" href="/contact/">
+        Let’s talk <span aria-hidden="true">↗</span>
+      </a>
+      <details class="mobile-nav">
+        <summary aria-label="Toggle navigation">Menu <span aria-hidden="true">＋</span> </summary>
+        <nav aria-label="Mobile navigation">
+          {
+            nav.map(([label, slug]) => (
+              <a href={`/${slug}/`} aria-current={active === slug ? 'page' : undefined}>
+                {label}
+              </a>
+            ))
+          }<a href="/contact/">Let’s talk ↗</a>
+        </nav>
+      </details>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div>
+            <span class="eyebrow">Your next chapter</span>
+            <h2>
+              Let’s make<br />something <em>matter.</em>
+            </h2>
+          </div>
+          <a class="round-link" href="/contact/" aria-label="Start a conversation">↗</a>
+        </div>
+        <div class="footer-bottom">
+          <a class="wordmark" href="/">idle fusion.</a>
+          <span> Independent thinking. Thoughtful software. </span>
+          <div>
+            <a href="https://github.com/idlefusion">GitHub ↗</a>
+            <a href="https://linkedin.com/in/mps"> LinkedIn ↗ </a>
+          </div>
+          <span>© {new Date().getFullYear()} Idle Fusion LLC</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

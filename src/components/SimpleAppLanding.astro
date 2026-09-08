@@ -54,6 +54,7 @@ const {
 
 const hasStoreLink = appStoreUrl && appStoreUrl !== '#';
 const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Download on the App Store';
+const displayNote = (hasStoreLink ? (appStoreNote || 'Free · No account required') : 'Coming soon · No account required').replace(/&middot;/g, '·');
 ---
 
 <BaseLayout
@@ -112,7 +113,7 @@ const appStoreLabel = appStoreUrl === '#' ? 'App Store (coming soon)' : 'Downloa
             <p class="ap-badge">{badge}</p>
             <h1 class="ap-headline">{headline}</h1>
             <p class="ap-description">{description}</p>
-            <p class="ap-note">{appStoreNote || (hasStoreLink ? 'Free &middot; No account required' : 'Coming soon')}</p>
+            <p class="ap-note">{displayNote}</p>
           </div>
           <img
             src={icon}

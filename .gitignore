@@ -27,3 +27,6 @@ Thumbs.db
 
 # Migration state
 scripts/.migration-state/
+
+# Generated local redesign review (recreate with scripts/capture-site.mjs)
+artifacts/redesign/

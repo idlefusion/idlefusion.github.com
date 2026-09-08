@@ -1,53 +1,43 @@
 # Idle Fusion — Website
 
-Marketing and app-landing site for [Idle Fusion](https://idlefusion.com), a digital agency specializing in iOS app and web development consulting.
-
-## Tech stack
-
-- **[Astro 5](https://astro.build)** — static site generator with file-based routing
-- **[Tailwind CSS 3](https://tailwindcss.com)** — utility-first styling
-- **TypeScript** — strict mode
-- **[Cloudflare Pages](https://pages.cloudflare.com)** — hosting and deployment via Wrangler
+Marketing and app-landing site for Idle Fusion, an independent app and web development studio.
 
 ## Development
 
-```bash
-npm install
-npm run dev       # http://localhost:4321
-npm run build     # production build → dist/
-npm run preview   # preview the built site
-npm run deploy    # build + push to Cloudflare Pages
+Use Node.js 24 for the verification scripts.
+
+```sh
+npm ci
+npm run dev       # Astro development server
+npm run build     # Production site in dist/
+npm run preview   # Preview the built site
+npm test          # Build, check routes/contact, and capture desktop/mobile screenshots
 ```
+
+`npm test` starts its own temporary local preview server and closes it when finished. Contact delivery is simulated: tests exercise the existing Worker without sending real emails. Screenshots and audit reports are written to the ignored `artifacts/redesign/` directory.
+
+To browse the release locally:
+
+```sh
+npm run preview -- --host 127.0.0.1 --port 4323
+python3 -m http.server 4322 --bind 127.0.0.1 --directory artifacts/redesign
+```
+
+Open the site at http://127.0.0.1:4323/ and the screenshot gallery at http://127.0.0.1:4322/. The static Astro server does not run `/api/contact`; actual delivery uses the deployed Worker and its existing Resend configuration.
 
 ## Structure
 
-```
-src/
-  components/     # Reusable Astro components
-  content/        # Content collections (benefits, portfolio, testimonials, faq, team, process)
-  layouts/        # BaseLayout.astro — single base layout
-  pages/          # File-based routes
-    index.astro   # Main landing page
-    contact.astro # Contact page
-    apps/         # Individual iOS app landing pages
-  styles/
-    global.css    # "Midnight Studio" design system (CSS custom properties)
-public/           # Static assets (images, favicons, manifests)
-```
+- `src/layouts/SiteLayout.astro` and `src/styles/site.css`: blue, black, and white business website.
+- `src/layouts/BaseLayout.astro` and `src/styles/global.css`: existing product themes and supporting pages.
+- `src/data/apps.ts`: app directory, visibility, and shared navigation metadata.
+- `src/data/projects.ts`: portfolio and case-study content.
+- `src/pages/`: public routes; dedicated app pages remain at their existing URLs.
+- `src/components/ContactForm.astro`: direct-send inquiry form.
+- `worker.ts`: contact endpoint and static-asset serving.
+- `public/`: existing product artwork and other static assets.
 
-## Design system
-
-The site uses a "Midnight Studio" design language — editorial and sophisticated — defined entirely via CSS custom properties in `src/styles/global.css`.
-
-- **Fonts:** Crimson Pro (headings) + Work Sans (body)
-- **Accent:** Telegram blue (`#0088cc`)
-- **Palette:** `--ink`, `--paper`, `--stone`, `--mist` semantic tokens
-- **Dark mode:** toggled via `.dark` class on `<html>` (saved to `localStorage`)
-
-## Content
-
-Site content (services, portfolio, testimonials, FAQ) lives in `src/content/` as Markdown files with YAML frontmatter. Schemas are validated with Zod in `src/content/config.ts`.
+Each app retains its own layout, colors, artwork, and light/dark treatment. Shared navigation and discovery connect those pages to the business site. See `docs/redesign-proposal.md` for release scope and `docs/app-design-review.md` for the app-by-app review.
 
 ## Deployment
 
-Deployed to `idlefusion.com` and `www.idlefusion.com` via Cloudflare Pages. Configuration in `wrangler.toml`.
+The existing `npm run deploy` command builds the site and deploys the Cloudflare Worker with static assets to `idlefusion.com` and `www.idlefusion.com`. Configuration is in `wrangler.toml`. The contact endpoint uses the existing `RESEND_API_KEY` secret; no new infrastructure or secret is introduced by the redesign.

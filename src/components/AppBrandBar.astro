@@ -1,0 +1,120 @@
+---
+interface Props {
+  name: string;
+  route: string;
+}
+const { name, route } = Astro.props;
+const section =
+  Astro.url.pathname.endsWith('/support/') || Astro.url.pathname.endsWith('/support')
+    ? 'Support'
+    : 'Privacy';
+const isPolicy = /\/(support|privacy)\/?$/.test(Astro.url.pathname);
+---
+
+<div class="app-brand-bar">
+  <nav class="app-brand-inner" aria-label="Idle Fusion navigation">
+    <a class="app-parent-brand" href="/">idle fusion<span>.</span> </a>
+    <span class="app-parent-note">Independent apps. Thoughtfully made.</span>
+    <a class="app-directory-link" href="/apps/">← All apps</a>
+  </nav>
+</div>
+{
+  isPolicy && (
+    <nav class="app-policy-nav" aria-label={`${name} navigation`}>
+      <>
+        <a href={`${route}`}>← {name}</a>
+        <div>
+          <>
+            <a href={`${route}support/`} aria-current={section === 'Support' ? 'page' : undefined}>
+              Support
+            </a>
+            <a href={`${route}privacy/`} aria-current={section === 'Privacy' ? 'page' : undefined}>
+              Privacy
+            </a>
+          </>
+        </div>
+      </>
+    </nav>
+  )
+}
+<style>
+  .app-brand-bar {
+    background: #0a0a0a;
+    color: #ffffff;
+    border-bottom: 1px solid #262626;
+  }
+  .app-brand-inner {
+    max-width: 72rem;
+    min-height: 48px;
+    margin: auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-family: 'Work Sans', sans-serif;
+  }
+  .app-parent-brand {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 650;
+    letter-spacing: -0.8px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .app-parent-brand span {
+    color: #2aabee;
+  }
+  .app-parent-note {
+    color: #bcbcbc;
+    font-size: 11px;
+  }
+  .app-directory-link {
+    color: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    padding-block: 12px;
+  }
+  .app-directory-link:hover {
+    color: #2aabee;
+  }
+  .app-brand-inner a:focus-visible {
+    outline: 2px solid #2aabee;
+    outline-offset: 4px;
+  }
+  .app-policy-nav {
+    max-width: 42rem;
+    width: calc(100% - 2rem);
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font:
+      13px 'Work Sans',
+      sans-serif;
+  }
+  .app-policy-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .app-policy-nav a[aria-current],
+  .app-policy-nav a:hover {
+    color: #006da3;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+  .app-policy-nav > div {
+    display: flex;
+    gap: 20px;
+  }
+  @media (min-width: 1024px) {
+    .app-brand-inner {
+      padding-inline: 3rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .app-parent-note {
+      display: none;
+    }
+  }
+</style>

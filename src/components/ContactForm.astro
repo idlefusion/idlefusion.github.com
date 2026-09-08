@@ -1,46 +1,63 @@
-<form id="contact-form" novalidate>
-  <!-- Honeypot — hidden from real users, bots fill it in -->
-  <div style="display:none" aria-hidden="true">
-    <label for="website">Website</label>
-    <input type="text" id="website" name="_honeypot" tabindex="-1" autocomplete="off" />
+<form class="contact-form" id="contact-form">
+  <span class="eyebrow" style="margin:0">A little about your idea</span>
+  <div hidden aria-hidden="true">
+    <label>Website<input name="_honeypot" tabindex="-1" autocomplete="off" /></label>
   </div>
-
-  <div class="field">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name" />
+  <div class="form-row">
+    <label>
+      Your name<input name="name" autocomplete="name" placeholder="Alex Morgan" required />
+    </label>
+    <label>
+      Email address<input
+        name="email"
+        type="email"
+        autocomplete="email"
+        placeholder="alex@company.com"
+        required
+      />
+    </label>
   </div>
-
-  <div class="field">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
-  </div>
-
-  <div class="field">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" required rows="6" placeholder="Tell us about your project…"></textarea>
-  </div>
-
-  <div id="form-error" class="form-message form-error" role="alert" hidden></div>
-  <div id="form-success" class="form-message form-success" role="status" hidden>
-    Thanks! We'll be in touch soon.
-  </div>
-
-  <button type="submit" id="submit-btn" class="submit-btn">
+  <label>
+    Company <span class="meta">Optional</span>
+    <input name="company" autocomplete="organization" placeholder="Where you’re building" />
+  </label>
+  <label>
+    What can we help with?<select name="service">
+      <option>Explore an idea together</option>
+      <option>Mobile app development</option>
+      <option> Website or web platform </option>
+      <option>Technical strategy & guidance</option>
+    </select>
+  </label>
+  <label>
+    Tell us a little more<textarea
+      name="message"
+      rows="5"
+      placeholder="What would you like to make possible?"
+      required></textarea>
+  </label>
+  <button type="submit" id="submit-btn" class="button">
     <span class="btn-label">Send Message</span>
     <span class="btn-loading" hidden>Sending…</span>
+    <span aria-hidden="true"> ↗ </span>
   </button>
+  <p class="form-note">Your message goes directly to our inbox. We’ll be in touch soon.</p>
+  <div class="form-status form-error" id="form-error" role="alert" hidden></div>
+  <div class="form-status" id="form-success" role="status" hidden>
+    Thanks! We'll be in touch soon.
+  </div>
 </form>
-
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
-  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const submitBtn = form.querySelector('#submit-btn') as HTMLButtonElement;
   const btnLabel = submitBtn.querySelector('.btn-label') as HTMLElement;
   const btnLoading = submitBtn.querySelector('.btn-loading') as HTMLElement;
-  const errorBox = document.getElementById('form-error') as HTMLElement;
-  const successBox = document.getElementById('form-success') as HTMLElement;
+  const errorBox = form.querySelector('#form-error') as HTMLElement;
+  const successBox = form.querySelector('#form-success') as HTMLElement;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (submitBtn.disabled) return;
 
     // Reset state
     errorBox.hidden = true;
@@ -58,6 +75,14 @@
       _honeypot: (form.elements.namedItem('_honeypot') as HTMLInputElement).value,
     };
 
+    // Keep the original API contract; include the redesign's optional context in the message.
+    const details = new FormData(form);
+    const context = [
+      details.get('company') ? `Company: ${details.get('company')}` : '',
+      details.get('service') ? `Project: ${details.get('service')}` : '',
+    ].filter(Boolean);
+    if (context.length) data.message += `\n\n${context.join('\n')}`;
+
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -65,7 +90,7 @@
         body: JSON.stringify(data),
       });
 
-      const body = await res.json() as { success?: boolean; error?: string };
+      const body = (await res.json()) as { success?: boolean; error?: string };
 
       if (res.ok && body.success) {
         form.reset();
@@ -84,108 +109,14 @@
     }
   });
 </script>
-
 <style>
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  label {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    letter-spacing: 0.02em;
-  }
-
-  input,
-  textarea {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--text-primary);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
-    width: 100%;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    outline: none;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: var(--text-muted);
-  }
-
-  input:focus,
-  textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.12);
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 8rem;
-  }
-
-  .form-message {
-    font-size: 0.9rem;
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .form-error {
-    color: #b91c1c;
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-  }
-
-  .dark .form-error {
-    color: #fca5a5;
-    background: rgba(185, 28, 28, 0.15);
-    border-color: rgba(185, 28, 28, 0.3);
-  }
-
-  .form-success {
-    color: #15803d;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-
-  .dark .form-success {
-    color: #86efac;
-    background: rgba(21, 128, 61, 0.15);
-    border-color: rgba(21, 128, 61, 0.3);
-  }
-
-  .submit-btn {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    background: var(--accent);
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.875rem 2rem;
-    cursor: pointer;
-    transition: background 0.15s, opacity 0.15s;
-    align-self: flex-start;
-  }
-
-  .submit-btn:hover:not(:disabled) {
-    background: var(--accent-soft);
-  }
-
-  .submit-btn:disabled {
+  .button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    transform: none;
+  }
+  .form-error {
+    border-color: #b91c1c;
+    color: #b91c1c;
   }
 </style>

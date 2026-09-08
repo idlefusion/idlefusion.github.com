@@ -1,0 +1,22 @@
+---
+import type { Project } from '../data/projects';
+interface Props {
+  project: Project;
+}
+const { project: p } = Astro.props;
+---
+
+<a class="project-card" href={`/work/${p.slug}/`} data-category={p.type}>
+  <div class:list={['project-art', p.color]}>
+    <span class="art-topline">IDLE FUSION <span>CLIENT WORK</span> </span>
+    <img src={p.image} alt={`${p.name} logo`} width="230" height="160" loading="lazy" />
+    <span class="art-bottomline">{p.category}<span aria-hidden="true">↗</span> </span>
+  </div>
+  <div class="project-caption">
+    <div>
+      <h3>{p.name}</h3>
+      <p>{p.short}</p>
+    </div>
+    <span class="project-number">{p.number}</span>
+  </div>
+</a>

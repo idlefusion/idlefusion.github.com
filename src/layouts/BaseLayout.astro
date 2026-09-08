@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import AppBrandBar from '../components/AppBrandBar.astro';
+import { getAppPage } from '../data/apps';
 
 interface Props {
   title: string;
@@ -20,6 +22,7 @@ const {
 const siteOrigin = 'https://idlefusion.com';
 const canonicalUrl = ogUrl ?? new URL(Astro.url.pathname, Astro.site ?? siteOrigin).href;
 const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${ogImage}`;
+const appPage = getAppPage(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -85,12 +88,16 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${o
 
     <slot name="head" />
   </head>
-  <body class="bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors duration-300">
+  <body class="bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors duration-300" data-app-page={appPage?.slug}>
+    {appPage && <AppBrandBar name={appPage.name} route={appPage.route} />}
     <slot />
   </body>
 </html>
 
 <style is:global>
+  body[data-app-page] { --accent-primary: #006da3; }
+  .dark body[data-app-page] { --accent-primary: #2aabee; }
+
   html {
     scroll-behavior: smooth;
   }
