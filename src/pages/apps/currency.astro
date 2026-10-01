@@ -3,44 +3,12 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ThemeToggle from '../../components/ThemeToggle.astro';
+import { currencyScreenshots } from '../../data/currency';
 
 // Prerendered modules move during builds; asset checks use the project root.
 const projectRoot = process.cwd();
 
-const screenshotCandidates = [
-  {
-    code: 'EUR',
-    title: 'Dollar to Euro — conversion screen',
-    path: 'img/currency/screenshots/marketing/EUR/iphone-6.9/01-convert.png',
-  },
-  {
-    code: 'JPY',
-    title: 'Dollar to Yen — conversion screen',
-    path: 'img/currency/screenshots/marketing/JPY/iphone-6.9/01-convert.png',
-  },
-  {
-    code: 'GBP',
-    title: 'Dollar to Pound — conversion screen',
-    path: 'img/currency/screenshots/marketing/GBP/iphone-6.9/01-convert.png',
-  },
-  {
-    code: 'MXN',
-    title: 'Dollar to Peso — conversion screen',
-    path: 'img/currency/screenshots/marketing/MXN/iphone-6.9/01-convert.png',
-  },
-  {
-    code: 'INR',
-    title: 'Dollar to Rupee — conversion screen',
-    path: 'img/currency/screenshots/marketing/INR/iphone-6.9/01-convert.png',
-  },
-  {
-    code: 'AED',
-    title: 'Dollar to Dirham — conversion screen',
-    path: 'img/currency/screenshots/marketing/AED/iphone-6.9/01-convert.png',
-  },
-];
-
-const screenshotVariants = screenshotCandidates.map((shot) => ({
+const screenshotVariants = currencyScreenshots.map((shot) => ({
   ...shot,
   src: `/${shot.path}`,
   available: existsSync(join(projectRoot, 'public', shot.path)),
