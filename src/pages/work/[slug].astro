@@ -36,7 +36,7 @@ const { project: p, next } = Astro.props;
       <span class="art-topline">IDLE FUSION<span>SELECTED WORK / {p.number}</span> </span>
       <img src={p.image} alt={`${p.name} logo`} width="300" height="180" /><span
         class="art-bottomline"
-        >{p.short}<span aria-hidden="true">↗</span>
+        >{p.short}<span aria-hidden="true">→</span>
       </span>
     </div>{p.note && <p class="case-note">{p.note}</p>}
   </section>
@@ -93,7 +93,7 @@ const { project: p, next } = Astro.props;
       </p>
     </div>
     <a class="button" href="/contact/" data-track="cta_case_study">
-      Let’s talk <span aria-hidden="true">↗</span>
+      Let’s talk <span aria-hidden="true">→</span>
     </a>
   </section>
   <a href={`/work/${next.slug}/`} class="wrap next-project">
@@ -101,6 +101,6 @@ const { project: p, next } = Astro.props;
       <span class="eyebrow">Next project</span>
       <h3>{next.name}</h3>
     </div>
-    <span aria-hidden="true"> ↗ </span>
+    <span aria-hidden="true">→</span>
   </a>
 </Layout>

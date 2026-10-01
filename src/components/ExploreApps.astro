@@ -18,7 +18,7 @@ const others = [...visible.slice(currentIndex + 1), ...visible.slice(0, currentI
         <p class="app-discovery-label">More from Idle Fusion</p>
         <h2 id="app-discovery-title">Find your next everyday app.</h2>
       </div>
-      <a class="app-discovery-all" href="/apps/">View all {visible.length} apps ↗</a>
+      <a class="app-discovery-all" href="/apps/">View all {visible.length} apps <span aria-hidden="true">→</span></a>
     </div>
     <div class="app-discovery-grid">
       {
@@ -29,7 +29,7 @@ const others = [...visible.slice(currentIndex + 1), ...visible.slice(0, currentI
               <div>
                 <>
                   <p class="app-discovery-category">{app.category}</p>
-                  <h3>{app.name} ↗</h3>
+                  <h3>{app.name} <span aria-hidden="true">→</span></h3>
                   <p class="app-discovery-desc">{app.desc}</p>
                 </>
               </div>

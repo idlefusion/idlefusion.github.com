@@ -22,7 +22,7 @@ const destinations = [
         We couldn’t find <code id="requested-path" class="requested-path">that page</code>. It may
         have moved in our redesign, or the link may have a typo.
       </p>
-      <a class="text-link" href="/explore/">Back to Idle Fusion ↗</a>
+      <a class="text-link" href="/explore/">Back to Idle Fusion <span aria-hidden="true">→</span></a>
     </div>
   </section>
   <section class="wrap not-found-links" aria-label="Where to go next">
@@ -32,7 +32,7 @@ const destinations = [
           <a href={href}>
             <span>{String(i + 1).padStart(2, '0')}</span>
             <h3>{label}</h3>
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">→</span>
           </a>
         ))
       }
