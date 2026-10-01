@@ -2,8 +2,7 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
 
 // Prerendered modules move during builds; asset checks use the project root.
 const projectRoot = process.cwd();
@@ -99,7 +98,15 @@ const faqs = [
   description="A family of 20 fast USD converter apps inspired by Pesos Dos. Fast keypad entry, offline cache fallback, and beautiful light/dark support."
   ogUrl="https://idlefusion.com/apps/currency"
 >
-  <Header currentPage="apps" />
+  <nav class="cur-nav" aria-label="Currency apps">
+    <div class="container cur-nav-inner">
+      <a href="/apps/currency/" class="cur-logo">Currency apps</a>
+      <div class="cur-nav-actions">
+        <ThemeToggle />
+        <a href="#cta" class="cur-nav-cta">Get launch updates</a>
+      </div>
+    </div>
+  </nav>
 
   <main>
     <section class="currency-hero">
@@ -112,7 +119,7 @@ const faqs = [
         </p>
         <div class="hero-actions">
           <a href="#cta" class="btn btn-accent">Check availability</a>
-          <a href="#family" class="btn btn-outline">Browse 20 variants</a>
+          <a href="#family" class="btn btn-outline-light">Browse 20 variants</a>
         </div>
       </div>
     </section>
@@ -233,10 +240,85 @@ const faqs = [
     </section>
   </main>
 
-  <Footer variant="full" />
+  <footer class="cur-footer">
+    <div class="container cur-footer-inner">
+      <a href="/contact/">Ask about availability</a>
+      <span aria-hidden="true">&middot;</span>
+      <span>A family of <a href="/explore/">Idle Fusion</a> apps</span>
+    </div>
+  </footer>
 </BaseLayout>
 
 <style>
+  .cur-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--border-color, rgba(127, 127, 127, 0.2));
+    background: color-mix(in oklab, var(--bg-primary) 94%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  .cur-nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    height: 3.5rem;
+  }
+
+  .cur-logo {
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .cur-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cur-nav-cta {
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .cur-nav-cta:hover {
+    filter: brightness(1.1);
+  }
+
+  .cur-footer {
+    border-top: 1px solid var(--border-color, rgba(127, 127, 127, 0.2));
+    padding: 1.4rem 0;
+  }
+
+  .cur-footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .cur-footer-inner a {
+    color: var(--accent-primary, var(--accent));
+    text-decoration: none;
+  }
+
+  .cur-footer-inner a:hover {
+    text-decoration: underline;
+  }
+
   .container {
     max-width: 72rem;
     margin: 0 auto;
@@ -251,15 +333,17 @@ const faqs = [
     .container { padding: 0 3rem; }
   }
 
+  /* The hero is a fixed dark band in both themes, so it uses literal colors:
+     --ink and --paper swap in dark mode. */
   .currency-hero {
-    background: linear-gradient(180deg, var(--ink) 0%, #0f2030 100%);
+    background: linear-gradient(180deg, #0a0a0a 0%, #0f2030 100%);
     padding: 6rem 0;
   }
 
   .currency-hero h1 {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--paper);
+    color: #fafaf9;
     line-height: 1.03;
     margin: 0 0 1rem;
     max-width: 13ch;

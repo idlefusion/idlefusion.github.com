@@ -158,7 +158,13 @@ try {
   // Only the welcome screen lives at /; links from inside the site go to /explore/.
   for (const doc of documents) {
     if (doc.file === 'index.html' || doc.file === 'welcome/index.html') continue;
-    if (doc.references.includes('/')) errors.push(`${doc.file}: links to the welcome screen`);
+    for (const reference of doc.references)
+      if (
+        new URL(reference, 'https://idlefusion.com/explore/').href.match(
+          /^https:\/\/idlefusion\.com\/(#|$)/,
+        )
+      )
+        errors.push(`${doc.file}: links to the welcome screen (${reference})`);
   }
   // Internal reviews must stay out of search.
   for (const route of ['/design/', '/showcase/', '/contact/thanks/']) {
