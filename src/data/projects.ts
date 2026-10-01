@@ -14,6 +14,10 @@ export interface Project {
   approach: string[];
   outcome: string;
   note?: string;
+  /** Measurable results shown above the outcome, e.g. { value: '4.8★', label: 'App Store rating' }. */
+  results?: { value: string; label: string }[];
+  /** Product screenshots for the case study, paths under /public. */
+  screenshots?: { src: string; alt: string }[];
 }
 export const projects: Project[] = [
   {

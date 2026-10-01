@@ -14,3 +14,8 @@ custom_domain = true
 [[routes]]
 pattern = "www.idlefusion.com"
 custom_domain = true
+
+# Cookieless conversion and page-view counts (see docs/analytics.md).
+[[analytics_engine_datasets]]
+binding = "EVENTS"
+dataset = "idlefusion_events"

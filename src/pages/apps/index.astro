@@ -14,7 +14,11 @@ const category = (slug: string) =>
   focus.has(slug) ? 'Focus' : everyday.has(slug) ? 'Everyday' : 'Health';
 ---
 
-<Layout title="Our apps" active="apps">
+<Layout
+  title="Our apps"
+  active="apps"
+  description="Small, privacy-minded iOS apps made by Idle Fusion for health, focus, and everyday life. Browse the collection by category or search for an app."
+>
   <section class="page-intro wrap">
     <span class="eyebrow">Made by Idle Fusion</span>
     <h1>

@@ -10,7 +10,7 @@ export function getStaticPaths() {
 const { project: p, next } = Astro.props;
 ---
 
-<Layout title={p.name} active="work" description={p.intro}>
+<Layout title={p.name} active="work" description={p.intro} ogImage={`/img/og/work-${p.slug}.png`}>
   <section class="wrap case-intro">
     <a class="back-link" href="/work/">← All selected work</a>
     <span class="eyebrow">
@@ -58,11 +58,43 @@ const { project: p, next } = Astro.props;
       </article><article>
         <span class="eyebrow">03 / The outcome</span>
         <h2>From idea to everyday use.</h2>
+        {
+          p.results && (
+            <dl class="case-results">
+              {p.results.map((result) => (
+                <div>
+                  <dt>{result.value}</dt>
+                  <dd>{result.label}</dd>
+                </div>
+              ))}
+            </dl>
+          )
+        }
         <p>
           {p.outcome}
         </p>
       </article>
     </div>
+  </section>
+  {
+    p.screenshots && (
+      <section class="wrap case-gallery" aria-label={`${p.name} screenshots`}>
+        {p.screenshots.map((shot) => (
+          <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
+        ))}
+      </section>
+    )
+  }
+  <section class="wrap case-cta">
+    <div>
+      <h2>Planning something similar?</h2>
+      <p>
+        Tell us where you are and what you want to make possible. You’ll hear back from Matthew.
+      </p>
+    </div>
+    <a class="button" href="/contact/" data-track="cta_case_study">
+      Let’s talk <span aria-hidden="true">↗</span>
+    </a>
   </section>
   <a href={`/work/${next.slug}/`} class="wrap next-project">
     <div>

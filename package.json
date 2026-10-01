@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "astro build && wrangler deploy",
-    "sync:currency-screenshots": "node scripts/sync-currency-screenshots.mjs",
+    "sync:currency-screenshots": "node scripts/sync-currency-screenshots.mjs && npm run optimize:images",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "generate:brand-images": "node scripts/generate-brand-images.mjs",
     "astro": "astro",
     "test": "npm run build && node scripts/verify-release.mjs"
   },
@@ -22,6 +24,7 @@
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "puppeteer": "^24.35.0",
+    "sharp": "^0.34.5",
     "wrangler": "^4.69.0"
   }
 }

@@ -1,9 +1,14 @@
 ---
 import ContactForm from '../components/ContactForm.astro';
 import Layout from '../layouts/SiteLayout.astro';
+import Testimonials from '../components/Testimonials.astro';
 ---
 
-<Layout title="Let’s talk" active="contact">
+<Layout
+  title="Let’s talk"
+  active="contact"
+  description="Tell us about your app, website, or technical challenge. Your message goes straight to Idle Fusion founder Matthew Strickland."
+>
   <section class="wrap contact-grid">
     <div>
       <span class="eyebrow"><span class="status-dot"></span> Start a conversation</span>
@@ -18,10 +23,12 @@ import Layout from '../layouts/SiteLayout.astro';
       <div class="contact-person">
         <img src="/img/us/matthew.jpg" alt="Matthew Strickland" width="52" height="52" /><div>
           <strong>You’ll be talking with Matthew.</strong><p>
-            Founder, builder, and your first point of contact.
+            Founder, builder, and your first point of contact. He usually replies within one
+            business day.
           </p>
         </div>
       </div>
+      <Testimonials only={['jeremy-bagwell', 'pippin-williamson']} compact />
     </div>
     <ContactForm />
   </section>

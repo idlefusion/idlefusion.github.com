@@ -1,7 +1,10 @@
 ---
 import '../styles/global.css';
 import AppBrandBar from '../components/AppBrandBar.astro';
+import Analytics from '../components/Analytics.astro';
+import Fonts from '../components/Fonts.astro';
 import { getAppPage } from '../data/apps';
+import { defaultSocialImage } from '../data/site';
 
 interface Props {
   title: string;
@@ -14,7 +17,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/img/logo.png',
+  ogImage = defaultSocialImage,
   ogUrl,
   robots = 'index, follow',
 } = Astro.props;
@@ -31,7 +34,6 @@ const appPage = getAppPage(Astro.url.pathname);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content={description}>
-    <meta name="keywords" content="app development, web development, mobile apps, consulting, digital agency, software development">
     <meta name="author" content="Matthew Strickland, Idle Fusion LLC">
     <meta name="robots" content={robots}>
     <link rel="canonical" href={canonicalUrl}>
@@ -55,7 +57,7 @@ const appPage = getAppPage(Astro.url.pathname);
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#0a0a0a">
@@ -63,15 +65,7 @@ const appPage = getAppPage(Astro.url.pathname);
 
     <title>{title}</title>
 
-    <!-- Font Awesome Icons (non-blocking) -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <Fonts />
 
     <!-- Theme initialization (prevents flash of wrong theme) -->
     <script is:inline>
@@ -91,6 +85,7 @@ const appPage = getAppPage(Astro.url.pathname);
   <body class="bg-[var(--bg-primary)] text-[var(--text-secondary)] transition-colors duration-300" data-app-page={appPage?.slug}>
     {appPage && <AppBrandBar name={appPage.name} route={appPage.route} />}
     <slot />
+    <Analytics />
   </body>
 </html>
 

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
-import { glob, readFile, mkdir, writeFile } from 'node:fs/promises';
+import { glob, readFile, mkdir, stat, writeFile } from 'node:fs/promises';
 import { createServer } from 'node:net';
 import path from 'node:path';
 import puppeteer from 'puppeteer';
@@ -82,6 +82,8 @@ try {
             ),
             canonical: doc.querySelector('link[rel="canonical"]')?.getAttribute('href'),
             robots: doc.querySelector('meta[name="robots"]')?.getAttribute('content'),
+            description: doc.querySelector('meta[name="description"]')?.getAttribute('content'),
+            images: [...doc.querySelectorAll('img[src]')].map((image) => image.getAttribute('src')),
           };
         }),
       documents,
@@ -153,6 +155,41 @@ try {
     if (!sitemap.includes(`https://idlefusion.com${route}`))
       errors.push(`${route}: absent from sitemap`);
   }
+  // Internal reviews must stay out of search.
+  for (const route of ['/design/', '/showcase/', '/contact/thanks/']) {
+    if (!documentMap.get(`${route.slice(1)}index.html`)?.robots?.includes('noindex'))
+      errors.push(`${route} should not be indexed`);
+    if (sitemap.includes(`https://idlefusion.com${route}`))
+      errors.push(`${route}: listed in sitemap`);
+  }
+  // Each indexable page needs its own search snippet.
+  const descriptions = new Map();
+  for (const doc of documents) {
+    if (doc.robots?.includes('noindex') || doc.file === 'welcome/index.html') continue;
+    if (!doc.description) errors.push(`${doc.file}: missing meta description`);
+    else if (descriptions.has(doc.description))
+      errors.push(`${doc.file}: same description as ${descriptions.get(doc.description)}`);
+    else descriptions.set(doc.description, doc.file);
+  }
+  // Large originals belong in og:image only; pages must show the optimized copy.
+  const IMAGE_BUDGET = 250_000;
+  for (const doc of documents) {
+    for (const src of new Set(doc.images)) {
+      if (!src.startsWith('/')) continue;
+      const file = path.join(
+        'dist',
+        decodeURIComponent(new URL(src, 'https://idlefusion.com').pathname),
+      );
+      const size = await stat(file).then(
+        (info) => info.size,
+        () => 0,
+      );
+      if (size > IMAGE_BUDGET)
+        errors.push(
+          `${doc.file}: ${src} is ${Math.round(size / 1000)} KB; run npm run optimize:images`,
+        );
+    }
+  }
   await mkdir('artifacts/redesign', { recursive: true });
   await writeFile(
     'artifacts/redesign/release-audit.json',
@@ -168,7 +205,7 @@ try {
     'Published routes, metadata, assets, or anchors failed verification',
   );
   console.log(
-    `Checked ${documents.length} generated pages and ${expectedRoutes.length} release routes: links, assets, anchors, canonical URLs, and indexing.`,
+    `Checked ${documents.length} generated pages and ${expectedRoutes.length} release routes: links, assets, anchors, canonical URLs, indexing, descriptions, and image weight.`,
   );
   await run('scripts/verify-welcome.mjs');
   await run('scripts/verify-contact.mjs');

@@ -1,0 +1,33 @@
+<script>
+  // Cookieless, first-party measurement. Each event is a single beacon to the
+  // Worker (worker.ts), which stores aggregate counts in Workers Analytics
+  // Engine. Nothing identifies the visitor. Contact form deliveries are
+  // counted by the Worker itself. See docs/analytics.md for the queries.
+  const optedOut =
+    (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl === true ||
+    navigator.doNotTrack === '1';
+
+  function track(name: string, detail = '') {
+    if (optedOut) return;
+    const body = JSON.stringify({
+      name,
+      path: location.pathname,
+      referrer: document.referrer,
+      detail,
+    });
+    try {
+      navigator.sendBeacon('/api/event', body);
+    } catch {}
+  }
+
+  track('pageview');
+  document.addEventListener('click', (event) => {
+    const link = (event.target as Element).closest?.('a[href], [data-track]');
+    if (!link) return;
+    const named = link.getAttribute('data-track');
+    const href = link.getAttribute('href') ?? '';
+    if (named) track(named, href);
+    else if (href.startsWith('mailto:')) track('email_click');
+    else if (href.includes('apps.apple.com')) track('app_store_click', href);
+  });
+</script>

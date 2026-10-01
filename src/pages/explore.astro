@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/SiteLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import Testimonials from '../components/Testimonials.astro';
 import { projects } from '../data/projects';
 ---
 
-<Layout title="Good ideas. Built to work.">
+<Layout
+  title="Good ideas. Built to work."
+  description="Idle Fusion is an independent studio that designs and builds iOS apps, websites, and web platforms, with clients including Disney, NBC Sports, and Golf Channel."
+>
   <section class="home-hero wrap" id="home">
     <div class="hero-copy">
       <span class="eyebrow"><span class="status-dot"></span> Independent digital studio</span>
@@ -17,7 +21,7 @@ import { projects } from '../data/projects';
       </p>
       <div class="actions">
         <a class="button" href="/work/">Explore our work <span aria-hidden="true">↗</span> </a>
-        <a class="text-link" href="/contact/">
+        <a class="text-link" href="/contact/" data-track="cta_hero">
           Tell us your idea <span aria-hidden="true">→</span>
         </a>
       </div>
@@ -38,6 +42,7 @@ import { projects } from '../data/projects';
           alt="Contrast app sauna timer"
           width="1290"
           height="2796"
+          fetchpriority="high"
         /><img
           class="hero-screen screen-two"
           src="/img/contrast/screenshots/03_active_cold.png"
@@ -109,6 +114,18 @@ import { projects } from '../data/projects';
       </div>
     </div>
   </section>
+  <section class="section wrap" id="testimonials">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">03 / In their words</span>
+        <h2>
+          Trusted by the teams<br />we build with.
+        </h2>
+      </div>
+      <a class="text-link" href="/contact/" data-track="cta_testimonials">Start a conversation ↗</a>
+    </div>
+    <Testimonials only={['pippin-williamson', 'jeremy-bagwell', 'roger-walker']} />
+  </section>
   <section class="section wrap studio-teaser" id="leadership">
     <div class="portrait-small">
       <img
@@ -120,7 +137,7 @@ import { projects } from '../data/projects';
       />
     </div>
     <div>
-      <span class="eyebrow">03 / A personal approach</span>
+      <span class="eyebrow">04 / A personal approach</span>
       <h2>
         Big experience.<br />A direct connection.
       </h2>

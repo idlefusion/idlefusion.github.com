@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  /** Entry slugs (file names without .md) to show, in order. Defaults to all. */
+  only?: string[];
+  compact?: boolean;
+}
+
+const { only, compact = false } = Astro.props;
+const entries = await getCollection('testimonials');
+const testimonials = only
+  ? only
+      .map((slug) => entries.find((entry) => entry.slug === slug))
+      .filter((entry) => entry !== undefined)
+  : entries;
+---
+
+<div class:list={['testimonials', { compact }]}>
+  {
+    testimonials.map(({ data }) => (
+      <figure class="testimonial">
+        <blockquote>“{data.quote}”</blockquote>
+        <figcaption>
+          <img src={data.image} alt="" width="40" height="40" loading="lazy" decoding="async" />
+          <span>
+            <strong>{data.name}</strong>
+            {data.company}
+          </span>
+        </figcaption>
+      </figure>
+    ))
+  }
+</div>

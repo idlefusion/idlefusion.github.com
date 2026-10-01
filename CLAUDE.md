@@ -10,6 +10,8 @@ npm run build      # Production build → dist/
 npm run preview    # Preview the production build locally
 npm run deploy     # Build + deploy to Cloudflare Pages
 npm run sync:currency-screenshots  # Sync app screenshots via Puppeteer
+npm run optimize:images  # Write right-sized WebP copies of large images in public/img
+npm run generate:brand-images  # Regenerate social cards (public/img/og) and home-screen icons
 ```
 
 No test framework is configured — this is a content/marketing site.
@@ -25,6 +27,9 @@ No test framework is configured — this is a content/marketing site.
 - `src/content/` — Astro Content Collections (benefits, portfolio, testimonials, team, faq, process). All content is Markdown with YAML frontmatter validated by Zod schemas in `src/content/config.ts`.
 - `src/layouts/BaseLayout.astro` — Single base layout wrapping all pages (meta, fonts, analytics).
 - `src/styles/global.css` — "Midnight Studio" design system via CSS custom properties.
+- `src/styles/fonts.css` — self-hosted Work Sans and Crimson Pro (files in `src/assets/fonts/`). Don't add Google Fonts links.
+- `worker.ts` — contact form delivery (`/api/contact`) and cookieless analytics events (`/api/event`); see `docs/analytics.md`.
+- `public/_headers` — cache rules for static assets.
 
 ### Design system
 
@@ -36,7 +41,7 @@ Fonts: Crimson Pro (headings), Work Sans (body), SF Mono (mono) — set via `--f
 ### Adding a new app landing page
 
 1. Create `src/pages/apps/<app-name>/index.astro` (or use `SimpleAppLanding.astro` as a template).
-2. Add app screenshots/assets to `public/`.
+2. Add app screenshots/assets to `public/img/<app-name>/`, then run `npm run optimize:images` and commit the generated `.webp` files. Keep referencing the `.png` in source: the `integrations/optimized-images.mjs` build step points `<img>` tags at the WebP, and `npm test` fails if a page shows an image over 250 KB.
 3. Optionally add a portfolio entry in `src/content/portfolio/`.
 
 ### Content collections

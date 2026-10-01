@@ -1,7 +1,10 @@
 ---
+import Analytics from '../components/Analytics.astro';
+import Fonts from '../components/Fonts.astro';
+import { defaultSocialImage, organizationSchema } from '../data/site';
 const site = Astro.site ?? new URL('https://idlefusion.com');
 const canonicalUrl = new URL('/', site).href;
-const socialImage = new URL('/img/logo.png', site).href;
+const socialImage = new URL(defaultSocialImage, site).href;
 ---
 
 <!doctype html>
@@ -11,7 +14,7 @@ const socialImage = new URL('/img/logo.png', site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Idle Fusion. Thoughtful apps and websites. Say hello, or come on in."
+      content="Idle Fusion is an independent studio building thoughtful iOS apps and websites, trusted by Disney, NBC Sports, and Golf Channel. Say hello, or come on in."
     />
     <meta name="robots" content="index, follow" />
     <meta name="color-scheme" content="light dark" />
@@ -23,6 +26,8 @@ const socialImage = new URL('/img/logo.png', site).href;
     />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Idle Fusion — Thoughtful apps & websites" />
@@ -56,13 +61,11 @@ const socialImage = new URL('/img/logo.png', site).href;
       })();
     </script>
     <link rel="icon" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;450;500;550;600&display=swap"
-      rel="stylesheet"
-    />
-    <title>A simple hello — Idle Fusion</title>
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <Fonts />
+    <title>Idle Fusion — Independent app & web studio</title>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   </head>
   <body>
     <button
@@ -99,12 +102,18 @@ const socialImage = new URL('/img/logo.png', site).href;
         <p class="eyebrow">Independent by design.</p>
         <h1>idle fusion<span>.</span></h1>
         <p class="description">Thoughtful apps & websites.<br />Good people to build with.</p>
+        <p class="clients">Trusted by Disney, NBC Sports, Golf Channel & Treehouse</p>
 
         <div class="contact">
           <p>Matthew Strickland <span aria-hidden="true">/</span> Founder & builder</p>
-          <a class="email" href="mailto:hello@idlefusion.com"
-            >hello@idlefusion.com <span aria-hidden="true">↗</span></a
-          >
+          <div class="contact-links">
+            <a class="email" href="mailto:hello@idlefusion.com"
+              >hello@idlefusion.com <span aria-hidden="true">↗</span></a
+            >
+            <a class="start" href="/contact/" data-track="cta_welcome_contact"
+              >Start a project <span aria-hidden="true">→</span></a
+            >
+          </div>
         </div>
 
         <div class="invitation">
@@ -113,6 +122,7 @@ const socialImage = new URL('/img/logo.png', site).href;
             class="enter"
             href="/explore/"
             aria-label="Come on in — explore the full Idle Fusion website"
+            data-track="enter_site"
           >
             Come on in <span class="enter-arrow" aria-hidden="true"
               ><span class="enter-arrow-glyph">→</span></span
@@ -128,6 +138,7 @@ const socialImage = new URL('/img/logo.png', site).href;
         <a href="https://linkedin.com/in/mps">LinkedIn ↗</a>
       </nav>
     </footer>
+    <Analytics />
   </body>
 </html>
 
@@ -313,8 +324,36 @@ const socialImage = new URL('/img/logo.png', site).href;
     letter-spacing: -0.025em;
     color: var(--welcome-muted);
   }
+  .clients {
+    margin-top: 18px;
+    text-wrap: balance;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--welcome-muted);
+  }
   .contact {
     margin-top: 42px;
+  }
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px 28px;
+  }
+  .start {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 0 5px;
+    color: var(--welcome-link);
+    border-bottom: 1px solid var(--welcome-blue);
+  }
+  .start:hover,
+  .start:focus-visible {
+    color: var(--welcome-text);
   }
   .contact p {
     font-size: 11px;
@@ -436,6 +475,9 @@ const socialImage = new URL('/img/logo.png', site).href;
     }
     .contact p {
       font-size: 10px;
+    }
+    .clients {
+      font-size: 11px;
     }
     .contact p span {
       padding-inline: 5px;

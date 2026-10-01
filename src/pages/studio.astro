@@ -1,8 +1,14 @@
 ---
 import Layout from '../layouts/SiteLayout.astro';
+import { founderSchema } from '../data/site';
 ---
 
-<Layout title="The studio" active="studio">
+<Layout
+  title="The studio"
+  active="studio"
+  description="Meet Matthew Strickland, Idle Fusion’s founder, with 20+ years building apps and digital products for Disney, NBC Sports, and independent teams."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(founderSchema)} />
   <section class="wrap studio-hero">
     <div>
       <span class="eyebrow">Hello. We’re Idle Fusion.</span>

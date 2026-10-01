@@ -1,0 +1,23 @@
+---
+// Where the contact form lands when it is submitted without JavaScript.
+import ContactNextSteps from '../../components/ContactNextSteps.astro';
+import Layout from '../../layouts/SiteLayout.astro';
+---
+
+<Layout
+  title="Thanks for getting in touch"
+  description="Your message is on its way to Idle Fusion."
+  robots="noindex, follow"
+>
+  <section class="page-intro wrap">
+    <span class="eyebrow"><span class="status-dot"></span> Message sent</span>
+    <h1>Thanks. Your message<br />is on its <em>way.</em></h1>
+    <div class="intro-row">
+      <div>
+        <p>Here’s what happens next.</p>
+        <ContactNextSteps />
+      </div>
+      <a class="text-link" href="/work/">While you wait, see selected work ↗</a>
+    </div>
+  </section>
+</Layout>

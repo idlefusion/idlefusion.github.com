@@ -1,0 +1,10 @@
+# Cloudflare static-asset response headers (https://developers.cloudflare.com/workers/static-assets/headers/).
+# Pages themselves keep the default (revalidate every visit) so updates show immediately.
+
+# Build output is content-hashed: a changed file gets a new name.
+/_assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images keep their names when replaced, so cache for a week rather than forever.
+/img/*
+  Cache-Control: public, max-age=604800

@@ -1,0 +1,8 @@
+---
+// Self-hosted fonts: no render-blocking request to Google, and the files are
+// fingerprinted so they cache for a year (see public/_headers).
+import '../styles/fonts.css';
+import workSans from '../assets/fonts/work-sans-latin-wght-normal.woff2?url';
+---
+
+<link rel="preload" href={workSans} as="font" type="font/woff2" crossorigin />

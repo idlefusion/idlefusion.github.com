@@ -1584,3 +1584,174 @@ p {
     animation: none !important;
   }
 }
+
+/* Client testimonials */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+.testimonial {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 26px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+.testimonial blockquote {
+  margin: 0;
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-style: italic;
+  font-size: 23px;
+  line-height: 1.3;
+}
+.testimonial figcaption {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.testimonial figcaption img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.testimonial figcaption strong {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 550;
+}
+.testimonials.compact {
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 40px;
+}
+.testimonials.compact .testimonial {
+  padding: 22px 24px;
+  gap: 16px;
+}
+.testimonials.compact blockquote {
+  font-size: 19px;
+}
+
+/* Case study results (optional per project) and closing call to action */
+.case-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 22px;
+  margin: 0 0 30px;
+}
+.case-results div {
+  border-top: 1px solid var(--ink);
+  padding-top: 14px;
+}
+.case-results dt {
+  font-size: 40px;
+  font-weight: 550;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+.case-results dd {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.case-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-block: 10px 50px;
+  padding: 34px 38px;
+  background: var(--accent-tint);
+  border-radius: 5px;
+}
+.case-cta h2 {
+  font-size: clamp(26px, 3vw, 34px);
+  margin: 0 0 8px;
+}
+.case-cta p {
+  margin: 0;
+  font-size: 15px;
+  max-width: 520px;
+}
+
+/* What happens after someone gets in touch */
+.next-steps {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+.form-success {
+  border-color: var(--accent);
+  background: var(--canvas);
+  padding: 20px 22px;
+  font-size: 14px;
+}
+.form-success strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 550;
+  margin-bottom: 10px;
+}
+.reply-promise {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+/* Keep the contact button in the header on phones. */
+@media (max-width: 800px) {
+  .site-header {
+    gap: 10px;
+  }
+  .header-cta {
+    display: inline-flex;
+    flex: none;
+    white-space: nowrap;
+    margin-left: auto;
+    padding: 9px 13px;
+  }
+  .header-cta [aria-hidden='true'] {
+    display: none;
+  }
+  .mobile-nav summary {
+    gap: 8px;
+    padding-inline: 4px;
+  }
+}
+@media (max-width: 380px) {
+  .site-header .wordmark {
+    font-size: 19px;
+    gap: 6px;
+  }
+  .site-header .fusion-mark {
+    transform: scale(0.85);
+    transform-origin: left center;
+    margin-right: -4px;
+  }
+  .header-cta {
+    padding-inline: 11px;
+  }
+}
+.case-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px;
+  margin-bottom: 50px;
+}
+.case-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 13px;
+  border: 1px solid var(--line);
+}

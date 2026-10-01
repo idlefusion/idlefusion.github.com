@@ -12,7 +12,13 @@ npm run dev       # Astro development server
 npm run build     # Production site in dist/
 npm run preview   # Preview the built site
 npm test          # Build, check routes/contact, and capture desktop/mobile screenshots
+npm run optimize:images       # After adding images: write WebP copies beside large PNG/JPEGs
+npm run generate:brand-images # After changing projects: regenerate social cards and icons
 ```
+
+Images: add originals under `public/img/` and run `npm run optimize:images`. Pages keep referencing the original file; the build swaps each `<img>` to its WebP copy, and `npm test` fails if a page shows an image over 250 KB. Originals stay published for `og:image` tags and existing links.
+
+Analytics: page views and conversions are counted without cookies through the Worker and Workers Analytics Engine. See `docs/analytics.md` for the events and example queries.
 
 `npm test` starts its own temporary local preview server and closes it when finished. Contact delivery is simulated: tests exercise the existing Worker without sending real emails. Screenshots and audit reports are written to the ignored `artifacts/redesign/` directory.
 
@@ -33,7 +39,9 @@ Open the site at http://127.0.0.1:4323/ and the screenshot gallery at http://127
 - `src/data/projects.ts`: portfolio and case-study content.
 - `src/pages/`: public routes; dedicated app pages remain at their existing URLs.
 - `src/components/ContactForm.astro`: direct-send inquiry form.
-- `worker.ts`: contact endpoint and static-asset serving.
+- `worker.ts`: contact endpoint (JSON or plain form post), analytics events, and static-asset serving.
+- `public/_headers`: cache rules for static assets.
+- `src/data/site.ts`: shared organization details and structured data.
 - `public/`: existing product artwork and other static assets.
 
 Each app retains its own layout, colors, artwork, and light/dark treatment. Shared navigation and discovery connect those pages to the business site. See `docs/redesign-proposal.md` for release scope and `docs/app-design-review.md` for the app-by-app review.

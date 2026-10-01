@@ -85,6 +85,7 @@ try {
     {
       await page.type('[name="company"]', 'Example Studio');
       await page.select('[name="service"]', 'Mobile app development');
+      await page.select('[name="timeline"]', 'In the next 1–3 months');
     }
     mode = 'pending';
     const beforeSubmit = requests.length;
@@ -113,6 +114,8 @@ try {
     {
       assert.match(delivered.text, /Company: Example Studio/);
       assert.match(delivered.text, /Project: Mobile app development/);
+      assert.match(delivered.text, /Timeline: In the next 1–3 months/);
+      assert.doesNotMatch(delivered.text, /Budget:/);
     }
     assert.equal(await page.$eval('[name="message"]', (element) => element.value), '');
     assert.equal(await page.$eval('#submit-btn', (element) => element.disabled), false);
@@ -165,6 +168,84 @@ try {
     assert.equal(deliveries.length, before);
   }
   check('Worker rejects missing fields and invalid email before delivery');
+
+  // Without JavaScript the browser posts the form itself.
+  const events = [];
+  const env = {
+    RESEND_API_KEY: 'test-only',
+    EVENTS: { writeDataPoint: (point) => events.push(point) },
+  };
+  const formPost = (fields) =>
+    worker.fetch(
+      new Request(`${origin}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(fields).toString(),
+      }),
+      env,
+    );
+  {
+    const before = deliveries.length;
+    const response = await formPost({
+      name: 'No Script',
+      email: 'noscript@example.com',
+      message: 'Sent without JavaScript.',
+      _honeypot: '',
+      service: 'Website or web platform',
+      budget: '$10k–$25k',
+      timeline: '',
+    });
+    assert.equal(response.status, 303);
+    assert.equal(response.headers.get('location'), '/contact/thanks/');
+    assert.equal(deliveries.length, before + 1);
+    assert.match(deliveries.at(-1).text, /Budget: \$10k–\$25k/);
+    assert.doesNotMatch(deliveries.at(-1).text, /Timeline:/);
+    assert.deepEqual(events.at(-1).blobs.slice(0, 2), ['contact_submit', '/contact/']);
+    const spam = await formPost({
+      name: 'Bot',
+      email: 'b@example.com',
+      message: 'x',
+      _honeypot: 'y',
+    });
+    assert.equal(spam.status, 303);
+    assert.equal(deliveries.length, before + 1);
+    const invalid = await formPost({ name: 'No Script', email: 'invalid', message: 'Hi' });
+    assert.equal(invalid.status, 400);
+    assert.match(invalid.headers.get('content-type'), /text\/html/);
+    assert.match(await invalid.text(), /Invalid email address/);
+  }
+  check('No-JavaScript form post delivers, redirects to thanks, and explains errors');
+
+  // Analytics beacons: known events are counted without identifying the visitor.
+  {
+    const beacon = (body, headers = {}) =>
+      worker.fetch(
+        new Request(`${origin}/api/event`, { method: 'POST', headers, body: JSON.stringify(body) }),
+        env,
+      );
+    const before = events.length;
+    let response = await beacon({
+      name: 'pageview',
+      path: '/explore/',
+      referrer: 'https://www.google.com/search?q=idle+fusion',
+    });
+    assert.equal(response.status, 204);
+    assert.deepEqual(events.at(-1).blobs.slice(0, 3), ['pageview', '/explore/', 'www.google.com']);
+    response = await beacon({ name: 'made_up', path: '/' });
+    assert.equal(response.status, 204);
+    await beacon({ name: 'pageview', path: '/' }, { 'User-Agent': 'Googlebot/2.1' });
+    assert.equal(events.length, before + 1);
+    // Works without the Analytics Engine binding.
+    response = await worker.fetch(
+      new Request(`${origin}/api/event`, {
+        method: 'POST',
+        body: JSON.stringify({ name: 'pageview', path: '/' }),
+      }),
+      { RESEND_API_KEY: 'test-only' },
+    );
+    assert.equal(response.status, 204);
+  }
+  check('Event endpoint records known events, keeps only the referring site, ignores bots');
   for (const [device, width, height] of [
     ['desktop', 1440, 1000],
     ['mobile', 390, 844],
