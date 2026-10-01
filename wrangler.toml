@@ -5,6 +5,9 @@ main = "worker.ts"
 
 [assets]
 directory = "./dist"
+# worker.ts hands every non-API request to env.ASSETS; without this binding it
+# throws, and unknown URLs return Cloudflare error 1101 instead of the 404 page.
+binding = "ASSETS"
 not_found_handling = "404-page"
 
 [[routes]]

@@ -155,6 +155,11 @@ try {
     if (!sitemap.includes(`https://idlefusion.com${route}`))
       errors.push(`${route}: absent from sitemap`);
   }
+  // Only the welcome screen lives at /; links from inside the site go to /explore/.
+  for (const doc of documents) {
+    if (doc.file === 'index.html' || doc.file === 'welcome/index.html') continue;
+    if (doc.references.includes('/')) errors.push(`${doc.file}: links to the welcome screen`);
+  }
   // Internal reviews must stay out of search.
   for (const route of ['/design/', '/showcase/', '/contact/thanks/']) {
     if (!documentMap.get(`${route.slice(1)}index.html`)?.robots?.includes('noindex'))

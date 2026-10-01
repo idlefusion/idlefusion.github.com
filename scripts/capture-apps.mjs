@@ -240,7 +240,7 @@ const failures = audit.pages.filter(
     p.headings !== 1 ||
     p.brokenImages.length ||
     p.noindex ||
-    p.homeLink !== '/' ||
+    p.homeLink !== '/explore/' ||
     p.directoryLink !== '/apps/' ||
     p.hashFailures.length,
 );

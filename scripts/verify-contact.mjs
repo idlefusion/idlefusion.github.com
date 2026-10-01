@@ -84,6 +84,7 @@ try {
     await fill();
     {
       await page.type('[name="company"]', 'Example Studio');
+      assert.deepEqual(await page.select('[name="service"]', 'Coaching'), ['Coaching']);
       await page.select('[name="service"]', 'Mobile app development');
       await page.select('[name="timeline"]', 'In the next 1–3 months');
     }
