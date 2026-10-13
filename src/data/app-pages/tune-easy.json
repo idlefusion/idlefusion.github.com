@@ -1,0 +1,108 @@
+{
+  "slug": "tune-easy",
+  "name": "Tune Easy",
+  "category": "Guitar Tuner",
+  "icon": "/img/tune-easy/icon.png",
+  "seo": {
+    "title": "Tune Easy — Simple Guitar Tuner for iOS",
+    "description": "Tune your guitar, simply. Real-time pitch detection, reference tones, and haptic feedback. No accounts, no subscriptions.",
+    "ogImage": "/img/tune-easy/icon.png",
+    "canonical": "https://idlefusion.com/tune-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": ["#b8844a", "#eea12a"],
+  "ink": "#866035",
+  "hero": {
+    "label": "STANDARD TUNING",
+    "title": "Tune your guitar, <em>simply.</em>",
+    "text": [
+      "A purpose-built tuner for guitarists. Real-time pitch detection, reference tones, haptic feedback. No fuss, just tune."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/tune-easy/screenshots/01_marketing.png",
+      "alt": "Tune Easy — Tune Your Guitar",
+      "label": "Tune Your Guitar",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/tune-easy/screenshots/02_marketing.png",
+      "alt": "Tune Easy — Alternate Tunings",
+      "label": "Alternate Tunings",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/tune-easy/screenshots/03_marketing.png",
+      "alt": "Tune Easy — Real-Time Detection",
+      "label": "Real-Time Detection",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/tune-easy/screenshots/04_marketing.png",
+      "alt": "Tune Easy — Visual Feedback",
+      "label": "Visual Feedback",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Built for guitarists.",
+      "items": [
+        {
+          "title": "Standard Tuning",
+          "text": "E A D G B E. That's it. No confusing menus, no alternate tunings to accidentally select. Just the tuning 99% of guitarists use 99% of the time."
+        },
+        {
+          "title": "Real-Time Pitch Detection",
+          "text": "Advanced autocorrelation works great with guitar's rich harmonics. See exactly how many cents flat or sharp you are, instantly."
+        },
+        {
+          "title": "Reference Tones",
+          "text": "Not sure what the string should sound like? Tap any string button to hear the target pitch. Learn to tune by ear."
+        },
+        {
+          "title": "Haptic Feedback",
+          "text": "Feel when you nail it. A satisfying tap tells you the string is in tune — no need to stare at the screen while you adjust."
+        },
+        {
+          "title": "Clear Visual Feedback",
+          "text": "Big, bold note display with a visual gauge showing flat, sharp, or in tune. Green glow when you hit it. Works great in any light."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "No servers, no cloud sync, no network requests. Your microphone is used only for tuning. Period."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Your microphone is used only for pitch detection. Nothing is recorded or stored."
+      ],
+      "link": {
+        "href": "/tune-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Get in tune.",
+    "text": "Free on the App Store. No account required."
+  }
+}

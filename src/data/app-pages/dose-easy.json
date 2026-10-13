@@ -1,0 +1,130 @@
+{
+  "slug": "dose-easy",
+  "name": "Dose Easy",
+  "category": "Supplement & Vitamin Tracker",
+  "icon": "/img/dose-easy/icon.png",
+  "seo": {
+    "title": "Dose Easy — Supplement & Vitamin Tracker",
+    "description": "Dose Easy helps you build a reliable supplement routine with dose logs, reminders, and daily checklists that keep your health habits visible and easy to follow.",
+    "ogImage": "/img/dose-easy/icon.png",
+    "canonical": "https://idlefusion.com/dose-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Coming soon · No account required",
+  "pigments": ["#55c9ae", "#1fae9f"],
+  "ink": "#257462",
+  "hero": {
+    "label": "Supplement Routine Tracker",
+    "title": "Log supplements consistently with simple reminders.",
+    "text": [
+      "Dose Easy helps you build a reliable supplement routine with dose logs, reminders, and daily checklists that keep your health habits visible and easy to follow."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/dose-easy/screenshots/01_today_checklist.png",
+      "alt": "Today checklist",
+      "label": "Today checklist",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/dose-easy/screenshots/02_supplement_list.png",
+      "alt": "Supplement library",
+      "label": "Supplement library",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/dose-easy/screenshots/03_history.png",
+      "alt": "History and adherence",
+      "label": "History and adherence",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/dose-easy/screenshots/04_dark_mode.png",
+      "alt": "Dark mode",
+      "label": "Dark mode",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/dose-easy/screenshots/04_settings_themes.png",
+      "alt": "Advanced reminders",
+      "label": "Advanced reminders",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/dose-easy/screenshots/05_themes.png",
+      "alt": "Theme options",
+      "label": "Theme options",
+      "w": 1242,
+      "h": 2688
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "Screenshots",
+      "title": "Screenshots"
+    },
+    {
+      "type": "features",
+      "label": "",
+      "title": "What Dose Easy does",
+      "items": [
+        {
+          "title": "Dose tracking",
+          "text": "Track every supplement, dosage, and frequency without manually juggling multiple lists."
+        },
+        {
+          "title": "Reminder automation",
+          "text": "Local reminders keep your routine on schedule, even when your day gets busy."
+        },
+        {
+          "title": "Adherence history",
+          "text": "Review consistency over days and weeks so you can identify gaps before routines drift."
+        },
+        {
+          "title": "Export and review",
+          "text": "Share or review dose logs in a clean format for personal tracking workflows."
+        },
+        {
+          "title": "Private by default",
+          "text": "No accounts or sign up required and no telemetry from your health routine."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "",
+      "title": "Who it’s for",
+      "text": [],
+      "items": [
+        "Daily vitamin routines",
+        "Complex supplement protocols",
+        "Family health plans",
+        "Anyone building consistent habits"
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "",
+      "title": "Privacy",
+      "text": [
+        "Dose Easy keeps dose records and reminders fully local. We do not sync your routine to the cloud, track your behavior, or deliver ads."
+      ],
+      "link": {
+        "href": "/dose-easy/privacy",
+        "text": "Read the full privacy policy"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Ready to start?",
+    "text": "Install Dose Easy to track smarter and stay focused on what matters."
+  }
+}

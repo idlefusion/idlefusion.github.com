@@ -1,0 +1,323 @@
+---
+// One template for every app landing page. The app's icon and screenshots are
+// shown exactly as supplied; the page around them is the studio's design, with
+// the Idle Fusion mark painted in the app's two pigments behind the icon.
+import AppLayout from '../../layouts/AppLayout.astro';
+import StoreButton from './StoreButton.astro';
+import MoreApps from './MoreApps.astro';
+import type { AppPageData, AppSection } from '../../data/app-pages';
+
+interface Props {
+  page: AppPageData;
+}
+const { page } = Astro.props;
+const hand = (html: string) => html.replace(/<em>/g, '<em class="hand app-hand">');
+// Long headlines step down a size so they don't stack five lines deep.
+const longTitle = page.hero.title.replace(/<[^>]+>/g, '').length > 36;
+
+// Stable ids for the header's in-page links.
+let featureCount = 0;
+const sections = page.sections.map((section: AppSection) => {
+  let id: string | undefined;
+  if (section.type === 'screenshots') id = 'screenshots';
+  else if (section.type === 'features')
+    id = featureCount++ ? `features-${featureCount}` : 'features';
+  else if (section.type === 'privacy') id = 'privacy';
+  return { section, id };
+});
+const navSections = [
+  page.screenshots.length && { id: 'screenshots', label: 'Screenshots' },
+  sections.some((s) => s.id === 'features') && { id: 'features', label: 'Features' },
+].filter(Boolean) as { id: string; label: string }[];
+// Numbered labels for every section that has one.
+let n = 0;
+const number = () => String(++n).padStart(2, '0');
+
+// Two compositions of the mark, chosen per app so neighbours differ.
+const variant = ([...page.slug].reduce((sum, c) => sum + c.charCodeAt(0), 0) % 2) + 1;
+const rings =
+  variant === 1
+    ? [
+        [420, 520],
+        [640, 470],
+      ]
+    : [
+        [450, 560],
+        [610, 420],
+      ];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: page.name,
+  description: page.seo.description,
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: page.platform,
+  image: `https://idlefusion.com${page.icon}`,
+  author: { '@type': 'Organization', name: 'Idle Fusion', url: 'https://idlefusion.com' },
+  ...(page.store ? { url: page.store.url } : {}),
+  ...(/free/i.test(page.note)
+    ? { offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } }
+    : {}),
+};
+---
+
+<AppLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  ogImage={page.seo.ogImage}
+  canonical={page.seo.canonical}
+  app={page}
+  kind="landing"
+  sections={navSections}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <main id="main">
+    <section class="wrap app-hero">
+      <div class="app-hero-copy">
+        <p class="label"><span class="app-dot"></span> {page.hero.label}</p>
+        <h1 class:list={['h1 app-title', { long: longTitle }]} set:html={hand(page.hero.title)} />
+        {page.hero.text.map((text) => <p class="lede" set:html={text} />)}
+        <div class="actions">
+          <StoreButton store={page.store} platform={page.platform} />
+          {
+            page.screenshots.length > 0 && (
+              <a class="link-arrow" href="#screenshots">
+                See it in action <span aria-hidden="true">↓</span>
+              </a>
+            )
+          }
+        </div>
+        <p class="meta app-note">{page.note}</p>
+      </div>
+      <figure class:list={['app-hero-art', `v${variant}`]}>
+        <span class="app-wash a" style={`--mask: url(/img/paint/app-wash-${variant}a.webp)`}></span>
+        <span class="app-wash b" style={`--mask: url(/img/paint/app-wash-${variant}b.webp)`}></span>
+        <svg class="construction" viewBox="0 0 1100 1000" aria-hidden="true">
+          {
+            rings.map(([cx, cy]) => (
+              <ellipse
+                class="geo draw"
+                cx={cx}
+                cy={cy}
+                rx="255"
+                ry="330"
+                transform={`rotate(32 ${cx} ${cy})`}
+              />
+            ))
+          }
+        </svg>
+        <img
+          class="app-hero-icon"
+          src={page.icon}
+          alt={`${page.name} app icon`}
+          width="240"
+          height="240"
+          fetchpriority="high"
+        />
+        <figcaption class="label app-fig">
+          Fig. — {page.name}, painted into the studio’s mark
+        </figcaption>
+      </figure>
+    </section>
+
+    {
+      sections.map(({ section, id }) => {
+        if (section.type === 'strip')
+          return (
+            <section class="wrap app-strip" aria-label="Moods">
+              <ul>
+                {section.items.map((item) => (
+                  <li>
+                    <span class="emoji" aria-hidden="true">
+                      {item.emoji}
+                    </span>
+                    <span class="meta">{item.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        if (section.type === 'screenshots')
+          return (
+            <section class="app-section app-shots" id={id} aria-labelledby={`${id}-title`}>
+              <div class="wrap">
+                <header class="section-head">
+                  <span class="label">
+                    <span class="idx">{number()}</span> {section.label}
+                  </span>
+                  <span class="meta">
+                    {page.screenshots.length} screens · scroll <span aria-hidden="true">→</span>
+                  </span>
+                </header>
+                <div class="section-title">
+                  <h2 id={`${id}-title`} set:html={hand(section.title)} />
+                </div>
+              </div>
+              <ol class="shot-strip" tabindex="0" aria-label={`${page.name} screenshots`}>
+                {page.screenshots.map((shot, i) => (
+                  <li class:list={{ small: shot.h < 1000 }}>
+                    <figure>
+                      <img
+                        src={shot.src}
+                        alt={shot.alt}
+                        width={shot.w}
+                        height={shot.h}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption class="meta">
+                        {String(i + 1).padStart(2, '0')} — {shot.label}
+                      </figcaption>
+                    </figure>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          );
+        if (section.type === 'features')
+          return (
+            <section class="wrap app-section" id={id} aria-labelledby={`${id}-title`}>
+              <header class="section-head">
+                <span class="label">
+                  <span class="idx">{number()}</span> {section.label || 'Features'}
+                </span>
+              </header>
+              <div class="section-title">
+                <h2 id={`${id}-title`} set:html={hand(section.title)} />
+                {section.intro?.map((text) => (
+                  <p set:html={text} />
+                ))}
+              </div>
+              <ol class="app-features">
+                {section.items.map((item, i) => (
+                  <li>
+                    <span class="num">{String(i + 1).padStart(2, '0')}</span>
+                    <h3 class="h3" set:html={item.title} />
+                    <p set:html={item.text} />
+                  </li>
+                ))}
+              </ol>
+              {section.link && (
+                <p class="app-section-link">
+                  <a class="link-arrow" href={section.link.href}>
+                    {section.link.text.replace(/\s*→\s*$/, '')} <span aria-hidden="true">→</span>
+                  </a>
+                </p>
+              )}
+            </section>
+          );
+        if (section.type === 'privacy')
+          return (
+            <section class="wrap app-section app-privacy" id={id} aria-labelledby={`${id}-title`}>
+              <div class="app-privacy-inner">
+                <span class="label">
+                  <span class="idx">{number()}</span> {section.label || 'Privacy'}
+                </span>
+                <h2 id={`${id}-title`} class="h2" set:html={hand(section.title)} />
+                <div class="app-privacy-text">
+                  {section.text.map((text) => (
+                    <p set:html={text} />
+                  ))}
+                  {section.link && (
+                    <a class="link-arrow" href={section.link.href}>
+                      {section.link.text.replace(/\s*→\s*$/, '')} <span aria-hidden="true">→</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </section>
+          );
+        if (section.type === 'statement')
+          return (
+            <section class="wrap app-section app-statement">
+              <header class="section-head">
+                <span class="label">
+                  <span class="idx">{number()}</span> {section.label || page.name}
+                </span>
+              </header>
+              <div class="app-statement-grid">
+                <h2 class="h2" set:html={hand(section.title)} />
+                <div>
+                  {section.text.map((text) => (
+                    <p set:html={text} />
+                  ))}
+                  {section.link && (
+                    <a class="link-arrow" href={section.link.href}>
+                      {section.link.text}
+                    </a>
+                  )}
+                </div>
+              </div>
+            </section>
+          );
+        if (section.type === 'list')
+          return (
+            <section class="wrap app-section app-list">
+              <header class="section-head">
+                <span class="label">
+                  <span class="idx">{number()}</span> {section.label || 'Who it’s for'}
+                </span>
+              </header>
+              <div class="app-statement-grid">
+                <h2 class="h2" set:html={hand(section.title)} />
+                <div>
+                  {section.text.map((text) => (
+                    <p set:html={text} />
+                  ))}
+                  <ul class="ticks">
+                    {section.items.map((item) => (
+                      <li set:html={item} />
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          );
+        if (section.type === 'scale')
+          return (
+            <section class="wrap app-section app-scale">
+              <header class="section-head">
+                <span class="label">
+                  <span class="idx">{number()}</span> {section.label}
+                </span>
+              </header>
+              <div class="section-title">
+                <h2 set:html={hand(section.title)} />
+                {section.text.map((text) => (
+                  <p set:html={text} />
+                ))}
+              </div>
+              <ol class="scale" style={`--steps: ${section.items.length}`}>
+                {section.items.map((item) => (
+                  <li style={`--level: ${item.color}`}>
+                    <strong>{item.label}</strong>
+                    <span class="meta" set:html={item.range} />
+                  </li>
+                ))}
+              </ol>
+            </section>
+          );
+        return null;
+      })
+    }
+
+    {
+      page.cta && (
+        <section class="wrap app-cta" aria-labelledby="app-cta-title">
+          <span class="app-cta-wash a" />
+          <span class="app-cta-wash b" />
+          <div class="app-cta-inner">
+            <img src={page.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />
+            <div>
+              <h2 id="app-cta-title" set:html={hand(page.cta.title)} />
+              <p set:html={page.cta.text} />
+            </div>
+            <StoreButton store={page.store} platform={page.platform} />
+          </div>
+        </section>
+      )
+    }
+
+    <MoreApps current={page.slug} />
+  </main>
+</AppLayout>

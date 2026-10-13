@@ -1,0 +1,139 @@
+{
+  "slug": "fast-easy",
+  "name": "Fast Easy",
+  "category": "Fasting Timer",
+  "icon": "/img/fast-easy/icon.png",
+  "seo": {
+    "title": "Fast Easy — Fasting Timer for iOS",
+    "description": "A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions. Just start your fast.",
+    "ogImage": "/img/fast-easy/icon.png",
+    "canonical": "https://idlefusion.com/fast-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759019889",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#08b9cf", "#23c08a"],
+  "ink": "#057380",
+  "hero": {
+    "label": "Fasting Timer",
+    "title": "Fasting, made <em>easy.</em>",
+    "text": [
+      "A simple, beautiful fasting timer for iOS. No accounts. No tracking. No subscriptions."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/fast-easy/screenshots/01_classic_ring.png",
+      "alt": "Classic ring timer",
+      "label": "Classic ring timer",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/02_goal_reached.png",
+      "alt": "Goal reached",
+      "label": "Goal reached",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/03_fluid_wave.png",
+      "alt": "Fluid wave skin",
+      "label": "Fluid wave skin",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/04_minimal.png",
+      "alt": "Minimal skin",
+      "label": "Minimal skin",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/05_segmented_arc.png",
+      "alt": "Segmented arc skin",
+      "label": "Segmented arc skin",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/06_analog_clock.png",
+      "alt": "Analog clock skin",
+      "label": "Analog clock skin",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/07_statistics.png",
+      "alt": "Statistics and streaks",
+      "label": "Statistics and streaks",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/08_history.png",
+      "alt": "Fasting history",
+      "label": "Fasting history",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "Screenshots",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Simple by design.",
+      "items": [
+        {
+          "title": "Fasting Presets",
+          "text": "12:12, 16:8, 18:6, 20:4, OMAD, and 36-hour fasts. Pick one and go — or count up from zero."
+        },
+        {
+          "title": "10 Timer Skins",
+          "text": "Swipe through visual styles — minimal arcs, gradient rings, gauges, and more. Pick the one that fits your vibe."
+        },
+        {
+          "title": "Live Activities",
+          "text": "Track your fast from the lock screen and Dynamic Island without opening the app."
+        },
+        {
+          "title": "Statistics &amp; Streaks",
+          "text": "Weekly charts, completion rates, total fasting hours, and current streak — all computed locally."
+        },
+        {
+          "title": "History",
+          "text": "Every completed fast is saved. Review your progress, see your longest fasts, and stay motivated."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "No servers, no cloud sync, no network requests. Your data stays on your device. Period."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Fast Easy doesn't even make network requests."
+      ],
+      "link": {
+        "href": "/fast-easy/privacy",
+        "text": "Read the privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start fasting today.",
+    "text": "Free on the App Store. No account required."
+  }
+}

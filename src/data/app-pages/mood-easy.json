@@ -1,0 +1,162 @@
+{
+  "slug": "mood-easy",
+  "name": "Mood Easy",
+  "category": "Mood Tracker",
+  "icon": "/img/mood-easy/icon.png",
+  "seo": {
+    "title": "Mood Easy — Simple Mood Tracker for iOS",
+    "description": "Track your mood the easy way. Quick emoji logging, Year in Pixels visualization, and beautiful widgets. 100% private — your data never leaves your device.",
+    "ogImage": "/img/mood-easy/icon.png",
+    "canonical": "https://idlefusion.com/mood-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265580",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#5fbcb3", "#7aa6e8"],
+  "ink": "#2f716b",
+  "hero": {
+    "label": "MOOD TRACKER",
+    "title": "Track your mood, <em>privately.</em>",
+    "text": [
+      "Simple mood logging with beautiful Year in Pixels visualization. No accounts, no cloud, no tracking. Your feelings stay yours."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/mood-easy/screenshots/01_marketing.png",
+      "alt": "Mood Easy — Track Your Mood Privately",
+      "label": "Track Your Mood Privately",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/mood-easy/screenshots/02_marketing.png",
+      "alt": "Mood Easy — Year in Pixels",
+      "label": "Year in Pixels",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/mood-easy/screenshots/03_marketing.png",
+      "alt": "Mood Easy — One Tap Logging",
+      "label": "One Tap Logging",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/mood-easy/screenshots/04_marketing.png",
+      "alt": "Mood Easy — Spot Patterns",
+      "label": "Spot Patterns",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/mood-easy/screenshots/07_widget.png",
+      "alt": "Mood Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "strip",
+      "items": [
+        {
+          "emoji": "😊",
+          "label": "Great"
+        },
+        {
+          "emoji": "🙂",
+          "label": "Good"
+        },
+        {
+          "emoji": "😐",
+          "label": "Okay"
+        },
+        {
+          "emoji": "😔",
+          "label": "Bad"
+        },
+        {
+          "emoji": "😢",
+          "label": "Awful"
+        }
+      ]
+    },
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Gentle self-awareness.",
+      "items": [
+        {
+          "title": "Quick Emoji Logging",
+          "text": "Log your mood in seconds. Tap one of five emoji — great, good, okay, bad, or awful — and you're done. Add a note if you want, but no pressure."
+        },
+        {
+          "title": "Year in Pixels",
+          "text": "See your mood patterns with a beautiful calendar view. Each day is a colored square — scroll through months and years to spot trends and gain self-insight."
+        },
+        {
+          "title": "Mood Trends",
+          "text": "Track patterns over time. See how your mood changes week to week, spot your best days, and recognize what helps you feel better."
+        },
+        {
+          "title": "Home Screen Widgets",
+          "text": "Small widget prompts you to log. Medium shows your last 7 days as a mood strip. Lock screen widget displays today's mood at a glance."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "Log moods from your wrist with quick selection and haptic confirmation. Add complications to see your mood on your watch face."
+        },
+        {
+          "title": "HealthKit Integration",
+          "text": "Sync with Apple Health's State of Mind feature. See your moods alongside other wellness data. Completely optional — you control permissions."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "YOUR DATA IS SACRED",
+      "title": "Mood data is personal. We treat it that way.",
+      "text": [
+        "No accounts. No cloud sync. No analytics. No ads. No tracking. Your mood entries are stored only on your device. We never see them. When you delete the app, your data is gone. Period."
+      ],
+      "link": {
+        "href": "/mood-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    },
+    {
+      "type": "features",
+      "label": "DESIGN PHILOSOPHY",
+      "title": "Gentle by design.",
+      "items": [
+        {
+          "title": "Calming Colors",
+          "text": "No harsh reds for bad days. Our palette is designed to be gentle and non-judgmental — even tracking difficult days should feel okay."
+        },
+        {
+          "title": "Supportive Language",
+          "text": "We use thoughtful, encouraging words. This app is meant to help you, not make you feel worse about how you're feeling."
+        },
+        {
+          "title": "No Pressure",
+          "text": "One entry per day. Optional notes. No streaks that guilt you. Mood Easy adapts to you, not the other way around."
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Start tracking, privately.",
+    "text": "Free on the App Store. No account required."
+  }
+}

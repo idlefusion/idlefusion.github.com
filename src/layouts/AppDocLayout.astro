@@ -1,0 +1,41 @@
+---
+// Support and privacy pages for an app. The policy text in each page is left
+// exactly as written; this layout only gives it the studio's look.
+import AppLayout from './AppLayout.astro';
+import { appPageData } from '../data/app-pages';
+
+interface Props {
+  title: string;
+  description: string;
+  ogUrl?: string;
+}
+const { title, description, ogUrl } = Astro.props;
+const [, slug, section] = Astro.url.pathname.match(/^\/([^/]+)\/(support|privacy)\/?$/) ?? [];
+const app = appPageData[slug];
+if (!app) throw new Error(`No app page data for ${Astro.url.pathname}`);
+const kind = section as 'support' | 'privacy';
+---
+
+<AppLayout title={title} description={description} app={app} kind={kind} canonical={ogUrl}>
+  <div class="wrap app-doc-head">
+    <a class="app-doc-app" href={`/${app.slug}/`}>
+      <img src={app.icon} alt="" width="56" height="56" />
+      <span>
+        <span class="meta">{app.category}</span>
+        <strong>{app.name}</strong>
+      </span>
+    </a>
+    <nav class="app-policy-nav" aria-label={`${app.name} help`}>
+      <a href={`/${app.slug}/`}>← {app.name}</a>
+      <a href={`/${app.slug}/support/`} aria-current={kind === 'support' ? 'page' : undefined}
+        >Support</a
+      >
+      <a href={`/${app.slug}/privacy/`} aria-current={kind === 'privacy' ? 'page' : undefined}
+        >Privacy</a
+      >
+    </nav>
+  </div>
+  <div class="app-doc" id="main">
+    <slot />
+  </div>
+</AppLayout>

@@ -1,0 +1,136 @@
+{
+  "slug": "temp-easy",
+  "name": "Temp Easy",
+  "category": "Temperature Tracker",
+  "icon": "/img/temp-easy/icon.png",
+  "seo": {
+    "title": "Temp Easy — Body Temperature Tracker for iOS",
+    "description": "Track body temperature for the whole family. Log readings, see trends with fever alerts, and export reports for your doctor. No accounts, no subscriptions.",
+    "ogImage": "/img/temp-easy/icon.png",
+    "canonical": "https://idlefusion.com/temp-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265444",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#f2493d", "#f5a623"],
+  "ink": "#cf1b0e",
+  "hero": {
+    "label": "TEMPERATURE TRACKER",
+    "title": "Track temperature, <em>for the whole family.</em>",
+    "text": [
+      "Log readings, monitor symptoms, and share reports with your doctor. All your family's health data stays on your device — no accounts, no cloud sync, no subscriptions."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/temp-easy/screenshots/01_marketing.png",
+      "alt": "Temp Easy — Family Fever Tracker",
+      "label": "Family Fever Tracker",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/temp-easy/screenshots/02_marketing.png",
+      "alt": "Temp Easy — Multiple Profiles",
+      "label": "Multiple Profiles",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/temp-easy/screenshots/03_marketing.png",
+      "alt": "Temp Easy — Fever Alerts",
+      "label": "Fever Alerts",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/temp-easy/screenshots/04_marketing.png",
+      "alt": "Temp Easy — History & Trends",
+      "label": "History & Trends",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Built for your family's health.",
+      "items": [
+        {
+          "title": "Multi-Person Profiles",
+          "text": "Create profiles for each family member with custom fever thresholds by age. Track everyone's temperature in one app."
+        },
+        {
+          "title": "Trend Charts",
+          "text": "Visualize temperature changes over time with beautiful charts. Track up to 30 readings per person to spot patterns and recovery."
+        },
+        {
+          "title": "Symptom Tracking",
+          "text": "Log symptoms alongside each reading — headache, cough, fatigue, and more. See the full picture of how everyone's feeling."
+        },
+        {
+          "title": "Medication Logging",
+          "text": "Record medications and doses with timestamps. Keep track of what was given and when, especially useful for children's medicine."
+        },
+        {
+          "title": "Export for Doctors",
+          "text": "Generate CSV or text reports with all readings, symptoms, and medications. Share via email or print for your next doctor's visit."
+        },
+        {
+          "title": "HealthKit Sync",
+          "text": "Optionally sync with Apple Health. Read existing temperature data or write new readings. Your health data stays unified in one place."
+        }
+      ]
+    },
+    {
+      "type": "scale",
+      "label": "FEVER THRESHOLDS",
+      "title": "Know when to worry.",
+      "text": [
+        "Temperature readings are color-coded based on standard medical guidelines for fever detection."
+      ],
+      "items": [
+        {
+          "label": "Normal",
+          "range": "&lt; 99.1°F / 37.3°C",
+          "color": "#16a34a"
+        },
+        {
+          "label": "Elevated",
+          "range": "99.1–100.4°F / 37.3–38.0°C",
+          "color": "#ca8a04"
+        },
+        {
+          "label": "Fever",
+          "range": "≥ 100.4°F / 38.0°C",
+          "color": "#dc2626"
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your family's health data stays yours.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Your temperature readings and health information are stored locally on your device. We never see them, and neither does anyone else."
+      ],
+      "link": {
+        "href": "/temp-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start tracking.",
+    "text": "Free on the App Store. No account required."
+  }
+}

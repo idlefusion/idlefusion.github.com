@@ -37,6 +37,7 @@ const EVENT_NAMES = new Set([
   'cta_founder',
   'cta_faq',
   'cta_sticky',
+  'cta_app_page',
 ]);
 
 function record(

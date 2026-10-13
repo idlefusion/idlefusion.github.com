@@ -1,0 +1,115 @@
+{
+  "slug": "voice-easy",
+  "name": "Voice Easy",
+  "category": "Voice Recorder",
+  "icon": "/img/voice-easy/icon.png",
+  "seo": {
+    "title": "Voice Easy — Private Voice Recorder for iOS",
+    "description": "Record voice memos and get instant on-device transcriptions. Your voice never leaves your device. No accounts, no cloud, no subscriptions.",
+    "ogImage": "/img/voice-easy/icon.png",
+    "canonical": "https://idlefusion.com/voice-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": ["#7a4fb5", "#8f8ce0"],
+  "ink": "#7a4fb5",
+  "hero": {
+    "label": "VOICE RECORDER",
+    "title": "Record and transcribe, <em>privately.</em>",
+    "text": [
+      "Capture your thoughts with one tap. Get instant transcriptions that never leave your device. No accounts, no cloud, no subscriptions."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/voice-easy/screenshots/01_marketing.png",
+      "alt": "Voice Easy — Record. Transcribe.",
+      "label": "Record. Transcribe.",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/voice-easy/screenshots/02_marketing.png",
+      "alt": "Voice Easy — On-Device Transcription",
+      "label": "On-Device Transcription",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/voice-easy/screenshots/03_marketing.png",
+      "alt": "Voice Easy — Organize Recordings",
+      "label": "Organize Recordings",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/voice-easy/screenshots/04_marketing.png",
+      "alt": "Voice Easy — Export Anywhere",
+      "label": "Export Anywhere",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/voice-easy/screenshots/07_widget.png",
+      "alt": "Voice Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Everything you need, nothing you don't.",
+      "items": [
+        {
+          "title": "One-Tap Recording",
+          "text": "Capture your thoughts instantly with our beautiful, oversized record button. See real-time waveform feedback as you speak."
+        },
+        {
+          "title": "On-Device Transcription",
+          "text": "Your voice never leaves your iPhone. Voice Easy uses Apple's on-device speech recognition to transcribe your recordings locally. No internet required."
+        },
+        {
+          "title": "Folders &amp; Tags",
+          "text": "Create custom folders with icons and colors. Add tags to recordings. Keep everything organized exactly the way you want."
+        },
+        {
+          "title": "Full-Text Search",
+          "text": "Find any recording by what was said. Powerful search through all your transcriptions finds exactly what you're looking for."
+        },
+        {
+          "title": "Variable Speed Playback",
+          "text": "Listen at your own pace with 0.5x to 2x playback speed. Skip forward or back 15 seconds. Scrub through long recordings."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "Record voice memos directly from your wrist. Perfect for quick notes when your iPhone isn't handy. Syncs automatically."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your voice stays with you.",
+      "text": [
+        "Transcription happens entirely on your device using Apple's on-device speech recognition. No audio is ever sent to the cloud. No accounts. No tracking. No compromises."
+      ],
+      "link": {
+        "href": "/voice-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start recording.",
+    "text": "Free on the App Store. No account required."
+  }
+}

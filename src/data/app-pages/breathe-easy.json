@@ -1,0 +1,118 @@
+{
+  "slug": "breathe-easy",
+  "name": "Breathe Easy",
+  "category": "Breathing Exercises",
+  "icon": "/img/breathe-easy/icon.png",
+  "seo": {
+    "title": "Breathe Easy — Guided Breathing Timer for iOS",
+    "description": "A simple, beautiful breathing timer that helps you relax and focus. Box breathing, 4-7-8, and coherent breathing patterns. Apple Watch, HealthKit, no subscriptions.",
+    "ogImage": "/img/breathe-easy/icon.png",
+    "canonical": "https://idlefusion.com/breathe-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265534",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#2a78b0", "#36c2bf"],
+  "ink": "#266da0",
+  "hero": {
+    "label": "GUIDED BREATHING TIMER",
+    "title": "Find your calm. <em>Just breathe.</em>",
+    "text": [
+      "A simple, beautiful breathing timer that helps you relax and focus. No accounts, no subscriptions, no data collection."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/breathe-easy/screenshots/01_marketing.png",
+      "alt": "Breathe Easy — Breathe Better",
+      "label": "Breathe Better",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/breathe-easy/screenshots/02_marketing.png",
+      "alt": "Breathe Easy — Track Sessions",
+      "label": "Track Sessions",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/breathe-easy/screenshots/03_marketing.png",
+      "alt": "Breathe Easy — Box Breathing",
+      "label": "Box Breathing & More",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/breathe-easy/screenshots/04_marketing.png",
+      "alt": "Breathe Easy — Haptic Guidance",
+      "label": "Haptic Guidance",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/breathe-easy/screenshots/07_widget.png",
+      "alt": "Breathe Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Breathe in seconds.",
+      "items": [
+        {
+          "title": "Proven Patterns",
+          "text": "Box breathing, 4-7-8 relaxation, and Coherent breathing — each backed by science to help you relax, focus, or sleep."
+        },
+        {
+          "title": "Visual Guide",
+          "text": "The breathing circle expands and contracts to match your breath perfectly. Close your eyes and let haptic cues guide you."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "The standalone watch app runs without your iPhone. Start a breathing session from your wrist with full haptic guidance."
+        },
+        {
+          "title": "HealthKit Sync",
+          "text": "Sessions automatically save to Apple Health as mindfulness minutes. Track your practice alongside everything else."
+        },
+        {
+          "title": "Widgets",
+          "text": "Add Home Screen and Lock Screen widgets to start a session instantly. One tap to calm."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "No servers, no cloud sync, no network requests. Your breathing data stays on your device. Period."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Breathe Easy doesn't even make network requests. Your session data lives on your device and nowhere else."
+      ],
+      "link": {
+        "href": "/breathe-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start breathing.",
+    "text": "Free on the App Store. No account required."
+  }
+}

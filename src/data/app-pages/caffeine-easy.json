@@ -1,0 +1,123 @@
+{
+  "slug": "caffeine-easy",
+  "name": "Caffeine Easy",
+  "category": "Caffeine Tracker",
+  "icon": "/img/caffeine-easy/icon.png",
+  "seo": {
+    "title": "Caffeine Easy — Track When Caffeine Clears",
+    "description": "Know exactly when caffeine leaves your system. Half-life decay visualization, quick-log presets, clear-by time, and HealthKit sync. No accounts, no subscriptions.",
+    "ogImage": "/img/caffeine-easy/icon.png",
+    "canonical": "https://idlefusion.com/caffeine-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": ["#9a6741", "#d98a1e"],
+  "ink": "#8c5d3b",
+  "hero": {
+    "label": "CAFFEINE TRACKER",
+    "title": "Know when your caffeine <em>clears.</em>",
+    "text": [
+      "Track your caffeine intake and see exactly when it leaves your system. Half-life science meets simple design."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/caffeine-easy/screenshots/01_marketing.png",
+      "alt": "Caffeine Easy — Know Your Caffeine",
+      "label": "Know Your Caffeine",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/caffeine-easy/screenshots/02_marketing.png",
+      "alt": "Caffeine Easy — See the Decay Curve",
+      "label": "See the Decay Curve",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/caffeine-easy/screenshots/03_marketing.png",
+      "alt": "Caffeine Easy — Log Any Drink",
+      "label": "Log Any Drink",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/caffeine-easy/screenshots/04_marketing.png",
+      "alt": "Caffeine Easy — Sleep Better",
+      "label": "Sleep Better",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/caffeine-easy/screenshots/07_widget.png",
+      "alt": "Caffeine Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Caffeine, understood.",
+      "items": [
+        {
+          "title": "Half-Life Decay Visualization",
+          "text": "Watch your caffeine levels decay in real-time. Our beautiful chart shows exactly how much caffeine is in your system right now and when it will be gone."
+        },
+        {
+          "title": "Quick-Log Presets",
+          "text": "Log your caffeine in seconds. Tap preset buttons for espresso, coffee, tea, energy drinks, and more. Custom amounts when you need them."
+        },
+        {
+          "title": "Clear-By Time",
+          "text": "The \"Clear By\" time tells you when caffeine will drop below 20mg — effectively out of your system. Perfect for planning your last coffee before bed."
+        },
+        {
+          "title": "HealthKit Sync",
+          "text": "Automatically sync your caffeine intake to Apple Health. Track alongside your sleep and other health data to see the full picture."
+        },
+        {
+          "title": "Widgets",
+          "text": "Home Screen and Lock Screen widgets show current caffeine level and clear-by time at a glance. Always know where you stand."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "No servers, no cloud sync, no network requests. Your caffeine data stays on your device. Period."
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "label": "THE SCIENCE",
+      "title": "5.7 hours.",
+      "text": [
+        "That's the average half-life of caffeine. Every 5.7 hours, half the caffeine in your system is metabolized away. We use this to calculate exactly how much caffeine remains in your system at any moment — so you can make smarter decisions about when to drink (and when to stop)."
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Caffeine Easy doesn't even make network requests. Your data lives on your device and nowhere else."
+      ],
+      "link": {
+        "href": "/caffeine-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Track your caffeine.",
+    "text": "Free on the App Store. No account required."
+  }
+}

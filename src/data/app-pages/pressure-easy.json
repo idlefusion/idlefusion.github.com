@@ -1,0 +1,153 @@
+{
+  "slug": "pressure-easy",
+  "name": "Pressure Easy",
+  "category": "Blood Pressure",
+  "icon": "/img/pressure-easy/icon.png",
+  "seo": {
+    "title": "Pressure Easy — Blood Pressure Tracker for iOS",
+    "description": "Track blood pressure privately. Log readings, see trends with AHA category indicators, and export PDF reports for your doctor. No accounts, no subscriptions.",
+    "ogImage": "/img/pressure-easy/icon.png",
+    "canonical": "https://idlefusion.com/pressure-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265324",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#0b9e9e", "#45c2c2"],
+  "ink": "#087373",
+  "hero": {
+    "label": "BLOOD PRESSURE TRACKER",
+    "title": "Track blood pressure, <em>privately.</em>",
+    "text": [
+      "Log readings, see trends, and share reports with your doctor. All your data stays on your device — no accounts, no cloud sync, no subscriptions."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/pressure-easy/screenshots/01_marketing.png",
+      "alt": "Pressure Easy — Blood Pressure Simplified",
+      "label": "Blood Pressure Simplified",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pressure-easy/screenshots/02_marketing.png",
+      "alt": "Pressure Easy — AHA Color Coding",
+      "label": "AHA Color Coding",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pressure-easy/screenshots/03_marketing.png",
+      "alt": "Pressure Easy — Trend Charts",
+      "label": "Trend Charts",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pressure-easy/screenshots/04_marketing.png",
+      "alt": "Pressure Easy — PDF Export",
+      "label": "PDF Export",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pressure-easy/screenshots/07_widget.png",
+      "alt": "Pressure Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Built for your health.",
+      "items": [
+        {
+          "title": "Blood Pressure Logging",
+          "text": "Log systolic/diastolic readings with pulse. Record your position — sitting, standing, or lying down — and add notes for context."
+        },
+        {
+          "title": "Trend Charts",
+          "text": "Visualize your blood pressure over time with beautiful charts. View weekly, monthly, or yearly trends with averages and ranges."
+        },
+        {
+          "title": "AHA Category Indicators",
+          "text": "Every reading is classified using American Heart Association guidelines. Color-coded Normal, Elevated, Stage 1, Stage 2, and Crisis levels."
+        },
+        {
+          "title": "PDF Export for Doctors",
+          "text": "Generate professional reports with all your readings and statistics. Share via email or print for your next doctor's visit."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "Quick entry from your wrist. Step-by-step logging flow makes it easy to record readings without pulling out your phone."
+        },
+        {
+          "title": "HealthKit Sync",
+          "text": "Optionally sync with Apple Health. Read existing data or write new readings. Your health data stays unified in one place."
+        }
+      ]
+    },
+    {
+      "type": "scale",
+      "label": "AHA GUIDELINES",
+      "title": "Understand your numbers.",
+      "text": [
+        "Every reading is automatically classified using American Heart Association guidelines."
+      ],
+      "items": [
+        {
+          "label": "Normal",
+          "range": "&lt; 120 / &lt; 80",
+          "color": "#16a34a"
+        },
+        {
+          "label": "Elevated",
+          "range": "120-129 / &lt; 80",
+          "color": "#ca8a04"
+        },
+        {
+          "label": "High Stage 1",
+          "range": "130-139 / 80-89",
+          "color": "#ea580c"
+        },
+        {
+          "label": "High Stage 2",
+          "range": "≥ 140 / ≥ 90",
+          "color": "#dc2626"
+        },
+        {
+          "label": "Crisis",
+          "range": "≥ 180 / ≥ 120",
+          "color": "#991b1b"
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your health data stays yours.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Your blood pressure readings are stored locally on your device. We never see them, and neither does anyone else."
+      ],
+      "link": {
+        "href": "/pressure-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start tracking.",
+    "text": "Free on the App Store. No account required."
+  }
+}

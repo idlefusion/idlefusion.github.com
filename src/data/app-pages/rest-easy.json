@@ -1,0 +1,118 @@
+{
+  "slug": "rest-easy",
+  "name": "Rest Easy",
+  "category": "Sleep Sounds",
+  "icon": "/img/rest-easy/icon.png",
+  "seo": {
+    "title": "Rest Easy — Sleep Sounds for iOS",
+    "description": "Sleep sounds for better rest. Ambient soundscapes, custom mixing, sleep timer, and background playback. No accounts, no subscriptions.",
+    "ogImage": "/img/rest-easy/icon.png",
+    "canonical": "https://idlefusion.com/rest-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265417",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#2a3a55", "#a08bf0"],
+  "ink": "#2a3a55",
+  "hero": {
+    "label": "AMBIENT SOUNDSCAPES",
+    "title": "Sleep sounds for <em>better rest.</em>",
+    "text": [
+      "Drift off with soothing ambient sounds. Mix your perfect soundscape, set a sleep timer, and let the sounds play all night."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/rest-easy/screenshots/01_marketing.png",
+      "alt": "Rest Easy — Drift Off to Sleep Sounds",
+      "label": "Drift Off to Sleep Sounds",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/rest-easy/screenshots/02_marketing.png",
+      "alt": "Rest Easy — Mix Your Soundscape",
+      "label": "Mix Your Soundscape",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/rest-easy/screenshots/03_marketing.png",
+      "alt": "Rest Easy — Sleep Timer",
+      "label": "Sleep Timer",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/rest-easy/screenshots/04_marketing.png",
+      "alt": "Rest Easy — Beautiful UI",
+      "label": "Beautiful UI",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/rest-easy/screenshots/07_widget.png",
+      "alt": "Rest Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Designed for sleep.",
+      "items": [
+        {
+          "title": "Ambient Sounds",
+          "text": "Rain, ocean waves, forest, wind, thunder, and more. High-quality, seamlessly looping soundscapes designed to help you relax and sleep."
+        },
+        {
+          "title": "Sound Mixing",
+          "text": "Layer multiple sounds together and adjust individual volumes. Create your perfect combination — gentle rain with distant thunder, or ocean with soft wind."
+        },
+        {
+          "title": "Sleep Timer",
+          "text": "Set sounds to fade out after a duration of your choice. Fall asleep to soothing audio without draining your battery all night."
+        },
+        {
+          "title": "Background Playback",
+          "text": "Lock your phone, switch apps, or turn off the screen. Rest Easy keeps playing in the background so you can drift off undisturbed."
+        },
+        {
+          "title": "Dark Interface",
+          "text": "A calming dark theme that won't disturb your eyes at bedtime. Minimal, distraction-free design built for nighttime use."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "All sounds are included in the app. No streaming, no downloads, no internet required. Works perfectly on airplane mode."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking. Rest Easy doesn't make network requests. Your sleep habits are your business."
+      ],
+      "link": {
+        "href": "/rest-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Sleep better tonight.",
+    "text": "Free on the App Store. No account required."
+  }
+}

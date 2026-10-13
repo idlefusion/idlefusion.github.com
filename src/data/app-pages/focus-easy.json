@@ -1,0 +1,128 @@
+{
+  "slug": "focus-easy",
+  "name": "Focus Easy",
+  "category": "Minimalist Launcher",
+  "icon": "/img/focus-easy/icon.png",
+  "seo": {
+    "title": "Focus Easy — Minimalist Home Screen Launcher for iOS",
+    "description": "A distraction-free home screen launcher. Replace clutter with calm. No tracking, no accounts, just focus.",
+    "ogImage": "/img/focus-easy/icon.png",
+    "canonical": "https://idlefusion.com/focus-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759226554",
+    "mac": false
+  },
+  "note": "Coming Soon · Free",
+  "pigments": ["#4b5058", "#9a948a"],
+  "ink": "#4b5058",
+  "hero": {
+    "label": "Minimalist Launcher",
+    "title": "Your phone, <em>simplified.</em>",
+    "text": [
+      "A minimalist home screen launcher for iOS. Replace clutter with calm. Just tap and go."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/focus-easy/screenshots/01_marketing.png",
+      "alt": "Focus Easy — Eliminate Distraction",
+      "label": "Eliminate Distraction",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/focus-easy/screenshots/02_marketing.png",
+      "alt": "Focus Easy — Curate Your Home Screen",
+      "label": "Curate Your Home Screen",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/focus-easy/screenshots/03_marketing.png",
+      "alt": "Focus Easy — Widget Ready",
+      "label": "Widget Ready",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/focus-easy/screenshots/04_marketing.png",
+      "alt": "Focus Easy — Multiple Profiles",
+      "label": "Multiple Profiles",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/focus-easy/screenshots/07_widget.png",
+      "alt": "Focus Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Designed for focus.",
+      "items": [
+        {
+          "title": "Minimalist Widget",
+          "text": "A clean, black and white home screen widget that shows only your essential apps. No badges, no distractions."
+        },
+        {
+          "title": "Three Widget Sizes",
+          "text": "Small (4 apps), medium (6 apps), or large (12 apps). Pick the size that fits your focus level."
+        },
+        {
+          "title": "Popular Apps Built-In",
+          "text": "Quick access to common apps like Messages, Phone, Safari, Instagram, and dozens more. One tap to add."
+        },
+        {
+          "title": "Custom URL Schemes",
+          "text": "Add any app with a URL scheme. Full control over your launcher without limitations."
+        },
+        {
+          "title": "Drag to Reorder",
+          "text": "Arrange your apps exactly how you want. Your muscle memory becomes the navigation."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "No servers, no sync, no network requests. Your apps, your device, your privacy."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Focus Easy doesn't even make network requests."
+      ],
+      "link": {
+        "href": "/focus-easy/privacy",
+        "text": "Read the privacy policy →"
+      }
+    },
+    {
+      "type": "statement",
+      "label": "PHILOSOPHY",
+      "title": "Less is more.",
+      "text": [
+        "Your phone's home screen is visual noise. Dozens of colorful icons competing for attention, badges screaming at you, apps you forgot you installed.",
+        "Focus Easy replaces that chaos with a single, minimal widget. Black text on white (or white on black). Just the apps you actually need. Nothing else.",
+        "Inspired by the \"dumb phone\" movement and digital minimalism, Focus Easy helps you use your phone intentionally — not compulsively."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Simplify your home screen.",
+    "text": "Coming soon to the App Store. Free."
+  }
+}

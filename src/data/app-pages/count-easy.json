@@ -1,0 +1,118 @@
+{
+  "slug": "count-easy",
+  "name": "Count Easy",
+  "category": "Countdown Tracker",
+  "icon": "/img/count-easy/icon.png",
+  "seo": {
+    "title": "Count Easy — Countdown & Days Tracker for iOS",
+    "description": "Beautiful countdown widgets for your home screen. Track days until vacations, birthdays, deadlines — or days since milestones. No accounts, no subscriptions.",
+    "ogImage": "/img/count-easy/icon.png",
+    "canonical": "https://idlefusion.com/count-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759300517",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#02b6d0", "#2f86ea"],
+  "ink": "#017484",
+  "hero": {
+    "label": "COUNTDOWN TRACKER",
+    "title": "Beautiful countdown <em>widgets.</em>",
+    "text": [
+      "Track what matters. Days until your next vacation. Days since you started a new habit. Beautiful widgets that keep your important dates front and center."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/count-easy/screenshots/01_marketing.png",
+      "alt": "Count Easy — Countdown to What Matters",
+      "label": "Countdown to What Matters",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/count-easy/screenshots/02_marketing.png",
+      "alt": "Count Easy — Home Screen Widgets",
+      "label": "Home Screen Widgets",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/count-easy/screenshots/03_marketing.png",
+      "alt": "Count Easy — Multiple Countdowns",
+      "label": "Multiple Countdowns",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/count-easy/screenshots/04_marketing.png",
+      "alt": "Count Easy — Custom Colors",
+      "label": "Custom Colors",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/count-easy/screenshots/07_widget.png",
+      "alt": "Count Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Count down to what matters.",
+      "items": [
+        {
+          "title": "Days Until",
+          "text": "Count down to future events — vacations, birthdays, weddings, deadlines, product launches, anything worth anticipating."
+        },
+        {
+          "title": "Days Since",
+          "text": "Track milestones and achievements — sobriety dates, relationship anniversaries, habit streaks, career moments."
+        },
+        {
+          "title": "Repeating Events",
+          "text": "Set annual repeating for birthdays and anniversaries. Count Easy automatically resets when the date passes."
+        },
+        {
+          "title": "Categories",
+          "text": "Organize your countdowns with custom categories. Group work deadlines, personal goals, and celebrations separately."
+        },
+        {
+          "title": "Beautiful Widgets",
+          "text": "Stunning home screen and lock screen widgets. Small, medium, and large sizes to fit your layout perfectly."
+        },
+        {
+          "title": "8 Vibrant Colors",
+          "text": "Choose from 8 accent colors for each countdown. Make important dates pop with colors that match your style."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your dates. Your device.",
+      "text": [
+        "No accounts. No cloud sync. No tracking. No ads. Count Easy stores everything locally on your device. Your data never leaves."
+      ],
+      "link": {
+        "href": "/count-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start counting.",
+    "text": "Free on the App Store. No account required."
+  }
+}

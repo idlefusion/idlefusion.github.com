@@ -1,0 +1,118 @@
+{
+  "slug": "track-easy",
+  "name": "Track Easy",
+  "category": "Habit Tracker",
+  "icon": "/img/track-easy/icon.png",
+  "seo": {
+    "title": "Track Easy — Simple Habit Tracker for iOS",
+    "description": "Track habits without the hassle. Unlimited habits, streaks, calendar view, widgets, and Apple Watch support. No accounts, no subscriptions.",
+    "ogImage": "/img/track-easy/icon.png",
+    "canonical": "https://idlefusion.com/track-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265450",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#10b981", "#14a3a8"],
+  "ink": "#0a7753",
+  "hero": {
+    "label": "HABIT TRACKER",
+    "title": "Track habits <em>without the hassle.</em>",
+    "text": [
+      "Build better habits with a tracker that respects your time. No sign-up, no subscriptions, no data collection. Just you and your habits."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/track-easy/screenshots/01_marketing.png",
+      "alt": "Track Easy — Build Better Habits",
+      "label": "Build Better Habits",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/track-easy/screenshots/02_marketing.png",
+      "alt": "Track Easy — Streak Tracking",
+      "label": "Streak Tracking",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/track-easy/screenshots/03_marketing.png",
+      "alt": "Track Easy — Home Screen Widgets",
+      "label": "Home Screen Widgets",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/track-easy/screenshots/04_marketing.png",
+      "alt": "Track Easy — Apple Watch Ready",
+      "label": "Apple Watch Ready",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/track-easy/screenshots/07_widget.png",
+      "alt": "Track Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Simple by design.",
+      "items": [
+        {
+          "title": "Unlimited Habits",
+          "text": "Create as many habits as you want. Pick custom icons and colors from a beautiful palette. No limits, no premium tier."
+        },
+        {
+          "title": "Streak Tracking",
+          "text": "Stay motivated with current and personal-best streaks. A flame icon shows when you're on fire. Don't break the chain."
+        },
+        {
+          "title": "Calendar View",
+          "text": "Review your history with a monthly calendar. Color-coded completions create a visual heat map of your progress."
+        },
+        {
+          "title": "Home Screen Widgets",
+          "text": "Check off habits right from your home screen. Small, medium, and lock screen widgets keep habits front and center."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "Track habits from your wrist. See today's habits and tap to complete. Simple and fast."
+        },
+        {
+          "title": "Statistics",
+          "text": "Understand your habits with charts. See completion rates, weekly trends, and your best-performing habits."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your habits stay yours.",
+      "text": [
+        "No analytics. No ads. No tracking. No cloud sync. Your habit data lives on your device and nowhere else. Zero data collection, period."
+      ],
+      "link": {
+        "href": "/track-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start building habits.",
+    "text": "Free on the App Store. No account required."
+  }
+}

@@ -1,0 +1,35 @@
+---
+// The official store badge (unaltered) when an app is listed; an honest
+// "coming soon" label when it isn't, instead of a badge that goes nowhere.
+interface Props {
+  store: { url: string; mac: boolean } | null;
+  platform?: 'iOS' | 'macOS';
+  size?: 'small' | 'large';
+}
+const { store, platform = 'iOS', size = 'large' } = Astro.props;
+const height = size === 'small' ? 40 : 54;
+const storeName = store?.mac || platform === 'macOS' ? 'Mac App Store' : 'App Store';
+---
+
+{
+  store ? (
+    <a
+      class:list={['store-badge', size]}
+      href={store.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src={store.mac ? '/img/mac-app-store-badge.svg' : '/img/app-store-badge.svg'}
+        alt={`Download on the ${storeName}`}
+        height={height}
+        width={store.mac ? Math.round(height * 3.9) : Math.round(height * 3)}
+      />
+    </a>
+  ) : (
+    <span class:list={['store-soon', size]}>
+      <span class="store-soon-dot" aria-hidden="true" />
+      Coming soon<span class="store-soon-long"> to the {storeName}</span>
+    </span>
+  )
+}

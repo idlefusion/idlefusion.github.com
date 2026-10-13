@@ -5,7 +5,8 @@
 
 Paintings are rendered on white and shown with `mix-blend-mode: multiply`, so
 they glaze onto the page's paper colour the way transparent paint would.
-Requires numpy and opencv-python-headless (see requirements.txt).
+Requires numpy and opencv-python-headless (see requirements.txt), plus Node with
+the repo's dependencies installed (sharp encodes the app-page masks).
 """
 
 from __future__ import annotations
@@ -515,6 +516,70 @@ ASSETS.update(
         'paper': paper_tile,
     }
 )
+
+# ---------------------------------------------------------------- app pages
+
+
+def save_mask(img_rgb8, name, width):
+    """Keep only how much paint is where (alpha), so CSS can tint the wash in
+    any app's pigment with mask-image. Encoded by sharp (lossy alpha)."""
+    import subprocess
+    import tempfile
+
+    rgba = to_rgba_on_white(img_rgb8)
+    alpha = rgba[..., 3].astype(np.float32)
+    alpha = np.clip(alpha / max(alpha.max(), 1) * 255 * 0.92, 0, 255).astype(np.uint8)
+    out = np.zeros_like(rgba)
+    out[..., 3] = alpha
+    OUT.mkdir(parents=True, exist_ok=True)
+    path = OUT / name
+    with tempfile.NamedTemporaryFile(suffix='.png') as tmp:
+        cv2.imwrite(tmp.name, cv2.cvtColor(out, cv2.COLOR_RGBA2BGRA))
+        encoder = Path(__file__).parent / 'encode-mask.mjs'
+        subprocess.run(['node', str(encoder), tmp.name, str(path), str(width)], check=True, cwd=ROOT)
+    print(f'  {name}: {width}px wide, {path.stat().st_size // 1024} KB')
+
+
+GREY = '#3a3a3a'
+
+
+def app_masks():
+    """Shared wash shapes for every app page: two overlapping rings of paint
+    (tinted with the app's two pigments), a broad field for the closing call to
+    action, and a highlighter stroke. Icons and screenshots are never painted."""
+    rot = math.radians(32)
+    for v, (seed, a, b) in enumerate(((1201, (420, 520), (640, 470)), (1301, (450, 560), (610, 420))), start=1):
+        for k, (cx, cy) in enumerate((a, b)):
+            c = Canvas(1100, 1000, seed=seed + k)
+            d = c.wash_density(ellipse(cx, cy, 255, 330, rot, n=16), layers=50, variance=0.05, texture=0.25)
+            c.paint(d, GREY, strength=0.55, blooms=2, bloom_size=(22, 50), pool=0.3, granulation=0.1)
+            save_mask(c.rgb8(), f'app-wash-{v}{"ab"[k]}.webp', 900)
+    # Closing call to action: a broad, light field and a second glaze at one end.
+    W, H = 2000, 760
+    c = Canvas(W, H, seed=1401)
+    body = np.array([[50, 90], [W * 0.5, 50], [W - 60, 100], [W - 40, H * 0.55], [W - 80, H - 60], [W * 0.5, H - 40], [60, H - 80], [30, H * 0.45]], float)
+    d = c.wash_density(body, layers=60, variance=0.03, base_depth=3, layer_depth=3, texture=0.15, texture_scale=320)
+    c.paint(d, GREY, strength=0.5, edge=1.0, flow=0.25, flow_scale=8, hard=0.75, granulation=0.08, blooms=2, bloom_size=(50, 110))
+    save_mask(c.rgb8(), 'app-cta-a.webp', 1400)
+    c = Canvas(W, H, seed=1402)
+    d = c.wash_density(ellipse(W * 0.82, H * 0.45, 420, 300, 0.3, n=14), layers=40, variance=0.06, texture=0.15)
+    c.paint(d, GREY, strength=0.5, edge=1.0, flow=0.25, hard=0.5)
+    save_mask(c.rgb8(), 'app-cta-b.webp', 1400)
+    # Highlighter: opaque grey on white, the stroke in the lower part of the frame,
+    # so it can be tinted by blending with a background colour behind text.
+    W, H = 600, 200
+    c = Canvas(W * 2, H * 2, seed=1501)
+    xs = np.linspace(40, W * 2 - 40, 40)
+    ys = H * 2 * 0.66 + 8 * np.sin(xs / 220) - (xs - 40) * 0.015
+    t = np.linspace(0, 1, 40)
+    widths = 54 * np.clip(np.sin(np.pi * t), 0, 1) ** 0.22 + 2
+    d = c.stroke_density(np.stack([xs, ys], 1), widths, layers=30, variance=0.03, base_depth=2, layer_depth=2, texture=0.3)
+    c.paint(d, GREY, strength=0.55, edge=1.5, flow=0.4, hard=0.5, blooms=1, bloom_size=(14, 26))
+    small = cv2.resize(c.rgb8(), (W, H), interpolation=cv2.INTER_AREA)
+    save(small, 'app-swatch.webp', quality=80)
+
+
+ASSETS['app'] = app_masks
 
 if __name__ == '__main__':
     wanted = sys.argv[1:] or list(ASSETS)

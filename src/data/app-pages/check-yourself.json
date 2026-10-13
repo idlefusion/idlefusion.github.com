@@ -1,0 +1,74 @@
+{
+  "slug": "check-yourself",
+  "name": "Check Yourself",
+  "category": "Camera Mirror",
+  "icon": "/img/check-yourself/icon.png",
+  "seo": {
+    "title": "Check Yourself — Quick Camera Mirror for macOS",
+    "description": "A lightweight macOS menu bar app to check your appearance before meetings. One click, instant camera. No accounts, no tracking.",
+    "ogImage": "/img/check-yourself/icon.png",
+    "canonical": "https://idlefusion.com/check-yourself"
+  },
+  "platform": "macOS",
+  "store": null,
+  "note": "Free · macOS 13+",
+  "pigments": ["#8f6fd0", "#c6b0f5"],
+  "ink": "#7750c6",
+  "hero": {
+    "label": "Camera Mirror",
+    "title": "One click. <em>Camera ready.</em>",
+    "text": [
+      "A tiny macOS menu bar app that gives you instant access to your camera. Check your look before the meeting starts."
+    ]
+  },
+  "screenshots": [],
+  "sections": [
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Quick check, no fuss.",
+      "items": [
+        {
+          "title": "Menu Bar Access",
+          "text": "Click the icon in your menu bar and your camera opens instantly. No app windows, no dock clutter."
+        },
+        {
+          "title": "Mirror View",
+          "text": "The camera feed is mirrored so it feels natural — just like looking in a real mirror before heading out."
+        },
+        {
+          "title": "Zoom Levels",
+          "text": "Switch between 1x, 1.5x, and 2x zoom. Your preference is remembered between sessions."
+        },
+        {
+          "title": "Camera On Demand",
+          "text": "The camera is only active when the popover is open. Close it and the camera stops immediately."
+        },
+        {
+          "title": "Lightweight",
+          "text": "Lives quietly in your menu bar. Uses almost no resources when idle. Launches at login if you want."
+        },
+        {
+          "title": "Completely Private",
+          "text": "No network requests, no analytics, no data collection. Your camera feed stays on your Mac. Period."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Check Yourself doesn't make network requests. Your camera feed never leaves your Mac."
+      ],
+      "link": {
+        "href": "/check-yourself/privacy",
+        "text": "Read the privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Look good. Feel good.",
+    "text": "Free on the Mac App Store. No account required."
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "slug": "decibel",
+  "name": "Decibel",
+  "category": "Sound Meter",
+  "icon": "/img/decibel/icon.png",
+  "seo": {
+    "title": "Decibel — Sound Level Meter for iOS",
+    "description": "Measure sound levels instantly with real-time dB readings, NIOSH exposure warnings, and HealthKit integration. No accounts, no subscriptions.",
+    "ogImage": "/img/decibel/icon.png",
+    "canonical": "https://idlefusion.com/decibel"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": ["#16b18c", "#0aa8c9"],
+  "ink": "#0f765d",
+  "hero": {
+    "label": "SOUND LEVEL METER",
+    "title": "Measure sound levels <em>instantly.</em>",
+    "text": [
+      "A precise decibel meter with NIOSH safety warnings. Know when noise becomes harmful and protect your hearing."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/decibel/screenshots/01_marketing.png",
+      "alt": "Decibel — Measure Sound Levels",
+      "label": "Measure Sound Levels",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/decibel/screenshots/02_marketing.png",
+      "alt": "Decibel — Protect Your Hearing",
+      "label": "Protect Your Hearing",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/decibel/screenshots/03_marketing.png",
+      "alt": "Decibel — Real-Time Meter",
+      "label": "Real-Time Meter",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/decibel/screenshots/04_marketing.png",
+      "alt": "Decibel — Exposure History",
+      "label": "Exposure History",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/decibel/screenshots/07_widget.png",
+      "alt": "Decibel — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Know your environment.",
+      "items": [
+        {
+          "title": "Real-Time dB Meter",
+          "text": "Large, easy-to-read display shows current decibel levels instantly. Track peak and average readings during your measurement sessions."
+        },
+        {
+          "title": "NIOSH Exposure Warnings",
+          "text": "Color-coded safety alerts based on occupational standards. Know exactly how long you can safely be exposed to current noise levels."
+        },
+        {
+          "title": "Save Readings",
+          "text": "Store measurements with notes for later reference. Export your history to CSV for analysis or record-keeping."
+        },
+        {
+          "title": "HealthKit Integration",
+          "text": "Record environmental audio exposure to Apple Health. Track your hearing health over time alongside your other health data."
+        },
+        {
+          "title": "Session History",
+          "text": "Every measurement is saved automatically. Review past readings, track trends, and build awareness of your noise exposure."
+        },
+        {
+          "title": "Completely Private",
+          "text": "No accounts, no cloud sync, no tracking. Your sound measurements stay on your device. We never hear a thing."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "PERFECT FOR",
+      "title": "Anyone who works in sound.",
+      "text": [],
+      "items": [
+        "Musicians &amp; audio engineers",
+        "Construction &amp; industrial workers",
+        "Teachers &amp; childcare workers",
+        "Hearing health awareness"
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking. No telemetry. Decibel processes audio locally on your device. We never record, store, or transmit any audio."
+      ],
+      "link": {
+        "href": "/decibel/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start measuring.",
+    "text": "Free on the App Store. No account required."
+  }
+}

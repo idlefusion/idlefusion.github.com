@@ -1,0 +1,130 @@
+{
+  "slug": "marta-easy",
+  "name": "Marta Easy",
+  "category": "Atlanta Transit Companion",
+  "icon": "/img/marta-easy/icon.png",
+  "seo": {
+    "title": "Marta Easy — Atlanta Transit App for iOS",
+    "description": "Marta Easy shows next departures, delay status, and service alerts for MARTA in a clean at-a-glance interface. Built for daily commuters who care about reliable, no-frills information.",
+    "ogImage": "/img/marta-easy/icon.png",
+    "canonical": "https://idlefusion.com/marta-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Coming soon · No account required",
+  "pigments": ["#1483cc", "#1d5486"],
+  "ink": "#116eab",
+  "hero": {
+    "label": "Atlanta Transit App",
+    "title": "Check your commute before you leave the house.",
+    "text": [
+      "Marta Easy shows next departures, delay status, and service alerts for MARTA in a clean at-a-glance interface. Built for daily commuters who care about reliable, no-frills information."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/marta-easy/screenshots/01_home_commute_card.png",
+      "alt": "Commuter Home Card",
+      "label": "Commuter Home Card",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/marta-easy/screenshots/02_leave_in_recommendation.png",
+      "alt": "Leave-in Recommendation",
+      "label": "Leave-in Recommendation",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/marta-easy/screenshots/03_delay_suspension_alerts.png",
+      "alt": "Delay & Suspension Alerts",
+      "label": "Delay & Suspension Alerts",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/marta-easy/screenshots/04_favorites_management.png",
+      "alt": "Favorites and Stops",
+      "label": "Favorites and Stops",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/marta-easy/screenshots/05_service_alerts_feed.png",
+      "alt": "Service Alerts Feed",
+      "label": "Service Alerts Feed",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/marta-easy/screenshots/06_offline_fallback.png",
+      "alt": "Offline Reliability",
+      "label": "Offline Reliability",
+      "w": 1242,
+      "h": 2688
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "Screenshots",
+      "title": "Screenshots"
+    },
+    {
+      "type": "features",
+      "label": "",
+      "title": "What Marta Easy does",
+      "items": [
+        {
+          "title": "Transit at a glance",
+          "text": "See departures, direction, and estimated arrival time from your favorite MARTA stops before you open the app."
+        },
+        {
+          "title": "Status and reliability",
+          "text": "Track delay and suspension updates in one list so your plan can adjust around real-time conditions."
+        },
+        {
+          "title": "Leave-at guidance",
+          "text": "The app suggests when to head out based on the departures you care about, helping you leave on time more often."
+        },
+        {
+          "title": "Offline fallback",
+          "text": "When connectivity drops, cached schedules and recent data still help you make an informed commute decision."
+        },
+        {
+          "title": "Clean onboarding",
+          "text": "No accounts, no sign up, no hidden setup. Choose your stops and you can be using it immediately."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "",
+      "title": "Who it’s for",
+      "text": [],
+      "items": [
+        "Atlanta daily riders",
+        "Commuters checking before boarding",
+        "Travelers planning multi-stop trips",
+        "Anyone managing unreliable schedules"
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "",
+      "title": "Privacy",
+      "text": [
+        "Marta Easy does not collect personal profiles or analytics. Your usage stays on-device and no ads drive the app experience. Transit and status data is sourced from public MARTA feeds as designed by the service."
+      ],
+      "link": {
+        "href": "/marta-easy/privacy",
+        "text": "Read the full privacy policy"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Ready to start?",
+    "text": "Install Marta Easy to track smarter and stay focused on what matters."
+  }
+}

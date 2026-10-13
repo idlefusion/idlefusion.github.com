@@ -1,0 +1,123 @@
+{
+  "slug": "macro-easy",
+  "name": "Macro Easy",
+  "category": "Macro & Nutrition Tracking",
+  "icon": "/img/macro-easy/icon.png",
+  "seo": {
+    "title": "Macro Easy — Macro & Nutrition Tracking",
+    "description": "Macro Easy keeps nutrition tracking lightweight: quick daily entry, home dashboard, and target progress for your nutrition goals without complicated workflows.",
+    "ogImage": "/img/macro-easy/icon.png",
+    "canonical": "https://idlefusion.com/macro-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Coming soon · No account required",
+  "pigments": ["#1f9981", "#2aa7b6"],
+  "ink": "#177361",
+  "hero": {
+    "label": "Simple Macro Tracking",
+    "title": "Log protein, carbs, and fat in seconds.",
+    "text": [
+      "Macro Easy keeps nutrition tracking lightweight: quick daily entry, home dashboard, and target progress for your nutrition goals without complicated workflows."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/macro-easy/screenshots/01_home_dashboard.png",
+      "alt": "Home dashboard",
+      "label": "Home dashboard",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/macro-easy/screenshots/02_quick_log.png",
+      "alt": "Quick meal log",
+      "label": "Quick meal log",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/macro-easy/screenshots/03_favorites.png",
+      "alt": "Favorite foods",
+      "label": "Favorite foods",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/macro-easy/screenshots/04_history.png",
+      "alt": "History and trends",
+      "label": "History and trends",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/macro-easy/screenshots/05_themes.png",
+      "alt": "Theme options",
+      "label": "Theme options",
+      "w": 1242,
+      "h": 2688
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "Screenshots",
+      "title": "Screenshots"
+    },
+    {
+      "type": "features",
+      "label": "",
+      "title": "What Macro Easy does",
+      "items": [
+        {
+          "title": "Fast daily logging",
+          "text": "Capture protein, carbs, and fat with minimal taps and a no-friction entry flow."
+        },
+        {
+          "title": "Goal-focused dashboard",
+          "text": "See progress to your macro targets and stay informed without opening a bulky nutrition editor."
+        },
+        {
+          "title": "Favorites and history",
+          "text": "Reuse recent meals and repeat entries quickly, especially useful when nutrition is repetitive."
+        },
+        {
+          "title": "Health integration",
+          "text": "Optional Health app sync keeps your nutrition data available with Apple Health workflows."
+        },
+        {
+          "title": "Offline-first design",
+          "text": "All calculations happen on device, so your nutrition habits are never blocked by network issues."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "",
+      "title": "Who it’s for",
+      "text": [],
+      "items": [
+        "Performance-minded athletes",
+        "Meal prep routines",
+        "People rebuilding nutrition habits",
+        "Users wanting minimal macro tracking"
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "",
+      "title": "Privacy",
+      "text": [
+        "Macro Easy stores your entries and targets locally. No ad SDKs, no tracking frameworks, and no accounts are used to consume data from this app."
+      ],
+      "link": {
+        "href": "/macro-easy/privacy",
+        "text": "Read the full privacy policy"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Ready to start?",
+    "text": "Install Macro Easy to track smarter and stay focused on what matters."
+  }
+}

@@ -1,0 +1,39 @@
+---
+// Three more apps from the collection, in the studio's style.
+import { visibleApps } from '../../data/apps';
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+const index = visibleApps.findIndex((app) => app.slug === current);
+const others = [...visibleApps.slice(index + 1), ...visibleApps.slice(0, Math.max(index, 0))]
+  .filter((app) => app.slug !== current)
+  .slice(0, 3);
+---
+
+<section class="wrap more-apps" aria-labelledby="more-apps-title">
+  <header class="section-head">
+    <span class="label"><span class="idx">+</span> More from Idle Fusion</span>
+    <a class="link-arrow" href="/apps/"
+      >All {visibleApps.length} apps <span aria-hidden="true">→</span></a
+    >
+  </header>
+  <h2 id="more-apps-title" class="sr-only">More apps</h2>
+  <div class="more-apps-grid">
+    {
+      others.map((app) => (
+        <a class="more-app" href={`/${app.slug}/`}>
+          <img src={app.icon} alt="" width="64" height="64" loading="lazy" decoding="async" />
+          <span class="meta">{app.category}</span>
+          <span class="h3">
+            {app.name}{' '}
+            <span class="arrow" aria-hidden="true">
+              →
+            </span>
+          </span>
+          <p>{app.desc}</p>
+        </a>
+      ))
+    }
+  </div>
+</section>

@@ -24,7 +24,7 @@ npm run generate:brand-images           # social cards reuse the paintings
 
 | File | Where |
 | --- | --- |
-| `hero-fusion.webp` | Home hero (the construction overlay in `explore.astro` uses viewBox `80 200 1240 1000`) |
+| `hero-fusion.webp` | Home hero (the construction overlay in `index.astro` uses viewBox `80 200 1240 1000`) |
 | `fusion-mark.webp` | Default social card |
 | `work-<slug>.webp` | Project cards and case-study headers (`art` in `src/data/projects.ts`) |
 | `service-*.webp` | Service cards and the services page |
@@ -32,6 +32,8 @@ npm run generate:brand-images           # social cards reuse the paintings
 | `swatch-*.webp` | Highlighter strokes behind `.hand` words (RGBA) |
 | `cta-wash.webp`, `cta-wash-tall.webp` | Closing call to action (wide and phone) |
 | `paper.webp` | Seamless page texture, shown at half size |
+| `app-wash-{1,2}{a,b}.webp`, `app-cta-{a,b}.webp` | App page hero and closing washes: alpha-only masks (encoded by `encode-mask.mjs`) tinted with each app's two pigments in CSS, so one set of paintings serves every app |
+| `app-swatch.webp` | App page highlighter: a grey stroke on white, lightened over the app's pigment |
 
 Paintings are rendered on white and shown with `mix-blend-mode: multiply`, so they glaze onto the page paper. Don't put `transform`, `opacity`, `filter`, or `isolation` on an ancestor of a `.paint` image.
 

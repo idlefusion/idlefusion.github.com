@@ -1,0 +1,118 @@
+{
+  "slug": "hydrate",
+  "name": "Hydrate",
+  "category": "Water Tracker",
+  "icon": "/img/hydrate/icon.png",
+  "seo": {
+    "title": "Hydrate — Simple Water Tracker for iOS",
+    "description": "Track your daily water intake with a beautiful progress ring. Quick tap logging, widgets, Apple Watch support. No accounts, no subscriptions.",
+    "ogImage": "/img/hydrate/icon.png",
+    "canonical": "https://idlefusion.com/hydrate"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265596",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#06bfc7", "#0ea0e6"],
+  "ink": "#047378",
+  "hero": {
+    "label": "SIMPLE WATER TRACKER",
+    "title": "Track your daily <em>water intake.</em>",
+    "text": [
+      "Log your hydration in seconds with quick tap presets. A beautiful progress ring keeps you motivated all day."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/hydrate/screenshots/01_marketing.png",
+      "alt": "Hydrate — Track Your Hydration",
+      "label": "Track Your Hydration",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/hydrate/screenshots/02_marketing.png",
+      "alt": "Hydrate — Stay on Target",
+      "label": "Stay on Target",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/hydrate/screenshots/03_marketing.png",
+      "alt": "Hydrate — Home Screen Widgets",
+      "label": "Home Screen Widgets",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/hydrate/screenshots/04_marketing.png",
+      "alt": "Hydrate — Apple Watch Ready",
+      "label": "Apple Watch Ready",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/hydrate/screenshots/07_widget.png",
+      "alt": "Hydrate — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Stay hydrated, effortlessly.",
+      "items": [
+        {
+          "title": "Quick Tap Logging",
+          "text": "Pick a preset size — 8oz, 12oz, 16oz, or 20oz — and tap. Done. Custom amounts for any container. Satisfying haptic feedback with every log."
+        },
+        {
+          "title": "Beautiful Progress Ring",
+          "text": "Watch your daily progress fill up in a gorgeous animated ring. Hit your goal and celebrate with a delightful animation. Centered design keeps you focused."
+        },
+        {
+          "title": "Smart Reminders",
+          "text": "Gentle nudges to keep you on track throughout the day. Customize timing and frequency to match your schedule. Never forget to drink water again."
+        },
+        {
+          "title": "Home &amp; Lock Screen Widgets",
+          "text": "See your progress at a glance without opening the app. Multiple sizes for Home Screen and Lock Screen. Your hydration status, always visible."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "Log water directly from your wrist. Complications show your progress on any watch face. Quick-add buttons make tracking fast and effortless."
+        },
+        {
+          "title": "Streak Tracking",
+          "text": "Track your consecutive days of hitting your goal. Build momentum and stay motivated. Your longest streak is saved forever."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your data stays yours.",
+      "text": [
+        "Zero data collection. Zero tracking. Zero cloud storage. Your water intake is stored only on your device. Optionally sync to Apple Health — you control when and if this happens."
+      ],
+      "link": {
+        "href": "/hydrate/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start hydrating.",
+    "text": "Free on the App Store. No account required."
+  }
+}

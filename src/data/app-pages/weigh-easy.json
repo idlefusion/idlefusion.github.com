@@ -1,0 +1,118 @@
+{
+  "slug": "weigh-easy",
+  "name": "Weigh Easy",
+  "category": "Weight Tracker",
+  "icon": "/img/weigh-easy/icon.png",
+  "seo": {
+    "title": "Weigh Easy — Track Your Weight, Privately",
+    "description": "A simple, private weight tracker for iOS. Log your weight, track trends, set goals, record body measurements, and capture progress photos. No accounts, no cloud, no subscriptions.",
+    "ogImage": "/img/weigh-easy/icon.png",
+    "canonical": "https://idlefusion.com/weigh-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265406",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#2fbad6", "#4a9ee8"],
+  "ink": "#1a7385",
+  "hero": {
+    "label": "WEIGHT TRACKING",
+    "title": "Track your weight, <em>privately.</em>",
+    "text": [
+      "A simple weight tracker that respects your privacy. Log entries, see trends, set goals — all stored locally on your device."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/weigh-easy/screenshots/01_marketing.png",
+      "alt": "Weigh Easy — Track Weight Privately",
+      "label": "Track Weight Privately",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/weigh-easy/screenshots/02_marketing.png",
+      "alt": "Weigh Easy — Trend Line",
+      "label": "Trend Line",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/weigh-easy/screenshots/03_marketing.png",
+      "alt": "Weigh Easy — Progress Photos",
+      "label": "Progress Photos",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/weigh-easy/screenshots/04_marketing.png",
+      "alt": "Weigh Easy — Goal Tracking",
+      "label": "Goal Tracking",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/weigh-easy/screenshots/07_widget.png",
+      "alt": "Weigh Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Everything you need, nothing you don't.",
+      "items": [
+        {
+          "title": "Weight Logging",
+          "text": "Quick, one-tap entry for your daily weight. Add notes for context. See your history at a glance."
+        },
+        {
+          "title": "Trend Charts",
+          "text": "Beautiful visualizations of your progress over time. Weekly, monthly, and all-time views with moving averages."
+        },
+        {
+          "title": "Goal Tracking",
+          "text": "Set a target weight and track your progress toward it. Clear, motivating feedback on how far you've come."
+        },
+        {
+          "title": "Body Measurements",
+          "text": "Track more than just weight. Log waist, chest, hips, arms, and other measurements to see the full picture."
+        },
+        {
+          "title": "Progress Photos",
+          "text": "Capture visual progress over time. Compare side-by-side. Photos stay on your device — never uploaded anywhere."
+        },
+        {
+          "title": "Completely Private",
+          "text": "No accounts. No cloud sync. No network requests. Everything stays on your device, encrypted by iOS."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your body, your data.",
+      "text": [
+        "Weight data is deeply personal. Weigh Easy never collects, uploads, or shares your information. No analytics. No tracking. No cloud. Everything stays on your device."
+      ],
+      "link": {
+        "href": "/weigh-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start tracking today.",
+    "text": "Free on the App Store. No account required."
+  }
+}

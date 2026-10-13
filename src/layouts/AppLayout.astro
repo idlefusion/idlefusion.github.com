@@ -1,0 +1,149 @@
+---
+// Layout for every app page (landing, support, privacy): the studio's paper,
+// ink and type, with the app's own icon, screenshots and two pigments.
+import '../styles/site.css';
+import '../styles/app.css';
+import Analytics from '../components/Analytics.astro';
+import Fonts from '../components/Fonts.astro';
+import FusionMark from '../components/site/FusionMark.astro';
+import SiteFooter from '../components/site/SiteFooter.astro';
+import StoreButton from '../components/app/StoreButton.astro';
+import type { AppPageData } from '../data/app-pages';
+
+interface Props {
+  title: string;
+  description: string;
+  app: Pick<AppPageData, 'slug' | 'name' | 'icon' | 'pigments' | 'ink' | 'store' | 'platform'>;
+  /** Whether the app has support and privacy pages to link to. */
+  policies?: boolean;
+  /** Overrides "<name> is designed and built by Idle Fusion" (e.g. for a family of apps). */
+  maker?: string;
+  kind: 'landing' | 'support' | 'privacy';
+  ogImage?: string;
+  canonical?: string;
+  robots?: string;
+  /** In-page sections for the header (landing only). */
+  sections?: { id: string; label: string }[];
+}
+
+const {
+  title,
+  description,
+  app,
+  kind,
+  ogImage = app.icon,
+  canonical,
+  robots = 'index, follow',
+  sections = [],
+  policies = true,
+  maker,
+} = Astro.props;
+const siteOrigin = 'https://idlefusion.com';
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? siteOrigin).href;
+const absoluteOgImage = !ogImage
+  ? `${siteOrigin}/img/og/default.png`
+  : ogImage.startsWith('http')
+    ? ogImage
+    : `${siteOrigin}${ogImage}`;
+const route = `/${app.slug}/`;
+const [pigmentA, pigmentB] = app.pigments;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Matthew Strickland, Idle Fusion LLC" />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Idle Fusion" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5f0e6" />
+    <title>{title}</title>
+    <Fonts />
+    <slot name="head" />
+  </head>
+  <body
+    class="app-page"
+    data-app-page={app.slug}
+    style={`--app-a: ${pigmentA}; --app-b: ${pigmentB}; --app-ink: ${app.ink};`}
+  >
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header app-header" data-header>
+      <div class="wrap header-inner">
+        <nav class="app-crumbs" aria-label="Idle Fusion navigation">
+          <a class="wordmark app-parent-brand" href="/" aria-label="Idle Fusion home">
+            <FusionMark /><span class="word">idle fusion<span class="dot">.</span></span>
+          </a>
+          <span class="crumb-sep" aria-hidden="true">/</span>
+          <a class="app-directory-link" href="/apps/">Apps</a>
+          <span class="crumb-sep" aria-hidden="true">/</span>
+          <a class="app-crumb" href={route} aria-current={kind === 'landing' ? 'page' : undefined}>
+            {
+              app.icon ? (
+                <img src={app.icon} alt="" width="26" height="26" />
+              ) : (
+                <span class="app-glyph" aria-hidden="true">
+                  $
+                </span>
+              )
+            }
+            <span>{app.name}</span>
+          </a>
+        </nav>
+        <nav class="app-local-nav" aria-label={`${app.name} sections`}>
+          {sections.map((s) => <a href={`#${s.id}`}>{s.label}</a>)}
+          {
+            policies && (
+              <>
+                <a href={`${route}support/`} aria-current={kind === 'support' ? 'page' : undefined}>
+                  Support
+                </a>
+                <a href={`${route}privacy/`} aria-current={kind === 'privacy' ? 'page' : undefined}>
+                  Privacy
+                </a>
+              </>
+            )
+          }
+        </nav>
+        <div class="app-header-store">
+          <StoreButton store={app.store} platform={app.platform} size="small" />
+        </div>
+      </div>
+    </header>
+
+    <slot />
+
+    <aside class="wrap app-studio" aria-label="About the maker">
+      <span class="label"><span class="idx">Made by</span> Idle Fusion</span>
+      <p>
+        <strong>{maker ?? `${app.name} is designed and built by Idle Fusion`}</strong>, an
+        independent app & web studio. Have an app of your own in mind?
+      </p>
+      <a class="link-arrow" href="/contact/?service=mobile" data-track="cta_app_page"
+        >Start a project <span aria-hidden="true">→</span></a
+      >
+    </aside>
+    <SiteFooter />
+    <Analytics />
+    <script>
+      const header = document.querySelector<HTMLElement>('[data-header]');
+      const onScroll = () => header?.toggleAttribute('data-scrolled', scrollY > 8);
+      addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    </script>
+  </body>
+</html>

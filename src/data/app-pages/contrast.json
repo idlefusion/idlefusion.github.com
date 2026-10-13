@@ -1,0 +1,132 @@
+{
+  "slug": "contrast",
+  "name": "Contrast",
+  "category": "Sauna + Cold Plunge",
+  "icon": "/img/contrast/icon.png",
+  "seo": {
+    "title": "Contrast — Sauna + Cold Plunge Timer for iOS",
+    "description": "A simple, purpose-built timer for contrast therapy. HealthKit integration, smart protocols, Apple Watch support. No accounts, no subscriptions.",
+    "ogImage": "/img/contrast/icon.png",
+    "canonical": "https://idlefusion.com/contrast"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759070330",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#ef7a45", "#16b3cc"],
+  "ink": "#b44310",
+  "hero": {
+    "label": "SAUNA + COLD PLUNGE",
+    "title": "Contrast therapy, <em>timed.</em>",
+    "text": [
+      "A purpose-built timer for sauna and cold plunge sessions. HealthKit sync, smart protocols, Apple Watch support."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/contrast/screenshots/01_home.png",
+      "alt": "Contrast home screen",
+      "label": "Contrast home screen",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/contrast/screenshots/02_active_sauna.png",
+      "alt": "Active sauna timer",
+      "label": "Active sauna timer",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/contrast/screenshots/03_active_cold.png",
+      "alt": "Active cold plunge timer",
+      "label": "Active cold plunge timer",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/contrast/screenshots/04_multi_phase.png",
+      "alt": "Multi-phase protocol",
+      "label": "Multi-phase protocol",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/contrast/screenshots/05_session_complete.png",
+      "alt": "Session complete",
+      "label": "Session complete",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/contrast/screenshots/06_personal_records.png",
+      "alt": "Personal records",
+      "label": "Personal records",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/contrast/screenshots/07_history.png",
+      "alt": "Session history",
+      "label": "Session history",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "Screenshots",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Built for the session.",
+      "items": [
+        {
+          "title": "Quick Start",
+          "text": "Two taps to start timing. Sauna or cold plunge — pick one and go. Designed for wet hands and foggy glasses."
+        },
+        {
+          "title": "Smart Protocols",
+          "text": "Multi-phase session plans that guide you through sauna, cold plunge, and rest intervals with automatic transitions."
+        },
+        {
+          "title": "HealthKit Sync",
+          "text": "Sessions save to Apple Health as workouts automatically. Your contrast therapy shows up alongside everything else you track."
+        },
+        {
+          "title": "Session History",
+          "text": "Every session is saved. Track personal records, total exposure time, and build the consistency that drives results."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "Start, pause, and advance phases from your wrist. Haptic alerts tell you when it's time to switch — no phone needed."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "No servers, no cloud sync, no network requests. Your data stays on your device. Period."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Contrast doesn't even make network requests. Your session data lives on your device and nowhere else."
+      ],
+      "link": {
+        "href": "/contrast/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start your session.",
+    "text": "Free on the App Store. No account required."
+  }
+}

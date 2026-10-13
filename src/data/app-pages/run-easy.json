@@ -1,0 +1,125 @@
+{
+  "slug": "run-easy",
+  "name": "Run Easy",
+  "category": "Heart Rate Zone Training",
+  "icon": "/img/run-easy/icon.png",
+  "seo": {
+    "title": "Run Easy — Heart Rate Zone Training for iOS & Apple Watch",
+    "description": "Heart rate zone training built around the Maffetone method. Real-time coaching on your wrist, training analytics on your phone.",
+    "ogImage": "/img/run-easy/icon.png",
+    "canonical": "https://idlefusion.com/run-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": ["#10b981", "#7cbf3f"],
+  "ink": "#0a7753",
+  "hero": {
+    "label": "HEART RATE ZONE TRAINING",
+    "title": "Run easy, train <em>smarter.</em>",
+    "text": [
+      "Heart rate zone training built around the Maffetone method. Real-time coaching on your wrist, training analytics on your phone."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/run-easy/iphone-home.png",
+      "alt": "Home screen on iPhone",
+      "label": "Home",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/run-easy/iphone-detail.png",
+      "alt": "Run detail on iPhone",
+      "label": "Run Detail",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/run-easy/iphone-insights.png",
+      "alt": "Training insights on iPhone",
+      "label": "Insights",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/run-easy/iphone-history.png",
+      "alt": "Run history on iPhone",
+      "label": "Run History",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/run-easy/iphone-settings.png",
+      "alt": "Settings on iPhone",
+      "label": "Settings",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/run-easy/watch-active.png",
+      "alt": "Active workout on Apple Watch",
+      "label": "Active Workout",
+      "w": 416,
+      "h": 496
+    },
+    {
+      "src": "/img/run-easy/watch-gauge.png",
+      "alt": "Heart rate gauge on Apple Watch",
+      "label": "HR Gauge",
+      "w": 416,
+      "h": 496
+    },
+    {
+      "src": "/img/run-easy/watch-zones.png",
+      "alt": "Zone distribution on Apple Watch",
+      "label": "Zone Distribution",
+      "w": 416,
+      "h": 496
+    }
+  ],
+  "sections": [
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Stay in the zone.",
+      "intro": ["Everything you need for aerobic base building — nothing you don't."],
+      "items": [
+        {
+          "title": "Real-Time Zone Coaching",
+          "text": "Your Apple Watch shows your current HR zone live — with haptic and audio cues when you drift out of your target."
+        },
+        {
+          "title": "MAF 180 Built In",
+          "text": "Enter your age, get your zones. The Maffetone method removes the guesswork from aerobic base building."
+        },
+        {
+          "title": "Training Analytics",
+          "text": "Cardiac drift, HR recovery, zone distribution, and weekly trends — see your aerobic fitness improve over time."
+        },
+        {
+          "title": "iPhone + Apple Watch",
+          "text": "Start runs from your wrist. Review history, stats, and settings on your phone. Everything syncs automatically."
+        },
+        {
+          "title": "Live Activities",
+          "text": "Track your zone from the lock screen and Dynamic Island without raising your wrist or opening the app."
+        },
+        {
+          "title": "Completely Private",
+          "text": "No accounts, no tracking, no analytics. Your data stays on your device and syncs only to your own iCloud."
+        }
+      ]
+    },
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    }
+  ],
+  "cta": {
+    "title": "Start running easier.",
+    "text": "Free on the App Store. No account required."
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "slug": "meds-easy",
+  "name": "Meds Easy",
+  "category": "Medication Tracker",
+  "icon": "/img/meds-easy/icon.png",
+  "seo": {
+    "title": "Meds Easy — Medication Reminder for iOS",
+    "description": "Never miss a dose. A simple, private medication tracker with smart reminders, refill tracking, and adherence stats. No cloud, no account required.",
+    "ogImage": "/img/meds-easy/icon.png",
+    "canonical": "https://idlefusion.com/meds-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265440",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#5fc9a6", "#3fbfb6"],
+  "ink": "#28765c",
+  "hero": {
+    "label": "MEDICATION REMINDERS",
+    "title": "Never miss <em>a dose.</em>",
+    "text": [
+      "A simple, private medication tracker that helps you stay on schedule. Smart reminders, refill alerts, and adherence insights — all on your device."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/meds-easy/screenshots/01_marketing.png",
+      "alt": "Meds Easy — Never Miss a Dose",
+      "label": "Never Miss a Dose",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/meds-easy/screenshots/02_marketing.png",
+      "alt": "Meds Easy — Smart Reminders",
+      "label": "Smart Reminders",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/meds-easy/screenshots/03_marketing.png",
+      "alt": "Meds Easy — Refill Alerts",
+      "label": "Refill Alerts",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/meds-easy/screenshots/04_marketing.png",
+      "alt": "Meds Easy — Dose History",
+      "label": "Dose History",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/meds-easy/screenshots/07_widget.png",
+      "alt": "Meds Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Everything you need to stay on track.",
+      "items": [
+        {
+          "title": "Medication Schedules",
+          "text": "Set up complex schedules with ease. Daily, weekly, every other day, or custom intervals — the app adapts to your prescriptions."
+        },
+        {
+          "title": "Smart Reminders",
+          "text": "Timely notifications that actually help. Snooze if you need a few minutes, or mark as taken right from the notification."
+        },
+        {
+          "title": "Refill Tracking",
+          "text": "Know when you're running low. Track your supply and get alerts before you run out so you never scramble for refills."
+        },
+        {
+          "title": "Adherence Stats",
+          "text": "See your medication history at a glance. Track your consistency over time and celebrate your streaks."
+        },
+        {
+          "title": "Completely Private",
+          "text": "Your medication data stays on your device. No accounts, no cloud sync, no data collection. Your health information is yours alone."
+        },
+        {
+          "title": "Apple Watch",
+          "text": "Log doses from your wrist. Quick, convenient, and always with you when it's time to take your medication."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your meds. Your data.",
+      "text": [
+        "Medication data is deeply personal. That's why Meds Easy stores everything locally on your device. No HealthKit. No cloud. No analytics. No exceptions."
+      ],
+      "link": {
+        "href": "/meds-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Stay on schedule.",
+    "text": "Coming soon to the App Store. No account required."
+  }
+}

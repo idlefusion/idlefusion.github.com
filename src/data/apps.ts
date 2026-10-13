@@ -216,13 +216,3 @@ export const appPages = [
     hasPolicies: false,
   },
 ];
-
-export function getAppPage(pathname: string) {
-  const path = pathname.replace(/\/$/, '');
-  return appPages.find(
-    (app) =>
-      path === app.route.slice(0, -1) ||
-      (app.hasPolicies &&
-        ['support', 'privacy'].some((section) => path === `${app.route}${section}`)),
-  );
-}

@@ -1,56 +1,23 @@
-# Dedicated app design review
+# App pages
 
-All 28 dedicated app pages, their support/privacy pages, and the separate currency-app family retain their existing product identities in this release.
+All 28 dedicated app pages, their 56 support and privacy pages, and the currency-app family use the studio's design: warm paper, ink type, mono labels, ruled grids, and watercolor. What makes each page its own is what belongs to the app: its icon, its screenshots, its copy, and two pigments taken from the icon.
 
-## What is preserved
+## What stays exactly as it was
 
-The production routes keep each original Astro page. Product headings, layouts, artwork, screenshot galleries, feature sections, product palettes, and light/dark treatments stay with the app. Twenty-three pages have bespoke layouts; five use the existing `SimpleAppLanding` component with individual content, colors, and artwork.
+- **Icons and screenshots** are shown as supplied. Nothing is painted over, filtered, or cropped (screenshots keep their own frames and backgrounds; icons get the iOS corner rounding only).
+- **Copy** was migrated verbatim from the previous pages into `src/data/app-pages/<slug>.json`. A text diff of every page's visible content against the previous build found nothing missing apart from intentional label changes (below).
+- **Support and privacy text** is untouched; only the layout around it changed.
+- **Meaning-bearing colors** (blood pressure and temperature categories) keep the exact colors the apps use.
+- Store links, canonical URLs, titles, descriptions, and social images.
 
-The blue/black/white studio palette applies only to a compact Idle Fusion navigation bar and a shared app-discovery section. Contrast retains its original orange/cyan design. The discovery section presents three stable recommendations and a link to all 27 visible apps, replacing the lengthy randomized cross-promotion grid on app pages.
+## What changed
 
-| App             | Product identity retained                                                           |
-| --------------- | ----------------------------------------------------------------------------------- |
-| Contrast        | Dark session-focused layout, orange/cyan treatment, multi-screen gallery            |
-| Fast Easy       | Centered orange-accented hero and vertical editorial features                       |
-| Focus Easy      | Minimal monochrome launcher presentation                                            |
-| Run Easy        | Green training identity and iPhone/Watch imagery                                    |
-| Check Yourself  | Lavender macOS identity and soft hero treatment                                     |
-| Breathe Easy    | Indigo/sky breathing identity                                                       |
-| Track Easy      | Green habit-tracking presentation                                                   |
-| Mood Easy       | Purple/pink mood identity                                                           |
-| Pomo Easy       | Red focus-timer identity                                                            |
-| Hydrate         | Sky-blue water-tracking identity                                                    |
-| Count Easy      | Purple/pink countdown and widget presentation                                       |
-| Cycle Easy      | Rose privacy-led identity and existing coming-soon treatment                        |
-| Voice Easy      | Purple recording/transcription presentation                                         |
-| Weigh Easy      | Purple weight-tracking identity                                                     |
-| Pressure Easy   | Red identity and distinct blood-pressure category colors                            |
-| Spend Easy      | Green expense-tracking identity                                                     |
-| Rest Easy       | Lavender/nighttime identity                                                         |
-| Meds Easy       | Teal medication-tracking identity                                                   |
-| Decibel         | Orange sound-meter identity                                                         |
-| Caffeine Easy   | Amber/brown caffeine identity                                                       |
-| Stretch Easy    | Teal stretching identity                                                            |
-| Temp Easy       | Orange temperature identity and reading-category colors                             |
-| Tune Easy       | Amber tuning identity                                                               |
-| Marta Easy      | Blue transit identity; remains hidden from the directory                            |
-| Macro Easy      | Orange nutrition identity                                                           |
-| Set Easy        | Purple strength-training identity                                                   |
-| Split Easy      | Green bill-splitting identity                                                       |
-| Dose Easy       | Teal supplement-tracking identity                                                   |
-| Currency family | Existing blue/dark conversion presentation and 20-variant directory; remains hidden |
+- One template (`components/app/AppLanding.astro`) replaces 23 bespoke pages and the shared `SimpleAppLanding`. Sections keep their original order: hero, screenshots, features, statements, scales, privacy, call to action.
+- The hero shows the Idle Fusion mark painted in the app's two pigments, with the app icon in the overlap. Washes are shared alpha masks (`public/img/paint/app-*.webp`) tinted per app in CSS, so a new app needs only colors.
+- Pages are light only, matching the studio site; the per-app dark themes and theme toggles are gone.
+- Apps without a store listing say "Coming soon to the App Store" instead of showing a badge that linked to `#`. These pages' copy still says "Free on the App Store" in places, and Focus Easy and Meds Easy have store links but "coming soon" copy; that copy is unchanged and worth reviewing.
+- Every landing page has `SoftwareApplication` structured data and a "Made by Idle Fusion" line linking to the contact form (`cta_app_page`).
 
-## Corrections made during review
+## Review
 
-- Shared navigation consistently returns to the revised studio, app directory, and each app's own support/privacy pages.
-- Support and privacy pages have app-specific return navigation. Their policy content is unchanged.
-- The five shared-template pages render a real middle-dot separator instead of literal `&middot;` text. Pages without store URLs explicitly show “Coming soon.”
-- Currency screenshots were incorrectly treated as missing during static builds because an asset check depended on a compiled module's location. The available screenshots now render.
-- Internal screenshot-copying commands and developer filesystem paths were removed from the currency page's customer-facing text.
-- The currency page's placeholder App Store link is a noninteractive coming-soon label. Its contact action describes an availability inquiry rather than implying an implemented waitlist.
-
-## Review and verification
-
-The app gallery includes full-page desktop/mobile screenshots in both themes and original desktop views when a pre-change build is supplied. Each card also links to desktop/mobile screenshots of its support and privacy pages. When a pre-change build is supplied with `APP_BASELINE_ORIGIN`, original and updated hero colors, typography, backgrounds, and App Store destinations are compared automatically. Rendering checks cover overflow, loaded images, headings, theme switching/persistence, shared navigation, and local links.
-
-The design review uses existing product content and store URLs. It does not independently confirm current external App Store release status. The existing directory visibility flags remain in place. All work is local; nothing has been deployed.
+`npm test` runs `scripts/capture-apps.mjs`: every landing, support, and privacy page at desktop and phone width, checking status, overflow, a single `h1`, images, indexing, the home and directory links, in-page anchors, and that each landing page offers a real store badge or the coming-soon label. Screenshots and a gallery are written to `artifacts/redesign/app-pages/` (set `APP_BASELINE_ORIGIN` to include the previous build's views for comparison).

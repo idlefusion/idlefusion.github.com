@@ -1,0 +1,118 @@
+{
+  "slug": "pomo-easy",
+  "name": "Pomo Easy",
+  "category": "Pomodoro Timer",
+  "icon": "/img/pomo-easy/icon.png",
+  "seo": {
+    "title": "Pomo Easy — Pomodoro Timer with Live Activities",
+    "description": "A focused Pomodoro timer for iOS. Classic 25/5 technique, customizable intervals, Live Activities, Focus Mode, and session stats. No accounts, no subscriptions.",
+    "ogImage": "/img/pomo-easy/icon.png",
+    "canonical": "https://idlefusion.com/pomo-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759300284",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#f15b36", "#f99a3c"],
+  "ink": "#c3310e",
+  "hero": {
+    "label": "POMODORO TIMER",
+    "title": "Focus made <em>easy.</em>",
+    "text": [
+      "A purpose-built Pomodoro timer with Live Activities. Classic 25/5 technique, customizable intervals, and Focus Mode integration."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/pomo-easy/screenshots/01_marketing.png",
+      "alt": "Pomo Easy — Focus with Pomodoro",
+      "label": "Focus with Pomodoro",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pomo-easy/screenshots/02_marketing.png",
+      "alt": "Pomo Easy — Live Activities",
+      "label": "Live Activities",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pomo-easy/screenshots/03_marketing.png",
+      "alt": "Pomo Easy — Apple Watch Ready",
+      "label": "Apple Watch Ready",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pomo-easy/screenshots/04_marketing.png",
+      "alt": "Pomo Easy — Session History",
+      "label": "Session History",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/pomo-easy/screenshots/07_widget.png",
+      "alt": "Pomo Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Built for deep work.",
+      "items": [
+        {
+          "title": "Classic 25/5",
+          "text": "The proven Pomodoro Technique: 25 minutes of focused work, 5 minutes of rest. Four cycles, then a longer break."
+        },
+        {
+          "title": "Customizable Intervals",
+          "text": "Adjust work and break durations to match your rhythm. Create the perfect focus session for how you work best."
+        },
+        {
+          "title": "Live Activities",
+          "text": "See your timer on the Lock Screen and Dynamic Island. Stay focused without unlocking your phone."
+        },
+        {
+          "title": "Focus Mode",
+          "text": "Automatically enable iOS Focus Mode during work sessions. Silence distractions without lifting a finger."
+        },
+        {
+          "title": "Session Stats",
+          "text": "Track completed pomodoros, total focus time, and daily streaks. Build the consistency that drives productivity."
+        },
+        {
+          "title": "Completely Offline",
+          "text": "No servers, no cloud sync, no network requests. Your focus data stays on your device. Period."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Zero data collection.",
+      "text": [
+        "No analytics. No ads. No tracking pixels. No telemetry. Pomo Easy doesn't even make network requests. Your session data lives on your device and nowhere else."
+      ],
+      "link": {
+        "href": "/pomo-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start focusing.",
+    "text": "Free on the App Store. No account required."
+  }
+}

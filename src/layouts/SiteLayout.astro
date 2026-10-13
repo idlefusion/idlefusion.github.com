@@ -3,6 +3,7 @@ import '../styles/site.css';
 import Analytics from '../components/Analytics.astro';
 import Fonts from '../components/Fonts.astro';
 import FusionMark from '../components/site/FusionMark.astro';
+import SiteFooter from '../components/site/SiteFooter.astro';
 import { defaultSocialImage, organizationSchema, siteOrigin } from '../data/site';
 interface Props {
   title: string;
@@ -36,7 +37,6 @@ const nav = [
   ['Studio', 'studio'],
   ['Apps', 'apps'],
 ];
-const year = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -157,41 +157,7 @@ const year = new Date().getFullYear();
         </section>
       )
     }
-    <footer class="site-footer">
-      <div class="wrap">
-        <div class="footer-grid">
-          <div>
-            <p>
-              An independent app & web studio. Senior design and engineering for teams who want it
-              done well, by the person they talk to.
-            </p>
-          </div>
-          <div class="footer-col">
-            <span class="label">Studio</span>
-            <a href="/work/">Work</a>
-            <a href="/services/">Services</a>
-            <a href="/studio/">About</a>
-            <a href="/contact/">Contact</a>
-          </div>
-          <div class="footer-col">
-            <span class="label">Made here</span>
-            <a href="/apps/">Apps</a>
-            <a href="/open-source/">Open source</a>
-          </div>
-          <div class="footer-col">
-            <span class="label">Elsewhere</span>
-            <a href="mailto:hello@idlefusion.com">hello@idlefusion.com</a>
-            <a href="https://github.com/idlefusion">GitHub</a>
-            <a href="https://linkedin.com/in/mps">LinkedIn</a>
-          </div>
-        </div>
-        <div class="footer-word" aria-hidden="true">idle fusion<span class="dot">.</span></div>
-        <div class="footer-base">
-          <span>© {year} Idle Fusion LLC</span>
-          <span>Painted by hand. Built in code.</span>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
     {
       closingCta && (
         <a class="btn block sticky-cta" href="/contact/" data-track="cta_sticky" data-sticky-cta>

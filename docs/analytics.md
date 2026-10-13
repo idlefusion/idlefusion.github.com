@@ -16,6 +16,7 @@ The site counts page views and conversions without cookies or personal data, so 
   | `cta_founder` | "Talk with Matthew" (home founder section, studio) |
   | `cta_faq` | "Ask a question" beside the FAQ |
   | `cta_sticky` | The "Start a project" bar that appears on phones after the first screen |
+  | `cta_app_page` | "Start a project" in the "Made by Idle Fusion" line on app pages |
 
 - `worker.ts` also records `contact_submit` itself after the email is delivered, so form conversions are counted even if a beacon is blocked.
 - Visitors with Global Privacy Control or Do Not Track turned on send nothing. Requests from obvious bots are dropped.

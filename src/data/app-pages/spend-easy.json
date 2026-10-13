@@ -1,0 +1,126 @@
+{
+  "slug": "spend-easy",
+  "name": "Spend Easy",
+  "category": "Expense Tracker",
+  "icon": "/img/spend-easy/icon.png",
+  "seo": {
+    "title": "Spend Easy — Private Expense Tracker for iOS",
+    "description": "Track expenses the simple way—without connecting your bank. Manual expense entry, budgets, categories, and charts. All data stays on your device.",
+    "ogImage": "/img/spend-easy/icon.png",
+    "canonical": "https://idlefusion.com/spend-easy"
+  },
+  "platform": "iOS",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265475",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": ["#0eae7a", "#47c9a0"],
+  "ink": "#097552",
+  "hero": {
+    "label": "PRIVATE EXPENSE TRACKING",
+    "title": "Track expenses, <em>no bank required.</em>",
+    "text": [
+      "A beautifully simple expense tracker that keeps your financial data where it belongs—on your device. No bank connections. No cloud sync. No accounts."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/spend-easy/screenshots/01_marketing.png",
+      "alt": "Spend Easy — Track Spending Privately",
+      "label": "Track Spending Privately",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/spend-easy/screenshots/02_marketing.png",
+      "alt": "Spend Easy — Manual Entry",
+      "label": "Manual Entry",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/spend-easy/screenshots/03_marketing.png",
+      "alt": "Spend Easy — Category Breakdown",
+      "label": "Category Breakdown",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/spend-easy/screenshots/04_marketing.png",
+      "alt": "Spend Easy — Monthly Budgets",
+      "label": "Monthly Budgets",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/spend-easy/screenshots/07_widget.png",
+      "alt": "Spend Easy — Home Screen Widget",
+      "label": "Widget",
+      "w": 1290,
+      "h": 2796
+    }
+  ],
+  "sections": [
+    {
+      "type": "statement",
+      "label": "",
+      "title": "Zero bank connections. Ever.",
+      "text": [
+        "While other expense trackers want your banking credentials, Spend Easy takes a different approach. You enter expenses manually—giving you full control and complete privacy. Your bank login stays yours."
+      ]
+    },
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Simple by design.",
+      "items": [
+        {
+          "title": "Manual Expense Entry",
+          "text": "Add expenses in seconds. Enter amount, pick a category, add notes if you want. Clean and fast—designed for daily use."
+        },
+        {
+          "title": "Smart Budgets",
+          "text": "Set daily, weekly, or monthly spending limits. Visual progress rings show exactly where you stand. Stay on track effortlessly."
+        },
+        {
+          "title": "Custom Categories",
+          "text": "Create categories that fit your life. Choose icons and colors. Organize spending your way—not how some algorithm thinks you should."
+        },
+        {
+          "title": "Spending Charts",
+          "text": "Beautiful visualizations show your spending trends. See category breakdowns, compare weeks and months, spot patterns."
+        },
+        {
+          "title": "Recurring Expenses",
+          "text": "Track regular bills and subscriptions. Set it once, see it in your spending—never forget what's coming up."
+        },
+        {
+          "title": "Completely Private",
+          "text": "No accounts. No cloud sync. No network requests. Your expense data lives on your device and nowhere else. Period."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "YOUR DATA. YOUR DEVICE.",
+      "title": "Privacy isn't a feature. It's the foundation.",
+      "text": [
+        "No analytics. No tracking. No ads. No telemetry. Spend Easy will never ask for your bank login. Your financial data never leaves your device—not to our servers, not to anyone's."
+      ],
+      "link": {
+        "href": "/spend-easy/privacy",
+        "text": "Read our privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start tracking.",
+    "text": "Free on the App Store. No account required."
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "slug": "set-easy",
+  "name": "Set Easy",
+  "category": "Gym & Strength Training",
+  "icon": "/img/set-easy/icon.png",
+  "seo": {
+    "title": "Set Easy — Gym & Strength Training App for iOS",
+    "description": "Set Easy is a focused iOS workout logger for sets, reps, and progressive overload. Keep workout templates, start sessions quickly, and compare progress over time.",
+    "ogImage": "/img/set-easy/icon.png",
+    "canonical": "https://idlefusion.com/set-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Coming soon · No account required",
+  "pigments": ["#5d7a99", "#8b6cf0"],
+  "ink": "#516b86",
+  "hero": {
+    "label": "Strength Tracking",
+    "title": "Log workouts, track strength, stay consistent.",
+    "text": [
+      "Set Easy is a focused iOS workout logger for sets, reps, and progressive overload. Keep workout templates, start sessions quickly, and compare progress over time."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/set-easy/screenshots/01_home.png",
+      "alt": "Workout home",
+      "label": "Workout home",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/set-easy/screenshots/02_active_workout.png",
+      "alt": "Active workout log",
+      "label": "Active workout log",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/set-easy/screenshots/03_exercise_library.png",
+      "alt": "Exercise library",
+      "label": "Exercise library",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/set-easy/screenshots/04_progress.png",
+      "alt": "Progress tracking",
+      "label": "Progress tracking",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/set-easy/screenshots/05_templates.png",
+      "alt": "Templates",
+      "label": "Templates",
+      "w": 1242,
+      "h": 2688
+    },
+    {
+      "src": "/img/set-easy/screenshots/06_settings.png",
+      "alt": "Workout settings",
+      "label": "Workout settings",
+      "w": 1242,
+      "h": 2688
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "Screenshots",
+      "title": "Screenshots"
+    },
+    {
+      "type": "features",
+      "label": "",
+      "title": "What Set Easy does",
+      "items": [
+        {
+          "title": "Workout-ready sessions",
+          "text": "Start a lifting session fast with clear set entry fields and immediate feedback while you train."
+        },
+        {
+          "title": "Exercise templates",
+          "text": "Save routines you use regularly and keep every set plan consistent across sessions."
+        },
+        {
+          "title": "Progress visibility",
+          "text": "Review your bests, progression, and volume to keep your program on track over weeks."
+        },
+        {
+          "title": "No cloud dependence",
+          "text": "Everything runs locally so your lifts stay private, including your full training history."
+        },
+        {
+          "title": "Apple Health support",
+          "text": "Designed for athletes who want local logging with native platform integration when needed."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "",
+      "title": "Who it’s for",
+      "text": [],
+      "items": [
+        "Gym commuters",
+        "Strength trainees",
+        "People running push/pull/legs split routines",
+        "Anyone tracking progressive overload"
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "",
+      "title": "Privacy",
+      "text": [
+        "Set Easy is built for private fitness tracking. Training history stays on-device; we do not require sign-in and do not send your workouts to external analytics."
+      ],
+      "link": {
+        "href": "/set-easy/privacy",
+        "text": "Read the full privacy policy"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Ready to start?",
+    "text": "Install Set Easy to track smarter and stay focused on what matters."
+  }
+}
