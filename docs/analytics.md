@@ -14,6 +14,10 @@ The site counts page views and conversions without cookies or personal data, so 
   | `enter_site` | "Come on in" on the welcome screen |
   | `cta_welcome_contact` | "Start a project" on the welcome screen |
   | `cta_header`, `cta_footer`, `cta_hero`, `cta_testimonials`, `cta_case_study` | Contact links, by placement |
+  | `cta_service` | A service's "plan a project" link (home, services); these open the form with the project type chosen |
+  | `cta_founder` | "Talk with Matthew" (home founder section, studio) |
+  | `cta_faq` | "Ask a question" beside the FAQ |
+  | `cta_sticky` | The "Start a project" bar that appears on phones after the first screen |
 
 - `worker.ts` also records `contact_submit` itself after the email is delivered, so form conversions are counted even if a beacon is blocked.
 - Visitors with Global Privacy Control or Do Not Track turned on send nothing. Requests from obvious bots are dropped.

@@ -4,7 +4,8 @@ export interface Project {
   short: string;
   category: string;
   type: string;
-  color: string;
+  /** Watercolour for cards and the case-study header (scripts/watercolor/generate.py). */
+  art: string;
   number: string;
   image: string;
   client: string;
@@ -26,7 +27,7 @@ export const projects: Project[] = [
     short: 'A global mission. A more personal connection.',
     category: 'Community & impact',
     type: 'Web',
-    color: 'art-mist',
+    art: '/img/paint/work-everybody-everywhere.webp',
     number: '01',
     image: '/img/clients/ee.png',
     client: 'Everybody Everywhere',
@@ -48,7 +49,7 @@ export const projects: Project[] = [
     short: 'Bringing a beloved broadcast to mobile.',
     category: 'Media & entertainment',
     type: 'Mobile',
-    color: 'art-blue',
+    art: '/img/paint/work-radio-disney.webp',
     number: '02',
     image: '/img/clients/radiodisney.png',
     client: 'The Walt Disney Company',
@@ -71,7 +72,7 @@ export const projects: Project[] = [
     short: 'Better practice, one swing at a time.',
     category: 'Sports & learning',
     type: 'Mobile',
-    color: 'art-silver',
+    art: '/img/paint/work-golf-channel-academy.webp',
     number: '03',
     image: '/img/clients/gca.jpg',
     client: 'Golf Channel',
@@ -93,7 +94,7 @@ export const projects: Project[] = [
     short: 'A digital business, always within reach.',
     category: 'Commerce & platforms',
     type: 'Mobile',
-    color: 'art-paper',
+    art: '/img/paint/work-easy-digital-downloads.webp',
     number: '04',
     image: '/img/clients/edd.png',
     client: 'Easy Digital Downloads',
@@ -115,7 +116,7 @@ export const projects: Project[] = [
     short: 'The tournament goes wherever fans go.',
     category: 'Sports & broadcasting',
     type: 'Mobile',
-    color: 'art-cloud',
+    art: '/img/paint/work-golf-channel.webp',
     number: '05',
     image: '/img/clients/gc.jpg',
     client: 'Golf Channel / NBC',

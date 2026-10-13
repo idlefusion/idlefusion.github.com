@@ -2,10 +2,10 @@
 
 ## Scope
 
-The business website uses the original blue (#0088CC), black (#0A0A0A), and white palette with Work Sans headings and selective Crimson Pro italic accents. The reviewed layout now lives at the public URLs:
+The business website uses the "wet ink, hard pixel" direction: warm paper, ink typography (Work Sans with Crimson Pro italic accents), mono labels, and generated watercolor paintings in cerulean and rose (see `docs/watercolor.md`). Pages are built for conversion: a persistent "Start a project" call to action, proof near every ask, objection-handling FAQ, and a guided contact form. The layout lives at the public URLs:
 
 - `/`: simple welcome, name and contact details, light/dark control, and an invitation to explore.
-- `/explore/`: featured work, services, and founder introduction, including the uncropped portrait.
+- `/explore/`: value proposition, client proof, a comparison with the usual agency model, services, featured work, process, testimonials, the founder, and FAQ.
 - `/work/` and the five existing `/work/<slug>/` URLs: portfolio and case studies.
 - `/services/` and `/studio/`: capabilities, process, and founder story.
 - `/apps/`: searchable directory with category filters.

@@ -1,6 +1,22 @@
 ---
 import Layout from '../layouts/SiteLayout.astro';
 import { founderSchema } from '../data/site';
+import { visibleApps } from '../data/apps';
+
+const values = [
+  [
+    'Direct by default.',
+    'A close working relationship with the person building your product. Clear conversations, shared context, and practical decisions.',
+  ],
+  [
+    'Simple takes care.',
+    'The details matter because people feel them. We look for the clearest path through complexity and give it the attention it deserves.',
+  ],
+  [
+    'Invested beyond launch.',
+    'Software keeps evolving. We value lasting partnerships and the steady improvements that make a good product better.',
+  ],
+];
 ---
 
 <Layout
@@ -10,93 +26,91 @@ import { founderSchema } from '../data/site';
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(founderSchema)} />
   <section class="wrap studio-hero">
-    <div>
-      <span class="eyebrow">Hello. We’re Idle Fusion.</span>
-      <h1>
-        Good work<br />starts with<br /><em>good people.</em>
-      </h1>
-      <p>
+    <div class="copy">
+      <span class="label"><span class="idx">Studio</span> Hello, we’re Idle Fusion</span>
+      <h1 class="h1">Good work starts with <span class="hand">good people.</span></h1>
+      <p class="body-copy">
         I’m Matthew Strickland, founder of Idle Fusion. I’ve spent more than 20 years helping people
         turn ambitious ideas into useful digital products.
       </p>
-      <p>
+      <p class="body-copy">
         From mobile experiences for Disney and NBC to independent apps for everyday life, the goal
-        is the same: make technology feel simple, thoughtful, and worth using.
+        is the same: make technology feel simple, thoughtful, and worth using. When you work with
+        Idle Fusion, you work with me, from the first call to the next release.
       </p>
-      <a class="text-link" href="/contact/">Let’s get to know your idea <span aria-hidden="true">→</span></a>
+      <div class="actions">
+        <a class="btn" href="/contact/" data-track="cta_founder">
+          <span class="btn-text">Talk with Matthew</span><span class="btn-arrow" aria-hidden="true"
+            >→</span
+          >
+        </a>
+        <a class="link-arrow" href="/work/">See the work <span aria-hidden="true">→</span></a>
+      </div>
     </div>
-    <figure class="studio-portrait">
+    <figure class="portrait">
       <img
-        src="/img/us/matthew.jpg"
+        class="paint"
+        src="/img/paint/portrait-matthew.webp"
         alt="Matthew Strickland, founder of Idle Fusion"
         width="768"
         height="1024"
-      /><figcaption>
-        <span>Matthew Strickland</span>
-        <span>Founder & technology partner</span>
-      </figcaption>
+        fetchpriority="high"
+      />
+      <figcaption class="label">Matthew Strickland · Founder & technology partner</figcaption>
     </figure>
   </section>
-  <section class="service-band">
-    <div class="wrap values">
-      <div>
-        <span class="eyebrow">How we work</span>
-        <h2>
-          Small studio.<br /><em>Considered</em><br />by design.
-        </h2>
-      </div>
-      <div>
-        <article class="value-row">
-          <h3>Direct by default.</h3>
-          <p>
-            A close working relationship with the person building your product. Clear conversations,
-            shared context, and practical decisions.
-          </p>
-        </article><article class="value-row">
-          <h3>Simple takes care.</h3>
-          <p>
-            The details matter because people feel them. We look for the clearest path through
-            complexity and give it the attention it deserves.
-          </p>
-        </article><article class="value-row">
-          <h3>Invested beyond launch.</h3>
-          <p>
-            Software keeps evolving. We value lasting partnerships and the steady improvements that
-            make a good product better.
-          </p>
-        </article>
-      </div>
+
+  <section class="section wrap" aria-labelledby="values-title">
+    <header class="section-head">
+      <span class="label"><span class="idx">01</span> How we work</span>
+    </header>
+    <div class="section-title">
+      <h2 id="values-title">
+        Small studio. <span class="hand cerulean">Considered</span> by design.
+      </h2>
+      <p>Three habits that shape every project, whatever its size.</p>
+    </div>
+    <div class="values">
+      {
+        values.map(([title, text]) => (
+          <article class="value">
+            <h3 class="h3">{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))
+      }
     </div>
   </section>
-  <section class="section wrap">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">Always making</span>
-        <h2>
-          A builder’s curiosity.<br />An owner’s perspective.
-        </h2>
-      </div>
-      <p style="max-width:440px;font-size:15px">
+
+  <section class="section wrap" aria-labelledby="making-title" style="padding-top:0">
+    <header class="section-head">
+      <span class="label"><span class="idx">02</span> Always making</span>
+    </header>
+    <div class="section-title">
+      <h2 id="making-title">A builder’s curiosity. An owner’s perspective.</h2>
+      <p>
         We build our own apps and share tools with other developers. That hands-on practice informs
         the care we bring to every client project.
       </p>
     </div>
-    <div class="project-grid">
-      <a class="apps-feature" style="display:block;margin:0" href="/apps/">
-        <span class="eyebrow">In-house products</span>
-        <h3>Small apps. Useful things.</h3>
-        <p style="margin-top:18px">Purpose-built tools for health, focus, and everyday life.</p>
-        <span class="text-link">Explore our apps <span aria-hidden="true">→</span></span>
+    <div class="making">
+      <a href="/apps/">
+        <div class="icons">
+          <img src="/img/breathe-easy/icon.png" alt="" width="52" height="52" loading="lazy" />
+          <img src="/img/contrast/icon.png" alt="" width="52" height="52" loading="lazy" />
+          <img src="/img/track-easy/icon.png" alt="" width="52" height="52" loading="lazy" />
+        </div>
+        <span class="meta">In-house products · {visibleApps.length} apps</span>
+        <h3 class="h3">Small apps. Useful things.</h3>
+        <p>Purpose-built, privacy-minded tools for health, focus, and everyday life.</p>
+        <span class="link-arrow">Explore our apps <span aria-hidden="true">→</span></span>
       </a>
-      <a
-        class="apps-feature"
-        style="display:block;margin:0;background:#e8f5fc"
-        href="/open-source/"
-      >
-        <span class="eyebrow">Open source</span>
-        <h3>Good tools are worth sharing.</h3>
-        <p style="margin-top:18px">Practical resources for the developer community.</p>
-        <span class="text-link">See what we’re sharing <span aria-hidden="true">→</span></span>
+      <a href="/open-source/">
+        <code class="oss-chip">swift package · healthkit-run-generator</code>
+        <span class="meta">Open source</span>
+        <h3 class="h3">Good tools are worth sharing.</h3>
+        <p>Practical resources for the developer community, born from real projects.</p>
+        <span class="link-arrow">See what we’re sharing <span aria-hidden="true">→</span></span>
       </a>
     </div>
   </section>

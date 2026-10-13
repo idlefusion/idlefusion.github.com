@@ -3,41 +3,43 @@ import ContactNextSteps from './ContactNextSteps.astro';
 ---
 
 <form class="contact-form" id="contact-form" method="post" action="/api/contact">
-  <span class="eyebrow" style="margin:0">A little about your idea</span>
   <div hidden aria-hidden="true">
     <label>Website<input name="_honeypot" tabindex="-1" autocomplete="off" /></label>
   </div>
-  <div class="form-row">
-    <label>
-      Your name<input name="name" autocomplete="name" placeholder="Alex Morgan" required />
+
+  <fieldset class="form-step">
+    <legend><span class="n">01</span> What can we help with?</legend>
+    <label class="field">
+      <span class="sr-only">Project type</span>
+      <select name="service" class="enhanced" data-chips>
+        <option data-chip="Not sure yet, let’s explore">Explore an idea together</option>
+        <option data-chip="A mobile app">Mobile app development</option>
+        <option data-chip="A website or platform">Website or web platform</option>
+        <option data-chip="Technical direction">Technical strategy & guidance</option>
+        <option data-chip="Coaching">Coaching</option>
+      </select>
     </label>
-    <label>
-      Email address<input
-        name="email"
-        type="email"
-        autocomplete="email"
-        placeholder="alex@company.com"
-        required
-      />
+  </fieldset>
+
+  <fieldset class="form-step">
+    <legend><span class="n">02</span> Tell us about it</legend>
+    <label class="field">
+      <span class="sr-only">Your message</span>
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="What are you building, and who is it for? Is anything already in place?"
+        required></textarea>
+      <span class="hint">A few sentences is plenty. Rough ideas welcome.</span>
     </label>
-  </div>
-  <label>
-    Company <span class="meta">Optional</span>
-    <input name="company" autocomplete="organization" placeholder="Where you’re building" />
-  </label>
-  <label>
-    What can we help with?<select name="service">
-      <option>Explore an idea together</option>
-      <option>Mobile app development</option>
-      <option> Website or web platform </option>
-      <option>Technical strategy & guidance</option>
-      <option>Coaching</option>
-    </select>
-  </label>
-  <div class="form-row">
-    <label>
-      Budget <span class="meta">Optional</span>
-      <select name="budget">
+  </fieldset>
+
+  <fieldset class="form-step">
+    <legend><span class="n">03</span> Budget & timing <span class="optional">Optional</span></legend
+    >
+    <label class="field">
+      <span class="sub-label">Budget</span>
+      <select name="budget" class="enhanced" data-chips="small">
         <option value="">Not sure yet</option>
         <option>Under $10k</option>
         <option>$10k–$25k</option>
@@ -45,30 +47,49 @@ import ContactNextSteps from './ContactNextSteps.astro';
         <option>$75k+</option>
       </select>
     </label>
-    <label>
-      Timeline <span class="meta">Optional</span>
-      <select name="timeline">
+    <label class="field">
+      <span class="sub-label">Timeline</span>
+      <select name="timeline" class="enhanced" data-chips="small">
         <option value="">Not sure yet</option>
-        <option>As soon as possible</option>
-        <option>In the next 1–3 months</option>
+        <option data-chip="As soon as possible">As soon as possible</option>
+        <option data-chip="1–3 months">In the next 1–3 months</option>
         <option>Later this year</option>
       </select>
     </label>
-  </div>
-  <label>
-    Tell us a little more<textarea
-      name="message"
-      rows="5"
-      placeholder="What would you like to make possible?"
-      required></textarea>
-  </label>
-  <button type="submit" id="submit-btn" class="button">
-    <span class="btn-label">Send Message</span>
-    <span class="btn-loading" hidden>Sending…</span>
-    <span aria-hidden="true">→</span>
+  </fieldset>
+
+  <fieldset class="form-step">
+    <legend><span class="n">04</span> Where should Matthew reply?</legend>
+    <div class="form-row">
+      <label class="field">
+        Your name<input name="name" autocomplete="name" placeholder="Alex Morgan" required />
+      </label>
+      <label class="field">
+        Email<input
+          name="email"
+          type="email"
+          autocomplete="email"
+          inputmode="email"
+          placeholder="alex@company.com"
+          required
+        />
+      </label>
+    </div>
+    <label class="field">
+      <span>Company <span class="optional">Optional</span></span>
+      <input name="company" autocomplete="organization" placeholder="Where you’re building" />
+    </label>
+  </fieldset>
+
+  <button type="submit" id="submit-btn" class="btn block">
+    <span class="btn-text">
+      <span class="btn-label">Send to Matthew</span>
+      <span class="btn-loading" hidden>Sending…</span>
+    </span>
+    <span class="btn-arrow" aria-hidden="true">→</span>
   </button>
   <p class="form-note">
-    Your message goes straight to Matthew, who usually replies within one business day.
+    Goes straight to Matthew’s inbox. He usually replies within one business day.
   </p>
   <div class="form-status form-error" id="form-error" role="alert" hidden></div>
   <div class="form-status form-success" id="form-success" role="status" tabindex="-1" hidden>
@@ -83,6 +104,57 @@ import ContactNextSteps from './ContactNextSteps.astro';
   const btnLoading = submitBtn.querySelector('.btn-loading') as HTMLElement;
   const errorBox = form.querySelector('#form-error') as HTMLElement;
   const successBox = form.querySelector('#form-success') as HTMLElement;
+
+  // Selects become one-tap chips. The select stays in the form (and is what gets
+  // submitted), so the form still works without JavaScript.
+  const syncers: (() => void)[] = [];
+  form.querySelectorAll<HTMLSelectElement>('select[data-chips]').forEach((select) => {
+    const group = document.createElement('div');
+    group.className = 'chips';
+    group.setAttribute('role', 'group');
+    const label = select.closest('fieldset')?.querySelector('legend')?.textContent ?? select.name;
+    const sub = select.closest('label')?.querySelector('.sub-label')?.textContent;
+    group.setAttribute('aria-label', (sub ?? label.replace(/^\s*\d+\s*/, '')).trim());
+    const chips = [...select.options].map((option, index) => {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = select.dataset.chips === 'small' ? 'chip small' : 'chip';
+      chip.textContent = option.dataset.chip ?? option.textContent;
+      chip.addEventListener('click', () => {
+        select.selectedIndex = index;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      group.append(chip);
+      return chip;
+    });
+    const sync = () =>
+      chips.forEach((chip, i) =>
+        chip.setAttribute('aria-pressed', String(i === select.selectedIndex)),
+      );
+    select.addEventListener('change', sync);
+    select.addEventListener('input', sync);
+    select.setAttribute('aria-hidden', 'true');
+    select.tabIndex = -1;
+    select.closest('label')?.after(group);
+    syncers.push(sync);
+    sync();
+  });
+  form.addEventListener('reset', () => setTimeout(() => syncers.forEach((sync) => sync())));
+
+  // Links like /contact/?service=mobile arrive with the right project type chosen.
+  const presets: Record<string, string> = {
+    explore: 'Explore an idea together',
+    mobile: 'Mobile app development',
+    web: 'Website or web platform',
+    strategy: 'Technical strategy & guidance',
+    coaching: 'Coaching',
+  };
+  const preset = presets[new URLSearchParams(location.search).get('service') ?? ''];
+  const service = form.elements.namedItem('service') as HTMLSelectElement;
+  if (preset) {
+    service.value = preset;
+    service.dispatchEvent(new Event('change', { bubbles: true }));
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -127,14 +199,3 @@ import ContactNextSteps from './ContactNextSteps.astro';
     }
   });
 </script>
-<style>
-  .button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-  }
-  .form-error {
-    border-color: #b91c1c;
-    color: #b91c1c;
-  }
-</style>

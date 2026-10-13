@@ -13,6 +13,7 @@ npm run test       # Build, then check routes, links, images, and the contact fo
 npm run sync:currency-screenshots  # Copy the screenshots listed in src/data/currency.ts from the Pesos Dos export
 npm run optimize:images  # Write right-sized WebP copies of large images in public/img
 npm run generate:brand-images  # Regenerate social cards (public/img/og) and home-screen icons
+npm run generate:paintings     # Repaint the watercolor art in public/img/paint (Python 3, numpy, opencv-python-headless)
 ```
 
 There is no unit-test framework; `npm test` runs the release checks in `scripts/verify-*.mjs` and `scripts/capture-*.mjs` against a local preview. Puppeteer needs Chrome; set `PUPPETEER_EXECUTABLE_PATH` if it isn't installed.
@@ -26,14 +27,19 @@ There is no unit-test framework; `npm test` runs the release checks in `scripts/
 - `src/components/` — Astro components. Interactivity is vanilla JS in inline `<script>` blocks; no client-side framework.
 - `src/pages/` — File-based routing. `index.astro` is the welcome screen at `/`; the business site starts at `explore.astro`. Each app has its own folder (`src/pages/<app>/` with `index`, `privacy`, `support`); `apps/` holds the directory and the currency family page.
 - `src/content/` — Astro Content Collections: `testimonials` (shown on /explore/ and /contact/) and `portfolio` (not rendered; source material for case studies). All content is Markdown with YAML frontmatter validated by Zod schemas in `src/content/config.ts`.
-- `src/layouts/SiteLayout.astro` + `src/styles/site.css` — the business site (explore, work, services, studio, contact, 404).
+- `src/layouts/SiteLayout.astro` + `src/styles/site.css` — the business site (explore, work, services, studio, contact, 404). Shared pieces live in `src/components/site/`.
+- `scripts/watercolor/` — the seeded numpy/OpenCV watercolor renderer and the script that paints every image in `public/img/paint`; see `docs/watercolor.md`.
 - `src/layouts/BaseLayout.astro` — app pages, their privacy/support pages, and internal pages (meta, fonts, analytics).
 - `src/styles/global.css` — "Midnight Studio" design system via CSS custom properties.
 - `src/styles/fonts.css` — self-hosted Work Sans and Crimson Pro (files in `src/assets/fonts/`). Don't add Google Fonts links.
 - `worker.ts` — contact form delivery (`/api/contact`) and cookieless analytics events (`/api/event`); see `docs/analytics.md`.
 - `public/_headers` — cache rules for static assets.
 
-### Design system
+### Business site design ("wet ink, hard pixel")
+
+Stark editorial structure (ink rules, mono labels, strict grid) on warm paper (`--paper: #f5f0e6`), with watercolor paintings as the only color: cerulean `--cerulean`, rose `--rose`, and the violet where they glaze. Paintings are rendered on white and shown with `mix-blend-mode: multiply` (`.paint`), so never put `transform`, `opacity`, `filter`, or `isolation` on an ancestor of a `.paint` image. Light only; the welcome page (`index.astro`) also has a dark theme. Primary CTAs go to `/contact/`; service CTAs use `/contact/?service=mobile|web|strategy|coaching` to preselect the project type.
+
+### App page design system
 
 Theming is CSS-variable-based (not Tailwind dark mode classes). Variables are defined on `:root` (light) and `.dark` (dark). The `dark` class is toggled on `<html>` via `ThemeToggle.astro`.
 

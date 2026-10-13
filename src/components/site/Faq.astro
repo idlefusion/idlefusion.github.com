@@ -1,0 +1,70 @@
+---
+// Straight answers to the questions people ask before getting in touch.
+interface Props {
+  heading?: string;
+}
+const { heading = 'Questions, answered.' } = Astro.props;
+const items: { q: string; a: string[] }[] = [
+  {
+    q: 'What kinds of projects do you take on?',
+    a: [
+      'Native iOS and Apple Watch apps (and Android when a product needs it), marketing websites, custom web applications and platform integrations. We also offer technical direction and coaching for teams who are building themselves.',
+    ],
+  },
+  {
+    q: 'Do I need a detailed spec before we talk?',
+    a: [
+      'No. Plenty of projects start as a rough idea or a problem you haven’t quite figured out. The first step is a conversation; from there we shape a focused plan together, before any build begins.',
+    ],
+  },
+  {
+    q: 'Who will I actually be working with?',
+    a: [
+      'Matthew Strickland, the founder, directly. He has more than 20 years of experience building digital products for teams like Disney, NBC Sports, and Golf Channel. No account managers, no hand-offs to someone you haven’t met.',
+    ],
+  },
+  {
+    q: 'What does a project cost?',
+    a: [
+      'It depends on scope. Some engagements are small and focused; others are multi-month builds. After a short call you’ll have a focused plan to decide on, before any build begins, so there are no surprises.',
+    ],
+  },
+  {
+    q: 'What happens after launch?',
+    a: [
+      'Launch is a beginning. We support the updates and improvements that come with real-world use, and we value lasting partnerships over one-off hand-offs.',
+    ],
+  },
+  {
+    q: 'Can you help the team we already have?',
+    a: [
+      'Yes. Architecture and technical planning, engineering team guidance, product discovery, and one-to-one coaching are all part of how we work.',
+    ],
+  },
+];
+---
+
+<div class="faq">
+  <div class="faq-aside">
+    <span class="label"><span class="idx">FAQ</span></span>
+    <h2 class="h2">{heading}</h2>
+    <p class="body-copy">Didn’t see yours? Ask Matthew directly; he reads every message.</p>
+    <a class="link-arrow" href="/contact/" data-track="cta_faq"
+      >Ask a question <span aria-hidden="true">→</span></a
+    >
+  </div>
+  <div class="faq-list">
+    {
+      items.map((item, i) => (
+        <details class="faq-item" open={i === 0}>
+          <summary>{item.q}</summary>
+          <div class="answer">
+            {item.a.map((para) => (
+              <p>{para}</p>
+            ))}
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</div>

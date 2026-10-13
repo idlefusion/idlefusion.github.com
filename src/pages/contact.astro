@@ -1,35 +1,49 @@
 ---
 import ContactForm from '../components/ContactForm.astro';
+import ContactNextSteps from '../components/ContactNextSteps.astro';
 import Layout from '../layouts/SiteLayout.astro';
 import Testimonials from '../components/Testimonials.astro';
 ---
 
 <Layout
-  title="Let’s talk"
+  title="Start a project"
   active="contact"
+  closingCta={false}
   description="Tell us about your app, website, or technical challenge. Your message goes straight to Idle Fusion founder Matthew Strickland."
 >
   <section class="wrap contact-grid">
-    <div>
-      <span class="eyebrow"><span class="status-dot"></span> Start a conversation</span>
-      <h1>
-        What are you<br /><em>thinking?</em>
-      </h1>
-      <p class="contact-description">
-        A new product. A better website. A challenge you haven’t quite figured out yet. We’d love to
-        hear about it.
+    <div class="contact-intro">
+      <span class="label"><span class="status-dot"></span> Start a project</span>
+      <h1 class="h1">Tell us what you’re <span class="hand">building.</span></h1>
+      <p class="lede">
+        A new product, a better website, or a challenge you haven’t quite figured out yet. Matthew
+        reads every message himself.
       </p>
-      <a class="text-link" href="mailto:hello@idlefusion.com">hello@idlefusion.com</a>
       <div class="contact-person">
-        <img src="/img/us/matthew.jpg" alt="Matthew Strickland" width="52" height="52" /><div>
-          <strong>You’ll be talking with Matthew.</strong><p>
-            Founder, builder, and your first point of contact. He usually replies within one
-            business day.
+        <img src="/img/us/matthew-avatar.jpg" alt="" width="60" height="60" />
+        <div>
+          <strong>You’ll be talking with Matthew.</strong>
+          <p>
+            Founder, builder, and your first point of contact. Usually replies within one business
+            day.
           </p>
         </div>
       </div>
-      <Testimonials only={['jeremy-bagwell', 'pippin-williamson']} compact />
     </div>
     <ContactForm />
+    <div class="contact-proof">
+      <div>
+        <p class="label" style="margin-bottom:12px">What happens next</p>
+        <ContactNextSteps />
+      </div>
+      <Testimonials only={['jeremy-bagwell']} compact eager />
+      <p class="body-copy" style="font-size:15px">
+        Prefer email? Write to <a
+          class="link-arrow"
+          style="display:inline"
+          href="mailto:hello@idlefusion.com">hello@idlefusion.com</a
+        >
+      </p>
+    </div>
   </section>
 </Layout>

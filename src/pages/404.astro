@@ -3,9 +3,9 @@ import Layout from '../layouts/SiteLayout.astro';
 
 const destinations = [
   ['Selected work', '/work/'],
-  ['Our apps', '/apps/'],
   ['Services', '/services/'],
-  ['Get in touch', '/contact/'],
+  ['Our apps', '/apps/'],
+  ['Start a project', '/contact/'],
 ];
 ---
 
@@ -15,29 +15,29 @@ const destinations = [
   robots="noindex, nofollow"
 >
   <section class="page-intro wrap">
-    <span class="eyebrow"><span class="status-dot"></span> 404 / Not found</span>
-    <h1>This page has<br /><em>moved on.</em></h1>
+    <span class="label"><span class="idx">404</span> Not found</span>
+    <h1 class="h1">This page has <span class="hand cerulean">moved on.</span></h1>
     <div class="intro-row">
-      <p>
+      <p class="lede">
         We couldn’t find <code id="requested-path" class="requested-path">that page</code>. It may
         have moved in our redesign, or the link may have a typo.
       </p>
-      <a class="text-link" href="/explore/">Back to Idle Fusion <span aria-hidden="true">→</span></a>
+      <a class="link-arrow" href="/explore/"
+        >Back to Idle Fusion <span aria-hidden="true">→</span></a
+      >
     </div>
   </section>
-  <section class="wrap not-found-links" aria-label="Where to go next">
-    <div class="service-list">
-      {
-        destinations.map(([label, href], i) => (
-          <a href={href}>
-            <span>{String(i + 1).padStart(2, '0')}</span>
-            <h3>{label}</h3>
-            <span aria-hidden="true">→</span>
-          </a>
-        ))
-      }
-    </div>
-  </section>
+  <nav class="wrap destinations" aria-label="Where to go next">
+    {
+      destinations.map(([label, href], i) => (
+        <a href={href}>
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          {label}
+          <span aria-hidden="true">→</span>
+        </a>
+      ))
+    }
+  </nav>
 </Layout>
 
 <script>
@@ -45,17 +45,3 @@ const destinations = [
   const requested = document.getElementById('requested-path');
   if (requested) requested.textContent = decodeURI(location.pathname);
 </script>
-
-<style>
-  .requested-path {
-    font-size: 0.92em;
-    padding: 1px 6px;
-    border-radius: 4px;
-    background: var(--accent-tint);
-    color: var(--ink);
-    overflow-wrap: anywhere;
-  }
-  .not-found-links {
-    padding-bottom: 90px;
-  }
-</style>

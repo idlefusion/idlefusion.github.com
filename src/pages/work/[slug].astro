@@ -8,16 +8,25 @@ export function getStaticPaths() {
   }));
 }
 const { project: p, next } = Astro.props;
+const practice = p.type === 'Web' ? 'web' : 'mobile';
 ---
 
-<Layout title={p.name} active="work" description={p.intro} ogImage={`/img/og/work-${p.slug}.png`}>
+<Layout
+  title={p.name}
+  active="work"
+  description={p.intro}
+  ogImage={`/img/og/work-${p.slug}.png`}
+  cta={{
+    heading: 'Planning something <span class="hand">similar?</span>',
+    href: `/contact/?service=${practice}`,
+    track: 'cta_case_study',
+  }}
+>
   <section class="wrap case-intro">
-    <a class="back-link" href="/work/">← All selected work</a>
-    <span class="eyebrow">
-      {p.category} / Project {p.number}
-    </span>
-    <h1>{p.name}<em>.</em></h1>
-    <p class="case-lede">{p.intro}</p>
+    <a class="back-link" href="/work/">← All work</a>
+    <span class="label"><span class="idx">{p.number}</span> {p.category}</span>
+    <h1 class="h1">{p.name}<span style="color:var(--rose)">.</span></h1>
+    <p class="lede">{p.intro}</p>
     <dl class="case-meta">
       <div>
         <dt>Client</dt>
@@ -32,47 +41,51 @@ const { project: p, next } = Astro.props;
         <dd>Design & development</dd>
       </div>
     </dl>
-    <div class:list={['project-art', 'case-art', p.color]}>
-      <span class="art-topline">IDLE FUSION<span>SELECTED WORK / {p.number}</span> </span>
-      <img src={p.image} alt={`${p.name} logo`} width="300" height="180" /><span
-        class="art-bottomline"
-        >{p.short}<span aria-hidden="true">→</span>
+    <div class="project-art case-art">
+      <img class="paint" src={p.art} alt="" width="1600" height="1000" fetchpriority="high" />
+      <span class="client-chip">
+        <img src={p.image} alt="" width="30" height="30" />
+        {p.client}
       </span>
-    </div>{p.note && <p class="case-note">{p.note}</p>}
+    </div>
+    {p.note && <p class="case-note">{p.note}</p>}
   </section>
-  <section class="wrap case-body">
-    <span class="eyebrow">Behind the work</span>
-    <div>
+  <section class="section wrap" aria-label="The project">
+    <div class="case-body">
       <article>
-        <span class="eyebrow">01 / The challenge</span>
-        <h2>A problem worth solving.</h2>
-        <p>
-          {p.challenge}
-        </p>
-      </article><article>
-        <span class="eyebrow">02 / Our approach</span>
-        <h2>Built around the experience.</h2>
-        <ul>
-          {p.approach.map((item) => <li>{item}</li>)}
-        </ul>
-      </article><article>
-        <span class="eyebrow">03 / The outcome</span>
-        <h2>From idea to everyday use.</h2>
-        {
-          p.results && (
-            <dl class="case-results">
-              {p.results.map((result) => (
-                <div>
-                  <dt>{result.value}</dt>
-                  <dd>{result.label}</dd>
-                </div>
-              ))}
-            </dl>
-          )
-        }
-        <p>
-          {p.outcome}
-        </p>
+        <span class="label"><span class="idx">01</span> The challenge</span>
+        <div>
+          <h2 class="h3">A problem worth solving.</h2>
+          <p>{p.challenge}</p>
+        </div>
+      </article>
+      <article>
+        <span class="label"><span class="idx">02</span> Our approach</span>
+        <div>
+          <h2 class="h3">Built around the experience.</h2>
+          <ul>
+            {p.approach.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </article>
+      <article>
+        <span class="label"><span class="idx">03</span> The outcome</span>
+        <div>
+          <h2 class="h3">From idea to everyday use.</h2>
+          {
+            p.results && (
+              <dl class="case-results">
+                {p.results.map((result) => (
+                  <div>
+                    <dt>{result.value}</dt>
+                    <dd>{result.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            )
+          }
+          <p>{p.outcome}</p>
+        </div>
       </article>
     </div>
   </section>
@@ -85,22 +98,13 @@ const { project: p, next } = Astro.props;
       </section>
     )
   }
-  <section class="wrap case-cta">
-    <div>
-      <h2>Planning something similar?</h2>
-      <p>
-        Tell us where you are and what you want to make possible. You’ll hear back from Matthew.
-      </p>
-    </div>
-    <a class="button" href="/contact/" data-track="cta_case_study">
-      Let’s talk <span aria-hidden="true">→</span>
+  <nav class="wrap" aria-label="More work">
+    <a href={`/work/${next.slug}/`} class="next-project">
+      <div>
+        <span class="label">Next project</span>
+        <span class="h3">{next.name}</span>
+      </div>
+      <span class="arrow" aria-hidden="true">→</span>
     </a>
-  </section>
-  <a href={`/work/${next.slug}/`} class="wrap next-project">
-    <div>
-      <span class="eyebrow">Next project</span>
-      <h3>{next.name}</h3>
-    </div>
-    <span aria-hidden="true">→</span>
-  </a>
+  </nav>
 </Layout>

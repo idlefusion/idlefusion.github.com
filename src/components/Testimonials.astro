@@ -5,9 +5,11 @@ interface Props {
   /** Entry slugs (file names without .md) to show, in order. Defaults to all. */
   only?: string[];
   compact?: boolean;
+  /** Load the avatars straight away instead of lazily (for short pages). */
+  eager?: boolean;
 }
 
-const { only, compact = false } = Astro.props;
+const { only, compact = false, eager = false } = Astro.props;
 const entries = await getCollection('testimonials');
 const testimonials = only
   ? only
@@ -22,7 +24,14 @@ const testimonials = only
       <figure class="testimonial">
         <blockquote>“{data.quote}”</blockquote>
         <figcaption>
-          <img src={data.image} alt="" width="40" height="40" loading="lazy" decoding="async" />
+          <img
+            src={data.image}
+            alt=""
+            width="44"
+            height="44"
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+          />
           <span>
             <strong>{data.name}</strong>
             {data.company}

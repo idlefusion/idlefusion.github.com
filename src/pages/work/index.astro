@@ -2,6 +2,17 @@
 import Layout from '../../layouts/SiteLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { projects } from '../../data/projects';
+
+const moreClients = [
+  ['NBC Sports', 'Flagship sports app'],
+  ['Telemundo Deportes', 'Spanish-language sports'],
+  ['GolfNow', 'GPS & tee-time booking'],
+  ['Treehouse', 'Coding education apps'],
+  ['Comcast RSN', 'Regional sports networks'],
+  ['Pro Football Talk', 'NFL news app'],
+  ['North Point Ministries', 'Mobile app'],
+  ['Gitty', 'GitHub client for iOS'],
+];
 ---
 
 <Layout
@@ -10,19 +21,17 @@ import { projects } from '../../data/projects';
   description="Selected Idle Fusion projects: mobile apps and web platforms for Radio Disney, Golf Channel, Easy Digital Downloads, and mission-driven organizations."
 >
   <section class="page-intro wrap">
-    <span class="eyebrow">Selected work / Idle Fusion</span>
-    <h1>
-      Built with purpose.<br />Made for <em>people.</em>
-    </h1>
+    <span class="label"><span class="idx">Work</span> Selected projects</span>
+    <h1 class="h1">Built for big audiences and <span class="hand ochre">bold missions.</span></h1>
     <div class="intro-row">
-      <p>
-        From beloved media brands to mission-driven organizations. A selection of the products we’ve
-        helped bring to life.
+      <p class="lede">
+        From beloved media brands to mission-driven organizations: a selection of the products we’ve
+        helped bring to life, and what it took to get them there.
       </p>
-      <span class="meta">05 selected projects</span>
+      <span class="meta">{String(projects.length).padStart(2, '0')} case studies</span>
     </div>
   </section>
-  <section class="wrap work-list" aria-label="Selected projects">
+  <section class="wrap" aria-label="Selected projects">
     <div class="filter-bar">
       <div class="filters" aria-label="Filter projects">
         {
@@ -33,24 +42,48 @@ import { projects } from '../../data/projects';
           ))
         }
       </div>
-      <span class="meta" id="project-count" aria-live="polite">5 projects</span>
+      <span class="meta" id="project-count" aria-live="polite">{projects.length} projects</span>
     </div>
     <div class="project-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
+      {projects.map((project) => <ProjectCard project={project} level="h2" />)}
+      {
+        projects.length % 2 === 1 && (
+          <a class="project-slot" href="/contact/" data-track="cta_case_study">
+            <span class="label">
+              <span class="idx">{String(projects.length + 1).padStart(2, '0')}</span> Open slot
+            </span>
+            <span class="h2">
+              Next case study: <span class="hand">yours.</span>
+            </span>
+            <p>Tell us what you’re building. Matthew replies within one business day.</p>
+            <span class="link-arrow">
+              Start a project <span aria-hidden="true">→</span>
+            </span>
+          </a>
+        )
+      }
     </div>
   </section>
-  <section class="service-band">
-    <div class="wrap">
-      <span class="eyebrow">More good company</span>
-      <h2>Experience that travels.</h2>
-      <div class="client-list">
-        <span>NBC Sports</span>
-        <span>GolfNow</span>
-        <span>Telemundo Deportes</span>
-        <span> Treehouse </span>
-        <span>Comcast RSN</span>
-      </div>
+  <section class="section wrap" aria-labelledby="more-title">
+    <header class="section-head">
+      <span class="label"><span class="idx">+</span> More good company</span>
+    </header>
+    <div class="section-title">
+      <h2 id="more-title">Experience that travels.</h2>
+      <p>
+        Teams we’ve built with over twenty years, across sports, media, education, and commerce.
+      </p>
     </div>
+    <ul class="client-list">
+      {
+        moreClients.map(([name, what]) => (
+          <li>
+            <strong>{name}</strong>
+            <span>{what}</span>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 </Layout>
 <script>

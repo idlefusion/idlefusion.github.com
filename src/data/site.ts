@@ -1,6 +1,9 @@
 export const siteOrigin = 'https://idlefusion.com';
 export const defaultSocialImage = '/img/og/default.png';
 
+// Shown beside the status dot at the top of the home page. Keep it true.
+export const availability = 'Taking on new projects';
+
 // schema.org description of the studio, shared by every business page.
 export const organizationSchema = {
   '@context': 'https://schema.org',

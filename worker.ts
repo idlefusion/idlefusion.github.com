@@ -35,6 +35,10 @@ const EVENT_NAMES = new Set([
   'cta_testimonials',
   'cta_case_study',
   'cta_welcome_contact',
+  'cta_service',
+  'cta_founder',
+  'cta_faq',
+  'cta_sticky',
 ]);
 
 function record(

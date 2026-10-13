@@ -1,0 +1,51 @@
+---
+// The three-step engagement, shared by the home and services pages.
+const steps = [
+  {
+    name: 'Align',
+    title: 'Start with the right questions.',
+    text: 'A conversation about your goals, your audience, and what a successful outcome looks like. Then we shape a focused plan together.',
+    get: 'A clear plan and scope, before any build begins.',
+  },
+  {
+    name: 'Make',
+    title: 'Build. Share. Refine.',
+    text: 'Design and development move forward with regular conversations and tangible progress. You stay close to every decision.',
+    get: 'Working software early, and often.',
+  },
+  {
+    name: 'Grow',
+    title: 'Launch is a beginning.',
+    text: 'We help get your product into the world, then support the updates and improvements that come with real-world use.',
+    get: 'A partner who stays invested after launch.',
+  },
+];
+---
+
+<ol class="steps">
+  {
+    steps.map((step, i) => (
+      <li class="step">
+        <div class="step-mark">
+          <img
+            class="paint"
+            src={`/img/paint/step-${i + 1}.webp`}
+            alt=""
+            width="40"
+            height="40"
+            loading="lazy"
+          />
+        </div>
+        <span class="label">
+          <span class="idx">0{i + 1}</span> {step.name}
+        </span>
+        <h3 class="h3">{step.title}</h3>
+        <p>{step.text}</p>
+        <p class="you-get">
+          <b>You get</b>
+          {step.get}
+        </p>
+      </li>
+    ))
+  }
+</ol>

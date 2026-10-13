@@ -1,0 +1,13 @@
+---
+// The studio mark: two overlapping rings. On hover the rings fill with the
+// two studio pigments, which multiply into violet where they overlap.
+interface Props {
+  class?: string;
+}
+const { class: className = 'fusion-mark' } = Astro.props;
+---
+
+<svg class={className} viewBox="-1 -1 34 30" aria-hidden="true" focusable="false">
+  <ellipse class="left" cx="11" cy="14" rx="10" ry="13" transform="rotate(32 11 14)"></ellipse>
+  <ellipse class="right" cx="21" cy="14" rx="10" ry="13" transform="rotate(32 21 14)"></ellipse>
+</svg>

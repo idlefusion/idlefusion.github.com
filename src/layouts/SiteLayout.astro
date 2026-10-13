@@ -2,6 +2,7 @@
 import '../styles/site.css';
 import Analytics from '../components/Analytics.astro';
 import Fonts from '../components/Fonts.astro';
+import FusionMark from '../components/site/FusionMark.astro';
 import { defaultSocialImage, organizationSchema, siteOrigin } from '../data/site';
 interface Props {
   title: string;
@@ -9,6 +10,10 @@ interface Props {
   active?: string;
   ogImage?: string;
   robots?: string;
+  /** The painted "start a project" block before the footer. Off on /contact/. */
+  closingCta?: boolean;
+  /** Tailor that block: heading HTML, where the button goes, and its analytics name. */
+  cta?: { heading?: string; href?: string; track?: string };
 }
 const {
   title,
@@ -16,7 +21,12 @@ const {
   active = '',
   ogImage = defaultSocialImage,
   robots = 'index, follow',
+  closingCta = true,
+  cta = {},
 } = Astro.props;
+const ctaHeading = cta.heading ?? 'Have an idea? Let’s <span class="hand">sketch it out.</span>';
+const ctaHref = cta.href ?? '/contact/';
+const ctaTrack = cta.track ?? 'cta_footer';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? siteOrigin).href;
 const pageTitle = `${title} — Idle Fusion`;
 const socialImage = new URL(ogImage, Astro.site ?? siteOrigin).href;
@@ -25,8 +35,8 @@ const nav = [
   ['Services', 'services'],
   ['Studio', 'studio'],
   ['Apps', 'apps'],
-  ['Open source', 'open-source'],
 ];
+const year = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -34,6 +44,9 @@ const nav = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonicalUrl} />
@@ -50,7 +63,7 @@ const nav = [
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f5f0e6" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
     <Fonts />
@@ -60,67 +73,170 @@ const nav = [
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header wrap">
-      <a class="wordmark" href="/explore/" aria-label="Idle Fusion home">
-        <span class="fusion-mark" aria-hidden="true"></span>idle fusion<span
-          class="wordmark-period"
-        >
-          .
-        </span>
-      </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        {
-          nav.map(([label, slug]) => (
-            <a href={`/${slug}/`} aria-current={active === slug ? 'page' : undefined}>
-              {label}
-            </a>
-          ))
-        }
-      </nav>
-      <a class="button small header-cta" href="/contact/" data-track="cta_header">
-        Let’s talk <span aria-hidden="true">→</span>
-      </a>
-      <details class="mobile-nav">
-        <summary aria-label="Toggle navigation">Menu <span aria-hidden="true">＋</span> </summary>
-        <nav aria-label="Mobile navigation">
+    <header class="site-header" data-header>
+      <div class="wrap header-inner">
+        <a class="wordmark" href="/explore/" aria-label="Idle Fusion home">
+          <FusionMark /><span class="word">idle fusion<span class="dot">.</span></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
           {
             nav.map(([label, slug]) => (
               <a href={`/${slug}/`} aria-current={active === slug ? 'page' : undefined}>
                 {label}
               </a>
             ))
-          }<a href="/contact/">Let’s talk <span aria-hidden="true">→</span></a>
+          }
         </nav>
-      </details>
+        <a class="btn small header-cta" href="/contact/" data-track="cta_header">
+          <span class="btn-text">Start a project</span><span class="btn-arrow" aria-hidden="true"
+            >→</span
+          >
+        </a>
+        <details class="mobile-nav">
+          <summary aria-label="Toggle navigation"
+            >Menu <span class="bars" aria-hidden="true"></span></summary
+          >
+          <nav aria-label="Mobile navigation">
+            {
+              nav.map(([label, slug]) => (
+                <a href={`/${slug}/`} aria-current={active === slug ? 'page' : undefined}>
+                  {label} <span aria-hidden="true">→</span>
+                </a>
+              ))
+            }
+            <a href="/open-source/" aria-current={active === 'open-source' ? 'page' : undefined}
+              >Open source <span aria-hidden="true">→</span></a
+            >
+            <a class="btn block" href="/contact/" data-track="cta_header">
+              <span class="btn-text">Start a project</span><span
+                class="btn-arrow"
+                aria-hidden="true">→</span
+              >
+            </a>
+          </nav>
+        </details>
+      </div>
     </header>
     <main id="main"><slot /></main>
+    {
+      closingCta && (
+        <section class="wrap cta-paint" aria-labelledby="closing-cta-title" data-closing-cta>
+          <picture>
+            <source media="(max-width: 700px)" srcset="/img/paint/cta-wash-tall.webp" />
+            <img
+              class="wash paint"
+              src="/img/paint/cta-wash.webp"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="2400"
+              height="1000"
+            />
+          </picture>
+          <div class="cta-inner">
+            <p class="label">
+              <span class="status-dot" /> Start a project
+            </p>
+            <h2 id="closing-cta-title" set:html={ctaHeading} />
+            <div class="cta-side">
+              <p>
+                Tell us what you’re building. Matthew reads every note himself and usually replies
+                within one business day.
+              </p>
+              <a class="btn light" href={ctaHref} data-track={ctaTrack}>
+                <span class="btn-text">Start a project</span>
+                <span class="btn-arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+              <a class="mail" href="mailto:hello@idlefusion.com">
+                or email hello@idlefusion.com
+              </a>
+            </div>
+          </div>
+        </section>
+      )
+    }
     <footer class="site-footer">
       <div class="wrap">
-        <div class="footer-top">
+        <div class="footer-grid">
           <div>
-            <span class="eyebrow">Your next chapter</span>
-            <h2>
-              Let’s make<br />something <em>matter.</em>
-            </h2>
+            <p>
+              An independent app & web studio. Senior design and engineering for teams who want it
+              done well, by the person they talk to.
+            </p>
           </div>
-          <a
-            class="round-link"
-            href="/contact/"
-            aria-label="Start a conversation"
-            data-track="cta_footer">→</a
-          >
-        </div>
-        <div class="footer-bottom">
-          <a class="wordmark" href="/explore/">idle fusion.</a>
-          <span> Independent thinking. Thoughtful software. </span>
-          <div>
+          <div class="footer-col">
+            <span class="label">Studio</span>
+            <a href="/work/">Work</a>
+            <a href="/services/">Services</a>
+            <a href="/studio/">About</a>
+            <a href="/contact/">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="label">Made here</span>
+            <a href="/apps/">Apps</a>
+            <a href="/open-source/">Open source</a>
+          </div>
+          <div class="footer-col">
+            <span class="label">Elsewhere</span>
+            <a href="mailto:hello@idlefusion.com">hello@idlefusion.com</a>
             <a href="https://github.com/idlefusion">GitHub</a>
             <a href="https://linkedin.com/in/mps">LinkedIn</a>
           </div>
-          <span>© {new Date().getFullYear()} Idle Fusion LLC</span>
+        </div>
+        <div class="footer-word" aria-hidden="true">idle fusion<span class="dot">.</span></div>
+        <div class="footer-base">
+          <span>© {year} Idle Fusion LLC</span>
+          <span>Painted by hand. Built in code.</span>
         </div>
       </div>
     </footer>
+    {
+      closingCta && (
+        <a class="btn block sticky-cta" href="/contact/" data-track="cta_sticky" data-sticky-cta>
+          <span class="btn-text">Start a project</span>
+          <span class="btn-arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+      )
+    }
     <Analytics />
+    <script>
+      const header = document.querySelector<HTMLElement>('[data-header]');
+      const onScroll = () => header?.toggleAttribute('data-scrolled', scrollY > 8);
+      addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Phones: a slim "start a project" bar once the visitor has scrolled past the
+      // first screen, tucked away again when the closing call to action is on screen.
+      const sticky = document.querySelector<HTMLElement>('[data-sticky-cta]');
+      const closing = document.querySelector('[data-closing-cta]');
+      if (sticky && 'IntersectionObserver' in window) {
+        let pastFold = false;
+        let closingVisible = false;
+        const update = () => sticky.toggleAttribute('data-visible', pastFold && !closingVisible);
+        addEventListener(
+          'scroll',
+          () => {
+            pastFold = scrollY > innerHeight * 0.9;
+            update();
+          },
+          { passive: true },
+        );
+        if (closing)
+          new IntersectionObserver(([entry]) => {
+            closingVisible = entry.isIntersecting;
+            update();
+          }).observe(closing);
+      }
+
+      // Close the phone menu after choosing a destination on the same page.
+      const menu = document.querySelector<HTMLDetailsElement>('.mobile-nav');
+      menu
+        ?.querySelectorAll('a')
+        .forEach((a) => a.addEventListener('click', () => (menu.open = false)));
+    </script>
   </body>
 </html>

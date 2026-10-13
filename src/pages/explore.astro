@@ -2,150 +2,382 @@
 import Layout from '../layouts/SiteLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Testimonials from '../components/Testimonials.astro';
+import Process from '../components/site/Process.astro';
+import Faq from '../components/site/Faq.astro';
 import { projects } from '../data/projects';
+import { visibleApps } from '../data/apps';
+import { availability } from '../data/site';
+import { getEntry } from 'astro:content';
+
+const bySlug = (slug: string) => projects.find((p) => p.slug === slug)!;
+const featured = bySlug('radio-disney');
+const supporting = [bySlug('golf-channel-academy'), bySlug('everybody-everywhere')];
+const pippin = (await getEntry('testimonials', 'pippin-williamson'))!.data;
+
+const services = [
+  {
+    id: 'mobile',
+    name: 'Mobile apps',
+    art: '/img/paint/service-mobile.webp',
+    text: 'Native iOS and Apple Watch apps that feel right from the first tap, with product thinking and careful engineering behind every screen.',
+    items: [
+      'iOS & Android apps',
+      'Apple Watch experiences',
+      'Interface design & prototyping',
+      'Launch & ongoing releases',
+    ],
+    cta: 'Plan a mobile app',
+  },
+  {
+    id: 'web',
+    name: 'Websites & platforms',
+    art: '/img/paint/service-web.webp',
+    text: 'A clear, fast home for your business online, from a focused marketing site to a connected web platform your team can grow.',
+    items: [
+      'Marketing websites',
+      'Custom web applications',
+      'Platform & API integrations',
+      'Performance & accessibility',
+    ],
+    cta: 'Plan a website',
+  },
+  {
+    id: 'strategy',
+    name: 'Technical direction',
+    art: '/img/paint/service-direction.webp',
+    text: 'Experienced perspective for the decisions that matter: clarify the opportunity, choose a practical path, and move with confidence.',
+    items: [
+      'Product discovery & roadmaps',
+      'Architecture & planning',
+      'Engineering team guidance',
+      'One-to-one coaching',
+    ],
+    cta: 'Talk it through',
+  },
+];
+
+const compare = [
+  [
+    'Who builds it',
+    'Sold by partners, built by juniors',
+    'The senior who scopes your product is the one who builds it',
+  ],
+  [
+    'How you talk',
+    'Messages relayed through account managers',
+    'A direct line to the founder, with replies within one business day',
+  ],
+  [
+    'How it starts',
+    'Weeks of discovery decks',
+    'The right questions, a focused plan, then working software early',
+  ],
+  [
+    'After launch',
+    'A hand-off, then silence',
+    'Invested beyond launch: updates, fixes, and steady improvements',
+  ],
+];
 ---
 
 <Layout
-  title="Good ideas. Built to work."
+  title="Apps & websites, from first sketch to shipped"
   description="Idle Fusion is an independent studio that designs and builds iOS apps, websites, and web platforms, with clients including Disney, NBC Sports, and Golf Channel."
 >
-  <section class="home-hero wrap" id="home">
+  <section class="hero wrap" id="home">
+    <p class="label hero-label">
+      <span class="status-dot"></span> Independent app & web studio · {availability}
+    </p>
+    <h1 class="display hero-title">
+      Apps & websites, from first sketch to <span class="hand">shipped.</span>
+    </h1>
     <div class="hero-copy">
-      <span class="eyebrow"><span class="status-dot"></span> Independent digital studio</span>
-      <h1>
-        Good ideas.<br />Built to <em>work.</em>
-      </h1>
-      <p>
-        We turn complex challenges into simple, thoughtful apps and websites. From the first
-        conversation to the next big chapter.
+      <p class="lede">
+        A founder-led studio with 20+ years of shipping digital products for Disney, NBC Sports,
+        Golf Channel, and independent teams. You work directly with the senior builder making yours:
+        no hand-offs, no account managers.
       </p>
       <div class="actions">
-        <a class="button" href="/work/">Explore our work <span aria-hidden="true">→</span> </a>
-        <a class="text-link" href="/contact/" data-track="cta_hero">
-          Tell us your idea <span aria-hidden="true">→</span>
+        <a class="btn" href="/contact/" data-track="cta_hero">
+          <span class="btn-text">Start a project</span><span class="btn-arrow" aria-hidden="true"
+            >→</span
+          >
         </a>
+        <a class="link-arrow" href="#our-work"
+          >See selected work <span aria-hidden="true">↓</span></a
+        >
       </div>
-      <div class="hero-footnote">
-        <span>20+ years of building what’s next.</span>
-        <a href="/studio/">Meet the studio <span aria-hidden="true">→</span></a>
-      </div>
+      <ul class="assurances" aria-label="What to expect">
+        <li>Reply within one business day</li>
+        <li>Work directly with the founder</li>
+        <li>A clear plan before any build</li>
+      </ul>
+      <figure class="mini-quote">
+        <img src={pippin.image} alt="" width="40" height="40" decoding="async" />
+        <blockquote>“Working with Idle Fusion was a game-changer.”</blockquote>
+        <figcaption>{pippin.name}, {pippin.company}</figcaption>
+      </figure>
     </div>
-    <div class="hero-art" aria-label="A selection of apps built by Idle Fusion">
-      <div class="art-heading">
-        <span>SMALL DETAILS.<br />REAL DIFFERENCE.</span>
-        <span class="fusion-mark large" aria-hidden="true"> </span>
-      </div>
-      <div class="hero-apps">
-        <img
-          class="hero-screen screen-one"
-          src="/img/contrast/screenshots/02_active_sauna.png"
-          alt="Contrast app sauna timer"
-          width="1290"
-          height="2796"
-          fetchpriority="high"
-        /><img
-          class="hero-screen screen-two"
-          src="/img/contrast/screenshots/03_active_cold.png"
-          alt="Contrast app cold plunge timer"
-          width="1290"
-          height="2796"
-        />
-      </div>
-      <a class="art-caption" href="/contrast/">
-        <span>
-          <strong>Contrast</strong><small>One of our own. Made for everyday life.</small>
-        </span>
-        <span aria-hidden="true">→</span>
-      </a>
-    </div>
-  </section>
-  <section class="client-strip wrap" aria-label="Selected clients">
-    <span>GOOD COMPANY<br />TO BUILD WITH</span>
-    <span class="client-disney">Disney</span>
-    <span> NBC Sports </span>
-    <span>GOLF CHANNEL</span>
-    <span>Treehouse</span>
-    <span class="client-edd">
-      Easy Digital<br />Downloads
-    </span>
-  </section>
-  <section class="section wrap" id="our-work">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">01 / Selected work</span>
-        <h2>
-          Different ambitions.<br />Same attention to detail.
-        </h2>
-      </div>
-      <a class="text-link" href="/work/">All selected work <span aria-hidden="true">→</span></a>
-    </div>
-    <div class="project-grid">
-      {projects.slice(0, 2).map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
-  <section class="service-band" id="how-it-works">
-    <div class="wrap service-band-inner">
-      <div>
-        <span class="eyebrow">02 / What we do</span>
-        <h2>
-          From “what if”<br />to <em>what’s next.</em>
-        </h2>
-        <p>
-          A hands-on partner for your product, your team, and the decisions that move you forward.
-        </p>
-        <a class="text-link" href="/services/">How we can help <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="service-list">
-        <a href="/services/#mobile"
-          ><span>01</span>
-          <h3>Mobile experiences</h3>
-          <span aria-hidden="true">→</span>
-        </a>
-        <a href="/services/#web">
-          <span>02</span>
-          <h3>Websites & platforms</h3>
-          <span aria-hidden="true">→</span>
-        </a>
-        <a href="/services/#strategy">
-          <span>03</span>
-          <h3>Technical direction</h3>
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-  <section class="section wrap" id="testimonials">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">03 / In their words</span>
-        <h2>
-          Trusted by the teams<br />we build with.
-        </h2>
-      </div>
-      <a class="text-link" href="/contact/" data-track="cta_testimonials">Start a conversation <span aria-hidden="true">→</span></a>
-    </div>
-    <Testimonials only={['pippin-williamson', 'jeremy-bagwell', 'roger-walker']} />
-  </section>
-  <section class="section wrap studio-teaser" id="leadership">
-    <div class="portrait-small">
+    <figure class="hero-art">
       <img
-        src="/img/us/matthew.jpg"
-        alt="Matthew Strickland, founder of Idle Fusion"
-        width="768"
-        height="1024"
-        loading="lazy"
+        class="paint"
+        src="/img/paint/hero-fusion.webp"
+        alt="The Idle Fusion mark painted in blue and rose watercolor, its right side resolving into a grid of pixels."
+        width="1240"
+        height="1000"
+        fetchpriority="high"
       />
+      <svg class="construction" viewBox="80 200 1240 1000" aria-hidden="true">
+        <g transform="rotate(32 450 690)">
+          <ellipse class="geo draw" cx="450" cy="690" rx="285" ry="380"></ellipse>
+          <line class="geo faint" x1="450" y1="250" x2="450" y2="1130"></line>
+        </g>
+        <g transform="rotate(32 750 690)">
+          <ellipse class="geo draw" cx="750" cy="690" rx="285" ry="380"></ellipse>
+        </g>
+        <path class="geo" d="M434 690h32M450 674v32M734 690h32M750 674v32"></path>
+        <line class="geo faint" x1="450" y1="690" x2="450" y2="330"></line>
+        <path class="geo" d="M450 570 A120 120 0 0 1 513.6 588.2"></path>
+        <text x="464" y="548">32°</text>
+        <path class="geo faint" d="M450 706V1144M750 706V1144"></path>
+        <path class="geo" d="M450 1130H750M450 1118v24M750 1118v24"></path>
+        <text x="572" y="1178">300</text>
+        <path class="geo" d="M196 330 L262 330 L330 440"></path>
+        <text x="96" y="339">HAND</text>
+        <path class="geo" d="M1196 330 L1130 330 L1060 440"></path>
+        <text x="1206" y="339">CODE</text>
+      </svg>
+      <figcaption class="fig-caption label">
+        Fig. 01 — Painted by hand, resolved in code.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap proof" aria-label="Clients">
+    <p class="label">Trusted by teams at</p>
+    <ul class="logo-row">
+      <li class="serif">Disney</li>
+      <li>NBC Sports</li>
+      <li class="caps">Golf Channel</li>
+      <li class="light">Telemundo</li>
+      <li>Treehouse</li>
+      <li class="stack">Easy Digital Downloads</li>
+    </ul>
+  </section>
+
+  <section class="wrap" aria-label="Idle Fusion at a glance">
+    <div class="stats">
+      <div class="stat">
+        <strong>20<sup>+</sup></strong><span>years designing and building digital products</span>
+      </div>
+      <div class="stat">
+        <strong>{visibleApps.length}</strong><span
+          >independent apps designed and shipped in-house</span>
+      </div>
+      <div class="stat">
+        <strong>0</strong><span
+          >hand-offs between the person you brief and the person who builds</span>
+      </div>
+      <div class="stat">
+        <strong>1<sup>day</sup></strong><span>usual reply to a new project inquiry</span>
+      </div>
     </div>
-    <div>
-      <span class="eyebrow">04 / A personal approach</span>
-      <h2>
-        Big experience.<br />A direct connection.
+  </section>
+
+  <section class="section wrap" aria-labelledby="why-title">
+    <header class="section-head">
+      <span class="label"><span class="idx">01</span> Why Idle Fusion</span>
+    </header>
+    <div class="section-title">
+      <h2 id="why-title">
+        All of the craft. <span class="hand cerulean">None</span> of the overhead.
       </h2>
       <p>
-        Idle Fusion is led by Matthew Strickland, a builder and technology leader with more than 20
-        years of experience. You work directly with the person helping bring your idea to life.
+        Many agencies sell a senior team and staff the work with whoever is free. Here, the person
+        on your first call is the person building your product.
       </p>
-      <a class="text-link" href="/studio/">Get to know the studio <span aria-hidden="true">→</span></a>
     </div>
+    <div class="compare" role="table" aria-label="The usual agency compared with Idle Fusion">
+      <div class="compare-row compare-head" role="row">
+        <span role="columnheader">&nbsp;</span>
+        <span role="columnheader">The usual way</span>
+        <span role="columnheader">With Idle Fusion</span>
+      </div>
+      {
+        compare.map(([topic, usual, ours]) => (
+          <div class="compare-row" role="row">
+            <span role="rowheader">{topic}</span>
+            <span class="usual" role="cell">
+              <s>{usual}</s>
+            </span>
+            <span class="ours" role="cell">
+              {ours}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="services-title" style="padding-top:0">
+    <header class="section-head">
+      <span class="label"><span class="idx">02</span> Services</span>
+      <a class="link-arrow" href="/services/">How we work <span aria-hidden="true">→</span></a>
+    </header>
+    <div class="section-title">
+      <h2 id="services-title">Three ways we help you <span class="hand">ship.</span></h2>
+      <p>
+        From a single app to a connected platform, or the experienced perspective your own team
+        needs to decide.
+      </p>
+    </div>
+    <div class="service-cards">
+      {
+        services.map((s) => (
+          <article class="service-card">
+            <img
+              class="paint"
+              src={s.art}
+              alt=""
+              width="720"
+              height="720"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="h3">{s.name}</h3>
+            <div style="display:grid;gap:18px;align-content:start">
+              <p>{s.text}</p>
+              <ul class="ticks">
+                {s.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <a class="link-arrow" href={`/contact/?service=${s.id}`} data-track="cta_service">
+              {s.cta} <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section wrap" id="our-work" aria-labelledby="work-title" style="padding-top:0">
+    <header class="section-head">
+      <span class="label"><span class="idx">03</span> Selected work</span>
+      <a class="link-arrow" href="/work/">All work <span aria-hidden="true">→</span></a>
+    </header>
+    <div class="section-title">
+      <h2 id="work-title">
+        Built for big audiences and <span class="hand ochre">bold missions.</span>
+      </h2>
+    </div>
+    <div class="work-feature">
+      <ProjectCard project={featured} large />
+      <div class="stack">
+        {supporting.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section wrap"
+    id="how-it-works"
+    aria-labelledby="process-title"
+    style="padding-top:0"
+  >
+    <header class="section-head">
+      <span class="label"><span class="idx">04</span> How it works</span>
+      <a class="link-arrow" href="/services/#process"
+        >The details <span aria-hidden="true">→</span></a
+      >
+    </header>
+    <div class="section-title">
+      <h2 id="process-title">Clear steps. <span class="hand ochre">No surprises.</span></h2>
+      <p>Every engagement follows the same simple shape, sized to what you actually need.</p>
+    </div>
+    <Process />
+  </section>
+
+  <section
+    class="section wrap"
+    id="testimonials"
+    aria-labelledby="words-title"
+    style="padding-top:0"
+  >
+    <header class="section-head">
+      <span class="label"><span class="idx">05</span> In their words</span>
+      <a class="link-arrow" href="/contact/" data-track="cta_testimonials"
+        >Start a conversation <span aria-hidden="true">→</span></a
+      >
+    </header>
+    <h2 id="words-title" class="sr-only">What clients say</h2>
+    <div class="quote-feature">
+      <figure class="big-quote">
+        <blockquote>“{pippin.quote}”</blockquote>
+        <figcaption>
+          <img src={pippin.image} alt="" width="44" height="44" loading="lazy" decoding="async" />
+          <span><strong>{pippin.name}</strong>{pippin.company}</span>
+        </figcaption>
+      </figure>
+      <Testimonials only={['jeremy-bagwell', 'roger-walker']} compact />
+    </div>
+  </section>
+
+  <section
+    class="section wrap"
+    id="leadership"
+    aria-labelledby="founder-title"
+    style="padding-top:0"
+  >
+    <header class="section-head">
+      <span class="label"><span class="idx">06</span> Who you’ll work with</span>
+    </header>
+    <div class="founder">
+      <figure class="portrait">
+        <img
+          class="paint"
+          src="/img/paint/portrait-matthew.webp"
+          alt="Matthew Strickland, founder of Idle Fusion"
+          width="768"
+          height="1024"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="label">Matthew Strickland · Founder</figcaption>
+      </figure>
+      <div class="founder-copy">
+        <h2 id="founder-title" class="h2">
+          Big experience. A <span class="hand cerulean">direct</span> line.
+        </h2>
+        <p class="body-copy">
+          Idle Fusion is led by Matthew Strickland, a builder and technology leader with more than
+          20 years of experience, from mobile experiences for Disney and NBC Sports to small,
+          privacy-minded apps of our own. You work directly with the person bringing your idea to
+          life.
+        </p>
+        <ul class="creds">
+          <li><b>Experience</b>20+ years building products</li>
+          <li><b>Clients</b>Disney, NBC Sports, Golf Channel</li>
+          <li><b>Made in-house</b>{visibleApps.length} independent apps</li>
+          <li><b>Shared</b>Open-source tools for developers</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="/contact/" data-track="cta_founder">
+            <span class="btn-text">Talk with Matthew</span><span
+              class="btn-arrow"
+              aria-hidden="true">→</span
+            >
+          </a>
+          <a class="link-arrow" href="/studio/"
+            >More about the studio <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-label="Frequently asked questions" style="padding-top:0">
+    <Faq />
   </section>
 </Layout>

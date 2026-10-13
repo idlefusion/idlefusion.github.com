@@ -35,7 +35,7 @@ try {
       }));
       assert.equal(
         state.background,
-        appearance === 'dark' ? 'rgb(16, 17, 20)' : 'rgb(255, 255, 255)',
+        appearance === 'dark' ? 'rgb(18, 17, 16)' : 'rgb(245, 240, 230)',
       );
       assert.equal(state.overflow, false);
       assert.equal(state.headings, 1);
@@ -84,7 +84,7 @@ try {
   await page.goto(origin, { waitUntil: 'networkidle0' });
   assert.equal(
     await page.$eval('body', (element) => getComputedStyle(element).backgroundColor),
-    'rgb(16, 17, 20)',
+    'rgb(18, 17, 16)',
   );
   assert.equal(await page.$eval('.enter', (element) => element.getAttribute('href')), '/explore/');
   checks.push('No-JavaScript system theme and entry link');
