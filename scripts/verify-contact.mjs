@@ -227,11 +227,11 @@ try {
     const before = events.length;
     let response = await beacon({
       name: 'pageview',
-      path: '/explore/',
+      path: '/',
       referrer: 'https://www.google.com/search?q=idle+fusion',
     });
     assert.equal(response.status, 204);
-    assert.deepEqual(events.at(-1).blobs.slice(0, 3), ['pageview', '/explore/', 'www.google.com']);
+    assert.deepEqual(events.at(-1).blobs.slice(0, 3), ['pageview', '/', 'www.google.com']);
     response = await beacon({ name: 'made_up', path: '/' });
     assert.equal(response.status, 204);
     await beacon({ name: 'pageview', path: '/' }, { 'User-Agent': 'Googlebot/2.1' });

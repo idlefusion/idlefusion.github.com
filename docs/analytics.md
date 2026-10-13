@@ -4,15 +4,13 @@ The site counts page views and conversions without cookies or personal data, so 
 
 ## How it works
 
-- `src/components/Analytics.astro` (included by `SiteLayout`, `BaseLayout`, and the welcome page) sends one small beacon to `/api/event` for each page view and for these clicks:
+- `src/components/Analytics.astro` (included by `SiteLayout` and `BaseLayout`) sends one small beacon to `/api/event` for each page view and for these clicks:
 
   | Event | When |
   | --- | --- |
   | `pageview` | Every page load |
   | `email_click` | Any `mailto:` link |
   | `app_store_click` | Any App Store link (detail: the store URL) |
-  | `enter_site` | "Come on in" on the welcome screen |
-  | `cta_welcome_contact` | "Start a project" on the welcome screen |
   | `cta_header`, `cta_footer`, `cta_hero`, `cta_testimonials`, `cta_case_study` | Contact links, by placement |
   | `cta_service` | A service's "plan a project" link (home, services); these open the form with the project type chosen |
   | `cta_founder` | "Talk with Matthew" (home founder section, studio) |
@@ -53,7 +51,7 @@ FROM idlefusion_events
 WHERE blob1 = 'pageview' AND timestamp > NOW() - INTERVAL '30' DAY
 GROUP BY path ORDER BY views DESC
 
--- Welcome screen: how many visitors go on to the full site or to contact
+-- Home page: which calls to action visitors use
 SELECT blob1 AS event, SUM(_sample_interval) AS count
 FROM idlefusion_events
 WHERE blob2 = '/' AND timestamp > NOW() - INTERVAL '30' DAY

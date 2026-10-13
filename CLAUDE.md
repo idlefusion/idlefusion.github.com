@@ -25,9 +25,9 @@ There is no unit-test framework; `npm test` runs the release checks in `scripts/
 ### Key directories
 
 - `src/components/` — Astro components. Interactivity is vanilla JS in inline `<script>` blocks; no client-side framework.
-- `src/pages/` — File-based routing. `index.astro` is the welcome screen at `/`; the business site starts at `explore.astro`. Each app has its own folder (`src/pages/<app>/` with `index`, `privacy`, `support`); `apps/` holds the directory and the currency family page.
-- `src/content/` — Astro Content Collections: `testimonials` (shown on /explore/ and /contact/) and `portfolio` (not rendered; source material for case studies). All content is Markdown with YAML frontmatter validated by Zod schemas in `src/content/config.ts`.
-- `src/layouts/SiteLayout.astro` + `src/styles/site.css` — the business site (explore, work, services, studio, contact, 404). Shared pieces live in `src/components/site/`.
+- `src/pages/` — File-based routing. `index.astro` is the business home page at `/` (`explore.astro` only redirects old `/explore/` links there, alongside `public/_redirects`). Each app has its own folder (`src/pages/<app>/` with `index`, `privacy`, `support`); `apps/` holds the directory and the currency family page.
+- `src/content/` — Astro Content Collections: `testimonials` (shown on the home page and /contact/) and `portfolio` (not rendered; source material for case studies). All content is Markdown with YAML frontmatter validated by Zod schemas in `src/content/config.ts`.
+- `src/layouts/SiteLayout.astro` + `src/styles/site.css` — the business site (home, work, services, studio, contact, 404). Shared pieces live in `src/components/site/`.
 - `scripts/watercolor/` — the seeded numpy/OpenCV watercolor renderer and the script that paints every image in `public/img/paint`; see `docs/watercolor.md`.
 - `src/layouts/BaseLayout.astro` — app pages, their privacy/support pages, and internal pages (meta, fonts, analytics).
 - `src/styles/global.css` — "Midnight Studio" design system via CSS custom properties.
@@ -37,7 +37,7 @@ There is no unit-test framework; `npm test` runs the release checks in `scripts/
 
 ### Business site design ("wet ink, hard pixel")
 
-Stark editorial structure (ink rules, mono labels, strict grid) on warm paper (`--paper: #f5f0e6`), with watercolor paintings as the only color: cerulean `--cerulean`, rose `--rose`, and the violet where they glaze. Paintings are rendered on white and shown with `mix-blend-mode: multiply` (`.paint`), so never put `transform`, `opacity`, `filter`, or `isolation` on an ancestor of a `.paint` image. Light only; the welcome page (`index.astro`) also has a dark theme. Primary CTAs go to `/contact/`; service CTAs use `/contact/?service=mobile|web|strategy|coaching` to preselect the project type.
+Stark editorial structure (ink rules, mono labels, strict grid) on warm paper (`--paper: #f5f0e6`), with watercolor paintings as the only color: cerulean `--cerulean`, rose `--rose`, and the violet where they glaze. Paintings are rendered on white and shown with `mix-blend-mode: multiply` (`.paint`), so never put `transform`, `opacity`, `filter`, or `isolation` on an ancestor of a `.paint` image. Light only. Photographs are shown as taken; only illustrations are painted. Primary CTAs go to `/contact/`; service CTAs use `/contact/?service=mobile|web|strategy|coaching` to preselect the project type.
 
 ### App page design system
 

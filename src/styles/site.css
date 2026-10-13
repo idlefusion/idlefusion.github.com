@@ -35,6 +35,16 @@
   --wrap: 1320px;
   --header: 72px;
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  /* Crop marks at the four corners of a framed image. */
+  --crop-marks:
+    linear-gradient(var(--ink), var(--ink)) 0 0 / 14px 1px,
+    linear-gradient(var(--ink), var(--ink)) 0 0 / 1px 14px,
+    linear-gradient(var(--ink), var(--ink)) 100% 0 / 14px 1px,
+    linear-gradient(var(--ink), var(--ink)) 100% 0 / 1px 14px,
+    linear-gradient(var(--ink), var(--ink)) 0 100% / 14px 1px,
+    linear-gradient(var(--ink), var(--ink)) 0 100% / 1px 14px,
+    linear-gradient(var(--ink), var(--ink)) 100% 100% / 14px 1px,
+    linear-gradient(var(--ink), var(--ink)) 100% 100% / 1px 14px;
 }
 
 /* ------------------------------------------------------------------ base */
@@ -839,16 +849,8 @@ p {
   position: relative;
   aspect-ratio: 16 / 10;
   padding: 10px;
-  /* Crop marks at the four corners: stark furniture around a loose painting. */
-  background:
-    linear-gradient(var(--ink), var(--ink)) 0 0 / 14px 1px,
-    linear-gradient(var(--ink), var(--ink)) 0 0 / 1px 14px,
-    linear-gradient(var(--ink), var(--ink)) 100% 0 / 14px 1px,
-    linear-gradient(var(--ink), var(--ink)) 100% 0 / 1px 14px,
-    linear-gradient(var(--ink), var(--ink)) 0 100% / 14px 1px,
-    linear-gradient(var(--ink), var(--ink)) 0 100% / 1px 14px,
-    linear-gradient(var(--ink), var(--ink)) 100% 100% / 14px 1px,
-    linear-gradient(var(--ink), var(--ink)) 100% 100% / 1px 14px;
+  /* Stark furniture around a loose painting. */
+  background: var(--crop-marks);
   background-repeat: no-repeat;
 }
 .project-art .paint {
@@ -1054,13 +1056,17 @@ p {
   gap: clamp(32px, 6vw, 96px);
   align-items: end;
 }
+/* The founder photo, as photographed, in a crop-marked frame. */
 .portrait {
   position: relative;
-  border-bottom: 1px solid var(--rule-strong);
+  padding: 10px;
+  background: var(--crop-marks);
+  background-repeat: no-repeat;
 }
-.portrait .paint {
+.portrait .photo {
   width: 100%;
   aspect-ratio: 768 / 1024;
+  object-fit: cover;
 }
 .portrait figcaption {
   position: absolute;

@@ -124,7 +124,6 @@ try {
   }
   const expectedRoutes = [
     '/',
-    '/explore/',
     '/apps/',
     '/contact/',
     '/services/',
@@ -155,19 +154,15 @@ try {
     if (!sitemap.includes(`https://idlefusion.com${route}`))
       errors.push(`${route}: absent from sitemap`);
   }
-  // Only the welcome screen lives at /; links from inside the site go to /explore/.
+  // The home page lives at /; /explore/ only redirects there, so nothing should link to it.
   for (const doc of documents) {
-    if (doc.file === 'index.html' || doc.file === 'welcome/index.html') continue;
+    if (doc.file === 'explore/index.html') continue;
     for (const reference of doc.references)
-      if (
-        new URL(reference, 'https://idlefusion.com/explore/').href.match(
-          /^https:\/\/idlefusion\.com\/(#|$)/,
-        )
-      )
-        errors.push(`${doc.file}: links to the welcome screen (${reference})`);
+      if (new URL(reference, 'https://idlefusion.com/').pathname.match(/^\/explore(\/|$)/))
+        errors.push(`${doc.file}: links to the old home address (${reference})`);
   }
   // Internal reviews must stay out of search.
-  for (const route of ['/design/', '/showcase/', '/contact/thanks/']) {
+  for (const route of ['/design/', '/showcase/', '/contact/thanks/', '/explore/']) {
     if (!documentMap.get(`${route.slice(1)}index.html`)?.robots?.includes('noindex'))
       errors.push(`${route} should not be indexed`);
     if (sitemap.includes(`https://idlefusion.com${route}`))
@@ -218,7 +213,7 @@ try {
   console.log(
     `Checked ${documents.length} generated pages and ${expectedRoutes.length} release routes: links, assets, anchors, canonical URLs, indexing, descriptions, and image weight.`,
   );
-  await run('scripts/verify-welcome.mjs');
+  await run('scripts/verify-home.mjs');
   await run('scripts/verify-contact.mjs');
   await run('scripts/capture-site.mjs');
   await run('scripts/capture-apps.mjs');

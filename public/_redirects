@@ -1,0 +1,3 @@
+# The business home moved from /explore/ to / (a 301 keeps #section links).
+/explore / 301
+/explore/ / 301

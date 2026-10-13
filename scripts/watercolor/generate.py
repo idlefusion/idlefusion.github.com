@@ -97,7 +97,7 @@ def hero():
     out = pixel_dissolve(img, cell=14, field=field, gap=2, scatter=scatter, reach=4.0, seed=4)
     # Cropped to the painting; the page's construction overlay uses viewBox "80 200 1240 1000".
     save(np.ascontiguousarray(out[200:1200, 80:1320]), 'hero-fusion.webp', quality=80)
-    # Same painting, intact, for the welcome screen and social cards.
+    # Same painting, intact, for the default social card.
     save(np.ascontiguousarray(img[200:1200, 80:1320]), 'fusion-mark.webp', quality=80)
 
 
@@ -344,84 +344,7 @@ ASSETS.update(
     }
 )
 
-# -------------------------------------------------------------- portrait
-
-
-def person_mask(img):
-    """Figure/ground for the founder photo: GrabCut for the head, a shoulder-line
-    prior for the dark shirt (which otherwise merges with the dark road)."""
-    h, w = img.shape[:2]
-    mask = np.full((h, w), cv2.GC_PR_BGD, np.uint8)
-    cv2.ellipse(mask, (345, 560), (190, 300), 0, 0, 360, cv2.GC_PR_FGD, -1)
-    cv2.ellipse(mask, (350, 600), (120, 190), 0, 0, 360, cv2.GC_FGD, -1)
-    cv2.rectangle(mask, (260, 330), (460, 420), cv2.GC_FGD, -1)
-    mask[:250, :] = cv2.GC_BGD
-    mask[:700, :110] = cv2.GC_BGD
-    mask[:640, 600:] = cv2.GC_BGD
-    bgd, fgd = np.zeros((1, 65)), np.zeros((1, 65))
-    cv2.setRNGSeed(77)  # GrabCut seeds its colour models from OpenCV's global RNG
-    cv2.grabCut(img, mask, None, bgd, fgd, 8, cv2.GC_INIT_WITH_MASK)
-    head = np.isin(mask, (cv2.GC_FGD, cv2.GC_PR_FGD)).astype(np.uint8)
-    head[770:, :] = 0
-    # Never let the head spill into the background: keep it inside a generous oval.
-    prior = np.zeros_like(head)
-    cv2.ellipse(prior, (345, 550), (215, 320), 0, 0, 360, 1, -1)
-    head &= prior
-    torso = np.zeros((h, w), np.uint8)
-    shoulders = np.array([[0, 900], [120, 840], [228, 772], [250, 740], [480, 740], [505, 780], [620, 815], [768, 850], [768, h], [0, h]])
-    cv2.fillPoly(torso, [shoulders], 1)
-    m = np.maximum(head, torso)
-    n, lab, st, _ = cv2.connectedComponentsWithStats(m)
-    m = (lab == (np.argmax(st[1:, 4]) + 1)).astype(np.uint8)
-    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
-    return m.astype(np.float32)
-
-
-def portrait():
-    """The founder photo: the figure stays photographic, the background is
-    repainted as loose watercolour from its own colours, and everything
-    dissolves into the paper toward the edges. Composited in absorbance, so
-    fading anything out means it thins toward white like diluted paint."""
-    from engine import linear_to_srgb as l2s
-
-    src = cv2.imread(str(ROOT / 'public/img/us/matthew.jpg'))
-    h, w = src.shape[:2]
-    rng = np.random.default_rng(77)
-    fg = person_mask(src)
-    gx, gy = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32))
-    noise = lambda k, b=2.4: cv2.resize(periodic_noise(h // k + 1, w // k + 1, rng, beta=b), (w, h), interpolation=cv2.INTER_CUBIC)
-
-    photo = srgb_to_linear(cv2.cvtColor(src, cv2.COLOR_BGR2RGB).astype(np.float32) / 255)
-    a_photo = -np.log(np.clip(photo, 0.004, 1))
-
-    flat = cv2.pyrMeanShiftFiltering(src, 18, 40)
-    flat = cv2.cvtColor(cv2.GaussianBlur(flat, (0, 0), 4.0), cv2.COLOR_BGR2RGB)
-    a_paint = -np.log(np.clip(srgb_to_linear(flat.astype(np.float32) / 255), 0.004, 1))
-    paper = Paper(h, w, seed=78)
-    gran = 1 + 0.18 * np.clip(-paper.height, -1.5, 2.5)
-    mean = a_paint.mean(axis=2, keepdims=True)
-    a_paint = mean + (a_paint - mean) * 1.5  # watercolour is brighter than a photo's greys
-    a_paint = np.clip(a_paint, 0, None) * ((0.4 + 0.14 * noise(6, 3.0)) * gran)[..., None]
-    a_paint = cv2.remap(a_paint.astype(np.float32), gx + 4 * noise(30), gy + 4 * noise(30), cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-
-    # Where the painted background lives: a loose shape that thins out before the road.
-    c = Canvas(w, h, seed=79)
-    shape = np.array([[70, 40], [w - 60, 70], [w - 30, 520], [w - 110, 700], [90, 720], [30, 380]], float)
-    d = c.wash_density(shape, layers=50, variance=0.06, base_depth=3, layer_depth=3, texture=0.3)
-    d = cv2.GaussianBlur(d, (0, 0), 3.0)
-    bg = np.clip(d * 1.25, 0, 1) * smoothstep(780, 430, gy + 40 * noise(5))
-    wet = smoothstep(0.08, 0.3, bg)
-    rim = np.clip(wet - cv2.GaussianBlur(wet, (0, 0), 2.2), 0, None)
-
-    # The figure stays solid down to a crisp bottom edge (the page sets it on a rule).
-    fig = smoothstep(0.35, 0.75, cv2.GaussianBlur(fg, (0, 0), 2.5) + 0.06 * noise(4, 2.0))
-    figrim = np.zeros_like(fig)
-
-    total = a_photo * fig[..., None] + a_paint * (bg * (1 - fig))[..., None]
-    total += (rim * 0.5 + figrim * 0.8)[..., None] * np.array([0.5, 0.45, 0.4], np.float32)
-    out = np.exp(-total)
-    img = (l2s(out) * 255 + 0.5).astype(np.uint8)
-    save(img, 'portrait-matthew.webp', quality=84)
+# ---------------------------------------------------------------- photos
 
 
 def avatar():
@@ -434,7 +357,6 @@ def avatar():
     print(f'  {path.name}: 160x160, {path.stat().st_size // 1024} KB')
 
 
-ASSETS['portrait'] = portrait
 ASSETS['avatar'] = avatar
 
 # -------------------------------------------------------------- services

@@ -1,574 +1,383 @@
 ---
-import Analytics from '../components/Analytics.astro';
-import Fonts from '../components/Fonts.astro';
-import FusionMark from '../components/site/FusionMark.astro';
-import { defaultSocialImage, organizationSchema } from '../data/site';
-const site = Astro.site ?? new URL('https://idlefusion.com');
-const canonicalUrl = new URL('/', site).href;
-const socialImage = new URL(defaultSocialImage, site).href;
+import Layout from '../layouts/SiteLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Process from '../components/site/Process.astro';
+import Faq from '../components/site/Faq.astro';
+import { projects } from '../data/projects';
+import { visibleApps } from '../data/apps';
+import { availability } from '../data/site';
+import { getEntry } from 'astro:content';
+
+const bySlug = (slug: string) => projects.find((p) => p.slug === slug)!;
+const featured = bySlug('radio-disney');
+const supporting = [bySlug('golf-channel-academy'), bySlug('everybody-everywhere')];
+const pippin = (await getEntry('testimonials', 'pippin-williamson'))!.data;
+
+const services = [
+  {
+    id: 'mobile',
+    name: 'Mobile apps',
+    art: '/img/paint/service-mobile.webp',
+    text: 'Native iOS and Apple Watch apps that feel right from the first tap, with product thinking and careful engineering behind every screen.',
+    items: [
+      'iOS & Android apps',
+      'Apple Watch experiences',
+      'Interface design & prototyping',
+      'Launch & ongoing releases',
+    ],
+    cta: 'Plan a mobile app',
+  },
+  {
+    id: 'web',
+    name: 'Websites & platforms',
+    art: '/img/paint/service-web.webp',
+    text: 'A clear, fast home for your business online, from a focused marketing site to a connected web platform your team can grow.',
+    items: [
+      'Marketing websites',
+      'Custom web applications',
+      'Platform & API integrations',
+      'Performance & accessibility',
+    ],
+    cta: 'Plan a website',
+  },
+  {
+    id: 'strategy',
+    name: 'Technical direction',
+    art: '/img/paint/service-direction.webp',
+    text: 'Experienced perspective for the decisions that matter: clarify the opportunity, choose a practical path, and move with confidence.',
+    items: [
+      'Product discovery & roadmaps',
+      'Architecture & planning',
+      'Engineering team guidance',
+      'One-to-one coaching',
+    ],
+    cta: 'Talk it through',
+  },
+];
+
+const compare = [
+  [
+    'Who builds it',
+    'Sold by partners, built by juniors',
+    'The senior who scopes your product is the one who builds it',
+  ],
+  [
+    'How you talk',
+    'Messages relayed through account managers',
+    'A direct line to the founder, with replies within one business day',
+  ],
+  [
+    'How it starts',
+    'Weeks of discovery decks',
+    'The right questions, a focused plan, then working software early',
+  ],
+  [
+    'After launch',
+    'A hand-off, then silence',
+    'Invested beyond launch: updates, fixes, and steady improvements',
+  ],
+];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Idle Fusion is an independent studio building thoughtful iOS apps and websites, trusted by Disney, NBC Sports, and Golf Channel. Say hello, or come on in."
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="color-scheme" content="light dark" />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta
-      property="og:title"
-      content="Idle Fusion — Apps & websites, from first sketch to shipped"
-    />
-    <meta
-      property="og:description"
-      content="Independent app & web studio. Say hello, or come on in."
-    />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Idle Fusion — Apps & websites, from first sketch to shipped"
-    />
-    <meta
-      name="twitter:description"
-      content="Independent app & web studio. Say hello, or come on in."
-    />
-    <meta name="twitter:image" content={socialImage} />
-    <meta name="theme-color" content="#f5f0e6" />
-    <script is:inline>
-      (() => {
-        // Apply the shared preference before painting the welcome screen.
-        let saved;
-        try {
-          saved = localStorage.getItem('theme');
-        } catch {}
-        const dark =
-          saved === 'dark' ||
-          (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
-        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-        document.documentElement.classList.toggle('dark', dark);
-        document.querySelector('meta[name="theme-color"]').content = dark ? '#121110' : '#f5f0e6';
-        // Keep bookmarks to sections of the previous homepage useful.
-        const followSectionLink = () => {
-          if (['#our-work', '#how-it-works', '#leadership'].includes(location.hash)) {
-            location.replace(`/explore/${location.hash}`);
-          }
-        };
-        window.addEventListener('hashchange', followSectionLink);
-        followSectionLink();
-      })();
-    </script>
-    <link rel="icon" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <Fonts />
-    <title>Idle Fusion — Independent app & web studio</title>
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-  </head>
-  <body>
-    <header class="top">
-      <span class="small-mark"><FusionMark class="mark-svg" /></span>
-      <button
-        id="appearance-toggle"
-        type="button"
-        aria-label="Switch to dark mode"
-        title="Switch to dark mode"
-        hidden
-      >
-        <svg
-          class="moon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          aria-hidden="true"
-          ><path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5a8.5 8.5 0 1 0 9.7 9.7Z"></path></svg
-        >
-        <svg
-          class="sun"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          aria-hidden="true"
-          ><circle cx="12" cy="12" r="4"></circle><path
-            d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
-          ></path></svg
-        >
-      </button>
-    </header>
-    <main id="home">
-      <div class="introduction">
-        <p class="eyebrow"><span class="dot-live"></span> Independent by design</p>
-        <h1>idle fusion<span>.</span></h1>
-        <p class="description">
-          Thoughtful apps & websites,<br />from first sketch to <em>shipped.</em>
-        </p>
-        <p class="clients">Trusted by Disney, NBC Sports, Golf Channel & Treehouse</p>
-
-        <div class="contact">
-          <p class="who">Matthew Strickland <span aria-hidden="true">/</span> Founder & builder</p>
-          <div class="contact-links">
-            <a class="start" href="/contact/" data-track="cta_welcome_contact"
-              ><span class="start-text">Start a project</span><span
-                class="start-arrow"
-                aria-hidden="true">→</span
-              ></a
-            >
-            <a class="email" href="mailto:hello@idlefusion.com">hello@idlefusion.com</a>
-          </div>
-        </div>
-
-        <div class="invitation">
-          <p>There’s more to the story.</p>
-          <a
-            class="enter"
-            href="/explore/"
-            aria-label="Come on in — explore the full Idle Fusion website"
-            data-track="enter_site"
+<Layout
+  title="Apps & websites, from first sketch to shipped"
+  description="Idle Fusion is an independent studio that designs and builds iOS apps, websites, and web platforms, with clients including Disney, NBC Sports, and Golf Channel."
+>
+  <section class="hero wrap" id="home">
+    <p class="label hero-label">
+      <span class="status-dot"></span> Independent app & web studio · {availability}
+    </p>
+    <h1 class="display hero-title">
+      Apps & websites, from first sketch to <span class="hand">shipped.</span>
+    </h1>
+    <div class="hero-copy">
+      <p class="lede">
+        A founder-led studio with 20+ years of shipping digital products for Disney, NBC Sports,
+        Golf Channel, and independent teams. You work directly with the senior builder making yours:
+        no hand-offs, no account managers.
+      </p>
+      <div class="actions">
+        <a class="btn" href="/contact/" data-track="cta_hero">
+          <span class="btn-text">Start a project</span><span class="btn-arrow" aria-hidden="true"
+            >→</span
           >
-            Come on in <span class="enter-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="link-arrow" href="#our-work"
+          >See selected work <span aria-hidden="true">↓</span></a
+        >
+      </div>
+      <ul class="assurances" aria-label="What to expect">
+        <li>Reply within one business day</li>
+        <li>Work directly with the founder</li>
+        <li>A clear plan before any build</li>
+      </ul>
+      <figure class="mini-quote">
+        <img src={pippin.image} alt="" width="40" height="40" decoding="async" />
+        <blockquote>“Working with Idle Fusion was a game-changer.”</blockquote>
+        <figcaption>{pippin.name}, {pippin.company}</figcaption>
+      </figure>
+    </div>
+    <figure class="hero-art">
+      <img
+        class="paint"
+        src="/img/paint/hero-fusion.webp"
+        alt="The Idle Fusion mark painted in blue and rose watercolor, its right side resolving into a grid of pixels."
+        width="1240"
+        height="1000"
+        fetchpriority="high"
+      />
+      <svg class="construction" viewBox="80 200 1240 1000" aria-hidden="true">
+        <g transform="rotate(32 450 690)">
+          <ellipse class="geo draw" cx="450" cy="690" rx="285" ry="380"></ellipse>
+          <line class="geo faint" x1="450" y1="250" x2="450" y2="1130"></line>
+        </g>
+        <g transform="rotate(32 750 690)">
+          <ellipse class="geo draw" cx="750" cy="690" rx="285" ry="380"></ellipse>
+        </g>
+        <path class="geo" d="M434 690h32M450 674v32M734 690h32M750 674v32"></path>
+        <line class="geo faint" x1="450" y1="690" x2="450" y2="330"></line>
+        <path class="geo" d="M450 570 A120 120 0 0 1 513.6 588.2"></path>
+        <text x="464" y="548">32°</text>
+        <path class="geo faint" d="M450 706V1144M750 706V1144"></path>
+        <path class="geo" d="M450 1130H750M450 1118v24M750 1118v24"></path>
+        <text x="572" y="1178">300</text>
+        <path class="geo" d="M196 330 L262 330 L330 440"></path>
+        <text x="96" y="339">HAND</text>
+        <path class="geo" d="M1196 330 L1130 330 L1060 440"></path>
+        <text x="1206" y="339">CODE</text>
+      </svg>
+      <figcaption class="fig-caption label">
+        Fig. 01 — Painted by hand, resolved in code.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap proof" aria-label="Clients">
+    <p class="label">Trusted by teams at</p>
+    <ul class="logo-row">
+      <li class="serif">Disney</li>
+      <li>NBC Sports</li>
+      <li class="caps">Golf Channel</li>
+      <li class="light">Telemundo</li>
+      <li>Treehouse</li>
+      <li class="stack">Easy Digital Downloads</li>
+    </ul>
+  </section>
+
+  <section class="wrap" aria-label="Idle Fusion at a glance">
+    <div class="stats">
+      <div class="stat">
+        <strong>20<sup>+</sup></strong><span>years designing and building digital products</span>
+      </div>
+      <div class="stat">
+        <strong>{visibleApps.length}</strong><span
+          >independent apps designed and shipped in-house</span>
+      </div>
+      <div class="stat">
+        <strong>0</strong><span
+          >hand-offs between the person you brief and the person who builds</span>
+      </div>
+      <div class="stat">
+        <strong>1<sup>day</sup></strong><span>usual reply to a new project inquiry</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="why-title">
+    <header class="section-head">
+      <span class="label"><span class="idx">01</span> Why Idle Fusion</span>
+    </header>
+    <div class="section-title">
+      <h2 id="why-title">
+        All of the craft. <span class="hand cerulean">None</span> of the overhead.
+      </h2>
+      <p>
+        Many agencies sell a senior team and staff the work with whoever is free. Here, the person
+        on your first call is the person building your product.
+      </p>
+    </div>
+    <div class="compare" role="table" aria-label="The usual agency compared with Idle Fusion">
+      <div class="compare-row compare-head" role="row">
+        <span role="columnheader">&nbsp;</span>
+        <span role="columnheader">The usual way</span>
+        <span role="columnheader">With Idle Fusion</span>
+      </div>
+      {
+        compare.map(([topic, usual, ours]) => (
+          <div class="compare-row" role="row">
+            <span role="rowheader">{topic}</span>
+            <span class="usual" role="cell">
+              <s>{usual}</s>
+            </span>
+            <span class="ours" role="cell">
+              {ours}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="services-title" style="padding-top:0">
+    <header class="section-head">
+      <span class="label"><span class="idx">02</span> Services</span>
+      <a class="link-arrow" href="/services/">How we work <span aria-hidden="true">→</span></a>
+    </header>
+    <div class="section-title">
+      <h2 id="services-title">Three ways we help you <span class="hand">ship.</span></h2>
+      <p>
+        From a single app to a connected platform, or the experienced perspective your own team
+        needs to decide.
+      </p>
+    </div>
+    <div class="service-cards">
+      {
+        services.map((s) => (
+          <article class="service-card">
+            <img
+              class="paint"
+              src={s.art}
+              alt=""
+              width="720"
+              height="720"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 class="h3">{s.name}</h3>
+            <div style="display:grid;gap:18px;align-content:start">
+              <p>{s.text}</p>
+              <ul class="ticks">
+                {s.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <a class="link-arrow" href={`/contact/?service=${s.id}`} data-track="cta_service">
+              {s.cta} <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section wrap" id="our-work" aria-labelledby="work-title" style="padding-top:0">
+    <header class="section-head">
+      <span class="label"><span class="idx">03</span> Selected work</span>
+      <a class="link-arrow" href="/work/">All work <span aria-hidden="true">→</span></a>
+    </header>
+    <div class="section-title">
+      <h2 id="work-title">
+        Built for big audiences and <span class="hand ochre">bold missions.</span>
+      </h2>
+    </div>
+    <div class="work-feature">
+      <ProjectCard project={featured} large />
+      <div class="stack">
+        {supporting.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section wrap"
+    id="how-it-works"
+    aria-labelledby="process-title"
+    style="padding-top:0"
+  >
+    <header class="section-head">
+      <span class="label"><span class="idx">04</span> How it works</span>
+      <a class="link-arrow" href="/services/#process"
+        >The details <span aria-hidden="true">→</span></a
+      >
+    </header>
+    <div class="section-title">
+      <h2 id="process-title">Clear steps. <span class="hand ochre">No surprises.</span></h2>
+      <p>Every engagement follows the same simple shape, sized to what you actually need.</p>
+    </div>
+    <Process />
+  </section>
+
+  <section
+    class="section wrap"
+    id="testimonials"
+    aria-labelledby="words-title"
+    style="padding-top:0"
+  >
+    <header class="section-head">
+      <span class="label"><span class="idx">05</span> In their words</span>
+      <a class="link-arrow" href="/contact/" data-track="cta_testimonials"
+        >Start a conversation <span aria-hidden="true">→</span></a
+      >
+    </header>
+    <h2 id="words-title" class="sr-only">What clients say</h2>
+    <div class="quote-feature">
+      <figure class="big-quote">
+        <blockquote>“{pippin.quote}”</blockquote>
+        <figcaption>
+          <img src={pippin.image} alt="" width="44" height="44" loading="lazy" decoding="async" />
+          <span><strong>{pippin.name}</strong>{pippin.company}</span>
+        </figcaption>
+      </figure>
+      <Testimonials only={['jeremy-bagwell', 'roger-walker']} compact />
+    </div>
+  </section>
+
+  <section
+    class="section wrap"
+    id="leadership"
+    aria-labelledby="founder-title"
+    style="padding-top:0"
+  >
+    <header class="section-head">
+      <span class="label"><span class="idx">06</span> Who you’ll work with</span>
+    </header>
+    <div class="founder">
+      <figure class="portrait">
+        <img
+          class="photo"
+          src="/img/us/matthew.jpg"
+          alt="Matthew Strickland, founder of Idle Fusion"
+          width="768"
+          height="1024"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="label">Matthew Strickland · Founder</figcaption>
+      </figure>
+      <div class="founder-copy">
+        <h2 id="founder-title" class="h2">
+          Big experience. A <span class="hand cerulean">direct</span> line.
+        </h2>
+        <p class="body-copy">
+          Idle Fusion is led by Matthew Strickland, a builder and technology leader with more than
+          20 years of experience, from mobile experiences for Disney and NBC Sports to small,
+          privacy-minded apps of our own. You work directly with the person bringing your idea to
+          life.
+        </p>
+        <ul class="creds">
+          <li><b>Experience</b>20+ years building products</li>
+          <li><b>Clients</b>Disney, NBC Sports, Golf Channel</li>
+          <li><b>Made in-house</b>{visibleApps.length} independent apps</li>
+          <li><b>Shared</b>Open-source tools for developers</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="/contact/" data-track="cta_founder">
+            <span class="btn-text">Talk with Matthew</span><span
+              class="btn-arrow"
+              aria-hidden="true">→</span
+            >
           </a>
+          <a class="link-arrow" href="/studio/"
+            >More about the studio <span aria-hidden="true">→</span></a
+          >
         </div>
       </div>
-      <figure class="art" aria-hidden="true">
-        <img
-          class="paint"
-          src="/img/paint/fusion-mark.webp"
-          alt=""
-          width="1240"
-          height="1000"
-          fetchpriority="high"
-        />
-        <svg class="construction" viewBox="80 200 1240 1000">
-          <ellipse
-            class="geo draw"
-            cx="450"
-            cy="690"
-            rx="285"
-            ry="380"
-            transform="rotate(32 450 690)"></ellipse>
-          <ellipse
-            class="geo draw"
-            cx="750"
-            cy="690"
-            rx="285"
-            ry="380"
-            transform="rotate(32 750 690)"></ellipse>
-          <path class="geo" d="M434 690h32M450 674v32M734 690h32M750 674v32"></path>
-        </svg>
-      </figure>
-    </main>
-    <footer>
-      <span>© {new Date().getFullYear()} Idle Fusion</span>
-      <nav aria-label="Find us elsewhere">
-        <a href="https://github.com/idlefusion">GitHub</a>
-        <a href="https://linkedin.com/in/mps">LinkedIn</a>
-      </nav>
-    </footer>
-    <Analytics />
-  </body>
-</html>
+    </div>
+  </section>
 
-<script>
-  const root = document.documentElement;
-  const toggle = document.getElementById('appearance-toggle') as HTMLButtonElement;
-  const system = matchMedia('(prefers-color-scheme: dark)');
-  let preference: string | null = null;
-  try {
-    preference = localStorage.getItem('theme');
-  } catch {}
-  const renderTheme = () => {
-    const dark = preference === 'dark' || (preference !== 'light' && system.matches);
-    root.dataset.theme = dark ? 'dark' : 'light';
-    root.classList.toggle('dark', dark);
-    const label = dark ? 'Switch to light mode' : 'Switch to dark mode';
-    toggle.setAttribute('aria-label', label);
-    toggle.title = label;
-    (document.querySelector('meta[name="theme-color"]') as HTMLMetaElement).content = dark
-      ? '#121110'
-      : '#f5f0e6';
-  };
-  toggle.addEventListener('click', () => {
-    preference = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    try {
-      localStorage.setItem('theme', preference);
-    } catch {}
-    renderTheme();
-  });
-  system.addEventListener('change', renderTheme);
-  window.addEventListener('storage', (event) => {
-    if (event.key === 'theme' || event.key === null) {
-      preference = event.newValue;
-      renderTheme();
-    }
-  });
-  renderTheme();
-  toggle.hidden = false;
-</script>
-
-<style>
-  :global(*) {
-    box-sizing: border-box;
-  }
-  :global(html) {
-    --bg: #f5f0e6;
-    --text: #171512;
-    --muted: #5a544c;
-    --line: rgba(23, 21, 18, 0.16);
-    --rose: #d23f68;
-    --rose-text: #b02d55;
-    --btn-bg: #171512;
-    --btn-text: #f5f0e6;
-    --paper-tex: url('/img/paint/paper.webp');
-    color-scheme: light;
-    background: var(--bg);
-  }
-  :global(html[data-theme='dark']) {
-    --bg: #121110;
-    --text: #f2ede4;
-    --muted: #aaa298;
-    --line: rgba(242, 237, 228, 0.18);
-    --rose: #e5678b;
-    --rose-text: #ef8aa7;
-    --btn-bg: #f2ede4;
-    --btn-text: #121110;
-    --paper-tex: none;
-    color-scheme: dark;
-  }
-  @media (prefers-color-scheme: dark) {
-    :global(html:not([data-theme])) {
-      --bg: #121110;
-      --text: #f2ede4;
-      --muted: #aaa298;
-      --line: rgba(242, 237, 228, 0.18);
-      --rose: #e5678b;
-      --rose-text: #ef8aa7;
-      --btn-bg: #f2ede4;
-      --btn-text: #121110;
-      --paper-tex: none;
-      color-scheme: dark;
-    }
-  }
-  :global(body) {
-    margin: 0;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    color: var(--text);
-    background: var(--bg) var(--paper-tex) repeat;
-    background-size: 320px 320px;
-    font-family: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  :global(::selection) {
-    background: rgba(210, 63, 104, 0.25);
-  }
-  :global(:focus-visible) {
-    outline: 2px solid var(--text);
-    outline-offset: 4px;
-  }
-  .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px clamp(20px, 4vw, 56px) 0;
-  }
-  .small-mark :global(.mark-svg) {
-    width: 34px;
-    height: 31px;
-  }
-  .small-mark :global(ellipse) {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-  }
-  #appearance-toggle {
-    width: 44px;
-    height: 44px;
-    display: grid;
-    place-items: center;
-    color: var(--text);
-    background: transparent;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: border-color 0.2s;
-  }
-  #appearance-toggle[hidden] {
-    display: none;
-  }
-  #appearance-toggle:hover {
-    border-color: var(--text);
-  }
-  #appearance-toggle svg {
-    width: 18px;
-    height: 18px;
-  }
-  .sun {
-    display: none;
-  }
-  :global(.dark) .sun {
-    display: block;
-  }
-  :global(.dark) .moon {
-    display: none;
-  }
-  main {
-    flex: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(24px, 4vw, 64px);
-    width: min(100% - 2 * clamp(20px, 4vw, 56px), 1320px);
-    margin: 0 auto;
-    padding: 32px 0 48px;
-  }
-  .introduction {
-    display: grid;
-    justify-items: start;
-  }
-  p {
-    margin: 0;
-  }
-  .eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--muted);
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .dot-live {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--rose);
-  }
-  h1 {
-    margin: 18px 0 20px;
-    font-size: clamp(56px, 9vw, 136px);
-    line-height: 0.92;
-    font-weight: 600;
-    letter-spacing: -0.07em;
-  }
-  h1 span {
-    color: var(--rose);
-  }
-  .description {
-    font-size: clamp(20px, 2vw, 26px);
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: var(--text);
-  }
-  .description em {
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-style: italic;
-    padding: 0 0.08em;
-    background: url('/img/paint/swatch-rose.webp') no-repeat 0 92% / 100% 0.6em;
-  }
-  .clients {
-    margin-top: 16px;
-    font-size: 14px;
-    color: var(--muted);
-  }
-  .contact {
-    margin-top: 40px;
-    padding-top: 22px;
-    border-top: 1px solid var(--line);
-    width: 100%;
-    max-width: 520px;
-  }
-  .who {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 16px;
-  }
-  .who span {
-    margin: 0 6px;
-  }
-  .contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 14px 26px;
-  }
-  .start {
-    display: inline-flex;
-    align-items: stretch;
-    min-height: 52px;
-    background: var(--btn-bg);
-    color: var(--btn-text);
-    border-radius: 3px;
-    overflow: hidden;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 550;
-  }
-  .start-text {
-    display: flex;
-    align-items: center;
-    padding: 0 20px 0 22px;
-  }
-  .start-arrow {
-    display: grid;
-    place-items: center;
-    width: 50px;
-    background: #d23f68;
-    color: #fff;
-    transition: width 0.3s cubic-bezier(0.2, 0.7, 0.1, 1);
-  }
-  .start:hover .start-arrow {
-    width: 62px;
-  }
-  .email {
-    color: var(--text);
-    font-size: 15px;
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
-  }
-  .email:hover {
-    color: var(--rose-text);
-  }
-  .invitation {
-    margin-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 6px 18px;
-    font-size: 15px;
-    color: var(--muted);
-  }
-  .enter {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--text);
-    font-size: 17px;
-    font-weight: 550;
-    text-decoration: none;
-  }
-  .enter-arrow {
-    color: var(--rose);
-    font-size: 20px;
-    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.1, 1);
-  }
-  .enter:hover .enter-arrow {
-    transform: translateX(6px);
-  }
-  .art {
-    position: relative;
-    margin: 0;
-    aspect-ratio: 1240 / 1000;
-  }
-  .art .paint,
-  .art .construction {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .paint {
-    mix-blend-mode: multiply;
-  }
-  :global(html[data-theme='dark']) .paint {
-    filter: invert(1) hue-rotate(180deg) saturate(1.2);
-    mix-blend-mode: screen;
-  }
-  @media (prefers-color-scheme: dark) {
-    :global(html:not([data-theme])) .paint {
-      filter: invert(1) hue-rotate(180deg) saturate(1.2);
-      mix-blend-mode: screen;
-    }
-  }
-  .construction {
-    color: var(--text);
-    overflow: visible;
-  }
-  .geo {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.3;
-    opacity: 0.45;
-    vector-effect: non-scaling-stroke;
-  }
-  .draw {
-    stroke-dasharray: 2400;
-    stroke-dashoffset: 2400;
-    animation: draw 2.6s 0.2s cubic-bezier(0.2, 0.7, 0.1, 1) forwards;
-  }
-  @keyframes draw {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-  footer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 18px clamp(20px, 4vw, 56px) 24px;
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  footer nav {
-    display: flex;
-    gap: 20px;
-  }
-  footer a {
-    color: inherit;
-    text-decoration: none;
-  }
-  footer a:hover {
-    color: var(--text);
-  }
-  @media (max-width: 860px) {
-    main {
-      grid-template-columns: 1fr;
-      padding-top: 8px;
-    }
-    .art {
-      order: -1;
-      width: min(100%, 440px);
-      justify-self: center;
-      margin-bottom: -12px;
-    }
-  }
-  @media (max-width: 380px) {
-    .contact-links {
-      gap: 14px;
-    }
-    .start {
-      width: 100%;
-    }
-    .start-text {
-      flex: 1;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .draw {
-      animation: none;
-      stroke-dashoffset: 0;
-    }
-    .start-arrow,
-    .enter-arrow {
-      transition: none;
-    }
-  }
-</style>
+  <section class="section wrap" aria-label="Frequently asked questions" style="padding-top:0">
+    <Faq />
+  </section>
+</Layout>

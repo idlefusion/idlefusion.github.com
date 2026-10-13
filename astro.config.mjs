@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import optimizedImages from './integrations/optimized-images.mjs';
 
 // Internal reviews and redirects stay reachable by URL but out of search.
-const unlisted = ['/welcome', '/design', '/showcase', '/contact/thanks'];
+const unlisted = ['/welcome', '/explore', '/design', '/showcase', '/contact/thanks'];
 
 export default defineConfig({
   site: 'https://idlefusion.com',

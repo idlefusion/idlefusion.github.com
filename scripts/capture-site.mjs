@@ -7,12 +7,11 @@ const reviewOrigin = process.env.REVIEW_ORIGIN || origin;
 const out = path.resolve('artifacts/redesign');
 const pages = [
   [
-    'welcome',
-    'Welcome',
+    'home',
+    'Home',
     '',
-    'A quiet introduction, contact details, and an invitation into the full site.',
+    'Value proposition, proof, services, featured work, process, the founder, and FAQ.',
   ],
-  ['home', 'Explore', 'explore/', 'Featured work, services, and a personal connection.'],
   ['work', 'Work', 'work/', 'A dedicated portfolio with mobile and web filters.'],
   [
     'services',
@@ -115,7 +114,7 @@ try {
     console.log(`Captured ${title}: desktop + mobile`);
   }
   await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
-  await page.goto(`${origin}/explore/`);
+  await page.goto(`${origin}/`);
   await page.click('.mobile-nav summary');
   audit.interactions.push({
     name: 'Mobile navigation opens',
