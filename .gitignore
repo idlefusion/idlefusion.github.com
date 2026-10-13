@@ -30,3 +30,6 @@ scripts/.migration-state/
 
 # Generated local redesign review (recreate with scripts/capture-site.mjs)
 artifacts/redesign/
+
+# Python bytecode from scripts/watercolor
+__pycache__/

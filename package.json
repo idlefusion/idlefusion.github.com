@@ -11,6 +11,7 @@
     "sync:currency-screenshots": "node scripts/sync-currency-screenshots.mjs && npm run optimize:images",
     "optimize:images": "node scripts/optimize-images.mjs",
     "generate:brand-images": "node scripts/generate-brand-images.mjs",
+    "generate:paintings": "python3 scripts/watercolor/generate.py",
     "astro": "astro",
     "test": "npm run build && node scripts/verify-release.mjs"
   },
