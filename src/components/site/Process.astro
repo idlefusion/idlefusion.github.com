@@ -1,5 +1,7 @@
 ---
 // The three-step engagement, shared by the home and services pages.
+import Paint from './Paint.astro';
+
 const steps = [
   {
     name: 'Align',
@@ -27,8 +29,7 @@ const steps = [
     steps.map((step, i) => (
       <li class="step">
         <div class="step-mark">
-          <img
-            class="paint"
+          <Paint
             src={`/img/paint/step-${i + 1}.webp`}
             alt=""
             width="40"

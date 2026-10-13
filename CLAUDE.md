@@ -13,10 +13,10 @@ npm run test       # Build, then check routes, links, images, and the contact fo
 npm run sync:currency-screenshots  # Copy the screenshots listed in src/data/currency.ts from the Pesos Dos export
 npm run optimize:images  # Write right-sized WebP copies of large images in public/img
 npm run generate:brand-images  # Regenerate social cards (public/img/og) and home-screen icons
-npm run generate:paintings     # Repaint the watercolor art in public/img/paint (Python 3, numpy, opencv-python-headless)
+npm run generate:paintings     # Repaint the watercolor art in public/img/paint, then its night versions (Python 3, numpy, opencv-python-headless)
 ```
 
-There is no unit-test framework; `npm test` runs the release checks in `scripts/verify-*.mjs` and `scripts/capture-*.mjs` against a local preview. Puppeteer needs Chrome; set `PUPPETEER_EXECUTABLE_PATH` if it isn't installed.
+There is no unit-test framework; `npm test` runs the release checks in `scripts/verify-*.mjs` and `scripts/capture-*.mjs` against a local preview, including `verify-themes.mjs` (every public page in light and dark: paper, paintings, and WCAG text contrast). Puppeteer needs Chrome; set `PUPPETEER_EXECUTABLE_PATH` if it isn't installed.
 
 ## Architecture
 
@@ -37,7 +37,9 @@ There is no unit-test framework; `npm test` runs the release checks in `scripts/
 
 ### Business site design ("wet ink, hard pixel")
 
-Stark editorial structure (ink rules, mono labels, strict grid) on warm paper (`--paper: #f5f0e6`), with watercolor paintings as the only color: cerulean `--cerulean`, rose `--rose`, and the violet where they glaze. Paintings are rendered on white and shown with `mix-blend-mode: multiply` (`.paint`), so never put `transform`, `opacity`, `filter`, or `isolation` on an ancestor of a `.paint` image. Light only. Photographs are shown as taken; only illustrations are painted. Primary CTAs go to `/contact/`; service CTAs use `/contact/?service=mobile|web|strategy|coaching` to preselect the project type.
+Stark editorial structure (ink rules, mono labels, strict grid) on warm paper (`--paper: #f5f0e6`), with watercolor paintings as the only color: cerulean `--cerulean`, rose `--rose`, and the violet where they glaze. Paintings are rendered on white and shown with `mix-blend-mode: multiply` (`.paint`), so never put `transform`, `opacity`, `filter`, or `isolation` on an ancestor of a `.paint` image. Photographs are shown as taken; only illustrations are painted. Primary CTAs go to `/contact/`; service CTAs use `/contact/?service=mobile|web|strategy|coaching` to preselect the project type.
+
+**Dark theme.** The business site and app pages follow the visitor's system setting (`prefers-color-scheme`; no toggle). After dark the paper is warm near-black (`#181613`) and the ink is paper. Colours that change are tokens in `site.css` (`--paper`, `--ink`, `--graphite`, `--rule`, `--field`, `--paint-blend`, …) redefined in one `@media (prefers-color-scheme: dark)` block; `--soot`, `--chalk`, `--sticker` and `--block` stay fixed for things set on deep paint or in ink in both themes. Use tokens, not literal colours. Every painting has a night version in `public/img/paint/night/` (painted on black by `scripts/watercolor/night.py`) that is screened on instead of multiplied, so it glows: show paintings with `components/site/Paint.astro`, which picks the file. App pages get night versions of their colours from `src/data/app-pages/colours.ts`.
 
 ### Internal pages design system
 
@@ -48,7 +50,7 @@ Fonts: Crimson Pro (headings), Work Sans (body), SF Mono (mono) — set via `--f
 
 ### App pages
 
-All app pages share the studio design: `AppLayout.astro` (header with breadcrumb and store badge, studio footer), `components/app/AppLanding.astro` (landing template), and `AppDocLayout.astro` (support and privacy). Styles are in `src/styles/app.css`. Each app's copy, store link, and two watercolor pigments live in `src/data/app-pages/<slug>.json`; washes are shared masks tinted with those pigments. Icons and screenshots are shown exactly as supplied, never painted over. Apps without a store URL (`"store": null`) show "Coming soon" instead of a badge.
+All app pages share the studio design: `AppLayout.astro` (header with breadcrumb and store badge, studio footer), `components/app/AppLanding.astro` (landing template), and `AppDocLayout.astro` (support and privacy). Styles are in `src/styles/app.css`. Each app's copy, store link, and two watercolor pigments live in `src/data/app-pages/<slug>.json`; washes are shared masks tinted with those pigments (multiplied by day, screened at night, with lightened pigments from `colours.ts`). Icons and screenshots are shown exactly as supplied, never painted over. Apps without a store URL (`"store": null`) show "Coming soon" instead of a badge.
 
 ### Adding a new app
 

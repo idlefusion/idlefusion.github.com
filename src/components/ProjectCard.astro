@@ -1,5 +1,6 @@
 ---
 import type { Project } from '../data/projects';
+import Paint from './site/Paint.astro';
 interface Props {
   project: Project;
   large?: boolean;
@@ -12,15 +13,7 @@ const Heading = level;
 
 <a class:list={['project-card', { large }]} href={`/work/${p.slug}/`} data-category={p.type}>
   <div class="project-art">
-    <img
-      class="paint"
-      src={p.art}
-      alt=""
-      width="1600"
-      height="1000"
-      loading="lazy"
-      decoding="async"
-    />
+    <Paint src={p.art} alt="" width="1600" height="1000" loading="lazy" decoding="async" />
     <span class="client-chip">
       <img src={p.image} alt="" width="30" height="30" loading="lazy" decoding="async" />
       {p.client}

@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { appPages } from '../src/data/apps.ts';
+import { fullScreenshot } from './full-screenshot.mjs';
 
 const origin = process.env.SITE_ORIGIN || 'http://127.0.0.1:4323';
 const out = path.resolve('artifacts/redesign/app-pages');
@@ -64,12 +65,14 @@ async function record(page, app, kind, theme, device, response) {
   checks.links.forEach((href) => links.add(href));
   delete checks.links;
   audit.pages.push({ slug: app.slug, kind, theme, device, status: response.status(), ...checks });
-  await page.screenshot({
-    path: path.join(out, `${app.slug}-${kind}-${theme}-${device}.png`),
-    fullPage: true,
-  });
-  if (kind === 'landing' && theme === 'light' && device === 'desktop')
-    await page.screenshot({ path: path.join(out, `${app.slug}-preview.png`) });
+  await fullScreenshot(page, path.join(out, `${app.slug}-${kind}-${theme}-${device}.png`));
+  if (kind === 'landing' && device === 'desktop')
+    await page.screenshot({
+      path: path.join(
+        out,
+        theme === 'light' ? `${app.slug}-preview.png` : `${app.slug}-dark-preview.png`,
+      ),
+    });
 }
 
 let nextIndex = 0;
@@ -112,23 +115,39 @@ async function worker() {
     await settle(page);
     await finishTransitions(page);
     await record(page, app, 'landing', 'light', 'mobile', response);
+    // The pages follow the visitor's light or dark setting.
+    await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
+    for (const [device, width, height] of [
+      ['desktop', 1440, 1000],
+      ['mobile', 390, 844],
+    ]) {
+      await page.setViewport({ width, height, deviceScaleFactor: 1 });
+      response = await page.goto(`${origin}${app.route}`, { waitUntil: 'networkidle0' });
+      await settle(page);
+      await finishTransitions(page);
+      await record(page, app, 'landing', 'dark', device, response);
+    }
     if (app.hasPolicies) {
-      for (const kind of ['support', 'privacy']) {
-        for (const [device, width, height] of [
-          ['desktop', 1440, 1000],
-          ['mobile', 390, 844],
-        ]) {
-          await page.setViewport({ width, height, deviceScaleFactor: 1 });
-          response = await page.goto(`${origin}${app.route}${kind}/`, {
-            waitUntil: 'networkidle0',
-          });
-          await settle(page);
-          await record(page, app, kind, 'light', device, response);
+      for (const theme of ['light', 'dark']) {
+        await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: theme }]);
+        for (const kind of ['support', 'privacy']) {
+          for (const [device, width, height] of [
+            ['desktop', 1440, 1000],
+            ['mobile', 390, 844],
+          ]) {
+            await page.setViewport({ width, height, deviceScaleFactor: 1 });
+            response = await page.goto(`${origin}${app.route}${kind}/`, {
+              waitUntil: 'networkidle0',
+            });
+            await settle(page);
+            await record(page, app, kind, theme, device, response);
+          }
         }
       }
     }
+    await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
     console.log(
-      `Reviewed ${app.name}: desktop/mobile${app.hasPolicies ? ', support + privacy' : ''}`,
+      `Reviewed ${app.name}: desktop/mobile, light/dark${app.hasPolicies ? ', support + privacy' : ''}`,
     );
   }
   await context.close();
@@ -196,5 +215,5 @@ if (failed) process.exitCode = 1;
 
 const gallery = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Idle Fusion — Dedicated app review</title><style>
 *{box-sizing:border-box}body{margin:0;background:white;color:#0a0a0a;font-family:system-ui,sans-serif}header,main{max-width:1450px;margin:auto;padding:40px}header{border-bottom:1px solid #e4e4e4}small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#006da3}h1{font-size:clamp(35px,5vw,64px);line-height:1.05;letter-spacing:-.055em;margin:20px 0}p{font-size:14px;color:#626262;line-height:1.65;max-width:820px}a{color:inherit;text-underline-offset:4px}.nav{display:flex;flex-wrap:wrap;gap:22px;font-size:13px;margin:25px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 25px}.preview{display:block;overflow:hidden;border:1px solid #ddd;border-radius:5px}.preview img{width:100%;display:block;aspect-ratio:1.44;object-fit:cover;object-position:top}h2{font-size:22px;letter-spacing:-.04em;margin:16px 0 8px}article p{margin:8px 0 16px;font-size:12px}article .links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;margin:12px 0}details{font-size:12px;border-top:1px solid #ddd;padding-top:12px;margin-top:16px}summary{cursor:pointer}summary:focus-visible,a:focus-visible{outline:2px solid #0088cc;outline-offset:4px}.badge{display:inline-block;font-size:10px;color:#666;padding:3px 7px;background:#f3f3f3;border-radius:3px}aside{background:#f3f3f3;border-radius:5px;padding:20px;margin-top:25px;font-size:13px;line-height:1.7}@media(max-width:950px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){header,main{padding:25px}.grid{grid-template-columns:1fr}}
-</style></head><body><header><small>Idle Fusion / App design review</small><h1>One studio.<br>Every app in its colors.</h1><p>All 28 dedicated app pages and the currency-app family use the studio’s design: paper, ink, and the Idle Fusion mark painted in each app’s own pigments. Icons and screenshots are shown exactly as supplied; the copy is carried over unchanged.</p><div class="nav"><a href="../">Business-site screenshots ←</a><a href="${reviewOrigin}/apps/">Explore the updated app directory ↗</a></div><aside>Full desktop and phone screenshots are available for every page. ${baselineOrigin ? 'The original desktop view is included for comparison.' : ''} Each app’s support and privacy screenshots are under “Support & privacy.” Marta Easy and the currency family remain hidden from the public app directory. Launch-status labels and store destinations follow the existing local metadata; external release status has not been re-verified.</aside></header><main><div class="grid">${appPages.map((app) => `<article id="${app.slug}"><a class="preview" href="${app.slug}-landing-light-desktop.png"><img src="${app.slug}-preview.png" alt="${app.name} landing page" loading="lazy"></a><h2>${app.name}</h2><small>${app.category}</small>${app.hidden ? ' <span class="badge">Hidden from app directory</span>' : ''}<p>Icon and screenshots as supplied, in the studio’s design.</p><div class="links"><a href="${app.slug}-landing-light-desktop.png">Desktop ↗</a><a href="${app.slug}-landing-light-mobile.png">Phone ↗</a></div><div class="links">${baselineOrigin ? `<a href="${app.slug}-original.png">Original view ↗</a>` : ''}<a href="${reviewOrigin}${app.route}">Working page ↗</a></div>${app.hasPolicies ? `<details><summary>Support & privacy</summary>${['support', 'privacy'].map((kind) => `<div class="links"><strong>${kind === 'support' ? 'Support' : 'Privacy'}</strong><a href="${app.slug}-${kind}-light-desktop.png">Desktop ↗</a><a href="${app.slug}-${kind}-light-mobile.png">Phone ↗</a><a href="${reviewOrigin}${app.route}${kind}/">Live page ↗</a></div>`).join('')}</details>` : ''}</article>`).join('')}</div></main></body></html>`;
+</style></head><body><header><small>Idle Fusion / App design review</small><h1>One studio.<br>Every app in its colors.</h1><p>All 28 dedicated app pages and the currency-app family use the studio’s design: paper, ink, and the Idle Fusion mark painted in each app’s own pigments. Icons and screenshots are shown exactly as supplied; the copy is carried over unchanged. After dark (the visitor’s system setting) the paper turns to near-black and the paint glows.</p><div class="nav"><a href="../">Business-site screenshots ←</a><a href="${reviewOrigin}/apps/">Explore the updated app directory ↗</a></div><aside>Full desktop and phone screenshots are available for every page. ${baselineOrigin ? 'The original desktop view is included for comparison.' : ''} Each app’s support and privacy screenshots are under “Support & privacy.” Marta Easy and the currency family remain hidden from the public app directory. Launch-status labels and store destinations follow the existing local metadata; external release status has not been re-verified.</aside></header><main><div class="grid">${appPages.map((app) => `<article id="${app.slug}"><a class="preview" href="${app.slug}-landing-light-desktop.png"><img src="${app.slug}-preview.png" alt="${app.name} landing page" loading="lazy"></a><h2>${app.name}</h2><small>${app.category}</small>${app.hidden ? ' <span class="badge">Hidden from app directory</span>' : ''}<p>Icon and screenshots as supplied, in the studio’s design.</p><div class="links"><a href="${app.slug}-landing-light-desktop.png">Desktop ↗</a><a href="${app.slug}-landing-light-mobile.png">Phone ↗</a><a href="${app.slug}-landing-dark-desktop.png">Dark desktop ↗</a><a href="${app.slug}-landing-dark-mobile.png">Dark phone ↗</a></div><div class="links">${baselineOrigin ? `<a href="${app.slug}-original.png">Original view ↗</a>` : ''}<a href="${reviewOrigin}${app.route}">Working page ↗</a></div>${app.hasPolicies ? `<details><summary>Support & privacy</summary>${['support', 'privacy'].map((kind) => `<div class="links"><strong>${kind === 'support' ? 'Support' : 'Privacy'}</strong><a href="${app.slug}-${kind}-light-desktop.png">Desktop ↗</a><a href="${app.slug}-${kind}-light-mobile.png">Phone ↗</a><a href="${app.slug}-${kind}-dark-desktop.png">Dark ↗</a><a href="${reviewOrigin}${app.route}${kind}/">Live page ↗</a></div>`).join('')}</details>` : ''}</article>`).join('')}</div></main></body></html>`;
 await writeFile(path.join(out, 'index.html'), gallery);

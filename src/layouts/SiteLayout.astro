@@ -63,7 +63,9 @@ const nav = [
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#f5f0e6" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#181613" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
     <Fonts />
@@ -122,6 +124,11 @@ const nav = [
       closingCta && (
         <section class="wrap cta-paint" aria-labelledby="closing-cta-title" data-closing-cta>
           <picture>
+            <source
+              media="(prefers-color-scheme: dark) and (max-width: 700px)"
+              srcset="/img/paint/night/cta-wash-tall.webp"
+            />
+            <source media="(prefers-color-scheme: dark)" srcset="/img/paint/night/cta-wash.webp" />
             <source media="(max-width: 700px)" srcset="/img/paint/cta-wash-tall.webp" />
             <img
               class="wash paint"

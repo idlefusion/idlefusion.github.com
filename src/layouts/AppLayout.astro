@@ -9,6 +9,7 @@ import FusionMark from '../components/site/FusionMark.astro';
 import SiteFooter from '../components/site/SiteFooter.astro';
 import StoreButton from '../components/app/StoreButton.astro';
 import type { AppPageData } from '../data/app-pages';
+import { dayHighlight, nightInk, nightPigment } from '../data/app-pages/colours';
 
 interface Props {
   title: string;
@@ -47,6 +48,18 @@ const absoluteOgImage = !ogImage
     : `${siteOrigin}${ogImage}`;
 const route = `/${app.slug}/`;
 const [pigmentA, pigmentB] = app.pigments;
+// Day and night colours; app.css picks one set for the theme.
+const colours = [
+  ['a-day', pigmentA],
+  ['b-day', pigmentB],
+  ['ink-day', app.ink],
+  ['hand-day', dayHighlight(pigmentA)],
+  ['a-night', nightPigment(pigmentA)],
+  ['b-night', nightPigment(pigmentB)],
+  ['ink-night', nightInk(pigmentA)],
+]
+  .map(([name, value]) => `--app-${name}: ${value};`)
+  .join(' ');
 ---
 
 <!doctype html>
@@ -71,16 +84,14 @@ const [pigmentA, pigmentB] = app.pigments;
     <link rel="manifest" href="/manifest.json" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
-    <meta name="theme-color" content="#f5f0e6" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#181613" media="(prefers-color-scheme: dark)" />
     <title>{title}</title>
     <Fonts />
     <slot name="head" />
   </head>
-  <body
-    class="app-page"
-    data-app-page={app.slug}
-    style={`--app-a: ${pigmentA}; --app-b: ${pigmentB}; --app-ink: ${app.ink};`}
-  >
+  <body class="app-page" data-app-page={app.slug} style={colours}>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header app-header" data-header>
       <div class="wrap header-inner">

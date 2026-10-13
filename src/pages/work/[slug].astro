@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/SiteLayout.astro';
 import { projects } from '../../data/projects';
+import Paint from '../../components/site/Paint.astro';
 export function getStaticPaths() {
   return projects.map((project, i) => ({
     params: { slug: project.slug },
@@ -42,7 +43,7 @@ const practice = p.type === 'Web' ? 'web' : 'mobile';
       </div>
     </dl>
     <div class="project-art case-art">
-      <img class="paint" src={p.art} alt="" width="1600" height="1000" fetchpriority="high" />
+      <Paint src={p.art} alt="" width="1600" height="1000" fetchpriority="high" />
       <span class="client-chip">
         <img src={p.image} alt="" width="30" height="30" />
         {p.client}

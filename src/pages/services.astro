@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/SiteLayout.astro';
 import Process from '../components/site/Process.astro';
+import Paint from '../components/site/Paint.astro';
 import Faq from '../components/site/Faq.astro';
 
 const services = [
@@ -140,15 +141,7 @@ const engagements = [
             <span class="label">
               <span class="idx">{s.number}</span> Practice
             </span>
-            <img
-              class="paint"
-              src={s.art}
-              alt=""
-              width="720"
-              height="720"
-              loading="lazy"
-              decoding="async"
-            />
+            <Paint src={s.art} alt="" width="720" height="720" loading="lazy" decoding="async" />
           </div>
           <div class="content">
             <h2 class="h2">{s.name}</h2>
@@ -173,13 +166,12 @@ const engagements = [
             </div>
             {s.related.length > 0 && (
               <p class="proof-line">
-                Related work:{' '}
-                {s.related.map(([name, href], i) => (
-                  <Fragment>
-                    <a href={href}>{name}</a>
-                    {i < s.related.length - 1 && ', '}
-                  </Fragment>
-                ))}
+                Related work: {/* Joined as one string so no space slips in before the commas. */}
+                <Fragment
+                  set:html={s.related
+                    .map(([name, href]) => `<a href="${href}">${name}</a>`)
+                    .join(', ')}
+                />
               </p>
             )}
             {s.id === 'strategy' && (

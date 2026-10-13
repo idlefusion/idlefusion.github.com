@@ -3,6 +3,7 @@ import Layout from '../layouts/SiteLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Process from '../components/site/Process.astro';
+import Paint from '../components/site/Paint.astro';
 import Faq from '../components/site/Faq.astro';
 import { projects } from '../data/projects';
 import { visibleApps } from '../data/apps';
@@ -119,8 +120,7 @@ const compare = [
       </figure>
     </div>
     <figure class="hero-art">
-      <img
-        class="paint"
+      <Paint
         src="/img/paint/hero-fusion.webp"
         alt="The Idle Fusion mark painted in blue and rose watercolor, its right side resolving into a grid of pixels."
         width="1240"
@@ -235,8 +235,7 @@ const compare = [
       {
         services.map((s) => (
           <article class="service-card">
-            <img
-              class="paint"
+            <Paint
               src={s.art}
               alt=""
               width="720"

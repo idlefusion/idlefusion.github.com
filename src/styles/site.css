@@ -5,7 +5,14 @@
  * scripts/watercolor) as the only colour. Paintings are rendered on white and
  * shown with mix-blend-mode: multiply so they glaze onto the paper; never put
  * transform, opacity, or filter on an ancestor of a .paint image, or the blend
- * loses the paper behind it. Product pages keep their own themes.
+ * loses the paper behind it.
+ *
+ * After dark (prefers-color-scheme) the paper turns to warm near-black and the
+ * ink to paper. Each painting has a night version painted on black
+ * (public/img/paint/night, scripts/watercolor/night.py) that is screened on
+ * instead, so the paint glows; site/Paint.astro picks the right file. Colours
+ * that change with the theme are tokens below; --soot, --chalk and --block
+ * stay fixed for things set on deep paint or in ink in both themes.
  */
 @tailwind base;
 @tailwind components;
@@ -28,6 +35,29 @@
   --violet: #3b2f6e;
   --ochre: #d39a35;
   --indigo: #232659;
+  --paper-texture: url('/img/paint/paper.webp');
+  --paint-blend: multiply;
+  --swatch-rose: url('/img/paint/swatch-rose.webp');
+  --swatch-cerulean: url('/img/paint/swatch-cerulean.webp');
+  --swatch-ochre: url('/img/paint/swatch-ochre.webp');
+  --header-bg: rgba(245, 240, 230, 0.86);
+  --hover: rgba(23, 21, 18, 0.05);
+  --raised: #fff;
+  --field: #fff;
+  --field-border: rgba(23, 21, 18, 0.28);
+  --placeholder: #9a9388;
+  --struck: #6e675e; /* struck through, but still 4.9:1 on paper */
+  --btn-hover: #000;
+  --shadow: rgba(23, 21, 18, 0.35);
+  --error: #b3261e;
+  --error-ink: #8f1d17;
+  --error-bg: #fff5f4;
+  /* The same in both themes. */
+  --soot: #171512;
+  --chalk: #f5f0e6;
+  --sticker: #fbf8f2;
+  --block: #171512;
+  --block-edge: transparent;
   --sans: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
   --serif: 'Crimson Pro', Georgia, serif;
   --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
@@ -47,6 +77,41 @@
     linear-gradient(var(--ink), var(--ink)) 100% 100% / 1px 14px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #181613;
+    --paper-deep: #26231f;
+    --card: #1f1c19;
+    --ink: #eee7da;
+    --ink-soft: #d9d1c3;
+    --graphite: #aba395;
+    --pencil: #81796e;
+    --rule: rgba(238, 231, 218, 0.14);
+    --rule-strong: rgba(238, 231, 218, 0.78);
+    --cerulean-ink: #79b8e6;
+    --rose-ink: #f27e9d;
+    --paper-texture: url('/img/paint/night/paper.webp');
+    --paint-blend: screen;
+    --swatch-rose: url('/img/paint/night/swatch-rose.webp');
+    --swatch-cerulean: url('/img/paint/night/swatch-cerulean.webp');
+    --swatch-ochre: url('/img/paint/night/swatch-ochre.webp');
+    --header-bg: rgba(24, 22, 19, 0.86);
+    --hover: rgba(238, 231, 218, 0.07);
+    --raised: #26231f;
+    --field: #211e1b;
+    --field-border: rgba(238, 231, 218, 0.26);
+    --placeholder: #8f877a;
+    --struck: #9d9588;
+    --btn-hover: #fff;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --error: #f0695c;
+    --error-ink: #ffb4aa;
+    --error-bg: rgba(240, 105, 92, 0.09);
+    --block: #0e0d0b;
+    --block-edge: rgba(238, 231, 218, 0.14);
+  }
+}
+
 /* ------------------------------------------------------------------ base */
 
 *,
@@ -55,13 +120,14 @@
   box-sizing: border-box;
 }
 html {
+  color-scheme: light dark;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header) + 16px);
   -webkit-text-size-adjust: 100%;
 }
 body {
   margin: 0;
-  background: var(--paper) url('/img/paint/paper.webp') repeat;
+  background: var(--paper) var(--paper-texture) repeat;
   background-size: 320px 320px;
   color: var(--ink);
   font-family: var(--sans);
@@ -191,15 +257,15 @@ p {
   letter-spacing: -0.012em;
   padding: 0 0.1em 0 0.04em;
   margin: 0 -0.02em;
-  background: url('/img/paint/swatch-rose.webp') no-repeat 0 90% / 100% 0.62em;
+  background: var(--swatch-rose) no-repeat 0 90% / 100% 0.62em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
 .hand.cerulean {
-  background-image: url('/img/paint/swatch-cerulean.webp');
+  background-image: var(--swatch-cerulean);
 }
 .hand.ochre {
-  background-image: url('/img/paint/swatch-ochre.webp');
+  background-image: var(--swatch-ochre);
 }
 .label {
   display: flex;
@@ -327,11 +393,12 @@ p {
   width: 66px;
 }
 .btn:hover {
-  --btn-bg: #000;
+  --btn-bg: var(--btn-hover);
 }
+/* On deep paint, in either theme. */
 .btn.light {
-  --btn-bg: var(--paper);
-  --btn-fg: var(--ink);
+  --btn-bg: var(--chalk);
+  --btn-fg: var(--soot);
 }
 .btn.light:hover {
   --btn-bg: #fff;
@@ -412,7 +479,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(245, 240, 230, 0.86);
+  background: var(--header-bg);
   -webkit-backdrop-filter: saturate(1.4) blur(12px);
   backdrop-filter: saturate(1.4) blur(12px);
   border-bottom: 1px solid transparent;
@@ -452,7 +519,7 @@ p {
   stroke: currentColor;
   stroke-width: 1.9;
   transition: fill 0.35s;
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--paint-blend);
 }
 .wordmark:hover .fusion-mark .left {
   fill: rgba(27, 120, 180, 0.55);
@@ -474,7 +541,7 @@ p {
   transition: background 0.2s;
 }
 .desktop-nav a:hover {
-  background: rgba(23, 21, 18, 0.05);
+  background: var(--hover);
 }
 .desktop-nav a[aria-current='page']::after {
   content: '';
@@ -559,7 +626,14 @@ p {
   align-self: start;
 }
 .paint {
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--paint-blend);
+}
+.paint-frame {
+  display: contents;
+}
+/* Otherwise an empty <source> becomes a grid item and adds a gap. */
+.paint-frame source {
+  display: none;
 }
 .hero-art .paint,
 .hero-art .construction {
@@ -696,7 +770,7 @@ p {
   position: relative;
   top: 0.1em;
   margin-left: 2px;
-  color: var(--rose);
+  color: var(--rose-ink);
 }
 .stat span {
   font-size: 15px;
@@ -738,7 +812,7 @@ p {
   color: var(--graphite);
 }
 .compare .usual {
-  color: #6e675e; /* struck through, but still 4.9:1 on paper */
+  color: var(--struck);
   font-size: 18px;
 }
 /* A hand-drawn strike in pencil, repeated on every line the text wraps to. */
@@ -866,8 +940,10 @@ p {
   align-items: center;
   gap: 10px;
   padding: 6px 12px 6px 6px;
-  background: var(--card);
-  border: 1px solid var(--rule);
+  /* A paper sticker in both themes: several client logos sit on white. */
+  background: var(--sticker);
+  color: var(--soot);
+  border: 1px solid rgba(23, 21, 18, 0.14);
   border-radius: 3px;
   font-family: var(--mono);
   font-size: 11px;
@@ -1207,7 +1283,7 @@ p {
   letter-spacing: -0.045em;
 }
 .cta-inner h2 .hand {
-  background-image: url('/img/paint/swatch-rose.webp');
+  background-image: var(--swatch-rose);
   background-size: 100% 0.5em;
 }
 .cta-inner .cta-side {
@@ -1697,7 +1773,7 @@ p {
   transition: background 0.2s;
 }
 .making a:hover {
-  background: #fff;
+  background: var(--raised);
 }
 .making p {
   color: var(--graphite);
@@ -1795,7 +1871,7 @@ p {
   gap: 30px;
   box-shadow:
     0 1px 0 var(--rule),
-    0 30px 60px -40px rgba(23, 21, 18, 0.35);
+    0 30px 60px -40px var(--shadow);
 }
 .form-step {
   border: 0;
@@ -1849,8 +1925,8 @@ p {
   width: 100%;
   min-height: 50px;
   padding: 12px 14px;
-  background: #fff;
-  border: 1px solid rgba(23, 21, 18, 0.28);
+  background: var(--field);
+  border: 1px solid var(--field-border);
   border-radius: 3px;
   font-size: 16px;
   font-weight: 400;
@@ -1873,7 +1949,7 @@ p {
 }
 .field input::placeholder,
 .field textarea::placeholder {
-  color: #9a9388;
+  color: var(--placeholder);
 }
 .hint {
   font-size: 13px;
@@ -1897,8 +1973,8 @@ p {
   white-space: nowrap;
 }
 .chip {
-  border: 1px solid rgba(23, 21, 18, 0.28);
-  background: #fff;
+  border: 1px solid var(--field-border);
+  background: var(--field);
   border-radius: 999px;
   padding: 10px 16px;
   font-size: 15px;
@@ -1939,12 +2015,12 @@ p {
   font-size: 15px;
 }
 .form-error {
-  border-color: #b3261e;
-  color: #8f1d17;
-  background: #fff5f4;
+  border-color: var(--error);
+  color: var(--error-ink);
+  background: var(--error-bg);
 }
 .form-success {
-  background: #fff;
+  background: var(--field);
   border-color: var(--cerulean);
   display: grid;
   gap: 12px;
@@ -2007,9 +2083,9 @@ p {
   width: 220px;
   min-height: 40px;
   padding: 8px 12px;
-  border: 1px solid rgba(23, 21, 18, 0.28);
+  border: 1px solid var(--field-border);
   border-radius: 3px;
-  background: #fff;
+  background: var(--field);
   font-size: 15px;
 }
 .app-grid {
@@ -2075,7 +2151,8 @@ p {
   color: var(--graphite);
 }
 .code-art {
-  background: var(--ink);
+  background: var(--block);
+  box-shadow: inset 0 0 0 1px var(--block-edge);
   color: #f2ede4;
   padding: clamp(24px, 3vw, 36px);
   border-radius: 3px;
@@ -2265,7 +2342,7 @@ p {
     background: var(--paper);
     border-bottom: 1px solid var(--rule-strong);
     padding: 8px var(--gutter) 24px;
-    box-shadow: 0 30px 40px -30px rgba(23, 21, 18, 0.35);
+    box-shadow: 0 30px 40px -30px var(--shadow);
     display: grid;
   }
   .mobile-nav nav a {
@@ -2606,7 +2683,8 @@ p {
   font-family: var(--mono);
   font-size: 12px;
   padding: 14px 16px;
-  background: var(--ink);
+  background: var(--block);
+  box-shadow: inset 0 0 0 1px var(--block-edge);
   color: #f2ede4;
   border-radius: 3px;
 }

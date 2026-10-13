@@ -1,11 +1,31 @@
 /*
- * App pages, on top of site.css. Each page sets three variables on <body>:
+ * App pages, on top of site.css. AppLayout sets each app's colours on <body>
+ * for day and night (src/data/app-pages/colours.ts); the theme picks a set:
  *   --app-a, --app-b  the app's two pigments (washes, dots, accents)
- *   --app-ink         --app-a darkened to read as text on paper
+ *   --app-ink         --app-a as text: darkened on paper, lightened at night
  * Washes are shared alpha masks (public/img/paint/app-*.webp, painted by
  * scripts/watercolor) tinted with those pigments, so a new app only needs
- * colors. Icons and screenshots are always shown exactly as supplied.
+ * colors. By day they multiply onto the paper; at night they are screened, so
+ * they glow. Icons and screenshots are always shown exactly as supplied.
  */
+
+.app-page {
+  --app-a: var(--app-a-day);
+  --app-b: var(--app-b-day);
+  --app-ink: var(--app-ink-day);
+  --app-hand: var(--app-hand-day);
+  --cta-mix: #fff;
+  --shot-ring: rgba(23, 21, 18, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  .app-page {
+    --app-a: var(--app-a-night);
+    --app-b: var(--app-b-night);
+    --app-ink: var(--app-ink-night);
+    --cta-mix: #000;
+    --shot-ring: rgba(238, 231, 218, 0.1);
+  }
+}
 
 /* ---------------------------------------------------------------- header */
 
@@ -63,7 +83,7 @@
   transition: background 0.2s;
 }
 .app-local-nav a:hover {
-  background: rgba(23, 21, 18, 0.05);
+  background: var(--hover);
 }
 .app-local-nav a[aria-current='page'] {
   color: var(--ink);
@@ -159,7 +179,7 @@
   background: var(--app-a);
   -webkit-mask: var(--mask) center / 100% 100% no-repeat;
   mask: var(--mask) center / 100% 100% no-repeat;
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--paint-blend);
   pointer-events: none;
 }
 .app-wash.b {
@@ -183,7 +203,7 @@
   height: auto;
   border-radius: 22.5%;
   box-shadow:
-    0 0 0 1px rgba(23, 21, 18, 0.06),
+    0 0 0 1px var(--shot-ring),
     0 30px 60px -26px rgba(23, 21, 18, 0.6);
 }
 .app-hero-art.v2 .app-hero-icon {
@@ -208,10 +228,20 @@
   /* A highlighter stroke in the app's pigment: a grey stroke lightened over
      the pigment, then multiplied onto the paper (white drops out). */
   /* Oversized by a pixel each side so no sliver of bare pigment shows. */
-  background: var(--app-a) url('/img/paint/app-swatch.webp') -1px -1px / calc(100% + 2px)
+  background: var(--app-hand) url('/img/paint/app-swatch.webp') -1px -1px / calc(100% + 2px)
     calc(100% + 2px) no-repeat;
   background-blend-mode: lighten;
   mix-blend-mode: multiply;
+}
+@media (prefers-color-scheme: dark) {
+  /* The same stroke in white on black, darkened by a deeper pigment so light
+     type stays readable over it, then screened onto the night paper. */
+  .app-page .hand.app-hand {
+    background-color: color-mix(in srgb, var(--app-a) 62%, #000);
+    background-image: url('/img/paint/night/app-swatch.webp');
+    background-blend-mode: darken;
+    mix-blend-mode: screen;
+  }
 }
 
 /* Screenshots: a strip that starts on the grid and runs off the right edge. */
@@ -245,7 +275,7 @@
   width: auto;
   border-radius: 18px;
   box-shadow:
-    0 0 0 1px rgba(23, 21, 18, 0.06),
+    0 0 0 1px var(--shot-ring),
     0 26px 44px -30px rgba(23, 21, 18, 0.55);
 }
 .shot-strip li.small {
@@ -317,29 +347,35 @@
   font-size: 17px;
 }
 
-/* Privacy: the one block set in ink. */
+/* Privacy: the one block set in ink (at night, ink tinted with the app). */
 .app-privacy-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 22px clamp(28px, 5vw, 72px);
   align-items: start;
   padding: clamp(32px, 5vw, 64px);
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--block);
+  box-shadow: inset 0 0 0 1px var(--block-edge);
+  color: var(--chalk);
   border-radius: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  .app-privacy-inner {
+    background: color-mix(in oklab, var(--app-a) 14%, var(--block));
+  }
 }
 .app-privacy .label {
   grid-column: 1 / -1;
   color: rgba(245, 240, 230, 0.68);
 }
 .app-privacy .label .idx {
-  color: var(--paper);
+  color: var(--chalk);
 }
 .app-privacy .label .idx:not(:last-child)::after {
   color: rgba(245, 240, 230, 0.4);
 }
 .app-privacy h2 {
-  color: var(--paper);
+  color: var(--chalk);
 }
 .app-privacy .hand.app-hand {
   background: none;
@@ -355,10 +391,10 @@
   color: rgba(245, 240, 230, 0.84);
 }
 .app-privacy .link-arrow:hover {
-  color: var(--paper);
+  color: var(--chalk);
 }
 .app-privacy :focus-visible {
-  outline-color: var(--paper);
+  outline-color: var(--chalk);
 }
 
 /* Category scales (blood pressure, temperature): the app's own colors. */
@@ -432,11 +468,11 @@
 }
 .app-cta-wash {
   --mask: url('/img/paint/app-cta-a.webp');
-  background: color-mix(in srgb, var(--app-a) 42%, #fff);
+  background: color-mix(in srgb, var(--app-a) 42%, var(--cta-mix));
 }
 .app-cta-wash.b {
   --mask: url('/img/paint/app-cta-b.webp');
-  background: color-mix(in srgb, var(--app-b) 42%, #fff);
+  background: color-mix(in srgb, var(--app-b) 42%, var(--cta-mix));
 }
 .app-cta-inner {
   position: relative;
@@ -644,6 +680,41 @@
 .app-doc .rounded-xl {
   border-radius: 3px;
 }
+/* Blood-pressure categories in Pressure Easy's support page: the page's own
+   colours, a shade deeper so they read as text on the paper... */
+.app-doc .text-green-600 {
+  color: #166534;
+}
+.app-doc .text-yellow-600 {
+  color: #854d0e;
+}
+.app-doc .text-orange-600 {
+  color: #c2410c;
+}
+.app-doc .text-red-600 {
+  color: #b91c1c;
+}
+.app-doc .text-red-800 {
+  color: #7f1d1d;
+}
+@media (prefers-color-scheme: dark) {
+  /* ...and at night, as the page's own dark styles had them. */
+  .app-doc .text-green-600 {
+    color: #4ade80;
+  }
+  .app-doc .text-yellow-600 {
+    color: #facc15;
+  }
+  .app-doc .text-orange-600 {
+    color: #fb923c;
+  }
+  .app-doc .text-red-600 {
+    color: #f87171;
+  }
+  .app-doc .text-red-800 {
+    color: #fca5a5;
+  }
+}
 
 /* ------------------------------------------------------------ responsive */
 
@@ -741,8 +812,11 @@
   width: 26px;
   height: 26px;
   border-radius: 6px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--block);
+  /* An outline, not a shadow, so the hero icon keeps its drop shadow. */
+  outline: 1px solid var(--block-edge);
+  outline-offset: -1px;
+  color: var(--chalk);
   font-family: var(--serif);
   font-style: italic;
   font-size: 17px;

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 import puppeteer from 'puppeteer';
 import worker from '../worker.ts';
+import { fullScreenshot } from './full-screenshot.mjs';
 
 const origin = process.env.SITE_ORIGIN || 'http://127.0.0.1:4323';
 const output = 'artifacts/redesign';
@@ -261,7 +262,7 @@ try {
       await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
       false,
     );
-    await page.screenshot({ path: `${output}/contact-${device}.png`, fullPage: true });
+    await fullScreenshot(page, `${output}/contact-${device}.png`);
     if (device === 'desktop') await page.screenshot({ path: `${output}/contact-preview.png` });
     check(`Contact ${device} layout fits and screenshot refreshed`);
   }

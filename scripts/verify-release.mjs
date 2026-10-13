@@ -76,9 +76,13 @@ try {
             file,
             ids: [...doc.querySelectorAll('[id]')].map((element) => element.id),
             references: [
-              ...doc.querySelectorAll('a[href],link[href]:not([rel="canonical"]),[src]'),
+              ...doc.querySelectorAll(
+                'a[href],link[href]:not([rel="canonical"]),[src],source[srcset]',
+              ),
             ].flatMap((element) =>
-              ['href', 'src'].map((attribute) => element.getAttribute(attribute)).filter(Boolean),
+              ['href', 'src', 'srcset']
+                .map((attribute) => element.getAttribute(attribute))
+                .filter(Boolean),
             ),
             canonical: doc.querySelector('link[rel="canonical"]')?.getAttribute('href'),
             robots: doc.querySelector('meta[name="robots"]')?.getAttribute('content'),
@@ -215,6 +219,7 @@ try {
   );
   await run('scripts/verify-home.mjs');
   await run('scripts/verify-contact.mjs');
+  await run('scripts/verify-themes.mjs');
   await run('scripts/capture-site.mjs');
   await run('scripts/capture-apps.mjs');
 } finally {

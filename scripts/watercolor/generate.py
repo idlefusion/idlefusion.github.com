@@ -4,7 +4,8 @@
     python3 scripts/watercolor/generate.py hero work  # just some
 
 Paintings are rendered on white and shown with `mix-blend-mode: multiply`, so
-they glaze onto the page's paper colour the way transparent paint would.
+they glaze onto the page's paper colour the way transparent paint would. Their
+night versions, for the dark theme, come from night.py (run it after this).
 Requires numpy and opencv-python-headless (see requirements.txt), plus Node with
 the repo's dependencies installed (sharp encodes the app-page masks).
 """

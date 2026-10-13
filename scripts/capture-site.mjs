@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fullScreenshot } from './full-screenshot.mjs';
 
 const origin = process.env.SITE_ORIGIN || 'http://127.0.0.1:4323';
 const reviewOrigin = process.env.REVIEW_ORIGIN || origin;
@@ -37,7 +38,7 @@ const pages = [
     'contrast',
     'Contrast app',
     'contrast/',
-    'The original orange/cyan app identity, with shared Idle Fusion navigation.',
+    'An app page in the studio design, painted in Contrast’s orange and cyan.',
   ],
   [
     'everybody-everywhere',
@@ -79,10 +80,15 @@ try {
   page.on('pageerror', (e) => audit.errors.push(String(e)));
   const links = new Set();
   for (const [id, title, route] of pages) {
-    for (const [device, width, height] of [
-      ['desktop', 1440, 1000],
-      ['mobile', 390, 844],
+    // The site follows the visitor's light or dark setting; capture both.
+    for (const [theme, device, width, height] of [
+      ['light', 'desktop', 1440, 1000],
+      ['light', 'mobile', 390, 844],
+      ['dark', 'desktop', 1440, 1000],
+      ['dark', 'mobile', 390, 844],
     ]) {
+      const name = theme === 'light' ? `${id}-${device}` : `${id}-dark-${device}`;
+      await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: theme }]);
       await page.setViewport({ width, height, deviceScaleFactor: 1 });
       const response = await page.goto(`${origin}/${route}`, { waitUntil: 'networkidle0' });
       await page.evaluate(async () => {
@@ -106,13 +112,17 @@ try {
       }));
       state.links.forEach((l) => links.add(l));
       const { links: unused, ...checks } = state;
-      audit.pages.push({ id, title, device, status: response.status(), ...checks });
-      await page.screenshot({ path: path.join(out, `${id}-${device}.png`), fullPage: true });
+      audit.pages.push({ id, title, theme, device, status: response.status(), ...checks });
+      await fullScreenshot(page, path.join(out, `${name}.png`));
       if (device === 'desktop')
-        await page.screenshot({ path: path.join(out, `${id}-preview.png`), fullPage: false });
+        await page.screenshot({
+          path: path.join(out, `${name.replace('-desktop', '')}-preview.png`),
+          fullPage: false,
+        });
     }
-    console.log(`Captured ${title}: desktop + mobile`);
+    console.log(`Captured ${title}: desktop + mobile, light + dark`);
   }
+  await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
   await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
   await page.goto(`${origin}/`);
   await page.click('.mobile-nav summary');
@@ -230,5 +240,5 @@ await writeFile(
   path.join(out, 'index.html'),
   `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Idle Fusion — Website review</title><style>
 *{box-sizing:border-box}body{margin:0;background:#ffffff;color:#0a0a0a;font-family:system-ui,sans-serif}header,main{max-width:1400px;margin:auto;padding:40px}header{border-bottom:1px solid #e4e4e4}small{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#006da3}h1{font-size:clamp(32px,5vw,62px);letter-spacing:-.05em;margin:20px 0}p{max-width:780px;color:#626262;line-height:1.6}a{color:inherit;text-underline-offset:5px}header>a{display:inline-block;margin-top:15px;padding:13px 20px;background:#0a0a0a;color:white;border-radius:5px;text-decoration:none}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px 25px}article{min-width:0}article>a{display:block;border:1px solid #e4e4e4;border-radius:5px;overflow:hidden;background:#f5f5f5}img{display:block;width:100%;height:auto;aspect-ratio:1.44;object-fit:cover;object-position:top}h2{font-size:20px;letter-spacing:-.03em;margin:17px 0 8px}article p{font-size:13px;min-height:44px;margin:0 0 16px}.links{display:flex;gap:18px;font-size:12px;flex-wrap:wrap}aside{padding:25px;background:#f5f5f5;border-radius:5px;margin-top:30px;font-size:13px;line-height:1.7}.palette{display:flex;gap:20px;flex-wrap:wrap;margin:22px 0}.swatch{display:flex;align-items:center;gap:7px;font-size:12px}.swatch i{width:20px;height:20px;border:1px solid #0002;border-radius:50%}@media(max-width:950px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){header,main{padding:25px}.grid{grid-template-columns:1fr}}
-</style></head><body><header><small>Idle Fusion / Release review</small><h1>Wet ink, hard pixel.<br>A studio site built to convert.</h1><p>Warm paper, ink typography, and generated watercolor paintings in cerulean and rose. Business-site pages are shown below. The dedicated app gallery covers all 28 app pages, the currency family, and their support and privacy pages. Click any image to view its full-page screenshot.</p><div class="palette"><span class="swatch"><i style="background:#f5f0e6"></i>Paper</span><span class="swatch"><i style="background:#171512"></i>Ink</span><span class="swatch"><i style="background:#1b78b4"></i>Cerulean</span><span class="swatch"><i style="background:#d23f68"></i>Rose</span><span class="swatch"><i style="background:#3b2f6e"></i>Violet</span></div><a href="${reviewOrigin}/">Explore the updated site ↗</a> <a href="app-pages/">Review all dedicated app pages ↗</a><aside><strong>Release scope:</strong> Home, Work, Services, Studio, Apps, Open source, Contact, the original Contrast design with shared navigation, and all five existing case studies. All dedicated app designs are preserved and included in the separate app gallery, along with support and privacy previews. Developer documentation remains the existing page. Contact uses the original direct-send service; automated checks simulate delivery without sending email. This review is generated locally.</aside></header><main><div class="grid">${pages.map(([id, title, route, description], i) => `<article><a href="${id}-desktop.png" aria-label="Full desktop screenshot of ${title}"><img src="${id}-preview.png" alt="${title} redesign screenshot" loading="lazy"></a><h2>${String(i + 1).padStart(2, '0')} / ${title}</h2><p>${description}</p><div class="links"><a href="${id}-desktop.png">Full desktop ↗</a><a href="${id}-mobile.png">Full mobile ↗</a><a href="${reviewOrigin}/${route}">Live page ↗</a></div></article>`).join('')}</div></main></body></html>`,
+</style></head><body><header><small>Idle Fusion / Release review</small><h1>Wet ink, hard pixel.<br>A studio site built to convert.</h1><p>Warm paper, ink typography, and generated watercolor paintings in cerulean and rose. Business-site pages are shown below; after dark (the visitor’s system setting) the paper turns to warm near-black and each painting is swapped for a night version that glows. The dedicated app gallery covers all 28 app pages, the currency family, and their support and privacy pages. Click any image to view its full-page screenshot.</p><div class="palette"><span class="swatch"><i style="background:#f5f0e6"></i>Paper</span><span class="swatch"><i style="background:#171512"></i>Ink</span><span class="swatch"><i style="background:#1b78b4"></i>Cerulean</span><span class="swatch"><i style="background:#d23f68"></i>Rose</span><span class="swatch"><i style="background:#3b2f6e"></i>Violet</span></div><a href="${reviewOrigin}/">Explore the updated site ↗</a> <a href="app-pages/">Review all dedicated app pages ↗</a><aside><strong>Release scope:</strong> Home, Work, Services, Studio, Apps, Open source, Contact, the Contrast app page, and all five existing case studies. Every app page is in the separate app gallery, along with support and privacy previews. Developer documentation remains the existing page. Contact uses the original direct-send service; automated checks simulate delivery without sending email. This review is generated locally.</aside></header><main><div class="grid">${pages.map(([id, title, route, description], i) => `<article><a href="${id}-desktop.png" aria-label="Full desktop screenshot of ${title}"><img src="${id}-preview.png" alt="${title} redesign screenshot" loading="lazy"></a><h2>${String(i + 1).padStart(2, '0')} / ${title}</h2><p>${description}</p><div class="links"><a href="${id}-desktop.png">Full desktop ↗</a><a href="${id}-mobile.png">Full mobile ↗</a><a href="${reviewOrigin}/${route}">Live page ↗</a></div><div class="links"><a href="${id}-dark-desktop.png">Dark desktop ↗</a><a href="${id}-dark-mobile.png">Dark mobile ↗</a></div></article>`).join('')}</div></main></body></html>`,
 );

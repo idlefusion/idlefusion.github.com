@@ -1,0 +1,17 @@
+---
+// A painting from public/img/paint with its night version
+// (scripts/watercolor/night.py) for the dark theme. By day it multiplies onto
+// the paper; at night it is painted on black and screened, so it glows. The
+// <picture> takes no box of its own, so layout rules still target the <img>.
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'img'> & { src: string };
+
+const { src, class: className, ...attrs } = Astro.props;
+const night = src.replace('/img/paint/', '/img/paint/night/');
+---
+
+<picture class="paint-frame">
+  <source srcset={night} media="(prefers-color-scheme: dark)" />
+  <img class:list={['paint', className]} src={src} {...attrs} />
+</picture>
