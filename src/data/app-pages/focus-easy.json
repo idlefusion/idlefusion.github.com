@@ -14,7 +14,7 @@
     "url": "https://apps.apple.com/app/id6759226554",
     "mac": false
   },
-  "note": "Coming Soon · Free",
+  "note": "Free · No account required",
   "pigments": ["#4b5058", "#9a948a"],
   "ink": "#4b5058",
   "hero": {
@@ -123,6 +123,6 @@
   ],
   "cta": {
     "title": "Simplify your home screen.",
-    "text": "Coming soon to the App Store. Free."
+    "text": "Free on the App Store. No account required."
   }
 }

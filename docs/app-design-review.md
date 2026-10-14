@@ -15,7 +15,7 @@ All 28 dedicated app pages, their 56 support and privacy pages, and the currency
 - One template (`components/app/AppLanding.astro`) replaces 23 bespoke pages and the shared `SimpleAppLanding`. Sections keep their original order: hero, screenshots, features, statements, scales, privacy, call to action.
 - The hero shows the Idle Fusion mark painted in the app's two pigments, with the app icon in the overlap. Washes are shared alpha masks (`public/img/paint/app-*.webp`) tinted per app in CSS, so a new app needs only colors.
 - Pages follow the visitor's light or dark setting, like the studio site; the per-app theme toggles are gone. At night the washes are screened onto near-black paper in each app's pigments, lightened in OKLab (`src/data/app-pages/colours.ts`) so even Rest Easy's navy glows, and the app's text colour is lightened to 4.5:1. By day, an app whose pigment is too dark for ink to read on (Rest Easy, Focus Easy, and a few others) gets a lighter highlighter under its headline word, in the same hue.
-- Apps without a store listing say "Coming soon to the App Store" instead of showing a badge that linked to `#`. These pages' copy still says "Free on the App Store" in places, and Focus Easy and Meds Easy have store links but "coming soon" copy; that copy is unchanged and worth reviewing.
+- Apps without a store listing say "Coming soon to the App Store" instead of showing a badge that linked to `#`. These pages' copy still says "Free on the App Store" in places; that copy is unchanged and worth reviewing.
 - Every landing page has `SoftwareApplication` structured data and a "Made by Idle Fusion" line linking to the contact form (`cta_app_page`).
 
 ## Review
