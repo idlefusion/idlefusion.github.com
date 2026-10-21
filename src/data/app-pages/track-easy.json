@@ -21,7 +21,7 @@
     "label": "HABIT TRACKER",
     "title": "Track habits <em>without the hassle.</em>",
     "text": [
-      "Build better habits with a tracker that respects your time. No sign-up, no subscriptions, no data collection. Just you and your habits."
+      "Build better habits with a tracker that respects your time. Ink on paper, with color only where it means something. No sign-up, no subscriptions, no data collection. Just you and your habits."
     ]
   },
   "screenshots": [
@@ -88,7 +88,7 @@
       "items": [
         {
           "title": "Unlimited Habits",
-          "text": "Create as many habits as you want. Pick custom icons and colors from a beautiful palette. No limits, no premium tier."
+          "text": "Type a habit in a sentence, like \"Read 20 min every weekday\", and Track Easy fills in the schedule, icon and color. Or start from over 30 templates. No limits, no premium tier."
         },
         {
           "title": "Streak Tracking",
@@ -96,7 +96,7 @@
         },
         {
           "title": "Calendar View",
-          "text": "Review your history with a monthly calendar. Color-coded completions create a visual heat map of your progress."
+          "text": "A ring shows a day in progress and a filled circle marks a day you finished everything. Forgot to log yesterday? Catch up in a tap."
         },
         {
           "title": "Interactive Widgets",
@@ -108,7 +108,7 @@
         },
         {
           "title": "Statistics",
-          "text": "Understand your habits with charts. See completion rates, weekly trends, and your best-performing habits."
+          "text": "Your longest streaks, completion rates, the last seven days and your most consistent habits, at a glance."
         }
       ]
     },
