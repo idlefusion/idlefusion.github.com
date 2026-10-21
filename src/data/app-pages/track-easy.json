@@ -5,7 +5,7 @@
   "icon": "/img/track-easy/icon.png",
   "seo": {
     "title": "Track Easy — Simple Habit Tracker for iOS",
-    "description": "Track habits without the hassle. Unlimited habits, streaks, calendar view, widgets, and Apple Watch support. No accounts, no subscriptions.",
+    "description": "Track habits without the hassle. Unlimited habits, streaks, calendar view, and interactive widgets. No accounts, no subscriptions.",
     "ogImage": "/img/track-easy/icon.png",
     "canonical": "https://idlefusion.com/track-easy"
   },
@@ -26,39 +26,53 @@
   },
   "screenshots": [
     {
-      "src": "/img/track-easy/screenshots/01_marketing.png",
-      "alt": "Track Easy — Build Better Habits",
-      "label": "Build Better Habits",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/track-easy/screenshots/01-today.png",
+      "alt": "Track Easy — Build habits that stick",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/track-easy/screenshots/02_marketing.png",
-      "alt": "Track Easy — Streak Tracking",
-      "label": "Streak Tracking",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/track-easy/screenshots/02-widgets.png",
+      "alt": "Track Easy — Check off habits from your Home Screen",
+      "label": "Interactive Widgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/track-easy/screenshots/03_marketing.png",
-      "alt": "Track Easy — Home Screen Widgets",
-      "label": "Home Screen Widgets",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/track-easy/screenshots/03-stats.png",
+      "alt": "Track Easy — Streaks that keep you going",
+      "label": "Streaks",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/track-easy/screenshots/04_marketing.png",
-      "alt": "Track Easy — Apple Watch Ready",
-      "label": "Apple Watch Ready",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/track-easy/screenshots/04-detail.png",
+      "alt": "Track Easy — Every day counts",
+      "label": "Habit Detail",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/track-easy/screenshots/07_widget.png",
-      "alt": "Track Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/track-easy/screenshots/05-calendar.png",
+      "alt": "Track Easy — Your month at a glance",
+      "label": "Calendar",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/track-easy/screenshots/06-templates.png",
+      "alt": "Track Easy — Start in seconds",
+      "label": "Templates",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/track-easy/screenshots/07-today-dark.png",
+      "alt": "Track Easy — Beautiful, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -78,19 +92,19 @@
         },
         {
           "title": "Streak Tracking",
-          "text": "Stay motivated with current and personal-best streaks. A flame icon shows when you're on fire. Don't break the chain."
+          "text": "Your streaks lead the Today screen, measured against your personal best, with a heads-up when one is at risk. Don't break the chain."
         },
         {
           "title": "Calendar View",
           "text": "Review your history with a monthly calendar. Color-coded completions create a visual heat map of your progress."
         },
         {
-          "title": "Home Screen Widgets",
-          "text": "Check off habits right from your home screen. Small, medium, and lock screen widgets keep habits front and center."
+          "title": "Interactive Widgets",
+          "text": "Check off habits from your Home Screen or Lock Screen without opening the app. A Streak widget keeps your best run in view."
         },
         {
-          "title": "Apple Watch",
-          "text": "Track habits from your wrist. See today's habits and tap to complete. Simple and fast."
+          "title": "Siri & Shortcuts",
+          "text": "Check off a habit hands-free. Just ask Siri, or build it into your own Shortcuts."
         },
         {
           "title": "Statistics",
