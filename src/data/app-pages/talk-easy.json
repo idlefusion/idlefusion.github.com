@@ -1,0 +1,129 @@
+{
+  "slug": "talk-easy",
+  "name": "Talk Easy",
+  "category": "Voice Dictation",
+  "icon": "/img/talk-easy/icon.png",
+  "seo": {
+    "title": "Talk Easy — Private Voice Dictation for iPhone",
+    "description": "Speak naturally and get clean, ready-to-send text. On-device transcription and Apple Intelligence cleanup. No account, no subscription, and nothing leaves your iPhone.",
+    "ogImage": "/img/talk-easy/icon.png",
+    "canonical": "https://idlefusion.com/talk-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": ["#e11d48", "#db2777"],
+  "ink": "#be123c",
+  "hero": {
+    "label": "VOICE DICTATION",
+    "title": "Speak naturally. <em>Send clean text.</em>",
+    "text": [
+      "Talk the way you talk, ums and all, and Talk Easy turns it into clean, ready-to-send text: filler words gone, punctuation in, your meaning kept. It all happens on your iPhone, with Apple's on-device speech recognition and Apple Intelligence. No account, no subscription, no servers."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/talk-easy/screenshots/01-listening.png",
+      "alt": "Talk Easy — Just talk. Watch it appear.",
+      "label": "Listening",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/talk-easy/screenshots/02-email.png",
+      "alt": "Talk Easy — Clean text, ready to send",
+      "label": "Email",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/talk-easy/screenshots/03-message.png",
+      "alt": "Talk Easy — One dictation, any format",
+      "label": "Text Message",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/talk-easy/screenshots/04-modes.png",
+      "alt": "Talk Easy — A mode for every context",
+      "label": "Modes",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/talk-easy/screenshots/05-history.png",
+      "alt": "Talk Easy — Everything you said, saved",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/talk-easy/screenshots/06-accent.png",
+      "alt": "Talk Easy — Make it yours",
+      "label": "Accents",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/talk-easy/screenshots/07-notes-dark.png",
+      "alt": "Talk Easy — Private by design",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Just talk.",
+      "items": [
+        {
+          "title": "Live Dictation",
+          "text": "Tap the microphone and watch your words appear as you speak. Talk Easy stops by itself when you pause, or keeps listening until you tap stop."
+        },
+        {
+          "title": "Smart Cleanup",
+          "text": "Filler words come out, stumbles and repeats are fixed, and punctuation goes in. Dictate a question or a request, and Talk Easy writes it down rather than answering it."
+        },
+        {
+          "title": "A Mode for Every Context",
+          "text": "General, Text Message, Email, Notes, Social Media, Technical and Creative. Tap another mode after you dictate to reshape the same words, or write your own."
+        },
+        {
+          "title": "Learns Your Words",
+          "text": "Fix a name or a technical term once, and Talk Easy writes it your way next time. Add your own words in Settings, too."
+        },
+        {
+          "title": "History & Search",
+          "text": "Every dictation is saved on your iPhone. Search it, copy it again, or format it for another mode."
+        },
+        {
+          "title": "Widgets, Siri & Share",
+          "text": "Start from a Home Screen or Lock Screen widget, or say \"Start Talk Easy dictation\" to Siri. Share text from any app to reshape it in one of your modes."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your words stay yours.",
+      "text": [
+        "Your voice is transcribed and cleaned up on your iPhone, and what you say is never sent anywhere. No analytics, no ads, no tracking, no account. Talk Easy makes no network requests of its own."
+      ],
+      "link": {
+        "href": "/talk-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start talking.",
+    "text": "Free, with no account required. Cleanup and formatting need an iPhone with Apple Intelligence."
+  }
+}

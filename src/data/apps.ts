@@ -195,6 +195,13 @@ export const apps = [
     desc: 'Log supplements and stay consistent with easy reminders and adherence tracking.',
     icon: '/img/dose-easy/icon.png',
   },
+  {
+    slug: 'talk-easy',
+    name: 'Talk Easy',
+    category: 'Voice Dictation',
+    desc: 'Speak naturally and get clean, ready-to-send text. Transcribed and cleaned up on your iPhone, never sent anywhere.',
+    icon: '/img/talk-easy/icon.png',
+  },
 ];
 
 // Keep pre-release products out of navigation and discovery.
