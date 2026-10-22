@@ -5,7 +5,7 @@
   "icon": "/img/track-easy/icon.png",
   "seo": {
     "title": "Track Easy — Simple Habit Tracker for iOS",
-    "description": "Track habits without the hassle. Unlimited habits, streaks, calendar view, and interactive widgets. No accounts, no subscriptions.",
+    "description": "Track habits without the hassle. Add a habit in a sentence, keep your streaks, and check off habits from Home Screen and Lock Screen widgets. No accounts, no subscriptions.",
     "ogImage": "/img/track-easy/icon.png",
     "canonical": "https://idlefusion.com/track-easy"
   },
@@ -15,8 +15,8 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#10b981", "#14a3a8"],
-  "ink": "#0a7753",
+  "pigments": ["#f2541b", "#ff7a45"],
+  "ink": "#c2410c",
   "hero": {
     "label": "HABIT TRACKER",
     "title": "Track habits <em>without the hassle.</em>",
@@ -87,12 +87,12 @@
       "title": "Simple by design.",
       "items": [
         {
-          "title": "Unlimited Habits",
-          "text": "Type a habit in a sentence, like \"Read 20 min every weekday\", and Track Easy fills in the schedule, icon and color. Or start from over 30 templates. No limits, no premium tier."
+          "title": "Add in a Sentence",
+          "text": "Type a habit the way you'd say it, like \"Read 20 min every weekday\", and Track Easy fills in the schedule, icon and color. Or start from over 30 templates. Unlimited habits, no premium tier."
         },
         {
           "title": "Streak Tracking",
-          "text": "Your streaks lead the Today screen, measured against your personal best, with a heads-up when one is at risk. Don't break the chain."
+          "text": "Your streaks lead the Today screen, measured against your personal best, with a heads-up when one is at risk. Already doing a habit? Set the day you started and carry your streak over."
         },
         {
           "title": "Calendar View",
@@ -100,7 +100,7 @@
         },
         {
           "title": "Interactive Widgets",
-          "text": "Check off habits from your Home Screen or Lock Screen without opening the app. A Streak widget keeps your best run in view."
+          "text": "Check off habits from your Home Screen or Lock Screen without opening the app, in any Home Screen style. The Streak widget keeps your best run, or any habit's, in view."
         },
         {
           "title": "Siri & Shortcuts",
@@ -109,6 +109,25 @@
         {
           "title": "Statistics",
           "text": "Your longest streaks, completion rates, the last seven days and your most consistent habits, at a glance."
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Set it up <em>your way.</em>",
+      "items": [
+        {
+          "title": "Your Accent",
+          "text": "Pick one of eight accents to mark your streaks. It sets the app icon too, with dark and tinted versions, and the widgets."
+        },
+        {
+          "title": "Day or Night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
+        },
+        {
+          "title": "Gentle Reminders",
+          "text": "One daily reminder that names what's left and which streak is at stake, and stays quiet once you're done."
         }
       ]
     },

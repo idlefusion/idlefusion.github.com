@@ -45,7 +45,7 @@ export const apps = [
     slug: 'track-easy',
     name: 'Track Easy',
     category: 'Habit Tracker',
-    desc: 'Track habits without the hassle. Unlimited habits, streaks and interactive widgets.',
+    desc: 'Track habits without the hassle. Add one in a sentence, keep your streaks, and check off from widgets.',
     icon: '/img/track-easy/icon.png',
   },
   {
