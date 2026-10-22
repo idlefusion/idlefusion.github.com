@@ -1,6 +1,10 @@
 ---
 import Layout from '../../layouts/SiteLayout.astro';
-import { visibleApps } from '../../data/apps';
+import { appsByPopularity, featuredApps, visibleApps } from '../../data/apps';
+const featured = new Set(featuredApps.map((app) => app.slug));
+// The middle icon is drawn largest, so the most popular app goes there.
+const [first, second, third] = featuredApps;
+const iconArt = [second, first, third];
 const focus = new Set(['focus-easy', 'pomo-easy', 'track-easy', 'voice-easy']);
 const everyday = new Set([
   'check-yourself',
@@ -38,17 +42,30 @@ const category = (slug: string) =>
         <p>
           Build a habit, find your focus, or make room to breathe. Find the tool that fits your day.
         </p>
-        <a class="link-arrow" href="/contrast/"
-          >Meet Contrast, our featured app <span aria-hidden="true">→</span></a
+        <p>
+          Most loved right now:{' '}
+          {featuredApps.map((app, i) => [
+            <a href={`/${app.slug}/`}>{app.name}</a>,
+            i < featuredApps.length - 2 ? ', ' : i === featuredApps.length - 2 ? ', and ' : '.',
+          ])}
+        </p>
+        <a class="link-arrow" href={`/${first.slug}/`}
+          >Meet {first.name}, our most popular app <span aria-hidden="true">→</span></a
         >
       </div>
       <div class="app-icon-art">
-        <img src="/img/breathe-easy/icon.png" alt="Breathe Easy icon" width="96" height="96" /><img
-          src="/img/contrast/icon.png"
-          alt="Contrast icon"
-          width="128"
-          height="128"
-        /><img src="/img/track-easy/icon.png" alt="Track Easy icon" width="96" height="96" />
+        {
+          iconArt.map((app, i) => (
+            <a href={`/${app.slug}/`}>
+              <img
+                src={app.icon}
+                alt={`${app.name} icon`}
+                width={i === 1 ? 128 : 96}
+                height={i === 1 ? 128 : 96}
+              />
+            </a>
+          ))
+        }
       </div>
     </div>
     <div class="filter-bar">
@@ -70,7 +87,7 @@ const category = (slug: string) =>
     </p>
     <div class="app-grid">
       {
-        visibleApps.map((app) => (
+        appsByPopularity.map((app) => (
           <a
             class="app-tile"
             data-app-category={category(app.slug)}
@@ -81,7 +98,9 @@ const category = (slug: string) =>
               <img src={app.icon} alt="" width="56" height="56" loading="lazy" />
               <div>
                 <>
-                  <p class="app-category">{app.category}</p>
+                  <p class="app-category">
+                    {featured.has(app.slug) ? `Popular · ${app.category}` : app.category}
+                  </p>
                   <h3>
                     {app.name} <span aria-hidden="true">→</span>
                   </h3>

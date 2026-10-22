@@ -2068,7 +2068,11 @@ p {
   border-radius: 22px;
   box-shadow: 0 18px 30px -18px rgba(23, 21, 18, 0.45);
 }
-.app-icon-art img:nth-child(2) {
+.app-icon-art a {
+  display: block;
+  line-height: 0;
+}
+.app-icon-art a:nth-child(2) img {
   width: 128px;
   border-radius: 29px;
   transform: rotate(-8deg);

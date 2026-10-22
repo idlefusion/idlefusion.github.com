@@ -207,6 +207,26 @@ export const apps = [
 // Keep pre-release products out of navigation and discovery.
 export const visibleApps = apps.filter((app) => app.slug !== 'marta-easy');
 
+// Most popular first. /apps/ leads with these and features the first three.
+export const topAppSlugs = [
+  'track-easy',
+  'fast-easy',
+  'pomo-easy',
+  'focus-easy',
+  'hydrate',
+  'meds-easy',
+  'spend-easy',
+];
+
+const rank = (slug: string) => {
+  const i = topAppSlugs.indexOf(slug);
+  return i === -1 ? topAppSlugs.length : i;
+};
+
+export const appsByPopularity = [...visibleApps].sort((a, b) => rank(a.slug) - rank(b.slug));
+
+export const featuredApps = appsByPopularity.slice(0, 3);
+
 export const appPages = [
   ...apps.map((app) => ({
     ...app,
