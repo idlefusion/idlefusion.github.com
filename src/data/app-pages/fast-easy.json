@@ -5,7 +5,7 @@
   "icon": "/img/fast-easy/icon.png",
   "seo": {
     "title": "Fast Easy — Fasting Timer for iOS",
-    "description": "A simple, beautiful fasting timer. No accounts, no tracking, no subscriptions. Just start your fast.",
+    "description": "A simple fasting timer for iPhone and iPad, with widgets, a Live Activity, streaks and history. No accounts, no tracking, no subscriptions.",
     "ogImage": "/img/fast-easy/icon.png",
     "canonical": "https://idlefusion.com/fast-easy"
   },
@@ -15,69 +15,79 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#08b9cf", "#23c08a"],
-  "ink": "#057380",
+  "pigments": [
+    "#0284c7",
+    "#38bdf8"
+  ],
+  "ink": "#0369a1",
   "hero": {
     "label": "Fasting Timer",
     "title": "Fasting, made <em>easy.</em>",
     "text": [
-      "A simple, beautiful fasting timer for iOS. No accounts. No tracking. No subscriptions."
+      "A simple fasting timer for iPhone and iPad. Start a fast in one tap, follow it from your Home Screen and Lock Screen, and see the flag fill when you reach your goal. Ink on paper, with color only where it means something. No accounts. No tracking. No subscriptions."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/fast-easy/screenshots/01_classic_ring.png",
-      "alt": "Classic ring timer",
-      "label": "Classic ring timer",
+      "src": "/img/fast-easy/screenshots/01-timer.png",
+      "alt": "Fast Easy — Start a fast in one tap",
+      "label": "Timer",
       "w": 1290,
       "h": 2796
     },
     {
-      "src": "/img/fast-easy/screenshots/02_goal_reached.png",
-      "alt": "Goal reached",
+      "src": "/img/fast-easy/screenshots/02-goal.png",
+      "alt": "Fast Easy — Know when you reach your goal",
       "label": "Goal reached",
       "w": 1290,
       "h": 2796
     },
     {
-      "src": "/img/fast-easy/screenshots/03_fluid_wave.png",
-      "alt": "Fluid wave skin",
-      "label": "Fluid wave skin",
+      "src": "/img/fast-easy/screenshots/03-widgets.png",
+      "alt": "Fast Easy — Your fast at a glance on the Home Screen and Lock Screen",
+      "label": "Widgets",
       "w": 1290,
       "h": 2796
     },
     {
-      "src": "/img/fast-easy/screenshots/04_minimal.png",
-      "alt": "Minimal skin",
-      "label": "Minimal skin",
+      "src": "/img/fast-easy/screenshots/04-dark.png",
+      "alt": "Fast Easy — Easy on the eyes at night, in Graphite or Black",
+      "label": "Dark mode",
       "w": 1290,
       "h": 2796
     },
     {
-      "src": "/img/fast-easy/screenshots/05_segmented_arc.png",
-      "alt": "Segmented arc skin",
-      "label": "Segmented arc skin",
+      "src": "/img/fast-easy/screenshots/05-dials.png",
+      "alt": "Fast Easy — Four dials to choose from",
+      "label": "Dials",
       "w": 1290,
       "h": 2796
     },
     {
-      "src": "/img/fast-easy/screenshots/06_analog_clock.png",
-      "alt": "Analog clock skin",
-      "label": "Analog clock skin",
+      "src": "/img/fast-easy/screenshots/06-history.png",
+      "alt": "Fast Easy — Every fast, kept",
+      "label": "History",
       "w": 1290,
       "h": 2796
     },
     {
-      "src": "/img/fast-easy/screenshots/07_statistics.png",
-      "alt": "Statistics and streaks",
-      "label": "Statistics and streaks",
+      "src": "/img/fast-easy/screenshots/07-detail.png",
+      "alt": "Fast Easy — Fix a fast's start or end time later",
+      "label": "Fast detail",
       "w": 1290,
       "h": 2796
     },
     {
-      "src": "/img/fast-easy/screenshots/08_history.png",
-      "alt": "Fasting history",
-      "label": "Fasting history",
+      "src": "/img/fast-easy/screenshots/08-statistics.png",
+      "alt": "Fast Easy — Your streaks and totals",
+      "label": "Statistics",
+      "w": 1290,
+      "h": 2796
+    },
+    {
+      "src": "/img/fast-easy/screenshots/09-settings.png",
+      "alt": "Fast Easy — Eight accents, each with its own app icon",
+      "label": "Settings",
       "w": 1290,
       "h": 2796
     }
@@ -94,28 +104,28 @@
       "title": "Simple by design.",
       "items": [
         {
-          "title": "Fasting Presets",
-          "text": "12:12, 16:8, 18:6, 20:4, OMAD, and 36-hour fasts. Pick one and go — or count up from zero."
+          "title": "Fasting Plans",
+          "text": "13:11, 16:8, 18:6, 20:4 and 36-hour fasts, or set your own length. Pick one and tap Start, and count down to your goal or up from zero."
         },
         {
-          "title": "10 Timer Skins",
-          "text": "Swipe through visual styles — minimal arcs, gradient rings, gauges, and more. Pick the one that fits your vibe."
+          "title": "Widgets &amp; Live Activity",
+          "text": "See time to go from your Home Screen and Lock Screen. A Live Activity follows your fast in the Dynamic Island and fills its flag at your goal."
         },
         {
-          "title": "Live Activities",
-          "text": "Track your fast from the lock screen and Dynamic Island without opening the app."
+          "title": "Four Dials",
+          "text": "Classic, Clock, Segments and Minimal. Swipe the dial to switch."
         },
         {
           "title": "Statistics &amp; Streaks",
-          "text": "Weekly charts, completion rates, total fasting hours, and current streak — all computed locally."
+          "text": "Your current and longest streak, total hours, average length, completion rate and your week at a glance. With your permission, your weight trend from Apple Health sits alongside."
         },
         {
           "title": "History",
-          "text": "Every completed fast is saved. Review your progress, see your longest fasts, and stay motivated."
+          "text": "Every fast is kept. See how close each came to its goal, and fix a start or end time if you forgot to tap."
         },
         {
-          "title": "Completely Offline",
-          "text": "No servers, no cloud sync, no network requests. Your data stays on your device. Period."
+          "title": "Make It Yours",
+          "text": "Light, Graphite or Black, and eight accents, each with its own app icon."
         }
       ]
     },
@@ -124,7 +134,7 @@
       "label": "",
       "title": "Zero data collection.",
       "text": [
-        "No analytics. No ads. No tracking pixels. No telemetry. Fast Easy doesn't even make network requests."
+        "No analytics. No ads. No tracking pixels. No telemetry. Fast Easy doesn't make network requests, and your fasts never leave your device."
       ],
       "link": {
         "href": "/fast-easy/privacy",
