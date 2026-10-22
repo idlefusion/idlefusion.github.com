@@ -11,7 +11,7 @@ export const apps = [
     name: 'Fast Easy',
     category: 'Fasting Timer',
     desc: 'A simple fasting timer with widgets and a Live Activity. No accounts, no tracking, no subscriptions.',
-    icon: '/img/fast-easy/icon.png',
+    icon: '/img/fast-easy/icon-ocean.png',
   },
   {
     slug: 'focus-easy',

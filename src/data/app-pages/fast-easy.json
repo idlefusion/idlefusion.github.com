@@ -2,11 +2,11 @@
   "slug": "fast-easy",
   "name": "Fast Easy",
   "category": "Fasting Timer",
-  "icon": "/img/fast-easy/icon.png",
+  "icon": "/img/fast-easy/icon-ocean.png",
   "seo": {
     "title": "Fast Easy — Fasting Timer for iOS",
     "description": "A simple fasting timer for iPhone and iPad, with widgets, a Live Activity, streaks and history. No accounts, no tracking, no subscriptions.",
-    "ogImage": "/img/fast-easy/icon.png",
+    "ogImage": "/img/fast-easy/icon-ocean.png",
     "canonical": "https://idlefusion.com/fast-easy"
   },
   "platform": "iOS",
