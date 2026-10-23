@@ -5,7 +5,7 @@
   "icon": "/img/contrast/icon.png",
   "seo": {
     "title": "Contrast — Sauna + Cold Plunge Timer for iOS",
-    "description": "A simple, purpose-built timer for contrast therapy. HealthKit integration, smart protocols, Apple Watch support. No accounts, no subscriptions.",
+    "description": "A simple sauna and cold plunge timer for iPhone: quick starts, protocols of rounds, time's up alerts, and optional Apple Health workouts. No account, no tracking.",
     "ogImage": "/img/contrast/icon.png",
     "canonical": "https://idlefusion.com/contrast"
   },
@@ -15,64 +15,74 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#ef7a45", "#16b3cc"],
+  "pigments": [
+    "#ef7a45",
+    "#16b3cc"
+  ],
   "ink": "#b44310",
   "hero": {
     "label": "SAUNA + COLD PLUNGE",
     "title": "Contrast therapy, <em>timed.</em>",
     "text": [
-      "A purpose-built timer for sauna and cold plunge sessions. HealthKit sync, smart protocols, Apple Watch support."
+      "A simple timer for sauna and cold plunge sessions: one-tap quick starts, rounds of heat and cold, an alert when time is up, and optional Apple Health workouts."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/contrast/screenshots/01_home.png",
-      "alt": "Contrast home screen",
-      "label": "Contrast home screen",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/contrast/screenshots/01-home.png",
+      "alt": "Contrast — Sauna and cold, one tap away",
+      "label": "Quick start",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/contrast/screenshots/02_active_sauna.png",
-      "alt": "Active sauna timer",
-      "label": "Active sauna timer",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/contrast/screenshots/02-sauna.png",
+      "alt": "Contrast — A timer you can read through steam",
+      "label": "Sauna timer",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/contrast/screenshots/03_active_cold.png",
-      "alt": "Active cold plunge timer",
-      "label": "Active cold plunge timer",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/contrast/screenshots/03-cold.png",
+      "alt": "Contrast — Rounds of heat and cold",
+      "label": "Cold plunge",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/contrast/screenshots/04_multi_phase.png",
-      "alt": "Multi-phase protocol",
-      "label": "Multi-phase protocol",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/contrast/screenshots/04-timeup.png",
+      "alt": "Contrast — It waits for you",
+      "label": "Time's up",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/contrast/screenshots/05_session_complete.png",
-      "alt": "Session complete",
-      "label": "Session complete",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/contrast/screenshots/05-editor.png",
+      "alt": "Contrast — Build your own protocol",
+      "label": "Protocols",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/contrast/screenshots/06_personal_records.png",
-      "alt": "Personal records",
-      "label": "Personal records",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/contrast/screenshots/06-summary.png",
+      "alt": "Contrast — Every session, saved",
+      "label": "Summary",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/contrast/screenshots/07_history.png",
-      "alt": "Session history",
-      "label": "Session history",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/contrast/screenshots/07-history.png",
+      "alt": "Contrast — Your week at a glance",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/contrast/screenshots/08-home-dark.png",
+      "alt": "Contrast — Easy on the eyes in the dark",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -87,28 +97,32 @@
       "title": "Built for the session.",
       "items": [
         {
-          "title": "Quick Start",
-          "text": "Two taps to start timing. Sauna or cold plunge — pick one and go. Designed for wet hands and foggy glasses."
+          "title": "Quick start",
+          "text": "One tap for a sauna, a cold plunge, or both. Big numbers and big buttons for wet hands."
         },
         {
-          "title": "Smart Protocols",
-          "text": "Multi-phase session plans that guide you through sauna, cold plunge, and rest intervals with automatic transitions."
+          "title": "Protocols",
+          "text": "Follow rounds of sauna, cold plunge and rest, or build your own. Each phase waits for you to move on."
         },
         {
-          "title": "HealthKit Sync",
-          "text": "Sessions save to Apple Health as workouts automatically. Your contrast therapy shows up alongside everything else you track."
+          "title": "Time's up alerts",
+          "text": "A sound and haptic when a phase ends, a notification when your phone is locked, and the timer on your Lock Screen."
         },
         {
-          "title": "Session History",
-          "text": "Every session is saved. Track personal records, total exposure time, and build the consistency that drives results."
+          "title": "Apple Health",
+          "text": "Save finished sessions to Apple Health as workouts, if you like. Contrast never reads your health data."
         },
         {
-          "title": "Apple Watch",
-          "text": "Start, pause, and advance phases from your wrist. Haptic alerts tell you when it's time to switch — no phone needed."
+          "title": "Session history",
+          "text": "Every session with its phases and notes, plus sessions this week, days in a row, and time in heat and cold."
         },
         {
-          "title": "Completely Offline",
-          "text": "No servers, no cloud sync, no network requests. Your data stays on your device. Period."
+          "title": "Safety first",
+          "text": "Plain safety tips built in: drink water, never plunge alone, and check with your doctor first. Contrast is a timer, not medical advice."
+        },
+        {
+          "title": "Completely offline",
+          "text": "No servers, no cloud sync, no network requests. Your data stays on your iPhone."
         }
       ]
     },

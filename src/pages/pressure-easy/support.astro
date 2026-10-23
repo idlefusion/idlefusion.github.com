@@ -23,56 +23,57 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
           <div class="space-y-6">
             <div class="border-b border-[var(--border-color)] pb-6">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What do the blood pressure categories mean?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Pressure Easy uses the American Heart Association (AHA) guidelines to classify your readings:</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Pressure Easy uses the American Heart Association's categories. When the two numbers fall in different categories, the higher one counts.</p>
               <ul class="mt-3 space-y-2 text-[var(--text-secondary)]">
-                <li><strong class="text-green-600 dark:text-green-400">Normal:</strong> Less than 120/80 mmHg</li>
-                <li><strong class="text-yellow-600 dark:text-yellow-400">Elevated:</strong> 120-129 / less than 80 mmHg</li>
-                <li><strong class="text-orange-600 dark:text-orange-400">High Stage 1:</strong> 130-139 / 80-89 mmHg</li>
-                <li><strong class="text-red-600 dark:text-red-400">High Stage 2:</strong> 140+ / 90+ mmHg</li>
-                <li><strong class="text-red-800 dark:text-red-300">Crisis:</strong> 180+ / 120+ mmHg — seek medical attention</li>
+                <li><strong class="text-[var(--text-primary)]">Normal:</strong> systolic less than 120 and diastolic less than 80</li>
+                <li><strong class="text-[var(--text-primary)]">Elevated:</strong> systolic 120–129 and diastolic less than 80</li>
+                <li><strong class="text-[var(--text-primary)]">Stage 1 hypertension:</strong> systolic 130–139 or diastolic 80–89</li>
+                <li><strong class="text-[var(--text-primary)]">Stage 2 hypertension:</strong> systolic 140 or higher or diastolic 90 or higher</li>
+                <li><strong class="text-[var(--text-primary)]">Hypertensive crisis:</strong> systolic higher than 180 and/or diastolic higher than 120</li>
               </ul>
+              <p class="mt-3 text-[var(--text-secondary)] leading-relaxed">If a reading is higher than 180/120, wait a few minutes and measure again. If it's still that high, contact your doctor right away. If you have chest pain, shortness of breath, back pain, numbness, weakness, vision changes or trouble speaking, call emergency services.</p>
             </div>
 
             <div class="border-b border-[var(--border-color)] pb-6">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">When should I measure my blood pressure?</h3>
               <p class="text-[var(--text-secondary)] leading-relaxed">For the most accurate readings:</p>
               <ul class="mt-3 space-y-1 text-[var(--text-secondary)] list-disc list-inside">
-                <li>Measure at the same times each day (morning and evening)</li>
-                <li>Rest for 5 minutes before measuring</li>
-                <li>Sit with your back supported and feet flat on the floor</li>
-                <li>Don't smoke, drink caffeine, or exercise 30 minutes before</li>
-                <li>Take 2-3 readings, 1 minute apart, and record the average</li>
+                <li>Measure at the same times each day, for example morning and evening</li>
+                <li>Sit quietly for 5 minutes first</li>
+                <li>Sit with your back supported, feet flat and legs uncrossed</li>
+                <li>No caffeine, exercise or smoking for 30 minutes before</li>
+                <li>Take 2 or 3 readings a minute apart</li>
               </ul>
             </div>
 
             <div class="border-b border-[var(--border-color)] pb-6">
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Pressure Easy sync with Apple Health?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Yes! HealthKit integration is optional. You can choose to read existing blood pressure data from Apple Health and/or write new readings to it. Your data stays on your device — we never see it.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Pressure Easy work with Apple Health?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes, if you want it to. Open the menu and tap Apple Health, then Continue, and choose what Pressure Easy can save and read. It can save each reading's blood pressure and pulse to Apple Health, and add readings that a connected blood pressure monitor or another app saved there. To change access later, open the Health app, tap your profile picture, then Apps, Pressure Easy.</p>
             </div>
 
             <div class="border-b border-[var(--border-color)] pb-6">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I share my readings with my doctor?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Go to the Trends tab and tap the export button. Pressure Easy generates a professional PDF report with all your readings and statistics. You can then email it, AirDrop it, or print it for your appointment.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Tap the report icon at the top right of Today, or open the menu and tap Doctor report. Pick a range and tap Create PDF. The report has a summary, the categories, a chart and every reading. Share it from the share sheet: mail, AirDrop, print or save to Files.</p>
             </div>
 
             <div class="border-b border-[var(--border-color)] pb-6">
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I log readings on my Apple Watch?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Yes! The Apple Watch app provides a quick, step-by-step flow to log systolic, diastolic, and pulse readings. It syncs automatically with your iPhone.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I add readings on my Apple Watch?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes. The Apple Watch app installs with the iPhone app. Tap Add reading, set each number with the Digital Crown or the − and + buttons, and save. The reading goes to your iPhone, and the watch shows your latest reading and averages.</p>
             </div>
 
             <div class="border-b border-[var(--border-color)] pb-6">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is Pressure Easy a medical device?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">No. Pressure Easy is a tracking tool to help you log and visualize your blood pressure readings. It does not measure blood pressure — you need a blood pressure monitor for that. Always consult your healthcare provider for medical advice.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">No. Pressure Easy keeps a record of readings from your blood pressure monitor and shows which category each falls in. It doesn't measure blood pressure or diagnose anything. Talk to your doctor about your readings.</p>
             </div>
 
             <div class="border-b border-[var(--border-color)] pb-6">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Where is my data stored?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">All your data is stored locally on your device. There's no cloud sync, no accounts, and no servers involved. Your blood pressure readings are private and stay private.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">On your iPhone, in the app and its widget, and on your Apple Watch if you use it. There's no cloud sync, no account and no server. Readings go to Apple Health only if you turn that on.</p>
             </div>
 
             <div class="pb-6">
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I change the color theme?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Go to Settings and choose from 8 beautiful color themes. Each theme also includes a matching app icon that you can apply.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I change the look?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Open the menu and tap Settings. Under Appearance, choose System, Light or Dark, a Graphite or Black dark style, and an accent. Each accent has a matching app icon.</p>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
         <div class="space-y-8">
           <div>
             <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does on-device transcription work?</h3>
-            <p class="text-[var(--text-secondary)]">Voice Easy uses Apple's built-in speech recognition with on-device processing enabled. This means your voice is transcribed directly on your iPhone using machine learning models stored locally. Your audio never leaves your device and no internet connection is required.</p>
+            <p class="text-[var(--text-secondary)]">Voice Easy uses Apple's built-in speech recognition with on-device processing enabled. This means your voice is transcribed directly on your iPhone using machine learning models stored locally. Your audio never leaves your device. The first time, iOS may need to download Apple's speech model for your language; after that, transcription works offline.</p>
           </div>
 
           <div>
@@ -42,17 +42,17 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I export my recordings?</h3>
-            <p class="text-[var(--text-secondary)]">Yes! Tap the share button on any recording to export the audio file, the transcription text, or both. You can send recordings via Messages, Mail, AirDrop, or save them to Files.</p>
+            <p class="text-[var(--text-secondary)]">Yes. Open a recording and tap the share button to send the audio, named after the recording. The ••• menu also shares or copies the transcript. You can send recordings via Messages, Mail, AirDrop, or save them to Files.</p>
           </div>
 
           <div>
             <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Do recordings sync between my iPhone and Apple Watch?</h3>
-            <p class="text-[var(--text-secondary)]">Yes, recordings made on your Apple Watch automatically sync to your iPhone when the devices are in range. This uses Apple's secure device-to-device communication — no data passes through external servers.</p>
+            <p class="text-[var(--text-secondary)]">Recordings you make on your Apple Watch are sent to your iPhone automatically when the devices are in range, and are transcribed there. The watch shows which memos are on your iPhone. This uses Apple's device-to-device communication; no data passes through external servers.</p>
           </div>
 
           <div>
             <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why do I need to grant microphone and speech recognition permissions?</h3>
-            <p class="text-[var(--text-secondary)]">Microphone permission is required to record audio. Speech recognition permission is required for transcription. Both are used only when you explicitly start a recording. Voice Easy never accesses these features in the background.</p>
+            <p class="text-[var(--text-secondary)]">Microphone permission is required to record audio, and Voice Easy asks the first time you tap the record button. On iOS 26 and later, transcription needs no extra permission. On earlier versions, Voice Easy asks for Speech Recognition when it's ready to transcribe your first recording. A recording you start keeps going when you lock your iPhone; Voice Easy never records on its own.</p>
           </div>
 
           <div>
@@ -62,7 +62,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I delete a recording?</h3>
-            <p class="text-[var(--text-secondary)]">Swipe left on any recording in the library to reveal the delete option. Deleted recordings are permanently removed from your device.</p>
+            <p class="text-[var(--text-secondary)]">Touch and hold a recording and choose Delete, or open it and choose Delete from the ••• menu. Deleted recordings are permanently removed from your device.</p>
           </div>
         </div>
       </div>

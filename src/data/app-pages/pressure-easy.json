@@ -2,11 +2,11 @@
   "slug": "pressure-easy",
   "name": "Pressure Easy",
   "category": "Blood Pressure",
-  "icon": "/img/pressure-easy/icon.png",
+  "icon": "/img/pressure-easy/icon-focus.png",
   "seo": {
-    "title": "Pressure Easy — Blood Pressure Tracker for iOS",
-    "description": "Track blood pressure privately. Log readings, see trends with AHA category indicators, and export PDF reports for your doctor. No accounts, no subscriptions.",
-    "ogImage": "/img/pressure-easy/icon.png",
+    "title": "Pressure Easy — Private Blood Pressure Tracker for iPhone and Apple Watch",
+    "description": "Track blood pressure privately. Every reading in its American Heart Association category, your 7- and 30-day averages, trends and a PDF report for your doctor. Apple Watch, widgets and optional Apple Health. No accounts, no tracking.",
+    "ogImage": "/img/pressure-easy/icon-focus.png",
     "canonical": "https://idlefusion.com/pressure-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,74 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#0b9e9e", "#45c2c2"],
-  "ink": "#087373",
+  "pigments": [
+    "#e11d48",
+    "#fb7185"
+  ],
+  "ink": "#be123c",
   "hero": {
     "label": "BLOOD PRESSURE TRACKER",
-    "title": "Track blood pressure, <em>privately.</em>",
+    "title": "Know your numbers, <em>privately.</em>",
     "text": [
-      "Log readings, see trends, and share reports with your doctor. All your data stays on your device — no accounts, no cloud sync, no subscriptions."
+      "Add a reading in seconds and see its American Heart Association category in plain words, with your 7- and 30-day averages right beside it. A clear PDF for your doctor when you need one. No account, no cloud, no tracking."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/pressure-easy/screenshots/01_marketing.png",
-      "alt": "Pressure Easy — Blood Pressure Simplified",
-      "label": "Blood Pressure Simplified",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pressure-easy/screenshots/01-today.png",
+      "alt": "Pressure Easy — Your blood pressure, at a glance",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pressure-easy/screenshots/02_marketing.png",
-      "alt": "Pressure Easy — AHA Color Coding",
-      "label": "AHA Color Coding",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pressure-easy/screenshots/02-add.png",
+      "alt": "Pressure Easy — Every reading, in plain words",
+      "label": "Add a Reading",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pressure-easy/screenshots/03_marketing.png",
-      "alt": "Pressure Easy — Trend Charts",
-      "label": "Trend Charts",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pressure-easy/screenshots/03-trends.png",
+      "alt": "Pressure Easy — See the trend, not just the day",
+      "label": "Trends",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pressure-easy/screenshots/04_marketing.png",
-      "alt": "Pressure Easy — PDF Export",
-      "label": "PDF Export",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pressure-easy/screenshots/04-report.png",
+      "alt": "Pressure Easy — A clear report for your doctor",
+      "label": "Doctor Report",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pressure-easy/screenshots/07_widget.png",
-      "alt": "Pressure Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pressure-easy/screenshots/05-widgets.png",
+      "alt": "Pressure Easy — Your numbers on your Home Screen",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pressure-easy/screenshots/06-history.png",
+      "alt": "Pressure Easy — Every reading, kept in order",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pressure-easy/screenshots/07-today-dark.png",
+      "alt": "Pressure Easy — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pressure-easy/screenshots/08-watch.png",
+      "alt": "Pressure Easy on Apple Watch — your latest reading and averages",
+      "label": "Apple Watch",
+      "w": 422,
+      "h": 514
     }
   ],
   "sections": [
@@ -70,31 +94,31 @@
     {
       "type": "features",
       "label": "FEATURES",
-      "title": "Built for your health.",
+      "title": "Built for your numbers.",
       "items": [
         {
-          "title": "Blood Pressure Logging",
-          "text": "Log systolic/diastolic readings with pulse. Record your position — sitting, standing, or lying down — and add notes for context."
+          "title": "Today at a glance",
+          "text": "Your latest reading in big, clear numbers, its category in words, and your 7- and 30-day averages. A reading above normal carries a small mark, so it's easy to spot."
         },
         {
-          "title": "Trend Charts",
-          "text": "Visualize your blood pressure over time with beautiful charts. View weekly, monthly, or yearly trends with averages and ranges."
+          "title": "AHA categories, in plain words",
+          "text": "Normal, elevated, stage 1, stage 2 or hypertensive crisis, exactly as the American Heart Association defines them. A very high reading comes with a calm note on when to contact your doctor or emergency services."
         },
         {
-          "title": "AHA Category Indicators",
-          "text": "Every reading is classified using American Heart Association guidelines. Color-coded Normal, Elevated, Stage 1, Stage 2, and Crisis levels."
+          "title": "Trends",
+          "text": "A chart of every reading from 7 days to a year, your highest and lowest, average pulse, and morning against evening."
         },
         {
-          "title": "PDF Export for Doctors",
-          "text": "Generate professional reports with all your readings and statistics. Share via email or print for your next doctor's visit."
+          "title": "A report for your doctor",
+          "text": "A PDF with a summary, your categories, a chart and every reading, made on your iPhone and shared only when you choose."
         },
         {
-          "title": "Apple Watch",
-          "text": "Quick entry from your wrist. Step-by-step logging flow makes it easy to record readings without pulling out your phone."
+          "title": "Apple Watch and widgets",
+          "text": "Add a reading from your wrist and it shows up on your iPhone. Home Screen and Lock Screen widgets keep your latest reading and averages in view."
         },
         {
-          "title": "HealthKit Sync",
-          "text": "Optionally sync with Apple Health. Read existing data or write new readings. Your health data stays unified in one place."
+          "title": "Apple Health",
+          "text": "Optional. Save your blood pressure and pulse to Apple Health, or add readings a connected blood pressure monitor saved there."
         }
       ]
     },
@@ -103,33 +127,33 @@
       "label": "AHA GUIDELINES",
       "title": "Understand your numbers.",
       "text": [
-        "Every reading is automatically classified using American Heart Association guidelines."
+        "Every reading falls into one of the American Heart Association's five categories. When the two numbers disagree, the higher category counts. Pressure Easy is not a medical device and doesn't diagnose."
       ],
       "items": [
         {
           "label": "Normal",
-          "range": "&lt; 120 / &lt; 80",
-          "color": "#16a34a"
+          "range": "&lt; 120 and &lt; 80",
+          "color": "#6b6b6b"
         },
         {
           "label": "Elevated",
-          "range": "120-129 / &lt; 80",
-          "color": "#ca8a04"
+          "range": "120–129 and &lt; 80",
+          "color": "#e11d48"
         },
         {
-          "label": "High Stage 1",
-          "range": "130-139 / 80-89",
-          "color": "#ea580c"
+          "label": "Stage 1 hypertension",
+          "range": "130–139 or 80–89",
+          "color": "#e11d48"
         },
         {
-          "label": "High Stage 2",
-          "range": "≥ 140 / ≥ 90",
-          "color": "#dc2626"
+          "label": "Stage 2 hypertension",
+          "range": "≥ 140 or ≥ 90",
+          "color": "#e11d48"
         },
         {
-          "label": "Crisis",
-          "range": "≥ 180 / ≥ 120",
-          "color": "#991b1b"
+          "label": "Hypertensive crisis",
+          "range": "&gt; 180 and/or &gt; 120",
+          "color": "#e11d48"
         }
       ]
     },
@@ -138,7 +162,7 @@
       "label": "PRIVACY",
       "title": "Your health data stays yours.",
       "text": [
-        "No analytics. No ads. No tracking pixels. No telemetry. Your blood pressure readings are stored locally on your device. We never see them, and neither does anyone else."
+        "No accounts. No cloud sync. No analytics. No ads. No tracking. Your readings stay on your iPhone and Apple Watch, and in Apple Health only if you turn it on. We never see them."
       ],
       "link": {
         "href": "/pressure-easy/privacy",
@@ -147,7 +171,7 @@
     }
   ],
   "cta": {
-    "title": "Start tracking.",
+    "title": "Start tracking, privately.",
     "text": "Free on the App Store. No account required."
   }
 }

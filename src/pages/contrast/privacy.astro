@@ -11,7 +11,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Contrast - Sauna + Cold Plunge &middot; Effective February 11, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Contrast - Sauna + Cold Plunge &middot; Effective October 22, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           <div>
@@ -21,13 +21,18 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Storage</h2>
-            <p>All session data, settings, and personal records are stored locally on your device using SwiftData. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
+            <p>All sessions, protocols, notes, and settings are stored locally on your device. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple HealthKit</h2>
-            <p class="mb-3">Contrast can save completed sessions to Apple Health as workouts, but only if you explicitly grant permission. HealthKit data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Contrast. If you deny HealthKit access, the app continues to work normally.</p>
-            <p>Contrast does not read any health data from HealthKit. It only writes workout records for sessions you complete.</p>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Health</h2>
+            <p class="mb-3">Contrast can save finished sessions to Apple Health as Mind and Body workouts, but only if you turn this on in Settings &gt; Apple Health and grant permission. Apple Health data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Contrast. If you don't allow access, the app works normally.</p>
+            <p>Contrast does not read any data from Apple Health. It only writes workouts for sessions you finish.</p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Notifications and Live Activities</h2>
+            <p>If you allow notifications, Contrast schedules a local alert on your device for when each phase's time is up. The running timer can also appear as a Live Activity on your Lock Screen. Both are created on your device; nothing is sent to a server.</p>
           </div>
 
           <div>

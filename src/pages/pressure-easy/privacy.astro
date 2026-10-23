@@ -11,23 +11,28 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Pressure Easy - Blood Pressure Tracker &middot; Effective February 15, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Pressure Easy - Blood Pressure Tracker &middot; Effective October 22, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">The Short Version</h2>
-            <p>Pressure Easy does not collect, store, or transmit any personal data. All your blood pressure readings stay on your device.</p>
+            <p>Pressure Easy does not collect or transmit any personal data. Your blood pressure readings stay on your iPhone and Apple Watch, and in Apple Health only if you turn it on.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Storage</h2>
-            <p>All blood pressure readings, pulse data, settings, and personal records are stored locally on your device using SwiftData. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
+            <p>Your blood pressure readings, pulse, notes and settings are stored on your iPhone, where the app and its widget can read them. No data is sent to any server, cloud service or third party. There are no user accounts and no sign-up.</p>
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple HealthKit</h2>
-            <p class="mb-3">Pressure Easy can read and write blood pressure data to Apple Health, but only if you explicitly grant permission. HealthKit data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Pressure Easy.</p>
-            <p>If you deny HealthKit access, the app continues to work normally — you can still log, view trends, and export PDF reports. HealthKit integration is entirely optional.</p>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Watch</h2>
+            <p>If you use the Apple Watch app, readings you add on the watch are sent straight to Pressure Easy on your paired iPhone, and your iPhone sends your latest readings and averages back to the watch. This uses Apple's watch connection between your own devices; nothing passes through our servers.</p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Health</h2>
+            <p class="mb-3">Pressure Easy works with Apple Health only if you turn it on and grant permission. With your permission it saves the blood pressure and pulse of your readings to Apple Health, and reads blood pressure and heart rate so you can add readings that other apps, like a connected monitor, saved there. Health data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a>. Pressure Easy never sends it anywhere else and never uses it for advertising.</p>
+            <p>If you don't connect Apple Health, the app works the same: you can still add readings, see trends and create reports. You can change Pressure Easy's access at any time in the Health app.</p>
           </div>
 
           <div>
@@ -42,7 +47,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">PDF Export</h2>
-            <p>When you generate a PDF report, it is created locally on your device. Pressure Easy does not upload the PDF anywhere. You control how and where the PDF is shared using iOS's standard share sheet.</p>
+            <p>When you create a doctor report, the PDF is made on your iPhone. Pressure Easy does not upload it anywhere. You choose how and where to share it from the share sheet, and the app deletes its copy when the share sheet closes.</p>
           </div>
 
           <div>

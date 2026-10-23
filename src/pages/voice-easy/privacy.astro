@@ -11,7 +11,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Voice Easy - Private Voice Recorder &middot; Effective February 15, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Voice Easy - Private Voice Recorder &middot; Effective October 22, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           <div>
@@ -24,20 +24,20 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             <p class="mb-3">Voice Easy uses Apple's on-device speech recognition to transcribe your recordings. This is a critical privacy feature:</p>
             <ul class="list-disc list-inside space-y-2 ml-2">
               <li><strong>Audio never leaves your device</strong> — transcription happens locally using Apple's on-device speech recognition engine</li>
-              <li><strong>No internet required</strong> — the app works completely offline</li>
               <li><strong>No cloud processing</strong> — your voice is never sent to any server, including Apple's</li>
+              <li><strong>Works offline</strong> — the only download is Apple's speech model for your language, which iOS may fetch once; no audio or text is sent</li>
             </ul>
-            <p class="mt-3">When you grant speech recognition permission, Voice Easy explicitly requests on-device recognition only. Your audio data stays on your iPhone or Apple Watch.</p>
+            <p class="mt-3">On iOS 26 and later, Voice Easy uses Apple's SpeechAnalyzer, which always runs on your device. On earlier versions it asks for Speech Recognition permission and requests on-device recognition only; if your device can't transcribe your language on device, Voice Easy tells you instead of using a server. Your audio stays on your iPhone or Apple Watch.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Storage</h2>
-            <p>All recordings, transcriptions, folders, and tags are stored locally on your device using SwiftData. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
+            <p>All recordings, transcriptions and folders are stored locally on your device. The Home Screen widget sees only the number of recordings and the name, date and length of the latest one. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Microphone Access</h2>
-            <p>Voice Easy requires microphone permission to record audio. Microphone access is used solely for recording voice memos that you initiate. The app never records in the background or accesses the microphone without your explicit action.</p>
+            <p>Voice Easy requires microphone permission to record audio. The microphone is used only for recordings you start with the record button. A recording you start keeps going if you lock your iPhone or switch apps, with the system's microphone indicator showing, until you stop it. Voice Easy never starts recording on its own.</p>
           </div>
 
           <div>
@@ -47,12 +47,12 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Network Usage</h2>
-            <p>Voice Easy makes no network requests. The app works entirely offline. The only network activity associated with the app is through the App Store for updates.</p>
+            <p>Voice Easy makes no network requests of its own. The only network activity associated with the app is iOS downloading Apple's on-device speech model for your language, if it isn't already on your device, and App Store updates.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Watch</h2>
-            <p>The Apple Watch companion app follows the same privacy principles. Recordings made on your watch are stored locally and can sync to your iPhone using Apple's secure device-to-device communication. No data passes through external servers.</p>
+            <p>The Apple Watch app follows the same privacy principles. Recordings made on your watch are sent directly to your iPhone with Apple's device-to-device WatchConnectivity, then removed from the watch. They are transcribed on your iPhone. No data passes through external servers.</p>
           </div>
 
           <div>

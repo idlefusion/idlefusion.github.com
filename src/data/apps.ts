@@ -3,7 +3,7 @@ export const apps = [
     slug: 'contrast',
     name: 'Contrast',
     category: 'Sauna + Cold Plunge',
-    desc: 'A purpose-built timer for contrast therapy with HealthKit sync and Apple Watch support.',
+    desc: 'A simple sauna and cold plunge timer with protocols, time\'s up alerts and Apple Health workouts.',
     icon: '/img/contrast/icon.png',
   },
   {
@@ -66,8 +66,8 @@ export const apps = [
     slug: 'hydrate',
     name: 'Hydrate',
     category: 'Water Tracker',
-    desc: 'Track your daily water intake with quick-log buttons and HealthKit sync.',
-    icon: '/img/hydrate/icon.png',
+    desc: 'Log water in one tap, see what\'s left today, and keep your streak, on iPhone and Apple Watch.',
+    icon: '/img/hydrate/icon-ocean.png',
   },
   {
     slug: 'count-easy',
@@ -87,8 +87,8 @@ export const apps = [
     slug: 'voice-easy',
     name: 'Voice Easy',
     category: 'Voice Recorder',
-    desc: 'Record voice memos with on-device transcription. Your voice never leaves your device.',
-    icon: '/img/voice-easy/icon.png',
+    desc: 'Voice memos, transcribed on your iPhone. Record from Apple Watch, too.',
+    icon: '/img/voice-easy/icon-berry.png',
   },
   {
     slug: 'weigh-easy',
@@ -101,8 +101,8 @@ export const apps = [
     slug: 'pressure-easy',
     name: 'Pressure Easy',
     category: 'Blood Pressure',
-    desc: 'Track blood pressure with AHA category indicators and PDF export for your doctor.',
-    icon: '/img/pressure-easy/icon.png',
+    desc: 'Track blood pressure privately: AHA categories in plain words, averages and a PDF for your doctor.',
+    icon: '/img/pressure-easy/icon-focus.png',
   },
   {
     slug: 'spend-easy',

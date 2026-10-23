@@ -11,7 +11,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Hydrate - Simple Water Tracker &middot; Effective February 15, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Hydrate - Simple Water Tracker &middot; Effective October 22, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           <div>
@@ -21,15 +21,17 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Storage</h2>
-            <p>All hydration data, goals, streaks, and settings are stored locally on your device using SwiftData. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
+            <p>Your drinks, goals, streaks and settings are stored on your device, where the Hydrate app and its widgets share them. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
           </div>
-
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple HealthKit</h2>
-            <p class="mb-3">Hydrate can sync your water intake with Apple Health as dietary water data, but only if you explicitly grant permission. HealthKit data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Hydrate.</p>
-            <p>If you deny HealthKit access, the app continues to work normally — your data is simply stored within Hydrate only. You can enable or disable HealthKit sync at any time in Settings.</p>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Watch</h2>
+            <p>If you use Hydrate on Apple Watch, your iPhone sends today's goal and drinks to your paired watch, and drinks you log on the watch are sent to your iPhone. This happens directly between your own devices through Apple's WatchConnectivity; nothing goes to us or anyone else.</p>
           </div>
-
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Health</h2>
+            <p class="mb-3">If you connect Apple Health in Settings, Hydrate saves each drink you log to Apple Health as Water (dietary water), and deletes or updates it there when you delete or change the drink in Hydrate. Hydrate only writes Water; it doesn't read any data from Apple Health. Health data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Hydrate.</p>
+            <p>If you don't connect Apple Health, or turn it off, the app works the same and your drinks stay in Hydrate only. You can pause saving in Hydrate's Settings, or change access any time in the Health app.</p>
+          </div>
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Analytics & Tracking</h2>
             <p>Hydrate contains no analytics frameworks, no ad SDKs, no tracking pixels, and no telemetry of any kind. We do not use any third-party services that collect data.</p>
@@ -52,7 +54,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Deletion</h2>
-            <p>When you delete the Hydrate app, all your data is permanently deleted from your device. There is no cloud backup to remove because we never had your data in the first place.</p>
+            <p>When you delete the Hydrate app, its data is permanently deleted from your device. You can also delete every drink in Settings. Drinks already saved to Apple Health stay there until you delete them in the Health app. There is no cloud copy to remove because we never had your data in the first place.</p>
           </div>
 
           <div>

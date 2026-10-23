@@ -2,11 +2,11 @@
   "slug": "hydrate",
   "name": "Hydrate",
   "category": "Water Tracker",
-  "icon": "/img/hydrate/icon.png",
+  "icon": "/img/hydrate/icon-ocean.png",
   "seo": {
     "title": "Hydrate — Simple Water Tracker for iOS",
-    "description": "Track your daily water intake with a beautiful progress ring. Quick tap logging, widgets, Apple Watch support. No accounts, no subscriptions.",
-    "ogImage": "/img/hydrate/icon.png",
+    "description": "Log water in one tap and see what's left today. Streaks, Apple Watch, widgets and reminders, with optional Apple Health. No accounts, no subscriptions.",
+    "ogImage": "/img/hydrate/icon-ocean.png",
     "canonical": "https://idlefusion.com/hydrate"
   },
   "platform": "iOS",
@@ -15,50 +15,67 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#06bfc7", "#0ea0e6"],
-  "ink": "#047378",
+  "pigments": [
+    "#0284c7",
+    "#38bdf8"
+  ],
+  "ink": "#0369a1",
   "hero": {
-    "label": "SIMPLE WATER TRACKER",
-    "title": "Track your daily <em>water intake.</em>",
+    "label": "WATER TRACKER",
+    "title": "Drink enough water, <em>one tap at a time.</em>",
     "text": [
-      "Log your hydration in seconds with quick tap presets. A beautiful progress ring keeps you motivated all day."
+      "Hydrate tells you what's left today in plain words and logs a glass, can or bottle in one tap. Ink on paper, with color only on your goal. No sign-up, no subscriptions, no data collection."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/hydrate/screenshots/01_marketing.png",
-      "alt": "Hydrate — Track Your Hydration",
-      "label": "Track Your Hydration",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/hydrate/screenshots/01-today.png",
+      "alt": "Hydrate — Water, one tap at a time",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/hydrate/screenshots/02_marketing.png",
-      "alt": "Hydrate — Stay on Target",
-      "label": "Stay on Target",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/hydrate/screenshots/02-history.png",
+      "alt": "Hydrate — Every day at a glance",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/hydrate/screenshots/03_marketing.png",
-      "alt": "Hydrate — Home Screen Widgets",
-      "label": "Home Screen Widgets",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/hydrate/screenshots/03-widgets.png",
+      "alt": "Hydrate — Your goal on your Home Screen",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/hydrate/screenshots/04_marketing.png",
-      "alt": "Hydrate — Apple Watch Ready",
-      "label": "Apple Watch Ready",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/hydrate/screenshots/04-day.png",
+      "alt": "Hydrate — Put any day right",
+      "label": "Day Details",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/hydrate/screenshots/07_widget.png",
-      "alt": "Hydrate — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/hydrate/screenshots/05-settings.png",
+      "alt": "Hydrate — Works with Apple Health",
+      "label": "Apple Health",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/hydrate/screenshots/06-accent.png",
+      "alt": "Hydrate — Make it yours",
+      "label": "Accents",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/hydrate/screenshots/07-today-dark.png",
+      "alt": "Hydrate — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -70,31 +87,50 @@
     {
       "type": "features",
       "label": "FEATURES",
-      "title": "Stay hydrated, effortlessly.",
+      "title": "Simple by design.",
       "items": [
         {
-          "title": "Quick Tap Logging",
-          "text": "Pick a preset size — 8oz, 12oz, 16oz, or 20oz — and tap. Done. Custom amounts for any container. Satisfying haptic feedback with every log."
+          "title": "One-Tap Logging",
+          "text": "Tap Glass, Can, Bottle or Large bottle, in ounces or milliliters. Any other amount, at any time, is one sheet away, for the drink you forgot to log."
         },
         {
-          "title": "Beautiful Progress Ring",
-          "text": "Watch your daily progress fill up in a gorgeous animated ring. Hit your goal and celebrate with a delightful animation. Centered design keeps you focused."
+          "title": "What's Left, in Words",
+          "text": "Today leads with \"24 oz to go\", then \"Goal reached\", with a ring that fills as you drink. Change or delete any drink, on any day."
         },
         {
-          "title": "Smart Reminders",
-          "text": "Gentle nudges to keep you on track throughout the day. Customize timing and frequency to match your schedule. Never forget to drink water again."
-        },
-        {
-          "title": "Home &amp; Lock Screen Widgets",
-          "text": "See your progress at a glance without opening the app. Multiple sizes for Home Screen and Lock Screen. Your hydration status, always visible."
+          "title": "Streaks and History",
+          "text": "Your daily average, goal days, streak and personal best for the last week or month, with every day's drinks to look back on or put right."
         },
         {
           "title": "Apple Watch",
-          "text": "Log water directly from your wrist. Complications show your progress on any watch face. Quick-add buttons make tracking fast and effortless."
+          "text": "Log a drink from your wrist, see what's left, and add a complication to your watch face. Drinks reach your iPhone even if it was out of reach for a while."
         },
         {
-          "title": "Streak Tracking",
-          "text": "Track your consecutive days of hitting your goal. Build momentum and stay motivated. Your longest streak is saved forever."
+          "title": "Widgets",
+          "text": "Home Screen and Lock Screen widgets show what's left today at a glance, in your unit and your accent."
+        },
+        {
+          "title": "Apple Health",
+          "text": "Connect Apple Health and every drink you log is saved there as Water, and deleted there when you delete it. Hydrate never reads your Health data."
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Set it up <em>your way.</em>",
+      "items": [
+        {
+          "title": "Your Accent",
+          "text": "Pick one of eight accents to mark your goal. It sets the app icon too, with dark and tinted versions, and the widgets."
+        },
+        {
+          "title": "Day or Night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
+        },
+        {
+          "title": "Gentle Reminders",
+          "text": "Reminders every one to four hours, between the hours you choose. Each says what's left, they stop once you reach your goal, and you can log a glass right from one."
         }
       ]
     },
@@ -103,7 +139,7 @@
       "label": "PRIVACY",
       "title": "Your data stays yours.",
       "text": [
-        "Zero data collection. Zero tracking. Zero cloud storage. Your water intake is stored only on your device. Optionally sync to Apple Health — you control when and if this happens."
+        "No analytics. No ads. No tracking. No cloud sync. Your drinks stay on your device and your Apple Watch, and go to Apple Health only if you connect it. Zero data collection, period."
       ],
       "link": {
         "href": "/hydrate/privacy",
