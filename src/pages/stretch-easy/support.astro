@@ -23,42 +23,52 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
           <div class="space-y-6">
             <div>
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What routines are included?</h3>
-              <p class="text-[var(--text-secondary)]">Stretch Easy comes with five pre-built routines: Morning Wake-Up (5 min), Desk Break (3 min), Post-Workout (10 min), Full Body (15 min), and Evening Wind-Down (7 min). Each targets different needs throughout your day.</p>
+              <p class="text-[var(--text-secondary)]">Five: Morning Wake-Up (5 minutes), Desk Break (3 minutes), Post-Workout (10 minutes), Full Body (16 minutes) and Evening Wind-Down (8 minutes). Today suggests one for the time of day: Morning Wake-Up before 11, Desk Break through the day, and Evening Wind-Down from 5 PM.</p>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I create my own routines?</h3>
-              <p class="text-[var(--text-secondary)]">Yes! The custom routine builder lets you pick from 15+ stretches, set custom durations for each, and save your routine for future use. Build routines tailored to your specific needs.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I make my own routines?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. Tap the compose button at the top of Today, name the routine, add stretches from the library of 16, and set each one's time and the rest between them. To change or delete one of your routines, open it and use the More button. You can also open Target areas, pick the areas that feel tight, and start a routine made for them.</p>
             </div>
 
             <div>
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do the timers work?</h3>
-              <p class="text-[var(--text-secondary)]">Each stretch has a countdown timer with a large display. When time is up, you'll get a haptic cue (and optional audio) signaling it's time for the next stretch. Rest intervals between stretches give you time to transition.</p>
+              <p class="text-[var(--text-secondary)]">Each stretch counts down in a ring, with how to do it underneath. When time is up you get a haptic and a sound, a short rest, then the next stretch. The last three seconds tick. Pause, or Skip to move on. The screen stays on until the routine ends. In Settings you can turn off sounds, haptics, countdown sounds, or auto-advance, which makes each stretch wait for you to tap Next.</p>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does the Apple Watch app work independently?</h3>
-              <p class="text-[var(--text-secondary)]">Yes! The Apple Watch app includes all routines and can run completely on its own. Haptic feedback guides you through each stretch — no need to look at your phone.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does the streak work?</h3>
+              <p class="text-[var(--text-secondary)]">Your streak counts the days in a row you finished at least one routine. Today shows it under the headline: a filled leaf once you've stretched today, an outlined one while today's stretch is still to do. History shows your personal best and sixteen weeks of stretched days. A routine you end early doesn't count.</p>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What gets saved to HealthKit?</h3>
-              <p class="text-[var(--text-secondary)]">If you enable HealthKit, completed stretching sessions are logged as flexibility workouts. This includes the routine name, duration, and calories (estimated). HealthKit integration is optional.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What does Apple Health get?</h3>
+              <p class="text-[var(--text-secondary)]">Nothing, unless you turn it on. In Settings, under Apple Health, turn on Save to Apple Health. The first time, iOS asks for permission to save workouts. After that, each routine you finish is saved to Apple Health as a Flexibility workout with its start time and length. Stretch Easy never reads your health data.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">I said no to Apple Health. How do I turn it on?</h3>
+              <p class="text-[var(--text-secondary)]">Open the Health app, tap your picture at the top, then Apps, then Stretch Easy, and turn on Workouts. Then turn on Save to Apple Health in Stretch Easy's Settings. If you tap the switch while access is off, Stretch Easy shows these steps with a button that opens the Health app.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does the Apple Watch app work on its own?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. Open Stretch Easy on your Apple Watch, pick one of the five routines, and follow along with a tap on your wrist for each new stretch, even with your wrist down. Routines you finish on the watch stay on the watch for now; they don't show up in your iPhone's history.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I change the look?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. In Settings, choose System, Light or Dark, and a Graphite or Black dark style. Accent offers eight colors, and each one comes with its own app icon.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is Stretch Easy medical advice?</h3>
+              <p class="text-[var(--text-secondary)]">No. Stretch gently and stop if anything hurts. For pain that lasts, see a doctor or physical therapist.</p>
             </div>
 
             <div>
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is there a subscription?</h3>
-              <p class="text-[var(--text-secondary)]">No. Stretch Easy is a one-time purchase with no subscriptions, no ads, and no in-app purchases. All features are included.</p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How often should I stretch?</h3>
-              <p class="text-[var(--text-secondary)]">Consistency matters more than duration. Even 3-5 minutes daily can improve flexibility over time. Use the Desk Break routine throughout the workday, or the Morning Wake-Up routine to start your day right.</p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I change the theme?</h3>
-              <p class="text-[var(--text-secondary)]">Yes! Stretch Easy includes 8 beautiful color themes. Go to Settings and choose the one that feels right for you.</p>
+              <p class="text-[var(--text-secondary)]">No. Stretch Easy is free, with no ads, no subscriptions and no in-app purchases.</p>
             </div>
           </div>
         </div>

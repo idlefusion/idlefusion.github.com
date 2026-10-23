@@ -2,53 +2,84 @@
   "slug": "stretch-easy",
   "name": "Stretch Easy",
   "category": "Stretching Routines",
-  "icon": "/img/stretch-easy/icon.png",
+  "icon": "/img/stretch-easy/icon-forest.png",
   "seo": {
-    "title": "Stretch Easy — Guided Stretching Routines for iOS",
-    "description": "Simple guided stretching routines with timers. Pre-built or custom routines, haptic cues, Apple Watch support. No accounts, no subscriptions.",
-    "ogImage": "/img/stretch-easy/icon.png",
+    "title": "Stretch Easy — Guided Stretching Routines for iPhone and Apple Watch",
+    "description": "Short, guided stretching routines with a timer for every stretch and a cue to switch. Keep a daily streak, save to Apple Health if you like, and follow along on Apple Watch. No accounts, no subscriptions.",
+    "ogImage": "/img/stretch-easy/icon-forest.png",
     "canonical": "https://idlefusion.com/stretch-easy"
   },
   "platform": "iOS",
   "store": null,
   "note": "Free · No account required",
-  "pigments": ["#3fc2ae", "#78d9b6"],
-  "ink": "#247266",
+  "pigments": [
+    "#159f47",
+    "#4ade80"
+  ],
+  "ink": "#147c3b",
   "hero": {
-    "label": "GUIDED MOBILITY",
-    "title": "Guided stretching <em>routines.</em>",
+    "label": "GUIDED STRETCHING",
+    "title": "A few minutes of stretching, <em>every day.</em>",
     "text": [
-      "Simple stretch routines with visual timers and haptic cues. Pre-built or custom — pick one and follow along."
+      "Today's routine is waiting when you open the app. Tap Start and follow along: a timer for every stretch, how to do it, and a cue when it's time to switch. Ink on paper, with color only for your streak."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/stretch-easy/screenshots/01_marketing.png",
-      "alt": "Stretch Easy — Guided Stretching",
-      "label": "Guided Stretching",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/stretch-easy/screenshots/01-today.png",
+      "alt": "Stretch Easy — Today's stretch, one tap away",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/stretch-easy/screenshots/02_marketing.png",
-      "alt": "Stretch Easy — Follow Along Routines",
-      "label": "Follow Along Routines",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/stretch-easy/screenshots/02-session.png",
+      "alt": "Stretch Easy — Follow along, hands free",
+      "label": "Guided Session",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/stretch-easy/screenshots/03_marketing.png",
-      "alt": "Stretch Easy — Apple Watch Ready",
-      "label": "Apple Watch Ready",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/stretch-easy/screenshots/03-history.png",
+      "alt": "Stretch Easy — Keep your streak going",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/stretch-easy/screenshots/04_marketing.png",
-      "alt": "Stretch Easy — Custom Routines",
-      "label": "Custom Routines",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/stretch-easy/screenshots/04-routine.png",
+      "alt": "Stretch Easy — Five routines, ready to go",
+      "label": "Routines",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/stretch-easy/screenshots/05-areas.png",
+      "alt": "Stretch Easy — Loosen up what feels tight",
+      "label": "Target Areas",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/stretch-easy/screenshots/06-complete.png",
+      "alt": "Stretch Easy — Saved to Apple Health",
+      "label": "Apple Health",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/stretch-easy/screenshots/07-builder.png",
+      "alt": "Stretch Easy — Build your own routines",
+      "label": "Your Routines",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/stretch-easy/screenshots/08-today-dark.png",
+      "alt": "Stretch Easy — Easy on the eyes at night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -63,28 +94,62 @@
       "title": "Built for your body.",
       "items": [
         {
-          "title": "Pre-Built Routines",
-          "text": "Morning Wake-Up, Desk Break, Post-Workout, Full Body, Evening Wind-Down — ready to go in seconds."
+          "title": "Today's Routine",
+          "text": "Morning Wake-Up before 11, Desk Break through the day, Evening Wind-Down at night. The right routine is one tap from the moment you open the app."
         },
         {
-          "title": "Custom Routine Builder",
-          "text": "Build your own routines from 15+ stretches. Set custom durations and save them for next time."
+          "title": "Five Ready-Made Routines",
+          "text": "Morning Wake-Up, Desk Break, Post-Workout, Full Body and Evening Wind-Down, from 3 to 16 minutes."
         },
         {
-          "title": "Visual Timers",
-          "text": "Large countdown display with clear stretch names. See your progress through the routine at a glance."
+          "title": "Follow Along",
+          "text": "A ring counts down each stretch with how to do it underneath, short rests in between, and a haptic and sound cue when it's time to switch. The screen stays on."
         },
         {
-          "title": "Haptic Feedback",
-          "text": "Subtle haptic cues guide you through transitions. Know when to switch without watching the screen."
+          "title": "Your Own Routines",
+          "text": "Pick from 16 stretches and set each one's time and the rest between them. Or choose the areas that feel tight and get a routine for them."
         },
         {
-          "title": "Apple Watch",
-          "text": "Full routine support on your wrist. Haptic guidance per stretch — use independently or with your iPhone."
+          "title": "A Streak Worth Keeping",
+          "text": "See whether you've stretched today and how many days in a row. History shows your personal best and sixteen weeks at a glance."
         },
         {
-          "title": "HealthKit Sync",
-          "text": "Automatically log flexibility workouts to Apple Health. Track your stretching habit over time."
+          "title": "Apple Health",
+          "text": "Turn it on and each routine you finish is saved to Apple Health as a Flexibility workout. Stretch Easy only writes workouts and never reads your health data."
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "label": "APPLE WATCH",
+      "title": "Stretch from <em>your wrist.</em>",
+      "items": [
+        {
+          "title": "All Five Routines",
+          "text": "Pick a routine on your Apple Watch and follow along on its own, no iPhone needed."
+        },
+        {
+          "title": "A Tap to Switch",
+          "text": "A tap on your wrist for each new stretch and the last seconds counted down, even with your wrist down."
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Set it up <em>your way.</em>",
+      "items": [
+        {
+          "title": "Your Accent",
+          "text": "Pick one of eight accents to mark your streak. It sets the app icon too, with dark and tinted versions."
+        },
+        {
+          "title": "Day or Night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
+        },
+        {
+          "title": "Your Cues",
+          "text": "Separate switches for sounds, haptics, countdown sounds and auto-advance."
         }
       ]
     },
@@ -93,7 +158,7 @@
       "label": "PRIVACY",
       "title": "Your data stays yours.",
       "text": [
-        "No analytics. No ads. No accounts. No cloud sync. Everything stays on your device. HealthKit logging is optional."
+        "No analytics. No ads. No accounts. No cloud sync. Your routines and history stay on your device, and Apple Health gets workouts only if you turn it on."
       ],
       "link": {
         "href": "/stretch-easy/privacy",

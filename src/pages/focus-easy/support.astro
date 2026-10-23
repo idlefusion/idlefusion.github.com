@@ -23,23 +23,36 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             
             <div class="space-y-4">
               <div>
-                <h3 class="font-medium text-[var(--text-primary)]">How do I add the widget to my home screen?</h3>
-                <p class="mt-1">Long-press on your home screen, tap the "+" button in the top-left corner, search for "Focus Launcher", and choose your preferred widget size.</p>
+                <h3 class="font-medium text-[var(--text-primary)]">How do I add the widget to my Home Screen?</h3>
+                <p class="mt-1">Touch and hold an empty spot on your Home Screen until the apps jiggle, tap Edit, then Add Widget, and choose Focus Easy. Pick the large size and drag it to a page of its own. On iOS 17, tap + in the top corner instead of Edit. The app's menu has a step-by-step guide under Set up your Home Screen.</p>
               </div>
-
               <div>
-                <h3 class="font-medium text-[var(--text-primary)]">How do I add a custom app?</h3>
-                <p class="mt-1">In the app, tap "Add App", then scroll down and tap "Add Custom App". Enter the app name and its URL scheme (e.g., <code class="text-sm bg-[var(--bg-secondary)] px-1 py-0.5 rounded">myapp://</code>).</p>
+                <h3 class="font-medium text-[var(--text-primary)]">Can a widget show a different context?</h3>
+                <p class="mt-1">Yes. Touch and hold the widget, tap Edit Widget, and pick a context. Leave it on Current context to follow the context you choose in the app.</p>
               </div>
-
               <div>
-                <h3 class="font-medium text-[var(--text-primary)]">Where can I find URL schemes for apps?</h3>
-                <p class="mt-1">Many apps publish their URL schemes in their documentation. You can also search "[app name] URL scheme" online. Common patterns include <code class="text-sm bg-[var(--bg-secondary)] px-1 py-0.5 rounded">appname://</code> or <code class="text-sm bg-[var(--bg-secondary)] px-1 py-0.5 rounded">x-appname://</code>.</p>
+                <h3 class="font-medium text-[var(--text-primary)]">How do I make Focus Easy my only Home Screen during a Focus?</h3>
+                <p class="mt-1">Open Settings, then Focus, and pick a Focus. Under Customize Screens, tap the Home Screen and choose only the page with the Focus Easy widget. To switch contexts with that Focus too, tap Add Filter, choose Focus Easy and pick a context.</p>
               </div>
-
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">How do I add an app that isn't in the list?</h3>
+                <p class="mt-1">Tap + and choose Add with a link to enter the app's link, such as <code class="text-sm bg-[var(--bg-secondary)] px-1 py-0.5 rounded">spotify://</code>. Many apps list theirs in their help pages. If an app has no link, choose Add with a shortcut.</p>
+              </div>
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">How do I add Phone, Camera or Settings?</h3>
+                <p class="mt-1">iOS doesn't let other apps open these directly. In the Shortcuts app, make a shortcut with the Open App action and choose the app, name it (for example, Open Phone), then add it in Focus Easy with that name. Focus Easy runs the shortcut when you tap it.</p>
+              </div>
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">An app didn't open. What now?</h3>
+                <p class="mt-1">Focus Easy tells you when iOS couldn't open an app. Usually the app isn't installed, or its link changed. Tap Edit to change the link or switch it to a shortcut.</p>
+              </div>
+              <div>
+                <h3 class="font-medium text-[var(--text-primary)]">Does Usage read Screen Time?</h3>
+                <p class="mt-1">No. Usage counts only the apps you open through Focus Easy or its widget, and the counts stay on your iPhone. You can reset them on the Usage screen.</p>
+              </div>
               <div>
                 <h3 class="font-medium text-[var(--text-primary)]">The widget isn't showing my changes</h3>
-                <p class="mt-1">Open the Focus Easy app to trigger a refresh. If that doesn't work, try removing and re-adding the widget, or restart your device.</p>
+                <p class="mt-1">Open Focus Easy once to refresh it. If that doesn't help, remove the widget and add it again.</p>
               </div>
             </div>
           </div>

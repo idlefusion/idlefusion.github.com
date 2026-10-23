@@ -2,11 +2,11 @@
   "slug": "focus-easy",
   "name": "Focus Easy",
   "category": "Minimalist Launcher",
-  "icon": "/img/focus-easy/icon.png",
+  "icon": "/img/focus-easy/icon-midnight.png",
   "seo": {
-    "title": "Focus Easy — Minimalist Home Screen Launcher for iOS",
-    "description": "A distraction-free home screen launcher. Replace clutter with calm. No tracking, no accounts, just focus.",
-    "ogImage": "/img/focus-easy/icon.png",
+    "title": "Focus Easy — A Quiet Launcher for iPhone",
+    "description": "A quiet iPhone launcher: your few essential apps in plain type, one tap each. Contexts for each part of your day, a Home Screen widget, and Focus filters. No accounts, no tracking.",
+    "ogImage": "/img/focus-easy/icon-midnight.png",
     "canonical": "https://idlefusion.com/focus-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,67 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#4b5058", "#9a948a"],
-  "ink": "#4b5058",
+  "pigments": [
+    "#4f46e5",
+    "#818cf8"
+  ],
+  "ink": "#4338ca",
   "hero": {
-    "label": "Minimalist Launcher",
-    "title": "Your phone, <em>simplified.</em>",
+    "label": "MINIMALIST LAUNCHER",
+    "title": "Fewer apps, <em>one tap away.</em>",
     "text": [
-      "A minimalist home screen launcher for iOS. Replace clutter with calm. Just tap and go."
+      "A quiet launcher for iPhone. Pick the few apps you need, group them by part of your day, and give them a Home Screen page of their own. Ink on paper, with no badges calling for you."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/focus-easy/screenshots/01_marketing.png",
-      "alt": "Focus Easy — Eliminate Distraction",
-      "label": "Eliminate Distraction",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/focus-easy/screenshots/01-home.png",
+      "alt": "Focus Easy — Only the apps you need",
+      "label": "Launcher",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/focus-easy/screenshots/02_marketing.png",
-      "alt": "Focus Easy — Curate Your Home Screen",
-      "label": "Curate Your Home Screen",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/focus-easy/screenshots/02-widgets.png",
+      "alt": "Focus Easy — A quieter Home Screen",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/focus-easy/screenshots/03_marketing.png",
-      "alt": "Focus Easy — Widget Ready",
-      "label": "Widget Ready",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/focus-easy/screenshots/03-contexts.png",
+      "alt": "Focus Easy — A set for each part of your day",
+      "label": "Contexts",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/focus-easy/screenshots/04_marketing.png",
-      "alt": "Focus Easy — Multiple Profiles",
-      "label": "Multiple Profiles",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/focus-easy/screenshots/04-add.png",
+      "alt": "Focus Easy — Add any app in seconds",
+      "label": "Add Apps",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/focus-easy/screenshots/07_widget.png",
-      "alt": "Focus Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/focus-easy/screenshots/05-usage.png",
+      "alt": "Focus Easy — See what you reach for",
+      "label": "Usage",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/focus-easy/screenshots/06-setup.png",
+      "alt": "Focus Easy — Pair it with a Focus",
+      "label": "Focus",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/focus-easy/screenshots/07-home-dark.png",
+      "alt": "Focus Easy — Calm, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -73,28 +90,28 @@
       "title": "Designed for focus.",
       "items": [
         {
-          "title": "Minimalist Widget",
-          "text": "A clean, black and white home screen widget that shows only your essential apps. No badges, no distractions."
+          "title": "Your apps in plain type",
+          "text": "The launcher shows your essential apps as big, plain names. Tap one and it opens. No icons, no badges, nothing else."
         },
         {
-          "title": "Three Widget Sizes",
-          "text": "Small (4 apps), medium (6 apps), or large (12 apps). Pick the size that fits your focus level."
+          "title": "Contexts for your day",
+          "text": "A set of apps for Everyday, Work, Evening or the weekend. Switch in a tap, from the launcher or the menu."
         },
         {
-          "title": "Popular Apps Built-In",
-          "text": "Quick access to common apps like Messages, Phone, Safari, Instagram, and dozens more. One tap to add."
+          "title": "A widget with a page of its own",
+          "text": "Small, medium or large. Each widget follows your current context or shows one you pick."
         },
         {
-          "title": "Custom URL Schemes",
-          "text": "Add any app with a URL scheme. Full control over your launcher without limitations."
+          "title": "Works with Focus",
+          "text": "Show only your quiet page while a Focus is on, and let a Focus filter switch Focus Easy to the right context."
         },
         {
-          "title": "Drag to Reorder",
-          "text": "Arrange your apps exactly how you want. Your muscle memory becomes the navigation."
+          "title": "Any app",
+          "text": "Add the apps on your iPhone in a tap. Apps with no link, like Phone or Camera, open through a shortcut you make once."
         },
         {
-          "title": "Completely Offline",
-          "text": "No servers, no sync, no network requests. Your apps, your device, your privacy."
+          "title": "See what you reach for",
+          "text": "Usage counts the apps you open through Focus Easy this week. It doesn't read Screen Time, and it stays on your iPhone."
         }
       ]
     },
@@ -103,7 +120,7 @@
       "label": "",
       "title": "Zero data collection.",
       "text": [
-        "No analytics. No ads. No tracking pixels. No telemetry. Focus Easy doesn't even make network requests."
+        "No analytics. No ads. No tracking. No account. Focus Easy makes no network requests, and your apps, contexts and counts stay on your iPhone."
       ],
       "link": {
         "href": "/focus-easy/privacy",
@@ -115,14 +132,14 @@
       "label": "PHILOSOPHY",
       "title": "Less is more.",
       "text": [
-        "Your phone's home screen is visual noise. Dozens of colorful icons competing for attention, badges screaming at you, apps you forgot you installed.",
-        "Focus Easy replaces that chaos with a single, minimal widget. Black text on white (or white on black). Just the apps you actually need. Nothing else.",
-        "Inspired by the \"dumb phone\" movement and digital minimalism, Focus Easy helps you use your phone intentionally — not compulsively."
+        "Your Home Screen is visual noise: dozens of colorful icons competing for attention, badges asking to be cleared, apps you forgot you installed.",
+        "Focus Easy replaces that with a quiet page. Ink on paper, in Light, Graphite or Black. Just the apps you actually need, and one accent that marks the context you're in.",
+        "Inspired by the dumb phone movement and digital minimalism, Focus Easy helps you use your phone on purpose, not by habit."
       ]
     }
   ],
   "cta": {
-    "title": "Simplify your home screen.",
+    "title": "Quiet your Home Screen.",
     "text": "Free on the App Store. No account required."
   }
 }

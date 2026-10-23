@@ -2,60 +2,73 @@
   "slug": "caffeine-easy",
   "name": "Caffeine Easy",
   "category": "Caffeine Tracker",
-  "icon": "/img/caffeine-easy/icon.png",
+  "icon": "/img/caffeine-easy/icon-sunset.png",
   "seo": {
-    "title": "Caffeine Easy — Track When Caffeine Clears",
-    "description": "Know exactly when caffeine leaves your system. Half-life decay visualization, quick-log presets, clear-by time, and HealthKit sync. No accounts, no subscriptions.",
-    "ogImage": "/img/caffeine-easy/icon.png",
+    "title": "Caffeine Easy — Know When Caffeine Clears",
+    "description": "See when you'll be under your sleep threshold. Log a drink in a sentence, follow the day's caffeine on a timeline, save drinks to Apple Health, and check the widget. No accounts, no tracking.",
+    "ogImage": "/img/caffeine-easy/icon-sunset.png",
     "canonical": "https://idlefusion.com/caffeine-easy"
   },
   "platform": "iOS",
-  "store": null,
+  "store": {
+    "url": "https://apps.apple.com/app/id6759265328",
+    "mac": false
+  },
   "note": "Free · No account required",
-  "pigments": ["#9a6741", "#d98a1e"],
-  "ink": "#8c5d3b",
+  "pigments": [
+    "#cc6f05",
+    "#fbbf24"
+  ],
+  "ink": "#ae5008",
   "hero": {
     "label": "CAFFEINE TRACKER",
     "title": "Know when your caffeine <em>clears.</em>",
     "text": [
-      "Track your caffeine intake and see exactly when it leaves your system. Half-life science meets simple design."
+      "Log a drink in a sentence and Caffeine Easy tells you, in plain words, when you'll be under your sleep threshold. Ink on paper, with one color for the signal. No sign-up, no tracking."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/caffeine-easy/screenshots/01_marketing.png",
-      "alt": "Caffeine Easy — Know Your Caffeine",
-      "label": "Know Your Caffeine",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/caffeine-easy/screenshots/01-today.png",
+      "alt": "Caffeine Easy — Know when your caffeine clears",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/caffeine-easy/screenshots/02_marketing.png",
-      "alt": "Caffeine Easy — See the Decay Curve",
-      "label": "See the Decay Curve",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/caffeine-easy/screenshots/02-drinks.png",
+      "alt": "Caffeine Easy — Every drink, ready to log",
+      "label": "Drinks",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/caffeine-easy/screenshots/03_marketing.png",
-      "alt": "Caffeine Easy — Log Any Drink",
-      "label": "Log Any Drink",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/caffeine-easy/screenshots/03-widgets.png",
+      "alt": "Caffeine Easy — Your level, at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/caffeine-easy/screenshots/04_marketing.png",
-      "alt": "Caffeine Easy — Sleep Better",
-      "label": "Sleep Better",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/caffeine-easy/screenshots/04-history.png",
+      "alt": "Caffeine Easy — See how your nights add up",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/caffeine-easy/screenshots/07_widget.png",
-      "alt": "Caffeine Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/caffeine-easy/screenshots/05-health.png",
+      "alt": "Caffeine Easy — Saves to Apple Health",
+      "label": "Apple Health",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/caffeine-easy/screenshots/06-today-dark.png",
+      "alt": "Caffeine Easy — Easy on the eyes at night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -67,31 +80,31 @@
     {
       "type": "features",
       "label": "FEATURES",
-      "title": "Caffeine, understood.",
+      "title": "Caffeine, in plain words.",
       "items": [
         {
-          "title": "Half-Life Decay Visualization",
-          "text": "Watch your caffeine levels decay in real-time. Our beautiful chart shows exactly how much caffeine is in your system right now and when it will be gone."
+          "title": "Clear by a time you can read",
+          "text": "Today says it the way you'd ask it: “Clear by 10:40 PM” and “84 mg in your system”, with what's left at your bedtime."
         },
         {
-          "title": "Quick-Log Presets",
-          "text": "Log your caffeine in seconds. Tap preset buttons for espresso, coffee, tea, energy drinks, and more. Custom amounts when you need them."
+          "title": "Log a drink in a sentence",
+          "text": "Type “Latte 12 oz” or “Espresso double” and the caffeine is worked out from typical amounts. Your usual drinks are one tap to log again."
         },
         {
-          "title": "Clear-By Time",
-          "text": "The \"Clear By\" time tells you when caffeine will drop below 20mg — effectively out of your system. Perfect for planning your last coffee before bed."
+          "title": "A timeline of your day",
+          "text": "Watch the day's caffeine rise with each drink and fall away through the evening, with your sleep threshold and bedtime marked."
         },
         {
-          "title": "HealthKit Sync",
-          "text": "Automatically sync your caffeine intake to Apple Health. Track alongside your sleep and other health data to see the full picture."
+          "title": "Your threshold, your bedtime",
+          "text": "Set the level you count as clear, from 25 to 100 mg, your bedtime, and how quickly you clear caffeine."
         },
         {
-          "title": "Widgets",
-          "text": "Home Screen and Lock Screen widgets show current caffeine level and clear-by time at a glance. Always know where you stand."
+          "title": "Apple Health",
+          "text": "Turn it on to save each drink as Dietary Caffeine. Edit or delete a drink and Apple Health follows. Caffeine Easy only writes caffeine and never reads your health data."
         },
         {
-          "title": "Completely Offline",
-          "text": "No servers, no cloud sync, no network requests. Your caffeine data stays on your device. Period."
+          "title": "Widgets that keep up",
+          "text": "Home Screen and Lock Screen widgets work the level out as the day goes on, so the time and the number stay current."
         }
       ]
     },
@@ -100,7 +113,7 @@
       "label": "THE SCIENCE",
       "title": "5.7 hours.",
       "text": [
-        "That's the average half-life of caffeine. Every 5.7 hours, half the caffeine in your system is metabolized away. We use this to calculate exactly how much caffeine remains in your system at any moment — so you can make smarter decisions about when to drink (and when to stop)."
+        "That's the average half-life of caffeine: every 5.7 hours, half of what's in your system is gone. Caffeine Easy adds up what's left of every drink and finds when you'll be under your sleep threshold. It's an estimate, not medical advice."
       ]
     },
     {
@@ -108,7 +121,7 @@
       "label": "PRIVACY",
       "title": "Zero data collection.",
       "text": [
-        "No analytics. No ads. No tracking pixels. No telemetry. Caffeine Easy doesn't even make network requests. Your data lives on your device and nowhere else."
+        "No analytics. No ads. No tracking. No account. Caffeine Easy doesn't make network requests. Your drinks stay on your device, and go to Apple Health only if you turn it on."
       ],
       "link": {
         "href": "/caffeine-easy/privacy",
@@ -117,7 +130,7 @@
     }
   ],
   "cta": {
-    "title": "Track your caffeine.",
+    "title": "Know when you'll be clear.",
     "text": "Free on the App Store. No account required."
   }
 }

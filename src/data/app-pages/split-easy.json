@@ -1,130 +1,162 @@
 {
   "slug": "split-easy",
   "name": "Split Easy",
-  "category": "Bill Splitting",
-  "icon": "/img/split-easy/icon.png",
+  "category": "Bill Splitter",
+  "icon": "/img/split-easy/icon-ocean.png",
   "seo": {
-    "title": "Split Easy — Bill Splitting App for iOS",
-    "description": "Split Easy makes group expense splits fast and fair. Add people, totals, and tips, then share results instantly without manual spreadsheet work.",
-    "ogImage": "/img/split-easy/icon.png",
+    "title": "Split Easy — Bill Splitter for iOS",
+    "description": "Split a bill to the cent. Add tax and tip, give someone a fixed amount, and every share adds up to the total. Saved people, history, widgets. No accounts, no ads.",
+    "ogImage": "/img/split-easy/icon-ocean.png",
     "canonical": "https://idlefusion.com/split-easy"
   },
   "platform": "iOS",
-  "store": null,
-  "note": "Coming soon · No account required",
-  "pigments": ["#08a674", "#62c7a5"],
-  "ink": "#067552",
+  "store": {
+    "url": "https://apps.apple.com/app/id6759539011",
+    "mac": false
+  },
+  "note": "Free · No account required",
+  "pigments": [
+    "#0284c7",
+    "#38bdf8"
+  ],
+  "ink": "#0369a1",
   "hero": {
-    "label": "Split Bills, Keep Friends",
-    "title": "Split quickly with your group. No awkward math.",
+    "label": "BILL SPLITTER",
+    "title": "Split the check <em>to the cent.</em>",
     "text": [
-      "Split Easy makes group expense splits fast and fair. Add people, totals, and tips, then share results instantly without manual spreadsheet work."
+      "Enter the bill, add tax and tip, and see what everyone owes as you type. The shares always add up to the total. No sign-up, no ads, no data collection."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/split-easy/screenshots/01_calculator.png",
-      "alt": "Calculator flow",
-      "label": "Calculator flow",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/split-easy/screenshots/01-bill.png",
+      "alt": "Split Easy — Split any bill to the cent",
+      "label": "The Bill",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/split-easy/screenshots/02_tip_selection.png",
-      "alt": "Tip control",
-      "label": "Tip control",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/split-easy/screenshots/02-person.png",
+      "alt": "Split Easy — Someone ordered more?",
+      "label": "Fixed Amounts",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/split-easy/screenshots/03_share_card.png",
-      "alt": "Shareable split card",
-      "label": "Shareable split card",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/split-easy/screenshots/03-share.png",
+      "alt": "Split Easy — Send everyone their share",
+      "label": "Share Card",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/split-easy/screenshots/04_history.png",
-      "alt": "History log",
-      "label": "History log",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/split-easy/screenshots/04-history.png",
+      "alt": "Split Easy — Every split, saved",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/split-easy/screenshots/05_themes.png",
-      "alt": "Theme options",
-      "label": "Theme options",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/split-easy/screenshots/05-people.png",
+      "alt": "Split Easy — Your regulars, one tap away",
+      "label": "People",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/split-easy/screenshots/06_settings.png",
-      "alt": "People and preferences",
-      "label": "People and preferences",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/split-easy/screenshots/06-widgets.png",
+      "alt": "Split Easy — Your last split at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/split-easy/screenshots/07-bill-dark.png",
+      "alt": "Split Easy — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
     {
       "type": "screenshots",
-      "label": "Screenshots",
-      "title": "Screenshots"
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
     },
     {
       "type": "features",
-      "label": "",
-      "title": "What Split Easy does",
+      "label": "FEATURES",
+      "title": "Fair shares, fast.",
       "items": [
         {
-          "title": "Fast split calculation",
-          "text": "Totals, tips, tax, and participant shares are resolved in one quick flow."
+          "title": "Tax and Tip, Your Way",
+          "text": "Enter tax as a rate or as the amount on the receipt. Pick a tip or set your own, on the bill before tax or with tax included."
         },
         {
-          "title": "Uneven split support",
-          "text": "Different share amounts are easy to configure for shared expenses where shares are not equal."
+          "title": "Shares That Add Up",
+          "text": "Every amount is rounded to the cent, and a leftover cent goes to the first person, so the shares always match the total."
         },
         {
-          "title": "Share results instantly",
-          "text": "Create a clean result card and send it to everyone in your group with one action."
+          "title": "Uneven Splits",
+          "text": "Someone ordered more? Give them a fixed amount and everyone else splits the rest. You see everyone's share before you save."
         },
         {
-          "title": "History and templates",
-          "text": "Revisit prior checks quickly and reuse common splits for recurring trips or routines."
+          "title": "People and Favorites",
+          "text": "Names you use are saved, and your favorites come first when you add people to a bill."
         },
         {
-          "title": "Home screen visibility",
-          "text": "Widgets and quick actions make frequent use in restaurants, travel, and events friction-free."
+          "title": "History",
+          "text": "Every split is saved with everyone's share. Share it again, or start a new bill with the same people in a tap."
+        },
+        {
+          "title": "Share Card",
+          "text": "Send a clean card or plain text to the group chat, with each person's share and the bill behind it."
+        },
+        {
+          "title": "Widgets",
+          "text": "Your last split on the Home Screen or the Lock Screen: what each person paid, at a glance."
+        },
+        {
+          "title": "Any Currency",
+          "text": "Dollars, euros, yen, dinars and more, each with the right number of decimals and your region's formatting."
         }
       ]
     },
     {
-      "type": "list",
-      "label": "",
-      "title": "Who it’s for",
-      "text": [],
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Set it up <em>your way.</em>",
       "items": [
-        "Group dinners",
-        "Road trips and hotels",
-        "Office team orders",
-        "Roommate shared costs"
+        {
+          "title": "Your Accent",
+          "text": "Pick one of eight accents to mark what each person pays. It sets the app icon too, with dark and tinted versions, and the widgets."
+        },
+        {
+          "title": "Day or Night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
+        },
+        {
+          "title": "Siri & Shortcuts",
+          "text": "Say “Split a bill with Split Easy” to hear each share without opening the app."
+        }
       ]
     },
     {
       "type": "privacy",
-      "label": "",
-      "title": "Privacy",
+      "label": "PRIVACY",
+      "title": "Your splits stay yours.",
       "text": [
-        "Split Easy never requires an account or cloud profile. Entries stay local, and no data is sold, shared, or used for analytics."
+        "No accounts. No ads. No tracking. No cloud sync. Your splits and the people you split with live on your device and nowhere else."
       ],
       "link": {
         "href": "/split-easy/privacy",
-        "text": "Read the full privacy policy"
+        "text": "Read the full privacy policy →"
       }
     }
   ],
   "cta": {
-    "title": "Ready to start?",
-    "text": "Install Split Easy to track smarter and stay focused on what matters."
+    "title": "Split the next bill.",
+    "text": "Free on the App Store. No account required."
   }
 }

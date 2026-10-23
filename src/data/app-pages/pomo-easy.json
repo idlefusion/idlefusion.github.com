@@ -2,11 +2,11 @@
   "slug": "pomo-easy",
   "name": "Pomo Easy",
   "category": "Pomodoro Timer",
-  "icon": "/img/pomo-easy/icon.png",
+  "icon": "/img/pomo-easy/icon-sunset.png",
   "seo": {
-    "title": "Pomo Easy — Pomodoro Timer with Live Activities",
-    "description": "A focused Pomodoro timer for iOS. Classic 25/5 technique, customizable intervals, Live Activities, Focus Mode, and session stats. No accounts, no subscriptions.",
-    "ogImage": "/img/pomo-easy/icon.png",
+    "title": "Pomo Easy — Pomodoro Timer for iPhone and Apple Watch",
+    "description": "A calm Pomodoro timer that tells you where you are in plain words. Time Sensitive alerts, a Live Activity, widgets and an Apple Watch app. No accounts, no subscriptions.",
+    "ogImage": "/img/pomo-easy/icon-sunset.png",
     "canonical": "https://idlefusion.com/pomo-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,60 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#f15b36", "#f99a3c"],
-  "ink": "#c3310e",
+  "pigments": [
+    "#cc6f05",
+    "#fbbf24"
+  ],
+  "ink": "#ae5008",
   "hero": {
     "label": "POMODORO TIMER",
-    "title": "Focus made <em>easy.</em>",
+    "title": "Focus, <em>then rest.</em>",
     "text": [
-      "A purpose-built Pomodoro timer with Live Activities. Classic 25/5 technique, customizable intervals, and Focus Mode integration."
+      "A calm Pomodoro timer that tells you where you are in plain words: “18 minutes of focus left”, “Break”. It keeps time on your Lock Screen, your Home Screen and your Apple Watch. No sign-up, no subscriptions, no data collection."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/pomo-easy/screenshots/01_marketing.png",
-      "alt": "Pomo Easy — Focus with Pomodoro",
-      "label": "Focus with Pomodoro",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pomo-easy/screenshots/01-timer.png",
+      "alt": "Pomo Easy — Focus, then rest",
+      "label": "Timer",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pomo-easy/screenshots/02_marketing.png",
-      "alt": "Pomo Easy — Live Activities",
-      "label": "Live Activities",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pomo-easy/screenshots/02-widgets.png",
+      "alt": "Pomo Easy — On your Lock Screen and Home Screen",
+      "label": "Live Activity and widgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pomo-easy/screenshots/03_marketing.png",
-      "alt": "Pomo Easy — Apple Watch Ready",
-      "label": "Apple Watch Ready",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pomo-easy/screenshots/03-tasks.png",
+      "alt": "Pomo Easy — Know what you’re working on",
+      "label": "Tasks",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pomo-easy/screenshots/04_marketing.png",
-      "alt": "Pomo Easy — Session History",
-      "label": "Session History",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pomo-easy/screenshots/04-history.png",
+      "alt": "Pomo Easy — Watch your focus add up",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/pomo-easy/screenshots/07_widget.png",
-      "alt": "Pomo Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/pomo-easy/screenshots/05-settings.png",
+      "alt": "Pomo Easy — Your rhythm, your rules",
+      "label": "Settings",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pomo-easy/screenshots/06-break-dark.png",
+      "alt": "Pomo Easy — Beautiful, day or night",
+      "label": "Dark",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -73,28 +83,28 @@
       "title": "Built for deep work.",
       "items": [
         {
-          "title": "Classic 25/5",
-          "text": "The proven Pomodoro Technique: 25 minutes of focused work, 5 minutes of rest. Four cycles, then a longer break."
+          "title": "The timer, in plain words",
+          "text": "The home screen says where you are, “18 minutes of focus left” or “Break”, with one button to move forward. 25 minutes of focus, 5 of rest, and a longer break after every four."
         },
         {
-          "title": "Customizable Intervals",
-          "text": "Adjust work and break durations to match your rhythm. Create the perfect focus session for how you work best."
+          "title": "Right every time",
+          "text": "The countdown comes from when the session ends, so it stays right when you lock your iPhone, switch apps, restart or change the clock."
         },
         {
-          "title": "Live Activities",
-          "text": "See your timer on the Lock Screen and Dynamic Island. Stay focused without unlocking your phone."
+          "title": "Alerts on time",
+          "text": "Time Sensitive notifications with gentle chimes, even with the app closed. Breaks and focus sessions can start on their own, one cycle at a time."
         },
         {
-          "title": "Focus Mode",
-          "text": "Automatically enable iOS Focus Mode during work sessions. Silence distractions without lifting a finger."
+          "title": "Live Activity and widgets",
+          "text": "See the countdown on the Lock Screen, in the Dynamic Island and in small, medium and Lock Screen widgets that roll into your next break on their own."
         },
         {
-          "title": "Session Stats",
-          "text": "Track completed pomodoros, total focus time, and daily streaks. Build the consistency that drives productivity."
+          "title": "Apple Watch",
+          "text": "The timer on your wrist: the session you’re on, today’s sessions, and Start, Pause, Reset and Skip."
         },
         {
-          "title": "Completely Offline",
-          "text": "No servers, no cloud sync, no network requests. Your focus data stays on your device. Period."
+          "title": "Tasks and history",
+          "text": "Pick what you’re working on and count the sessions it takes. See today, your last seven days and your streak."
         }
       ]
     },
@@ -103,7 +113,7 @@
       "label": "PRIVACY",
       "title": "Zero data collection.",
       "text": [
-        "No analytics. No ads. No tracking pixels. No telemetry. Pomo Easy doesn't even make network requests. Your session data lives on your device and nowhere else."
+        "No analytics. No ads. No tracking. No accounts. Pomo Easy doesn’t make network requests. Your sessions and tasks stay on your iPhone, and your Apple Watch only shows the timer."
       ],
       "link": {
         "href": "/pomo-easy/privacy",
