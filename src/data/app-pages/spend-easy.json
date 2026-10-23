@@ -2,11 +2,11 @@
   "slug": "spend-easy",
   "name": "Spend Easy",
   "category": "Expense Tracker",
-  "icon": "/img/spend-easy/icon.png",
+  "icon": "/img/spend-easy/icon-sunset.png",
   "seo": {
-    "title": "Spend Easy — Private Expense Tracker for iOS",
-    "description": "Track expenses the simple way—without connecting your bank. Manual expense entry, budgets, categories, and charts. All data stays on your device.",
-    "ogImage": "/img/spend-easy/icon.png",
+    "title": "Spend Easy — Private Expense Tracker for iPhone and iPad",
+    "description": "Know what’s left to spend, without a bank login. Type an expense in a few words, set a budget, and see what’s left this month. No accounts, no cloud sync, no subscriptions.",
+    "ogImage": "/img/spend-easy/icon-sunset.png",
     "canonical": "https://idlefusion.com/spend-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,67 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#0eae7a", "#47c9a0"],
-  "ink": "#097552",
+  "pigments": [
+    "#cc6f05",
+    "#fbbf24"
+  ],
+  "ink": "#ae5008",
   "hero": {
     "label": "PRIVATE EXPENSE TRACKING",
-    "title": "Track expenses, <em>no bank required.</em>",
+    "title": "Know what’s left, <em>no bank required.</em>",
     "text": [
-      "A beautifully simple expense tracker that keeps your financial data where it belongs—on your device. No bank connections. No cloud sync. No accounts."
+      "Type what you spent in a few words, set a budget, and see what’s left this month. Ink on paper, with color only where it means something. No bank connections, no accounts, no cloud sync. Your expenses stay on your device."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/spend-easy/screenshots/01_marketing.png",
-      "alt": "Spend Easy — Track Spending Privately",
-      "label": "Track Spending Privately",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/spend-easy/screenshots/01-home.png",
+      "alt": "Spend Easy — Know what’s left to spend",
+      "label": "This month",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/spend-easy/screenshots/02_marketing.png",
-      "alt": "Spend Easy — Manual Entry",
-      "label": "Manual Entry",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/spend-easy/screenshots/02-quickadd.png",
+      "alt": "Spend Easy — Type it like you’d say it",
+      "label": "Quick add",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/spend-easy/screenshots/03_marketing.png",
-      "alt": "Spend Easy — Category Breakdown",
-      "label": "Category Breakdown",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/spend-easy/screenshots/03-budgets.png",
+      "alt": "Spend Easy — Budgets that keep up",
+      "label": "Budgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/spend-easy/screenshots/04_marketing.png",
-      "alt": "Spend Easy — Monthly Budgets",
-      "label": "Monthly Budgets",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/spend-easy/screenshots/04-trends.png",
+      "alt": "Spend Easy — See where it all went",
+      "label": "Trends",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/spend-easy/screenshots/07_widget.png",
-      "alt": "Spend Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/spend-easy/screenshots/05-widgets.png",
+      "alt": "Spend Easy — Left to spend, at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/spend-easy/screenshots/06-category.png",
+      "alt": "Spend Easy — Every category, month by month",
+      "label": "Categories",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/spend-easy/screenshots/07-home-dark.png",
+      "alt": "Spend Easy — Private by design",
+      "label": "Dark mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -67,7 +84,7 @@
       "label": "",
       "title": "Zero bank connections. Ever.",
       "text": [
-        "While other expense trackers want your banking credentials, Spend Easy takes a different approach. You enter expenses manually—giving you full control and complete privacy. Your bank login stays yours."
+        "While other expense trackers want your banking credentials, Spend Easy takes a different approach. You type what you spent—in a few words—so you stay in control and your bank login stays yours."
       ]
     },
     {
@@ -81,28 +98,28 @@
       "title": "Simple by design.",
       "items": [
         {
-          "title": "Manual Expense Entry",
-          "text": "Add expenses in seconds. Enter amount, pick a category, add notes if you want. Clean and fast—designed for daily use."
+          "title": "Add it in a sentence",
+          "text": "Type “Lunch 14.50” or “Groceries 82 yesterday”. Spend Easy reads the amount, the category and the day, and you confirm with a tap."
         },
         {
-          "title": "Smart Budgets",
-          "text": "Set daily, weekly, or monthly spending limits. Visual progress rings show exactly where you stand. Stay on track effortlessly."
+          "title": "What’s left, up front",
+          "text": "This month leads with what’s left in your budget and what that means for each day left, and tells you when you’re close to the limit."
         },
         {
-          "title": "Custom Categories",
-          "text": "Create categories that fit your life. Choose icons and colors. Organize spending your way—not how some algorithm thinks you should."
+          "title": "Budgets and alerts",
+          "text": "Daily, weekly or monthly budgets, with optional alerts when you reach the level you pick and again if you go over."
         },
         {
-          "title": "Spending Charts",
-          "text": "Beautiful visualizations show your spending trends. See category breakdowns, compare weeks and months, spot patterns."
+          "title": "Your categories",
+          "text": "Your own names, icons and colors, in your order. Tap one to see this month against last and six months of history."
         },
         {
-          "title": "Recurring Expenses",
-          "text": "Track regular bills and subscriptions. Set it once, see it in your spending—never forget what's coming up."
+          "title": "Trends",
+          "text": "A week, a month or a year at a time, compared with the one before, with every category’s share."
         },
         {
-          "title": "Completely Private",
-          "text": "No accounts. No cloud sync. No network requests. Your expense data lives on your device and nowhere else. Period."
+          "title": "Repeating expenses",
+          "text": "Rent, phone and subscriptions are added again on each date they repeat. Export everything as CSV whenever you like."
         }
       ]
     },
@@ -111,7 +128,7 @@
       "label": "YOUR DATA. YOUR DEVICE.",
       "title": "Privacy isn't a feature. It's the foundation.",
       "text": [
-        "No analytics. No tracking. No ads. No telemetry. Spend Easy will never ask for your bank login. Your financial data never leaves your device—not to our servers, not to anyone's."
+        "No analytics. No tracking. No ads. Spend Easy will never ask for your bank login. Your expenses, budgets and categories live on your device—in the app and its widget—and nowhere else."
       ],
       "link": {
         "href": "/spend-easy/privacy",
@@ -121,6 +138,6 @@
   ],
   "cta": {
     "title": "Start tracking.",
-    "text": "Free on the App Store. No account required."
+    "text": "Free on the App Store for iPhone and iPad. No account required."
   }
 }

@@ -2,122 +2,150 @@
   "slug": "macro-easy",
   "name": "Macro Easy",
   "category": "Macro & Nutrition Tracking",
-  "icon": "/img/macro-easy/icon.png",
+  "icon": "/img/macro-easy/icon-sunset.png",
   "seo": {
-    "title": "Macro Easy — Macro & Nutrition Tracking",
-    "description": "Macro Easy keeps nutrition tracking lightweight: quick daily entry, home dashboard, and target progress for your nutrition goals without complicated workflows.",
-    "ogImage": "/img/macro-easy/icon.png",
+    "title": "Macro Easy — Protein, Carbs and Fat Tracker for iPhone",
+    "description": "Log protein, carbs and fat in one line, like “Chicken salad 35p 10c 12f”, and see what’s left to eat today. USDA food search, Apple Health, widgets. No account.",
+    "ogImage": "/img/macro-easy/icon-sunset.png",
     "canonical": "https://idlefusion.com/macro-easy"
   },
   "platform": "iOS",
   "store": null,
   "note": "Coming soon · No account required",
-  "pigments": ["#1f9981", "#2aa7b6"],
-  "ink": "#177361",
+  "pigments": [
+    "#cc6f05",
+    "#fbbf24"
+  ],
+  "ink": "#ae5008",
   "hero": {
-    "label": "Simple Macro Tracking",
-    "title": "Log protein, carbs, and fat in seconds.",
+    "label": "MACRO TRACKER",
+    "title": "Log a meal <em>in one line.</em>",
     "text": [
-      "Macro Easy keeps nutrition tracking lightweight: quick daily entry, home dashboard, and target progress for your nutrition goals without complicated workflows."
+      "Type “Chicken salad 35p 10c 12f” and it’s logged. Macro Easy shows what’s left of today’s protein, carbs and fat, and a flag lights up as you reach each target. Ink on paper, with color only where it means something."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/macro-easy/screenshots/01_home_dashboard.png",
-      "alt": "Home dashboard",
-      "label": "Home dashboard",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/macro-easy/screenshots/01-today.png",
+      "alt": "Macro Easy — Know what's left to eat today",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/macro-easy/screenshots/02_quick_log.png",
-      "alt": "Quick meal log",
-      "label": "Quick meal log",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/macro-easy/screenshots/02-quick-add.png",
+      "alt": "Macro Easy — Log a meal in one line",
+      "label": "Quick add",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/macro-easy/screenshots/03_favorites.png",
-      "alt": "Favorite foods",
-      "label": "Favorite foods",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/macro-easy/screenshots/03-history.png",
+      "alt": "Macro Easy — See how your weeks add up",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/macro-easy/screenshots/04_history.png",
-      "alt": "History and trends",
-      "label": "History and trends",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/macro-easy/screenshots/04-search.png",
+      "alt": "Macro Easy — Look up any food",
+      "label": "Food search",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/macro-easy/screenshots/05_themes.png",
-      "alt": "Theme options",
-      "label": "Theme options",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/macro-easy/screenshots/05-day.png",
+      "alt": "Macro Easy — Forgot a meal? Add it later",
+      "label": "Any day",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/macro-easy/screenshots/06-widgets.png",
+      "alt": "Macro Easy — Your macros at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/macro-easy/screenshots/07-today-dark.png",
+      "alt": "Macro Easy — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
     {
       "type": "screenshots",
-      "label": "Screenshots",
-      "title": "Screenshots"
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
     },
     {
       "type": "features",
-      "label": "",
-      "title": "What Macro Easy does",
+      "label": "FEATURES",
+      "title": "Fewer taps, <em>same numbers.</em>",
       "items": [
         {
-          "title": "Fast daily logging",
-          "text": "Capture protein, carbs, and fat with minimal taps and a no-friction entry flow."
+          "title": "Type It Once",
+          "text": "Write a meal the way you'd say it: “Chicken salad 35p 10c 12f”. Macro Easy reads the name and the grams on your iPhone and shows a card to check before anything is logged."
         },
         {
-          "title": "Goal-focused dashboard",
-          "text": "See progress to your macro targets and stay informed without opening a bulky nutrition editor."
+          "title": "Know What's Left",
+          "text": "Today leads with what matters, like “75 g protein to go”. Protein, carbs and fat sit against your daily targets, and a flag lights up as you reach each one."
         },
         {
-          "title": "Favorites and history",
-          "text": "Reuse recent meals and repeat entries quickly, especially useful when nutrition is repetitive."
+          "title": "Saved Meals",
+          "text": "Save the meals you eat often. They sit on Today, in the menu and in search, ready to log again in two taps."
         },
         {
-          "title": "Health integration",
-          "text": "Optional Health app sync keeps your nutrition data available with Apple Health workflows."
+          "title": "USDA Food Search",
+          "text": "Look up a food in USDA FoodData Central, pick a serving or type the grams, and Macro Easy works out the macros for that amount."
         },
         {
-          "title": "Offline-first design",
-          "text": "All calculations happen on device, so your nutrition habits are never blocked by network issues."
+          "title": "History",
+          "text": "Calories per day against your target, your averages, and how often you met your protein target. Open any day to fix a meal or add one you forgot."
+        },
+        {
+          "title": "Apple Health, Widgets and Siri",
+          "text": "Turn on Apple Health and every meal is saved there too. Home Screen and Lock Screen widgets show today at a glance, and Siri can log a meal for you."
         }
       ]
     },
     {
-      "type": "list",
-      "label": "",
-      "title": "Who it’s for",
-      "text": [],
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Set it up <em>your way.</em>",
       "items": [
-        "Performance-minded athletes",
-        "Meal prep routines",
-        "People rebuilding nutrition habits",
-        "Users wanting minimal macro tracking"
+        {
+          "title": "Your Targets",
+          "text": "Set the grams of protein, carbs and fat you aim for. Calories add up from them on their own."
+        },
+        {
+          "title": "Your Accent",
+          "text": "Pick one of eight accents for the flags. It sets the app icon too, with dark and tinted versions, and the widget."
+        },
+        {
+          "title": "Day or Night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
+        }
       ]
     },
     {
       "type": "privacy",
-      "label": "",
-      "title": "Privacy",
+      "label": "PRIVACY",
+      "title": "Your meals stay yours.",
       "text": [
-        "Macro Easy stores your entries and targets locally. No ad SDKs, no tracking frameworks, and no accounts are used to consume data from this app."
+        "No accounts, no ads, no analytics. Your meals stay on your iPhone. Food search sends only the words you type to USDA FoodData Central, and Apple Health gets your meals only if you turn it on."
       ],
       "link": {
         "href": "/macro-easy/privacy",
-        "text": "Read the full privacy policy"
+        "text": "Read the full privacy policy →"
       }
     }
   ],
   "cta": {
-    "title": "Ready to start?",
-    "text": "Install Macro Easy to track smarter and stay focused on what matters."
+    "title": "Start logging in one line.",
+    "text": "Coming soon to the App Store. No account required."
   }
 }

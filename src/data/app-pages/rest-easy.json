@@ -2,11 +2,11 @@
   "slug": "rest-easy",
   "name": "Rest Easy",
   "category": "Sleep Sounds",
-  "icon": "/img/rest-easy/icon.png",
+  "icon": "/img/rest-easy/icon-midnight.png",
   "seo": {
-    "title": "Rest Easy — Sleep Sounds for iOS",
-    "description": "Sleep sounds for better rest. Ambient soundscapes, custom mixing, sleep timer, and background playback. No accounts, no subscriptions.",
-    "ogImage": "/img/rest-easy/icon.png",
+    "title": "Rest Easy — Sleep Sounds for iPhone",
+    "description": "Sleep sounds for iPhone: mix rain, waves, fire, forest and noise, set a sleep timer that fades out gently, and see which sounds help you sleep. No accounts, no subscriptions.",
+    "ogImage": "/img/rest-easy/icon-midnight.png",
     "canonical": "https://idlefusion.com/rest-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,60 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#2a3a55", "#a08bf0"],
-  "ink": "#2a3a55",
+  "pigments": [
+    "#4f46e5",
+    "#818cf8"
+  ],
+  "ink": "#4338ca",
   "hero": {
-    "label": "AMBIENT SOUNDSCAPES",
-    "title": "Sleep sounds for <em>better rest.</em>",
+    "label": "SLEEP SOUNDS",
+    "title": "Calm sounds for <em>better sleep.</em>",
     "text": [
-      "Drift off with soothing ambient sounds. Mix your perfect soundscape, set a sleep timer, and let the sounds play all night."
+      "Mix rain, waves, a fire or soft noise, set a timer that fades them out, and drift off. Every sound is made on your iPhone as it plays. No sign-up, no subscriptions, nothing collected."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/rest-easy/screenshots/01_marketing.png",
-      "alt": "Rest Easy — Drift Off to Sleep Sounds",
-      "label": "Drift Off to Sleep Sounds",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/rest-easy/screenshots/01-mixer.png",
+      "alt": "Rest Easy — Mix calm sounds for sleep",
+      "label": "Mixer",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/rest-easy/screenshots/02_marketing.png",
-      "alt": "Rest Easy — Mix Your Soundscape",
-      "label": "Mix Your Soundscape",
-      "w": 1290,
-      "h": 2796
-    },
-    {
-      "src": "/img/rest-easy/screenshots/03_marketing.png",
-      "alt": "Rest Easy — Sleep Timer",
+      "src": "/img/rest-easy/screenshots/02-timer.png",
+      "alt": "Rest Easy — Drift off. It fades out.",
       "label": "Sleep Timer",
-      "w": 1290,
-      "h": 2796
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/rest-easy/screenshots/04_marketing.png",
-      "alt": "Rest Easy — Beautiful UI",
-      "label": "Beautiful UI",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/rest-easy/screenshots/03-presets.png",
+      "alt": "Rest Easy — Your mixes, one tap away",
+      "label": "Presets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/rest-easy/screenshots/07_widget.png",
-      "alt": "Rest Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/rest-easy/screenshots/04-sleep-log.png",
+      "alt": "Rest Easy — See what helps you sleep",
+      "label": "Sleep Log",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/rest-easy/screenshots/05-widgets.png",
+      "alt": "Rest Easy — Play from your Home Screen",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/rest-easy/screenshots/06-accent.png",
+      "alt": "Rest Easy — Your color, your icon",
+      "label": "Accents",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -73,28 +83,28 @@
       "title": "Designed for sleep.",
       "items": [
         {
-          "title": "Ambient Sounds",
-          "text": "Rain, ocean waves, forest, wind, thunder, and more. High-quality, seamlessly looping soundscapes designed to help you relax and sleep."
+          "title": "Eight Sounds, Made Live",
+          "text": "Rain, ocean waves, forest, thunderstorm and fireplace, plus white, pink and brown noise. Each one is synthesized on your iPhone in stereo as it plays, so nothing loops and nothing downloads."
         },
         {
-          "title": "Sound Mixing",
-          "text": "Layer multiple sounds together and adjust individual volumes. Create your perfect combination — gentle rain with distant thunder, or ocean with soft wind."
+          "title": "A Mixer for Your Night",
+          "text": "Layer up to four sounds and set each one's volume. Sounds fade in and out, so nothing starts or stops with a jolt."
         },
         {
-          "title": "Sleep Timer",
-          "text": "Set sounds to fade out after a duration of your choice. Fall asleep to soothing audio without draining your battery all night."
+          "title": "A Gentle Sleep Timer",
+          "text": "From 15 minutes to 8 hours, with a fade of 30 seconds to 15 minutes. Then the sounds pause, and your mix is ready again tomorrow night."
         },
         {
-          "title": "Background Playback",
-          "text": "Lock your phone, switch apps, or turn off the screen. Rest Easy keeps playing in the background so you can drift off undisturbed."
+          "title": "Presets and a Widget",
+          "text": "Save a mix as a preset and play it with one tap from the mixer, the menu or the Home Screen widget."
         },
         {
-          "title": "Dark Interface",
-          "text": "A calming dark theme that won't disturb your eyes at bedtime. Minimal, distraction-free design built for nighttime use."
+          "title": "A Simple Sleep Log",
+          "text": "Rate each night. Rest Easy notes the sounds you played and shows which ones you sleep best with."
         },
         {
-          "title": "Completely Offline",
-          "text": "All sounds are included in the app. No streaming, no downloads, no internet required. Works perfectly on airplane mode."
+          "title": "Made for the Dark",
+          "text": "Dark and Black by default, with nothing bright on screen while sound plays. Controls on the Lock Screen and in Control Center, and playback with the screen locked."
         }
       ]
     },
@@ -103,7 +113,7 @@
       "label": "PRIVACY",
       "title": "Zero data collection.",
       "text": [
-        "No analytics. No ads. No tracking. Rest Easy doesn't make network requests. Your sleep habits are your business."
+        "No analytics. No ads. No tracking. Rest Easy makes no network requests. Your presets and sleep log stay on your iPhone."
       ],
       "link": {
         "href": "/rest-easy/privacy",

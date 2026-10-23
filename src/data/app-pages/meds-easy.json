@@ -1,12 +1,12 @@
 {
   "slug": "meds-easy",
   "name": "Meds Easy",
-  "category": "Medication Tracker",
-  "icon": "/img/meds-easy/icon.png",
+  "category": "Medication Reminder",
+  "icon": "/img/meds-easy/icon-forest.png",
   "seo": {
-    "title": "Meds Easy — Medication Reminder for iOS",
-    "description": "Never miss a dose. A simple, private medication tracker with smart reminders, refill tracking, and adherence stats. No cloud, no account required.",
-    "ogImage": "/img/meds-easy/icon.png",
+    "title": "Meds Easy — Medication Reminder for iPhone and Apple Watch",
+    "description": "A reminder for every dose, with Taken and Snooze right on it. Today's doses in order, refill reminders, history and an Apple Watch app. No account, no tracking.",
+    "ogImage": "/img/meds-easy/icon-forest.png",
     "canonical": "https://idlefusion.com/meds-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,67 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#5fc9a6", "#3fbfb6"],
-  "ink": "#28765c",
+  "pigments": [
+    "#159f47",
+    "#4ade80"
+  ],
+  "ink": "#147c3b",
   "hero": {
     "label": "MEDICATION REMINDERS",
-    "title": "Never miss <em>a dose.</em>",
+    "title": "Every dose, <em>on time.</em>",
     "text": [
-      "A simple, private medication tracker that helps you stay on schedule. Smart reminders, refill alerts, and adherence insights — all on your device."
+      "A reminder when each dose is due, today's doses in order, and a heads-up before you run out. On your iPhone and Apple Watch, private to you."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/meds-easy/screenshots/01_marketing.png",
-      "alt": "Meds Easy — Never Miss a Dose",
-      "label": "Never Miss a Dose",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/meds-easy/screenshots/01-today.png",
+      "alt": "Meds Easy — Every dose, on time",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/meds-easy/screenshots/02_marketing.png",
-      "alt": "Meds Easy — Smart Reminders",
-      "label": "Smart Reminders",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/meds-easy/screenshots/02-detail.png",
+      "alt": "Meds Easy — Know where you stand",
+      "label": "Medication",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/meds-easy/screenshots/03_marketing.png",
-      "alt": "Meds Easy — Refill Alerts",
-      "label": "Refill Alerts",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/meds-easy/screenshots/03-history.png",
+      "alt": "Meds Easy — Stay on track",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/meds-easy/screenshots/04_marketing.png",
-      "alt": "Meds Easy — Dose History",
-      "label": "Dose History",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/meds-easy/screenshots/04-quickadd.png",
+      "alt": "Meds Easy — Add it in a sentence",
+      "label": "Quick Add",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/meds-easy/screenshots/07_widget.png",
-      "alt": "Meds Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/meds-easy/screenshots/05-widgets.png",
+      "alt": "Meds Easy — Your next dose at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/meds-easy/screenshots/06-medications.png",
+      "alt": "Meds Easy — Every medication in one place",
+      "label": "Medications",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/meds-easy/screenshots/07-today-dark.png",
+      "alt": "Meds Easy — Private, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -70,31 +87,31 @@
     {
       "type": "features",
       "label": "FEATURES",
-      "title": "Everything you need to stay on track.",
+      "title": "Everything you need to stay on schedule.",
       "items": [
         {
-          "title": "Medication Schedules",
-          "text": "Set up complex schedules with ease. Daily, weekly, every other day, or custom intervals — the app adapts to your prescriptions."
+          "title": "Today, in order",
+          "text": "Every dose due today in time order, how many are left and what's next. Tap a dose when you take it."
         },
         {
-          "title": "Smart Reminders",
-          "text": "Timely notifications that actually help. Snooze if you need a few minutes, or mark as taken right from the notification."
+          "title": "Add it in a sentence",
+          "text": "Type \"Lisinopril 10 mg every morning\" and the dose, schedule and times are filled in. Once to four times a day, every other day, weekly or as needed."
         },
         {
-          "title": "Refill Tracking",
-          "text": "Know when you're running low. Track your supply and get alerts before you run out so you never scramble for refills."
+          "title": "Reminders with buttons",
+          "text": "A reminder at each dose time with Taken, Snooze and Skip right on it. Doses you've already taken don't get one, and times stay put when you travel."
         },
         {
-          "title": "Adherence Stats",
-          "text": "See your medication history at a glance. Track your consistency over time and celebrate your streaks."
-        },
-        {
-          "title": "Completely Private",
-          "text": "Your medication data stays on your device. No accounts, no cloud sync, no data collection. Your health information is yours alone."
+          "title": "Refill reminders",
+          "text": "Each dose counts one down. Get a reminder at the number you choose, with your pharmacy's number at hand."
         },
         {
           "title": "Apple Watch",
-          "text": "Log doses from your wrist. Quick, convenient, and always with you when it's time to take your medication."
+          "text": "See today's doses on your wrist and mark them taken or skipped. Record an as-needed dose in a tap."
+        },
+        {
+          "title": "Completely private",
+          "text": "No account, no analytics, no tracking. Your medications stay on your iPhone and Apple Watch."
         }
       ]
     },
@@ -103,7 +120,7 @@
       "label": "PRIVACY",
       "title": "Your meds. Your data.",
       "text": [
-        "Medication data is deeply personal. That's why Meds Easy stores everything locally on your device. No HealthKit. No cloud. No analytics. No exceptions."
+        "Medication data is deeply personal. Meds Easy keeps everything on your device: no HealthKit, no cloud, no analytics. It reminds you of the schedule you enter and doesn't replace your doctor or pharmacist."
       ],
       "link": {
         "href": "/meds-easy/privacy",

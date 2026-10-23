@@ -1,68 +1,78 @@
 {
   "slug": "set-easy",
   "name": "Set Easy",
-  "category": "Gym & Strength Training",
-  "icon": "/img/set-easy/icon.png",
+  "category": "Strength Training",
+  "icon": "/img/set-easy/icon-ember.png",
   "seo": {
-    "title": "Set Easy — Gym & Strength Training App for iOS",
-    "description": "Set Easy is a focused iOS workout logger for sets, reps, and progressive overload. Keep workout templates, start sessions quickly, and compare progress over time.",
-    "ogImage": "/img/set-easy/icon.png",
+    "title": "Set Easy — Gym Workout Tracker for iPhone and Apple Watch",
+    "description": "Set Easy is a strength training log for iPhone and Apple Watch. Today's workout is ready with your last weights filled in: check off each set, rest with a Lock Screen timer, and see every personal best. No account.",
+    "ogImage": "/img/set-easy/icon-ember.png",
     "canonical": "https://idlefusion.com/set-easy"
   },
   "platform": "iOS",
   "store": null,
   "note": "Coming soon · No account required",
-  "pigments": ["#5d7a99", "#8b6cf0"],
-  "ink": "#516b86",
+  "pigments": [
+    "#f2541b",
+    "#ff7a45"
+  ],
+  "ink": "#c2410c",
   "hero": {
-    "label": "Strength Tracking",
-    "title": "Log workouts, track strength, stay consistent.",
+    "label": "STRENGTH TRAINING",
+    "title": "Lift more, <em>type less.</em>",
     "text": [
-      "Set Easy is a focused iOS workout logger for sets, reps, and progressive overload. Keep workout templates, start sessions quickly, and compare progress over time."
+      "Set Easy is a strength training log that gets out of the way. Today's workout is ready when you are, with the weights you lifted last time already filled in. Check off each set, rest, and go again."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/set-easy/screenshots/01_home.png",
-      "alt": "Workout home",
-      "label": "Workout home",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/set-easy/screenshots/01-today.png",
+      "alt": "Set Easy — Today's workout, ready to go",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/set-easy/screenshots/02_active_workout.png",
-      "alt": "Active workout log",
-      "label": "Active workout log",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/set-easy/screenshots/02-workout.png",
+      "alt": "Set Easy — Log a set in one tap",
+      "label": "Workout",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/set-easy/screenshots/03_exercise_library.png",
-      "alt": "Exercise library",
-      "label": "Exercise library",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/set-easy/screenshots/03-exercise.png",
+      "alt": "Set Easy — Your lifts, climbing",
+      "label": "Exercise",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/set-easy/screenshots/04_progress.png",
-      "alt": "Progress tracking",
-      "label": "Progress tracking",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/set-easy/screenshots/04-history.png",
+      "alt": "Set Easy — Every workout, kept",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/set-easy/screenshots/05_templates.png",
-      "alt": "Templates",
-      "label": "Templates",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/set-easy/screenshots/05-progress.png",
+      "alt": "Set Easy — See what's working",
+      "label": "Progress",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/set-easy/screenshots/06_settings.png",
-      "alt": "Workout settings",
-      "label": "Workout settings",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/set-easy/screenshots/06-lock-screen.png",
+      "alt": "Set Easy — Your rest timer, on the Lock Screen",
+      "label": "Live Activity",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/set-easy/screenshots/07-workout-dark.png",
+      "alt": "Set Easy — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -73,41 +83,53 @@
     },
     {
       "type": "features",
-      "label": "",
-      "title": "What Set Easy does",
+      "label": "FEATURES",
+      "title": "Made for the gym floor.",
       "items": [
         {
-          "title": "Workout-ready sessions",
-          "text": "Start a lifting session fast with clear set entry fields and immediate feedback while you train."
+          "title": "Today's workout",
+          "text": "Your workouts take turns, so the one you did longest ago is up next and a push, pull and legs rotation stays in order. Pick another any time, or start an empty workout."
         },
         {
-          "title": "Exercise templates",
-          "text": "Save routines you use regularly and keep every set plan consistent across sessions."
+          "title": "Log a set in one tap",
+          "text": "Every set shows what you did last time. Adjust the weight or reps if you need to, check it off, and the rest timer starts on its own."
         },
         {
-          "title": "Progress visibility",
-          "text": "Review your bests, progression, and volume to keep your program on track over weeks."
+          "title": "Personal bests",
+          "text": "Lift more than ever before and Set Easy marks it with a trophy. Hit the same top weight twice and it suggests a little more next time."
         },
         {
-          "title": "No cloud dependence",
-          "text": "Everything runs locally so your lifts stay private, including your full training history."
+          "title": "Rest timer on the Lock Screen",
+          "text": "A Live Activity shows the countdown and what's next on your Lock Screen and in the Dynamic Island, with Skip a tap away."
         },
         {
-          "title": "Apple Health support",
-          "text": "Designed for athletes who want local logging with native platform integration when needed."
+          "title": "Apple Watch",
+          "text": "Log from your wrist with the Digital Crown, with last time's weights ready. Finished workouts go to History on your iPhone."
+        },
+        {
+          "title": "Apple Health",
+          "text": "Turn it on in Settings to save finished workouts as strength training and see your average and highest heart rate for each one."
+        },
+        {
+          "title": "History and progress",
+          "text": "A calendar of every workout, charts for each exercise, weekly volume and the muscles you've worked this week."
+        },
+        {
+          "title": "Bring your history",
+          "text": "Import from Strong or Hevy, export everything as a CSV file, and back up or restore all your data in one file."
         }
       ]
     },
     {
       "type": "list",
       "label": "",
-      "title": "Who it’s for",
+      "title": "Who it's for",
       "text": [],
       "items": [
-        "Gym commuters",
-        "Strength trainees",
-        "People running push/pull/legs split routines",
-        "Anyone tracking progressive overload"
+        "Lifters running push, pull and legs, upper and lower, or full body splits",
+        "Anyone working on progressive overload",
+        "People who want to log a set without typing",
+        "Apple Watch wearers who leave their phone in the bag"
       ]
     },
     {
@@ -115,7 +137,7 @@
       "label": "",
       "title": "Privacy",
       "text": [
-        "Set Easy is built for private fitness tracking. Training history stays on-device; we do not require sign-in and do not send your workouts to external analytics."
+        "Set Easy has no accounts, no analytics and no ads. Your training history stays on your device. Workouts go to Apple Health only if you turn it on, and health data never leaves your iPhone and Apple Health."
       ],
       "link": {
         "href": "/set-easy/privacy",
@@ -124,7 +146,7 @@
     }
   ],
   "cta": {
-    "title": "Ready to start?",
-    "text": "Install Set Easy to track smarter and stay focused on what matters."
+    "title": "Ready to lift?",
+    "text": "Set Easy is coming soon to the App Store. No account required."
   }
 }
