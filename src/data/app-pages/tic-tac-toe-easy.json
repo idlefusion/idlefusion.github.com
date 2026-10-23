@@ -1,0 +1,132 @@
+{
+  "slug": "tic-tac-toe-easy",
+  "name": "Tic-Tac-Toe Easy",
+  "category": "Board Game",
+  "icon": "/img/tic-tac-toe-easy/icon.png",
+  "seo": {
+    "title": "Tic-Tac-Toe Easy — Classic X and O for iPhone, No Ads",
+    "description": "The game you know, on a quiet board. Play the computer at Easy, Medium or Hard, or pass the phone to a friend. No ads, no accounts, nothing to buy.",
+    "ogImage": "/img/tic-tac-toe-easy/icon.png",
+    "canonical": "https://idlefusion.com/tic-tac-toe-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No ads · No account required",
+  "pigments": [
+    "#a855f7",
+    "#c084fc"
+  ],
+  "ink": "#7e22ce",
+  "hero": {
+    "label": "BOARD GAME",
+    "title": "The classic game. <em>A quiet board.</em>",
+    "text": [
+      "Tic-Tac-Toe Easy is the game you know, without the noise. Play the computer at three levels or pass the phone to a friend. No ads, no accounts, nothing to buy, and your scores stay on your iPhone."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/tic-tac-toe-easy/screenshots/01-play.png",
+      "alt": "Tic-Tac-Toe Easy — The classic game, on a quiet board",
+      "label": "Play",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tic-tac-toe-easy/screenshots/02-won.png",
+      "alt": "Tic-Tac-Toe Easy — Three in a row, drawn in your color",
+      "label": "A win",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tic-tac-toe-easy/screenshots/03-friend.png",
+      "alt": "Tic-Tac-Toe Easy — Pass the phone to a friend",
+      "label": "Two players",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tic-tac-toe-easy/screenshots/04-scores.png",
+      "alt": "Tic-Tac-Toe Easy — Every win, kept",
+      "label": "Scores",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tic-tac-toe-easy/screenshots/05-hard.png",
+      "alt": "Tic-Tac-Toe Easy — Hard never loses",
+      "label": "Hard",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tic-tac-toe-easy/screenshots/06-accent.png",
+      "alt": "Tic-Tac-Toe Easy — Make it yours",
+      "label": "Accents",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tic-tac-toe-easy/screenshots/07-dark.png",
+      "alt": "Tic-Tac-Toe Easy — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Three in a row.",
+      "items": [
+        {
+          "title": "Play the Computer",
+          "text": "Easy takes a win when it sees one. Medium blocks your wins and sometimes plays its best. Hard plays a perfect game and never loses."
+        },
+        {
+          "title": "Play a Friend",
+          "text": "Choose Friend and pass the phone back and forth. X goes first."
+        },
+        {
+          "title": "Go First or Second",
+          "text": "Play X and start, or play O and let the computer open."
+        },
+        {
+          "title": "Your Win, in Color",
+          "text": "The board is black and white. When someone gets three in a row, the line through it is drawn in your accent."
+        },
+        {
+          "title": "Scores & Streaks",
+          "text": "Wins, losses and draws at each level, your current run of wins and your best one, and your two-player games."
+        },
+        {
+          "title": "Make It Yours",
+          "text": "Light or Dark, Graphite or Black, and eight accents, each with its own app icon."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Just the game.",
+      "text": [
+        "No ads, no analytics, no tracking and no account. Tic-Tac-Toe Easy makes no network requests, and your scores never leave your iPhone."
+      ],
+      "link": {
+        "href": "/tic-tac-toe-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Your move.",
+    "text": "Free, with no ads and no account required."
+  }
+}

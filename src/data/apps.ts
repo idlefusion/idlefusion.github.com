@@ -202,6 +202,13 @@ export const apps = [
     desc: 'Speak naturally and get clean, ready-to-send text. Transcribed and cleaned up on your iPhone, never sent anywhere.',
     icon: '/img/talk-easy/icon.png',
   },
+  {
+    slug: 'tic-tac-toe-easy',
+    name: 'Tic-Tac-Toe Easy',
+    category: 'Board Game',
+    desc: 'The classic game on a quiet board. Play the computer at three levels or a friend, with no ads.',
+    icon: '/img/tic-tac-toe-easy/icon.png',
+  },
 ];
 
 // Keep pre-release products out of navigation and discovery.
