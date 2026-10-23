@@ -2,11 +2,11 @@
   "slug": "track-easy",
   "name": "Track Easy",
   "category": "Habit Tracker",
-  "icon": "/img/track-easy/icon.png",
+  "icon": "/img/track-easy/icon-ember.png",
   "seo": {
     "title": "Track Easy — Simple Habit Tracker for iOS",
     "description": "Track habits without the hassle. Add a habit in a sentence, keep your streaks, and check off habits from Home Screen and Lock Screen widgets. No accounts, no subscriptions.",
-    "ogImage": "/img/track-easy/icon.png",
+    "ogImage": "/img/track-easy/icon-ember.png",
     "canonical": "https://idlefusion.com/track-easy"
   },
   "platform": "iOS",
