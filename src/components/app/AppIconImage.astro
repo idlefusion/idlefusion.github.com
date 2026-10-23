@@ -1,0 +1,39 @@
+---
+// An app icon that follows the visitor's light or dark setting. Each app's dark
+// icon sits beside its light one as `<name>-dark.png` (the app's own dark
+// appearance: a black tile with a light glyph). Apps without one show the
+// light icon in both themes. The <picture> uses `display: contents`, so the
+// <img> lays out exactly as it did on its own.
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  fetchpriority?: 'high' | 'low' | 'auto';
+}
+
+const { src, ...img } = Astro.props;
+const publicFile = (url: string) => path.join(process.cwd(), 'public', url);
+const darkPng = src.replace(/\.png$/, '-dark.png');
+const darkWebp = darkPng.replace(/\.png$/, '.webp');
+const dark = darkPng !== src && existsSync(publicFile(darkPng))
+  ? (existsSync(publicFile(darkWebp)) ? darkWebp : darkPng)
+  : null;
+---
+
+{
+  dark ? (
+    <picture style="display: contents">
+      <source media="(prefers-color-scheme: dark)" srcset={dark} style="display: none" />
+      <img src={src} {...img} />
+    </picture>
+  ) : (
+    <img src={src} {...img} />
+  )
+}

@@ -59,6 +59,7 @@ const jsonLd = {
     ? { offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } }
     : {}),
 };
+import AppIconImage from './AppIconImage.astro';
 ---
 
 <AppLayout
@@ -106,12 +107,12 @@ const jsonLd = {
             ))
           }
         </svg>
-        <img
+        <AppIconImage
           class="app-hero-icon"
           src={page.icon}
           alt={`${page.name} app icon`}
-          width="240"
-          height="240"
+          width={240}
+          height={240}
           fetchpriority="high"
         />
         <figcaption class="label app-fig">
@@ -307,7 +308,7 @@ const jsonLd = {
           <span class="app-cta-wash a" />
           <span class="app-cta-wash b" />
           <div class="app-cta-inner">
-            <img src={page.icon} alt="" width="96" height="96" loading="lazy" decoding="async" />
+            <AppIconImage src={page.icon} alt="" width={96} height={96} loading="lazy" decoding="async" />
             <div>
               <h2 id="app-cta-title" set:html={hand(page.cta.title)} />
               <p set:html={page.cta.text} />

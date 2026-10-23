@@ -16,6 +16,7 @@ const everyday = new Set([
 ]);
 const category = (slug: string) =>
   focus.has(slug) ? 'Focus' : everyday.has(slug) ? 'Everyday' : 'Health';
+import AppIconImage from '../../components/app/AppIconImage.astro';
 ---
 
 <Layout
@@ -57,7 +58,7 @@ const category = (slug: string) =>
         {
           iconArt.map((app, i) => (
             <a href={`/${app.slug}/`}>
-              <img
+              <AppIconImage
                 src={app.icon}
                 alt={`${app.name} icon`}
                 width={i === 1 ? 128 : 96}
@@ -95,7 +96,7 @@ const category = (slug: string) =>
             href={`/${app.slug}/`}
           >
             <>
-              <img src={app.icon} alt="" width="56" height="56" loading="lazy" />
+              <AppIconImage src={app.icon} alt="" width={56} height={56} loading="lazy" />
               <div>
                 <>
                   <p class="app-category">
