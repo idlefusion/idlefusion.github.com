@@ -24,7 +24,7 @@ export const apps = [
     slug: 'run-easy',
     name: 'Run Easy',
     category: 'Heart Rate Zone Training',
-    desc: 'Heart rate zone training on Apple Watch built around the Maffetone method with real-time coaching.',
+    desc: 'Heart rate zone training for Apple Watch, built around the MAF method.',
     icon: '/img/run-easy/icon.png',
   },
   {
@@ -150,8 +150,8 @@ export const apps = [
     slug: 'temp-easy',
     name: 'Temp Easy',
     category: 'Temperature Tracker',
-    desc: 'Track body temperature for the whole family with fever alerts, symptom logging, and export for your doctor.',
-    icon: '/img/temp-easy/icon.png',
+    desc: 'Body temperature for the whole family: who has a fever, the right fever line for each age, and a report for your doctor.',
+    icon: '/img/temp-easy/icon-ember.png',
   },
   {
     slug: 'tune-easy',

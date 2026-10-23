@@ -2,11 +2,11 @@
   "slug": "temp-easy",
   "name": "Temp Easy",
   "category": "Temperature Tracker",
-  "icon": "/img/temp-easy/icon.png",
+  "icon": "/img/temp-easy/icon-ember.png",
   "seo": {
     "title": "Temp Easy — Body Temperature Tracker for iOS",
-    "description": "Track body temperature for the whole family. Log readings, see trends with fever alerts, and export reports for your doctor. No accounts, no subscriptions.",
-    "ogImage": "/img/temp-easy/icon.png",
+    "description": "Body temperatures for the whole family. See who has a fever at a glance, get the right fever line for every thermometer and age, and export a report for your doctor. No accounts.",
+    "ogImage": "/img/temp-easy/icon-ember.png",
     "canonical": "https://idlefusion.com/temp-easy"
   },
   "platform": "iOS",
@@ -15,43 +15,67 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#f2493d", "#f5a623"],
-  "ink": "#cf1b0e",
+  "pigments": [
+    "#f2541b",
+    "#ff7a45"
+  ],
+  "ink": "#c2410c",
   "hero": {
-    "label": "TEMPERATURE TRACKER",
-    "title": "Track temperature, <em>for the whole family.</em>",
+    "label": "FAMILY TEMPERATURE TRACKER",
+    "title": "Who has a fever, <em>and what to do next.</em>",
     "text": [
-      "Log readings, monitor symptoms, and share reports with your doctor. All your family's health data stays on your device — no accounts, no cloud sync, no subscriptions."
+      "Log temperatures for everyone in the family, with the right fever line for each thermometer and guidance that changes with age. Ink on paper, with color only for a fever. No accounts, no subscriptions, no data collection."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/temp-easy/screenshots/01_marketing.png",
-      "alt": "Temp Easy — Family Fever Tracker",
-      "label": "Family Fever Tracker",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/temp-easy/screenshots/01-family.png",
+      "alt": "Temp Easy — Who has a fever, at a glance",
+      "label": "Family",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/temp-easy/screenshots/02_marketing.png",
-      "alt": "Temp Easy — Multiple Profiles",
-      "label": "Multiple Profiles",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/temp-easy/screenshots/02-person.png",
+      "alt": "Temp Easy — Know what to do next",
+      "label": "Person",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/temp-easy/screenshots/03_marketing.png",
-      "alt": "Temp Easy — Fever Alerts",
-      "label": "Fever Alerts",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/temp-easy/screenshots/03-reading.png",
+      "alt": "Temp Easy — Log a reading in seconds",
+      "label": "New Reading",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/temp-easy/screenshots/04_marketing.png",
-      "alt": "Temp Easy — History & Trends",
-      "label": "History & Trends",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/temp-easy/screenshots/04-history.png",
+      "alt": "Temp Easy — Every reading, day by day",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/temp-easy/screenshots/05-guide.png",
+      "alt": "Temp Easy — The fever guide, always at hand",
+      "label": "Fever Guide",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/temp-easy/screenshots/06-export.png",
+      "alt": "Temp Easy — Ready for your doctor",
+      "label": "Export",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/temp-easy/screenshots/07-family-dark.png",
+      "alt": "Temp Easy — Easy on the eyes at 3 a.m.",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -63,56 +87,56 @@
     {
       "type": "features",
       "label": "FEATURES",
-      "title": "Built for your family's health.",
+      "title": "Built for the nights someone's sick.",
       "items": [
         {
-          "title": "Multi-Person Profiles",
-          "text": "Create profiles for each family member with custom fever thresholds by age. Track everyone's temperature in one app."
+          "title": "Your Family at a Glance",
+          "text": "Add each person once. The home screen shows everyone with their latest reading, and a fever stands out with a plain line about what to do next."
         },
         {
-          "title": "Trend Charts",
-          "text": "Visualize temperature changes over time with beautiful charts. Track up to 30 readings per person to spot patterns and recovery."
+          "title": "The Right Fever Line",
+          "text": "A fever depends on how the temperature was taken. Temp Easy uses the published line for rectal, ear, forehead, oral and armpit readings, in °F or °C."
         },
         {
-          "title": "Symptom Tracking",
-          "text": "Log symptoms alongside each reading — headache, cough, fatigue, and more. See the full picture of how everyone's feeling."
+          "title": "Guidance by Age",
+          "text": "A baby under 3 months with any fever needs a doctor right away, and the advice changes as children grow. Temp Easy tells you when the guidance is to call, with its sources."
         },
         {
-          "title": "Medication Logging",
-          "text": "Record medications and doses with timestamps. Keep track of what was given and when, especially useful for children's medicine."
+          "title": "Symptoms and Medicine",
+          "text": "Log symptoms, medicine and notes with each reading. Edit any reading later, and see trends for each person and a history for everyone."
         },
         {
-          "title": "Export for Doctors",
-          "text": "Generate CSV or text reports with all readings, symptoms, and medications. Share via email or print for your next doctor's visit."
+          "title": "Ready for Your Doctor",
+          "text": "Export a PDF report or a CSV spreadsheet for one person or the whole family, with temperatures, symptoms, medicine and notes."
         },
         {
-          "title": "HealthKit Sync",
-          "text": "Optionally sync with Apple Health. Read existing temperature data or write new readings. Your health data stays unified in one place."
+          "title": "Apple Health",
+          "text": "Optionally save your own body temperature readings to Apple Health. Only yours go there; readings for the rest of your family stay in Temp Easy."
         }
       ]
     },
     {
       "type": "scale",
-      "label": "FEVER THRESHOLDS",
-      "title": "Know when to worry.",
+      "label": "FEVER LINES",
+      "title": "A fever depends on the thermometer.",
       "text": [
-        "Temperature readings are color-coded based on standard medical guidelines for fever detection."
+        "Temp Easy uses published guidance from Seattle Children's Hospital for every age. It doesn't diagnose and isn't medical advice: call your doctor if you're worried, and call emergency services for an emergency."
       ],
       "items": [
         {
-          "label": "Normal",
-          "range": "&lt; 99.1°F / 37.3°C",
-          "color": "#16a34a"
+          "label": "Rectal, ear or forehead",
+          "range": "100.4°F / 38.0°C",
+          "color": "#f2541b"
         },
         {
-          "label": "Elevated",
-          "range": "99.1–100.4°F / 37.3–38.0°C",
-          "color": "#ca8a04"
+          "label": "Oral",
+          "range": "100.0°F / 37.8°C",
+          "color": "#f2541b"
         },
         {
-          "label": "Fever",
-          "range": "≥ 100.4°F / 38.0°C",
-          "color": "#dc2626"
+          "label": "Armpit",
+          "range": "99.0°F / 37.2°C",
+          "color": "#f2541b"
         }
       ]
     },
@@ -121,7 +145,7 @@
       "label": "PRIVACY",
       "title": "Your family's health data stays yours.",
       "text": [
-        "No analytics. No ads. No tracking pixels. No telemetry. Your temperature readings and health information are stored locally on your device. We never see them, and neither does anyone else."
+        "No analytics. No ads. No tracking. No telemetry. Your family's readings are stored on your iPhone, and only your own go to Apple Health if you turn that on. We never see them, and neither does anyone else."
       ],
       "link": {
         "href": "/temp-easy/privacy",

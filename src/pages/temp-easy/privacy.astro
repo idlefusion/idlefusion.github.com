@@ -11,7 +11,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Temp Easy - Body Temperature Tracker &middot; Effective February 17, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Temp Easy - Body Temperature Tracker &middot; Effective October 22, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           <div>
@@ -25,15 +25,16 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">HealthKit Integration</h2>
-            <p>Temp Easy optionally integrates with Apple HealthKit to read and write body temperature data. This integration is:</p>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Health</h2>
+            <p>Temp Easy can save body temperature readings to Apple Health (HealthKit). This is:</p>
             <ul class="list-disc list-inside mt-2 space-y-1 ml-4">
-              <li>Entirely optional — you can use the app without HealthKit</li>
-              <li>Controlled by you through iOS permissions</li>
-              <li>Processed locally on your device</li>
-              <li>Never sent to our servers or any third party</li>
+              <li>Entirely optional. Temp Easy works fully without it</li>
+              <li>Turned on only by you, in Settings → Apple Health, and controlled through iOS permissions</li>
+              <li>Write only. Temp Easy saves body temperature and never reads your health data</li>
+              <li>For one person: the readings of the person you choose as yourself. Readings for other family members are never saved to Apple Health</li>
+              <li>Processed on your device and never sent to us or any third party</li>
             </ul>
-            <p class="mt-2">When enabled, Temp Easy can read existing body temperature data from Apple Health and write new temperature readings to Apple Health for use with other health apps.</p>
+            <p class="mt-2">You can turn off Temp Easy's access at any time in the Health app: tap your picture, then Apps, then Temp Easy.</p>
           </div>
 
           <div>
@@ -47,13 +48,8 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Notifications</h2>
-            <p>Temp Easy uses local notifications to remind you to check temperatures or take medications. These notifications are scheduled entirely on your device and do not involve any external servers or push notification services.</p>
-          </div>
-
-          <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Export Features</h2>
-            <p>Temp Easy allows you to export your data as CSV or text files for sharing with healthcare providers. These exports are generated locally on your device and shared only through the standard iOS sharing system that you control. We never receive or have access to these exported files.</p>
+            <p>Temp Easy allows you to export your readings as a PDF report or a CSV spreadsheet for sharing with healthcare providers. These exports are generated locally on your device and shared only through the standard iOS sharing system that you control. We never receive or have access to these exported files.</p>
           </div>
 
           <div>
