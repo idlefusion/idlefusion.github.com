@@ -2,60 +2,81 @@
   "slug": "decibel",
   "name": "Decibel",
   "category": "Sound Meter",
-  "icon": "/img/decibel/icon.png",
+  "icon": "/img/decibel/icon-focus.png",
   "seo": {
-    "title": "Decibel — Sound Level Meter for iOS",
-    "description": "Measure sound levels instantly with real-time dB readings, NIOSH exposure warnings, and HealthKit integration. No accounts, no subscriptions.",
-    "ogImage": "/img/decibel/icon.png",
+    "title": "Decibel — Sound Level Meter for iPhone and Apple Watch",
+    "description": "See how loud it is around you and when it starts to harm your hearing. A-weighted decibels, NIOSH limits and a live noise dose, saved readings, Apple Health, widgets and an Apple Watch app. No accounts, no tracking.",
+    "ogImage": "/img/decibel/icon-focus.png",
     "canonical": "https://idlefusion.com/decibel"
   },
   "platform": "iOS",
   "store": null,
   "note": "Free · No account required",
-  "pigments": ["#16b18c", "#0aa8c9"],
-  "ink": "#0f765d",
+  "pigments": ["#e11d48", "#fb7185"],
+  "ink": "#be123c",
   "hero": {
     "label": "SOUND LEVEL METER",
-    "title": "Measure sound levels <em>instantly.</em>",
+    "title": "Know when it gets <em>too loud.</em>",
     "text": [
-      "A precise decibel meter with NIOSH safety warnings. Know when noise becomes harmful and protect your hearing."
+      "Decibel measures the sound around you and tells you when it's loud enough to harm your hearing, using the NIOSH limits workplaces rely on. Ink on paper, with color only where it matters: on a level past 85 dB."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/decibel/screenshots/01_marketing.png",
-      "alt": "Decibel — Measure Sound Levels",
-      "label": "Measure Sound Levels",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/decibel/screenshots/01-meter.png",
+      "alt": "Decibel — Measure the sound around you",
+      "label": "Meter",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/decibel/screenshots/02_marketing.png",
-      "alt": "Decibel — Protect Your Hearing",
-      "label": "Protect Your Hearing",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/decibel/screenshots/02-loud.png",
+      "alt": "Decibel — Know when it gets too loud",
+      "label": "NIOSH Limits",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/decibel/screenshots/03_marketing.png",
-      "alt": "Decibel — Real-Time Meter",
-      "label": "Real-Time Meter",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/decibel/screenshots/03-history.png",
+      "alt": "Decibel — Keep the readings that matter",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/decibel/screenshots/04_marketing.png",
-      "alt": "Decibel — Exposure History",
-      "label": "Exposure History",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/decibel/screenshots/04-places.png",
+      "alt": "Decibel — Find the loudest places",
+      "label": "Places",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/decibel/screenshots/07_widget.png",
-      "alt": "Decibel — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/decibel/screenshots/05-save.png",
+      "alt": "Decibel — Save to Apple Health",
+      "label": "Apple Health",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/decibel/screenshots/06-widgets.png",
+      "alt": "Decibel — Your last reading at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/decibel/screenshots/07-exposure.png",
+      "alt": "Decibel — Know your limits",
+      "label": "Exposure Limits",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/decibel/screenshots/08-meter-dark.png",
+      "alt": "Decibel — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -70,41 +91,41 @@
       "title": "Know your environment.",
       "items": [
         {
-          "title": "Real-Time dB Meter",
-          "text": "Large, easy-to-read display shows current decibel levels instantly. Track peak and average readings during your measurement sessions."
+          "title": "A Real Meter",
+          "text": "A-weighted decibels with Fast time weighting, the way a sound level meter reads, and a graph of the last 30 seconds. Each session keeps its average, peak and quietest level. Tap the number to hold it."
         },
         {
-          "title": "NIOSH Exposure Warnings",
-          "text": "Color-coded safety alerts based on occupational standards. Know exactly how long you can safely be exposed to current noise levels."
+          "title": "NIOSH Limits",
+          "text": "Above 85 dB, Decibel marks the level and tells you how long a day is safe at it. Your noise dose shows how much of a day's limit a session has used."
         },
         {
-          "title": "Save Readings",
-          "text": "Store measurements with notes for later reference. Export your history to CSV for analysis or record-keeping."
+          "title": "Readings and Places",
+          "text": "Save a reading with the place and a note. Browse by date or by place, see your loudest places side by side, and export everything to CSV."
         },
         {
-          "title": "HealthKit Integration",
-          "text": "Record environmental audio exposure to Apple Health. Track your hearing health over time alongside your other health data."
+          "title": "Apple Health",
+          "text": "Turn it on and each reading you save is added to Apple Health as Environmental Sound Levels. Decibel never reads your health data."
         },
         {
-          "title": "Session History",
-          "text": "Every measurement is saved automatically. Review past readings, track trends, and build awareness of your noise exposure."
+          "title": "Widgets and Apple Watch",
+          "text": "Home Screen and Lock Screen widgets show your last reading. The Apple Watch app measures with the watch's own microphone."
         },
         {
           "title": "Completely Private",
-          "text": "No accounts, no cloud sync, no tracking. Your sound measurements stay on your device. We never hear a thing."
+          "text": "No accounts, no analytics, no tracking. Sound is measured on your device and never recorded, and your readings stay on it."
         }
       ]
     },
     {
       "type": "list",
       "label": "PERFECT FOR",
-      "title": "Anyone who works in sound.",
+      "title": "Anyone around loud sound.",
       "text": [],
       "items": [
-        "Musicians &amp; audio engineers",
-        "Construction &amp; industrial workers",
-        "Teachers &amp; childcare workers",
-        "Hearing health awareness"
+        "Concerts, clubs &amp; festivals",
+        "Workshops, gyms &amp; job sites",
+        "Classrooms, offices &amp; open plans",
+        "Checking a noisy neighbor or street"
       ]
     },
     {
@@ -112,7 +133,7 @@
       "label": "PRIVACY",
       "title": "Zero data collection.",
       "text": [
-        "No analytics. No ads. No tracking. No telemetry. Decibel processes audio locally on your device. We never record, store, or transmit any audio."
+        "No analytics. No ads. No tracking. No accounts. Decibel measures sound on your device and never records, stores or sends audio. Readings stay on your iPhone, and go to Apple Health only if you turn that on."
       ],
       "link": {
         "href": "/decibel/privacy",

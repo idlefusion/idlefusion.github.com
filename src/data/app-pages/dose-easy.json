@@ -1,130 +1,148 @@
 {
   "slug": "dose-easy",
   "name": "Dose Easy",
-  "category": "Supplement & Vitamin Tracker",
-  "icon": "/img/dose-easy/icon.png",
+  "category": "Supplement Tracker",
+  "icon": "/img/dose-easy/icon-forest.png",
   "seo": {
-    "title": "Dose Easy — Supplement & Vitamin Tracker",
-    "description": "Dose Easy helps you build a reliable supplement routine with dose logs, reminders, and daily checklists that keep your health habits visible and easy to follow.",
-    "ogImage": "/img/dose-easy/icon.png",
+    "title": "Dose Easy — Supplement & Vitamin Tracker for iPhone",
+    "description": "A daily checklist for your supplements and vitamins. Add one in a sentence, check off each dose, get a reminder when one is due, and keep your streak. No accounts, no subscriptions.",
+    "ogImage": "/img/dose-easy/icon-forest.png",
     "canonical": "https://idlefusion.com/dose-easy"
   },
   "platform": "iOS",
   "store": null,
   "note": "Coming soon · No account required",
-  "pigments": ["#55c9ae", "#1fae9f"],
-  "ink": "#257462",
+  "pigments": ["#159f47", "#4ade80"],
+  "ink": "#147c3b",
   "hero": {
-    "label": "Supplement Routine Tracker",
-    "title": "Log supplements consistently with simple reminders.",
+    "label": "SUPPLEMENT TRACKER",
+    "title": "Every dose, <em>one tap.</em>",
     "text": [
-      "Dose Easy helps you build a reliable supplement routine with dose logs, reminders, and daily checklists that keep your health habits visible and easy to follow."
+      "A daily checklist for your supplements and vitamins. Type “Vitamin D 2000 IU every morning” and it’s on your list. Check off each dose, get a reminder when one is due, and keep your streak going. No sign-up, no subscriptions, no data collection."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/dose-easy/screenshots/01_today_checklist.png",
-      "alt": "Today checklist",
-      "label": "Today checklist",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/dose-easy/screenshots/01-today.png",
+      "alt": "Dose Easy — Every dose, one tap",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/dose-easy/screenshots/02_supplement_list.png",
-      "alt": "Supplement library",
-      "label": "Supplement library",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/dose-easy/screenshots/02-quick-add.png",
+      "alt": "Dose Easy — Add it in a sentence",
+      "label": "Quick add",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/dose-easy/screenshots/03_history.png",
-      "alt": "History and adherence",
-      "label": "History and adherence",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/dose-easy/screenshots/03-history.png",
+      "alt": "Dose Easy — See how it's going",
+      "label": "History",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/dose-easy/screenshots/04_dark_mode.png",
-      "alt": "Dark mode",
-      "label": "Dark mode",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/dose-easy/screenshots/04-detail.png",
+      "alt": "Dose Easy — Every supplement, up close",
+      "label": "Supplement detail",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/dose-easy/screenshots/04_settings_themes.png",
-      "alt": "Advanced reminders",
-      "label": "Advanced reminders",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/dose-easy/screenshots/05-widgets.png",
+      "alt": "Dose Easy — Mark doses from your Home Screen",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/dose-easy/screenshots/05_themes.png",
-      "alt": "Theme options",
-      "label": "Theme options",
-      "w": 1242,
-      "h": 2688
+      "src": "/img/dose-easy/screenshots/06-supplements.png",
+      "alt": "Dose Easy — Your whole routine",
+      "label": "Supplements",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/dose-easy/screenshots/07-today-dark.png",
+      "alt": "Dose Easy — Easy on the eyes at night",
+      "label": "Dark",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
     {
       "type": "screenshots",
-      "label": "Screenshots",
-      "title": "Screenshots"
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
     },
     {
       "type": "features",
-      "label": "",
-      "title": "What Dose Easy does",
+      "label": "FEATURES",
+      "title": "Simple by design.",
       "items": [
         {
-          "title": "Dose tracking",
-          "text": "Track every supplement, dosage, and frequency without manually juggling multiple lists."
+          "title": "Add in a sentence",
+          "text": "Type “Magnesium 400 mg at night” and Dose Easy fills in the name, amount, time and schedule. Or start from a list of common supplements, or set everything yourself."
         },
         {
-          "title": "Reminder automation",
-          "text": "Local reminders keep your routine on schedule, even when your day gets busy."
+          "title": "Today's checklist",
+          "text": "Your doses by morning, afternoon and evening. Tap one once you’ve taken it, touch and hold to skip it. As-needed supplements are a tap away too."
         },
         {
-          "title": "Adherence history",
-          "text": "Review consistency over days and weeks so you can identify gaps before routines drift."
+          "title": "Reminders that know what's left",
+          "text": "A notification at each dose time naming what’s due, with a button to mark it as taken. Times you’ve already covered stay quiet."
         },
         {
-          "title": "Export and review",
-          "text": "Share or review dose logs in a clean format for personal tracking workflows."
+          "title": "Streak and history",
+          "text": "Your streak counts the days you took every dose. See the month at a glance, 30 days of doses, your best streak, and each supplement’s history. Forgot yesterday? Catch up in a tap."
         },
         {
-          "title": "Private by default",
-          "text": "No accounts or sign up required and no telemetry from your health routine."
+          "title": "Widgets",
+          "text": "See what’s left today on your Home Screen and Lock Screen, and mark a dose as taken right from the widget."
+        },
+        {
+          "title": "Export",
+          "text": "Share every dose you’ve marked as a CSV file, for your own records or to bring to an appointment."
         }
       ]
     },
     {
-      "type": "list",
-      "label": "",
-      "title": "Who it’s for",
-      "text": [],
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Set it up <em>your way.</em>",
       "items": [
-        "Daily vitamin routines",
-        "Complex supplement protocols",
-        "Family health plans",
-        "Anyone building consistent habits"
+        {
+          "title": "Your accent",
+          "text": "Pick one of eight accents to mark your streak. It sets the app icon too, with dark and tinted versions, and the widget."
+        },
+        {
+          "title": "Day or night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
+        },
+        {
+          "title": "A tracker, not advice",
+          "text": "Dose Easy keeps track of what you take. It doesn’t recommend supplements or amounts; that’s for you, the label and your doctor."
+        }
       ]
     },
     {
       "type": "privacy",
-      "label": "",
-      "title": "Privacy",
+      "label": "PRIVACY",
+      "title": "Your routine stays yours.",
       "text": [
-        "Dose Easy keeps dose records and reminders fully local. We do not sync your routine to the cloud, track your behavior, or deliver ads."
+        "No analytics. No ads. No tracking. No cloud sync. Your supplements and doses live on your device and nowhere else. Zero data collection, period."
       ],
       "link": {
         "href": "/dose-easy/privacy",
-        "text": "Read the full privacy policy"
+        "text": "Read the full privacy policy →"
       }
     }
   ],
   "cta": {
-    "title": "Ready to start?",
-    "text": "Install Dose Easy to track smarter and stay focused on what matters."
+    "title": "Keep your routine.",
+    "text": "Coming soon to the App Store. No account required."
   }
 }

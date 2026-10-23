@@ -2,93 +2,80 @@
   "slug": "cycle-easy",
   "name": "Cycle Easy",
   "category": "Period Tracker",
-  "icon": "/img/cycle-easy/icon.png",
+  "icon": "/img/cycle-easy/icon-berry.png",
   "seo": {
     "title": "Cycle Easy — Private Period Tracker for iOS",
-    "description": "Your cycle data belongs to you. Cycle Easy is a privacy-first period tracker that keeps everything local. No accounts, no cloud, no tracking. Ever.",
-    "ogImage": "/img/cycle-easy/icon.png",
+    "description": "Cycle Easy is a private period tracker for iPhone. See your cycle day and when your next period is likely, log how you feel, and keep everything on your device. Works with Apple Health.",
+    "ogImage": "/img/cycle-easy/icon-berry.png",
     "canonical": "https://idlefusion.com/cycle-easy"
   },
   "platform": "iOS",
   "store": null,
   "note": "Free · No account required",
-  "pigments": ["#f08bab", "#e0345c"],
-  "ink": "#c81a51",
+  "pigments": [
+    "#a855f7",
+    "#c084fc"
+  ],
+  "ink": "#7e22ce",
   "hero": {
-    "label": "PERIOD TRACKING",
-    "title": "Your cycle, <em>your privacy.</em>",
+    "label": "PERIOD TRACKER",
+    "title": "Your cycle, <em>on your iPhone.</em>",
     "text": [
-      "A period tracker that keeps everything on your device. No accounts. No cloud. No data collection. Your most intimate health data stays exactly where it belongs — with you."
+      "See your cycle day, when your next period is likely and how you feel. No account, no servers, no iCloud: your cycle stays on your device, where it belongs."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/cycle-easy/screenshots/01_marketing.png",
-      "alt": "Cycle Easy — Your Cycle, Your Privacy",
-      "label": "Your Cycle, Your Privacy",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/cycle-easy/screenshots/01-today.png",
+      "alt": "Cycle Easy — Know your cycle day",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/cycle-easy/screenshots/02_marketing.png",
-      "alt": "Cycle Easy — Predict Your Cycle",
-      "label": "Predict Your Cycle",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/cycle-easy/screenshots/02-calendar.png",
+      "alt": "Cycle Easy — Your month at a glance",
+      "label": "Calendar",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/cycle-easy/screenshots/03_marketing.png",
-      "alt": "Cycle Easy — Log Symptoms",
-      "label": "Log Symptoms",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/cycle-easy/screenshots/03-insights.png",
+      "alt": "Cycle Easy — Patterns from your history",
+      "label": "Insights",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/cycle-easy/screenshots/04_marketing.png",
-      "alt": "Cycle Easy — Calendar View",
-      "label": "Calendar View",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/cycle-easy/screenshots/04-log.png",
+      "alt": "Cycle Easy — Log how you feel",
+      "label": "Symptoms",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/cycle-easy/screenshots/07_widget.png",
-      "alt": "Cycle Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/cycle-easy/screenshots/05-health.png",
+      "alt": "Cycle Easy — Works with Apple Health",
+      "label": "Apple Health",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/cycle-easy/screenshots/06-widgets.png",
+      "alt": "Cycle Easy — Your cycle day, at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/cycle-easy/screenshots/07-today-dark.png",
+      "alt": "Cycle Easy — Private, day or night",
+      "label": "Dark mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
-    {
-      "type": "features",
-      "label": "OUR COMMITMENT",
-      "title": "Your data never leaves your device. Period.",
-      "intro": [
-        "In today's world, your health data has never been more sensitive. We built Cycle Easy with one principle: your cycle data belongs to you and only you. There are no servers, no databases, no way for anyone — including us — to access your information."
-      ],
-      "link": {
-        "href": "/cycle-easy/privacy",
-        "text": "Read our complete privacy commitment →"
-      },
-      "items": [
-        {
-          "title": "100% Local",
-          "text": "All data stored on device only"
-        },
-        {
-          "title": "No Cloud",
-          "text": "Zero network requests ever"
-        },
-        {
-          "title": "No Tracking",
-          "text": "No analytics or third parties"
-        },
-        {
-          "title": "No Account",
-          "text": "Use immediately, no sign-up"
-        }
-      ]
-    },
     {
       "type": "screenshots",
       "label": "SCREENSHOTS",
@@ -100,42 +87,55 @@
       "title": "Everything you need. Nothing you don't.",
       "items": [
         {
-          "title": "Period Tracking",
-          "text": "Log your period start and end dates with a single tap. Track flow intensity and see your complete cycle history at a glance."
+          "title": "Today",
+          "text": "Your cycle day leads the screen, with a ring that closes as your next period gets close. Start or end a period in one tap."
         },
         {
-          "title": "Smart Predictions",
-          "text": "Your next period, predicted based on your own data. The app learns your unique cycle patterns and improves accuracy over time."
+          "title": "Predictions",
+          "text": "Your next period, estimated from your own last six cycles. Until you've logged two, it uses the usual length you set."
         },
         {
-          "title": "Symptom Logging",
-          "text": "Track cramps, mood, energy, headaches, and more. Quick daily logging helps you spot patterns and understand your body better."
+          "title": "Calendar",
+          "text": "Logged periods, the days your next one is likely and, if you turn it on, the estimated fertile window. Tap any day to log it."
         },
         {
-          "title": "Cycle Calendar",
-          "text": "Beautiful calendar views show your cycle at a glance. See patterns across months with the year-at-a-glance view."
+          "title": "Symptoms and mood",
+          "text": "Cramps, headaches, bloating, cravings, mood and more in a few taps. Insights shows which cycle days they usually come on."
         },
         {
-          "title": "Privacy-Safe Widget",
-          "text": "Current cycle day at a glance on your home screen. Shows only \"Day X\" — no sensitive details visible to others."
+          "title": "Insights",
+          "text": "Average cycle and period length, your shortest and longest cycles, a chart of the last six, and the next three periods."
         },
         {
-          "title": "Your Data, Your Control",
-          "text": "Export all your data as JSON anytime. Delete everything with a single tap. Complete control over your information."
+          "title": "Private widgets",
+          "text": "Your cycle day on the Home Screen and Lock Screen. Widgets never show anything about your period."
         }
       ]
     },
     {
       "type": "statement",
-      "label": "HEALTHKIT",
-      "title": "Optional. Off by default.",
+      "label": "APPLE HEALTH",
+      "title": "Optional. Off until you connect it.",
       "text": [
-        "Cycle Easy can sync with Apple Health — but only if you explicitly enable it. HealthKit integration is disabled by default. If you choose to enable it, data flows only to Apple Health on your device, governed by Apple's strict privacy protections. We never see it."
+        "Connect Apple Health and Cycle Easy reads menstrual flow, so periods you saved there show up in your calendar, and writes menstrual flow for each day of the periods you log. It reads and writes nothing else, and Health data stays in Apple Health on your iPhone."
       ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your cycle stays yours.",
+      "text": [
+        "No account, no servers, no analytics and no iCloud. Cycle Easy keeps your data out of backups too, so there's nothing to hand over. Lock the app with Face ID, export your data to a file, or delete it all in one step.",
+        "Predictions are estimates from your own history. They aren't medical advice or birth control."
+      ],
+      "link": {
+        "href": "/cycle-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
     }
   ],
   "cta": {
-    "title": "Privacy-first period tracking.",
+    "title": "Private period tracking.",
     "text": "Coming soon to the App Store. No account required."
   }
 }

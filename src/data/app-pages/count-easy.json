@@ -2,11 +2,11 @@
   "slug": "count-easy",
   "name": "Count Easy",
   "category": "Countdown Tracker",
-  "icon": "/img/count-easy/icon.png",
+  "icon": "/img/count-easy/icon-ember.png",
   "seo": {
-    "title": "Count Easy — Countdown & Days Tracker for iOS",
-    "description": "Beautiful countdown widgets for your home screen. Track days until vacations, birthdays, deadlines — or days since milestones. No accounts, no subscriptions.",
-    "ogImage": "/img/count-easy/icon.png",
+    "title": "Count Easy — Day Countdown for iPhone",
+    "description": "The days until the moments that matter, and the days since the ones that changed things. Add a countdown in a sentence, see your next moment in widgets, share it as an image. No accounts, no subscriptions.",
+    "ogImage": "/img/count-easy/icon-ember.png",
     "canonical": "https://idlefusion.com/count-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,64 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#02b6d0", "#2f86ea"],
-  "ink": "#017484",
+  "pigments": ["#f2541b", "#ff7a45"],
+  "ink": "#c2410c",
   "hero": {
     "label": "COUNTDOWN TRACKER",
-    "title": "Beautiful countdown <em>widgets.</em>",
+    "title": "The days until <em>what matters.</em>",
     "text": [
-      "Track what matters. Days until your next vacation. Days since you started a new habit. Beautiful widgets that keep your important dates front and center."
+      "Count down to a trip, a birthday or a launch, and count up from the day you moved or quit something. Type it in a sentence and Count Easy does the rest. No sign-up, no subscriptions, no data collection."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/count-easy/screenshots/01_marketing.png",
-      "alt": "Count Easy — Countdown to What Matters",
-      "label": "Countdown to What Matters",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/count-easy/screenshots/01-home.png",
+      "alt": "Count Easy — The days until what matters",
+      "label": "Home",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/count-easy/screenshots/02_marketing.png",
-      "alt": "Count Easy — Home Screen Widgets",
-      "label": "Home Screen Widgets",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/count-easy/screenshots/02-quickadd.png",
+      "alt": "Count Easy — Add one in a sentence",
+      "label": "Quick add",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/count-easy/screenshots/03_marketing.png",
-      "alt": "Count Easy — Multiple Countdowns",
-      "label": "Multiple Countdowns",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/count-easy/screenshots/03-detail.png",
+      "alt": "Count Easy — Watch the wait shrink",
+      "label": "Countdown detail",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/count-easy/screenshots/04_marketing.png",
-      "alt": "Count Easy — Custom Colors",
-      "label": "Custom Colors",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/count-easy/screenshots/04-widgets.png",
+      "alt": "Count Easy — Your next moment at a glance",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/count-easy/screenshots/07_widget.png",
-      "alt": "Count Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/count-easy/screenshots/05-share.png",
+      "alt": "Count Easy — Share the countdown",
+      "label": "Share",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/count-easy/screenshots/06-home-dark.png",
+      "alt": "Count Easy — Beautiful, day or night",
+      "label": "Dark mode",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/count-easy/screenshots/07-accent.png",
+      "alt": "Count Easy — Make it yours",
+      "label": "Accents",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -73,28 +87,47 @@
       "title": "Count down to what matters.",
       "items": [
         {
-          "title": "Days Until",
-          "text": "Count down to future events — vacations, birthdays, weddings, deadlines, product launches, anything worth anticipating."
+          "title": "What's next, first",
+          "text": "Home leads with your next moment, like \"12 days until Lisbon trip\", and a thin bar for how much of the wait is behind you."
         },
         {
-          "title": "Days Since",
-          "text": "Track milestones and achievements — sobriety dates, relationship anniversaries, habit streaks, career moments."
+          "title": "Add it in a sentence",
+          "text": "Type \"Lisbon trip June 3\" or \"Mom's birthday May 4\" and Count Easy reads the name, the date and whether it repeats. Or use the full form for an icon, a color and a note."
         },
         {
-          "title": "Repeating Events",
-          "text": "Set annual repeating for birthdays and anniversaries. Count Easy automatically resets when the date passes."
+          "title": "Days until and days since",
+          "text": "Count down to trips, birthdays, weddings and deadlines, or count up from the day you moved, started a job or quit something. On the day itself, it simply reads Today."
         },
         {
-          "title": "Categories",
-          "text": "Organize your countdowns with custom categories. Group work deadlines, personal goals, and celebrations separately."
+          "title": "Repeats that keep their day",
+          "text": "Every day, week, two weeks, month or year. Birthdays come back every year, February 29 included in leap years."
         },
         {
-          "title": "Beautiful Widgets",
-          "text": "Stunning home screen and lock screen widgets. Small, medium, and large sizes to fit your layout perfectly."
+          "title": "Right, wherever you are",
+          "text": "Count Easy counts calendar days, so a countdown never shifts by a day when you travel or the clocks change."
         },
         {
-          "title": "8 Vibrant Colors",
-          "text": "Choose from 8 accent colors for each countdown. Make important dates pop with colors that match your style."
+          "title": "Widgets",
+          "text": "Home Screen and Lock Screen widgets show your next moment, or any countdown you pick. The medium and large sizes list what's up next."
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Make it <em>yours.</em>",
+      "items": [
+        {
+          "title": "Share the countdown",
+          "text": "Send any countdown as an image, in Paper, Ink or Story."
+        },
+        {
+          "title": "Your accent",
+          "text": "Pick one of eight accents to mark your next moment. It sets the app icon too, with dark and tinted versions, and the widgets."
+        },
+        {
+          "title": "Day or night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
         }
       ]
     },
@@ -103,7 +136,7 @@
       "label": "PRIVACY",
       "title": "Your dates. Your device.",
       "text": [
-        "No accounts. No cloud sync. No tracking. No ads. Count Easy stores everything locally on your device. Your data never leaves."
+        "No accounts. No cloud sync. No tracking. No ads. Count Easy keeps everything on your device, shared only with its own widgets. Your data never leaves."
       ],
       "link": {
         "href": "/count-easy/privacy",

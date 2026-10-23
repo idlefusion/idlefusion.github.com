@@ -23,12 +23,12 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
           <div class="space-y-6">
             <div class="faq-item">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why isn't the tuner detecting my guitar?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Make sure you've granted microphone permission when prompted. You can check this in Settings → Privacy & Security → Microphone. Also, try playing closer to your device's microphone and in a quieter environment.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Tune Easy needs the microphone to hear your strings. If you chose not to allow it, the home screen says "Microphone is off" and has an Open Settings button; you can also turn it on in Settings → Privacy & Security → Microphone. Then play a little closer to your iPhone, in a quieter room.</p>
             </div>
 
             <div class="faq-item">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">The tuner shows the wrong note. What's happening?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">If your string is very out of tune, the app may detect a different note. Try getting the string roughly in tune first (close enough that it sounds like the right note), then use the app for fine-tuning.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Tune Easy matches what it hears to the nearest string of the tuning you picked. If a string is more than three semitones off, or you're in a different tuning, it may read as another string. Check the tuning above the headline, bring the string roughly into range by ear (a reference note helps), then fine-tune with the dial.</p>
             </div>
 
             <div class="faq-item">
@@ -38,17 +38,22 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
             <div class="faq-item">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Tune Easy support alternate tunings?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">No. Tune Easy is designed specifically for standard tuning (E A D G B E). We intentionally kept it simple to avoid the confusion of accidentally selecting the wrong tuning. If you need alternate tunings, a chromatic tuner app might be a better fit.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes. Tap the tuning above the headline to pick one of eleven: Standard, half step down, full step down, Drop D, Drop C, Drop B, Open G, Open D, Open E, Open C and DADGAD. Tune Easy listens for the strings of the tuning you pick. For any other instrument, open the menu and choose Chromatic, which names any note.</p>
             </div>
 
             <div class="faq-item">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What are reference tones?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Tap any string button (E, A, D, G, B, E) to hear what that string should sound like when properly tuned. This helps you tune by ear and learn to recognize the correct pitch.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Tap any string button at the bottom of the screen to hear that string's note in the current tuning, played as a short plucked tone. While it plays, the tuner pauses so it doesn't hear your iPhone instead of your guitar.</p>
             </div>
 
             <div class="faq-item">
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does this work with acoustic and electric guitars?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Yes! Tune Easy works with any guitar that produces audible sound. For electric guitars, you can either play unplugged (the strings are usually loud enough) or hold your device near your amp's speaker.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes. Tune Easy works with any guitar that produces audible sound. For electric guitars, you can either play unplugged (the strings are usually loud enough) or hold your device near your amp's speaker.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I tune to A = 432 Hz or match a piano?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes. Open the menu, then Settings, and set the reference pitch anywhere from A4 = 425 to 455 Hz. Most music uses 440 Hz, the default.</p>
             </div>
 
             <div class="faq-item">
@@ -57,7 +62,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             </div>
 
             <div class="faq-item">
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why is my tuner needle jumping around?</h3>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why is the dial jumping around?</h3>
               <p class="text-[var(--text-secondary)] leading-relaxed">This usually happens when there's background noise or when the string is still vibrating with unwanted overtones. Try plucking the string cleanly and letting it ring in a quieter space.</p>
             </div>
           </div>

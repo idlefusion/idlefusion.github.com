@@ -2,53 +2,67 @@
   "slug": "tune-easy",
   "name": "Tune Easy",
   "category": "Guitar Tuner",
-  "icon": "/img/tune-easy/icon.png",
+  "icon": "/img/tune-easy/icon-forest.png",
   "seo": {
-    "title": "Tune Easy — Simple Guitar Tuner for iOS",
-    "description": "Tune your guitar, simply. Real-time pitch detection, reference tones, and haptic feedback. No accounts, no subscriptions.",
-    "ogImage": "/img/tune-easy/icon.png",
+    "title": "Tune Easy — Simple Guitar Tuner for iPhone",
+    "description": "A guitar tuner that shows which way to turn the peg. Eleven tunings from standard to DADGAD, a chromatic mode and reference notes for every string. No accounts, nothing recorded.",
+    "ogImage": "/img/tune-easy/icon-forest.png",
     "canonical": "https://idlefusion.com/tune-easy"
   },
   "platform": "iOS",
   "store": null,
   "note": "Free · No account required",
-  "pigments": ["#b8844a", "#eea12a"],
-  "ink": "#866035",
+  "pigments": ["#159f47", "#4ade80"],
+  "ink": "#147c3b",
   "hero": {
-    "label": "STANDARD TUNING",
-    "title": "Tune your guitar, <em>simply.</em>",
+    "label": "GUITAR TUNER",
+    "title": "Tune your guitar <em>in seconds.</em>",
     "text": [
-      "A purpose-built tuner for guitarists. Real-time pitch detection, reference tones, haptic feedback. No fuss, just tune."
+      "Play a string and Tune Easy shows which way to turn the peg. When it's right, the ring lights up. Eleven tunings, a chromatic mode and a reference note for every string. No sign-up, no subscriptions, nothing recorded."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/tune-easy/screenshots/01_marketing.png",
-      "alt": "Tune Easy — Tune Your Guitar",
-      "label": "Tune Your Guitar",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/tune-easy/screenshots/01-tuner.png",
+      "alt": "Tune Easy — Tune your guitar in seconds",
+      "label": "Tuner",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/tune-easy/screenshots/02_marketing.png",
-      "alt": "Tune Easy — Alternate Tunings",
-      "label": "Alternate Tunings",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/tune-easy/screenshots/02-in-tune.png",
+      "alt": "Tune Easy — In tune at a glance",
+      "label": "In Tune",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/tune-easy/screenshots/03_marketing.png",
-      "alt": "Tune Easy — Real-Time Detection",
-      "label": "Real-Time Detection",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/tune-easy/screenshots/03-tunings.png",
+      "alt": "Tune Easy — Drop D, open G and more",
+      "label": "Tunings",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/tune-easy/screenshots/04_marketing.png",
-      "alt": "Tune Easy — Visual Feedback",
-      "label": "Visual Feedback",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/tune-easy/screenshots/04-reference.png",
+      "alt": "Tune Easy — Hear every string first",
+      "label": "Reference Notes",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tune-easy/screenshots/05-chromatic.png",
+      "alt": "Tune Easy — Any note, any instrument",
+      "label": "Chromatic",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/tune-easy/screenshots/06-dark.png",
+      "alt": "Tune Easy — Easy on the eyes, day or night",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -60,40 +74,55 @@
     {
       "type": "features",
       "label": "FEATURES",
-      "title": "Built for guitarists.",
+      "title": "Simple by design.",
       "items": [
         {
-          "title": "Standard Tuning",
-          "text": "E A D G B E. That's it. No confusing menus, no alternate tunings to accidentally select. Just the tuning 99% of guitarists use 99% of the time."
+          "title": "Tune Up, Tune Down, In Tune",
+          "text": "The dial shows how many cents flat or sharp a string is, and the headline says which way to turn. When the string is right, the ring lights up and you feel a tap."
         },
         {
-          "title": "Real-Time Pitch Detection",
-          "text": "Advanced autocorrelation works great with guitar's rich harmonics. See exactly how many cents flat or sharp you are, instantly."
+          "title": "Eleven Tunings",
+          "text": "Standard, half and full step down, Drop D, C and B, Open G, D, E and C, and DADGAD. Tune Easy listens for the strings of the tuning you pick, down to Drop B's low B."
         },
         {
-          "title": "Reference Tones",
-          "text": "Not sure what the string should sound like? Tap any string button to hear the target pitch. Learn to tune by ear."
+          "title": "Strings in Tune",
+          "text": "Every string you bring in tune is marked, and Tune Easy counts down to all six, with the next string to tune one glance away."
         },
         {
-          "title": "Haptic Feedback",
-          "text": "Feel when you nail it. A satisfying tap tells you the string is in tune — no need to stare at the screen while you adjust."
+          "title": "Reference Notes",
+          "text": "Tap a string to hear its note, played as a plucked tone your iPhone speaker can carry, even for the low E."
         },
         {
-          "title": "Clear Visual Feedback",
-          "text": "Big, bold note display with a visual gauge showing flat, sharp, or in tune. Green glow when you hit it. Works great in any light."
+          "title": "Chromatic Mode",
+          "text": "Tune a bass, a ukulele, a violin or your voice. The chromatic tuner names any note and plays a reference A."
         },
         {
-          "title": "Completely Offline",
-          "text": "No servers, no cloud sync, no network requests. Your microphone is used only for tuning. Period."
+          "title": "Reference Pitch",
+          "text": "Tune to A4 = 440 Hz, or anywhere from 425 to 455 Hz to match a piano or a recording."
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "label": "DESIGN",
+      "title": "Set it up <em>your way.</em>",
+      "items": [
+        {
+          "title": "Your Accent",
+          "text": "Pick one of eight accents for the in-tune ring. It sets the app icon too, with dark and tinted versions."
+        },
+        {
+          "title": "Day or Night",
+          "text": "Follow your iPhone or pick Light or Dark. After dark, choose soft Graphite or true OLED Black."
         }
       ]
     },
     {
       "type": "privacy",
       "label": "PRIVACY",
-      "title": "Zero data collection.",
+      "title": "Nothing is recorded.",
       "text": [
-        "No analytics. No ads. No tracking pixels. No telemetry. Your microphone is used only for pitch detection. Nothing is recorded or stored."
+        "The microphone is used only while Tune Easy is on screen. Audio is analyzed on your iPhone and discarded: never recorded, stored or sent. No analytics, no ads, no tracking, no network requests."
       ],
       "link": {
         "href": "/tune-easy/privacy",

@@ -22,38 +22,44 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div class="space-y-6">
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What breathing patterns are available?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Breathe Easy includes three proven breathing patterns: Box Breathing (4-4-4-4), 4-7-8 Relaxation, and Coherent Breathing (5-5). Each is designed to help you relax, focus, or prepare for sleep.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What breathing patterns are there?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Six: box breathing (4-4-4-4), 4-7-8 breathing, coherent breathing (5-5), Nadi Shodhana (alternate nostril breathing, with which side to use), Ujjayi and pursed-lip breathing. Pick one on the Breathe screen; the selected pattern shows how to do it.</p>
             </div>
-
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How long is a session?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Choose 1, 3, 5 or 10 minutes under Length on the Breathe screen. Breathe Easy rounds to whole breaths, so a session never stops halfway through one. You can pause, or end early with the close button; sessions of 15 seconds or more are kept.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What happens if I lock my iPhone during a session?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">The session pauses, because haptics can't play in the background, and waits for you to tap Resume. The screen stays awake while you breathe, so it won't lock on its own.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do the haptics work?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">A distinct tap marks breathing in, holding and breathing out, right on each change, so you can follow along with your eyes closed. Turn them off in Settings > Breathing > Haptic cues.</p>
+            </div>
             <div>
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I use the Apple Watch app?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">The Apple Watch app runs completely standalone — no iPhone required. Open the app on your watch, select a breathing pattern, and start. Haptic cues guide you through each inhale, hold, and exhale phase.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Open Breathe Easy on your watch, choose a length, and tap a pattern to start. The session and its taps keep going with your wrist down. The watch app works on its own, and finished sessions are added to your history on iPhone the next time Breathe Easy runs there.</p>
             </div>
-
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does HealthKit integration work?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">When you grant permission, Breathe Easy saves completed sessions to Apple Health as mindfulness minutes. This is optional — the app works fully without it. You can enable or disable this in Settings at any time.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does Apple Health work?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Go to Settings > Apple Health and turn on Save to Apple Health. After a short explanation, Apple Health asks for permission. From then on, every session you finish is saved as mindful minutes. Breathe Easy only writes mindful minutes and never reads your Health data. To turn it off later, use the same switch, or go to Settings > Privacy &amp; Security > Health > Breathe Easy on your iPhone.</p>
             </div>
-
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I customize session duration?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Yes! In Settings, you can adjust the default duration for each breathing pattern. Sessions can be as short as 1 minute or as long as you like.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I use the widget?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Touch and hold your Home Screen or Lock Screen, tap Edit, then Add Widget, and choose Breathe Easy. The widget shows today's mindful minutes and starts a session with your chosen pattern and length when you tap it.</p>
             </div>
-
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How do I use the widgets?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Long-press on your Home Screen or Lock Screen and tap the "+" button to add widgets. Breathe Easy offers small and medium Home Screen widgets, plus circular and rectangular Lock Screen widgets for quick session access.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I change how it looks?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes. Settings > Appearance offers System, Light and Dark, a Graphite or Black dark style, and eight accents. Each accent has its own app icon.</p>
             </div>
-
             <div>
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is my data private?</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Absolutely. Breathe Easy collects zero data. There are no analytics, no tracking, and no network requests. Your session history stays on your device. Read our <a href="/breathe-easy/privacy" class="text-[var(--accent-primary)] hover:underline">privacy policy</a> for full details.</p>
+              <p class="text-[var(--text-secondary)] leading-relaxed">Yes. Breathe Easy has no accounts, analytics or tracking, and makes no network requests. Your sessions stay on your device, and in Apple Health only if you turn that on. Read the <a href="/breathe-easy/privacy" class="text-[var(--accent-primary)] hover:underline">privacy policy</a> for details.</p>
             </div>
-
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">The app isn't syncing between my iPhone and Apple Watch</h3>
-              <p class="text-[var(--text-secondary)] leading-relaxed">Breathe Easy stores session data locally on each device. If you have HealthKit enabled on both devices, your mindfulness minutes will appear in Apple Health regardless of which device you used.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Is Breathe Easy medical advice?</h3>
+              <p class="text-[var(--text-secondary)] leading-relaxed">No. Breathe Easy is for relaxation and is not medical advice or treatment. If you feel dizzy or short of breath, stop and breathe normally, and talk to your doctor if you have a heart or lung condition.</p>
             </div>
           </div>
         </div>

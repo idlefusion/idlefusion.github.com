@@ -38,9 +38,9 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             </details>
 
             <details class="faq-item">
-              <summary class="faq-question">What about Apple HealthKit?</summary>
+              <summary class="faq-question">What does Cycle Easy share with Apple Health?</summary>
               <div class="faq-answer">
-                <p>HealthKit integration is completely optional and disabled by default. If you choose to enable it, Cycle Easy can write your cycle data to Apple Health — but this stays on your device, governed by Apple's privacy protections. We never see this data. You can disable HealthKit sync at any time in the app settings.</p>
+                <p>Only menstrual flow, and only if you connect Apple Health (during setup or in Settings → Apple Health). Cycle Easy reads menstrual flow, so periods saved in Apple Health or another app show up in your calendar, and writes menstrual flow for each day of the periods you log. Symptoms, notes and predictions stay in Cycle Easy. Health data stays in Apple Health on your iPhone, and we never see it. To stop, tap Stop syncing in Settings → Apple Health; to remove access, open the Health app, tap your profile, then Apps, then Cycle Easy.</p>
               </div>
             </details>
 
@@ -58,28 +58,28 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             <details class="faq-item">
               <summary class="faq-question">How do I log my period?</summary>
               <div class="faq-answer">
-                <p>From the home screen, tap "Log Period" when your period starts. You can optionally record flow intensity (light, medium, heavy). When your period ends, tap "End Period." That's it — the app handles the rest.</p>
+                <p>On Today, tap Start period when your period starts, pick the flow (spotting, light, medium or heavy) and tap Add. When it ends, tap End period today. To log a past period, open the calendar, tap the day it started, then tap Period started this day.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">How accurate are the predictions?</summary>
               <div class="faq-answer">
-                <p>Predictions improve over time as the app learns your unique cycle patterns. After 2-3 cycles, most users find predictions quite accurate. Remember that cycles naturally vary, so predictions are estimates, not certainties. The more consistently you log, the better predictions become.</p>
+                <p>Cycle Easy expects your next period one average cycle after your last one started, using your last six cycles. Until you've logged two periods, it uses the usual cycle length you set in Settings. Cycles naturally vary, so predictions are estimates, not certainties, and they aren't medical advice.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">What symptoms can I track?</summary>
               <div class="faq-answer">
-                <p>Cycle Easy lets you track cramps, mood, energy levels, headaches, breast tenderness, bloating, and more. Quick daily logging helps you spot patterns over time. All symptom data stays on your device like everything else.</p>
+                <p>Body symptoms like cramps, headaches, backache, bloating and tender breasts; moods like calm, anxious or irritable; and others like cravings, trouble sleeping and hot flashes. Insights shows which cycle days each one usually comes on. Symptom data stays on your device like everything else.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">What about fertility tracking?</summary>
               <div class="faq-answer">
-                <p>Cycle Easy includes optional fertility window estimates, but this feature is disabled by default and must be manually enabled. <strong>Important:</strong> These estimates are for awareness only and should NOT be used for contraception. The app includes clear disclaimers about this. Always consult healthcare providers for family planning decisions.</p>
+                <p>Cycle Easy can show an estimated fertile window, but it's off by default; turn it on in Settings → Cycle. <strong>Important:</strong> it's an estimate for awareness only and must not be used for contraception or to plan a pregnancy. Talk to a healthcare provider about family planning.</p>
               </div>
             </details>
           </div>
@@ -90,28 +90,28 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             <details class="faq-item">
               <summary class="faq-question">How do I export my data?</summary>
               <div class="faq-answer">
-                <p>Go to Settings → Export Data. You'll receive a JSON file containing all your cycle history, symptoms, and settings. This file is yours to keep, import elsewhere, or delete as you choose.</p>
+                <p>Open the menu, tap Settings, then Export data. You get a JSON file with your periods and symptoms to save or share however you like. Import data, in the same place, reads it back.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">How do I delete all my data?</summary>
               <div class="faq-answer">
-                <p>Go to Settings → Delete All Data. This permanently erases everything from your device. Alternatively, simply uninstalling the app will delete all data. Since there's no cloud backup, deletion is truly permanent.</p>
+                <p>Open Settings and tap Delete all data. This permanently erases every period and symptom from your device (and, if Apple Health is connected, the periods Cycle Easy saved there). Uninstalling the app also deletes everything. Since there's no cloud copy, deletion is permanent.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">Can I transfer data to a new phone?</summary>
               <div class="faq-answer">
-                <p>If you restore your new phone from an encrypted device backup (via iTunes/Finder or iCloud), your Cycle Easy data will transfer. Otherwise, you'll start fresh on the new device. We intentionally don't offer cloud sync to protect your privacy.</p>
+                <p>Yes, with a file you control. Cycle Easy keeps its data out of iCloud and computer backups, so export your data on the old iPhone (Settings → Export data), move the file to the new one (AirDrop works well), and tap Settings → Import data there. If you connected Apple Health, your periods are also in Apple Health, and Cycle Easy reads them back once you connect it on the new iPhone.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">What happens if I lose my phone?</summary>
               <div class="faq-answer">
-                <p>Your Cycle Easy data is protected by your device's passcode and biometric security (Face ID/Touch ID). If your phone is lost, your data remains encrypted. If you didn't have a backup, the data is gone — which, from a privacy perspective, can be a feature rather than a bug.</p>
+                <p>Your Cycle Easy data is protected by your device's passcode and encryption, and you can add App lock (Settings → App lock) so Face ID, Touch ID or your passcode is needed to open the app. If your phone is lost and you don't have an export, the data is gone, which from a privacy point of view can be a feature rather than a bug.</p>
               </div>
             </details>
           </div>
@@ -129,7 +129,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             <details class="faq-item">
               <summary class="faq-question">Why don't you offer cloud backup?</summary>
               <div class="faq-answer">
-                <p>Cloud backup would require storing your data on servers — creating exactly the kind of centralized database we're trying to avoid. We believe the privacy benefits of local-only storage outweigh the convenience of cloud sync. Your encrypted device backups are a safer alternative.</p>
+                <p>Cloud backup would put your cycle data on servers, creating exactly the kind of central copy we're trying to avoid. So Cycle Easy keeps it out of iCloud and computer backups too. Export to a file when you want a copy you control.</p>
               </div>
             </details>
 

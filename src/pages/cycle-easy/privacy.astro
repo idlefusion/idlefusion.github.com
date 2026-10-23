@@ -11,12 +11,12 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Cycle Easy - Period Tracker &middot; Effective February 15, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Cycle Easy - Period Tracker &middot; Effective October 22, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           
           <div class="privacy-highlight">
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">🔒 The Bottom Line</h2>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">The bottom line</h2>
             <p class="text-lg"><strong>Cycle Easy collects absolutely nothing.</strong> Your period data, symptoms, and cycle history never leave your device. There are no servers. There is no cloud. There is no way for us — or anyone else — to access your information. Ever.</p>
           </div>
 
@@ -31,7 +31,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
             <p>All data — your period dates, symptoms, predictions, and settings — is stored locally on your device using Apple's SwiftData framework. This data is:</p>
             <ul class="list-disc pl-6 mt-3 space-y-2">
               <li><strong>Stored only on your device</strong> — nowhere else</li>
-              <li><strong>Protected by your device passcode</strong> and Face ID/Touch ID</li>
+              <li><strong>Protected by your device passcode</strong>, and by Face ID, Touch ID or your passcode again if you turn on App lock</li>
               <li><strong>Encrypted by iOS</strong> using your device's security</li>
               <li><strong>Never transmitted</strong> to any server, ever</li>
             </ul>
@@ -44,7 +44,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">No Cloud Sync</h2>
-            <p>Your data does not sync to iCloud, our servers, or any third-party service. If you delete the app, your data is permanently erased. If you get a new phone, you start fresh (unless you restore from an encrypted device backup you control).</p>
+            <p>Your data does not sync to iCloud, our servers, or any third-party service, and Cycle Easy keeps it out of iCloud and computer backups as well. If you delete the app, your data is permanently erased. To move to a new phone, export your data to a file and import it there.</p>
           </div>
 
           <div>
@@ -66,22 +66,22 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple HealthKit (Optional)</h2>
-            <p class="mb-3">Cycle Easy can optionally write menstrual cycle data to Apple Health. This feature is:</p>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Health (optional)</h2>
+            <p class="mb-3">Cycle Easy can read and write menstrual flow in Apple Health, and nothing else. This feature is:</p>
             <ul class="list-disc pl-6 mt-3 space-y-2">
               <li><strong>Disabled by default</strong> — you must explicitly enable it</li>
               <li><strong>Controlled entirely by you</strong> — you choose what to share</li>
               <li><strong>Local to your device</strong> — governed by Apple's privacy policy</li>
             </ul>
-            <p class="mt-3">If you enable HealthKit sync, data flows only between Cycle Easy and Apple Health on your device. We never see this data. Cycle Easy only writes to HealthKit; it does not read any health data from other sources.</p>
-            <p class="mt-3">You can disable HealthKit at any time in the app settings. Data already written to Apple Health remains there (managed by Apple Health, not us).</p>
+            <p class="mt-3">If you connect Apple Health, Cycle Easy reads menstrual flow (so periods you or other apps saved there appear in your calendar) and writes menstrual flow for each day of the periods you log. Data moves only between Cycle Easy and Apple Health on your device. We never see it, and it is never used for advertising or shared with anyone.</p>
+            <p class="mt-3">You can stop syncing at any time in Settings → Apple Health, and change or remove access in the Health app. Data already in Apple Health stays there, managed by Apple Health.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Your Control</h2>
             <p>You have complete control over your data:</p>
             <ul class="list-disc pl-6 mt-3 space-y-2">
-              <li><strong>Export</strong> — Download all your data as a JSON file anytime</li>
+              <li><strong>Export and import</strong> — Save all your data as a JSON file anytime, and read it back on another iPhone</li>
               <li><strong>Delete</strong> — Erase all data with a single tap</li>
               <li><strong>Uninstall</strong> — Removing the app permanently deletes all data</li>
             </ul>

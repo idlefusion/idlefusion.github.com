@@ -44,12 +44,12 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
             <div>
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why does Decibel need microphone access?</h3>
-              <p class="text-[var(--text-secondary)]">Decibel uses the microphone solely to measure sound pressure levels. Audio is processed in real-time on your device and immediately discarded — no audio is ever recorded, stored, or transmitted. Without microphone access, the app cannot function.</p>
+              <p class="text-[var(--text-secondary)]">Decibel uses the microphone solely to measure sound pressure levels. It asks the first time you tap Start measuring, and listens only while you measure. Audio is processed in real time on your device and immediately discarded — no audio is ever recorded, stored, or transmitted. If you turned access off, Decibel can&rsquo;t measure: to turn it back on, open Settings on your iPhone, then Privacy &amp; Security, Microphone, and turn on Decibel.</p>
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">What is HealthKit integration?</h3>
-              <p class="text-[var(--text-secondary)]">If you enable HealthKit integration, Decibel can record your environmental audio exposure to Apple Health when you save a reading. This helps you track cumulative noise exposure over time alongside your other health data. The feature is completely optional.</p>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">How does Apple Health work with Decibel?</h3>
+              <p class="text-[var(--text-secondary)]">Turn on Save readings to Apple Health in Decibel&rsquo;s Settings (or in the Save reading sheet). The first time, Apple Health asks for permission. After that, each reading you save is added to Apple Health as Environmental Sound Levels. Decibel never reads your health data. To change access later, open the Health app, tap your profile picture, then Apps, Decibel.</p>
             </div>
 
             <div>
@@ -57,6 +57,14 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
               <p class="text-[var(--text-secondary)]">Yes. You can export your measurement history to a CSV file for analysis or record-keeping. Go to History and tap the export button.</p>
             </div>
 
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Can I calibrate Decibel?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. If you have a calibrated sound level meter, open Settings, then Calibration, and adjust the offset until Decibel&rsquo;s readings match it.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Does Decibel work on Apple Watch?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. The Apple Watch app measures with the watch&rsquo;s own microphone and shows the level, the average and the peak, with the same 85 dB warning.</p>
+            </div>
             <div>
               <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-2">Why are my readings different from another app?</h3>
               <p class="text-[var(--text-secondary)]">Different apps may use different calibration methods, frequency weighting (A, C, or Z), and measurement techniques. Decibel uses A-weighting, which approximates human hearing sensitivity. Small variations between apps are normal — focus on relative changes rather than absolute values.</p>
