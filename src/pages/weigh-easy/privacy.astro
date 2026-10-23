@@ -11,7 +11,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
     <section class="section-padding">
       <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
-        <p class="text-sm text-[var(--text-secondary)] mb-12">Weigh Easy &middot; Effective February 15, 2026</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Weigh Easy &middot; Effective October 22, 2026</p>
 
         <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
           <div>
@@ -21,22 +21,23 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Storage</h2>
-            <p>All weight entries, body measurements, goals, and settings are stored locally on your device using SwiftData. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
+            <p>All weigh-ins, body measurements, goals, and settings are stored locally on your iPhone. Weigh Easy shares a summary of your latest weigh-in, trend and goal with its own widgets and with its Apple Watch app on your paired watch. No data is sent to any server, cloud service, or third party. There are no user accounts and no sign-up required.</p>
           </div>
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Progress Photos</h2>
-            <p>Progress photos you capture in Weigh Easy are stored only on your device. They are never uploaded to any server or cloud service. Photos are saved in the app's private storage and are not accessible to other apps. If you delete the app, your photos are deleted with it.</p>
+            <p>Progress photos you take or add in Weigh Easy are stored only in the app's private storage on your iPhone, protected by iOS Data Protection. They are not added to your photo library or iCloud, are never uploaded anywhere, and are not accessible to other apps. They are left out of your iPhone's iCloud and computer backups unless you turn on Include in backups in Weigh Easy's settings. You can lock them with Face ID. If you delete the app, your photos are deleted with it. Earlier versions of Weigh Easy saved progress photos to your photo library; with your permission, Weigh Easy copies them into the app and leaves the originals unchanged.</p>
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple HealthKit</h2>
-            <p class="mb-3">Weigh Easy can sync weight data with Apple Health, but only if you explicitly grant permission. HealthKit integration is entirely optional. If you enable it:</p>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Apple Health</h2>
+            <p class="mb-3">Weigh Easy can connect to Apple Health, but only if you turn it on and grant permission. It is entirely optional. If you turn it on:</p>
             <ul class="list-disc list-inside space-y-2 ml-2">
-              <li>Weight entries you log can be written to HealthKit</li>
-              <li>You can optionally import existing weight data from HealthKit</li>
+              <li>Weigh-ins you add in Weigh Easy are saved to Apple Health as Weight (body mass)</li>
+              <li>Weight from your smart scale or other apps is read from Apple Health so it shows in your trend</li>
+              <li>Weigh Easy reads and writes no other Health data</li>
             </ul>
-            <p class="mt-3">HealthKit data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Weigh Easy. If you deny HealthKit access, the app continues to work normally with local-only storage.</p>
+            <p class="mt-3">HealthKit data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-[var(--accent-primary)] hover:underline">Apple's privacy policy</a> and never leaves your device through Weigh Easy. If you don't allow access, the app works normally with local-only storage.</p>
           </div>
 
           <div>
@@ -46,7 +47,7 @@ import AppDocLayout from '../../layouts/AppDocLayout.astro';
 
           <div>
             <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Network Usage</h2>
-            <p>Weigh Easy makes no network requests. The app works entirely offline. The only network activity associated with the app is through the App Store for updates.</p>
+            <p>Weigh Easy makes no network requests and works entirely offline. When it copies a photo saved by an earlier version from your photo library, Apple's Photos framework may download the original from iCloud Photos if you use it. The only other network activity associated with the app is through the App Store for updates.</p>
           </div>
 
           <div>

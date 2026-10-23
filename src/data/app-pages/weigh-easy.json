@@ -2,11 +2,11 @@
   "slug": "weigh-easy",
   "name": "Weigh Easy",
   "category": "Weight Tracker",
-  "icon": "/img/weigh-easy/icon.png",
+  "icon": "/img/weigh-easy/icon-ocean.png",
   "seo": {
-    "title": "Weigh Easy — Track Your Weight, Privately",
-    "description": "A simple, private weight tracker for iOS. Log your weight, track trends, set goals, record body measurements, and capture progress photos. No accounts, no cloud, no subscriptions.",
-    "ogImage": "/img/weigh-easy/icon.png",
+    "title": "Weigh Easy — Private Weight Tracker for iPhone and Apple Watch",
+    "description": "A private weight tracker. Type your weight, see the trend under the daily ups and downs, set a goal, and keep progress photos on your iPhone. Pounds, kilograms or stones, Apple Health, Apple Watch and widgets. No accounts, no tracking.",
+    "ogImage": "/img/weigh-easy/icon-ocean.png",
     "canonical": "https://idlefusion.com/weigh-easy"
   },
   "platform": "iOS",
@@ -15,50 +15,67 @@
     "mac": false
   },
   "note": "Free · No account required",
-  "pigments": ["#2fbad6", "#4a9ee8"],
-  "ink": "#1a7385",
+  "pigments": [
+    "#0284c7",
+    "#38bdf8"
+  ],
+  "ink": "#0369a1",
   "hero": {
-    "label": "WEIGHT TRACKING",
-    "title": "Track your weight, <em>privately.</em>",
+    "label": "WEIGHT TRACKER",
+    "title": "Your weight, <em>without the noise.</em>",
     "text": [
-      "A simple weight tracker that respects your privacy. Log entries, see trends, set goals — all stored locally on your device."
+      "Type your weight and see where it’s really heading. A calm trend line, a goal without pressure, and progress photos that stay on your iPhone. No account, no cloud, no tracking."
     ]
   },
   "screenshots": [
     {
-      "src": "/img/weigh-easy/screenshots/01_marketing.png",
-      "alt": "Weigh Easy — Track Weight Privately",
-      "label": "Track Weight Privately",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/weigh-easy/screenshots/01-today.png",
+      "alt": "Weigh Easy — Your weight, without the noise",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/weigh-easy/screenshots/02_marketing.png",
-      "alt": "Weigh Easy — Trend Line",
-      "label": "Trend Line",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/weigh-easy/screenshots/02-trends.png",
+      "alt": "Weigh Easy — See the trend, not the swings",
+      "label": "Trends",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/weigh-easy/screenshots/03_marketing.png",
-      "alt": "Weigh Easy — Progress Photos",
-      "label": "Progress Photos",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/weigh-easy/screenshots/03-quick-add.png",
+      "alt": "Weigh Easy — Weigh in in a second",
+      "label": "Quick add",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/weigh-easy/screenshots/04_marketing.png",
-      "alt": "Weigh Easy — Goal Tracking",
-      "label": "Goal Tracking",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/weigh-easy/screenshots/04-photos.png",
+      "alt": "Weigh Easy — Progress photos, kept private",
+      "label": "Progress photos",
+      "w": 1320,
+      "h": 2868
     },
     {
-      "src": "/img/weigh-easy/screenshots/07_widget.png",
-      "alt": "Weigh Easy — Home Screen Widget",
-      "label": "Widget",
-      "w": 1290,
-      "h": 2796
+      "src": "/img/weigh-easy/screenshots/05-widgets.png",
+      "alt": "Weigh Easy — Your trend on your Home Screen",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/weigh-easy/screenshots/06-privacy.png",
+      "alt": "Weigh Easy — Pounds, kilos or stones",
+      "label": "Settings",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/weigh-easy/screenshots/07-today-dark.png",
+      "alt": "Weigh Easy — Easy on the eyes, day or night",
+      "label": "Dark mode",
+      "w": 1320,
+      "h": 2868
     }
   ],
   "sections": [
@@ -70,31 +87,31 @@
     {
       "type": "features",
       "label": "FEATURES",
-      "title": "Everything you need, nothing you don't.",
+      "title": "Everything you need, nothing you don’t.",
       "items": [
         {
-          "title": "Weight Logging",
-          "text": "Quick, one-tap entry for your daily weight. Add notes for context. See your history at a glance."
+          "title": "Weigh in by typing",
+          "text": "Type “182.4”, “82.5 kg” or “13 st 4 lb yesterday after a run” at the bottom of Today. Weigh Easy shows what it understood before it saves anything."
         },
         {
-          "title": "Trend Charts",
-          "text": "Beautiful visualizations of your progress over time. Weekly, monthly, and all-time views with moving averages."
+          "title": "A trend you can trust",
+          "text": "A smoothed trend line that evens out water and food swings. Several weigh-ins on one day count as their average, and days you skip are skipped, not guessed. The trend in plain words: “Down 1.2 lb a week”."
         },
         {
-          "title": "Goal Tracking",
-          "text": "Set a target weight and track your progress toward it. Clear, motivating feedback on how far you've come."
+          "title": "Goals without pressure",
+          "text": "Set a goal weight, with a date if you like. See how much is left, how far you’ve come, and roughly when you’d get there at this pace."
         },
         {
-          "title": "Body Measurements",
-          "text": "Track more than just weight. Log waist, chest, hips, arms, and other measurements to see the full picture."
+          "title": "Pounds, kilograms or stones",
+          "text": "Switch any time. Every weight is kept exactly, so switching never changes your history, and stones read as stones and pounds."
         },
         {
-          "title": "Progress Photos",
-          "text": "Capture visual progress over time. Compare side-by-side. Photos stay on your device — never uploaded anywhere."
+          "title": "Private progress photos",
+          "text": "Take or add progress photos and compare any two side by side. They stay inside Weigh Easy on your iPhone, out of your photo library and iCloud, with an optional Face ID lock."
         },
         {
-          "title": "Completely Private",
-          "text": "No accounts. No cloud sync. No network requests. Everything stays on your device, encrypted by iOS."
+          "title": "Apple Health, Apple Watch and widgets",
+          "text": "Optionally save your weigh-ins to Apple Health and bring in your smart scale’s. Add a weigh-in from your wrist, and see your trend on your Home Screen and Lock Screen."
         }
       ]
     },
@@ -103,7 +120,7 @@
       "label": "PRIVACY",
       "title": "Your body, your data.",
       "text": [
-        "Weight data is deeply personal. Weigh Easy never collects, uploads, or shares your information. No analytics. No tracking. No cloud. Everything stays on your device."
+        "Weight is personal. Weigh Easy never collects, uploads or shares it. No account, no analytics, no tracking. Your weigh-ins stay on your device, and progress photos stay inside the app, left out of backups unless you choose to include them."
       ],
       "link": {
         "href": "/weigh-easy/privacy",
@@ -112,7 +129,7 @@
     }
   ],
   "cta": {
-    "title": "Start tracking today.",
+    "title": "Start with one weigh-in.",
     "text": "Free on the App Store. No account required."
   }
 }

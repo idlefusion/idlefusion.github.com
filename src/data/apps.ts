@@ -94,8 +94,8 @@ export const apps = [
     slug: 'weigh-easy',
     name: 'Weigh Easy',
     category: 'Weight Tracker',
-    desc: 'Track your weight privately with trend charts, goals, and progress photos.',
-    icon: '/img/weigh-easy/icon.png',
+    desc: 'Track your weight privately: the trend in plain words, goals, and progress photos that stay on your iPhone.',
+    icon: '/img/weigh-easy/icon-ocean.png',
   },
   {
     slug: 'pressure-easy',
