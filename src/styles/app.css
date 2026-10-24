@@ -281,6 +281,12 @@
 .shot-strip li.small {
   align-self: center;
 }
+/* A Mac window: as wide as a phone shot is tall would run off a phone's
+   screen, so it's sized by width instead. */
+.shot-strip li.wide img {
+  width: min(calc(100vw - 2 * var(--gutter)), 928px);
+  height: auto;
+}
 .shot-strip li.small img {
   height: clamp(190px, 18vw, 248px);
   border-radius: 28px;

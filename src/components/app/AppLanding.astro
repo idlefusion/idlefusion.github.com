@@ -156,7 +156,7 @@ import AppIconImage from './AppIconImage.astro';
               </div>
               <ol class="shot-strip" tabindex="0" aria-label={`${page.name} screenshots`}>
                 {page.screenshots.map((shot, i) => (
-                  <li class:list={{ small: shot.h < 1000 }}>
+                  <li class:list={{ small: shot.h < 1000, wide: shot.w > shot.h }}>
                     <figure>
                       <img
                         src={shot.src}

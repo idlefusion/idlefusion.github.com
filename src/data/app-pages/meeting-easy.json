@@ -66,6 +66,27 @@
       "label": "Dark Mode",
       "w": 1320,
       "h": 2868
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/ipad-notes.png",
+      "alt": "Meeting Easy on iPad — The summary, and who does what",
+      "label": "iPad",
+      "w": 2064,
+      "h": 2752
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/mac-live.png",
+      "alt": "Meeting Easy on Mac — Both sides of the call",
+      "label": "Mac · Call",
+      "w": 2880,
+      "h": 1800
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/mac-notes.png",
+      "alt": "Meeting Easy on Mac — The summary, and who does what",
+      "label": "Mac · Notes",
+      "w": 2880,
+      "h": 1800
     }
   ],
   "sections": [
