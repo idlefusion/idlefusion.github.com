@@ -1,0 +1,71 @@
+---
+import AppDocLayout from '../../layouts/AppDocLayout.astro';
+---
+
+<AppDocLayout
+  title="Meeting Easy - Privacy Policy"
+  description="Privacy policy for Meeting Easy - Meeting Notes for iPhone, iPad and Mac."
+  ogUrl="https://idlefusion.com/meeting-easy/privacy"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">Privacy Policy</h1>
+        <p class="text-sm text-[var(--text-secondary)] mb-12">Meeting Easy - Meeting Notes &middot; Effective October 23, 2026</p>
+
+        <div class="space-y-8 text-[var(--text-secondary)] leading-relaxed">
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">The Short Version</h2>
+            <p>Meeting Easy does not collect any personal data. Your meetings are recorded, transcribed and summarized on your devices, and they sync only through your own iCloud account, which we can't access.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">On-Device Transcription</h2>
+            <p>Meeting Easy uses Apple's on-device speech recognition (SpeechAnalyzer) to turn what's said into text. The audio is processed on your device and is never sent to us or to any other server for transcription.</p>
+            <p class="mt-3">The first time you record in a language, your device may download Apple's speech model for it. The operating system handles that download, and it contains nothing you've recorded.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">On-Device Summaries and Answers</h2>
+            <p>Summaries, decisions, action items and answers to your questions are written by Apple Intelligence through Apple's on-device Foundation Models framework. Meeting Easy uses only the model on your device; it does not use Private Cloud Compute or any other server-based model.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Microphone and System Audio</h2>
+            <p>Meeting Easy asks for microphone and speech recognition access the first time you record. It listens only while a meeting is recording, which you start and stop. On a Mac, it also asks to record the audio the Mac plays, so it can transcribe the other people on a call; it hears that audio only while a meeting is recording, and you can turn it off in Settings.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Calendar</h2>
+            <p>If you allow calendar access, Meeting Easy reads today's events on your device to show them under Up next. When you record one, the meeting keeps the event's name and the names of the people invited. Meeting Easy never changes your calendar.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Data Storage and iCloud</h2>
+            <p>Your meetings, transcripts, notes, action items, questions and, unless you turn it off, their audio are stored on your device with SwiftData. If you're signed in to iCloud, they sync to your other devices through your private iCloud database (CloudKit), which is tied to your Apple Account and which we have no access to. Deleting a meeting deletes it from all your devices. There are no user accounts and no sign-up.</p>
+            <p class="mt-3">Turn off Keep the audio in Settings to keep only the transcript and notes.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Recording Others</h2>
+            <p>You're responsible for following the laws where you are about recording conversations. Let the people you record know, and ask them first where that's required.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Analytics & Tracking</h2>
+            <p>Meeting Easy contains no analytics frameworks, no ad SDKs, no tracking pixels and no telemetry of any kind. We do not use any third-party services that collect data.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Network Usage</h2>
+            <p>Meeting Easy makes no network requests to our servers or anyone else's. The only network activity associated with the app is iCloud sync to your own account, the speech model download that your device performs, and the App Store for updates.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Children's Privacy</h2>
+            <p>Meeting Easy does not knowingly collect any information from anyone, including children under the age of 13.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Changes to This Policy</h2>
+            <p>If this policy changes, we will update this page with the new effective date. Since Meeting Easy collects no data, meaningful changes are unlikely.</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-[var(--text-primary)] mb-3">Contact</h2>
+            <p>Questions about this privacy policy? Email us at <a href="mailto:support@idlefusion.com?subject=Meeting%20Easy%20Privacy" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</AppDocLayout>

@@ -1,0 +1,125 @@
+{
+  "slug": "meeting-easy",
+  "name": "Meeting Easy",
+  "category": "Meeting Notes",
+  "icon": "/img/meeting-easy/icon.png",
+  "seo": {
+    "title": "Meeting Easy — Private Meeting Notes for iPhone, iPad and Mac",
+    "description": "Record a meeting and get the transcript, a summary, the decisions and the action items. On-device transcription and Apple Intelligence, synced through your own iCloud. No account.",
+    "ogImage": "/img/meeting-easy/icon.png",
+    "canonical": "https://idlefusion.com/meeting-easy"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · iPhone, iPad and Mac · No account required",
+  "pigments": [
+    "#4f46e5",
+    "#818cf8"
+  ],
+  "ink": "#4338ca",
+  "hero": {
+    "label": "MEETING NOTES",
+    "title": "Talk it through. <em>Keep what matters.</em>",
+    "text": [
+      "Record a meeting and Meeting Easy writes it all down: the transcript, a summary, the decisions and who's doing what. Ask it anything about what was said. It all happens on your iPhone, iPad and Mac, with Apple's on-device speech recognition and Apple Intelligence, and your meetings sync through your own iCloud. No account, no subscription, no servers."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/meeting-easy/screenshots/01-meetings.png",
+      "alt": "Meeting Easy — Every meeting, written down",
+      "label": "Meetings",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/02-live.png",
+      "alt": "Meeting Easy — Watch it as it's said",
+      "label": "Recording",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/03-notes.png",
+      "alt": "Meeting Easy — The summary, and who does what",
+      "label": "Notes",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/04-ask.png",
+      "alt": "Meeting Easy — Ask about any meeting",
+      "label": "Ask",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/05-transcript.png",
+      "alt": "Meeting Easy — Every word, searchable",
+      "label": "Transcript",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/meeting-easy/screenshots/06-settings.png",
+      "alt": "Meeting Easy — Private by design",
+      "label": "Dark Mode",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [
+    {
+      "type": "screenshots",
+      "label": "SCREENSHOTS",
+      "title": "See it in action."
+    },
+    {
+      "type": "features",
+      "label": "FEATURES",
+      "title": "Just talk.",
+      "items": [
+        {
+          "title": "Record Any Meeting",
+          "text": "Tap Record and put your iPhone on the table, with the screen locked if you like. The transcript appears as people talk, and it's saved as it grows."
+        },
+        {
+          "title": "Both Sides of the Call",
+          "text": "On a Mac, Meeting Easy hears your microphone and what the Mac plays, so a call in any app is transcribed with you as Me and everyone else as Others."
+        },
+        {
+          "title": "Summary & Action Items",
+          "text": "When the meeting ends, Apple Intelligence writes a summary, the decisions and the action items, each with the moment it came up. Check them off as they're done."
+        },
+        {
+          "title": "Ask About Any Meeting",
+          "text": "Ask what was decided or who's doing what, and get an answer from what was said, with the times to hear it."
+        },
+        {
+          "title": "Your Calendar, Ready",
+          "text": "Today's meetings show up under Up next. Record one, and it takes the meeting's name and who was invited."
+        },
+        {
+          "title": "iPhone, iPad & Mac",
+          "text": "Meetings sync through your own iCloud. On the Mac, start and stop from the menu bar without finding the window."
+        }
+      ]
+    },
+    {
+      "type": "privacy",
+      "label": "PRIVACY",
+      "title": "Your meetings stay yours.",
+      "text": [
+        "Meetings are transcribed and summarized on your device and kept in your own iCloud, where only you can reach them. No analytics, no ads, no tracking, no account."
+      ],
+      "link": {
+        "href": "/meeting-easy/privacy",
+        "text": "Read the full privacy policy →"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Start recording.",
+    "text": "Free, with no account required. Summaries, action items and answers need a device with Apple Intelligence."
+  }
+}

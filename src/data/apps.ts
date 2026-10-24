@@ -209,6 +209,13 @@ export const apps = [
     desc: 'The classic game on a quiet board. Play the computer at three levels or a friend, with no ads.',
     icon: '/img/tic-tac-toe-easy/icon.png',
   },
+  {
+    slug: 'meeting-easy',
+    name: 'Meeting Easy',
+    category: 'Meeting Notes',
+    desc: 'Record a meeting and get the transcript, a summary and the action items. On your iPhone, iPad and Mac, synced through your own iCloud.',
+    icon: '/img/meeting-easy/icon.png',
+  },
 ];
 
 // Keep pre-release products out of navigation and discovery.
