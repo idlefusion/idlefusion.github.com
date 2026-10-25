@@ -1,0 +1,334 @@
+---
+// Snooze, the moon from the Snooze app, as inline SVG. The same drawing as
+// the app (a 240-unit square, the moon at 120,120 with radius 80). Every mood
+// and costume is in the markup; `data-mood` and `data-costume` on the <svg>
+// pick which show, so a script can change them without redrawing.
+interface Props {
+  mood?: 'awake' | 'listening' | 'drifting' | 'asleep';
+  costume?: string;
+  ring?: boolean;
+  label?: string;
+  class?: string;
+  id?: string;
+}
+const { mood = 'awake', costume = 'none', ring = false, label, class: className, id } = Astro.props;
+---
+
+<svg
+  id={id}
+  class:list={['snz', className]}
+  viewBox="0 0 240 240"
+  data-mood={mood}
+  data-costume={costume}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+>
+  {
+    ring && (
+      <g class="snz-ring">
+        <circle cx="120" cy="120" r="114" class="snz-ring-track" />
+        <circle cx="120" cy="120" r="114" class="snz-ring-time" pathLength="100" transform="rotate(-90 120 120)" />
+      </g>
+    )
+  }
+  <g data-costume-part="fireGlow">
+    <circle cx="120" cy="140" r="104" fill="#f59e0b" opacity="0.18" class="snz-flicker" />
+    <circle cx="120" cy="150" r="90" fill="#f97316" opacity="0.14" class="snz-flicker" />
+  </g>
+  <g class="snz-body">
+    <circle cx="120" cy="120" r="80" fill="#fff1bd" class="snz-moon" />
+    <circle cx="82" cy="86" r="11" fill="#f3e3a1" />
+    <circle cx="162" cy="158" r="14" fill="#f3e3a1" />
+    <circle cx="152" cy="76" r="7" fill="#f3e3a1" />
+    <circle cx="84" cy="168" r="6" fill="#f3e3a1" />
+    <circle cx="84" cy="140" r="11" class="snz-cheek" />
+    <circle cx="156" cy="140" r="11" class="snz-cheek" />
+
+    <g data-face="awake" class="snz-face">
+      <g class="snz-eyes">
+        <ellipse cx="98" cy="118" rx="7" ry="10" />
+        <ellipse cx="142" cy="118" rx="7" ry="10" />
+        <circle cx="100" cy="114" r="2.5" fill="#fff" />
+        <circle cx="144" cy="114" r="2.5" fill="#fff" />
+      </g>
+      <path d="M108 144 Q120 154 132 144" class="snz-line" />
+    </g>
+    <g data-face="listening" class="snz-face">
+      <path d="M90 122 Q98 110 106 122" class="snz-line snz-thick" />
+      <path d="M134 122 Q142 110 150 122" class="snz-line snz-thick" />
+      <path d="M106 142 Q120 158 134 142" class="snz-line" />
+    </g>
+    <g data-face="drifting" class="snz-face">
+      <path d="M89 117 L107 117 Q98 128 89 117 Z" />
+      <path d="M133 117 L151 117 Q142 128 133 117 Z" />
+      <path d="M87 115 L109 115" class="snz-line" />
+      <path d="M131 115 L153 115" class="snz-line" />
+      <path d="M113 147 Q120 150 127 147" class="snz-line" />
+    </g>
+    <g data-face="asleep" class="snz-face">
+      <path d="M90 118 Q98 127 106 118" class="snz-line snz-thick" />
+      <path d="M134 118 Q142 127 150 118" class="snz-line snz-thick" />
+      <ellipse cx="120" cy="148" rx="5" ry="6" />
+    </g>
+
+    <g data-costume-part="headphones">
+      <path d="M44 120 Q44 30 120 30 Q196 30 196 120" fill="none" stroke="#e5e7f5" stroke-width="9" stroke-linecap="round" />
+      <rect x="30" y="104" width="24" height="44" rx="10" fill="#e5e7f5" />
+      <rect x="186" y="104" width="24" height="44" rx="10" fill="#e5e7f5" />
+    </g>
+    <g data-costume-part="earmuffs">
+      <path d="M46 116 Q46 34 120 34 Q194 34 194 116" fill="none" stroke="#f9a8d4" stroke-width="7" stroke-linecap="round" />
+      <circle cx="42" cy="124" r="20" fill="#f9a8d4" />
+      <circle cx="198" cy="124" r="20" fill="#f9a8d4" />
+      <circle cx="36" cy="118" r="6" fill="#fbcfe8" />
+      <circle cx="192" cy="118" r="6" fill="#fbcfe8" />
+    </g>
+    <g data-costume-part="nightcap">
+      <path d="M58 76 Q96 30 168 12 Q156 50 182 78 Z" fill="#9a6b4f" />
+      <path d="M54 78 Q120 56 186 80" fill="none" stroke="#c49a7a" stroke-width="12" stroke-linecap="round" />
+      <circle cx="172" cy="12" r="11" fill="#e9d5c4" />
+    </g>
+    <g data-costume-part="sprout">
+      <path d="M120 42 Q116 30 120 20" fill="none" stroke="#4d7c4f" stroke-width="4" stroke-linecap="round" />
+      <path d="M120 26 Q134 8 152 14 Q144 34 120 26 Z" fill="#6faf72" />
+      <path d="M119 32 Q104 18 90 26 Q100 40 119 32 Z" fill="#86c489" />
+    </g>
+  </g>
+
+  <g data-costume-part="rainCloud" class="snz-cloud">
+    <circle cx="88" cy="30" r="16" fill="#9aa6d6" />
+    <circle cx="118" cy="22" r="22" fill="#9aa6d6" />
+    <circle cx="148" cy="32" r="16" fill="#9aa6d6" />
+    <rect x="66" y="30" width="104" height="18" rx="9" fill="#9aa6d6" />
+    <path d="M90 54 l-3 7" class="snz-drop" />
+    <path d="M118 54 l-3 7" class="snz-drop snz-d2" />
+    <path d="M146 54 l-3 7" class="snz-drop snz-d3" />
+  </g>
+  <g data-costume-part="stormCloud" class="snz-cloud">
+    <circle cx="88" cy="30" r="16" fill="#6b739e" />
+    <circle cx="118" cy="22" r="22" fill="#6b739e" />
+    <circle cx="148" cy="32" r="16" fill="#6b739e" />
+    <rect x="66" y="30" width="104" height="18" rx="9" fill="#6b739e" />
+    <path d="M124 46 L112 66 L122 66 L114 86 L136 60 L126 60 L134 46 Z" fill="#fde68a" class="snz-bolt" />
+  </g>
+  <g data-costume-part="waves" class="snz-waves">
+    <path d="M-20 192 Q-7.5 178 5 192 T30 192 T55 192 T80 192 T105 192 T130 192 T155 192 T180 192 T205 192 T230 192 T255 192 T280 192 V260 H-20 Z" fill="#2e4a8f" opacity="0.92" />
+    <path d="M-20 206 Q-7.5 192 5 206 T30 206 T55 206 T80 206 T105 206 T130 206 T155 206 T180 206 T205 206 T230 206 T255 206 T280 206 V260 H-20 Z" fill="#3b5fb0" opacity="0.9" />
+  </g>
+
+  <g class="snz-zs">
+    <text x="176" y="96" class="snz-z snz-z1">z</text>
+    <text x="176" y="96" class="snz-z snz-z2">z</text>
+    <text x="176" y="96" class="snz-z snz-z3">Z</text>
+  </g>
+</svg>
+
+<style is:global>
+  .snz {
+    display: block;
+    overflow: visible;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .snz .snz-moon {
+    filter: drop-shadow(0 0 18px rgba(255, 236, 170, 0.35));
+  }
+  .snz .snz-cheek {
+    fill: #ffb4a8;
+    opacity: 0.6;
+  }
+  .snz .snz-face path:not(.snz-line),
+  .snz .snz-face ellipse {
+    fill: #2a2f55;
+  }
+  .snz .snz-line {
+    fill: none;
+    stroke: #2a2f55;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  .snz .snz-thick {
+    stroke-width: 4.5;
+  }
+  .snz .snz-ring-track {
+    fill: none;
+    stroke: rgba(236, 239, 255, 0.12);
+    stroke-width: 7;
+  }
+  .snz .snz-ring-time {
+    fill: none;
+    stroke: #818cf8;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: var(--snz-ring-offset, 0);
+    transition: stroke-dashoffset 0.2s ease;
+  }
+  .snz .snz-drop {
+    stroke: #a5b4fc;
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+  .snz .snz-z {
+    font: 800 26px ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
+    fill: #a5b4fc;
+    opacity: 0;
+  }
+  .snz .snz-z2 {
+    font-size: 32px;
+  }
+  .snz .snz-z3 {
+    font-size: 40px;
+  }
+
+  /* Only the current mood's face, and only the current costume. */
+  .snz [data-face],
+  .snz [data-costume-part],
+  .snz .snz-zs {
+    display: none;
+  }
+  .snz[data-mood='awake'] [data-face='awake'],
+  .snz[data-mood='listening'] [data-face='listening'],
+  .snz[data-mood='drifting'] [data-face='drifting'],
+  .snz[data-mood='asleep'] [data-face='asleep'],
+  .snz[data-mood='asleep'] .snz-zs {
+    display: inline;
+  }
+  .snz[data-costume='rainCloud'] [data-costume-part='rainCloud'],
+  .snz[data-costume='stormCloud'] [data-costume-part='stormCloud'],
+  .snz[data-costume='waves'] [data-costume-part='waves'],
+  .snz[data-costume='sprout'] [data-costume-part='sprout'],
+  .snz[data-costume='fireGlow'] [data-costume-part='fireGlow'],
+  .snz[data-costume='headphones'] [data-costume-part='headphones'],
+  .snz[data-costume='earmuffs'] [data-costume-part='earmuffs'],
+  .snz[data-costume='nightcap'] [data-costume-part='nightcap'] {
+    display: inline;
+  }
+  .snz[data-costume='fireGlow'] .snz-cheek {
+    fill: #ff8a7a;
+  }
+
+  /* Motion: bob and blink awake, sway while listening, slow when drifting,
+     breathe asleep. Costumes drop in. */
+  .snz .snz-body,
+  .snz .snz-eyes,
+  .snz [data-costume-part] {
+    transform-box: fill-box;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .snz[data-mood='awake'] .snz-body {
+      animation: snz-bob 4s ease-in-out infinite;
+    }
+    .snz .snz-eyes {
+      transform-origin: center;
+      animation: snz-blink 4.7s infinite;
+    }
+    .snz[data-mood='listening'] .snz-body {
+      transform-origin: 50% 100%;
+      animation: snz-sway 3.2s ease-in-out infinite;
+    }
+    .snz[data-mood='drifting'] .snz-body {
+      animation: snz-bob 7s ease-in-out infinite;
+    }
+    .snz[data-mood='asleep'] .snz-body {
+      transform-origin: 50% 100%;
+      animation: snz-breathe 5s ease-in-out infinite;
+    }
+    .snz [data-costume-part] {
+      animation: snz-drop-in 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+    }
+    .snz .snz-drop {
+      animation: snz-rain 1.2s linear infinite;
+    }
+    .snz .snz-d2 {
+      animation-delay: 0.4s;
+    }
+    .snz .snz-d3 {
+      animation-delay: 0.8s;
+    }
+    .snz .snz-bolt {
+      animation: snz-flash 5s infinite;
+    }
+    .snz .snz-flicker {
+      animation: snz-flicker 1.6s ease-in-out infinite;
+    }
+    .snz .snz-waves {
+      animation: snz-wave 4s ease-in-out infinite;
+    }
+    .snz .snz-z {
+      animation: snz-float 3s ease-out infinite;
+    }
+    .snz .snz-z2 {
+      animation-delay: 1s;
+    }
+    .snz .snz-z3 {
+      animation-delay: 2s;
+    }
+    .snz.is-booped .snz-body {
+      animation: snz-boop 0.5s ease-out;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .snz .snz-z {
+      opacity: 0.8;
+    }
+    .snz .snz-z2 {
+      transform: translate(10px, -22px);
+    }
+    .snz .snz-z3 {
+      transform: translate(20px, -46px);
+    }
+    .snz .snz-bolt {
+      opacity: 0.6;
+    }
+  }
+  @keyframes snz-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  @keyframes snz-blink {
+    0%, 95%, 100% { transform: scaleY(1); }
+    97% { transform: scaleY(0.1); }
+  }
+  @keyframes snz-sway {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+  }
+  @keyframes snz-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.015); }
+  }
+  @keyframes snz-drop-in {
+    0% { transform: translateY(-24px); opacity: 0; }
+    60% { transform: translateY(3px); opacity: 1; }
+    100% { transform: translateY(0); }
+  }
+  @keyframes snz-rain {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(26px); opacity: 0; }
+  }
+  @keyframes snz-flash {
+    0%, 86%, 100% { opacity: 0.18; }
+    88%, 92% { opacity: 0.95; }
+  }
+  @keyframes snz-flicker {
+    0%, 100% { opacity: 0.12; }
+    40% { opacity: 0.2; }
+  }
+  @keyframes snz-wave {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-14px); }
+  }
+  @keyframes snz-float {
+    0% { opacity: 0; transform: translate(0, 0); }
+    30% { opacity: 0.9; }
+    100% { opacity: 0; transform: translate(18px, -50px); }
+  }
+  @keyframes snz-boop {
+    0% { transform: scale(1, 1); }
+    30% { transform: scale(1.08, 0.92); }
+    60% { transform: scale(0.96, 1.04); }
+    100% { transform: scale(1, 1); }
+  }
+</style>

@@ -1,0 +1,76 @@
+{
+  "slug": "snooze",
+  "name": "Snooze",
+  "category": "Sleep Sounds",
+  "icon": "/img/snooze/icon.png",
+  "seo": {
+    "title": "Snooze — Sleep Sounds with a Sleepy Moon",
+    "description": "Sleep sounds for iPhone with a sleepy friend. Mix rain, waves, fire, forest and noise, and Snooze the moon dresses for every sound and drifts off with you as the timer fades out. No accounts, no subscriptions.",
+    "ogImage": "/img/snooze/icon.png",
+    "canonical": "https://idlefusion.com/snooze"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": [
+    "#818cf8",
+    "#fde68a"
+  ],
+  "ink": "#4338ca",
+  "hero": {
+    "label": "SLEEP SOUNDS",
+    "title": "Sleep sounds with a <em>sleepy friend.</em>",
+    "text": [
+      "Mix calm sounds and Snooze the moon dresses for every one, then drifts off with you as the timer fades out. Every sound is made on your iPhone as it plays."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/snooze/screenshots/01-mixer.png",
+      "alt": "Snooze — Meet Snooze",
+      "label": "Mixer",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/snooze/screenshots/02-hello.png",
+      "alt": "Snooze — A sleepy friend for bedtime",
+      "label": "Hello",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/snooze/screenshots/03-timer.png",
+      "alt": "Snooze — Drift off together",
+      "label": "Sleep Timer",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/snooze/screenshots/04-sleep-log.png",
+      "alt": "Snooze — Every night, a moon",
+      "label": "Sleep Log",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/snooze/screenshots/05-morning.png",
+      "alt": "Snooze — Good morning. How'd you sleep?",
+      "label": "Morning",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/snooze/screenshots/06-widgets.png",
+      "alt": "Snooze — Bedtime in one tap",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [],
+  "cta": {
+    "title": "Goodnight, from Snooze.",
+    "text": "Free on the App Store soon. No account required."
+  }
+}

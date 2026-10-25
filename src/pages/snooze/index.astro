@@ -1,0 +1,631 @@
+---
+// Snooze's landing page. Unlike the other app pages, everything between the
+// studio header and footer is the app's own night sky, with Snooze the moon
+// awake on the page: tap to boop, dress Snooze for a sound, wind the timer.
+import AppLayout from '../../layouts/AppLayout.astro';
+import StoreButton from '../../components/app/StoreButton.astro';
+import Snooze from '../../components/snooze/Snooze.astro';
+import { appPageData } from '../../data/app-pages';
+
+const page = appPageData['snooze'];
+
+const costumes = [
+  { id: 'rainCloud', sound: 'Rain', line: 'A little rain cloud drips beside Snooze, never on Snooze.' },
+  { id: 'stormCloud', sound: 'Thunderstorm', line: 'A grumbly cloud. Every so often the bolt flickers, softly.' },
+  { id: 'waves', sound: 'Ocean waves', line: 'Snooze floats, bobbing on slow waves.' },
+  { id: 'sprout', sound: 'Forest', line: 'A sprout with two leaves pops up on top.' },
+  { id: 'fireGlow', sound: 'Fireplace', line: 'A warm, flickering glow, and rosier cheeks.' },
+  { id: 'headphones', sound: 'White noise', line: 'Headphones on. Do not disturb.' },
+  { id: 'earmuffs', sound: 'Pink noise', line: 'Fluffy pink earmuffs.' },
+  { id: 'nightcap', sound: 'Brown noise', line: 'A knitted nightcap with a pompom.' },
+];
+
+// Two weeks of nights, rated 1 to 5: a sliver to a full moon.
+const nights = [4, 5, 3, 5, 2, 4, 5, 5, 4, 3, 5, 4, 5, 5];
+const phase = (rating: number) => {
+  const bulge = [13, 7, 0, -9][rating - 1] ?? 0;
+  if (rating >= 5) return 'M20 4 A16 16 0 1 1 20 36 A16 16 0 1 1 20 4 Z';
+  if (bulge === 0) return 'M20 4 A16 16 0 0 1 20 36 Z';
+  return `M20 4 A16 16 0 0 1 20 36 A${Math.abs(bulge)} 16 0 0 ${bulge > 0 ? 0 : 1} 20 4 Z`;
+};
+const words = ['Badly', 'Not well', 'Okay', 'Well', 'Very well'];
+
+const features = [
+  { title: 'Eight sounds, made live', text: 'Rain, ocean waves, forest, thunderstorm and fireplace, plus white, pink and brown noise, synthesized in stereo as they play. Nothing loops, nothing downloads.' },
+  { title: 'A mixer for your night', text: 'Layer up to four sounds, each with its own volume. Sounds fade in and out, so nothing starts with a jolt.' },
+  { title: 'A timer that fades gently', text: 'Drag the star around the ring. The sound eases out, the stars stop twinkling, then the screen goes dark too.' },
+  { title: 'Presets and a widget', text: 'Save a mix and play or pause it with one tap, from the app or the Home Screen widget.' },
+  { title: 'Every night, a moon', text: 'Tell Snooze how you slept in the morning. Each night becomes a moon phase, and Snooze shows which sounds help most.' },
+  { title: 'Made for the dark', text: 'The night sky and dim indigo controls keep the bedroom dark. Controls on the Lock Screen, and sound with the screen locked.' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: page.name,
+  description: page.seo.description,
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'iOS',
+  image: `https://idlefusion.com${page.icon}`,
+  author: { '@type': 'Organization', name: 'Idle Fusion', url: 'https://idlefusion.com' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
+---
+
+<AppLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  app={page}
+  kind="landing"
+  ogImage={page.seo.ogImage}
+  canonical={page.seo.canonical}
+  sections={[
+    { id: 'costumes', label: 'Snooze' },
+    { id: 'screenshots', label: 'Screenshots' },
+    { id: 'features', label: 'Features' },
+  ]}
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+
+  <main id="main" class="snz-stage">
+    <div class="snz-stars" aria-hidden="true"></div>
+
+    <!-- Hero -->
+    <section class="snz-wrap snz-hero">
+      <div class="snz-hero-text">
+        <p class="snz-label">Sleep sounds for iPhone</p>
+        <h1>Sleep sounds with a sleepy friend.</h1>
+        <p class="snz-lede">
+          Mix rain, waves, a fire or soft noise. Snooze the moon dresses for every sound, keeps you
+          company, and drifts off with you as the timer fades out.
+        </p>
+        <div class="snz-store">
+          <StoreButton store={page.store} platform="iOS" />
+          <p class="snz-note">Free · No account · Nothing collected</p>
+        </div>
+      </div>
+      <div class="snz-hero-art">
+        <p class="snz-bubble" data-bubble aria-live="polite">Hi, I'm Snooze. I'll keep the night quiet for you.</p>
+        <button class="snz-boop" type="button" data-boop aria-label="Boop Snooze">
+          <Snooze id="snz-hero" mood="awake" />
+        </button>
+      </div>
+    </section>
+
+    <!-- Costumes -->
+    <section class="snz-wrap snz-split" id="costumes" aria-labelledby="costumes-title">
+      <div class="snz-art-panel">
+        <Snooze id="snz-dress" mood="listening" costume="rainCloud" label="Snooze listening to rain, with a little rain cloud" />
+      </div>
+      <div>
+        <p class="snz-label">Whimsy, one sound at a time</p>
+        <h2 id="costumes-title">Snooze dresses for the mix.</h2>
+        <p class="snz-copy" data-costume-line aria-live="polite">{costumes[0].line}</p>
+        <div class="snz-chips" role="group" aria-label="Sound">
+          {
+            costumes.map((c, i) => (
+              <button type="button" class="snz-chip" data-costume={c.id} data-line={c.line} data-sound={c.sound} aria-pressed={i === 0 ? 'true' : 'false'}>
+                {c.sound}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Drift off -->
+    <section class="snz-wrap snz-split snz-split-flip" aria-labelledby="drift-title">
+      <div>
+        <p class="snz-label">The sleep timer</p>
+        <h2 id="drift-title">Drift off together.</h2>
+        <p class="snz-copy">
+          Set a timer by winding the star around Snooze's ring. In the last ten minutes Snooze's eyelids
+          get heavy, the sound fades, and once it's quiet Snooze is fast asleep. Try it.
+        </p>
+        <label class="snz-range">
+          <span class="snz-range-row"><span>Timer left</span><output data-minutes-out>30 min</output></span>
+          <input type="range" min="0" max="45" step="1" value="30" data-minutes />
+        </label>
+        <p class="snz-state" data-drift-state aria-live="polite">Listening</p>
+      </div>
+      <div class="snz-art-panel">
+        <Snooze id="snz-drift" mood="listening" costume="rainCloud" ring label="Snooze inside the sleep timer ring" />
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="snz-wrap" id="screenshots" aria-labelledby="shots-title">
+      <p class="snz-label">Screenshots</p>
+      <h2 id="shots-title">A night with Snooze.</h2>
+      <div class="snz-shots">
+        {
+          page.screenshots.map((shot) => (
+            <img src={shot.src} alt={shot.alt} width={shot.w} height={shot.h} loading="lazy" decoding="async" />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Moons -->
+    <section class="snz-wrap snz-moons-section" aria-labelledby="moons-title">
+      <p class="snz-label">The sleep log</p>
+      <h2 id="moons-title">Every night, a moon.</h2>
+      <p class="snz-copy snz-center">
+        Each morning Snooze asks how you slept. A rough night is a sliver; a great one is a full moon.
+      </p>
+      <ol class="snz-moons">
+        {
+          nights.map((rating, i) => (
+            <li>
+              <svg viewBox="0 0 40 40" role="img" aria-label={`Night ${i + 1}: slept ${words[rating - 1].toLowerCase()}`}>
+                <circle cx="20" cy="20" r="16" fill="rgba(255,241,189,0.12)" />
+                <path d={phase(rating)} fill="#fff1bd" />
+              </svg>
+            </li>
+          ))
+        }
+      </ol>
+      <ul class="snz-legend" aria-label="Moon phases">
+        {
+          [1, 2, 3, 4, 5].map((r) => (
+            <li>
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <circle cx="20" cy="20" r="16" fill="rgba(255,241,189,0.12)" />
+                <path d={phase(r)} fill="#fff1bd" />
+              </svg>
+              {words[r - 1]}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Features -->
+    <section class="snz-wrap" id="features" aria-labelledby="features-title">
+      <p class="snz-label">Features</p>
+      <h2 id="features-title">Everything for a quiet night.</h2>
+      <div class="snz-features">
+        {
+          features.map((f) => (
+            <article class="snz-card">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="snz-card snz-privacy" id="privacy">
+        <h3>Private by design</h3>
+        <p>
+          No account, no subscription, no ads and no analytics. Snooze makes no network requests; your
+          presets and sleep log stay on your iPhone.
+        </p>
+        <a href="/snooze/privacy/">Read the privacy policy <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- Goodnight -->
+    <section class="snz-wrap snz-goodnight" aria-labelledby="goodnight-title">
+      <Snooze mood="asleep" class="snz-goodnight-moon" />
+      <h2 id="goodnight-title">{page.cta?.title}</h2>
+      <p class="snz-copy snz-center">{page.cta?.text}</p>
+      <StoreButton store={page.store} platform="iOS" />
+    </section>
+  </main>
+</AppLayout>
+
+<style is:global>
+  /* The night sky stage. The tokens are redefined here, so studio pieces
+     inside it (the store badge) go night too. */
+  .snz-stage {
+    --paper: #0b1029;
+    --ink: #eceffe;
+    --ink-soft: #d6daf0;
+    --graphite: #aeb5d9;
+    --pencil: #8a92bd;
+    --rule: rgba(236, 239, 255, 0.12);
+    --rule-strong: rgba(236, 239, 255, 0.6);
+    --app-ink-day: #a5b4fc;
+    --app-ink-night: #a5b4fc;
+    --app-a-day: #818cf8;
+    --app-a-night: #818cf8;
+    position: relative;
+    overflow: hidden;
+    color: #eceffe;
+    background-color: #0b1029;
+    background-image: linear-gradient(180deg, #05070f 0%, #0b1029 30%, #141b45 70%, #0b1029 100%);
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    padding-bottom: 96px;
+  }
+  .snz-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 8% 6%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 22% 14%, #e8ecff, transparent),
+      radial-gradient(2px 2px at 41% 4%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 63% 11%, #e8ecff, transparent),
+      radial-gradient(1.5px 1.5px at 84% 7%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 93% 19%, #e8ecff, transparent),
+      radial-gradient(1.5px 1.5px at 4% 28%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 52% 24%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 76% 33%, #e8ecff, transparent),
+      radial-gradient(1.5px 1.5px at 15% 46%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 88% 52%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 34% 61%, #e8ecff, transparent),
+      radial-gradient(1.5px 1.5px at 69% 70%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 9% 79%, #e8ecff, transparent),
+      radial-gradient(1px 1px at 47% 88%, #e8ecff, transparent),
+      radial-gradient(1.5px 1.5px at 91% 94%, #e8ecff, transparent);
+    opacity: 0.8;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .snz-stars {
+      animation: snz-twinkle 6s ease-in-out infinite;
+    }
+  }
+  @keyframes snz-twinkle {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 0.45; }
+  }
+
+  .snz-wrap {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 20px 0;
+  }
+  .snz-stage h1,
+  .snz-stage h2,
+  .snz-stage h3 {
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    color: #eceffe;
+    letter-spacing: -0.01em;
+  }
+  .snz-stage h1 {
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    line-height: 1.02;
+    font-weight: 800;
+    margin: 0 0 20px;
+  }
+  .snz-stage h2 {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.08;
+    font-weight: 800;
+    margin: 0 0 16px;
+  }
+  .snz-label {
+    margin: 0 0 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a5b4fc;
+  }
+  .snz-lede,
+  .snz-copy {
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: #c9ceea;
+    max-width: 34rem;
+    margin: 0 0 24px;
+  }
+  .snz-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .snz-note {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    color: #aeb5d9;
+  }
+
+  /* Hero */
+  .snz-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 40px;
+    align-items: center;
+    padding-top: 88px;
+  }
+  .snz-hero-art {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .snz-boop {
+    all: unset;
+    cursor: pointer;
+    width: min(380px, 80vw);
+    border-radius: 50%;
+  }
+  .snz-boop:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 6px;
+  }
+  .snz-bubble {
+    align-self: flex-end;
+    margin: 0 0 -8px;
+    max-width: 240px;
+    padding: 12px 16px;
+    border-radius: 20px 20px 20px 6px;
+    background: #1e2655;
+    border: 1px solid rgba(236, 239, 255, 0.12);
+    color: #eceffe;
+    font-size: 1rem;
+    line-height: 1.35;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Split sections */
+  .snz-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-top: 112px;
+  }
+  .snz-art-panel {
+    display: flex;
+    justify-content: center;
+  }
+  .snz-art-panel .snz {
+    width: min(340px, 78vw);
+  }
+  .snz-chips {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .snz-chip {
+    min-height: 48px;
+    padding: 0 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(236, 239, 255, 0.1);
+    background: #121836;
+    color: #eceffe;
+    font: 600 1rem ui-rounded, 'SF Pro Rounded', var(--sans);
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .snz-chip:hover {
+    background: #1b2350;
+  }
+  .snz-chip:active {
+    transform: scale(0.97);
+  }
+  .snz-chip[aria-pressed='true'] {
+    background: rgba(129, 140, 248, 0.22);
+    border: 1.5px solid #a5b4fc;
+  }
+  .snz-chip:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 2px;
+  }
+
+  .snz-range {
+    display: block;
+    max-width: 30rem;
+  }
+  .snz-range-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #aeb5d9;
+    margin-bottom: 4px;
+  }
+  .snz-range output {
+    color: #eceffe;
+    font-variant-numeric: tabular-nums;
+  }
+  .snz-range input {
+    width: 100%;
+    height: 44px;
+    accent-color: #818cf8;
+  }
+  .snz-state {
+    margin: 8px 0 0;
+    font-weight: 700;
+    color: #a5b4fc;
+  }
+
+  /* Screenshots */
+  .snz-shots {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0 16px;
+    scroll-snap-type: x mandatory;
+  }
+  .snz-shots img {
+    flex: 0 0 auto;
+    width: min(240px, 62vw);
+    height: auto;
+    border-radius: 22px;
+    scroll-snap-align: start;
+  }
+
+  /* Moons */
+  .snz-moons-section {
+    text-align: center;
+    padding-top: 112px;
+  }
+  .snz-moons {
+    list-style: none;
+    margin: 32px auto 0;
+    padding: 20px;
+    max-width: 640px;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 12px;
+    border-radius: 24px;
+    background: #121836;
+    border: 1px solid rgba(236, 239, 255, 0.08);
+  }
+  .snz-moons svg {
+    width: 100%;
+    max-width: 52px;
+  }
+  .snz-legend {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px;
+    color: #c9ceea;
+    font-size: 0.95rem;
+  }
+  .snz-legend li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .snz-legend svg {
+    width: 22px;
+  }
+
+  /* Features */
+  .snz-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .snz-card {
+    padding: 22px;
+    border-radius: 22px;
+    background: #121836;
+    border: 1px solid rgba(236, 239, 255, 0.08);
+  }
+  .snz-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .snz-card p {
+    margin: 0;
+    color: #c9ceea;
+    line-height: 1.5;
+  }
+  .snz-privacy {
+    margin-top: 14px;
+  }
+  .snz-privacy a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #a5b4fc;
+    font-weight: 600;
+  }
+
+  /* Goodnight */
+  .snz-goodnight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 120px;
+  }
+  .snz-goodnight-moon {
+    width: 160px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 820px) {
+    .snz-hero,
+    .snz-split {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+    .snz-hero {
+      padding-top: 48px;
+    }
+    .snz-hero-art {
+      order: -1;
+    }
+    .snz-split-flip .snz-art-panel {
+      order: -1;
+    }
+    .snz-split {
+      padding-top: 80px;
+    }
+    .snz-features {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .snz-moons {
+      gap: 6px;
+      padding: 14px;
+    }
+  }
+</style>
+
+<script>
+  // Boop: tap Snooze for a squish and a new line. Five quick taps: grumpy.
+  const hero = document.getElementById('snz-hero');
+  const bubble = document.querySelector<HTMLElement>('[data-bubble]');
+  const lines = [
+    'Hi, I\'m Snooze. I\'ll keep the night quiet for you.',
+    'Boop.',
+    'That tickles.',
+    'Rain tonight? I have a little cloud for that.',
+    'I fade the sound out once you\'re asleep.',
+  ];
+  let taps: number[] = [];
+  let line = 0;
+  document.querySelector('[data-boop]')?.addEventListener('click', () => {
+    if (!hero || !bubble) return;
+    hero.classList.remove('is-booped');
+    void hero.getBoundingClientRect();
+    hero.classList.add('is-booped');
+    const now = Date.now();
+    taps = [...taps.filter((t) => now - t < 2500), now];
+    if (taps.length >= 5) {
+      taps = [];
+      bubble.textContent = "I'm trying to sleep!";
+      hero.dataset.mood = 'drifting';
+      setTimeout(() => (hero.dataset.mood = 'awake'), 2200);
+      return;
+    }
+    line = (line + 1) % lines.length;
+    bubble.textContent = lines[line];
+  });
+
+  // Costumes.
+  const dress = document.getElementById('snz-dress');
+  const costumeLine = document.querySelector('[data-costume-line]');
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.snz-chip')];
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      for (const other of chips) other.setAttribute('aria-pressed', String(other === chip));
+      if (dress) {
+        dress.dataset.costume = chip.dataset.costume ?? 'none';
+        dress.setAttribute('aria-label', `Snooze listening to ${chip.dataset.sound?.toLowerCase()}`);
+      }
+      if (costumeLine) costumeLine.textContent = chip.dataset.line ?? '';
+    });
+  }
+
+  // The timer: the ring empties and Snooze drifts off.
+  const drift = document.getElementById('snz-drift');
+  const minutes = document.querySelector<HTMLInputElement>('[data-minutes]');
+  const out = document.querySelector('[data-minutes-out]');
+  const state = document.querySelector('[data-drift-state]');
+  const update = () => {
+    if (!drift || !minutes) return;
+    const left = Number(minutes.value);
+    const mood = left === 0 ? 'asleep' : left <= 10 ? 'drifting' : 'listening';
+    drift.dataset.mood = mood;
+    drift.dataset.costume = left === 0 ? 'none' : 'rainCloud';
+    drift.style.setProperty('--snz-ring-offset', String(100 - (left / 45) * 100));
+    if (out) out.textContent = left === 0 ? 'Done' : `${left} min`;
+    if (state) state.textContent = mood === 'asleep' ? 'Asleep. Goodnight.' : mood === 'drifting' ? 'Drifting off…' : 'Listening';
+  };
+  minutes?.addEventListener('input', update);
+  update();
+</script>

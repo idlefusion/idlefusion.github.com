@@ -119,6 +119,13 @@ export const apps = [
     icon: '/img/rest-easy/icon-midnight.png',
   },
   {
+    slug: 'snooze',
+    name: 'Snooze',
+    category: 'Sleep Sounds',
+    desc: 'Sleep sounds with a sleepy moon who dresses for every sound and drifts off with you.',
+    icon: '/img/snooze/icon.png',
+  },
+  {
     slug: 'meds-easy',
     name: 'Meds Easy',
     category: 'Medication Tracker',
