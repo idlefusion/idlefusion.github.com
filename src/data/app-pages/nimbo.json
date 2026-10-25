@@ -11,7 +11,7 @@
   },
   "platform": "iOS",
   "store": null,
-  "note": "No account required",
+  "note": "Free · No account required",
   "pigments": [
     "#8fb2d6",
     "#f4a96f"
@@ -78,6 +78,6 @@
   "sections": [],
   "cta": {
     "title": "Rain or shine, you showed up.",
-    "text": "Coming to the App Store soon. No account required."
+    "text": "Free, coming to the App Store soon. No account required."
   }
 }
