@@ -126,6 +126,13 @@ export const apps = [
     icon: '/img/snooze/icon.png',
   },
   {
+    slug: 'nimbo',
+    name: 'Nimbo',
+    category: 'Mood Journal',
+    desc: 'A mood journal with a little cloud who asks, once a day, how the weather is inside.',
+    icon: '/img/nimbo/icon.png',
+  },
+  {
     slug: 'meds-easy',
     name: 'Meds Easy',
     category: 'Medication Tracker',

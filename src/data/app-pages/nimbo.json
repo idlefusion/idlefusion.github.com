@@ -1,0 +1,83 @@
+{
+  "slug": "nimbo",
+  "name": "Nimbo",
+  "category": "Mood Journal",
+  "icon": "/img/nimbo/icon.png",
+  "seo": {
+    "title": "Nimbo — A Mood Journal with a Little Cloud",
+    "description": "A mood journal for iPhone and Apple Watch with a friend in it. Nimbo, a small cloud, asks once a day how the weather is inside: Sunny, Mild, Clear, Drizzly or Stormy. A year of sky, a forecast you can read, widgets and Apple Health. No account, no tracking.",
+    "ogImage": "/img/nimbo/icon.png",
+    "canonical": "https://idlefusion.com/nimbo"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "No account required",
+  "pigments": [
+    "#8fb2d6",
+    "#f4a96f"
+  ],
+  "ink": "#3c6fa4",
+  "hero": {
+    "label": "MOOD JOURNAL",
+    "title": "The weather <em>inside.</em>",
+    "text": [
+      "Meet Nimbo, a little cloud who asks how the sky looks inside. One tap a day, a year of weather, and a forecast you can read."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/nimbo/screenshots/01-hello.png",
+      "alt": "Nimbo — Meet Nimbo. A mood journal with a friend in it.",
+      "label": "Hello",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/nimbo/screenshots/02-today.png",
+      "alt": "Nimbo — Feelings are weather. One tap a day.",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/nimbo/screenshots/03-air.png",
+      "alt": "Nimbo — What's in the air? Tag the day and add a line, if you like.",
+      "label": "What's in the air",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/nimbo/screenshots/04-sky.png",
+      "alt": "Nimbo — Your year, one sky. Every day a square in its weather's color.",
+      "label": "Sky",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/nimbo/screenshots/05-forecast.png",
+      "alt": "Nimbo — Read your own forecast. See what clears your sky, and what clouds it.",
+      "label": "Forecast",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/nimbo/screenshots/06-widgets.png",
+      "alt": "Nimbo — Check in from your Home Screen. Tap a weather in the widget.",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/nimbo/screenshots/07-milestone.png",
+      "alt": "Nimbo — Rain or shine, you showed up. A rainbow for every milestone.",
+      "label": "Milestone",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [],
+  "cta": {
+    "title": "Rain or shine, you showed up.",
+    "text": "Coming to the App Store soon. No account required."
+  }
+}

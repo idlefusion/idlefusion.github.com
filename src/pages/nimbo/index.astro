@@ -1,0 +1,615 @@
+---
+// Nimbo's landing page. Like Snooze's, everything between the studio header
+// and footer is the app's own world: Nimbo's warm paper by day and his navy
+// night sky in dark mode, with Nimbo himself on the page. Tap a weather and
+// he changes with you.
+import AppLayout from '../../layouts/AppLayout.astro';
+import StoreButton from '../../components/app/StoreButton.astro';
+import Nimbo from '../../components/nimbo/Nimbo.astro';
+import { appPageData } from '../../data/app-pages';
+
+const page = appPageData['nimbo'];
+
+// The scale, brightest first, in the app's own words (Weather.swift).
+const weathers = [
+  { id: 'sunny', label: 'Sunny', gloss: 'Great, bright', reply: 'what a day!', spoken: 'Nimbo, smiling in the sun' },
+  { id: 'mild', label: 'Mild', gloss: 'Good, steady', reply: 'nice and steady', spoken: 'Nimbo, calm, with a light breeze' },
+  { id: 'clear', label: 'Clear', gloss: 'Just a normal day', reply: 'just a normal day', spoken: 'Nimbo, calm, under a clear sky' },
+  { id: 'drizzly', label: 'Drizzly', gloss: 'A bit low', reply: "a little rain. it'll pass", spoken: 'Nimbo, a little sad, in light rain' },
+  { id: 'stormy', label: 'Stormy', gloss: 'Rough, on edge', reply: "big weather. i'm right here", spoken: 'Nimbo, frowning, with a lightning bolt' },
+] as const;
+const first = weathers[0];
+
+// Twelve weeks of an example sky, one square a day (S sunny, M mild, C clear,
+// D drizzly, T stormy).
+const sample =
+  'MSCMMSDMCMSSMCMDDMSMMCMSSMCMTDMCMMSSCMMMDCMSSMMCMSMMCCMDMSSMMCMMSMSMCMMDMSCMSSMMCMS';
+const code: Record<string, (typeof weathers)[number]['id']> = {
+  S: 'sunny',
+  M: 'mild',
+  C: 'clear',
+  D: 'drizzly',
+  T: 'stormy',
+};
+const days = [...sample.slice(0, 84)].map((c) => code[c]);
+const count = (id: string) => days.filter((d) => d === id).length;
+
+const features = [
+  { title: 'One tap a day', text: "Tap a weather and Nimbo changes with you: the sun comes out, the rain starts, the lightning flickers. Tags and a note are optional." },
+  { title: "What's in the air?", text: 'Add what was in the air (sleep, work, people, exercise) and a line or two, if you like.' },
+  { title: 'Journal', text: 'Every day, searchable by note or tag, filterable by weather.' },
+  { title: 'Your year, one sky', text: 'The year, a square a day. Tap any day to see it, change it or fill in one you missed. Share your sky as a picture.' },
+  { title: 'Read your own forecast', text: 'Your weather mix, your average and streaks, the trend, the days of the week that tend to go best, and what tends to clear your sky or cloud it. Patterns, not causes.' },
+  { title: 'A weekly weather report', text: 'Every Sunday, a short story of your week: its shape, its sunniest moment, and what moved the weather.' },
+  { title: 'A rainbow for every milestone', text: 'At 7, 30, 100 and 365 days in a row, Nimbo wears a rainbow. Confetti included.' },
+  { title: 'Check in without opening the app', text: 'Tap a weather in the Home Screen widget, use the Control Center button, or ask Siri. Widgets for the Home Screen, Lock Screen and StandBy.' },
+  { title: 'A daily nudge', text: "At your time, Nimbo floats by. Long-press the nudge to answer it. Skipped on days you've already checked in." },
+  { title: 'Apple Watch', text: 'Check in from your wrist, with complications for your watch face and a Smart Stack widget.' },
+  { title: 'Apple Health', text: "If you turn it on, Nimbo saves each day's weather to Apple Health as State of Mind (iOS 18 and later). It never reads your Health data." },
+  { title: 'Coming from Mood Easy?', text: 'Import your Mood Easy export and your history moves over, Great to Awful as Sunny to Stormy. Export as a CSV, or a calm one-page summary for your therapist.' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Nimbo - Mood Journal',
+  description: page.seo.description,
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'iOS',
+  image: `https://idlefusion.com${page.icon}`,
+  author: { '@type': 'Organization', name: 'Idle Fusion', url: 'https://idlefusion.com' },
+};
+---
+
+<AppLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  app={page}
+  kind="landing"
+  ogImage={page.seo.ogImage}
+  canonical={page.seo.canonical}
+  sections={[
+    { id: 'sky', label: 'Sky' },
+    { id: 'screenshots', label: 'Screenshots' },
+    { id: 'features', label: 'Features' },
+  ]}
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+
+  <main id="main" class="nmb-stage">
+    <!-- Hero: Nimbo asks, you answer. -->
+    <section class="nmb-wrap nmb-hero">
+      <div class="nmb-hero-text">
+        <p class="nmb-label">Mood journal for iPhone and Apple Watch</p>
+        <h1>The weather inside.</h1>
+        <p class="nmb-lede">
+          A mood journal with a friend in it. Nimbo, a small cloud, floats by once a day to ask how the
+          sky looks in there. Pick the weather that fits your day, and over time your days turn into a
+          forecast you can read.
+        </p>
+        <div class="nmb-store">
+          <StoreButton store={page.store} platform="iOS" />
+          <p class="nmb-note">No account · No ads · Nothing collected</p>
+        </div>
+      </div>
+
+      <div class="nmb-today" data-today data-look={first.id}>
+        <div class="nmb-sky">
+          <Nimbo id="nmb-hero" look={first.id} label={first.spoken} />
+          <p class="nmb-reply" data-reply aria-live="polite">{first.reply}</p>
+        </div>
+        <fieldset class="nmb-picker">
+          <legend>How's the weather inside?</legend>
+          <div class="nmb-picker-row">
+            {
+              weathers.map((w, i) => (
+                <button
+                  type="button"
+                  class="nmb-weather"
+                  data-weather={w.id}
+                  data-reply={w.reply}
+                  data-spoken={w.spoken}
+                  aria-pressed={i === 0 ? 'true' : 'false'}
+                  aria-label={`${w.label}: ${w.gloss.toLowerCase()}`}
+                >
+                  <Nimbo look={w.id} class="nmb-mini" />
+                  <span class="nmb-weather-name">{w.label}</span>
+                </button>
+              ))
+            }
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- The scale and a year of sky -->
+    <section class="nmb-wrap nmb-split" id="sky" aria-labelledby="sky-title">
+      <div>
+        <p class="nmb-label">Feelings are weather</p>
+        <h2 id="sky-title">Your year, one sky.</h2>
+        <p class="nmb-copy">
+          Sunny when it's a great day. Mild when it's good. Clear when it's just a normal day. Drizzly
+          when you're a bit low. Stormy when it's rough. They roll in, and they pass. No scores, no
+          streak guilt.
+        </p>
+        <ul class="nmb-scale">
+          {
+            weathers.map((w) => (
+              <li>
+                <span class:list={['nmb-pixel', `nmb-px-${w.id}`]} aria-hidden="true" />
+                <strong>{w.label}</strong>
+                <span>{w.gloss}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <figure class="nmb-year">
+        <ol
+          class="nmb-grid"
+          role="img"
+          aria-label={`An example sky, twelve weeks of weather: ${weathers.map((w) => `${count(w.id)} ${w.label.toLowerCase()}`).join(', ')} days`}
+        >
+          {days.map((d) => <li class:list={['nmb-pixel', `nmb-px-${d}`]} />)}
+        </ol>
+        <figcaption>Every day becomes a square in its weather's color, light to dark.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="nmb-wrap" id="screenshots" aria-labelledby="shots-title">
+      <p class="nmb-label">Screenshots</p>
+      <h2 id="shots-title">One tap a day.</h2>
+      <div class="nmb-shots">
+        {
+          page.screenshots.map((shot) => (
+            <img src={shot.src} alt={shot.alt} width={shot.w} height={shot.h} loading="lazy" decoding="async" />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="nmb-wrap" id="features" aria-labelledby="features-title">
+      <p class="nmb-label">Features</p>
+      <h2 id="features-title">A forecast you can read.</h2>
+      <div class="nmb-features">
+        {
+          features.map((f) => (
+            <article class="nmb-card">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="nmb-pair">
+        <div class="nmb-card nmb-privacy" id="privacy">
+          <h3>Private by design</h3>
+          <p>
+            No account. No analytics. No ads. No tracking. Your check-ins stay on your iPhone and Apple
+            Watch, and Nimbo makes no network requests.
+          </p>
+          <a href="/nimbo/privacy/">Read the privacy policy <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="nmb-card">
+          <h3>Make it yours</h3>
+          <p>Day, Dusk and Night themes, and four app icons.</p>
+        </div>
+      </div>
+      <p class="nmb-care">
+        Nimbo is a journal, not medical care. If you're struggling, please talk to someone you trust or a
+        professional. In the US, you can call or text <a href="tel:988">988</a> any time.
+      </p>
+    </section>
+
+    <!-- Rainbow -->
+    <section class="nmb-wrap nmb-rainbow-cta" aria-labelledby="cta-title">
+      <Nimbo look="rainbow" class="nmb-cta-nimbo" />
+      <h2 id="cta-title">{page.cta?.title}</h2>
+      <p class="nmb-copy nmb-center">{page.cta?.text}</p>
+      <StoreButton store={page.store} platform="iOS" />
+    </section>
+  </main>
+</AppLayout>
+
+<style is:global>
+  /* Nimbo's paper by day, his night sky in dark mode. The studio tokens are
+     redefined here, so studio pieces inside (the store label) follow. */
+  .nmb-stage {
+    --paper: #faf5ec;
+    --ink: #2a2722;
+    --graphite: #6b6459;
+    --rule: #ede6da;
+    --rule-strong: #8a8173;
+    --app-a: #f4a96f;
+    --nmb-card: #ffffff;
+    --nmb-line: #ede6da;
+    --nmb-ink2: #6b6459;
+    --nmb-accent: #36669c;
+    --nmb-sky: #cfe1f0;
+    --nmb-sunny: #fce6cf;
+    --nmb-mild: #e3eef7;
+    --nmb-clear: #efebe3;
+    --nmb-drizzly: #e2e6f2;
+    --nmb-stormy: #e4dfee;
+    --nmb-px-sunny: #f2b36b;
+    --nmb-px-mild: #a9d0ea;
+    --nmb-px-clear: #d8d1c3;
+    --nmb-px-drizzly: #6f8fc4;
+    --nmb-px-stormy: #4b4775;
+    position: relative;
+    overflow: hidden;
+    color: var(--ink);
+    background-color: var(--paper);
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    padding-bottom: 96px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .nmb-stage {
+      --paper: #141726;
+      --ink: #f1eef7;
+      --graphite: #b4b1c6;
+      --rule: #2e3349;
+      --rule-strong: #8a87a0;
+      --nmb-card: #1f2336;
+      --nmb-line: #2e3349;
+      --nmb-ink2: #b4b1c6;
+      --nmb-accent: #9dbce0;
+      --nmb-sky: #26304d;
+      --nmb-sunny: #3a2e24;
+      --nmb-mild: #1f2d40;
+      --nmb-clear: #272b38;
+      --nmb-drizzly: #212a44;
+      --nmb-stormy: #2b2643;
+      --nmb-px-stormy: #8a84c9;
+    }
+  }
+
+  .nmb-wrap {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 20px 0;
+  }
+  .nmb-stage h1,
+  .nmb-stage h2,
+  .nmb-stage h3 {
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .nmb-stage h1 {
+    font-size: clamp(2.6rem, 6.4vw, 4.5rem);
+    line-height: 1.02;
+    font-weight: 800;
+    margin: 0 0 20px;
+  }
+  .nmb-stage h2 {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.08;
+    font-weight: 800;
+    margin: 0 0 16px;
+  }
+  .nmb-label {
+    margin: 0 0 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--nmb-accent);
+  }
+  .nmb-lede,
+  .nmb-copy {
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--nmb-ink2);
+    max-width: 34rem;
+    margin: 0 0 24px;
+  }
+  .nmb-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .nmb-note {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    color: var(--nmb-ink2);
+  }
+
+  /* Hero */
+  .nmb-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-top: 88px;
+  }
+  .nmb-today {
+    --nmb-tile: var(--nmb-sunny);
+    padding: 14px;
+    border-radius: 32px;
+    background: var(--nmb-card);
+    border: 1px solid var(--nmb-line);
+    box-shadow: 0 18px 40px -28px rgba(42, 39, 34, 0.45);
+  }
+  .nmb-today[data-look='mild'] { --nmb-tile: var(--nmb-mild); }
+  .nmb-today[data-look='clear'] { --nmb-tile: var(--nmb-clear); }
+  .nmb-today[data-look='drizzly'] { --nmb-tile: var(--nmb-drizzly); }
+  .nmb-today[data-look='stormy'] { --nmb-tile: var(--nmb-stormy); }
+  .nmb-sky {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 20px 22px;
+    border-radius: 22px;
+    background-color: var(--nmb-tile);
+    transition: background-color 0.4s ease;
+  }
+  .nmb-sky .nmb {
+    width: min(300px, 70vw);
+  }
+  .nmb-reply {
+    margin: 10px 0 0;
+    min-height: 1.6em;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .nmb-picker {
+    border: 0;
+    margin: 14px 0 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .nmb-picker legend {
+    padding: 0 4px 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .nmb-picker-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .nmb-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-height: 76px;
+    padding: 8px 4px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    color: var(--ink);
+    font: 650 0.9rem ui-rounded, 'SF Pro Rounded', var(--sans);
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .nmb-weather[data-weather='sunny'] { background: var(--nmb-sunny); }
+  .nmb-weather[data-weather='mild'] { background: var(--nmb-mild); }
+  .nmb-weather[data-weather='clear'] { background: var(--nmb-clear); }
+  .nmb-weather[data-weather='drizzly'] { background: var(--nmb-drizzly); }
+  .nmb-weather[data-weather='stormy'] { background: var(--nmb-stormy); }
+  .nmb-weather:hover {
+    border-color: var(--nmb-line);
+  }
+  .nmb-weather:active {
+    transform: scale(0.96);
+  }
+  .nmb-weather[aria-pressed='true'] {
+    border-color: var(--ink);
+  }
+  .nmb-weather:focus-visible {
+    outline: 3px solid var(--nmb-accent);
+    outline-offset: 2px;
+  }
+  .nmb-mini {
+    width: 44px;
+  }
+  /* The little Nimbos in the picker hold still. */
+  .nmb-mini * {
+    animation: none !important;
+  }
+
+  /* The scale and the year */
+  .nmb-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-top: 112px;
+  }
+  .nmb-scale {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .nmb-scale li {
+    display: grid;
+    grid-template-columns: 22px 5.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+  }
+  .nmb-scale span:last-child {
+    color: var(--nmb-ink2);
+  }
+  .nmb-pixel {
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 5px;
+  }
+  .nmb-px-sunny { background: var(--nmb-px-sunny); }
+  .nmb-px-mild { background: var(--nmb-px-mild); }
+  .nmb-px-clear { background: var(--nmb-px-clear); }
+  .nmb-px-drizzly { background: var(--nmb-px-drizzly); }
+  .nmb-px-stormy { background: var(--nmb-px-stormy); }
+  .nmb-year {
+    margin: 0;
+    padding: 20px;
+    border-radius: 24px;
+    background: var(--nmb-card);
+    border: 1px solid var(--nmb-line);
+  }
+  .nmb-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(7, auto);
+    grid-auto-flow: column;
+    gap: 6px;
+  }
+  .nmb-year figcaption {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: var(--nmb-ink2);
+  }
+
+  /* Screenshots */
+  .nmb-shots {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0 16px;
+    scroll-snap-type: x mandatory;
+  }
+  .nmb-shots img {
+    flex: 0 0 auto;
+    width: min(240px, 62vw);
+    height: auto;
+    border-radius: 22px;
+    scroll-snap-align: start;
+  }
+
+  /* Features */
+  .nmb-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .nmb-card {
+    padding: 22px;
+    border-radius: 22px;
+    background: var(--nmb-card);
+    border: 1px solid var(--nmb-line);
+  }
+  .nmb-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .nmb-card p {
+    margin: 0;
+    color: var(--nmb-ink2);
+    line-height: 1.5;
+  }
+  .nmb-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .nmb-privacy {
+    background: var(--nmb-mild);
+    border-color: transparent;
+  }
+  .nmb-privacy a,
+  .nmb-care a {
+    color: var(--nmb-accent);
+    font-weight: 650;
+  }
+  .nmb-privacy a {
+    display: inline-block;
+    margin-top: 12px;
+  }
+  .nmb-care {
+    margin: 28px 0 0;
+    max-width: 44rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--nmb-ink2);
+  }
+
+  /* Rainbow */
+  .nmb-rainbow-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 112px;
+  }
+  .nmb-cta-nimbo {
+    width: 200px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 820px) {
+    .nmb-hero,
+    .nmb-split {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+    .nmb-hero {
+      padding-top: 40px;
+    }
+    .nmb-split {
+      padding-top: 80px;
+    }
+    .nmb-features,
+    .nmb-pair {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 420px) {
+    .nmb-today {
+      padding: 10px;
+    }
+    .nmb-picker-row {
+      gap: 5px;
+    }
+    .nmb-weather {
+      font-size: 0.78rem;
+      padding: 6px 2px;
+    }
+    .nmb-mini {
+      width: 36px;
+    }
+    .nmb-grid {
+      gap: 4px;
+    }
+  }
+</style>
+
+<script>
+  // Tap a weather and Nimbo changes with you: his look, the sky behind him,
+  // and what he says back.
+  const today = document.querySelector<HTMLElement>('[data-today]');
+  const nimbo = document.getElementById('nmb-hero');
+  const reply = document.querySelector<HTMLElement>('[data-reply]');
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.nmb-weather')];
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      const look = button.dataset.weather ?? 'mild';
+      for (const other of buttons) other.setAttribute('aria-pressed', String(other === button));
+      if (today) today.dataset.look = look;
+      if (nimbo) {
+        nimbo.dataset.look = look;
+        nimbo.setAttribute('aria-label', button.dataset.spoken ?? 'Nimbo');
+        nimbo.classList.remove('is-changing');
+        void nimbo.getBoundingClientRect();
+        nimbo.classList.add('is-changing');
+      }
+      if (reply) reply.textContent = button.dataset.reply ?? '';
+    });
+  }
+</script>

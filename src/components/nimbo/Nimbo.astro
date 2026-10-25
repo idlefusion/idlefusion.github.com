@@ -1,0 +1,335 @@
+---
+// Nimbo, the cloud from the Nimbo app, as inline SVG. The same drawing as the
+// app's NimboCharacter.swift: a 240 × 190 board, the body three circles and a
+// pill (outlined, then filled, so the union keeps one clean edge), the face
+// around (121, 110), weather props around him. Every look is in the markup;
+// `data-look` on the <svg> picks which parts show, so a script can change it
+// without redrawing.
+export type NimboLook = 'sunny' | 'mild' | 'clear' | 'drizzly' | 'stormy' | 'rainbow';
+
+interface Props {
+  look?: NimboLook;
+  label?: string;
+  class?: string;
+  id?: string;
+}
+const { look = 'mild', label, class: className, id } = Astro.props;
+
+const body = (
+  [
+    ['circle', { cx: 78, cy: 104, r: 32 }],
+    ['circle', { cx: 118, cy: 78, r: 42 }],
+    ['circle', { cx: 162, cy: 96, r: 34 }],
+    ['rect', { x: 52, y: 92, width: 140, height: 50, rx: 25 }],
+  ] as const
+);
+const rays = [
+  [176, 22, 176, 10],
+  [176, 98, 176, 110],
+  [214, 60, 226, 60],
+  [138, 60, 126, 60],
+  [203, 33, 211, 25],
+  [149, 33, 141, 25],
+  [203, 87, 211, 95],
+];
+// Drops: x, y, and where in the 1.2 s fall each one starts.
+const drizzle = [
+  [86, 154, 0],
+  [118, 156, 0.25],
+  [150, 154, 0.5],
+  [102, 162, 0.125],
+  [134, 162, 0.375],
+];
+const storm = [
+  [76, 154, 0],
+  [164, 154, 0.5],
+  [92, 164, 0.375],
+];
+const arcs = ['#f4a96f', '#f2c14e', '#a9c79a', '#9dbce0'];
+---
+
+<svg
+  id={id}
+  class:list={['nmb', className]}
+  viewBox="0 0 240 190"
+  data-look={look}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+>
+  <g class="nmb-float">
+    <g class="nmb-pop">
+      <!-- Behind -->
+      <g data-part="sunny">
+        <g class="nmb-rays">
+          {rays.map(([x1, y1, x2, y2]) => <line x1={x1} y1={y1} x2={x2} y2={y2} />)}
+        </g>
+        <circle cx="176" cy="60" r="26" class="nmb-sun" />
+      </g>
+      <g data-part="mild" class="nmb-gust">
+        <path d="M6 78 Q16 71 26 78 Q36 85 46 78 M14 96 Q22 90 30 96" />
+      </g>
+      <g data-part="rainbow" class="nmb-rainbow">
+        {
+          arcs.map((colour, i) => {
+            const r = 70 - i * 10;
+            return (
+              <path
+                d={`M${150 - r} 104 A${r} ${r} 0 0 1 ${150 + r} 104`}
+                stroke={colour}
+                pathLength="1"
+                style={`--nmb-arc-delay: ${i * 0.15}s`}
+              />
+            );
+          })
+        }
+      </g>
+
+      <!-- Body -->
+      <g class="nmb-outline">
+        {body.map(([tag, attrs]) => (tag === 'circle' ? <circle {...attrs} /> : <rect {...attrs} />))}
+      </g>
+      <g class="nmb-body">
+        {body.map(([tag, attrs]) => (tag === 'circle' ? <circle {...attrs} /> : <rect {...attrs} />))}
+      </g>
+
+      <!-- Faces -->
+      <g class="nmb-face">
+        <g data-part="sunny rainbow">
+          <path d="M98 106 Q105 113 112 106" />
+          <path d="M130 106 Q137 113 144 106" />
+        </g>
+        <g data-part="sunny rainbow" class="nmb-cheeks">
+          <circle cx="92" cy="121" r="6" />
+          <circle cx="150" cy="121" r="6" />
+        </g>
+        <g data-part="mild" class="nmb-cheeks nmb-cheeks-soft">
+          <circle cx="92" cy="121" r="6" />
+          <circle cx="150" cy="121" r="6" />
+        </g>
+        <path data-part="sunny" d="M113 119 Q121 128 129 119" />
+
+        <g data-part="mild clear" class="nmb-eyes">
+          <ellipse cx="105" cy="106" rx="4.5" ry="4.5" />
+          <ellipse cx="137" cy="106" rx="4.5" ry="4.5" />
+        </g>
+        <path data-part="mild" d="M115 121 Q121 125 127 121" />
+        <path data-part="clear" d="M115 121 Q121 122.5 127 121" />
+
+        <g data-part="drizzly stormy" class="nmb-eyes">
+          <ellipse cx="105" cy="108" rx="4.5" ry="4.5" />
+          <ellipse cx="137" cy="108" rx="4.5" ry="4.5" />
+        </g>
+        <path data-part="drizzly" d="M98 99 L110 95 M144 99 L132 95" />
+        <path data-part="drizzly" d="M114 125 Q121 118 128 125" />
+        <path data-part="stormy" d="M98 95 L111 100 M144 95 L131 100" />
+        <path data-part="stormy" d="M113 123 Q117 119 121 123 Q125 127 129 123" />
+
+        <path data-part="rainbow" class="nmb-grin" d="M112 118 Q121 131 130 118 Z" />
+      </g>
+
+      <!-- In front -->
+      <g data-part="drizzly" class="nmb-drops">
+        {
+          drizzle.map(([x, y, offset]) => (
+            <line x1={x} y1={y} x2={x - 4} y2={y + 12} style={`--nmb-drop-delay: ${-offset * 1.2}s`} />
+          ))
+        }
+      </g>
+      <g data-part="stormy" class="nmb-drops nmb-drops-storm">
+        {
+          storm.map(([x, y, offset]) => (
+            <line x1={x} y1={y} x2={x - 4} y2={y + 12} style={`--nmb-drop-delay: ${-offset * 1.2}s`} />
+          ))
+        }
+      </g>
+      <path
+        data-part="stormy"
+        class="nmb-bolt"
+        d="M128 144 L114 166 L126 166 L118 186 L142 158 L130 158 L138 144 Z"
+      />
+    </g>
+  </g>
+</svg>
+
+<style is:global>
+  .nmb {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .nmb-outline > * {
+    fill: none;
+    stroke: #2a2722;
+    stroke-width: 8;
+  }
+  .nmb-body > * {
+    fill: #fff;
+    transition: fill 0.3s ease;
+  }
+  .nmb[data-look='stormy'] .nmb-body > * {
+    fill: #ece9f3;
+  }
+  .nmb-face path,
+  .nmb-face ellipse {
+    fill: none;
+    stroke: #2a2722;
+    stroke-width: 4.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .nmb-face ellipse {
+    fill: #2a2722;
+    stroke: none;
+  }
+  .nmb-face .nmb-grin {
+    fill: #2a2722;
+    stroke-width: 3;
+  }
+  .nmb-cheeks circle {
+    fill: #f4a98c;
+    opacity: 0.6;
+  }
+  .nmb-cheeks-soft circle {
+    opacity: 0.4;
+  }
+  .nmb-rays line {
+    stroke: #f4a96f;
+    stroke-width: 5;
+    stroke-linecap: round;
+  }
+  .nmb-sun {
+    fill: #f4a96f;
+  }
+  .nmb-gust path {
+    fill: none;
+    stroke: #8fb2d6;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  .nmb-rainbow path {
+    fill: none;
+    stroke-width: 9;
+    stroke-linecap: round;
+  }
+  .nmb-drops line {
+    stroke: #6f97c4;
+    stroke-width: 5;
+    stroke-linecap: round;
+  }
+  .nmb-drops-storm line {
+    stroke: #5e6fa8;
+  }
+  .nmb-bolt {
+    fill: #f2c14e;
+    stroke: #2a2722;
+    stroke-width: 3;
+    stroke-linejoin: round;
+  }
+
+  /* Only the current look's parts. */
+  .nmb [data-part] {
+    display: none;
+  }
+  .nmb[data-look='sunny'] [data-part~='sunny'],
+  .nmb[data-look='mild'] [data-part~='mild'],
+  .nmb[data-look='clear'] [data-part~='clear'],
+  .nmb[data-look='drizzly'] [data-part~='drizzly'],
+  .nmb[data-look='stormy'] [data-part~='stormy'],
+  .nmb[data-look='rainbow'] [data-part~='rainbow'] {
+    display: inline;
+  }
+
+  /* Motion, all slow and small: a float, a blink, the sun's rays turning, a
+     breeze passing, rain falling, the bolt glowing now and then, the rainbow
+     drawing in, and a little pop when the weather changes. Reduce Motion
+     shows every look at rest. */
+  .nmb-pop {
+    transform-box: view-box;
+    transform-origin: 121px 142px;
+  }
+  .nmb-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .nmb-rays {
+    transform-box: view-box;
+    transform-origin: 176px 60px;
+  }
+  .nmb-sun {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .nmb-float {
+      animation: nmb-float 3.6s ease-in-out infinite;
+    }
+    .nmb-eyes {
+      animation: nmb-blink 4.4s infinite;
+    }
+    .nmb-rays {
+      animation: nmb-turn 24s linear infinite;
+    }
+    .nmb-sun {
+      animation: nmb-breathe 5.6s ease-in-out infinite;
+    }
+    .nmb-gust {
+      animation: nmb-gust 2.6s linear infinite;
+    }
+    .nmb-drops line {
+      animation: nmb-rain 1.2s linear infinite;
+      animation-delay: var(--nmb-drop-delay, 0s);
+    }
+    .nmb-bolt {
+      animation: nmb-flash 3.4s infinite;
+    }
+    .nmb-rainbow path {
+      stroke-dasharray: 1;
+      animation: nmb-draw 1.4s cubic-bezier(0.3, 0.7, 0.4, 1) both;
+      animation-delay: var(--nmb-arc-delay, 0s);
+    }
+    .nmb.is-changing .nmb-pop {
+      animation: nmb-pop 0.55s cubic-bezier(0.3, 1.5, 0.5, 1);
+    }
+  }
+  @keyframes nmb-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  @keyframes nmb-blink {
+    0%, 94%, 100% { transform: scaleY(1); }
+    97% { transform: scaleY(0.12); }
+  }
+  @keyframes nmb-turn {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes nmb-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+  @keyframes nmb-gust {
+    0% { transform: translateX(-8px); opacity: 0; }
+    40% { opacity: 1; }
+    100% { transform: translateX(12px); opacity: 0; }
+  }
+  @keyframes nmb-rain {
+    0% { transform: translateY(-6px); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(18px); opacity: 0; }
+  }
+  @keyframes nmb-flash {
+    0%, 70%, 78%, 100% { opacity: 0.15; }
+    72%, 76% { opacity: 1; }
+    74% { opacity: 0.4; }
+  }
+  @keyframes nmb-draw {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes nmb-pop {
+    0% { transform: scale(0.88); }
+    60% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+  }
+</style>
