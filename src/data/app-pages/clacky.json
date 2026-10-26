@@ -1,0 +1,76 @@
+{
+  "slug": "clacky",
+  "name": "Clacky",
+  "category": "Self-Tape Partner",
+  "icon": "/img/clacky/icon.png",
+  "seo": {
+    "title": "Clacky — A Self-Tape Partner That Reads the Other Parts",
+    "description": "Self-tapes for iPhone and Apple Watch with a friend in it. Clacky, a little clapperboard, reads every part you're not playing, holds your line up by the lens, claps you in and gives you notes after every take. Paste, photo or scan your sides. Video or audio only. Export MOV, MP4, M4A or WAV. Free, no account, nothing leaves your phone.",
+    "ogImage": "/img/clacky/icon.png",
+    "canonical": "https://idlefusion.com/clacky"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": [
+    "#ffc94d",
+    "#e5484d"
+  ],
+  "ink": "#7a5a00",
+  "hero": {
+    "label": "SELF-TAPES",
+    "title": "Your scene partner is <em>ready when you are.</em>",
+    "text": [
+      "Meet Clacky, a little clapperboard who reads the other parts, holds your line by the lens and tells you what landed."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/clacky/screenshots/01-scenes.png",
+      "alt": "Clacky — What's due, what's next. The Last Bus, reading for June, due Wednesday.",
+      "label": "Scenes",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/clacky/screenshots/02-cast.png",
+      "alt": "Clacky — Who are you reading for? Your lines highlighted, Clacky reads the rest.",
+      "label": "Pick your part",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/clacky/screenshots/03-rolling.png",
+      "alt": "Clacky — Clacky reads Marcus while you wait for your line.",
+      "label": "Rolling",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/clacky/screenshots/04-setup.png",
+      "alt": "Clacky — Before you roll: video or audio only, prompter, slate and full body.",
+      "label": "Before you roll",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/clacky/screenshots/05-tapes.png",
+      "alt": "Clacky — Every tape you've sent: callbacks and bookings.",
+      "label": "Tapes",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/clacky/screenshots/06-coach.png",
+      "alt": "Clacky — A checklist before you roll, and scene prep from your sides.",
+      "label": "Coach",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [],
+  "cta": {
+    "title": "Places, everyone.",
+    "text": "Free, coming to the App Store soon. No account required."
+  }
+}

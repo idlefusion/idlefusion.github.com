@@ -1,0 +1,203 @@
+---
+// Clacky, the little white clapperboard from the Clacky app, as inline SVG.
+// The same drawing as the app's ClackyCharacter.swift: a 240 × 220 board, a
+// white dry-erase body written on in marker (the scene and take on its
+// belly), a striped clapstick hinged at the left, stubby arms and feet. Every
+// pose is in the markup; `data-pose` on the <svg> picks which parts show, so a
+// script can change it without redrawing.
+export type ClackyPose = 'idle' | 'ready' | 'clap' | 'read' | 'listen' | 'wave' | 'proud' | 'sleepy';
+
+interface Props {
+  pose?: ClackyPose;
+  scene?: string;
+  take?: string;
+  label?: string;
+  class?: string;
+  id?: string;
+}
+const { pose = 'idle', scene = '1', take = '1', label, class: className, id } = Astro.props;
+
+const lowStripes = [58, 88, 118, 148, 178].map((x) => `${x},86 ${x + 15},86 ${x + 5},68 ${x - 10},68`);
+const topStripes = [50, 80, 110, 140, 169].map((x) => `${x},60 ${x + 15},60 ${x + 25},42 ${x + 10},42`);
+const star = (x: number, y: number, r: number) => {
+  const k = r * 0.28;
+  return `M${x} ${y - r} L${x + k} ${y - k} L${x + r} ${y} L${x + k} ${y + k} L${x} ${y + r} L${x - k} ${y + k} L${x - r} ${y} L${x - k} ${y - k} Z`;
+};
+---
+
+<svg
+  id={id}
+  class:list={['clacky', className]}
+  viewBox="0 0 240 220"
+  data-pose={pose}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+>
+  <g class="clacky-body">
+    <g data-part="sleepy" class="clacky-zs">
+      <path class="clacky-z" d="M196 34 h14 l-14 14 h14" />
+      <path class="clacky-z clacky-z2" d="M218 12 h10 l-10 10 h10" />
+    </g>
+
+    <g data-part="arms-down">
+      <path class="clacky-arm" d="M48 134 q-18 6 -22 28" />
+      <path class="clacky-arm" d="M192 134 q18 6 22 28" />
+    </g>
+    <g data-part="wave">
+      <path class="clacky-arm" d="M48 134 q-18 6 -22 28" />
+      <path class="clacky-arm clacky-waving" d="M192 132 q24 -4 30 -34" />
+    </g>
+    <g data-part="proud">
+      <path class="clacky-arm" d="M48 132 q-22 -6 -28 -32" />
+      <path class="clacky-arm" d="M192 132 q22 -6 28 -32" />
+    </g>
+
+    <rect class="clacky-ink" x="80" y="188" width="24" height="16" rx="8" />
+    <rect class="clacky-ink" x="136" y="188" width="24" height="16" rx="8" />
+
+    <rect class="clacky-board" x="44" y="88" width="152" height="106" rx="16" />
+    <path class="clacky-marker clacky-dash" d="M60 160 H180" />
+    <path class="clacky-marker" d="M120 166 V184" />
+    <text class="clacky-note" x="64" y="182">SC {scene}</text>
+    <text class="clacky-note" x="130" y="182">TK {take}</text>
+
+    <g class="clacky-cheeks">
+      <circle cx="78" cy="143" r="7" />
+      <circle cx="162" cy="143" r="7" />
+    </g>
+
+    <g data-part="eyes-open" class="clacky-blink">
+      <circle class="clacky-ink clacky-pupil" cx="96" cy="122" r="8" />
+      <circle class="clacky-ink clacky-pupil" cx="144" cy="122" r="8" />
+      <circle class="clacky-shine clacky-pupil" cx="98.5" cy="119.5" r="2.2" />
+      <circle class="clacky-shine clacky-pupil" cx="146.5" cy="119.5" r="2.2" />
+    </g>
+    <g data-part="sleepy" class="clacky-face">
+      <path d="M87 122 q9 7 18 0" /><path d="M135 122 q9 7 18 0" />
+    </g>
+    <g data-part="proud" class="clacky-face">
+      <path d="M87 126 q9 -11 18 0" /><path d="M135 126 q9 -11 18 0" />
+    </g>
+    <g data-part="clap" class="clacky-face">
+      <path d="M88 116 l14 6 l-14 6" /><path d="M152 116 l-14 6 l14 6" />
+    </g>
+    <g data-part="read" class="clacky-glasses">
+      <circle cx="96" cy="122" r="16" /><circle cx="144" cy="122" r="16" /><path d="M112 120 q8 -5 16 0" />
+    </g>
+
+    <path data-part="smile" class="clacky-face" d="M111 141 q9 8 18 0" />
+    <path data-part="open" class="clacky-mouth" d="M108 138 q12 16 24 0 z" />
+    <ellipse data-part="read" class="clacky-mouth clacky-say" cx="120" cy="143" rx="6.5" ry="7" />
+    <path data-part="sleepy" class="clacky-face" d="M114 142 q6 4 12 0" />
+
+    <g data-part="listen" class="clacky-ears">
+      <path d="M206 110 q8 12 0 24" /><path class="clacky-ear2" d="M216 102 q14 20 0 40" />
+    </g>
+
+    <rect class="clacky-ink" x="44" y="66" width="152" height="22" rx="5" />
+    <g class="clacky-stripe">{lowStripes.map((p) => <polygon points={p} />)}</g>
+    <rect class="clacky-outline" x="44" y="66" width="152" height="22" rx="5" />
+
+    <g class="clacky-stick">
+      <rect class="clacky-ink" x="44" y="40" width="152" height="22" rx="5" />
+      <g class="clacky-stripe">{topStripes.map((p) => <polygon points={p} />)}</g>
+      <rect class="clacky-outline" x="44" y="40" width="152" height="22" rx="5" />
+    </g>
+    <circle class="clacky-hinge" cx="48" cy="64" r="6.5" />
+
+    <g data-part="clap" class="clacky-burst">
+      <path d="M30 46 l-12 -8" /><path d="M28 62 h-16" /><path d="M32 78 l-12 8" />
+    </g>
+    <g data-part="proud" class="clacky-sparkles">
+      <path d={star(214, 60, 14)} /><path d={star(24, 50, 10)} style="animation-delay: 0.45s" /><path d={star(222, 176, 8.5)} style="animation-delay: 0.9s" />
+    </g>
+  </g>
+</svg>
+
+<style is:global>
+  .clacky {
+    display: block;
+    overflow: visible;
+  }
+  .clacky-ink { fill: #1c1b22; }
+  .clacky-board { fill: #ffffff; stroke: #1c1b22; stroke-width: 6; }
+  .clacky-outline { fill: none; stroke: #1c1b22; stroke-width: 6; }
+  .clacky-stripe { fill: #faf6ef; }
+  .clacky-hinge { fill: #ffc94d; stroke: #1c1b22; stroke-width: 4; }
+  .clacky-shine { fill: #ffffff; }
+  .clacky-arm { fill: none; stroke: #1c1b22; stroke-width: 7; stroke-linecap: round; }
+  .clacky-marker { fill: none; stroke: rgba(28, 27, 34, 0.3); stroke-width: 2.5; stroke-linecap: round; }
+  .clacky-dash { stroke-dasharray: 6 6; }
+  .clacky-note { fill: rgba(28, 27, 34, 0.72); font: 700 16px 'Noteworthy', 'Comic Sans MS', cursive; }
+  .clacky-cheeks circle { fill: #f28c8c; opacity: 0.5; }
+  .clacky-face { fill: none; stroke: #1c1b22; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
+  .clacky-mouth { fill: #f28c8c; stroke: #1c1b22; stroke-width: 3.5; stroke-linejoin: round; }
+  .clacky-glasses { fill: none; stroke: #1c1b22; stroke-width: 3.5; }
+  .clacky-ears path, .clacky-burst path { fill: none; stroke: #ffc94d; stroke-width: 4.5; stroke-linecap: round; }
+  .clacky-sparkles path { fill: #ffc94d; }
+  .clacky-z { fill: none; stroke: #9aa3c7; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  .clacky-stick { transform-origin: 48px 63px; transform: rotate(-14deg); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+  /* Which parts each pose shows. */
+  .clacky [data-part] { display: none; }
+  .clacky[data-pose='idle'] [data-part~='arms-down'],
+  .clacky[data-pose='idle'] [data-part~='eyes-open'],
+  .clacky[data-pose='idle'] [data-part~='smile'] { display: inline; }
+  .clacky[data-pose='ready'] [data-part~='arms-down'],
+  .clacky[data-pose='ready'] [data-part~='eyes-open'],
+  .clacky[data-pose='ready'] [data-part~='open'] { display: inline; }
+  .clacky[data-pose='clap'] [data-part~='arms-down'],
+  .clacky[data-pose='clap'] [data-part~='clap'],
+  .clacky[data-pose='clap'] [data-part~='open'] { display: inline; }
+  .clacky[data-pose='read'] [data-part~='arms-down'],
+  .clacky[data-pose='read'] [data-part~='eyes-open'],
+  .clacky[data-pose='read'] [data-part~='read'] { display: inline; }
+  .clacky[data-pose='listen'] [data-part~='arms-down'],
+  .clacky[data-pose='listen'] [data-part~='eyes-open'],
+  .clacky[data-pose='listen'] [data-part~='smile'],
+  .clacky[data-pose='listen'] [data-part~='listen'] { display: inline; }
+  .clacky[data-pose='wave'] [data-part~='wave'],
+  .clacky[data-pose='wave'] [data-part~='eyes-open'],
+  .clacky[data-pose='wave'] [data-part~='open'] { display: inline; }
+  .clacky[data-pose='proud'] [data-part~='proud'],
+  .clacky[data-pose='proud'] [data-part~='open'] { display: inline; }
+  .clacky[data-pose='sleepy'] [data-part~='arms-down'],
+  .clacky[data-pose='sleepy'] [data-part~='sleepy'] { display: inline; }
+
+  .clacky[data-pose='ready'] .clacky-stick { transform: rotate(-34deg); }
+  .clacky[data-pose='clap'] .clacky-stick { transform: rotate(0deg); }
+  .clacky[data-pose='read'] .clacky-stick { transform: rotate(-10deg); }
+  .clacky[data-pose='listen'] .clacky-stick { transform: rotate(-12deg); }
+  .clacky[data-pose='wave'] .clacky-stick { transform: rotate(-22deg); }
+  .clacky[data-pose='proud'] .clacky-stick { transform: rotate(-28deg); }
+  .clacky[data-pose='sleepy'] .clacky-stick { transform: rotate(-4deg); }
+  .clacky[data-pose='ready'] .clacky-pupil { transform: translateY(-1px); }
+  .clacky[data-pose='read'] .clacky-pupil { transform: translateY(4px); }
+  .clacky[data-pose='listen'] .clacky-pupil { transform: translate(3px, -3px); }
+  .clacky[data-pose='proud'] .clacky-cheeks circle,
+  .clacky[data-pose='clap'] .clacky-cheeks circle { opacity: 0.75; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .clacky-body { animation: clacky-float 3.6s ease-in-out infinite alternate; transform-origin: 120px 200px; }
+    .clacky-blink { transform-box: fill-box; transform-origin: center; animation: clacky-blink 4.8s infinite; }
+    .clacky[data-pose='clap'] .clacky-stick { animation: clacky-clap 1.6s cubic-bezier(0.5, 0, 0.2, 1) infinite; }
+    .clacky-burst { transform-origin: 48px 62px; animation: clacky-burst 1.6s linear infinite; }
+    .clacky-waving { transform-origin: 192px 130px; animation: clacky-wave 0.75s ease-in-out infinite alternate; }
+    .clacky-say { transform-box: fill-box; transform-origin: center; animation: clacky-say 0.36s ease-in-out infinite alternate; }
+    .clacky-sparkles path { transform-box: fill-box; transform-origin: center; animation: clacky-twinkle 1.4s ease-in-out infinite alternate; }
+    .clacky-ears path { animation: clacky-ear 1.8s ease-out infinite; }
+    .clacky-ear2 { animation-delay: 0.6s !important; }
+    .clacky-z { animation: clacky-z 3.2s ease-in-out infinite; }
+    .clacky-z2 { animation-delay: 1.6s; }
+  }
+  @keyframes clacky-float { from { transform: translateY(2px) rotate(-1.2deg); } to { transform: translateY(-5px) rotate(1.2deg); } }
+  @keyframes clacky-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+  @keyframes clacky-clap { 0% { transform: rotate(-26deg); } 50% { transform: rotate(-36deg); } 58% { transform: rotate(0); } 62% { transform: rotate(-3deg); } 66%, 82% { transform: rotate(0); } 100% { transform: rotate(-26deg); } }
+  @keyframes clacky-burst { 0%, 56% { opacity: 0; } 60% { opacity: 1; } 78%, 100% { opacity: 0; } }
+  @keyframes clacky-wave { from { transform: rotate(-14deg); } to { transform: rotate(12deg); } }
+  @keyframes clacky-say { from { transform: scaleY(0.45); } to { transform: scaleY(1.05); } }
+  @keyframes clacky-twinkle { from { transform: scale(0.5); opacity: 0.35; } to { transform: scale(1.1); opacity: 1; } }
+  @keyframes clacky-ear { 0% { opacity: 0; transform: translateX(-4px); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateX(6px); } }
+  @keyframes clacky-z { 0% { transform: translate(0, 6px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translate(10px, -16px); opacity: 0; } }
+</style>

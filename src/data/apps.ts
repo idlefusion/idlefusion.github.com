@@ -147,6 +147,13 @@ export const apps = [
     icon: '/img/ebb/icon.png',
   },
   {
+    slug: 'clacky',
+    name: 'Clacky',
+    category: 'Self-Tape Partner',
+    desc: 'Self-tapes with a little clapperboard who reads the other parts and holds your line up by the lens.',
+    icon: '/img/clacky/icon.png',
+  },
+  {
     slug: 'meds-easy',
     name: 'Meds Easy',
     category: 'Medication Tracker',
