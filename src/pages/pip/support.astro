@@ -1,0 +1,88 @@
+---
+import AppDocLayout from '../../layouts/AppDocLayout.astro';
+---
+
+<AppDocLayout
+  title="Pip - Support"
+  description="Get help with Pip - Atlanta Train Times, the iOS app: when to leave, changes and late nights, scheduled times, leave reminders, widgets, Apple Watch and the ride card."
+  ogUrl="https://idlefusion.com/pip/support"
+>
+  <main>
+    <section class="section-padding">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-8">Support</h1>
+
+        <div class="text-[var(--text-secondary)] leading-relaxed mb-12">
+          <p class="text-lg mb-4">Need help with Pip?</p>
+          <p>Send us an email at <a href="mailto:support@idlefusion.com?subject=Pip%20Support%20Request" class="text-[var(--accent-primary)] hover:underline">support@idlefusion.com</a> and we'll get back to you as soon as we can. If a train time looks wrong, tell us the station, the direction and the time you saw it.</p>
+        </div>
+
+        <div class="space-y-8">
+          <h2 class="text-2xl font-semibold text-[var(--text-primary)] mb-6">Frequently Asked Questions</h2>
+
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">How does Pip decide when I should leave?</h3>
+              <p class="text-[var(--text-secondary)]">Each trip has a walk: the minutes from your door to the platform. Pip finds the next train you can still make with that walk, and tells you to leave that many minutes before it arrives, at the walking pace you picked in Settings.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">Why did Pip pick a later train?</h3>
+              <p class="text-[var(--text-secondary)]">Pip scores every train by when it gets you to where you&rsquo;re going, not by when it leaves. When two trains get you there at the same time, it picks the later one so you wait at home instead of on the platform. A train that turns back before your stop is never the one it picks.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">How do changes work?</h3>
+              <p class="text-[var(--text-secondary)]">If your ride needs two lines, Pip looks up the trains at the station where you change and picks the pair that arrives first. The trip shows where to change, which train to take on, and how many minutes you&rsquo;ll have.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">What happens late at night?</h3>
+              <p class="text-[var(--text-secondary)]">After about 9 PM some Red trains turn back at Lindbergh, so trips north of there go by Gold with a change. When the last train that gets you there has left, Pip says so and tells you when the first one runs, and can remind you for it.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">What does &ldquo;Scheduled times&rdquo; mean?</h3>
+              <p class="text-[var(--text-secondary)]">Pip normally shows live arrivals, checked every 30 seconds while the app is open. When you&rsquo;re offline or live times aren&rsquo;t available, it uses the published timetable and labels it. Live times come back on their own.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">My leave reminder didn&rsquo;t come.</h3>
+              <p class="text-[var(--text-secondary)]">Check that notifications are allowed for Pip in the iPhone Settings app, and that a Focus isn&rsquo;t holding them. Reminders are set per train: open the trip, pick the train, and turn on Remind me. Long-press a reminder for I&rsquo;m going or Next train.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">How do I see when to leave without opening Pip?</h3>
+              <p class="text-[var(--text-secondary)]">Touch and hold the Home Screen, tap Edit, then Add Widget, and choose Pip. There are widgets for the Lock Screen and StandBy too, a Next train control for Control Center and the Action button, and you can ask Siri &ldquo;When&rsquo;s my next train in Pip?&rdquo;</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">Does Pip work on Apple Watch?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. The watch shows your nearest trip and taps your wrist at the leave time and at each step of the ride. It gets your trips from your iPhone.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">What is the ride card?</h3>
+              <p class="text-[var(--text-secondary)]">After a ride, Pip asks once whether you made it. Say yes and it punches your card; say no and that&rsquo;s fine too. Golden tickets come at 25, 100, 200 and 500 rides. It&rsquo;s on your iPhone only, and you can turn the question off in Settings.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">Does Pip show buses or streetcars?</h3>
+              <p class="text-[var(--text-secondary)]">Not yet. Pip covers Atlanta&rsquo;s four rail lines and all 38 stations.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">Is Pip free?</h3>
+              <p class="text-[var(--text-secondary)]">Yes. Everything in Pip is free, with no ads or subscription. If you&rsquo;d like to support it, Settings &rarr; Support Pip has optional one-time tips. They don&rsquo;t unlock anything, and they&rsquo;re handled entirely by the App Store.</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium text-[var(--text-primary)] mb-2">Is Pip made by the transit agency?</h3>
+              <p class="text-[var(--text-secondary)]">No. Pip is an independent app by Idle Fusion. It uses the agency&rsquo;s public train feeds, and isn&rsquo;t made, affiliated with or endorsed by it. For lost items, fares or service questions, contact the agency directly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</AppDocLayout>

@@ -1,0 +1,83 @@
+{
+  "slug": "pip",
+  "name": "Pip",
+  "category": "Train Times",
+  "icon": "/img/pip/icon.png",
+  "seo": {
+    "title": "Pip — Atlanta Train Times with a Little Peach of a Train",
+    "description": "Atlanta train times for iPhone and Apple Watch with a friend in it. Pip, a little peach of a train, tells you the moment to leave for the next train you can make: your walk built in, the change spelled out, a step-by-step guide on your Lock Screen, widgets and Siri. Free, no account, no tracking.",
+    "ogImage": "/img/pip/icon.png",
+    "canonical": "https://idlefusion.com/pip"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": [
+    "#ffb38a",
+    "#3d7a4f"
+  ],
+  "ink": "#8a3e14",
+  "hero": {
+    "label": "TRAIN TIMES",
+    "title": "Know when to leave for <em>your train.</em>",
+    "text": [
+      "Meet Pip, a little peach of a train who waits on the platform with you and tells you the moment to leave."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/pip/screenshots/01-trains.png",
+      "alt": "Pip — Leave in 3 min. When to leave for the next train you can make.",
+      "label": "Trains",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pip/screenshots/02-trip.png",
+      "alt": "Pip — The change, spelled out. Blue to Five Points, then Gold to Midtown.",
+      "label": "A trip",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pip/screenshots/03-leave-now.png",
+      "alt": "Pip — Leave now. Walk, ride, change, arrive, step by step.",
+      "label": "Leave now",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pip/screenshots/04-late-night.png",
+      "alt": "Pip — Late nights, sorted. Gold to Lindbergh, then the Red.",
+      "label": "Late night",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pip/screenshots/05-board.png",
+      "alt": "Pip — Every station's board, in amber dots.",
+      "label": "Station board",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pip/screenshots/06-rides.png",
+      "alt": "Pip — Your ride card and half a year of rides.",
+      "label": "Rides",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/pip/screenshots/07-made-it.png",
+      "alt": "Pip — Made it? One tap after the ride.",
+      "label": "Made it",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [],
+  "cta": {
+    "title": "Catch it every time.",
+    "text": "Free, coming to the App Store soon. No account required."
+  }
+}

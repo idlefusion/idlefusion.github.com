@@ -133,6 +133,13 @@ export const apps = [
     icon: '/img/nimbo/icon.png',
   },
   {
+    slug: 'pip',
+    name: 'Pip',
+    category: 'Train Times',
+    desc: 'Atlanta train times with a little peach of a train who tells you the moment to leave.',
+    icon: '/img/pip/icon.png',
+  },
+  {
     slug: 'meds-easy',
     name: 'Meds Easy',
     category: 'Medication Tracker',

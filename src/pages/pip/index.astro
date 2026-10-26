@@ -1,0 +1,832 @@
+---
+// Pip's landing page. Like Ebb's, everything between the studio header and
+// footer is the app's own world: the platform by day and the night platform
+// in dark mode, with Pip himself on the page. Try a ride: Pip counts down to
+// the moment to leave, watches down the track, and says go. The transit
+// agency's name never appears here; the lines and stations do.
+import AppLayout from '../../layouts/AppLayout.astro';
+import StoreButton from '../../components/app/StoreButton.astro';
+import Pip from '../../components/pip/Pip.astro';
+import { appPageData } from '../../data/app-pages';
+
+const page = appPageData['pip'];
+
+// Four rides to try, each with how long until it's time to leave (seconds),
+// what Pip says, and the ride in one sentence.
+const demos = [
+  { id: 'work', name: 'To work', short: 'Decatur → Midtown', label: 'Decatur → Midtown · 8 min walk', start: 252, note: 'lid on the coffee, you’ve got time.', line: 'Catch the 8:49 Blue and change at Five Points. You’ll be at Midtown about 9:10.' },
+  { id: 'air', name: 'To the airport', short: 'Five Points', label: 'Five Points → Airport · 6 min walk', start: 70, note: 'bags packed? almost time.', line: 'The 8:46 Gold goes straight there. You’ll be at the Airport about 9:02.' },
+  { id: 'game', name: 'To the game', short: 'Buckhead → SEC District', label: 'Buckhead → SEC District · 5 min walk', start: 540, note: 'one change, then kickoff.', line: 'Red south to Five Points, then Blue or Green west one stop. About 24 minutes.' },
+  { id: 'late', name: 'Late night', short: 'Midtown → North Springs', label: 'Midtown → North Springs · 11:02 PM', start: 360, note: 'gold first, red after lindbergh.', line: 'After 9, the Red turns back at Lindbergh. Take the Gold and change there for the Red.' },
+];
+const first = demos[0];
+
+const rides = [
+  { line: 'blue', name: 'Blue', text: 'Decatur to Midtown: Blue to Five Points, then whichever of the Red or Gold comes first.' },
+  { line: 'red', name: 'Red', text: 'After 9 PM, when Red trains turn back at Lindbergh, Pip sends you up the Gold and changes you there.' },
+  { line: 'gold', name: 'Gold', text: 'Two trains arriving together? Pip picks the later one, so you wait at home, not on the platform.' },
+];
+
+// The four lines, drawn schematically on a 520 × 440 board: Red and Gold
+// north and south through Five Points, parting at Lindbergh; Blue and Green
+// east and west, Green turning off at Ashby for Bankhead.
+const stations: [number, number, number, string, number, number][] = [
+  // x, y, r, name, label x, label y
+  [260, 253, 11, 'Five Points', 276, 250],
+  [260, 118, 9, 'Lindbergh', 276, 122],
+  [260, 176, 7, 'Midtown', 274, 180],
+  [260, 418, 8, 'Airport', 276, 424],
+  [215, 22, 8, 'North Springs', 230, 20],
+  [372, 40, 8, 'Doraville', 384, 44],
+  [58, 258, 8, 'H. E. Holmes', 40, 286],
+  [470, 258, 8, 'Indian Creek', 420, 286],
+  [98, 206, 8, 'Bankhead', 70, 190],
+  [140, 253, 7, 'Ashby', 118, 282],
+  [360, 253, 7, 'Edgewood', 330, 282],
+  [416, 258, 7, 'Decatur', 398, 240],
+];
+
+const features = [
+  { title: 'Leave in 4 min', text: 'The home screen leads with one thing: when to leave for the train you can still make, and when you’ll get there.' },
+  { title: 'Your walk, built in', text: 'Each trip knows the walk from your door to the platform. Pick a pace, add a couple of spare minutes.' },
+  { title: 'Changes, spelled out', text: 'Which train, where to change, which platform, and how long you have. The pair that gets you there first.' },
+  { title: 'Leave now, step by step', text: 'From the chime to your stop: walk, ride, change, arrive. Pip nudges you one stop before.' },
+  { title: 'Live, then scheduled', text: 'Live arrivals every 30 seconds. Offline, Pip uses the published timetable and says so.' },
+  { title: 'Late nights, sorted', text: 'Trains that turn back early, the last connection of the night, and when the first train runs.' },
+  { title: 'Alerts on your lines', text: 'Single tracking, closed platforms and elevator outages, with the ones on your trips up front.' },
+  { title: 'Where to?', text: 'Type “to the airport, 8 min walk” or “to the stadium”. Pip shows the trip and its next train.' },
+  { title: 'Every station’s board', text: 'All 38 stations by line, nearest first, each with a live board by direction.' },
+  { title: 'Your ride card', text: 'Answer “Made it?” after a ride and Pip punches your card. A golden ticket at 25, 100, 200 and 500.' },
+  { title: 'Lock Screen and Watch', text: 'A Live Activity from the chime to your stop, widgets, StandBy, Control Center, and taps on your wrist.' },
+  { title: 'Ask Siri', text: '“When’s my next train in Pip?” From the Action button or a Shortcut, too.' },
+];
+
+// Ticket stubs and dots rising through the closing card: left edge, delay, color, stub or dot.
+const confetti: [number, number, string, boolean][] = [
+  [10, 0, '#ffb38a', true],
+  [30, 0.8, '#1371b8', false],
+  [68, 1.5, '#e5a823', true],
+  [86, 2.3, '#3d7a4f', false],
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Pip - Atlanta Train Times',
+  description: page.seo.description,
+  applicationCategory: 'TravelApplication',
+  operatingSystem: 'iOS',
+  image: `https://idlefusion.com${page.icon}`,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  author: { '@type': 'Organization', name: 'Idle Fusion', url: 'https://idlefusion.com' },
+};
+---
+
+<AppLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  app={page}
+  kind="landing"
+  ogImage={page.seo.ogImage}
+  canonical={page.seo.canonical}
+  sections={[
+    { id: 'lines', label: 'The lines' },
+    { id: 'screenshots', label: 'Screenshots' },
+    { id: 'features', label: 'Features' },
+  ]}
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+
+  <main id="main" class="pip-stage">
+    <!-- Hero: try a ride with Pip, right here. -->
+    <section class="pip-wrap pip-hero">
+      <div class="pip-hero-text">
+        <p class="pip-label">Atlanta train times for iPhone and Apple Watch</p>
+        <h1>Know when to leave for your train.</h1>
+        <p class="pip-lede">
+          Pip is a little peach of a train who waits on the platform with you. Save the rides you take,
+          and Pip says the moment to leave for the next train you can still make, walk included, change
+          and all.
+        </p>
+        <div class="pip-store">
+          <StoreButton store={page.store} platform="iOS" />
+          <p class="pip-note">Free · No account · No ads · Nothing collected</p>
+        </div>
+      </div>
+
+      <div class="pip-try">
+        <div class="pip-ticket" data-ticket>
+          <div class="pip-ticket-top">
+            <div>
+              <p class="pip-ride" data-label>{first.label}</p>
+              <p class="pip-kicker" data-kicker>Leave in</p>
+              <p class="pip-big" aria-live="polite"><span data-big>4</span> <span class="pip-unit" data-unit>min</span></p>
+            </div>
+            <p class="pip-whisper" data-note>{first.note}</p>
+          </div>
+          <p class="pip-sentence" data-line>{first.line}</p>
+          <div class="pip-platform">
+            <Pip id="pip-hero" pose="calm" sign="4 MIN" label="Pip, waiting calmly" class="pip-on-dark" />
+          </div>
+          <div class="pip-ties" aria-hidden="true"></div>
+        </div>
+        <fieldset class="pip-picker">
+          <legend>Try a ride with Pip</legend>
+          <div class="pip-picker-row">
+            {
+              demos.map((d, i) => (
+                <button
+                  type="button"
+                  class="pip-demo"
+                  data-demo={d.id}
+                  data-start={d.start}
+                  data-label={d.label}
+                  data-note={d.note}
+                  data-line={d.line}
+                  aria-pressed={i === 0 ? 'true' : 'false'}
+                  aria-label={`${d.name}: ${d.label}`}
+                >
+                  <span class="pip-demo-name">{d.name}</span>
+                  <span class="pip-demo-short">{d.short}</span>
+                </button>
+              ))
+            }
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- The lines -->
+    <section class="pip-wrap pip-split" id="lines" aria-labelledby="lines-title">
+      <div>
+        <p class="pip-label">Every line, every station</p>
+        <h2 id="lines-title">Pip knows the lines, so you don’t have to.</h2>
+        <p class="pip-copy">
+          All four lines and all 38 stations. When a ride needs a change, Pip picks the pair of trains that
+          gets you there first, and says where to change.
+        </p>
+        <ul class="pip-rides">
+          {
+            rides.map((r) => (
+              <li>
+                <span class:list={['pip-tag', `pip-tag-${r.line}`]}>{r.name}</span>
+                <span>{r.text}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <figure class="pip-map">
+        <svg
+          viewBox="0 0 520 440"
+          role="img"
+          aria-label="A simple map of Atlanta's four rail lines: Red and Gold run north and south through Five Points and part at Lindbergh; Blue and Green run east and west through Five Points."
+        >
+          <g class="pip-map-lines">
+            <path d="M58 258 H470" stroke="#1371b8" />
+            <path d="M98 206 L140 248 H360" stroke="#1e7f41" />
+            <path d="M255 418 V118 L215 78 V22" stroke="#c8222a" />
+            <path d="M265 418 V118 L305 78 L372 40" stroke="#e5a823" />
+          </g>
+          <g class="pip-map-stations">
+            {stations.map(([x, y, r]) => <circle cx={x} cy={y} r={r} />)}
+          </g>
+          <g class="pip-map-names">
+            {stations.map(([, , , name, lx, ly]) => <text x={lx} y={ly}>{name}</text>)}
+          </g>
+        </svg>
+        <figcaption>Not to scale. In the app, every station by line, nearest first.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="pip-wrap" id="screenshots" aria-labelledby="shots-title">
+      <p class="pip-label">Screenshots</p>
+      <h2 id="shots-title">Leave in 4. Plenty of time.</h2>
+      <div class="pip-shots">
+        {
+          page.screenshots.map((shot) => (
+            <img src={shot.src} alt={shot.alt} width={shot.w} height={shot.h} loading="lazy" decoding="async" />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="pip-wrap" id="features" aria-labelledby="features-title">
+      <p class="pip-label">Features</p>
+      <h2 id="features-title">Finish your coffee. Pip’s watching the trains.</h2>
+      <div class="pip-features">
+        {
+          features.map((f) => (
+            <article class="pip-card">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="pip-trio">
+        <div class="pip-card pip-privacy" id="privacy">
+          <h3>Private by design</h3>
+          <p>
+            No account. No analytics. No ads. No tracking. Your trips stay on your iPhone and Apple Watch.
+            Pip asks only for train times and alerts, and sends nothing about you.
+          </p>
+          <a href="/pip/privacy/">Read the privacy policy <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="pip-card">
+          <h3>Make it yours</h3>
+          <p>Light, Dark or Auto with a night platform after 9 PM, five app icons, your walking pace, and Pip on or off.</p>
+        </div>
+        <div class="pip-card pip-tip">
+          <Pip pose="wave" class="pip-tip-pip" />
+          <div>
+            <h3>Free, with a tip jar</h3>
+            <p>Everything is free. If Pip helps, Settings has four optional one-time tips. They unlock nothing.</p>
+          </div>
+        </div>
+      </div>
+      <p class="pip-care">
+        Pip is an independent app and isn’t made, affiliated with or endorsed by Atlanta’s transit agency.
+        Times come from the agency’s public feeds and can change; always check the signs on the platform.
+        Rail only for now; buses aren’t included yet.
+      </p>
+    </section>
+
+    <!-- Catch it every time -->
+    <section class="pip-wrap" aria-labelledby="cta-title">
+      <div class="pip-cta">
+        {
+          confetti.map(([left, delay, color, stub]) => (
+            <span
+              class:list={['pip-confetti', { 'pip-stub': stub }]}
+              aria-hidden="true"
+              style={`left: ${left}%; background: ${color}; animation-delay: ${delay}s`}
+            />
+          ))
+        }
+        <Pip pose="cheer" class="pip-cta-pip pip-on-dark" />
+        <h2 id="cta-title">{page.cta?.title}</h2>
+        <p class="pip-copy pip-center">{page.cta?.text}</p>
+        <StoreButton store={page.store} platform="iOS" />
+      </div>
+    </section>
+  </main>
+</AppLayout>
+
+<style is:global>
+  /* The platform by day, the night platform in dark mode. The studio tokens
+     are redefined here, so studio pieces inside (the store label) follow. */
+  .pip-stage {
+    --paper: #f3efe8;
+    --ink: #1c1d21;
+    --graphite: #4a4742;
+    --rule: #e4ddd1;
+    --rule-strong: #8a8378;
+    --app-a: #ffb38a;
+    --pip-card: #ffffff;
+    --pip-line: #e4ddd1;
+    --pip-ink2: #4a4742;
+    --pip-accent: #8a3e14;
+    --pip-peach-soft: #ffe9dc;
+    --pip-asphalt: #1c1d21;
+    --pip-on-asphalt: #f3efe8;
+    --pip-on-asphalt2: #c9c4bb;
+    position: relative;
+    overflow: hidden;
+    color: var(--ink);
+    background-color: var(--paper);
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    padding-bottom: 96px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .pip-stage {
+      --paper: #15161b;
+      --ink: #f3efe8;
+      --graphite: #c9c4bb;
+      --rule: #33353e;
+      --rule-strong: #8a8378;
+      --pip-card: #24262e;
+      --pip-line: #33353e;
+      --pip-ink2: #c9c4bb;
+      --pip-accent: #ffb38a;
+      --pip-peach-soft: #3a2a22;
+      --pip-asphalt: #24262e;
+    }
+  }
+
+  .pip-wrap {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 20px 0;
+  }
+  .pip-stage h1,
+  .pip-stage h2,
+  .pip-stage h3 {
+    color: var(--ink);
+  }
+  .pip-stage h1,
+  .pip-stage h2 {
+    font-family: var(--sans);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+  .pip-stage h1 {
+    font-size: clamp(2.6rem, 6.4vw, 4.4rem);
+    line-height: 0.98;
+    margin: 0 0 20px;
+  }
+  .pip-stage h2 {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.04;
+    margin: 0 0 16px;
+  }
+  .pip-label {
+    margin: 0 0 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pip-accent);
+  }
+  .pip-lede,
+  .pip-copy {
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--pip-ink2);
+    max-width: 34rem;
+    margin: 0 0 24px;
+  }
+  .pip-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .pip-note {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    color: var(--pip-ink2);
+  }
+
+  /* Hero */
+  .pip-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-top: 88px;
+  }
+  .pip-try {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pip-ticket {
+    position: relative;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 24px 0;
+    border-radius: 36px;
+    background: #1c1d21;
+    color: #f3efe8;
+    overflow: hidden;
+  }
+  .pip-ticket-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .pip-ride {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #c9c4bb;
+  }
+  .pip-kicker {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #d8d3ca;
+  }
+  .pip-big {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 5.25rem;
+    line-height: 0.86;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #ffb38a;
+    font-variant-numeric: tabular-nums;
+  }
+  .pip-unit {
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+  }
+  .pip-whisper {
+    margin: 6px 0 0;
+    max-width: 12rem;
+    text-align: right;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: #ffb38a;
+  }
+  .pip-sentence {
+    margin: 14px 0 0;
+    max-width: 30rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e4dfd6;
+  }
+  .pip-platform {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .pip-platform .pip {
+    width: min(200px, 52%);
+  }
+  .pip-ties {
+    height: 26px;
+    margin: 0 -24px;
+    border-top: 4px solid #5d5f68;
+    background-image: repeating-linear-gradient(90deg, #4a4c54 0 10px, transparent 10px 28px);
+  }
+  .pip-picker {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .pip-picker legend {
+    padding: 0 4px 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .pip-picker-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .pip-demo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    min-height: 58px;
+    padding: 6px 4px;
+    border-radius: 18px;
+    border: 2px solid var(--pip-line);
+    background: var(--pip-card);
+    color: var(--ink);
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .pip-demo:active {
+    transform: scale(0.96);
+  }
+  .pip-demo:focus-visible {
+    outline: 3px solid var(--pip-accent);
+    outline-offset: 2px;
+  }
+  .pip-demo[aria-pressed='true'] {
+    border-color: var(--ink);
+  }
+  .pip-demo-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+  .pip-demo-short {
+    font-size: 0.78rem;
+    color: var(--pip-ink2);
+  }
+
+  /* The lines */
+  .pip-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-top: 112px;
+  }
+  .pip-rides {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .pip-rides li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: var(--pip-card);
+    border: 1px solid var(--pip-line);
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+  .pip-tag {
+    flex-shrink: 0;
+    padding: 1px 8px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    color: #fff;
+  }
+  .pip-tag-red { background: #c8222a; }
+  .pip-tag-gold { background: #e5a823; color: #1c1d21; }
+  .pip-tag-blue { background: #1371b8; }
+  .pip-map {
+    margin: 0;
+    padding: 20px;
+    border-radius: 32px;
+    background: var(--pip-card);
+    border: 1px solid var(--pip-line);
+  }
+  .pip-map svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .pip-map-lines path {
+    fill: none;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .pip-map-stations circle {
+    fill: var(--pip-card);
+    stroke: var(--ink);
+    stroke-width: 3.5;
+  }
+  .pip-map-names text {
+    fill: var(--ink);
+    font: 800 14px ui-rounded, 'SF Pro Rounded', var(--sans);
+  }
+  .pip-map figcaption {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--pip-ink2);
+  }
+
+  /* Screenshots */
+  .pip-shots {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0 16px;
+    scroll-snap-type: x mandatory;
+  }
+  .pip-shots img {
+    flex: 0 0 auto;
+    width: min(240px, 62vw);
+    height: auto;
+    border-radius: 22px;
+    scroll-snap-align: start;
+  }
+
+  /* Features */
+  .pip-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .pip-card {
+    padding: 22px;
+    border-radius: 22px;
+    background: var(--pip-card);
+    border: 1px solid var(--pip-line);
+  }
+  .pip-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+  .pip-card p {
+    margin: 0;
+    color: var(--pip-ink2);
+    line-height: 1.5;
+  }
+  .pip-trio {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .pip-privacy {
+    background: var(--pip-peach-soft);
+    border-color: transparent;
+  }
+  .pip-privacy p {
+    color: var(--ink);
+  }
+  .pip-privacy a {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--pip-accent);
+    font-weight: 700;
+  }
+  .pip-tip {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .pip-tip-pip {
+    flex-shrink: 0;
+    width: 76px;
+  }
+  .pip-care {
+    margin: 28px 0 0;
+    max-width: 48rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--pip-ink2);
+  }
+
+  /* Catch it every time */
+  .pip-cta {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 24px 56px;
+    border-radius: 40px;
+    background: #1c1d21;
+  }
+  .pip-cta h2 {
+    color: #f3efe8;
+  }
+  .pip-cta .pip-copy {
+    color: #d8d3ca;
+  }
+  .pip-cta-pip {
+    position: relative;
+    width: 190px;
+    margin-bottom: 12px;
+  }
+  .pip-confetti {
+    position: absolute;
+    bottom: -24px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  .pip-stub {
+    width: 16px;
+    height: 9px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .pip-ties {
+      animation: pip-ties 5s linear infinite;
+    }
+    .pip-ticket[data-go] .pip-ties {
+      animation-duration: 1.4s;
+    }
+    .pip-confetti {
+      animation: pip-rise 3.4s ease-out infinite;
+    }
+  }
+  @keyframes pip-ties {
+    from { background-position: 0 0; }
+    to { background-position: -56px 0; }
+  }
+  @keyframes pip-rise {
+    0% { transform: translateY(40px) rotate(0); opacity: 0; }
+    15% { opacity: 1; }
+    100% { transform: translateY(-420px) rotate(220deg); opacity: 0; }
+  }
+
+  @media (max-width: 820px) {
+    .pip-hero,
+    .pip-split {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+    .pip-hero {
+      padding-top: 40px;
+    }
+    .pip-split {
+      padding-top: 80px;
+    }
+    .pip-features,
+    .pip-trio {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .pip-ticket {
+      min-height: 400px;
+      border-radius: 28px;
+      padding: 18px 18px 0;
+    }
+    .pip-ties {
+      margin: 0 -18px;
+    }
+    .pip-big {
+      font-size: 4.25rem;
+    }
+    .pip-picker-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<script>
+  // Try a ride: Pip counts down to the moment to leave, looks down the track
+  // in the last minute, and says go. Pick another ride to start again. The
+  // countdown rests while the ticket is off screen.
+  const ticket = document.querySelector<HTMLElement>('[data-ticket]');
+  const pip = document.getElementById('pip-hero');
+  const big = document.querySelector<HTMLElement>('[data-big]');
+  const unit = document.querySelector<HTMLElement>('[data-unit]');
+  const kicker = document.querySelector<HTMLElement>('[data-kicker]');
+  const label = document.querySelector<HTMLElement>('[data-label]');
+  const note = document.querySelector<HTMLElement>('[data-note]');
+  const line = document.querySelector<HTMLElement>('[data-line]');
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.pip-demo')];
+
+  let seconds = Number(buttons[0]?.dataset.start ?? 252);
+  let visible = true;
+
+  function setSign(text: string) {
+    const sign = pip?.querySelector('.pip-sign-text');
+    if (sign) sign.textContent = text;
+  }
+
+  function render() {
+    const minutes = Math.floor(seconds / 60);
+    let pose = 'calm';
+    if (seconds <= 0) {
+      if (kicker) kicker.textContent = 'It’s time to';
+      if (big) big.textContent = 'go';
+      if (unit) unit.textContent = 'now';
+      pose = 'go';
+      setSign('GO');
+    } else if (seconds < 60) {
+      if (kicker) kicker.textContent = 'Leave in';
+      if (big) big.textContent = '<1';
+      if (unit) unit.textContent = 'min';
+      pose = 'look';
+      setSign('<1');
+    } else {
+      if (kicker) kicker.textContent = 'Leave in';
+      if (big) big.textContent = String(minutes);
+      if (unit) unit.textContent = 'min';
+      pose = minutes < 5 ? 'look' : 'calm';
+      setSign(`${minutes} MIN`);
+    }
+    if (pip && pip.dataset.pose !== pose) {
+      pip.dataset.pose = pose;
+      pip.setAttribute(
+        'aria-label',
+        pose === 'go' ? 'Pip, ready to go' : pose === 'look' ? 'Pip, looking down the track' : 'Pip, waiting calmly',
+      );
+    }
+    if (ticket) ticket.toggleAttribute('data-go', seconds <= 0);
+  }
+
+  setInterval(() => {
+    if (!visible || seconds <= 0) return;
+    seconds -= 1;
+    render();
+  }, 1000);
+
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      for (const other of buttons) other.setAttribute('aria-pressed', String(other === button));
+      seconds = Number(button.dataset.start ?? 0);
+      if (label) label.textContent = button.dataset.label ?? '';
+      if (note) note.textContent = button.dataset.note ?? '';
+      if (line) line.textContent = button.dataset.line ?? '';
+      render();
+    });
+  }
+  if (ticket && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+    }).observe(ticket);
+  }
+  render();
+</script>
