@@ -1,0 +1,305 @@
+---
+// Ebb, the pufferfish from the Ebb app, as inline SVG. The same drawing as the
+// app's EbbCharacter.swift: a 240 × 200 board, the body a circle at (120, 110)
+// with a coral tail, dorsal fin and side fin, the face around (121, 110), and
+// each pose's extras around him. Every pose is in the markup; `data-pose` on
+// the <svg> picks which parts show, and `--ebb-puff` (0 to 1) sets how full of
+// breath he is, so a script can change both without redrawing.
+export type EbbPose = 'calm' | 'inhale' | 'hold' | 'exhale' | 'rest' | 'sleepy' | 'wave' | 'proud';
+
+interface Props {
+  pose?: EbbPose;
+  /** How full of breath, 0 (let it all go) to 1 (puffed up). */
+  puff?: number;
+  label?: string;
+  class?: string;
+  id?: string;
+}
+const { pose = 'calm', puff = 0.5, label, class: className, id } = Astro.props;
+
+const spots = [
+  [90, 82, 3.5],
+  [108, 70, 3.5],
+  [130, 69, 3.5],
+  [150, 80, 3.5],
+  [78, 102, 3],
+];
+// Bubbles rise up and to the right from his mouth as he breathes out: x, y, r,
+// and where in the 2.4 s rise each one starts.
+const bubbles = [
+  [146, 112, 5, 0],
+  [160, 98, 4, 0.33],
+  [172, 84, 3, 0.66],
+];
+// A four-point sparkle around (x, y), s from the centre to each tip.
+const sparkle = (x: number, y: number, s: number) =>
+  `M${x} ${y - s} Q${x} ${y} ${x + s} ${y} Q${x} ${y} ${x} ${y + s} Q${x} ${y} ${x - s} ${y} Q${x} ${y} ${x} ${y - s} Z`;
+const sparkles = [
+  [180, 124, 7, 0],
+  [226, 128, 6, 0.6],
+  [222, 172, 5, 1.2],
+];
+---
+
+<svg
+  id={id}
+  class:list={['ebb', className]}
+  viewBox="0 0 240 200"
+  data-pose={pose}
+  style={`--ebb-puff: ${puff}`}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+>
+  <g class="ebb-float">
+    <!-- Behind: the night sky when he's sleepy. -->
+    <g data-part="sleepy" class="ebb-night">
+      <path class="ebb-moon" d="M214 26 A17 17 0 1 0 226 56 A13 13 0 1 1 214 26 Z" />
+      <path class="ebb-z" d="M26 30 L38 30 L26 42 L38 42" />
+      <path class="ebb-z ebb-z-small" d="M46 12 L54 12 L46 20 L54 20" />
+    </g>
+
+    <g class="ebb-puff">
+      <g class="ebb-tail">
+        <path class="ebb-coral" d="M70 110 L30 82 Q20 110 30 138 Z" />
+      </g>
+      <path class="ebb-coral" d="M96 64 Q114 4 148 62 Z" />
+
+      <!-- Body -->
+      <circle class="ebb-body" cx="120" cy="110" r="60" />
+      <ellipse class="ebb-belly" cx="122" cy="136" rx="40" ry="21" />
+      <g class="ebb-spots">
+        {spots.map(([cx, cy, r]) => <circle cx={cx} cy={cy} r={r} />)}
+      </g>
+      <path data-part="calm inhale hold exhale rest sleepy proud" class="ebb-coral ebb-fin" d="M174 116 Q196 110 200 126 Q186 138 174 130 Z" />
+      <path data-part="wave" class="ebb-coral ebb-fin ebb-waving" d="M172 108 Q180 80 202 84 Q202 104 172 114 Z" />
+
+      <!-- Cheeks: fuller when he's puffed up. -->
+      <g data-part="calm exhale rest sleepy wave proud" class="ebb-cheeks">
+        <circle cx="88" cy="119" r="7" />
+        <circle cx="154" cy="119" r="7" />
+      </g>
+      <g data-part="inhale hold" class="ebb-cheeks ebb-cheeks-full">
+        <circle cx="88" cy="119" r="9.5" />
+        <circle cx="154" cy="119" r="9.5" />
+      </g>
+
+      <!-- Faces -->
+      <g class="ebb-face">
+        <g data-part="calm exhale wave" class="ebb-eyes">
+          <circle class="ebb-pupil" cx="104" cy="104" r="6.5" />
+          <circle class="ebb-pupil" cx="138" cy="104" r="6.5" />
+          <circle class="ebb-glint" cx="106.5" cy="101.5" r="2.2" />
+          <circle class="ebb-glint" cx="140.5" cy="101.5" r="2.2" />
+        </g>
+        <g data-part="inhale" class="ebb-eyes">
+          <circle class="ebb-pupil" cx="104" cy="103" r="8" />
+          <circle class="ebb-pupil" cx="138" cy="103" r="8" />
+          <circle class="ebb-glint" cx="107" cy="100" r="2.8" />
+          <circle class="ebb-glint" cx="141" cy="100" r="2.8" />
+        </g>
+        <path data-part="hold rest sleepy" d="M97 103 Q104 109 111 103 M131 103 Q138 109 145 103" />
+        <path data-part="proud" d="M97 107 Q104 98 111 107 M131 107 Q138 98 145 107" />
+
+        <path data-part="calm" d="M114 119 Q121 125 128 119" />
+        <path data-part="inhale hold" d="M115 121 L127 121" />
+        <ellipse data-part="exhale" class="ebb-filled" cx="121" cy="123" rx="5.5" ry="6.5" />
+        <path data-part="rest sleepy" d="M116 120 Q121 123.5 126 120" />
+        <path data-part="wave proud" class="ebb-filled" d="M111 117 Q121 130 131 117 Z" />
+      </g>
+    </g>
+
+    <!-- In front -->
+    <g data-part="exhale" class="ebb-bubbles">
+      {
+        bubbles.map(([cx, cy, r, offset]) => (
+          <circle cx={cx} cy={cy} r={r} style={`--ebb-bubble-delay: ${-offset * 2.4}s`} />
+        ))
+      }
+    </g>
+    <g data-part="proud" class="ebb-treasure">
+      <circle class="ebb-pearl" cx="202" cy="146" r="13" />
+      <circle class="ebb-pearl-glint" cx="197" cy="141" r="3.5" />
+      {
+        sparkles.map(([x, y, s, delay]) => (
+          <path class="ebb-sparkle" d={sparkle(x, y, s)} style={`--ebb-sparkle-delay: ${delay}s`} />
+        ))
+      }
+    </g>
+  </g>
+</svg>
+
+<style is:global>
+  .ebb {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .ebb-coral,
+  .ebb-body,
+  .ebb-belly {
+    stroke: #1f2a36;
+    stroke-width: 7;
+    stroke-linejoin: round;
+  }
+  .ebb-coral {
+    fill: #f2957a;
+  }
+  .ebb-fin {
+    stroke-width: 5.5;
+  }
+  .ebb-body {
+    fill: #ffd98a;
+  }
+  .ebb-belly {
+    fill: #fff0cc;
+    stroke: none;
+  }
+  .ebb-spots circle {
+    fill: #edb75c;
+  }
+  .ebb-cheeks circle {
+    fill: #f49a8c;
+    opacity: 0.45;
+  }
+  .ebb-cheeks-full circle {
+    opacity: 0.7;
+  }
+  .ebb-face path,
+  .ebb-face ellipse {
+    fill: none;
+    stroke: #1f2a36;
+    stroke-width: 4.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .ebb-face .ebb-filled {
+    fill: #1f2a36;
+  }
+  .ebb-pupil {
+    fill: #1f2a36;
+  }
+  .ebb-glint {
+    fill: #fff;
+  }
+  .ebb-bubbles circle {
+    fill: rgba(255, 255, 255, 0.7);
+    stroke: #5fafb3;
+    stroke-width: 3;
+  }
+  .ebb-moon {
+    fill: #f2c14e;
+  }
+  .ebb-z {
+    fill: none;
+    stroke: #7fa6c9;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .ebb-z-small {
+    stroke-width: 3;
+  }
+  .ebb-pearl {
+    fill: #fff;
+    stroke: #1f2a36;
+    stroke-width: 4.5;
+  }
+  .ebb-pearl-glint {
+    fill: #e3ddf0;
+  }
+  .ebb-sparkle {
+    fill: #f2c14e;
+  }
+
+  /* Only the current pose's parts. */
+  .ebb [data-part] {
+    display: none;
+  }
+  .ebb[data-pose='calm'] [data-part~='calm'],
+  .ebb[data-pose='inhale'] [data-part~='inhale'],
+  .ebb[data-pose='hold'] [data-part~='hold'],
+  .ebb[data-pose='exhale'] [data-part~='exhale'],
+  .ebb[data-pose='rest'] [data-part~='rest'],
+  .ebb[data-pose='sleepy'] [data-part~='sleepy'],
+  .ebb[data-pose='wave'] [data-part~='wave'],
+  .ebb[data-pose='proud'] [data-part~='proud'] {
+    display: inline;
+  }
+
+  /* The puff: the whole fish, from three quarters size empty to full size
+     with a lungful. */
+  .ebb-puff {
+    transform-box: view-box;
+    transform-origin: 120px 110px;
+    transform: scale(calc(0.74 + 0.26 * var(--ebb-puff, 0.5)));
+  }
+  .ebb-tail {
+    transform-box: view-box;
+    transform-origin: 70px 110px;
+  }
+  .ebb-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .ebb-waving {
+    transform-box: view-box;
+    transform-origin: 174px 112px;
+  }
+  .ebb-sparkle {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  /* Motion, all slow and small: a float, a tail wag, a blink, bubbles rising,
+     a wave of the fin and sparkles twinkling around the pearl. Reduce Motion
+     holds him still. */
+  @media (prefers-reduced-motion: no-preference) {
+    .ebb-float {
+      animation: ebb-float 4s ease-in-out infinite;
+    }
+    .ebb-tail {
+      animation: ebb-wag 2.2s ease-in-out infinite;
+    }
+    .ebb-eyes {
+      animation: ebb-blink 4.8s infinite;
+    }
+    .ebb-bubbles circle {
+      animation: ebb-rise 2.4s ease-out infinite;
+      animation-delay: var(--ebb-bubble-delay, 0s);
+    }
+    .ebb-waving {
+      animation: ebb-wave 1.6s ease-in-out infinite;
+    }
+    .ebb-sparkle {
+      animation: ebb-twinkle 1.8s ease-in-out infinite;
+      animation-delay: var(--ebb-sparkle-delay, 0s);
+    }
+  }
+  @keyframes ebb-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  @keyframes ebb-wag {
+    0%, 100% { transform: rotate(-7deg); }
+    50% { transform: rotate(7deg); }
+  }
+  @keyframes ebb-blink {
+    0%, 94%, 100% { transform: scaleY(1); }
+    97% { transform: scaleY(0.12); }
+  }
+  @keyframes ebb-rise {
+    0% { transform: translate(-6px, 8px); opacity: 0; }
+    25% { opacity: 1; }
+    100% { transform: translate(10px, -18px); opacity: 0; }
+  }
+  @keyframes ebb-wave {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-14deg); }
+  }
+  @keyframes ebb-twinkle {
+    0%, 100% { transform: scale(0.6); opacity: 0.5; }
+    50% { transform: scale(1); opacity: 1; }
+  }
+</style>

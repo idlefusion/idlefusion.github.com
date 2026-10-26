@@ -1,0 +1,83 @@
+{
+  "slug": "ebb",
+  "name": "Ebb",
+  "category": "Breathing",
+  "icon": "/img/ebb/icon.png",
+  "seo": {
+    "title": "Ebb — A Breathing App with a Little Pufferfish",
+    "description": "A breathing app for iPhone and Apple Watch with a friend in it. Ebb, a small pufferfish, puffs up as you breathe in and lets it all go as you breathe out, while the tide rises and falls. Box, 4-7-8, coherent and more, a tap at each change, your reef, widgets and Apple Health. Free, no account, no tracking.",
+    "ogImage": "/img/ebb/icon.png",
+    "canonical": "https://idlefusion.com/ebb"
+  },
+  "platform": "iOS",
+  "store": null,
+  "note": "Free · No account required",
+  "pigments": [
+    "#8accc8",
+    "#f2957a"
+  ],
+  "ink": "#347773",
+  "hero": {
+    "label": "BREATHING",
+    "title": "Breathe with <em>the tide.</em>",
+    "text": [
+      "Meet Ebb, a little pufferfish who breathes with you. Puff up slowly, let it all go, and watch the tide go out."
+    ]
+  },
+  "screenshots": [
+    {
+      "src": "/img/ebb/screenshots/01-hello.png",
+      "alt": "Ebb — Meet Ebb. A breathing app with a friend in it.",
+      "label": "Hello",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/ebb/screenshots/02-today.png",
+      "alt": "Ebb — What do you need? Calm down, wind down, focus. Ebb picks the pattern.",
+      "label": "Today",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/ebb/screenshots/03-breathe.png",
+      "alt": "Ebb — Breathe with the tide. Ebb puffs up as you breathe in, and lets it go.",
+      "label": "Breathe",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/ebb/screenshots/04-night.png",
+      "alt": "Ebb — Night tide. 4-7-8 at bedtime, with a sleepy Ebb.",
+      "label": "Night tide",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/ebb/screenshots/05-reef.png",
+      "alt": "Ebb — Your year, one reef. A square a day, deeper with more minutes.",
+      "label": "Reef",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/ebb/screenshots/06-widgets.png",
+      "alt": "Ebb — A breath from your Home Screen. One tap starts a session.",
+      "label": "Widgets",
+      "w": 1320,
+      "h": 2868
+    },
+    {
+      "src": "/img/ebb/screenshots/07-pearl.png",
+      "alt": "Ebb — A pearl for every milestone. 7, 30, 100 and 365 days.",
+      "label": "Pearl",
+      "w": 1320,
+      "h": 2868
+    }
+  ],
+  "sections": [],
+  "cta": {
+    "title": "Every breath counts.",
+    "text": "Free, coming to the App Store soon. No account required."
+  }
+}

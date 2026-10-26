@@ -140,6 +140,13 @@ export const apps = [
     icon: '/img/pip/icon.png',
   },
   {
+    slug: 'ebb',
+    name: 'Ebb',
+    category: 'Breathing',
+    desc: 'A breathing app with a little pufferfish who puffs up as you breathe in and lets it all go as you breathe out.',
+    icon: '/img/ebb/icon.png',
+  },
+  {
     slug: 'meds-easy',
     name: 'Meds Easy',
     category: 'Medication Tracker',

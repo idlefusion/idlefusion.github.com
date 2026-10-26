@@ -1,0 +1,978 @@
+---
+// Ebb's landing page. Like Nimbo's, everything between the studio header and
+// footer is the app's own world: Ebb's sand by day and his night tide in dark
+// mode, with Ebb himself on the page. Pick what you need and breathe with him:
+// he puffs up as you breathe in, lets it all go as you breathe out, and the
+// tide rises and falls behind him.
+import AppLayout from '../../layouts/AppLayout.astro';
+import StoreButton from '../../components/app/StoreButton.astro';
+import Ebb from '../../components/ebb/Ebb.astro';
+import { appPageData } from '../../data/app-pages';
+
+const page = appPageData['ebb'];
+
+type Phase = ['in' | 'hold' | 'out' | 'rest', number];
+
+// Four of the six patterns, by what you need, as Today suggests them
+// (Pattern.swift). Each phase is [kind, seconds].
+const demos: { id: string; need: string; short: string; rhythm: string; phases: Phase[] }[] = [
+  { id: 'calm', need: 'Calm down', short: 'Coherent', rhythm: 'Coherent breathing · in 5 · out 5', phases: [['in', 5], ['out', 5]] },
+  { id: 'focus', need: 'Focus', short: 'Box', rhythm: 'Box breathing · 4 · 4 · 4 · 4', phases: [['in', 4], ['hold', 4], ['out', 4], ['rest', 4]] },
+  { id: 'sleep', need: 'Wind down', short: '4-7-8', rhythm: '4-7-8 breathing · in 4 · hold 7 · out 8', phases: [['in', 4], ['hold', 7], ['out', 8]] },
+  { id: 'slow', need: 'Slow down', short: 'Pursed-lip', rhythm: 'Pursed-lip breathing · in 2 · out 4', phases: [['in', 2], ['out', 4]] },
+];
+const first = demos[0];
+
+// Each pattern drawn as the shape of a breath on a 72 × 30 board: up is in,
+// flat is a hold, down is out.
+const shape = (phases: Phase[]) => {
+  const total = phases.reduce((sum, [, s]) => sum + s, 0);
+  const width = 68;
+  const low = 26;
+  const high = 4;
+  let x = 2;
+  let y = low;
+  let d = `M2 ${low}`;
+  for (const [kind, seconds] of phases) {
+    x += (seconds / total) * width;
+    y = kind === 'in' ? high : kind === 'out' ? low : y;
+    d += ` L${x.toFixed(1)} ${y}`;
+  }
+  return d;
+};
+const patterns: { id: string; name: string; good: string; phases: Phase[] }[] = [
+  { id: 'box', name: 'Box breathing', good: 'Focus', phases: [['in', 4], ['hold', 4], ['out', 4], ['rest', 4]] },
+  { id: '478', name: '4-7-8 breathing', good: 'Sleep', phases: [['in', 4], ['hold', 7], ['out', 8]] },
+  { id: 'coherent', name: 'Coherent breathing', good: 'Calm', phases: [['in', 5], ['out', 5]] },
+  { id: 'nadi', name: 'Nadi Shodhana', good: 'Balance', phases: [['in', 4], ['out', 4], ['in', 4], ['out', 4]] },
+  { id: 'ujjayi', name: 'Ujjayi', good: 'Soothe', phases: [['in', 4], ['out', 4]] },
+  { id: 'pursed', name: 'Pursed-lip breathing', good: 'Slow down', phases: [['in', 2], ['out', 4]] },
+];
+
+// Twelve weeks of an example reef, one square a day, deeper with more minutes
+// (0, 1–2, 3–5, 6–9, 10+), from a fixed seed so the build is stable.
+const depth = (minutes: number) => (minutes === 0 ? 0 : minutes <= 2 ? 1 : minutes <= 5 ? 2 : minutes <= 9 ? 3 : 4);
+const reef = Array.from({ length: 84 }, (_, k) => {
+  const x = Math.sin(k * 12.9898 + 4.1) * 43758.5453;
+  const r = x - Math.floor(x);
+  return depth(k > 70 ? 3 + Math.floor(r * 9) : r < 0.15 ? 0 : 1 + Math.floor(r * 12));
+});
+const depths = ['No breath', '1–2 min', '3–5 min', '6–9 min', '10+ min'];
+const breathed = reef.filter((d) => d > 0).length;
+
+const features = [
+  { title: 'Breathe with Ebb', text: 'Ebb puffs up as you breathe in and lets it all go as you breathe out, while the tide rises and falls behind him.' },
+  { title: 'Pick what you need', text: 'Calm down, wind down, focus, find balance, slow your breathing, or just breathe like the sea. Ebb suggests the pattern.' },
+  { title: 'Six patterns', text: 'Box, 4-7-8, coherent, Nadi Shodhana (Ebb says which side, every breath), Ujjayi and pursed-lip. One, three, five or ten minutes.' },
+  { title: 'Eyes closed is fine', text: 'A distinct tap for breathing in, holding and breathing out, exactly on each change. Turn on the ocean sound and the waves rise and fall with you.' },
+  { title: 'Night tide', text: 'After 9 pm, and for 4-7-8, everything goes deep blue and Ebb gets sleepy.' },
+  { title: 'Your reef', text: 'Your year, a square a day, deeper with more minutes. Minutes a week, when you breathe, your favorite patterns, and, if you answer the optional “Feel any different?”, what seems to help.' },
+  { title: 'A pearl for every milestone', text: 'At 7, 30, 100 and 365 days in a row, Ebb finds you a pearl. Bubbles included.' },
+  { title: 'A breath from anywhere', text: 'Quick-start widgets for the Home Screen, Lock Screen and StandBy, a Control Center button, the Action button, and Siri: “Breathe with Ebb.” A gentle daily nudge, if you\'d like one.' },
+  { title: 'Apple Watch', text: 'The same guide and taps on your wrist, carrying on with the screen off. Sessions join your iPhone log, with complications for your watch face.' },
+  { title: 'Apple Health', text: 'If you turn it on, finished sessions are saved as mindful minutes. Ebb never reads your Health data.' },
+  { title: 'Coming from Breathe Easy?', text: 'One tap in Settings brings your whole history over, pattern for pattern. Export everything as a CSV any time.' },
+  { title: 'Make it yours', text: 'Day, Dusk and Night themes, an optional ocean sound, and four app icons.' },
+];
+
+// The bubbles that rise through the closing card: left edge, size, delay.
+const bubbles = [
+  [10, 18, 0],
+  [30, 12, 0.8],
+  [68, 22, 1.5],
+  [86, 14, 2.3],
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Ebb - Breathing Exercises',
+  description: page.seo.description,
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'iOS',
+  image: `https://idlefusion.com${page.icon}`,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  author: { '@type': 'Organization', name: 'Idle Fusion', url: 'https://idlefusion.com' },
+};
+---
+
+<AppLayout
+  title={page.seo.title}
+  description={page.seo.description}
+  app={page}
+  kind="landing"
+  ogImage={page.seo.ogImage}
+  canonical={page.seo.canonical}
+  sections={[
+    { id: 'breathe', label: 'Breathe' },
+    { id: 'screenshots', label: 'Screenshots' },
+    { id: 'features', label: 'Features' },
+  ]}
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+
+  <main id="main" class="ebb-stage">
+    <!-- Hero: breathe with Ebb, right here. -->
+    <section class="ebb-wrap ebb-hero">
+      <div class="ebb-hero-text">
+        <p class="ebb-label">Breathing for iPhone and Apple Watch</p>
+        <h1>Breathe with the tide.</h1>
+        <p class="ebb-lede">
+          A breathing app with a friend in it. Ebb, a small pufferfish, puffs up as you breathe in and
+          lets it all go as you breathe out. Follow Ebb, feel a tap at each change, and watch the tide go
+          out.
+        </p>
+        <div class="ebb-store">
+          <StoreButton store={page.store} platform="iOS" />
+          <p class="ebb-note">Free · No account · No ads · Nothing collected</p>
+        </div>
+      </div>
+
+      <div class="ebb-try" data-try>
+        <div class="ebb-tank" data-tank style="--ebb-full: 0.5">
+          <div class="ebb-water ebb-water-back" aria-hidden="true">
+            <svg class="ebb-wave ebb-wave-slow" viewBox="0 0 1560 30" preserveAspectRatio="none">
+              <path d={`M0 14 ${'q32.5 -14 65 0 '.repeat(24)}V30 H0 Z`} />
+            </svg>
+          </div>
+          <div class="ebb-swimmer">
+            <Ebb id="ebb-hero" pose="inhale" puff={0.5} label="Ebb, breathing in" />
+          </div>
+          <div class="ebb-water ebb-water-front" aria-hidden="true">
+            <svg class="ebb-wave" viewBox="0 0 1560 30" preserveAspectRatio="none">
+              <path d={`M0 14 ${'q32.5 -14 65 0 '.repeat(24)}V30 H0 Z`} />
+            </svg>
+          </div>
+          <div class="ebb-readout">
+            <div>
+              <p class="ebb-phase" data-phase>Breathe in</p>
+              <p class="ebb-whisper" data-whisper>I puff up…</p>
+            </div>
+            <span class="ebb-count" data-count aria-hidden="true">5</span>
+          </div>
+          <p class="ebb-rhythm" data-rhythm aria-live="polite">{first.rhythm}</p>
+          <button type="button" class="ebb-pause" data-pause>Pause</button>
+        </div>
+        <fieldset class="ebb-picker">
+          <legend>Try one with Ebb, right here</legend>
+          <div class="ebb-picker-row">
+            {
+              demos.map((d, i) => (
+                <button
+                  type="button"
+                  class="ebb-demo"
+                  data-demo={d.id}
+                  data-phases={JSON.stringify(d.phases)}
+                  data-rhythm={d.rhythm}
+                  aria-pressed={i === 0 ? 'true' : 'false'}
+                  aria-label={`${d.need}: ${d.rhythm}`}
+                >
+                  <span class="ebb-demo-need">{d.need}</span>
+                  <span class="ebb-demo-short">{d.short}</span>
+                </button>
+              ))
+            }
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- Six ways to breathe, and a reef -->
+    <section class="ebb-wrap ebb-split" id="breathe" aria-labelledby="breathe-title">
+      <div>
+        <p class="ebb-label">Six ways to breathe</p>
+        <h2 id="breathe-title">Each one, drawn as a breath.</h2>
+        <p class="ebb-copy">
+          Up is in, flat is a hold, down is out. Pick by name or by what you need, for one, three, five
+          or ten minutes.
+        </p>
+        <ul class="ebb-patterns">
+          {
+            patterns.map((p) => (
+              <li>
+                <span class:list={['ebb-shape', `ebb-shape-${p.id}`]} aria-hidden="true">
+                  <svg viewBox="0 0 72 30">
+                    <path d={shape(p.phases)} />
+                  </svg>
+                </span>
+                <strong>{p.name}</strong>
+                <span>{p.good}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <figure class="ebb-reef">
+        <p class="ebb-reef-title">Twelve weeks of reef</p>
+        <ol
+          class="ebb-grid"
+          role="img"
+          aria-label={`An example reef: twelve weeks, one square a day, deeper with more minutes. ${breathed} of 84 days with a breath.`}
+        >
+          {reef.map((d) => <li class:list={['ebb-cell', `ebb-depth-${d}`]} />)}
+        </ol>
+        <figcaption>
+          <span>Every day a square, deeper with more minutes.</span>
+          <span class="ebb-legend" aria-hidden="true">
+            {depths.map((label, i) => <span class:list={['ebb-cell', `ebb-depth-${i}`]} title={label} />)}
+          </span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="ebb-wrap" id="screenshots" aria-labelledby="shots-title">
+      <p class="ebb-label">Screenshots</p>
+      <h2 id="shots-title">A minute is plenty.</h2>
+      <div class="ebb-shots">
+        {
+          page.screenshots.map((shot) => (
+            <img src={shot.src} alt={shot.alt} width={shot.w} height={shot.h} loading="lazy" decoding="async" />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="ebb-wrap" id="features" aria-labelledby="features-title">
+      <p class="ebb-label">Features</p>
+      <h2 id="features-title">Puff up slowly. Let it all go.</h2>
+      <div class="ebb-features">
+        {
+          features.map((f) => (
+            <article class="ebb-card">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="ebb-pair">
+        <div class="ebb-card ebb-privacy" id="privacy">
+          <h3>Private by design</h3>
+          <p>
+            No account. No analytics. No ads. No tracking. Your sessions stay on your iPhone and Apple
+            Watch, and Ebb makes no network requests.
+          </p>
+          <a href="/ebb/privacy/">Read the privacy policy <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="ebb-card ebb-tip">
+          <Ebb pose="wave" puff={0.6} class="ebb-tip-ebb" />
+          <div>
+            <h3>Free, with a tip jar</h3>
+            <p>Everything is free. If Ebb helps, Settings has optional one-time tips. They unlock nothing.</p>
+          </div>
+        </div>
+      </div>
+      <p class="ebb-care">
+        Ebb is for relaxation, not medical care. If you feel dizzy or short of breath, stop and breathe
+        normally.
+      </p>
+    </section>
+
+    <!-- A pearl -->
+    <section class="ebb-wrap" aria-labelledby="cta-title">
+      <div class="ebb-pearl-cta">
+        {
+          bubbles.map(([left, size, delay]) => (
+            <span
+              class="ebb-burst"
+              aria-hidden="true"
+              style={`left: ${left}%; width: ${size}px; height: ${size}px; animation-delay: ${delay}s`}
+            />
+          ))
+        }
+        <Ebb pose="proud" puff={0.7} class="ebb-cta-ebb" />
+        <h2 id="cta-title">{page.cta?.title}</h2>
+        <p class="ebb-copy ebb-center">{page.cta?.text}</p>
+        <StoreButton store={page.store} platform="iOS" />
+      </div>
+    </section>
+  </main>
+</AppLayout>
+
+<style is:global>
+  /* Ebb's sand by day, his night tide in dark mode. The studio tokens are
+     redefined here, so studio pieces inside (the store label) follow. */
+  .ebb-stage {
+    --paper: #f7f2e8;
+    --ink: #1f2a36;
+    --graphite: #5b6670;
+    --rule: #e6decf;
+    --rule-strong: #8a8173;
+    --app-a: #8accc8;
+    --ebb-card: #ffffff;
+    --ebb-line: #e6decf;
+    --ebb-ink2: #5b6670;
+    --ebb-accent: #2a6472;
+    --ebb-sea: #cfebe6;
+    --ebb-water-back: #b3dfd9;
+    --ebb-water: #8accc8;
+    --ebb-ring: rgba(31, 42, 54, 0.35);
+    --ebb-stroke: #1f2a36;
+    --ebb-depth-0: #ede6d8;
+    --ebb-depth-1: #cfebe6;
+    --ebb-depth-2: #9fd6d0;
+    --ebb-depth-3: #5fafb3;
+    --ebb-depth-4: #2f6f7e;
+    --ebb-tint-box: #fde7d3;
+    --ebb-tint-478: #d9deec;
+    --ebb-tint-coherent: #cfebe6;
+    --ebb-tint-nadi: #e8e4f3;
+    --ebb-tint-ujjayi: #ddf0ec;
+    --ebb-tint-pursed: #dceaf6;
+    position: relative;
+    overflow: hidden;
+    color: var(--ink);
+    background-color: var(--paper);
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    padding-bottom: 96px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .ebb-stage {
+      --paper: #141d2b;
+      --ink: #eef2f7;
+      --graphite: #b9c6d3;
+      --rule: #2a3a50;
+      --rule-strong: #8a97a8;
+      --ebb-card: #1e2b3d;
+      --ebb-line: #2a3a50;
+      --ebb-ink2: #b9c6d3;
+      --ebb-accent: #9fd6d0;
+      --ebb-sea: #1e3448;
+      --ebb-water-back: #2a4560;
+      --ebb-water: #2e5670;
+      --ebb-ring: rgba(238, 242, 247, 0.5);
+      --ebb-stroke: #9fd6d0;
+      /* At night the reef glows: brighter is more minutes. */
+      --ebb-depth-0: #2a3a50;
+      --ebb-depth-1: #2e5670;
+      --ebb-depth-2: #3f8590;
+      --ebb-depth-3: #6fbcbc;
+      --ebb-depth-4: #b7e6e0;
+      --ebb-tint-box: #2b3447;
+      --ebb-tint-478: #252f48;
+      --ebb-tint-coherent: #1e3448;
+      --ebb-tint-nadi: #2a2c48;
+      --ebb-tint-ujjayi: #1f3a44;
+      --ebb-tint-pursed: #213650;
+    }
+  }
+
+  .ebb-wrap {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 20px 0;
+  }
+  .ebb-stage h1,
+  .ebb-stage h2,
+  .ebb-stage h3 {
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .ebb-stage h1 {
+    font-size: clamp(2.6rem, 6.4vw, 4.5rem);
+    line-height: 1.02;
+    font-weight: 800;
+    margin: 0 0 20px;
+  }
+  .ebb-stage h2 {
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.08;
+    font-weight: 800;
+    margin: 0 0 16px;
+  }
+  .ebb-label {
+    margin: 0 0 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ebb-accent);
+  }
+  .ebb-lede,
+  .ebb-copy {
+    font-size: 1.125rem;
+    line-height: 1.55;
+    color: var(--ebb-ink2);
+    max-width: 34rem;
+    margin: 0 0 24px;
+  }
+  .ebb-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .ebb-note {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    color: var(--ebb-ink2);
+  }
+
+  /* Hero */
+  .ebb-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-top: 88px;
+  }
+  .ebb-try {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* The tank: the water and Ebb follow --ebb-full, 0 (let it all go) to 1
+     (a full breath in), set by the script below. */
+  .ebb-tank {
+    --ebb-front: calc(16% + var(--ebb-full) * 43%);
+    position: relative;
+    height: 440px;
+    border-radius: 36px;
+    background: var(--ebb-sea);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .ebb-water {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .ebb-water-back {
+    height: calc(var(--ebb-front) + 5%);
+    background: var(--ebb-water-back);
+  }
+  .ebb-water-front {
+    height: var(--ebb-front);
+    background: var(--ebb-water);
+    opacity: 0.92;
+  }
+  .ebb-wave {
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 1560px;
+    max-width: none;
+    height: 30px;
+  }
+  .ebb-water-back .ebb-wave {
+    top: -22px;
+  }
+  .ebb-water-back .ebb-wave path {
+    fill: var(--ebb-water-back);
+  }
+  .ebb-water-front .ebb-wave path {
+    fill: var(--ebb-water);
+  }
+  .ebb-swimmer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--ebb-front) - 12%);
+    display: flex;
+    justify-content: center;
+  }
+  .ebb-swimmer .ebb {
+    width: min(210px, 52%);
+  }
+  .ebb-readout {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .ebb-phase {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 800;
+  }
+  .ebb-whisper {
+    margin: 8px 0 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .ebb-count {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2.5px var(--ebb-ring);
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  .ebb-rhythm {
+    position: absolute;
+    left: 24px;
+    right: 110px;
+    bottom: 20px;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .ebb-pause {
+    position: absolute;
+    right: 16px;
+    bottom: 12px;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 20px;
+    background: var(--ebb-card);
+    color: var(--ink);
+    font: 750 0.9rem ui-rounded, 'SF Pro Rounded', var(--sans);
+    cursor: pointer;
+  }
+  .ebb-pause:focus-visible,
+  .ebb-demo:focus-visible {
+    outline: 3px solid var(--ebb-accent);
+    outline-offset: 2px;
+  }
+  .ebb-picker {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .ebb-picker legend {
+    padding: 0 4px 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .ebb-picker-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .ebb-demo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    min-height: 58px;
+    padding: 6px 4px;
+    border-radius: 18px;
+    border: 2px solid var(--ebb-line);
+    background: var(--ebb-card);
+    color: var(--ink);
+    font-family: ui-rounded, 'SF Pro Rounded', var(--sans);
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .ebb-demo:active {
+    transform: scale(0.96);
+  }
+  .ebb-demo[aria-pressed='true'] {
+    border-color: var(--ink);
+  }
+  .ebb-demo-need {
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+  .ebb-demo-short {
+    font-size: 0.8rem;
+    color: var(--ebb-ink2);
+  }
+
+  /* Six ways to breathe, and the reef */
+  .ebb-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-top: 112px;
+  }
+  .ebb-patterns {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .ebb-patterns li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 14px 8px 8px;
+    border-radius: 16px;
+    background: var(--ebb-card);
+    border: 1px solid var(--ebb-line);
+    font-size: 1.02rem;
+  }
+  .ebb-patterns strong {
+    flex-grow: 1;
+  }
+  .ebb-patterns span:last-child {
+    color: var(--ebb-ink2);
+    white-space: nowrap;
+  }
+  .ebb-shape {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 34px;
+    border-radius: 10px;
+  }
+  .ebb-shape svg {
+    width: 54px;
+    height: 24px;
+  }
+  .ebb-shape path {
+    fill: none;
+    stroke: var(--ebb-stroke);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .ebb-shape-box { background: var(--ebb-tint-box); }
+  .ebb-shape-478 { background: var(--ebb-tint-478); }
+  .ebb-shape-coherent { background: var(--ebb-tint-coherent); }
+  .ebb-shape-nadi { background: var(--ebb-tint-nadi); }
+  .ebb-shape-ujjayi { background: var(--ebb-tint-ujjayi); }
+  .ebb-shape-pursed { background: var(--ebb-tint-pursed); }
+  .ebb-reef {
+    margin: 0;
+    padding: 24px;
+    border-radius: 28px;
+    background: var(--ebb-card);
+    border: 1px solid var(--ebb-line);
+  }
+  .ebb-reef-title {
+    margin: 0 0 14px;
+    font-weight: 800;
+  }
+  .ebb-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(7, auto);
+    grid-auto-flow: column;
+    gap: 5px;
+  }
+  .ebb-cell {
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 4px;
+  }
+  .ebb-depth-0 { background: var(--ebb-depth-0); }
+  .ebb-depth-1 { background: var(--ebb-depth-1); }
+  .ebb-depth-2 { background: var(--ebb-depth-2); }
+  .ebb-depth-3 { background: var(--ebb-depth-3); }
+  .ebb-depth-4 { background: var(--ebb-depth-4); }
+  .ebb-reef figcaption {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: var(--ebb-ink2);
+  }
+  .ebb-legend {
+    display: flex;
+    gap: 4px;
+  }
+  .ebb-legend .ebb-cell {
+    width: 12px;
+    border-radius: 3px;
+  }
+
+  /* Screenshots */
+  .ebb-shots {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0 16px;
+    scroll-snap-type: x mandatory;
+  }
+  .ebb-shots img {
+    flex: 0 0 auto;
+    width: min(240px, 62vw);
+    height: auto;
+    border-radius: 22px;
+    scroll-snap-align: start;
+  }
+
+  /* Features */
+  .ebb-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .ebb-card {
+    padding: 22px;
+    border-radius: 22px;
+    background: var(--ebb-card);
+    border: 1px solid var(--ebb-line);
+  }
+  .ebb-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .ebb-card p {
+    margin: 0;
+    color: var(--ebb-ink2);
+    line-height: 1.5;
+  }
+  .ebb-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .ebb-privacy {
+    background: var(--ebb-sea);
+    border-color: transparent;
+  }
+  .ebb-privacy p {
+    color: var(--ink);
+  }
+  .ebb-privacy a {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--ebb-accent);
+    font-weight: 650;
+  }
+  .ebb-tip {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .ebb-tip-ebb {
+    flex-shrink: 0;
+    width: 76px;
+  }
+  .ebb-care {
+    margin: 28px 0 0;
+    max-width: 44rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--ebb-ink2);
+  }
+
+  /* A pearl */
+  .ebb-pearl-cta {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 24px 56px;
+    border-radius: 40px;
+    background: var(--ebb-sea);
+  }
+  .ebb-pearl-cta .ebb-copy {
+    color: var(--ink);
+  }
+  .ebb-cta-ebb {
+    position: relative;
+    width: 200px;
+    margin-bottom: 12px;
+  }
+  .ebb-burst {
+    position: absolute;
+    bottom: -24px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.85);
+    opacity: 0;
+  }
+  .ebb-burst:nth-of-type(2) {
+    box-shadow: inset 0 0 0 2.5px #f2957a;
+  }
+  .ebb-burst:nth-of-type(4) {
+    box-shadow: inset 0 0 0 2.5px #f2c14e;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ebb-wave {
+      animation: ebb-tide 7s linear infinite;
+    }
+    .ebb-wave-slow {
+      animation-duration: 11s;
+      animation-direction: reverse;
+    }
+    .ebb-burst {
+      animation: ebb-bubble 4s ease-in infinite;
+    }
+  }
+  @keyframes ebb-tide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-520px); }
+  }
+  @keyframes ebb-bubble {
+    0% { transform: translateY(0); opacity: 0; }
+    15% { opacity: 1; }
+    100% { transform: translateY(-360px); opacity: 0; }
+  }
+
+  @media (max-width: 820px) {
+    .ebb-hero,
+    .ebb-split {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+    .ebb-hero {
+      padding-top: 40px;
+    }
+    .ebb-split {
+      padding-top: 80px;
+    }
+    .ebb-features,
+    .ebb-pair {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .ebb-tank {
+      height: 380px;
+      border-radius: 28px;
+    }
+    .ebb-readout {
+      left: 18px;
+      right: 18px;
+      top: 18px;
+    }
+    .ebb-phase {
+      font-size: 1.6rem;
+    }
+    .ebb-rhythm {
+      left: 18px;
+      font-size: 0.8rem;
+    }
+    .ebb-picker-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .ebb-grid {
+      gap: 4px;
+    }
+  }
+</style>
+
+<script>
+  // Breathe with Ebb: pick what you need, and the tide rises and Ebb puffs up
+  // as you breathe in, both hold through a hold, and both let it all go as you
+  // breathe out, with the phase and a countdown on top. With Reduce Motion the
+  // water and Ebb hold still while the words and his face keep time. Pause
+  // stops it all; it also rests while the tank is off screen.
+  type Kind = 'in' | 'hold' | 'out' | 'rest';
+  const words: Record<Kind, string> = { in: 'Breathe in', hold: 'Hold', out: 'Breathe out', rest: 'Hold' };
+  const whispers: Record<Kind, string> = { in: 'I puff up…', hold: 'round and still', out: 'and let it all go', rest: 'ahh' };
+  const poses: Record<Kind, string> = { in: 'inhale', hold: 'hold', out: 'exhale', rest: 'rest' };
+  const spoken: Record<Kind, string> = {
+    in: 'Ebb, puffing up as he breathes in',
+    hold: 'Ebb, round and still, holding his breath',
+    out: 'Ebb, letting it all go as he breathes out',
+    rest: 'Ebb, resting before the next breath',
+  };
+
+  const tank = document.querySelector<HTMLElement>('[data-tank]');
+  const ebb = document.getElementById('ebb-hero');
+  const phaseText = document.querySelector<HTMLElement>('[data-phase]');
+  const whisperText = document.querySelector<HTMLElement>('[data-whisper]');
+  const countText = document.querySelector<HTMLElement>('[data-count]');
+  const rhythmText = document.querySelector<HTMLElement>('[data-rhythm]');
+  const pauseButton = document.querySelector<HTMLButtonElement>('[data-pause]');
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.ebb-demo')];
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  let phases: [Kind, number][] = JSON.parse(buttons[0]?.dataset.phases ?? '[["in",5],["out",5]]');
+  let elapsed = 0;
+  let last: number | null = null;
+  let paused = false;
+  let visible = true;
+  let shown = '';
+
+  function render() {
+    const cycle = phases.reduce((sum, [, s]) => sum + s, 0);
+    let t = elapsed % cycle;
+    let [kind, seconds] = phases[0];
+    for (const [k, s] of phases) {
+      if (t < s) {
+        kind = k;
+        seconds = s;
+        break;
+      }
+      t -= s;
+    }
+    const ease = (1 - Math.cos(Math.PI * (t / seconds))) / 2;
+    const full = kind === 'in' ? ease : kind === 'hold' ? 1 : kind === 'out' ? 1 - ease : 0;
+    const level = still.matches ? 0.5 : full;
+    tank?.style.setProperty('--ebb-full', level.toFixed(3));
+    ebb?.style.setProperty('--ebb-puff', level.toFixed(3));
+
+    const count = String(Math.max(1, Math.ceil(seconds - t)));
+    const key = `${kind}${count}`;
+    if (key === shown) return;
+    shown = key;
+    if (countText) countText.textContent = count;
+    if (ebb && ebb.dataset.pose !== poses[kind]) {
+      ebb.dataset.pose = poses[kind];
+      ebb.setAttribute('aria-label', spoken[kind]);
+      if (phaseText) phaseText.textContent = words[kind];
+      if (whisperText) whisperText.textContent = whispers[kind];
+    }
+  }
+
+  function frame(now: number) {
+    if (last !== null) elapsed += Math.min(now - last, 100) / 1000;
+    last = now;
+    render();
+    if (!paused && visible) requestAnimationFrame(frame);
+    else last = null;
+  }
+  function start() {
+    if (!paused && visible && last === null) requestAnimationFrame(frame);
+  }
+
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      for (const other of buttons) other.setAttribute('aria-pressed', String(other === button));
+      phases = JSON.parse(button.dataset.phases ?? '[]');
+      elapsed = 0;
+      shown = '';
+      if (rhythmText) rhythmText.textContent = button.dataset.rhythm ?? '';
+      if (ebb) ebb.dataset.pose = '';
+      render();
+      start();
+    });
+  }
+  pauseButton?.addEventListener('click', () => {
+    paused = !paused;
+    pauseButton.textContent = paused ? 'Play' : 'Pause';
+    start();
+  });
+  if (tank && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      start();
+    }).observe(tank);
+  }
+  render();
+  start();
+</script>
